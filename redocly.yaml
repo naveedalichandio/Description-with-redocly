@@ -1,12 +1,13 @@
 # See https://redocly.com/docs/cli/configuration/ for more information.
 apis:
-  sample@v1: 
+  sample@v1:
     root: openapi/openapi.yaml
 extends:
   - recommended
 rules:
   no-unused-components: error
   no-server-example.com: off
+  parameter-description: off
 theme:
   openapi:
     htmlTemplate: ./docs/index.html
@@ -15,7 +16,7 @@ theme:
         primary:
           main: "#32329f"
     generateCodeSamples:
-      languages:  # Array of language config objects; indicates in which languages to generate code samples.
+      languages: # Array of language config objects; indicates in which languages to generate code samples.
         - lang: curl
         - lang: Node.js
         - lang: JavaScript
