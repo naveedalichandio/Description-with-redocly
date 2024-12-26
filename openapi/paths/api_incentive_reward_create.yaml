@@ -1,0 +1,77 @@
+post:
+  tags:
+    - IncentiveReward
+  summary: Incentive - Reward - Create Points Reward
+  description: >-
+    The endpoint "Incentive - Reward - Create Points Reward" contains several
+    data points that aid in creating a reward system using points for users of a
+    certain platform. Here is a detailed description of each:
+
+
+    1. `name`: The name of the endpoint. This particular endpoint creates a
+    point reward for an incentive program.
+
+
+    2. `request`: This represents the specific API request being made.
+
+
+    3. Within `request`, the `auth` field specifies the type of authentication
+    needed for this endpoint. It uses a Bearer Token method for authentication.
+    The `token` should be provided and will be sent as a string value.
+
+
+    4. The `method` within `request` is POST, indicating that this request is
+    made to add or create new information.
+
+
+    5. `url`: The endpoint URL to which the request is made. Here, it is:
+    "http://localhost:3000/api/incentive/reward/create".
+
+
+    6. The `headers` field contains metadata about the API request. In this
+    case, it is set to default, and is currently disabled.
+
+
+    7. The `body` section contains the actual content of the request. It
+    includes several properties:
+
+      - `sessionId`: Unique identifier for the current user session.
+      
+      - `accountId`: Unique identifier of the account.
+      
+      - `name`: The name of the reward - it's "Tournament Points" in this case.
+      
+      - `description`: Further details about the reward. Here, it mentions that the points are rewarded for participating in a tournament.
+      
+      - `tags`: Keywords related to the reward for better categorization or searching.
+      
+      - `rewardType`: The type of reward being created. This field denotes that the reward will be given in the form of points.
+      
+      - `tokenAmount`: The number of points the user is rewarded. Here, it's 500.
+
+    8. The `mode` within `body` is `raw`, meaning the data are sent in a
+    sequence of bits when making a POST request.
+
+
+    9. The `options` field allows you to manipulate certain facets of the
+    request. It is set to json language in raw mode.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Tournament Points
+            description: You've been rewarded points for this tournament
+            tags: tournament,point
+            rewardType: point
+            tokenAmount: 500
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

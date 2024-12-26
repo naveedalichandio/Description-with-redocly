@@ -1,0 +1,72 @@
+post:
+  tags:
+    - ActionDelete
+  summary: Action - Delete - Delete
+  description: >-
+    Here’s a detailed description of each data point in the provided endpoint
+    for the Postman API collection:
+
+
+    - **name**: This is the title of the API request. It describes the action
+    that is being taken, in this case, it indicates that it is an action to
+    delete an item, specifically labeled as "Delete".
+
+
+    - **request**: This is the container for the details of the API request,
+    including authentication, method, URL, headers, and body content.
+
+      - **auth**: This section specifies the authentication method used for the request.
+        
+        - **type**: Indicates the type of authentication. In this case, it is a "bearer" type.
+        
+        - **bearer**: This is an array that contains the authentication details for the bearer token.
+
+          - **key**: This represents the name of the token. Here, it is labeled as "token".
+          
+          - **value**: This is the placeholder for the actual session ID that will be used for authentication, denoted as "sessionId".
+          
+          - **type**: Specifies the data type of the value, which is "string".
+
+      - **method**: This indicates the HTTP method used for the request. It is set to "POST", meaning that data will be sent to the server to perform the delete action.
+
+      - **url**: This is the endpoint where the request is directed. It is set to "http://localhost:3000/api/action/delete/delete", which suggests that it is a local server API for performing delete actions.
+
+      - **headers**: This section includes any HTTP headers that should be sent with the request.
+
+        - **key**: The name of the header. It is currently empty, meaning no specific headers are being set.
+        
+        - **value**: The value corresponding to the header. This is also empty.
+        
+        - **type**: Indicates the header type, which is set to "default".
+        
+        - **disabled**: This flag shows whether the header is currently active. It is set to true, indicating that this header is not being used.
+
+      - **body**: This part includes the data that will be sent in the POST request.
+
+        - **mode**: This specifies the format of the body data. It is set to "raw", indicating that the data will be sent as raw text rather than form-encoded.
+        
+        - **raw**: This contains the actual data payload sent with the request. It is formatted as a JSON string, which includes three properties:
+          
+          - **sessionId**: A placeholder for the session identifier, which is necessary for tracking the session of the user making the request.
+          
+          - **accountId**: A placeholder for the account identifier, which indicates which account is being affected by the delete action.
+          
+          - **deleteId**: A placeholder for the identifier of the item that is to be deleted from the system.
+
+    This structured overview provides clarity on each component of the API
+    endpoint, ensuring that users understand the purpose and requirements when
+    working with this request in the Postman collection.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"deleteId\":\"deleteId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

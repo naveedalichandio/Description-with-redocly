@@ -1,0 +1,81 @@
+post:
+  tags:
+    - ActionDismiss
+  summary: Action - Dismiss - Delete
+  description: >-
+    {
+      "name": "Action - Dismiss - Delete",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "sessionId",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "url": "http://localhost:3000/api/action/dismiss/delete",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"dismissId\":\"dismissId\"}"
+        }
+      }
+    }
+
+
+    ### Endpoint Description
+
+
+    - **Name**: The name of the endpoint is "Action - Dismiss - Delete". This
+    signifies that the function of this endpoint is related to dismissing or
+    deleting some action.
+
+
+    - **Request**: This section contains details about how to make the API
+    request.
+
+      - **Auth**: 
+        - **Type**: The authorization method used is a bearer token. This is a standard way of ensuring that the request is coming from a verified user.
+        - **Bearer**: A list containing authentication details. In this case, it involves a key for the token called "sessionId". The value associated with the key should be replaced with an actual session ID when making the request.
+
+      - **Method**: The HTTP method used for this request is POST. This indicates that data is being sent to the server to perform an action, rather than retrieving data.
+
+      - **URL**: The endpoint URL is "http://localhost:3000/api/action/dismiss/delete". This is the address on the server where the request will be sent. It is currently set to a local server, which means it is intended for testing or development purposes.
+
+      - **Headers**: 
+        - There is a placeholder for request headers, but currently, no specific headers are defined or enabled in the request. This section is marked as disabled, meaning that no headers are being sent along with this request.
+
+      - **Body**: 
+        - **Mode**: The body of the request is indicated to be in "raw" mode, which means that the data is sent as a raw JSON string.
+        - **Raw**: The content of the body is a JSON string containing three fields:
+          - **sessionId**: This should contain the user’s session ID, making it necessary for validation purposes.
+          - **accountId**: This field is to be populated with the account ID that is associated with the action being dismissed or deleted.
+          - **dismissId**: This field should contain the ID of the specific action or item that needs to be dismissed or deleted. 
+
+    Each of these fields is crucial for the server to process the request
+    properly and execute the intended action.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"dismissId\":\"dismissId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

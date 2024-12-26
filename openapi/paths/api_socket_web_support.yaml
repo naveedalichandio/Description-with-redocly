@@ -1,0 +1,61 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Support
+  description: >-
+    ### Endpoint: Web - Socket - Recent Support
+
+
+    #### Description:
+
+    This endpoint retrieves recent support information through a WebSocket
+    connection. It is designed to return a collection of recent support entries
+    based on the specified query parameters.
+
+
+    #### Detailed Description of Each Data:
+
+
+    - **name**: This is the identifier for the API endpoint. It describes the
+    function of the API call, which is to access recent support data through a
+    WebSocket.
+
+
+    - **request**: This section contains details about the type of HTTP request
+    being made.
+
+      - **method**: This indicates the HTTP method used for the request. In this case, the method is "GET", which means the endpoint is used to retrieve data.
+
+      - **url**: This is the full address that the server will respond to when the request is made. It consists of:
+        - **base URL**: `http://localhost:3000` - This indicates that the API is running on the local server on port 3000.
+        - **path**: `/api/socket/web/support` - This specifies the particular endpoint for accessing WebSocket support data.
+        - **query parameters**:
+          - `recent=true` - This parameter specifies that only recent support entries should be returned.
+          - `limit=limit` - This parameter is used to limit the number of results that are returned. The actual limit value should be specified when making the request.
+
+    - **headers**: This field is currently empty, indicating that no additional
+    headers are required to be sent with the request. Headers may include
+    authentication tokens or content type specifications, but in this case, they
+    are not needed.
+
+
+    In summary, this endpoint allows the user to fetch recent support
+    information through a GET request, specifying the desired limit on the
+    number of entries returned. Make sure to replace `limit` with an actual
+    number when making the request.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

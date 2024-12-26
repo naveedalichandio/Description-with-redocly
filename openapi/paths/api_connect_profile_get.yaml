@@ -1,0 +1,54 @@
+get:
+  tags:
+    - ConnectProfile
+  summary: Connect - Profile - Get
+  description: >-
+    This endpoint is identified as "Connect - Profile - Get". It is a GET method
+    which is principally utilized for retrieving data.
+
+
+    The Request:
+
+    1. "auth" - This specifies the type of authentication required for this API.
+    It uses a bearer token, which is a common method for authorizing API calls.
+
+         "type": "bearer" - This specifies that the type of authentication to be implemented is a bearer token. 
+         
+         "bearer": [{"key": "token","value": "BearerToken","type": "string"}] - This contains the token information where the "key" is 'token', and the value of this 'token' is 'BearerToken'. The type is a string, which implies that the value must be provided in a text format.
+
+    2. "method": "GET" - It's the HTTP Method, and in this case, it's a GET
+    method which is used to retrieve resources.
+
+
+    3. "url":
+    "http://localhost:3000/api/connect/profile/get/?profileId=profileId" - It is
+    the API's URL. In this endpoint, it fetches data from the 'profile' resource
+    of the 'connect' API which resides locally on port 3000. The 'profileId' is
+    passed as a query parameter which is used to retrieve specific profile data.
+
+
+    4. "headers": [{"key": "", "value": "", "type": "default", "disabled":
+    true}] - This part comprises the request headers. This is currently disabled
+    and empty by default, hence it doesn't contain any additional instructions
+    or information for the request.
+
+
+    5. "body": {"mode": "raw", "raw": ""} - This refers to the body of the API
+    request. As it's a GET request, typically there will be no request body. The
+    'mode' is set to 'raw' but no data (raw: "") is sent across in the body.
+       
+    This sums up each part of the data in this endpoint, providing a
+    comprehensive understanding for users who intend to use this API.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: profileId
+      in: query
+      schema:
+        type: string
+      example: profileId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

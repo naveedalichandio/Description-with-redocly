@@ -1,0 +1,47 @@
+post:
+  tags:
+    - ActionReview
+  summary: Action - Review - Delete
+  description: >-
+    ### Action - Review - Delete
+
+
+    - **Request Auth**: 
+      - **Type**: The authentication type is set to "bearer", meaning that this request requires a bearer token for authentication.
+      - **Bearer**: Contains an array with authentication details.
+        - **Key**: This field indicates the name of the token, which is "token" in this case.
+        - **Value**: This is a placeholder value where "sessionId" should be replaced with the actual session ID that provides authorization for the request.
+        - **Type**: The type of the value is set to "string", indicating that the token is in string format.
+
+    - **Request Method**: 
+      - The HTTP method used for this request is "POST", indicating that data is being sent to the server to perform an action.
+
+    - **Request URL**: 
+      - The endpoint URL for the request is "http://localhost:3000/api/action/review/delete". This is the address where the request will be sent to delete a review action.
+
+    - **Request Headers**: 
+      - This section is currently empty, with no headers set. One header is marked as disabled, implying it was considered but not in use for this request.
+
+    - **Request Body**: 
+      - The body of the request is set to use "raw" mode, meaning that the data will be sent as a raw JSON string.
+      - The raw data must follow the structure provided:
+        - **sessionId**: This field requires the actual session ID for the user session, replacing the placeholder "sessionId".
+        - **accountId**: This field requires the account ID of the user requesting the review deletion, replacing the placeholder "accountId".
+        - **reviewId**: This field specifies the ID of the review that needs to be deleted, replacing the placeholder "reviewId". 
+
+    Users must ensure to replace the placeholders in the JSON body with actual
+    IDs to successfully execute the delete action for the review.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"reviewId\":\"reviewId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

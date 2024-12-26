@@ -1,0 +1,96 @@
+post:
+  tags:
+    - ActionBlock
+  summary: Action - Block - Create
+  description: >-
+    ### Action - Block - Create
+
+
+    #### Request
+
+
+    - **Authorization**
+      - **Type**: Bearer
+        - **Key**: `token`
+          - **Value**: A string that represents the bearer token required for authorization. This token is used to authenticate the request to ensure that the user has the necessary permissions to perform the action.
+
+    - **Method**: 
+      - **POST**: This HTTP method is used to send data to the server for creating a new resource.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/block/create`: This is the endpoint where the request is sent. It is the local server address which handles the blocking action creation.
+
+    - **Headers**: 
+      - Currently, there are no specific headers being set since the provided key-value pair is disabled. Typically, headers can be used to provide additional context to the request, such as content-type or any necessary custom headers.
+
+    #### Body
+
+    - **Mode**: 
+      - **Raw**: The body of the request is formatted as raw JSON.
+
+    - **Raw Content**: 
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "videoId",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "name": "",
+        "description": "",
+        "tags": ""
+    }
+
+    ```
+
+
+    - **JSON Fields**:
+      - **sessionId**: A unique identifier for the session during which the block action is being created. This helps in associating the action with a particular user session.
+      
+      - **accountId**: The ID of the account requesting to block content. This connects the block action to a specific user.
+
+      - **path**: A string that specifies the route of the content that is being blocked. In this example, it refers to a live channel and includes the identifier for the video.
+
+      - **targetType**: Indicates the type of the target being blocked, in this instance, it is specified as a `videoId`.
+
+      - **targetId**: The unique identifier for the content (such as a video) that is being targeted for blocking.
+
+      - **sourceType**: Defines the type of account that is initiating the block action. It is represented here as `accountId`.
+
+      - **sourceId**: Refers to the ID of the account from which the block action is initiated. It should correspond to the `accountId`.
+
+      - **name**: An optional field where the user can provide a name for the block action. This could be used to label the action for easier identification.
+
+      - **description**: An optional field for a brief explanation or notes about the block action being created.
+
+      - **tags**: This field can be used to include keywords or tags associated with the block action, assisting in categorization or retrieval of information later.
+
+    These details should help users understand the requirements and structure of
+    the request when creating a block action through the specified API endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

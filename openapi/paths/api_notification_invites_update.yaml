@@ -1,0 +1,70 @@
+put:
+  tags:
+    - NotificationInvites
+  summary: Notification - Invites - Update
+  description: >-
+    This endpoint, named "Notification - Invites - Update", uses the `PUT`
+    method and is dedicated to updating invite notifications. Here are the
+    details of each field in the context of this API:
+
+
+    - **auth**: The authentication method for this API is bearer token. You have
+    to include a `key` named `token` and its `value` should be the bearer token.
+    The `type` of this value is `string`.
+
+    - **method**: The method used for this request is `PUT`, indicating that
+    it's used to update data.
+
+    - **url**: The URL endpoint to which the request will be sent. The route to
+    update invites notification is:
+    `http://localhost:3000/api/notification/invites/update`.
+
+    - **headers**: The headers contain a `Client-UUID` key with its `value` as
+    `ClientUUID`. It is the unique identifier for a client.
+
+    - **body**: A set of keys included in the raw body of the request. Here's
+    what each key represents:
+      - `invitesId`: The ID of the invites to be updated.
+      - `sessionId`: The ID of the session.
+      - `accountId`: The ID of the account.
+      - `name`: The new name of the invites.
+      - `description`: The new description for the invites.
+      - `tags`: The new tags for the invites.
+      - `profilePhotoUrl`: The new URL of the profile photo.
+      - `coverPhotoUrl`: The new URL of the cover photo.
+      - `minimumTipAmount`: The new minimum tip amount for the invites.
+      - `categoryId` & `category`: The new category ID and name.
+      - `subCategoryId` & `subCategory`: The new sub-category ID and name.
+      - `isInvitesPrivate`: A boolean value. If `true`, the invites are private.
+      - `isTournamentOnly`: A boolean value. If `true`, the invites are tournament only.
+      - `isInvitesDefault`: A boolean value. If `true`, the invites are set as default.
+      - `isPreLiveNotificationAds`: A boolean value. If `true`, pre-live notification ads are enabled.
+      - `isPostLiveNotificationAds`: A boolean value. If `true`, post-live notification ads are enabled.
+      - `breakPreLiveNotificationUrl`: The URL of the pre-live notification break ad.
+      - `breakPostLiveNotificationUrl`: The URL of the post-live notification break ad.
+
+    To use this endpoint, update the required fields with the necessary values
+    under body, headers, and auth accordingly.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"invitesId\":\"invitesId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Invites 2.0\",\"description\":\"This invites is my second
+            invites\",\"tags\":\"second,invites\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isInvitesPrivate\":true,\"isTournamentOnly\":false,\"isInvitesDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

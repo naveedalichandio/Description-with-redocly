@@ -1,0 +1,74 @@
+get:
+  tags:
+    - ActionChallenge
+  summary: Action - Challenge - Get All
+  description: >-
+    ### Endpoint Description for "Action - Challenge - Get All"
+
+
+    - **name**: This is the title of the API request. It identifies the action
+    as fetching all challenges related to actions.
+
+
+    - **request**: This section contains all the details pertaining to the API
+    request.
+
+      - **auth**: This indicates the authentication type required to access the endpoint.
+      
+        - **type**: Specifies the type of authentication being used. In this case, it is set to "bearer."
+      
+        - **bearer**: This is an array that holds the credentials needed for bearer token authentication.
+        
+          - **key**: This identifies the type of credential, which is "token" in this case.
+          
+          - **value**: The actual token used for authentication. It is represented as "BearerToken" which serves as a placeholder for the actual token value.
+          
+          - **type**: Indicates the data type of the token, which is "string."
+
+      - **method**: This specifies the HTTP method used for the request. Here, it is a "GET" request, which means the endpoint is intended to retrieve data.
+
+      - **url**: This is the endpoint URL where the request is sent. It includes:
+      
+        - **Base URL**: `http://localhost:3000` indicates a local server is being used.
+        
+        - **Path**: `/api/action/challenge/all/` identifies the specific API route for retrieving all challenges.
+        
+        - **Query Parameters**:
+        
+          - **sessionId**: A parameter that is passed in the URL to specify the session for which challenges are being retrieved. It acts as a placeholder and is meant to be replaced with an actual session ID.
+          
+          - **accountId**: Another query parameter used to specify the account associated with the challenges. This is also a placeholder intended for substitution with an actual account ID.
+
+      - **headers**: This section is meant for any HTTP headers that may need to be included in the request.
+
+        - **key**: A placeholder for header keys, which is currently empty.
+        
+        - **value**: A placeholder for header values, which is also currently empty.
+        
+        - **type**: Indicates the type of header, marked as "default."
+        
+        - **disabled**: This flag indicates whether this header is active or not. It is set to true, meaning this header will not be sent in the request.
+
+      - **body**: This section contains the body of the request.
+
+        - **mode**: This defines the format of the request body. Here it is set to "raw," indicating raw data input expected.
+        
+        - **raw**: This field contains the actual body content that will be sent with the request. In this case, it is empty, meaning no additional payload is being sent with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

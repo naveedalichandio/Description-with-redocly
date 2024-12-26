@@ -1,0 +1,46 @@
+get:
+  tags:
+    - ConnectContact
+  summary: Connect - Contact - Get All
+  description: >-
+    This endpoint `Connect - Contact - Get All` is a GET Request which retrieves
+    all the contact information tied to the specified `accountId`. Below is the
+    detailed description of each element in the endpoint:
+
+
+    - `name`: The title of the endpoint. It's called "Connect - Contact - Get
+    All", which suggests that we are retrieving all the contact details
+    associated with an account in the Connect service.
+
+
+    - `request`: This is the main part that defines what the request does.
+
+      - `auth`: This section represents the type of authentication required for this endpoint. The "auth" stands for "authentication".
+        
+        - `type`: The type of the token used for the authentication. In this case, it is a "bearer" which is a method to send authentication data to the server.
+        
+        - `bearer`: This is an array that holds the authentication token details. The `key` attribute indicates how this token is referred in the headers - as 'token'. While the `value` attribute holds the variable 'BearerToken' which stores the actual token value. The `type` must always be a string.
+
+      - `method`: This refers to the HTTP verb used for this request. Here, it's a "GET" request, meaning you are retrieving information from the server.
+
+      - `url`: It contains the location to which the request is sent. `http://localhost:3000/api/connect/contact/all/?accountId=accountId` indicates that request is sending to the localhost on port 3000. The path `/api/connect/contact/all` indicates that we are accessing the 'all' operation in the 'contact' resource of the 'connect' service. The `accountId` is a query parameter that should hold the actual id of the account for which we want to fetch the contact information. 
+
+      - `headers`: The headers that should be included in the HTTP request. In this case, there's a `key` and `value` pair which is set to empty by default and has been `disabled`. It means, we can disregard this from request headers as it has no impact on the current request
+
+      - `body`: This is usually where you specify the content of your request. However, for this GET Request, the body has `mode` set to 'raw' and `raw` set to an empty string, meaning, it doesn't need to send any additional data in the request body.
+      
+    This endpoint will respond with all the contact information related to the
+    provided `accountId`.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

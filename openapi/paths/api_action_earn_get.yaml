@@ -1,10 +1,54 @@
 get:
   tags:
-    - General
+    - ActionEarn
   summary: Action - Earn - Get
   description: >-
-    This endpoint retrieves details of a specific earning action. It requires
-    the earning ID, session ID, and account ID as query parameters.
+    ### Endpoint Description: Action - Earn - Get
+
+
+    #### Name:
+
+    - **Action - Earn - Get**: This is the name of the API action being
+    performed.
+
+
+    #### Request Details:
+
+    - **Auth**: The authentication type used for this request is bearer token
+    authentication.
+      - **Type**: Refers to the method of authentication being used, which in this case is "bearer".
+      - **Bearer**: This section holds the details about the bearer token required for authorization.
+        - **Key**: The key for the bearer token, labeled as "token".
+        - **Value**: This is where the actual bearer token is placed, here it is represented as "BearerToken".
+        - **Type**: Indicates the datatype of the value, which is "string".
+
+    - **Method**: The HTTP method used for this request is "GET", which is used
+    to retrieve data from the server.
+
+
+    - **URL**: This is the endpoint URL where the request is sent.
+      - Structure: `http://localhost:3000/api/action/earn/get/?earnId=earnId&sessionId=sessionId&accountId=accountId`
+      - **earnId**: A query parameter used to identify the specific earning action to retrieve.
+      - **sessionId**: This query parameter represents the session identifier associated with the earning action.
+      - **accountId**: This query parameter is used to specify the account from which the earning action is being retrieved.
+
+    - **Headers**: This section includes any headers to be sent with the
+    request.
+      - **Key**: Currently, there are no specific headers being sent, indicated by the empty key.
+      - **Value**: The header value is also left empty.
+      - **Type**: The type is set to "default", meaning standard header behavior is used.
+      - **Disabled**: This header is disabled, indicating it will not be included in the request.
+
+    - **Body**: This part pertains to the body of the request.
+      - **Mode**: The body mode is set to "raw", which allows users to send unformatted data.
+      - **Raw**: In this case, there is no data being sent in the body of the request, as it is left empty.
+
+    ### Summary:
+
+    This API action allows users to retrieve earning information based on
+    specific identifiers: earnId, sessionId, and accountId. It requires bearer
+    token authentication to access the data, sends a GET request to the defined
+    URL, and does not utilize additional headers or a request body.
   security:
     - bearerAuth: []
   parameters:

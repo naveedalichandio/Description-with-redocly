@@ -1,0 +1,119 @@
+post:
+  tags:
+    - ConnectProfile
+  summary: Connect - Profile - Create
+  description: >-
+    Here's a detailed description of each of the data points in this endpoint:
+
+
+    - `name`: Identifies the name of the endpoint. In this case, it's used for
+    the creation of a profile in Connect.
+
+    - `auth`: Object defining the type of the authorization required for the
+    endpoint. Bearer token authorization is used here.
+      - `type`: Specifies the type of the authorization, which is "bearer" in this case.
+      - `bearer`: Array containing information about the token.
+        - `key`: Field for specifying the key of bearer token.
+        - `value`: The value of the bearer token is represented here.
+        - `type`: Represents the format of the bearer token value, which is a string in this case.
+
+    - `request`: It's an object that contains necessary information to make a
+    request to the API.
+      - `method`: Specifies the HTTP method for the request, which is "POST" in this case.
+      - `url`: The endpoint URL where the request will be sent.
+
+    - `headers`: Array used to send additional information with the HTTP
+    request. In this case, no key-value pairs are defined; it's an empty default
+    object.
+
+
+    - `body`: Contains the details sent with the request.
+      - `mode`: The mode of the request body, which is "raw" in this case.
+      - `raw`: Contains the raw data to be sent with the request, constructed as JSON format.
+      - `options`: Object contains extra configuration for the body.
+        - `raw`:  Choose the programming language used to display the request's raw body. In this case, JSON is used.
+
+    The `raw` key covers the main profile details:
+
+    - `sessionId`: User's session identifier.
+
+    - `accountId`: The user's account identifier.
+
+    - `name`: The name of the profile.
+
+    - `description`: A brief description of the profile.
+
+    - `tags`: Additional tags associated with the profile.
+
+    - `profilePhotoUrl`: URL link for the profile photo.
+
+    - `coverPhotoUrl`: URL link for the cover photo.
+
+    - `minimumTipAmount`: The minimum tip amount for the user.
+
+    - `unlockAmount`: The unlock amount associated with the profile.
+
+    - `category`: The category of the profile.
+
+    - `subCategory`: A more specific subcategory of the profile, if applicable.
+
+    - `searchType`: The method used for searching the profile.
+
+    - `isEnabled`: A boolean indicating if the profile is enabled.
+
+    - `isProfilePrivate`: A boolean indicating if the profile is private.
+
+    - `isTournamentOnly`: A boolean indicating whether the profile is for
+    tournament use only.
+
+    - `isProfileDefault`: A boolean specifying if this is the default account
+    profile.
+
+    - `isPreLiveConnectAds`: Boolean indicating if there are ads before live
+    connection.
+
+    - `isPostLiveConnectAds`: Boolean indicating if there are ads after live
+    connection.
+
+    -  `breakPreLiveConnectUrl`: A link to the video advert playing before the
+    live connection.
+
+    -  `breakLivePauseConnectUrl`: A link to the video advert playing during
+    live pauses.
+
+    -  `breakPostLiveConnectUrl`: A link to the video advert playing after the
+    live connection ends.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeProfile
+            description: This profile is my second profile
+            tags: second,profile
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 1
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isProfilePrivate: true
+            isTournamentOnly: false
+            isProfileDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

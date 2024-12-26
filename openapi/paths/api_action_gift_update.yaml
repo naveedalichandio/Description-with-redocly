@@ -1,0 +1,91 @@
+put:
+  tags:
+    - ActionGift
+  summary: Action - Gift - Update
+  description: |-
+    {
+      "description": {
+        "name": "Action - Gift - Update",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "PUT",
+          "url": "http://localhost:3000/api/action/gift/update",
+          "headers": [
+            {
+              "key": "Client-UUID",
+              "value": "ClientUUID",
+              "type": "default"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"giftType\": \"sticker\",\n    \"UtilityType\": \"token\",\n    \"didGift\": true,\n    \"tokenAmount\": 20,\n    \"name\": \"updated name\",\n    \"description\": \"\",\n    \"tags\": \"\",\n    \"giftId\":\"giftId\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        }
+      },
+      "details": {
+        "sessionId": "Unique identifier for the session during which the gift action is being updated.",
+        "accountId": "Identifier for the account associated with the gift transaction.",
+        "path": "The specific path or URL related to the content or channel where the gift is being sent, formatted as a string.",
+        "targetType": "Indicates the type of target receiving the gift, in this case, a video ID.",
+        "targetId": "Identifier for the target entity (like a video) that is receiving the gift.",
+        "sourceType": "Type of source making the gift, noted here as an account ID.",
+        "sourceId": "Identifier for the source entity (like an account) sending the gift.",
+        "giftType": "Specifies the type of gift being sent, which is a sticker in this case.",
+        "UtilityType": "Defines the type of utility used for the gift transaction, denoted as token.",
+        "didGift": "Boolean value indicating whether the gift action was successfully processed (true) or not (false).",
+        "tokenAmount": "Number of tokens involved in the gift action, set to 20.",
+        "name": "Updated name or label for the gift being processed.",
+        "description": "A field for further details or description of the gift; currently left empty.",
+        "tags": "Optional tags for categorizing or describing the gift; currently left empty.",
+        "giftId": "Unique identifier for the gift being updated."
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            giftType: sticker
+            UtilityType: token
+            didGift: true
+            tokenAmount: 20
+            name: updated name
+            description: ''
+            tags: ''
+            giftId: giftId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

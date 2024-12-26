@@ -1,0 +1,111 @@
+post:
+  tags:
+    - ActionRequest
+  summary: Action - Request - Create
+  description: |-
+    {
+      "description": {
+        "name": "Action - Request - Create",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/action/request/create",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"didRequest\": true,\n    \"requestType\": \"feature\",\n    \"name\": \"\",\n    \"description\": \"\",\n    \"tags\": \"\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        }
+      },
+      "fields": {
+        "auth": {
+          "type": "bearer": "Authentication method used is bearer token, which provides a way to pass security credentials in the request.",
+          "bearer": {
+            "key": "token": "The key for the bearer token.",
+            "value": "BearerToken": "The actual bearer token to be used in the authentication. This is typically obtained after logging in or with credentials.",
+            "type": "string": "This specifies the data type of the token."
+          }
+        },
+        "method": {
+          "type": "POST": "The HTTP method used for this request, indicating that data will be created on the server."
+        },
+        "url": {
+          "type": "string": "http://localhost:3000/api/action/request/create": "The endpoint URL where the request will be sent."
+        },
+        "headers": {
+          "key": "": "The HTTP header key, which is currently empty.",
+          "value": "": "The HTTP header value, which is currently empty.",
+          "type": "default": "Indicates the default type for the header.",
+          "disabled": true: "This header is disabled and will not be sent with the request."
+        },
+        "body": {
+          "mode": "raw": "The body mode is set to raw, meaning the request payload is sent as a raw string.",
+          "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"didRequest\": true,\n    \"requestType\": \"feature\",\n    \"name\": \"\",\n    \"description\": \"\",\n    \"tags\": \"\"\n}": "The raw JSON data sent in the request body containing various parameters.",
+          "options": {
+            "raw": {
+              "language": "json": "Indicates that the raw body is in JSON format."
+            }
+          }
+        }
+      },
+      "parameters": {
+        "sessionId": "An identifier for the session. This helps track the user session during the process.",
+        "accountId": "The unique identifier of the account making the request.",
+        "path": "The path that specifies the resource being accessed, in this case, a video located at '/live/channel/video123'.",
+        "targetType": "The type of target being referred to, which is 'videoId' in this context.",
+        "targetId": "The unique identifier of the target resource, which specifically identifies the video.",
+        "sourceType": "Type of source identifier, here it is 'accountId', indicating the source is an account.",
+        "sourceId": "The identifier for the source, which is the same as accountId.",
+        "didRequest": "A boolean flag indicating that a request was made (true in this case).",
+        "requestType": "Specifies the type of request being made, indicated as 'feature'.",
+        "name": "An optional field where the name of the action can be specified.",
+        "description": "An optional field for providing additional details about the action being requested.",
+        "tags": "An optional field for including any tags associated with the request."
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didRequest: true
+            requestType: feature
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

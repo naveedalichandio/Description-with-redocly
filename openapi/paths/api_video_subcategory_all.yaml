@@ -1,0 +1,98 @@
+get:
+  tags:
+    - VideoSubcategory
+  summary: Video - SubCategory - Get All - Show SubCategory
+  description: >-
+    ### Endpoint Description
+
+
+    - **Name**: Video - SubCategory - Get All - Show SubCategory
+      - This is the name of the API request that retrieves all subcategories related to videos, specifically filtered to show a particular subcategory.
+
+    ### Request Details
+
+
+    - **Auth**:
+      - **Type**: Bearer
+        - This indicates that the request uses bearer token authentication. This method requires a token that must be included in the authorization header of the request for authentication purposes.
+      - **Bearer**:
+        - **Key**: token
+          - This is the field name for the token that is required to authorize the request.
+        - **Value**: BearerToken
+          - This is a placeholder for the actual token string that should be used for authentication. Replace "BearerToken" with a valid token when making the request.
+        - **Type**: string
+          - Indicates that the value of the token should be in string format.
+
+    - **Method**: GET
+      - This specifies the HTTP method used for the request. A GET method is used to retrieve data from the specified resource.
+
+    - **URL**: 
+      - `http://localhost:3000/api/video/subcategory/all/?sessionId=sessionId&accountId=accountId&searchType=Show&category=Music&subCategory=Rap`
+        - This is the endpoint URL where the API request is sent.
+          - **Base URL**: http://localhost:3000
+          - **Endpoint**: /api/video/subcategory/all/
+          - **Query Parameters**:
+            - **sessionId**: sessionId
+              - A placeholder for the session ID that is required to maintain the user session. Replace "sessionId" with the actual session ID.
+            - **accountId**: accountId
+              - A placeholder for the account ID associated with the user. Replace "accountId" with the actual account ID.
+            - **searchType**: Show
+              - This parameter specifies that the search is intended to show specific results.
+            - **category**: Music
+              - This indicates that the API should filter results to only include subcategories related to the Music category.
+            - **subCategory**: Rap
+              - This specifies that the API should further filter results to only include the Rap subcategory within the Music category.
+
+    - **Headers**:
+      - This section is reserved for request headers but is not currently utilized in this request.
+      - **Key**: (empty)
+        - The key field for headers is currently empty, meaning no additional headers are being sent with the request.
+      - **Value**: (empty)
+        - The value field is also empty. No specific header values are defined.
+      - **Type**: default
+        - This denotes a default header type, suggesting that it is not set to a specific format.
+      - **Disabled**: true
+        - This indicates that the headers section is disabled and will not be sent with the request.
+
+    - **Body**:
+      - **Mode**: raw
+        - This indicates that the body of the request is being sent as raw text.
+      - **Raw**: ""
+        - The body is currently empty. As it’s a GET request, typically no body content is needed.
+
+    This endpoint is designed to fetch subcategory data related to videos within
+    a specific category and subcategory, requiring user authentication and
+    specific query parameters to filter the desired results.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: searchType
+      in: query
+      schema:
+        type: string
+      example: Show
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: Music
+    - name: subCategory
+      in: query
+      schema:
+        type: string
+      example: Rap
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

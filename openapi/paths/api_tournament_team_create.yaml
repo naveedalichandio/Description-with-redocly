@@ -1,0 +1,149 @@
+post:
+  tags:
+    - TournamentTeam
+  summary: Tournament - Team - Create
+  description: >-
+    **Description for the "Tournament - Team - Create" Endpoint:**
+
+
+    This endpoint is used to create a new team for a tournament. The request
+    requires a bearer token for authentication and sends the team details in the
+    body of the request.
+
+
+    **Request Structure:**
+
+
+    - **Authentication:**
+      - **Type:** Bearer
+        - The bearer token must be provided for authorization purposes. The placeholder "BearerToken" should be replaced with an actual token that grants access to the API.
+
+    - **Method:**
+      - **Type:** POST
+        - This endpoint uses the POST method to submit data for creating a new team.
+
+    - **URL:**
+      - **Endpoint:** `http://localhost:3000/api/tournament/team/create`
+        - This is the URL where the request is sent to create a new team. It uses the local server during development.
+
+    - **Headers:**
+      - **Key:** (Empty)
+        - Currently, there are no custom headers required, and the header is disabled. It can be configured later if needed.
+
+    - **Body:**
+      - **Mode:** Raw
+        - The body of the request is sent in raw format.
+      
+      - **Content:** 
+        - A JSON string containing the following fields:
+
+          - **sessionId:**
+            - Type: String
+            - Description: Unique identifier for the session in which the team is being created.
+
+          - **accountId:**
+            - Type: String
+            - Description: The account ID associated with the user creating the team.
+
+          - **name:**
+            - Type: String
+            - Description: The name of the team being created (e.g., "My Second Team").
+
+          - **description:**
+            - Type: String
+            - Description: A short description of the team (e.g., "This team is my second team").
+
+          - **tags:**
+            - Type: String
+            - Description: Comma-separated tags related to the team (e.g., "second,team") for categorization or search purposes.
+
+          - **profilePhotoUrl:**
+            - Type: String
+            - Description: A URL pointing to the team's profile photo (e.g., "https://example.com/profile.jpg").
+
+          - **coverPhotoUrl:**
+            - Type: String
+            - Description: A URL pointing to the team's cover photo (e.g., "https://example.com/cover.jpg").
+
+          - **minimumTipAmount:**
+            - Type: Number
+            - Description: The minimum amount for tips associated with the team (e.g., 10).
+
+          - **categoryId:**
+            - Type: String
+            - Description: The ID of the category under which the team falls (e.g., "category123").
+
+          - **category:**
+            - Type: String
+            - Description: The name of the category the team belongs to (e.g., "General").
+
+          - **subCategoryId:**
+            - Type: String
+            - Description: The ID for the sub-category related to the team (e.g., "subCategory456").
+
+          - **subCategory:**
+            - Type: String
+            - Description: The name of the sub-category the team is related to (e.g., "Specific").
+
+          - **isTeamPrivate:**
+            - Type: Boolean
+            - Description: A flag indicating whether the team is private (e.g., true).
+
+          - **isTournamentOnly:**
+            - Type: Boolean
+            - Description: A flag to denote if the team is only used for tournament purposes (e.g., false).
+
+          - **isTeamDefault:**
+            - Type: Boolean
+            - Description: Indicates if this team is set as default for future actions (e.g., true).
+
+          - **isPreLiveTournamentAds:**
+            - Type: Boolean
+            - Description: A flag to indicate if pre-live advertisements for tournaments are enabled (e.g., true).
+
+          - **isPostLiveTournamentAds:**
+            - Type: Boolean
+            - Description: A flag to indicate if post-live advertisements for tournaments are enabled (e.g., true).
+
+          - **breakPreLiveVideoUrl:**
+            - Type: String
+            - Description: A URL to a video that can be shown during pre-live breaks (e.g., "https://example.com/break-pre-live.mp4").
+
+          - **breakPostLiveVideoUrl:**
+            - Type: String
+            - Description: A URL to a video that can be shown during post-live breaks (e.g., "https://example.com/break-post-live.mp4"). 
+
+    This endpoint facilitates the creation of a well-defined team with various
+    associated attributes and settings.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Team
+            description: This team is my second team
+            tags: second,team
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isTeamPrivate: true
+            isTournamentOnly: false
+            isTeamDefault: true
+            isPreLiveTournamentAds: true
+            isPostLiveTournamentAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

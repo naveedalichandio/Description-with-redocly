@@ -1,0 +1,60 @@
+post:
+  tags:
+    - ActionDraft
+  summary: Action - Draft - Delete
+  description: >-
+    **Endpoint Description:**
+
+
+    - **Name**: Action - Draft - Delete
+      - This is the name of the API endpoint used for deleting a draft action.
+
+    - **Request**: This section contains the details about how to send the
+    request to the server.
+
+      - **Auth**: This specifies the authentication method required to access the endpoint.
+        - **Type**: Bearer
+          - Indicates that a bearer token is used for authorization.
+        - **Bearer**: Contains the details of the token.
+          - **Key**: token
+            - The key for the authentication token.
+          - **Value**: sessionId
+            - The placeholder for the session ID that provides access and verification for the user session.
+          - **Type**: string
+            - Specifies that the value should be a string.
+
+      - **Method**: POST
+        - The HTTP method used to send data to the server. In this case, it is a POST request, indicating that data is being sent to the server to delete a draft.
+
+      - **URL**: http://localhost:3000/api/action/draft/delete
+        - The URL endpoint where the request is directed. This is the local address indicating that the server is running on the local machine.
+
+      - **Headers**: This section outlines the request headers.
+        - An empty header is included, marked as disabled, indicating that it is currently not being used in the request.
+
+      - **Body**: This part contains the data being sent in the request.
+        - **Mode**: raw
+          - Indicates that the body content is sent in its raw format, typically as JSON.
+        - **Raw**: "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"draftId\":\"draftId\"}"
+          - This is the actual content of the request body in JSON format.
+          - **sessionId**: A placeholder for the session ID, used to verify the user's session.
+          - **accountId**: A placeholder for the account ID, which identifies the user’s account.
+          - **draftId**: A placeholder for the draft ID, which specifies the draft that needs to be deleted.
+
+    Overall, this endpoint is set up to accept a request that includes
+    authentication and a body containing session, account, and draft identifiers
+    to delete an existing draft.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"draftId\":\"draftId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

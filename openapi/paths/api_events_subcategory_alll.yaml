@@ -1,0 +1,47 @@
+get:
+  tags:
+    - EventsSubCategory
+  summary: Events - SubCategory - Get All By Category ID
+  description: >-
+    Name: This is the label of the endpoint, which in this case is "Events -
+    SubCategory - Get All By Category ID". This label is used to identify the
+    endpoint in the API collection.
+
+
+    Auth: This pertains to the authentication method required for the endpoint.
+    In this case, a bearer token is needed for authentication. The 'key'
+    specifies the type of token, which is a 'BearerToken'. The 'type' tells you
+    that the token should be a string.
+
+
+    Method: This field shows the HTTP method used by the endpoint. Here it is
+    'GET'. This method is usually used to retrieve data from the server.
+
+
+    URL: This field specifies the URL where the request is sent. In this case,
+    it is
+    "http://localhost:3000/api/events/subcategory/all/?categoryId=eventCategoryId".
+    This URL gets all sub categories by Category ID.
+
+
+    Headers: Headers can be used to provide additional information about the
+    request. In this case a default header is included but it is disabled and
+    both the 'key' and 'value' fields are empty. 
+
+
+    Body: This field contains the data that is sent to the server in a 'raw'
+    format. However, for this endpoint the 'raw' body is empty as the data
+    required ('categoryId') is passed as a parameter within the URL.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: categoryId
+      in: query
+      schema:
+        type: string
+      example: eventCategoryId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,85 @@
+get:
+  tags:
+    - ActionSell
+  summary: Action - Sell - Get
+  description: >-
+    ### Description of the API Endpoint:
+
+
+    #### Name: 
+
+    - **Action - Sell - Get**
+      - This is the identifier for the API request, indicating that it is used to retrieve information related to a sell action.
+
+    #### Request Details:
+
+    - **Auth**: 
+      - This specifies the authentication method for the request.
+      - **Type**: `bearer`
+        - The API uses bearer token authentication, which requires a token to be sent in the request header for authorization.
+      - **Bearer**:
+        - The following data is contained within the bearer authentication.
+          - **Key**: `token`
+            - This is the name of the key used for the token.
+          - **Value**: `BearerToken`
+            - This is a placeholder where the actual bearer token should be placed to authorize the request.
+          - **Type**: `string`
+            - This indicates the type of the value expected (a string representing the token).
+
+    - **Method**: 
+      - **GET**
+        - This indicates that the API request is a GET request, which is used to retrieve data from the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/sell/get/?sellId=sellId&sessionId=sessionId&accountId=accountId`
+        - This is the endpoint URL where the GET request will be sent. 
+        - It contains query parameters:
+          - **sellId**: Represents the unique identifier for the sell action.
+          - **sessionId**: Represents the unique identifier for the session associated with the request.
+          - **accountId**: Represents the unique identifier for the account involved in the sell action.
+
+    - **Headers**: 
+      - This section is used to specify any additional HTTP headers required for the request.
+      - **Key**: `""` 
+        - There are no custom headers set, as denoted by the empty key.
+      - **Value**: `""`
+        - No values are assigned, indicating that this header is currently not being used.
+      - **Type**: `default`
+        - This indicates the default type for the header.
+      - **Disabled**: `true`
+        - This means that the header configuration is disabled and will not be sent with the request.
+
+    - **Body**: 
+      - The body of the request is specified here.
+      - **Mode**: `raw`
+        - Indicates that the body content will be sent as raw data.
+      - **Raw**: `""`
+        - The body is currently empty, meaning no additional data is sent with the request.
+
+    This endpoint is designed to retrieve sell action details based on the
+    provided identifiers for sell, session, and account. Ensure that the bearer
+    token is replaced with a valid token for successful authentication while
+    using this API.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sellId
+      in: query
+      schema:
+        type: string
+      example: sellId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

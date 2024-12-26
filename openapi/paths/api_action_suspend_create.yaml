@@ -1,0 +1,113 @@
+post:
+  tags:
+    - ActionSuspend
+  summary: Action - Suspend - Create
+  description: |-
+    {
+      "name": "Action - Suspend - Create",
+      "description": "This API endpoint is used to create a suspend action for a specific streaming session. Below are the details of the data required for this request.",
+
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ]
+        },
+        "description": "The authentication method used for this request is Bearer token. The user must provide a valid BearerToken to access the API.",
+        
+        "method": "POST",
+        "description": "This specifies that the request method is POST, indicating that we are sending data to the server to create a new resource.",
+
+        "url": "http://localhost:3000/api/action/suspend/create",
+        "description": "This is the endpoint URL where the suspend action request is sent. It indicates that the action occurs within the local server at port 3000 in the 'api/action/suspend/create' route.",
+
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "description": "Currently, there are no headers provided in this request, and the existing default header is disabled. If specific headers are required, they should be added here.",
+
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request is sent in raw format, specifically in JSON, containing the necessary data for creating a suspend action.",
+
+          "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"streamer\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"tokenAmount\": 20,\n    \"name\": \"suspend1\",\n    \"description\": \"\",\n    \"tags\": \"\"\n}",
+          "description": "This JSON object includes the parameters needed to create a suspend action. Details are as follows:",
+          
+          "parameters": {
+            "sessionId": {
+              "description": "A unique identifier for the session that is being suspended."
+            },
+            "accountId": {
+              "description": "The unique identifier for the account that is associated with the suspend action."
+            },
+            "path": {
+              "description": "The path that specifies the location or resource linked to the suspend action, such as a live streaming channel."
+            },
+            "targetType": {
+              "description": "Indicates the type of entity being targeted by the suspend action. In this case, it is set to 'streamer'."
+            },
+            "targetId": {
+              "description": "The unique identifier for the target entity, which may refer to a specific video or stream."
+            },
+            "sourceType": {
+              "description": "Denotes the type of source for the suspend action. Here, the source is associated with an account ID."
+            },
+            "sourceId": {
+              "description": "This is the unique identifier for the source of the action, typically the account ID."
+            },
+            "tokenAmount": {
+              "description": "The quantity of tokens involved in the suspend action. In this case, it is set to 20."
+            },
+            "name": {
+              "description": "A designated name for the suspend action, here it is 'suspend1'."
+            },
+            "description": {
+              "description": "An optional field for providing additional details about the suspend action. Currently, it is empty."
+            },
+            "tags": {
+              "description": "An optional field for adding tags related to the suspend action. Currently, it is empty."
+            }
+          },
+
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: suspend1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,65 @@
+get:
+  tags:
+    - NotificationVideos
+  summary: Notification - Videos - Get All
+  description: >-
+    This endpoint is called 'Notification - Videos - Get All'. 
+
+
+    1. "name": This field provides the name of the endpoint. Here, the value
+    "Notification - Videos - Get All" signifies that the endpoint is used to
+    retrieve all video notifications.
+
+
+    2. "request": This contains all the necessary data required to make a
+    request to the server.
+
+
+    3. "auth": This field contains information about the authentication method
+    used by the endpoint. 
+       
+       3.1. "type": Defines the type of authentication used. In this case, a 'bearer' type, which means the access token used is a Bearer token. 
+       
+       3.2. "bearer": This is a subfield containing more details about the bearer token.
+          
+          3.2.1. "key": The key refers to the token type, which is a 'token' here.
+          
+          3.2.2. "value": The value of the key which has to be of type 'string'. Here it is 'BearerToken'.
+          
+          3.2.3. "type": This is the data type of the value. In this case, it is a string.
+
+    4. "method": Describes the HTTP method used for the request. In this case,
+    it is 'GET', meaning the endpoint requests data from a specified resource.
+
+
+    5. "url": This field contains the URL where the request will be sent. The
+    specified parameters in the URL are 'sessionId' and 'accountId'.
+
+
+    6. "headers": These are used to provide additional instructions for the
+    request. Currently all the fields are left empty, and it's disabled.
+
+
+    7. "body": This contains data that you want to send to the server. 
+
+       7.1. "mode": Its value is 'raw' implying that the body data is not categorized in any specific format.
+       
+       7.2. "raw": It's used when you want to send plain/unformatted body data. Here, it's empty so no data is sent within the request body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

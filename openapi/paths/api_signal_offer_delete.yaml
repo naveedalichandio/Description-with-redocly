@@ -1,0 +1,64 @@
+post:
+  tags:
+    - WhipSignal
+  summary: Signal - Offer - Delete
+  description: >-
+    ### Endpoint Description: Signal - Offer - Delete
+
+
+    **Name:** Signal - Offer - Delete  
+
+    This endpoint is used to delete an offer associated with a specific signal.
+
+
+    **Request Information:**
+
+
+    - **Auth:** 
+      - **Type:** Bearer Token 
+      - The request requires authorization via a bearer token to ensure that the requester has the necessary permissions.
+
+    - **Method:** POST  
+      - This endpoint is accessed using the POST method, which is typically used to send data to the server to create or update resources.
+
+    - **URL:** `http://localhost:3000/api/signal/offer/delete`  
+      - This is the endpoint URL where the request will be sent. The base URL is intended for local development.
+
+    - **Headers:**  
+      - An array is provided for the headers, but currently, there are no custom headers defined. The default header is disabled and does not contain any key or value.
+
+    **Body Information:**
+
+
+    - **Body Mode:** raw  
+      - The request body is sent as raw data.
+
+    - **Raw Data:** `{"accountId":"accountId", "sessionId":"sessionId",
+    "signalId":"signalId"}`  
+      - This is the format of the data that must be sent in the body of the request. It contains three fields:
+        - **accountId:** The identifier for the account associated with the offer to be deleted.
+        - **sessionId:** The identifier for the session in which the operation is being performed.
+        - **signalId:** The identifier for the specific signal related to the offer that needs to be deleted.
+
+    - **Options:**  
+      - **Raw Language:** json  
+      - Specifies that the raw data is in JSON format, which is a lightweight data interchange format that is easy to read and write for humans and machines alike. 
+
+    Please ensure to replace `"accountId"`, `"sessionId"`, and `"signalId"` with
+    the actual values as needed when making a request to this endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            signalId: signalId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

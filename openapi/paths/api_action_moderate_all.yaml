@@ -1,0 +1,60 @@
+get:
+  tags:
+    - ActionModerate
+  summary: Action - Moderate - Get All
+  description: >-
+    ### Action - Moderate - Get All
+
+
+    #### Request Details
+
+
+    - **Auth**
+      - **Type:** This specifies the type of authentication required for the request. In this case, it is "bearer" authentication.
+      - **Bearer Token:**
+        - **Key:** This indicates the key for the authorization token, which is simply labeled as "token".
+        - **Value:** This is the actual token value needed to authenticate the request. Here it is represented as "BearerToken", which is a placeholder for the actual token.
+        - **Type:** The data type of the token is specified as "string".
+
+    - **Method**
+      - This indicates the HTTP method to be used for the request. In this case, it is a "GET" method, which is used to retrieve data from the specified resource.
+
+    - **URL**
+      - This is the endpoint where the request is sent. The URL is structured as follows:
+        - `http://localhost:3000/api/action/moderate/all/` is the base endpoint.
+        - `?sessionId=sessionId&accountId=accountId` are query parameters included in the URL. This allows the client to pass specific data:
+          - **sessionId:** A placeholder for a unique identifier representing the current session.
+          - **accountId:** A placeholder for the unique identifier for the account being accessed.
+
+    - **Headers**
+      - This section is meant for adding additional metadata to the request. Currently, there are no headers specified:
+        - **Key:** Left empty, indicating that no specific header key is being used.
+        - **Value:** Left empty, showing that there is no corresponding value for the header key.
+        - **Type:** Default type, which means it is the standard header type.
+        - **Disabled:** Set to true, indicating that this header is not active and will not be sent with the request.
+
+    - **Body**
+      - This defines the body of the request. The body is specified as:
+        - **Mode:** "raw" indicates that the request body is sent as a raw string format.
+        - **Raw:** The raw body content is empty in this case, meaning no additional data is being sent with the request.
+
+    This summary captures the essential details of the "Action - Moderate - Get
+    All" endpoint, providing a clear understanding of the API request structure.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

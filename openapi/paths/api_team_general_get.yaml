@@ -1,0 +1,56 @@
+get:
+  tags:
+    - TeamGeneral
+  summary: Team - General - Get By Short ID
+  description: >-
+    ### Endpoint: Team - General - Get By Short ID
+
+
+    #### Request Data Description:
+
+
+    - **Name**: This is the identifier for the API endpoint, indicating that it
+    retrieves general information about a team based on a provided short ID.
+
+
+    - **Auth**: This section specifies the authentication required to access the
+    endpoint.
+      - **Type**: Indicates that Bearer token authentication is used.
+      - **Bearer**: Contains the bearer token needed for authorization.
+        - **Key**: This represents the name of the token field, which is labeled as "token".
+        - **Value**: The actual token used for authentication, prefixed with "Bearer" followed by the actual token value (e.g., "BearerToken").
+        - **Type**: Specifies that the token value is treated as a string.
+
+    - **Method**: Indicates the HTTP method used for this request, which is
+    "GET". This means the request will retrieve data rather than modify it.
+
+
+    - **URL**: This is the endpoint's URL where the request is sent. It consists
+    of:
+      - Base URL: `http://localhost:3000/api/team/general/get`
+      - Query Parameter: `shortId=teamShortId` - This part specifies that the request should include a short ID to identify the team being requested.
+
+    - **Headers**: This section allows for additional HTTP headers to be set for
+    the request.
+      - **Key**: The name of the header (currently left empty).
+      - **Value**: The value of the header (currently left empty).
+      - **Type**: Indicates the type of the header, with default type being specified here.
+      - **Disabled**: Set to true, indicating that this header is not currently active and will not be sent with the request.
+
+    - **Body**: This section would contain the body of the request, but it is
+    empty in this case.
+      - **Mode**: Specifies the mode of the body. Here it indicates "raw" is being used, meaning that the body would normally contain raw data.
+      - **Raw**: Currently has no content, indicating that no body data needs to be sent with this GET request. 
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: shortId
+      in: query
+      schema:
+        type: string
+      example: teamShortId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

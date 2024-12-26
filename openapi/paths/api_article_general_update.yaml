@@ -1,0 +1,102 @@
+put:
+  tags:
+    - ArticleGeneral
+  summary: Article - General - Update Auto
+  description: >-
+    The given endpoint updates a general-type article. Here are the data
+    details:
+
+
+    - **name**: The name is "Article - General - Update Auto", which indicates
+    that this endpoint is used for updating general articles automatically.
+
+
+    - **request**: This is the main configuration for making the request.
+
+      - **auth**: The "auth" field is used for API authentication. It is using bearer token authentication. The "token" key should be replaced with a valid bearer token for successful authentication.
+
+      - **method**: The request method is "PUT", which means it is used to update an existing resource.
+
+      - **url**: The URL for this request is "http://localhost:3000/api/article/general/update".
+
+      - **headers**: In the headers, we have the "Client-UUID" that is a unique identifier for the client making the request.
+
+      - **body**: The content of the request with mode as "raw" and language as "json". This body needs to be filled with proper data for updating the article. Here are the body fields:
+        
+        - **articleId**: The unique identifier of the article
+        - **accountId**: The unique identifier for the account
+        - **sessionId**: The unique identifier for a session
+        - **category, subCategory, and topic**: Category and subcategory of the article, and the topic it refers to.
+        - **title and author**: Title of the article and the author's name.
+        - **estimatedTime**: An estimate of how long it will take to read the article.
+        - **date**: Publication date of the article
+        - **image**: URL of the article image
+        - **tags**: Tags associated with the article
+        - **content**: It contains further details like start date, end date, location, featured artists, collections, details about each event in the article like event type, date, time, and specific details about the event like activities, topic, chef etc.
+        
+      - **options**: It specifies that the raw body language is in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            articleId: articleId
+            accountId: accountId
+            sessionId: sessionId
+            category: My New Shiny Category
+            subCategory: My New Shiny Sub Category
+            topic: My New Interesting Topic
+            title: Invisible Luggage Exhibition 3.0
+            author: Fortune Vieyra
+            estimatedTime: 5 minutes
+            date: '2024-12-02'
+            image: https://www.beladed.com/img/logo.png
+            tags:
+              - Art
+              - Exhibition
+              - SocialJustice
+              - GenderIdentity
+              - Immigration
+            content:
+              startDate: '2024-12-02'
+              endDate: '2024-12-15'
+              location: Historic Hampton House, Miami, FL
+              featuredArtists:
+                - Beth Rudin DeWoody
+                - Zoe Lukov
+                - Laura Dvorkin
+                - Maynard Monrow
+              collections:
+                - Rubell Family Collection
+                - Bernard Lumpkin Collection
+                - Joy Simmons Collection
+              article:
+                - type: Opening Night
+                  date: '2024-12-02'
+                  time: '18:00'
+                  activities:
+                    - Cocktails
+                    - Preview Dinner
+                    - Artist Introductions
+                - type: Panel Discussion
+                  date: '2024-12-05'
+                  time: '15:00'
+                  topic: Art and Social Justice
+                - type: VIP Dinner
+                  date: '2024-12-10'
+                  time: '19:00'
+                  chef: Jessica Harris
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,97 @@
+put:
+  tags:
+    - NotificationUsers
+  summary: Notification - Users - Update
+  description: >-
+    This endpoint is named "Notification - Users - Update". It requires a PUT
+    HTTP method, which means it's used to update an existing resource on the
+    server. The endpoint URL is
+    'http://localhost:3000/api/notification/users/update'.
+
+
+    Authentication for this endpoint is done with a Bearer token. The Bearer
+    token should be provided with the key as 'token', and it's of 'string' type.
+
+
+    This API also needs a 'Client-UUID' in the header for identifying the client
+    making the request.
+
+
+    The body of this request is in raw JSON format and contains several
+    properties:
+
+
+    - 'usersId': The unique identifier for the user.
+
+    - 'sessionId': The session identifier.
+
+    - 'accountId': The account identifier.
+
+    - 'name': The new name of the user.
+
+    - 'description': The description of the user.
+
+    - 'tags': These are tags associated with the user separated by commas.
+
+    - 'profilePhotoUrl': The URL link to the user's profile photo.
+
+    - 'coverPhotoUrl': The URL link to the user's cover photo.
+
+    - 'minimumTipAmount': This is the minimum tip amount that the user can get.
+
+    - 'categoryId': The identifier for the user's category.
+
+    - 'category': The name of the user's category.
+
+    - 'subCategoryId': The identifier for the user's sub-category.
+
+    - 'subCategory': The name of the user's sub-category.
+
+    - 'isUsersPrivate': A boolean value representing whether the user is
+    private.
+
+    - 'isTournamentOnly': A boolean value representing whether the user is only
+    for tournaments.
+
+    - 'isUsersDefault': A boolean value representing whether the user is the
+    default.
+
+    - 'isPreLiveNotificationAds': A boolean value representing whether the user
+    will have ads before live notifications.
+
+    - 'isPostLiveNotificationAds': A boolean value representing whether the user
+    will have ads after live notifications.
+
+    - 'breakPreLiveNotificationUrl': The URL link to the break that happens
+    before the live notification.
+
+    - 'breakPostLiveNotificationUrl': The URL link to the break that happens
+    after the live notification. 
+
+
+    All these properties should be provided as string values, apart from the
+    ones that specifically marked as boolean, which should be provided as true
+    or false.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"usersId\":\"usersId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Users 2.0\",\"description\":\"This users is my second
+            users\",\"tags\":\"second,users\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isUsersPrivate\":true,\"isTournamentOnly\":false,\"isUsersDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

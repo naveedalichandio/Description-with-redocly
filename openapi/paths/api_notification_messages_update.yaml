@@ -1,0 +1,89 @@
+put:
+  tags:
+    - NotificationMessages
+  summary: Notification - Messages - Update
+  description: >-
+    This is an endpoint named "Notification - Messages - Update," which uses the
+    `PUT` method to update notification messages on the server. 
+
+
+    1. **Authentication**: The authentication type is "bearer". This means it
+    passes a bearer token in the header of the request for authorization. The
+    `key` is "token" and the `value` should be the bearer token to authenticate
+    the request.
+
+
+    2. **Method**: The method used is `PUT`. This is used to update an existing
+    resource on the server.
+
+
+    3. **URL**: The endpoint URL is
+    "http://localhost:3000/api/notification/messages/update". This is the
+    location where the request will be made.
+
+
+    4. **Headers**: 
+
+       - "Client-UUID" is a unique identifier for the client making the request. Its type is `default`.
+
+    5. **Body**: The body of the request is in raw JSON format and consists of
+    the details about the message that is being updated:
+
+       - `messageId`: Identifier for the message.
+       
+       - `sessionId`: Identifier for the session. 
+
+       - `accountId`: Identifier for the account.
+
+       - `name`: The name of the message.
+
+       - `description`: A brief description of the message.
+
+       - `tags`: Additional tags associated with the message, separated by commas.
+
+       - `profilePhotoUrl`: The URL of the profile photo.
+
+       - `coverPhotoUrl`: The URL of the cover photo.
+
+       - `minimumTipAmount`: The minimum tip amount for the message.
+
+       - `categoryId` & `category`: The category ID and name.
+
+       - `subCategoryId` & `subCategory`: The sub-category ID and name.
+
+       - `isMessagesPrivate`: A boolean indicating whether the message is private.
+
+       - `isTournamentOnly`: A boolean indicating whether the message is only for tournaments.
+
+       - `isMessagesDefault`: A boolean indicating whether the message is the default message.
+
+       - `isPreLiveNotificationAds`: A boolean indicating if pre-live notifications are advertisements.
+
+       - `isPostLiveNotificationAds`: A boolean indicating if post-live notifications are advertisements.
+
+       - `breakPreLiveNotificationUrl`: The URL for the break pre-live notification.
+
+       - `breakPostLiveNotificationUrl`: The URL for the break post-live notification.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"messagesId\":\"messagesId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Messages 2.0\",\"description\":\"This messages is my second
+            messages\",\"tags\":\"second,messages\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isMessagesPrivate\":true,\"isTournamentOnly\":false,\"isMessagesDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

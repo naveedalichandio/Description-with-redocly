@@ -1,0 +1,59 @@
+post:
+  tags:
+    - ActionReply
+  summary: Action - Reply - Delete
+  description: |-
+    {
+      "name": "Action - Reply - Delete",
+      "description": "This API endpoint is designed to delete a specific reply associated with a user's action. Below is a detailed explanation of the data in the request.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "sessionId",
+              "type": "string"
+            }
+          ],
+          "description": "Authentication is performed using a bearer token. The token is a sessionId that validates the user's identity and permission to access the resource."
+        },
+        "method": "POST",
+        "description": "The method used for this request is POST, indicating that the client is sending data to the server to perform the delete action."
+        "url": "http://localhost:3000/api/action/reply/delete",
+        "description": "The URL specifies the location of the API endpoint for deleting a reply. It points to the local server running on port 3000."
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "description": "Currently, no specific headers are required for this request as the header field is disabled. Additional headers can be added if needed in the future.",
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request is in raw JSON format containing the necessary identifiers for the delete operation.",
+          "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"replyId\":\"replyId\"}",
+          "description": {
+            "sessionId": "This is the session ID used for authentication and must match the user's current session.",
+            "accountId": "This is the unique identifier for the user's account from which the reply will be deleted.",
+            "replyId": "This is the identifier of the specific reply that needs to be deleted."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"replyId\":\"replyId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

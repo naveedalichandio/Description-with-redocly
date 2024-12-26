@@ -1,0 +1,69 @@
+post:
+  tags:
+    - ActionRevoke
+  summary: Action - Revoke - Delete
+  description: >-
+    ### Description of the API Endpoint
+
+
+    **Name**: Action - Revoke - Delete  
+
+    This endpoint is used to revoke or delete a specific action associated with
+    a particular account session.
+
+
+    **Request Details**:  
+
+    - **Auth**: This section specifies the authentication method used to access
+    the endpoint.
+      - **Type**: Bearer  
+        The authentication is done using a Bearer token, which is typically used for stateless authentication.
+      - **Bearer**:  
+        - **Key**: token  
+          This indicates that the parameter being used for authentication is a token.
+        - **Value**: sessionId  
+          The value should be replaced with the actual session identifier that grants access to the API.
+        - **Type**: string  
+          Indicates that the token is a string type.
+
+    - **Method**: POST  
+      The HTTP method used for this request is POST, which is typically used to send data to the server for processing.
+
+    - **URL**: http://localhost:3000/api/action/revoke/delete  
+      This is the endpoint URL where the revoke action is processed. It is hosted locally on the server running on port 3000.
+
+    - **Headers**:  
+      This section is for any HTTP headers that need to be passed with the request.
+      - **Key**: (empty)  
+        No specific header keys are defined in this request.
+      - **Value**: (empty)  
+        No specific header values are defined in this request.
+      - **Type**: default  
+        The default type for this header entry.
+      - **Disabled**: true  
+        Indicates that this header is currently disabled and will not be sent with the request.
+
+    - **Body**:  
+      This section includes the body of the POST request.
+      - **Mode**: raw  
+        The body is sent as raw data.
+      - **Raw**:  
+        `{"sessionId":"sessionId","accountId":"accountId","revokeId":"revokeId"}`  
+        The body should contain a JSON object with the following fields:
+        - **sessionId**: A string representing the session identifier for the current user session. Replace "sessionId" with the actual session ID.
+        - **accountId**: A string representing the account identifier that the action is associated with. Replace "accountId" with the actual account ID.
+        - **revokeId**: A string representing the identifier of the action to be revoked or deleted. Replace "revokeId" with the actual ID of the action you want to remove.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"revokeId\":\"revokeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

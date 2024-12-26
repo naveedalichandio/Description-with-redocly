@@ -1,0 +1,93 @@
+get:
+  tags:
+    - VideoCategory
+  summary: Video - Category - Get All - Tournament SubCategory
+  description: >-
+    ### Endpoint Description: Video - Category - Get All - Tournament
+    SubCategory
+
+
+    **Name:**  
+
+    This describes the purpose of the API call, which retrieves all videos in a
+    specified category and subcategory related to tournaments.
+
+
+    **Request:**
+
+
+    - **Auth:**
+      - **Type:** Bearer
+        - This specifies that the authentication method used is a Bearer token, which is a common way to ensure secure access to APIs.
+      - **Bearer:**
+        - **Key:** Token
+          - This is the name given to the Bearer token required for authorization.
+        - **Value:** BearerToken
+          - This is a placeholder for the actual token value used for authentication. Users will need to replace this with their valid token.
+        - **Type:** String
+          - Indicates that the value of the token is a string data type.
+
+    - **Method:** GET
+      - This indicates that the HTTP method used for this request is GET, which is used to retrieve data from the server.
+
+    - **URL:**  
+      This is the endpoint used to get the video data. 
+      ```
+      http://localhost:3000/api/video/category/all/?sessionId=sessionId&accountId=accountId&searchType=Tournament&category=Dance&subCategory=Bboy%20Dance%20Battle
+      ```
+      - The URL consists of several query parameters:
+        - **sessionId:** The ID representing the user's current session.
+        - **accountId:** The ID associated with the user's account.
+        - **searchType:** The type of search being conducted, which in this case is set to "Tournament".
+        - **category:** The overall category of the videos, which is set to "Dance".
+        - **subCategory:** A more specific subgroup of the selected category, here defined as "Bboy Dance Battle".
+
+    - **Headers:**
+      - This section shows any additional HTTP headers that might be sent with the request.
+      - Currently, there is an empty header entry that is disabled, indicating no additional headers are required.
+
+    - **Body:**
+      - **Mode:** Raw
+        - The body is in raw format, which means that there are no data parameters being sent with the request.
+      - **Raw:** 
+        - An empty string is provided here since this GET request does not require a body.
+
+    ### Summary
+
+    This endpoint allows users to fetch all videos related to a specific
+    tournament subcategory under the broader category of dance. Authentication
+    is necessary via a Bearer token, and the request requires various
+    identifiers to filter the results accordingly.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: searchType
+      in: query
+      schema:
+        type: string
+      example: Tournament
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: Dance
+    - name: subCategory
+      in: query
+      schema:
+        type: string
+      example: Bboy%20Dance%20Battle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

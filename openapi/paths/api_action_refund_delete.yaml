@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ActionRefund
+  summary: Action - Refund - Delete
+  description: >-
+    ### Action - Refund - Delete
+
+
+    #### Request Summary
+
+    This endpoint is designed to delete a refund action. It requires a POST
+    request containing specific authentication and body parameters.
+
+
+    #### Authentication
+
+    - **Type**: Bearer
+      - This indicates that the request requires a bearer token for authentication.
+      - **Token Details**:
+        - **Key**: token
+        - **Value**: sessionId
+        - **Type**: string
+      - The sessionId will be used to authenticate the request and verify the user's session.
+
+    #### HTTP Method
+
+    - **Method**: POST
+      - This means that the request is intended to submit data to the server for processing.
+
+    #### URL
+
+    - **Endpoint URL**: http://localhost:3000/api/action/refund/delete
+      - This is the address where the request should be sent to perform the delete operation for the refund.
+
+    #### Headers
+
+    - **Headers**: An empty header is set, currently disabled.
+      - There are no specific headers required for this request, but space is reserved in case additional headers are needed in the future.
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - The body is sent in raw JSON format.
+      
+    - **Raw JSON Structure**:
+      - The body must contain the following key-value pairs:
+        - **sessionId**: Represents the unique session identifier for the user making the request. This is critical for tracking user sessions.
+        - **accountId**: Identifies the user's account associated with the refund. This links the request to a particular user.
+        - **refundId**: Specifies the unique identifier for the refund that is to be deleted. This tells the server which refund action to remove.
+
+    Users should ensure that all the required fields in the body are populated
+    correctly to successfully execute the delete operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"refundId\":\"refundId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

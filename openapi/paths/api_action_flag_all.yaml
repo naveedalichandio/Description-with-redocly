@@ -1,0 +1,69 @@
+get:
+  tags:
+    - ActionFlag
+  summary: Action - Flag - Get All
+  description: >-
+    ### Action - Flag - Get All Endpoint
+
+
+    #### Request Method
+
+    - **Method**: GET
+      - The request uses the HTTP GET method, which is typically used to retrieve data from a specified resource.
+
+    #### Request URL
+
+    - **URL**:
+    `http://localhost:3000/api/action/flag/all/?sessionId=sessionId&accountId=accountId`
+      - This is the endpoint to access the action flags. 
+      - The URL contains two query parameters:
+        - **sessionId**: Identifier for a particular session, used to track the context of a user's session.
+        - **accountId**: Identifier for the user account, which specifies which account's data to retrieve.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - The endpoint requires authentication via a Bearer Token. This type of authentication allows access to the resource only if the token is valid.
+      
+    - **Bearer Token**:
+      - **Key**: token
+        - This is the identifier for the token in use.
+      - **Value**: BearerToken
+        - This placeholder represents the actual token that must be provided for authentication. Users should replace "BearerToken" with their valid token.
+      - **Type**: string
+        - The token is provided as a string.
+
+    #### Request Headers
+
+    - **Headers**: 
+      - An empty header object is included but is currently set to disabled. This means no additional headers are being sent with the request.
+      
+    #### Request Body
+
+    - **Body**: 
+      - **Mode**: raw
+        - The request does not require a body; it has been specified as 'raw' to indicate that no data is being sent.
+      - **Raw**: 
+        - The raw body is empty, indicating that there is no data included in the request body for this GET method.
+
+    This endpoint is used for fetching all action flags associated with a
+    particular session and account, ensuring that the request is authenticated
+    with a bearer token.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

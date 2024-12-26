@@ -1,11 +1,79 @@
 put:
   tags:
-    - General
+    - ActionEarn
   summary: Action - Earn - Update
   description: >-
-    This endpoint is used to update an existing earning action. It requires the
-    earning ID, session and account identifiers, and details about the target,
-    source, and updates such as token amount and name.
+    ### Action - Earn - Update Endpoint Description
+
+
+    - **Method**: PUT
+      - This specifies that the request is a PUT method, commonly used to update existing resources.
+
+    - **URL**: `http://localhost:3000/api/action/earn/update`
+      - This is the endpoint URL where the update request will be sent. It points to the local server and targets the action to earn updates.
+
+    - **Authentication**:
+      - **Type**: Bearer Token
+        - This method of authentication uses a bearer token that must be included in the request to access the API securely.
+      - **Bearer Token Structure**:
+        - **Key**: `token`
+          - This is the identifier for the token parameter.
+        - **Value**: `BearerToken`
+          - This is where the actual bearer token value should be placed for authentication purposes.
+        - **Type**: string
+          - Indicates that the token value should be of string type.
+
+    - **Headers**:
+      - **Key**: `Client-UUID`
+        - This is a unique identifier for the client making the request.
+      - **Value**: `ClientUUID`
+        - This is the placeholder for the actual Client UUID value that should be used.
+      - **Type**: default
+        - Specifies the default type for the header.
+
+    - **Body**:
+      - **Mode**: raw
+        - Indicates that the body of the request will be in raw format, allowing for custom formatting.
+      - **Raw Content**: 
+        - The following JSON structure should be sent in the body of the request:
+
+        ```json
+        {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "path": "/live/channel/video123",
+            "targetType": "videoId",
+            "targetId": "videoId",
+            "sourceType": "accountId",
+            "sourceId": "accountId",
+            "didEarn": false,
+            "utilityType": "points",
+            "tokenAmount": 20,
+            "name": "update",
+            "description": "",
+            "tags": "",
+            "earnId": "earnId"
+        }
+        ```
+
+        - **sessionId**: Represents the identifier for the session associated with the action.
+        - **accountId**: The unique ID for the account that is initiating the earn action.
+        - **path**: The path to the resource, in this case, a live channel video.
+        - **targetType**: Defines the type of target; here it is set as `videoId`.
+        - **targetId**: The specific ID of the target video to update.
+        - **sourceType**: Indicates the type of source being used, which is `accountId`.
+        - **sourceId**: The ID of the source account.
+        - **didEarn**: A boolean indicating whether the earning action has occurred, set to false here.
+        - **utilityType**: Describes the type of utility being used, in this case, it is `points`.
+        - **tokenAmount**: The amount of tokens to be updated, set to 20.
+        - **name**: A label for the update action, which is set as "update".
+        - **description**: A field for additional text; currently left empty.
+        - **tags**: A field for categorizing the update; currently left empty.
+        - **earnId**: An identifier for the earning action being updated.
+
+    This endpoint is used for updating earning information related to an account
+    and its associated actions. Ensure all provided values are replaced with
+    actual data before making a request.
   requestBody:
     content:
       application/json:

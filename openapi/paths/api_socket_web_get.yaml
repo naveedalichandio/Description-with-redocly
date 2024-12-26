@@ -1,0 +1,90 @@
+get:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Get
+  description: >-
+    ### Description for API Endpoint: Web - Socket - Get
+
+
+    This endpoint retrieves information through a WebSocket connection based on
+    a provided socket ID.
+
+
+    - **Name**: Web - Socket - Get
+      - This is the name of the API request, identifying it as a GET request related to WebSocket operations.
+
+    - **Request Method**: GET
+      - The HTTP method used to initiate the request. In this case, it is a GET request, which is typically used to retrieve data from a specified resource.
+
+    - **URL**: `http://localhost:3000/api/socket/web/get?socketId=socketId`
+      - This is the endpoint URL that the request is sent to. It consists of:
+        - **Base URL**: `http://localhost:3000` - This indicates that the API is hosted locally on port 3000.
+        - **Endpoint Path**: `/api/socket/web/get` - This is the specific path that defines the resource being accessed.
+        - **Query Parameter**: `?socketId=socketId` - This is the query string used to pass the socket ID. The parameter `socketId` should be replaced with the actual socket ID value that you want to use for retrieving data.
+
+    - **Headers**: []
+      - This section currently does not include any custom headers. Headers can be used to pass additional information with the request, such as authentication tokens or content-type specifications, but in this instance, no headers are being utilized. 
+
+    Make sure to replace the placeholder `socketId` in the URL with the actual
+    socket ID value whenever you make a request.
+  parameters:
+    - name: socketId
+      in: query
+      schema:
+        type: string
+      example: socketId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}
+post:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Get Replies
+  description: |-
+    ### Description of Each Data in the Endpoint:
+
+    - **name**: 
+      - This is the title of the API request. It identifies the purpose of the request, which in this case is to retrieve replies through a web socket.
+
+    - **request**: 
+      - This section contains all the details about how to make the API call.
+
+      - **method**: 
+        - The HTTP method used for the request. Here, it is set to "POST," indicating that data may be sent to the server to create or update a resource.
+
+      - **url**: 
+        - The endpoint's URL where the request will be sent. In this example, it points to `http://localhost:3000/api/socket/web/get`, which is a local server address.
+
+      - **headers**: 
+        - This array is used to specify any HTTP headers that need to be included in the request. In this case, it is empty, meaning no custom headers are being sent.
+
+      - **body**: 
+        - This part defines the content sent with the request.
+
+        - **mode**: 
+          - Indicates the format of the body content. It is set to "raw," which means the body will contain raw data.
+
+        - **raw**: 
+          - This is where the actual data for the POST request is defined. In this case, it is an empty JSON object (`{}`), meaning no specific data is being sent.
+
+        - **options**: 
+          - This section provides additional settings for the body format.
+
+          - **raw**: 
+            - Configures options specific to raw body input. 
+
+            - **language**: 
+              - Specifies the programming language or format of the raw data. Here, it is set to "json," indicating that the body is expected to be in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example: {}
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

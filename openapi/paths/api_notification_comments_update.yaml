@@ -1,0 +1,94 @@
+put:
+  tags:
+    - NotificationComments
+  summary: Notification - Comments - Update
+  description: >-
+    This endpoint is named "Notification - Comments - Update". It uses the PUT
+    method to update comments in a notification system. 
+
+
+    1. `Auth`: 
+
+    This endpoint uses bearer token authentication. The token key should be
+    added in the headers under the key "token". 
+
+
+    2. `Method`: 
+
+    "PUT" is the HTTP method that is used in this endpoint. PUT is typically
+    used to update an existing resource.
+
+
+    3. `URL`: 
+
+    The URL to call the endpoint is
+    http://localhost:3000/api/notification/comments/update. It should be
+    replaced with the relevant URL if necessary.
+
+
+    4. `Headers`: 
+
+    The "Client-UUID" key is required which will be used to uniquely identify
+    the client request. It appears in the headers and its type is "default". 
+
+
+    5. `Body`: 
+
+    The body of the request is sent in raw JSON format. Specific keys include
+
+    - `commentsId`, `sessionId`, `accountId`: These are identifiers for the
+    comment, session and account respectively.
+
+    - `name`: Name of the comment being updated.
+
+    - `description`: Description of the comment.
+
+    - `tags`: Tags related to the comment. 
+
+    - `profilePhotoUrl`, `coverPhotoUrl`: URLs of profile and cover photos. 
+
+    - `minimumTipAmount`: Minimum amount for tipping. 
+
+    - `categoryId`, `category`, `subCategoryId`, `subCategory`: Category and
+    subcategory details of the comment. 
+
+    - `isCommentsPrivate`: Boolean entity indicating whether the comment is
+    private. 
+
+    - `isTournamentOnly`, `isCommentsDefault`: Boolean entities related to
+    whether the comment is intended for tournament only, or it is a default
+    comment. 
+
+    - `isPreLiveNotificationAds`, `isPostLiveNotificationAds`: Boolean entities
+    indicating whether ads should be shown before or after live notification
+    respectively.
+
+    - `breakPreLiveNotificationUrl`, `breakPostLiveNotificationUrl`: URLs for
+    the break notifications before or after the live session. 
+
+
+    After sending the request,  the endpoint updates the comment in the system
+    identified by the `commentsId`.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"commentsId\":\"commentsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Comments 2.0\",\"description\":\"This comments is my second
+            comments\",\"tags\":\"second,comments\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isCommentsPrivate\":true,\"isTournamentOnly\":false,\"isCommentsDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

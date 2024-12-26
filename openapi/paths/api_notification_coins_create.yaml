@@ -1,0 +1,131 @@
+post:
+  tags:
+    - NotificationCoins
+  summary: Notification - Coins - Create
+  description: >-
+    This endpoint is called "Notification - Coins - Create". Let me provide the
+    details about each part of the data provided.
+
+
+    1. `name`: It is the name of the endpoint. 
+
+
+    2. `request`: This object represents the request to be made.
+
+
+    3. `auth`: The `auth` object contains information related to the
+    authentication method used for this request. 
+
+       - `type` is "bearer" indicating that bearer token is used for authentication.
+       
+       - `"bearer"` is an array that holds an object with the `key` of `"token"`, and the `value` of `"BearerToken"`, indicating where the bearer token is to be added for authentication.
+
+    4. `method`: The HTTP method for the request is `POST`.
+
+
+    5. `url`: The URL where the request is to be sent. In this case, it is
+    `"http://localhost:3000/api/notification/coins/create"`.
+
+
+    6. `headers`: An array containing the HTTP headers to be sent with the
+    request. Here, it is set to default and disabled.
+
+
+    7. `body`: The `body` object includes the body payload for the request.
+
+       - `mode`: The mode of the inputted body, which here is "raw".
+       
+       - `raw`: It includes the JSON string to be sent with the request.
+       
+       - `options`: An object that specifies the options for the body payload. Here, it shows that the language for the `raw` payload is json.
+
+    Inside the `raw` field we have the payload to the `POST` request. The
+    payload contains various properties:
+
+
+    - `sessionId`: A session identifier.
+
+
+    - `accountId`: An account identifier.
+
+
+    - `name`: Name of the coins.
+
+
+    - `description`: Description about the coins.
+
+
+    - `tags`: Keywords related to the coins.
+
+
+    - `profilePhotoUrl`: URL of the profile image for these coins.
+
+
+    - `coverPhotoUrl`: URL of the cover image for these coins.
+
+
+    - `minimumTipAmount`: The minimum amount for which the coins can be tipped.
+
+
+    - `categoryId & category`: Identifier and name of the category to which
+    these coins belong.
+
+
+    - `subCategoryId & subCategory`: Identifier and name of the sub-category to
+    which these coins belong.
+
+
+    - `isCoinsPrivate`: Boolean flag to indicate whether these coins are private
+    or not.
+
+
+    - `isTournamentOnly`: Boolean flag to indicate whether the coins are only
+    for tournaments.
+
+
+    - `isCoinsDefault`: Boolean flag for marking the coins as default.
+
+
+    - `isPreLiveNotificationAds & isPostLiveNotificationAds`: These boolean
+    flags are for indicating if there are Pre-Live and Post-Live Notification
+    Ads.
+
+
+    - `breakPreLiveNotificationUrl & breakPostLiveNotificationUrl`: These are
+    URLs for the break pre-live and break post-live notifications respectively. 
+
+
+    Please note that the actual value for these properties may vary based on
+    your requirement.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Coins
+            description: This coins is my second coins
+            tags: second,coins
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isCoinsPrivate: true
+            isTournamentOnly: false
+            isCoinsDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

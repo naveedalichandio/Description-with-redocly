@@ -1,0 +1,68 @@
+get:
+  tags:
+    - ActionReport
+  summary: Action - Report - Get All
+  description: >-
+    ### Description of Data for Endpoint: Action - Report - Get All
+
+
+    - **name**: This is the name of the API endpoint. It describes the purpose
+    of the request, which is to retrieve all report data related to actions.
+
+
+    - **request**: This section contains all the details necessary to perform
+    the API request.
+
+      - **auth**: This specifies the authentication method required for the request.
+      
+        - **type**: Indicates the type of authentication. In this case, it is a bearer token authentication.
+      
+        - **bearer**: This is an array that holds the bearer token details.
+        
+          - **key**: This is the identifier for the token, labeled as "token".
+          
+          - **value**: This specifies the actual token value needed to authorize the request. For this example, it is represented as "BearerToken" and should be replaced with an actual token in a real scenario.
+          
+          - **type**: This specifies the data type of the token, which is a string.
+
+      - **method**: This indicates the HTTP method used for the request. Here, it is "GET", meaning the request is intended to retrieve data.
+
+      - **url**: This is the endpoint URL where the API request will be sent. It includes query parameters for `sessionId` and `accountId`, which need to be specified to access the desired reports.
+      
+      - **headers**: This array holds any additional header information for the request.
+      
+        - **key**: This is the name of the header. Currently, it is empty.
+        
+        - **value**: This is the value of the header. It is also currently empty.
+        
+        - **type**: Indicates the type of header. It is set to "default".
+        
+        - **disabled**: A boolean value indicating whether the header is active or inactive. In this case, it is set to true, meaning this header will not be sent with the request.
+
+      - **body**: This specifies the data that will be sent with the request.
+      
+        - **mode**: Indicates the format used for the body data. It is set to "raw", suggesting that the body may contain a raw payload.
+        
+        - **raw**: This is where the actual body content would be placed. Currently, it is empty, indicating that no body data is sent with this GET request.
+
+    This endpoint is designed to fetch reports related to actions from a
+    specified account and session, utilizing bearer token authentication for
+    security.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

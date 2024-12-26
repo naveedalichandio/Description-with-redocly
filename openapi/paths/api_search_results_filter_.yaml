@@ -1,0 +1,71 @@
+get:
+  tags:
+    - SearchResults
+  summary: Search - Results - By Query String and Filter String
+  description: >-
+    ### Endpoint Description: Search - Results - By Query String and Filter
+    String
+
+
+    This endpoint allows users to perform a search operation based on a
+    specified query string and filter criteria. Below is a detailed description
+    of each data field involved in this API request.
+
+
+    #### Request Method
+
+    - **Method:** `GET`
+      - This indicates that the request is retrieving data from the server. No data is being altered or created.
+
+    #### URL
+
+    - **URL:**
+    `http://localhost:3000/api/search/results/filter/?query=Fortune&filter=channel`
+      - This is the endpoint for accessing search results. 
+      - It is currently set to search with the query "Fortune" and applies a filter based on the "channel" criteria. 
+
+    #### Authentication
+
+    - **Auth Type:** `Bearer`
+      - The request requires a Bearer token for authentication. This type of authentication ensures that the user is verified before accessing the endpoint.
+
+    - **Bearer Token:**
+      - **Key:** `token`
+      - **Value:** `BearerToken`
+      - **Type:** `string`
+        - This is where you will replace "BearerToken" with your actual token. It provides the necessary credentials for accessing the API. 
+
+    #### Request Headers
+
+    - **Headers:** 
+      - An empty header is provided in the template, which is disabled. You can add additional headers if necessary, such as Content-Type or Authorization, depending on your specific requirements for the request.
+
+    #### Body
+
+    - **Body:**
+      - **Mode:** `raw`
+      - **Raw Content:** `""`
+        - The body is currently empty, which is typical for GET requests since they do not usually require a body. Additional parameters can be passed via the URL instead.
+
+    This endpoint is designed for searching and obtaining filtered results,
+    making it useful for retrieving specific information based on the user’s
+    input. Make sure to replace the placeholder values as needed to successfully
+    utilize the endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: query
+      in: query
+      schema:
+        type: string
+      example: Fortune
+    - name: filter
+      in: query
+      schema:
+        type: string
+      example: channel
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

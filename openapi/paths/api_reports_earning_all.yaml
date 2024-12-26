@@ -1,0 +1,55 @@
+get:
+  tags:
+    - ReportsEarning
+  summary: Reports - Earning - Get All
+  description: >-
+    This endpoint is labelled "Reports - Earning - Get All". It is designed to
+    generate a report of all earnings. Here's a breakdown of the different data
+    elements in this endpoint:
+
+
+    1. **auth**: The endpoint uses a Bearer token for authorization. This means
+    you need to provide a specific token in the request header to access this
+    API endpoint. The Bearer token is of the type 'string' and named "token".
+
+
+    2. **method**: The HTTP method used for this API request is GET. This means
+    the API will retrieve data based on the given request.
+
+
+    3. **url**: This is the URL where the request will be sent. It is
+    http://localhost:3000/api/reports/earning/all/. Two query parameters are
+    included: `sessionId` and `accountId`. You need to replace 'sessionId' and
+    'accountId' with actual values representing the session ID and account ID
+    respectively, for the request to work correctly.
+
+
+    4. **headers**: No specific headers are required for this request. A default
+    empty header is included but it's currently disabled.
+
+
+    5. **body**: As indicated by 'raw' in 'mode' field, this GET request does
+    not require a body payload to be sent along with the request. It's expected
+    to retrieve data solely based on the URL and parameters provided.
+
+
+    Remember to replace "BearerToken", "sessionId", and "accountId" with actual
+    values when implementing this API call.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

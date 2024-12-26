@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ActionCopy
+  summary: Action - Copy - Get All
+  description: >-
+    ### API Endpoint: Action - Copy - Get All
+
+
+    #### Method
+
+    - **GET**: This endpoint uses the GET HTTP method to retrieve data.
+
+
+    #### URL
+
+    -
+    **http://localhost:3000/api/action/copy/all/?sessionId=sessionId&accountId=accountId**
+      - **Base URL**: `http://localhost:3000/api/action/copy/all/`
+      - **Query Parameters**:
+        - **sessionId**: This parameter is used to identify the user session for which data is being requested.
+        - **accountId**: This parameter specifies the account from which data is being retrieved.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer Token
+      - **Key**: `token`: This is the key identifier for the authentication token.
+      - **Value**: `BearerToken`: This should be replaced with the actual bearer token used for authentication.
+      - **Type**: string: Indicates that the token value is of string type.
+
+    #### Headers
+
+    - **Headers**: No custom headers are specified in this request. The default
+    header entry is present but is disabled, meaning it will not be included in
+    the request.
+
+
+    #### Body
+
+    - **Body Mode**: Raw
+      - **Raw Content**: There is no body content for this GET request, as it retrieves data without needing to send additional information to the server. The raw section is empty.
+
+    This endpoint is designed for retrieving all instances of "copy" actions
+    associated with a specific session and account, providing a way to view data
+    relevant to that particular context.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

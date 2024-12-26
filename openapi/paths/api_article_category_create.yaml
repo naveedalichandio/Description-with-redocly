@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ArticleCategory
+  summary: Article - Category - Create
+  description: >-
+    This endpoint is labeled as "Article - Category - Create" and is designated
+    for creating a new category within an article domain. It uses the POST
+    method and makes a request to
+    "http://localhost:3000/api/article/category/create". The endpoint uses
+    Bearer token type for authorization. You need to replace the "BearerToken"
+    with your actual bearer token to get authenticated.
+
+
+    In this request, the following key-value pairs are sent:
+
+
+    1. `sessionId`: Represents the session ID of the active user. Replace
+    "sessionId" with the actual ID of the user session.
+
+
+    2. `accountId`: Represents the account ID of the user. Replace "accountId"
+    with the actual ID of the user account.
+
+
+    3. `name`: The unique, short, and URL-friendly name of the category. For
+    example, "Miami Art Week 4".
+
+
+    4. `displayName`: The full user-friendly name of the category to display in
+    the UI, for instance, "Miami Art Week 2024".
+
+
+    5. `description`: A brief explanation about the category. For example, "An
+    immersive celebration of art and culture during Miami Art Week."
+
+
+    6. `tags`: A list of keywords associated with the category, separated by
+    commas. For example, "Art,Exhibition,Miami,Culture".
+
+
+    Note: The entire body parameters are in raw JSON format. The format of the
+    JSON data should be as highlighted in the `body.raw` key.
+
+
+    The endpoint currently contains no custom headers, as indicated by the empty
+    "key" and "value" fields in `headers`. However, the `type` is set to
+    "default", and the `disabled` field is set to `true`, indicating these
+    headers are not currently in use.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 4
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

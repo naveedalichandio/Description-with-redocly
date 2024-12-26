@@ -1,0 +1,64 @@
+post:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Create for Team
+  description: |-
+    {
+      "description": {
+        "name": "Utility - Token - Create for Team": "This is the title of the API request, indicating that it is used to create a token for a specific team within the utility service.",
+        "request": {
+          "auth": {
+            "type": "bearer": "This indicates that the request uses Bearer Token authentication, which requires a token for authentication.",
+            "bearer": [
+              {
+                "key": "token": "The key under which the token is stored in the request.",
+                "value": "BearerToken": "This specific value should be replaced with the actual bearer token required to authorize the request.",
+                "type": "string": "The data type of the token, which is a string."
+              }
+            ]
+          },
+          "method": "POST": "This indicates that the request type is POST, commonly used for sending data to create a new resource.",
+          "url": "http://localhost:3000/api/utility/token/create": "This is the endpoint URL where the API request is sent to create a token for a team.",
+          "headers": [
+            {
+              "key": "": "This field is currently empty and indicates that no additional headers are being passed in the request.",
+              "value": "": "The value associated with the header key, which is empty in this case.",
+              "type": "default": "This indicates that the header type is the default type.",
+              "disabled": true: "This means that the header is currently disabled and will not be included in the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "This indicates that the body of the request is raw data.",
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"targetType\": \"teamId\",\n    \"targetId\": \"teamId\",\n    \"name\": \"BPT\",\n    \"description\": \"Beladed Platform Token\",\n    \"type\": \"platform\",\n    \"action\": \"sell\",\n    \"rate\": 1,\n    \"amount\": 13\n}": "This is the actual JSON payload being sent in the request body. It contains various parameters including session ID, account ID, target type, target ID, token name, description, type of token, action to be performed, and the rate and amount associated with the token.",
+            "options": {
+              "raw": {
+                "language": "json": "This specifies that the raw data being sent is in JSON format."
+              }
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            targetType: teamId
+            targetId: teamId
+            name: BPT
+            description: Beladed Platform Token
+            type: platform
+            action: sell
+            rate: 1
+            amount: 13
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

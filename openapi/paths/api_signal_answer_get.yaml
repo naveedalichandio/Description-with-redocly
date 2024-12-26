@@ -1,0 +1,82 @@
+get:
+  tags:
+    - WhipSignal
+  summary: Signal - Answer - Get
+  description: >-
+    ### Endpoint Description: Signal - Answer - Get
+
+
+    **Request Type:**  
+
+    - **Method:** GET  
+
+    This method is used to retrieve data from the specified endpoint.
+
+
+    **Authentication:**  
+
+    - **Auth Type:** Bearer  
+
+    The request requires bearer token authentication, which is used to authorize
+    access to the API.  
+
+
+    - **Bearer Token Structure:**  
+      - **Key:** token  
+        This field holds the actual bearer token needed for authentication.  
+      - **Value:** BearerToken  
+        This is a placeholder string for the actual token that should be provided to authenticate the request.  
+      - **Type:** string  
+        Indicates that the value is a string.
+
+    **Endpoint URL:**  
+
+    - **URL:**
+    `http://localhost:3000/api/signal/answer/get?accountId=accountId&sessionId=sessionId&signalId=signalId`  
+
+    This is the URL endpoint being accessed:  
+      - **Base URL:** `http://localhost:3000/api/signal/answer/get`  
+      This is the root path for the API call.  
+      - **Query Parameters:**  
+        - **accountId:** The unique identifier for the account from which the data is being requested.  
+        - **sessionId:** The unique identifier for the session related to the signal being queried.  
+        - **signalId:** The unique identifier for the specific signal being requested.  
+
+    **Headers:**  
+
+    - **Headers Array:**  
+      - There are no headers specified in this request as the header object is empty, and it is currently disabled. 
+
+    **Body:**  
+
+    - **Body Mode:** raw  
+      The request body is set to raw format, meaning it can contain a string payload.  
+    - **Raw Content:**  
+      - The raw body is empty for this GET request, as typically, GET requests do not require a body.
+
+    This endpoint is designed to fetch data related to a specific signal answer
+    based on the identifiers provided in the query parameters. Ensure that valid
+    tokens and parameters are used when making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: signalId
+      in: query
+      schema:
+        type: string
+      example: signalId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

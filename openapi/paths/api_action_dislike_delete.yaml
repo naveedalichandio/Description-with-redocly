@@ -1,0 +1,50 @@
+post:
+  tags:
+    - ActionDislike
+  summary: Action - Dislike - Delete
+  description: |-
+    {
+      "name": "Action - Dislike - Delete",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer": "This specifies that the request requires bearer authentication, in which a token is sent to verify the identity of the user making the API call.",
+            "bearer": [
+              {
+                "key": "token": "The key used to identify the authentication token.",
+                "value": "sessionId": "This is the variable placeholder representing the actual session ID for authentication, needed to identify the user session.",
+                "type": "string": "This indicates the type of value for the token, which is a string."
+              }
+            ]
+          },
+          "method": "POST": "This indicates that the HTTP method used for the request is POST, typically used for sending data to the server.",
+          "url": "http://localhost:3000/api/action/dislike/delete": "This is the endpoint URL where the request is sent to, targeting the specific action of deleting a dislike.",
+          "headers": [
+            {
+              "key": "": "Currently, there are no specific headers defined apart from the default settings.",
+              "value": "": "No value is assigned to the header key.",
+              "type": "default": "This indicates that these are default headers and any custom headers are disabled.",
+              "disabled": true: "The header settings are disabled and will not be sent with the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "The body of the request is sent in raw format, which means it contains JSON formatted string data.",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"dislikeId\":\"dislikeId\"}": "This is the actual JSON payload sent with the request, containing three fields: sessionId (for identifying the user session), accountId (for identifying the user's account), and dislikeId (for identifying the specific dislike action to be deleted)."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"dislikeId\":\"dislikeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,102 @@
+put:
+  tags:
+    - ActionCompete
+  summary: Action - Compete - Update
+  description: >-
+    ### Action - Compete - Update
+
+
+    #### Request Details:
+
+    - **Auth**: This section describes the authentication method.
+      - **Type**: Bearer token is used for authorization.
+      - **Bearer**: 
+        - **Key**: The key identifier for the token. In this case, it's "token".
+        - **Value**: This represents the actual token used for authentication, in this case, "BearerToken". Replace this with the actual bearer token.
+        - **Type**: Indicates that the token is of string type.
+
+    - **Method**: 
+      - **PUT**: This indicates that the request is a PUT operation. PUT is used to update existing resources.
+
+    - **URL**: 
+      - **Endpoint**: `http://localhost:3000/api/action/compete/update` is the endpoint where the request will be sent. This URL is the local server address for updating contest details.
+
+    - **Headers**: 
+      - **Client-UUID**: This is a custom header that identifies the client making the request.
+        - **Key**: "Client-UUID" is the name of the header.
+        - **Value**: Represents the unique identifier for the client, denoted as "ClientUUID". This should be replaced with the actual UUID.
+        - **Type**: This is a default header type.
+
+    #### Body: (Payload Details)
+
+    - **Mode**: 
+      - **Raw**: Indicates that the body of the request is sent as raw data.
+
+    - **Raw**: 
+      - The body must be a valid JSON object with the following fields:
+      
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "path": "/live/channel/video123",
+          "targetType": "videoId",
+          "targetId": "videoId",
+          "sourceType": "accountId",
+          "sourceId": "accountId",
+          "name": "Tournament s",
+          "targetText": "lets play a sss match",
+          "competeId": "competeId",
+          "description": "",
+          "tags": ""
+      }
+      ```
+
+    - **Fields in the JSON body**:
+      - **sessionId**: Unique identifier for the session related to the competition.
+      - **accountId**: Identification number for the account associated with the user.
+      - **path**: The URL path of the resource related to the competition, such as a video or stream path.
+      - **targetType**: Specifies the type of target being competed against, here it indicates a video ID.
+      - **targetId**: The specific ID of the target item (video) that participants will compete against.
+      - **sourceType**: Type indicating the source from which the competition starts, in this case, it is based on account ID.
+      - **sourceId**: The specific ID of the source account related to the competition.
+      - **name**: The name assigned to the competition or tournament.
+      - **targetText**: Text description or prompt for the competition, in this case, an invitation to play a match.
+      - **competeId**: Unique identifier for the competition being updated.
+      - **description**: Additional descriptive text for the competition. Currently set as empty.
+      - **tags**: Keywords associated with the competition for categorization. Currently set as empty.
+
+    This endpoint is designed for updating competition details, including
+    session, account, and competition specifics, via a PUT request with
+    appropriate authentication and headers.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: Tournament s
+            targetText: lets play a sss match
+            competeId: competeId
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

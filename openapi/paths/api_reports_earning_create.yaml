@@ -1,0 +1,99 @@
+post:
+  tags:
+    - ReportsEarning
+  summary: Reports - Earning - Create
+  description: >-
+    This endpoint is called "Reports - Earning - Create". It is used to create a
+    new earning report. This is a POST method API call.
+
+
+    For authorization, it uses bearer token authentication. You have to provide
+    a Bearer token in the 'token' key. The value for the key in this case is
+    'BearerToken' and the type of value is a 'string'.
+
+
+    The URL for this API call is
+    "http://localhost:3000/api/reports/earning/create". The base URL
+    (http://localhost:3000) may vary depending on where your server is actually
+    located.
+
+
+    This API call doesn't require any headers, as indicated by the blank 'key'
+    and 'value' fields in the 'headers' section.
+
+
+    In the body of the request, you must provide the following data in raw JSON
+    format:
+
+
+    - "sessionId": This is the unique identifier of the session.
+
+    - "accountId": This is the unique identifier of the account.
+
+    - "name": This is the name of the earning, in this case it is 'My Second
+    Earning'.
+
+    - "description": This is the description of the earning.
+
+    - "tags": These are the associated tags for the earning.
+
+    - "profilePhotoUrl" and "coverPhotoUrl": These are the URLs of the profile
+    and cover photos respectively.
+
+    - "minimumTipAmount": This is the minimum tip amount.
+
+    - "categoryId" and "subCategoryId": These are the identifiers for the
+    category and subcategory respectively.
+
+    - "category" and "subCategory": These are the names of the category and
+    subcategory.
+
+    - "isEarningPrivate": This is a boolean value specifying whether the earning
+    is private or not.
+
+    - "isTournamentOnly": This is a boolean value specifying whether the report
+    is only for tournaments.
+
+    - "isEarningDefault": This is a boolean value specifying whether this is a
+    default earning.
+
+    - "isPreLiveReportsAds" and "isPostLiveReportsAds": These boolean values
+    specify whether there are pre-live and post-live ads respectively.
+
+    - "breakPreLiveReportsUrl" and "breakPostLiveReportsUrl": These are URLs
+    where pre-live and post-live reports can be accessed respectively. 
+
+
+    The language to be used for the raw data is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Earning
+            description: This earning is my second earning
+            tags: second,earning
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isEarningPrivate: true
+            isTournamentOnly: false
+            isEarningDefault: true
+            isPreLiveReportsAds: true
+            isPostLiveReportsAds: true
+            breakPreLiveReportsUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveReportsUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

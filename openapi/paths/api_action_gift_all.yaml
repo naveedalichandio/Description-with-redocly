@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ActionGift
+  summary: Action - Gift - Get All
+  description: >-
+    ### Description of the API Endpoint "Action - Gift - Get All"
+
+
+    #### Name
+
+    - **Action - Gift - Get All**: This is the name of the API endpoint,
+    indicating its purpose to retrieve all gift actions.
+
+
+    #### Request
+
+    - **Auth**: Defines the authentication required to access the endpoint.
+      - **Type**: Indicates the type of authentication. Set to `bearer`, meaning a bearer token is required for authorization.
+      - **Bearer**: An array that contains the token information.
+        - **Key**: This specifies the type of authentication token being used, labeled as `token`.
+        - **Value**: The actual token value which is used to authenticate the request, currently set as `BearerToken`, which should be replaced with an actual token.
+        - **Type**: This indicates the data type of the token, specified as `string`.
+
+    - **Method**: 
+      - **GET**: This specifies the HTTP method used for the request, which is `GET`. This method is typically used to retrieve data from a specified resource.
+
+    - **URL**: 
+      - This is the endpoint URL where the request is sent. It comprises several parameters:
+        - `http://localhost:3000/api/action/gift/all/`: The base URL for accessing all gift actions.
+        - `?sessionId=sessionId`: A query parameter where `sessionId` should be replaced with an actual session ID that relates to the user's session.
+        - `&accountId=accountId`: Another query parameter where `accountId` should be substituted with the actual account ID of the user making the request.
+
+    - **Headers**: 
+      - This section captures any header information that should be included with the request.
+        - **Key**: Currently empty, which means no specific header key is being sent.
+        - **Value**: Also empty, indicating no corresponding header value is being sent.
+        - **Type**: Default, which means the header type is standard.
+        - **Disabled**: Set to true, which means that this header will not be sent with the request.
+
+    - **Body**: 
+      - **Mode**: 
+        - **Raw**: Indicates that the body format for the request is raw text.
+      - **Raw**: 
+        - The body is currently empty, indicating that no additional data needs to be sent with the GET request. 
+
+    This endpoint is designed to fetch all available gift actions for the user
+    specified by the session and account ID.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

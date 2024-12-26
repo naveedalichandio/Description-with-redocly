@@ -1,0 +1,108 @@
+put:
+  tags:
+    - ReportsChannel
+  summary: Reports - Channel - Update
+  description: >-
+    This endpoint is called "Reports - Channel - Update". You can use it to
+    update an existing report channel using a "PUT" request. 
+
+
+    In the request, there are several parts that you need to carefully fill out:
+
+
+    - "auth": This part requires a bearer token for authorization. It is used to
+    verify your identity, based on the "token" provided in the key-value pair.
+    Type should be set as "string".
+
+
+    - "url": This is the URL where you will be making the request. This needs to
+    point to the server where the API is hosted.
+
+
+    - "headers": This contains a "Client-UUID" key. The UUID is a unique
+    identifier issued for each client.
+
+
+    In the body of the request, you'll provide the details of the report channel
+    that you wish to update:
+
+
+    - "channelId": Unique identifier for the channel.
+
+
+    - "sessionId": Unique session identifier.
+
+
+    - "accountId": Unique account identifier.
+
+
+    - "name": Updated name for the channel.
+
+
+    - "description": Provides a detailed explanation about the channel.
+
+
+    - "tags": Keywords associated with the channel.
+
+
+    - "profilePhotoUrl": URL link to the profile photo.
+
+
+    - "coverPhotoUrl": URL link to the cover photo.
+
+
+    - "minimumTipAmount": Minimum tip amount allowed in the channel.
+
+
+    - "categoryId" and "category": Unique identifier and name for the channel's
+    main category.
+
+
+    - "subCategoryId" and "subCategory": Unique identifier and name for the
+    channel's subcategory.
+
+
+    "IsChannelPrivate" This is a boolean flag to indicate if the channel is
+    private or not.
+
+
+    - "isTournamentOnly": Boolean flag to indicate whether the channel is only
+    for tournaments.
+
+
+    - "isChannelDefault": Boolean flag indicating whether the channel is the
+    default one.
+
+
+    - "isPreLiveReportsAds" and "isPostLiveReportsAds": Boolean flags that if
+    true, indicate that ads should play before and after live reports.
+
+
+    - "breakPreLiveReportsUrl" and "breakPostLiveReportsUrl": URLs for the break
+    pre-live and post-live reports.
+
+
+    Please make sure to replace all placeholder values with actual data.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"channelId\":\"channelId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Channel 2.0\",\"description\":\"This channel is my second
+            channel\",\"tags\":\"second,channel\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isChannelPrivate\":true,\"isTournamentOnly\":false,\"isChannelDefault\":true,\"isPreLiveReportsAds\":true,\"isPostLiveReportsAds\":true,\"breakPreLiveReportsUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveReportsUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

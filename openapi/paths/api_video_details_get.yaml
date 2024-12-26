@@ -1,0 +1,60 @@
+get:
+  tags:
+    - VideoDetails
+  summary: Video - Details - Get
+  description: >-
+    ### Endpoint: Video - Details - Get
+
+
+    #### Request Authentication
+
+    - **Auth Type**: Bearer
+      - The request requires a bearer token for authentication.
+      - **Bearer Token**: A string token is needed to validate the request. Replace `"BearerToken"` with your actual token.
+        - **Key**: `token` - This is the identifier for the bearer token.
+        - **Value**: The actual token string that grants access to the API.
+
+    #### HTTP Method
+
+    - **Method**: GET
+      - This endpoint uses the GET method to retrieve data.
+
+    #### Request URL
+
+    - **URL**:
+    `http://localhost:3000/api/video/details/get/?videoId=videoId&accountId=accountId`
+      - This is the endpoint to fetch video details.
+      - **URL Parameters**:
+        - **videoId**: The unique identifier for the video. Replace `videoId` with the actual ID of the video you want to retrieve details for.
+        - **accountId**: The unique identifier for the user account associated with the video. Replace `accountId` with the actual account ID.
+
+    #### Request Headers
+
+    - **Headers**: 
+      - No additional headers are required for this request. Currently, there is a placeholder present with empty key and value, which is disabled.
+
+    #### Request Body
+
+    - **Body**: 
+      - The request does not require a body when using the GET method. The body mode is set to "raw", but it remains empty. 
+
+    Please ensure to fill in the videoId and accountId in the URL before making
+    the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: videoId
+      in: query
+      schema:
+        type: string
+      example: videoId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

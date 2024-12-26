@@ -1,0 +1,67 @@
+get:
+  tags:
+    - IncentiveReward
+  summary: Incentive - Reward - Get
+  description: >-
+    1. **name**: "Incentive - Reward - Get". This is the name for this specific
+    endpoint that fetches the reward data related to an incentive program. Use
+    it to conveniently identify this request among others in your collection.
+
+
+    2. **request.auth.type**: "bearer". This denotes the type of authorization
+    used for this request which is 'bearer' token in this case. Bearer token
+    authorization leverages a security token for authorization management.
+
+
+    3. **request.auth.bearer**: It is an array of object. The object contains
+    three properties:
+        - **key**: "token". It is the type of authorization value you are going to use.
+        - **value**: "BearerToken". This would be the actual token value. Replace 'BearerToken' with the actual token when making a real API call.
+        - **type**: "string". It represents the data type of token and it is a string.
+
+    4. **request.method**: "GET". This is the HTTP method used for this request.
+    'GET' method is used to retrieve information from the server.
+
+
+    5. **request.url**:
+    "http://localhost:3000/api/incentive/reward/get/?rewardId=rewardId&sessionId=sessionId&accountId=accountId".
+    This is the URL where the request will be sent. The URL contains three query
+    parameters - rewardId, sessionId and accountId. Replace these parameters
+    with actual values when making a real API call.
+
+
+    6. **request.headers**: An array used to define any headers to be sent along
+    with the request. In this case, no headers are required as the object inside
+    the array is empty and disabled.
+
+
+    7. **request.body.mode**: "raw". Indicates that the request body will be
+    sent as a raw string. However, in this GET request, there is no need to send
+    a body, hence the raw value is an empty string.
+
+
+    8. **request.body.raw**: ""(empty string). As it's a GET request, it does
+    not contain a body. It means no additional data is sent to the server.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: rewardId
+      in: query
+      schema:
+        type: string
+      example: rewardId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

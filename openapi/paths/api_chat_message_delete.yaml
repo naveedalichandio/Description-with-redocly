@@ -1,0 +1,53 @@
+post:
+  tags:
+    - ChatMessage
+  summary: Chat - Message - Delete
+  description: >-
+    This API endpoint is called "Chat - Message - Delete". It facilitates the
+    deletion of a specific chat message from a thread. Below are the detailed
+    descriptions of each data:
+
+
+    1. **Name**: The name of the endpoint, which signifies its purpose. Here,
+    "Chat - Message - Delete" suggests that it is used for deleting a chat
+    message.
+
+
+    2. **Request**: This contains all the information required to make an API
+    call. 
+
+       - **Auth**: The "Auth" field specifies the type of authentication used. It has a "type" sub-field that denotes the kind of authorization, which in this case is a "Bearer" token authorization. The "bearer" sub-field is an array that holds the token information. Each array element has a "key", a "value", and a "type". The "key" is "token", the "value" is "BearerToken", which should be replaced with the actual bearer token for authentication, and the "type" is "string", indicating the data type of the token.
+
+       - **Method**: The HTTP method used for sending the request. Here, the method is "POST", denoting that it is requesting to create or update the resources.
+
+       - **URL**: This is the address to which the request is to be sent. In this case, the request will be sent to "http://localhost:3000/api/chat/message/delete".
+       
+       - **Headers**: An array for specifying HTTP headers to send with the request. It is empty here, which means no additional headers are required.
+       
+       - **Body**: This contains the actual content or data to send in the request.
+       
+         - **Mode**: The setting that defines how to interpret the body of the request. In this case, the mode is "raw", denoting that raw data is sent in the request.
+
+         - **Raw**: It represents the actual data to be sent in the body of the request which is in the raw JSON format. It includes "messageId", "threadId", "accountId", and "sessionId". These are identifiers for the message to be deleted, the thread where the message resides, the account that owns the message, and the active session, respectively.
+
+         - **Options**: It is used to specify any additional options. For instance, the "raw" option specifies that the language of the body content is JSON.
+
+    Note: All the string placeholders in this data should be replaced with
+    actual values when making a request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            messageId: messageId
+            threadId: threadId
+            accountId: accountId
+            sessionId: sessionId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

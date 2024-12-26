@@ -1,0 +1,54 @@
+post:
+  tags:
+    - MediaVideo
+  summary: Media - Video - Delete
+  description: >-
+    - `"name": "Media - Video - Delete"`: This represents the name of the API
+    endpoint. It indicates that this endpoint is used to delete media,
+    specifically videos, in the application.
+
+
+    - `"request":`: This object contains details about the HTTP request made to
+    the endpoint.
+
+
+    - `"auth":`: This object contains authentication information required to
+    access the endpoint. 
+      - `"type": "bearer"`: Indicates that the endpoint uses Bearer token authentication.
+      - `"bearer":`: This array contains objects representing individual bearer tokens.
+        - `"key": "token"`: The string that should be used as a key for the bearer token in request headers.
+        - `"value": "sessionId"`: The string that should be used as the value of the bearer token. In this case, it indicates that the session id should be provided as the token.
+        - `"type": "string"`: The data type of the value - sessionId is a string.
+
+    - `"method": "POST"`: This instructs the HTTP request to use the POST
+    method, indicating that information will be sent to the server to create or
+    update a resource.
+
+
+    - `"url": "http://localhost:3000/api/media/media/delete"`: This is the URL
+    where the HTTP request will be sent to perform the operation.
+
+
+    - `"headers":`: This array contains objects representing individual HTTP
+    headers to be included in the request.
+      - Note that the `"key": ""` and `"value": ""` are empty. This might be a template for users to include any other headers needed for the request.
+      - `"type": "default"`: The type of HTTP header. It is set to default, meaning it is not any special, predefined type of header.
+      - `"disabled": true` This header is disabled, and will not be sent along with the HTTP request.
+
+    - `"body":`: This object contains data that will be sent to the server.
+      - `"mode": "raw"`: The body data will be sent in raw format, meaning it is a string of text exactly as it appears in the `"raw"` field.
+      - `"raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"videoId\":\"videoId\"}"`: This is the actual data to be sent. Keys (`sessionId`, `accountId`, `videoId`) represent parameter names, and the corresponding values are placeholders, indicating that actual session ID, account ID, and video ID should be provided when making the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"videoId\":\"videoId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

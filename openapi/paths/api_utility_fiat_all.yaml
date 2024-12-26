@@ -1,0 +1,63 @@
+get:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Get All
+  description: |-
+    {
+      "name": "Utility - Fiat - Get All",
+      "description": "This request fetches all available fiat utilities. It is useful for retrieving a comprehensive list of fiat-related utilities that the API provides.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "description": "Authentication type used for this request. A bearer token must be provided for authorization to access the endpoint.",
+          "bearer": [
+            {
+              "key": "token",
+              "description": "The key for the bearer token. It is required to authorize the request.",
+              "value": "BearerToken",
+              "description": "The actual value of the bearer token, which needs to be replaced with a valid token for the request to succeed.",
+              "type": "string"
+            }
+          ]
+        },
+        "method": {
+          "description": "This indicates the HTTP method used for the request. 'GET' is used here to retrieve information from the server."
+        },
+        "url": {
+          "description": "The endpoint URL for the request. It consists of the base URL followed by the specific path for retrieving all fiat utilities. It also includes query parameters for session ID and account ID.",
+          "value": "http://localhost:3000/api/utility/fiat/all/?sessionId=sessionId&accountId=accountId"
+        },
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true,
+            "description": "This header entry is currently disabled and does not have any key or value defined. Normally, headers can be used to pass additional information with the request."
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "description": "This indicates the format of the request body. In this case, it is set to 'raw', meaning that no body content is being sent with the request for the 'GET' method.",
+          "raw": ""
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

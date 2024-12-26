@@ -1,0 +1,61 @@
+get:
+  tags:
+    - ArticleTopic
+  summary: Article - Topic - Get All By SubCategory ID
+  description: >-
+    This endpoint is named "Article - Topic - Get All By SubCategory ID". It
+    basically gets all articles under a specific topic identified by its
+    subcategory ID. Here's the breakdown:
+
+
+    1. **name**: The name of this endpoint is "Article - Topic - Get All By
+    SubCategory ID", which explains the primary function of this endpoint. It's
+    designed to fetch all articles within a specified topic that falls under a
+    certain subcategory.
+
+
+    2. **auth**: This section outlines the expected authentication mechanism.
+    The `type` is "bearer", indicating that bearer token authentication is
+    required. The bearer token itself should be supplied as the value of the
+    `token` key. Here, "BearerToken" is a placeholder for the actual token you
+    need to provide.
+
+
+    3. **method**: This endpoint uses the "GET" HTTP method, which is typically
+    used to retrieve information.
+
+
+    4. **url**: This is the URL where the request should be sent. This example
+    uses a local server running on port 3000. The route is
+    "/api/article/topic/all". A query parameter `subCategoryId` is required
+    where you are supposed to provide the subcategory ID
+    (`articleSubCategoryId`) of the articles that you want to retrieve.
+
+
+    5. **headers**: This is usually where you define any necessary HTTP headers
+    for your request. However, in this case, a default header without a
+    key-value pair is defined, but it is disabled.
+
+
+    6. **body**: This outlines the structure and mode of the body of your
+    request. However, since we're using a GET method, the body is not required
+    and thus the `raw` field is empty. The `mode` is set to "raw", but it won't
+    be used here.
+
+
+    Please remember to replace placeholders with real values when using this
+    endpoint. Specifically, you should provide a valid bearer token and a valid
+    subcategory ID.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: subCategoryId
+      in: query
+      schema:
+        type: string
+      example: articleSubCategoryId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

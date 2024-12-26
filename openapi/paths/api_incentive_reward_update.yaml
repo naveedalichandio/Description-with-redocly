@@ -1,0 +1,99 @@
+put:
+  tags:
+    - IncentiveReward
+  summary: Incentive - Reward - Update
+  description: >-
+    This API endpoint is named "Incentive - Reward - Update". It is designed to
+    update an existing reward in the incentive program. Here are the main
+    components:
+
+
+    Authentication ("auth"): This endpoint uses bearer token authentication. You
+    need to provide a token in the 'BearerToken' field to authenticate your
+    request.
+
+
+    Request Type ("method"): The type of the request is PUT which means it is
+    used to update or replace an existing resource.
+
+
+    URL ("url"): The URL to send the request to is
+    "http://localhost:3000/api/incentive/reward/update".
+
+
+    Headers: This request contains one header, "Client-UUID". This is presumably
+    uniquely identifying your client to the server.
+
+
+    Request Body ("body"): This contains all the information needed to update a
+    reward. It is in raw JSON format. The fields are:
+
+
+    - "sessionId": The unique identifier of the current session.
+
+    - "accountId": The unique identifier of the account.
+
+    - "rewardId": The unique identifier of the reward.
+
+    - "name": The name of the reward.
+
+    - "description": A short explanation about the reward.
+
+    - "tags": A list of tags describing the reward, which can be used for search
+    or categorisation.
+
+    - "rewardType": The type of reward (in this case, "token").
+
+    - "rewardTypeId": A unique identifier for the reward type.
+
+    - "tokenAmount": The amount of tokens provided by the reward.
+
+    - "profilePhotoUrl": A URL referencing an image which represents the reward.
+
+    - "coverPhotoUrl": A URL pointing to the reward's cover photo.
+
+    - "videoPlaybackUrl": If there is any video associated with the reward, its
+    URL will be placed here.
+
+    - "audioPlaybackUrl": URL for any audio file related to the reward.
+
+
+    Options ("options"): These specify that the body is to be interpreted as raw
+    JSON input.
+
+
+    Remember, the values provided here - such as "BearerToken", "ClientUUID",
+    and the placeholder values in the body - are just placeholders. You need to
+    replace them with your actual data before making a request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            rewardId: rewardId
+            name: Exclusive Loyalty Reward 2
+            description: Reward your loyal customers with exclusive perks.
+            tags: loyalty,exclusive,offer
+            rewardType: token
+            rewardTypeId: ''
+            tokenAmount: 500
+            profilePhotoUrl: https://example.com/images/reward-profile.jpg
+            coverPhotoUrl: https://example.com/images/reward-cover.jpg
+            videoPlaybackUrl: https://example.com/videos/reward-intro.mp4
+            audioPlaybackUrl: https://example.com/audio/reward-theme.mp3
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

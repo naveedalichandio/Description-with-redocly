@@ -1,0 +1,109 @@
+post:
+  tags:
+    - ActionReport
+  summary: Action - Report - Create
+  description: >-
+    ### Description of Endpoint: Action - Report - Create
+
+
+    This endpoint is used to create a report within the system through a `POST`
+    request to the specified URL. Below are the details for each piece of data
+    involved in the request:
+
+
+    #### Request Details:
+
+
+    - **Method**: 
+      - **POST** - This HTTP method is used to send data to the server to create a new resource.
+
+    - **URL**: 
+      - **http://localhost:3000/api/action/report/create** - This is the endpoint URL where the report creation request is sent. It runs on `localhost` at port `3000`.
+
+    #### Authentication:
+
+
+    - **Auth Type**: 
+      - **Bearer** - The request requires bearer token authentication for authorization.
+      
+    - **Bearer Token**: 
+      - **key**: Represents the parameter name used to pass the token.
+      - **value**: A placeholder (`BearerToken`) that should be replaced with the actual token needed to authenticate the request.
+      - **type**: Indicates that this is a string value.
+
+    #### Headers:
+
+
+    - **Headers**: 
+      - This section is currently empty, with a key and value that are not set. It is marked as disabled, meaning it won't be sent with the request. Typically, headers can be used to provide additional context or directives for the server.
+
+    #### Body:
+
+
+    - **Body Mode**: 
+      - **raw** - The body of the request will be sent as raw JSON data.
+
+    - **Body Content**: 
+      The body contains the following fields in JSON format:
+      
+      - **sessionId**: A unique identifier for the session. This should be replaced with the actual session identifier being reported.
+      
+      - **accountId**: The identifier for the account that is making the report. Replace with the specific account ID.
+      
+      - **path**: A string that describes the path of the content being reported, such as the URL or route. Example: `/live/channel/video123`.
+      
+      - **targetType**: The type of the target being reported. For instance, it could indicate that the target is identified by a video ID.
+      
+      - **targetId**: The specific ID of the target (e.g., video ID) that you are reporting.
+      
+      - **sourceType**: Indicates the type of source that is reporting the content, typically related to the identifier passed in `accountId`.
+      
+      - **sourceId**: The ID of the source that is creating the report, usually the same as `accountId`.
+      
+      - **didReport**: A boolean value indicating if the report has already been submitted. Typically should be set to `true`.
+      
+      - **category**: A string describing the main category of the report. This provides general classification of the report type.
+      
+      - **subcategory**: A string providing more specific classification within the main category.
+      
+      - **subject**: A brief title or subject line for the report, summarizing the reason for the report.
+      
+      - **text**: A longer text field providing details about the report’s content, providing context or explanations as necessary.
+      
+      - **name**: A field that could be used to specify a name associated with the report, currently left empty.
+      
+      - **description**: A field for a more detailed description of the report. It is currently left empty.
+      
+      - **tags**: This can hold metadata or labels to categorize the report, currently left empty.
+
+    This request structure enables you to effectively report an issue or action
+    within the application, gathering essential information needed for review
+    and resolution.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didReport: true
+            category: this is category
+            subcategory: this is subcategory
+            subject: this is subject
+            text: some text
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

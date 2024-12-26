@@ -1,0 +1,81 @@
+post:
+  tags:
+    - WhipSignal
+  summary: Signal - Answer - Create
+  description: >-
+    ### API Endpoint Description: Signal - Answer - Create
+
+
+    #### Name
+
+    - **Signal - Answer - Create**: This endpoint is used to create a signal
+    answer in a specific session.
+
+
+    #### Request
+
+    - **Auth**: 
+      - **Type**: Bearer
+      - **Bearer**: This contains the authentication token required for the request.
+        - **Key**: "token" - The identifier for the bearer token.
+        - **Value**: "BearerToken" - The actual token that grants access to the API (replace "BearerToken" with your actual token when making requests).
+        - **Type**: string - Specifies that the token value is a string.
+
+    - **Method**: 
+      - **POST**: Indicates that this endpoint requires a POST request to create a new signal answer.
+
+    - **URL**: 
+      - **http://localhost:3000/api/signal/answer/create**: This is the endpoint for creating a signal answer. The address is currently configured to run locally on port 3000.
+
+    - **Headers**: 
+      - The request currently does not require any headers to be set, as indicated by:
+        - **Key**: (empty) - No specific header key is included.
+        - **Value**: (empty) - No specific header value is included.
+        - **Type**: default - Default type indicating it's a standard header.
+        - **Disabled**: true - This header setting is disabled and not sent with the request.
+
+    - **Body**:
+      - **Mode**: 
+        - **raw**: Specifies that the request body will be sent as raw data.
+      
+      - **Raw**: 
+        - The content of the body that needs to be sent in JSON format:
+          - **accountId**: "accountId" - The ID of the account associated with this request (replace with actual ID).
+          - **sessionId**: "sessionId" - The ID of the session in which the signal answer is being created (replace with actual ID).
+          - **type**: "answer" - Specifies that this is an answer type signal.
+          - **sdp**: 
+            - **Session Description Protocol (SDP)**: 
+              - Contains a series of lines formatted for multimedia session description:
+                - **Version**: `v=0` indicates the SDP version.
+                - **Origin**: `o=- 25678 753849 IN IP4 192.168.1.1` identifies the session origin.
+                - **Session Name**: `s=-` provides a default session name.
+                - **Connection Information**: `c=IN IP4 192.168.1.1` specifies the connection information.
+                - **Timing**: `t=0 0` indicates that the session does not have a specific timing.
+                - **Media Attributes**: `a=recvonly` indicates that this endpoint will only receive media.
+                - **Media Description**: `m=audio 49170 RTP/AVP 0` describes the media type (audio) and associated settings.
+                - **RTP Mapping**: `a=rtpmap:0 PCMU/8000` specifies the payload type and codec being used.
+
+      - **Options**: 
+        - **Raw**: Contains settings related to the type of raw body:
+          - **Language**: "json" - Indicates that the raw data is in JSON format. 
+
+    This description provides all necessary details for users of the Postman API
+    collection to understand how to use the "Signal - Answer - Create" endpoint
+    effectively.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            type: answer
+            sdp: "v=0\r\no=- 25678 753849 IN IP4 192.168.1.1\r\ns=-\r\nc=IN IP4 192.168.1.1\r\nt=0 0\r\na=recvonly\r\nm=audio 49170 RTP/AVP 0\r\na=rtpmap:0 PCMU/8000\r\n"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

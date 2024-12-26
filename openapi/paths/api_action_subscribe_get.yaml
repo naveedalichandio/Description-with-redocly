@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ActionSubscribe
+  summary: Action - Subscribe - Get
+  description: |-
+    {
+      "name": "Action - Subscribe - Get",
+      "description": "This endpoint retrieves subscription details based on the provided parameters. It uses a GET request method to fetch data regarding a specific subscription.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "description": "Authentication is done using a Bearer token. This token must be included in the request header to authorize access to the endpoint.",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string",
+              "description": "The Bearer token used for authentication. Replace 'BearerToken' with the actual token value required for accessing the resource."
+            }
+          ]
+        },
+        "method": "GET",
+        "description": "The HTTP method used for this request is GET, which is typically used to retrieve data from the server.",
+        "url": "http://localhost:3000/api/action/subscribe/get/?subscribeId=subscribeId&sessionId=sessionId&accountId=accountId",
+        "description": "The URL for the request includes three query parameters: subscribeId, sessionId, and accountId. These parameters are necessary for identifying the specific subscription details to be fetched.",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true,
+            "description": "No headers are actively set for this request, as this entry is currently disabled. If needed, headers can be enabled and configured according to requirements."
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "description": "This endpoint does not require a request body, as it uses the GET method. The body is set to raw and empty."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: subscribeId
+      in: query
+      schema:
+        type: string
+      example: subscribeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

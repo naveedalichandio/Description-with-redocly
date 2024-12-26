@@ -1,0 +1,73 @@
+get:
+  tags:
+    - WhipSignal
+  summary: Signal - Candidate - Get
+  description: >-
+    - **name**: This is the name of the API endpoint, which is "Signal -
+    Candidate - Get". It indicates that this endpoint is used to retrieve
+    information related to candidates within a signal context.
+
+
+    - **request**: This object contains all the details necessary to make the
+    API request.
+
+      - **auth**: This section specifies the authentication method used for this request.
+      
+        - **type**: Indicates the type of authentication. Here, it is set to "bearer", which means a bearer token is required for authorization.
+        
+        - **bearer**: This array contains information about the bearer token.
+        
+          - **key**: Represents the name of the token parameter, which is "token".
+          
+          - **value**: This is the actual token that provides access to the API. In this case, it is labeled as "BearerToken", which should be replaced with an actual token.
+          
+          - **type**: Describes the data type of the key value. It is set to "string", indicating that the token is a string.
+
+      - **method**: Specifies the HTTP method used for the request. This endpoint uses "GET", indicating that it retrieves data from the server.
+
+      - **url**: This is the endpoint URL that the request will target. The URL contains query parameters:
+      
+        - **accountId**: A parameter representing the identifier for the account. This will need to be replaced with a specific account ID value.
+        
+        - **sessionId**: A parameter indicating the identifier for the session. This should be replaced with the actual session ID you want to use.
+        
+        - **signalId**: A parameter representing the identifier for the signal. This also needs to be replaced with the specific signal ID.
+
+      - **headers**: This array contains any headers to be sent with the request.
+      
+        - **key**: This is the name of a header, which is currently empty, indicating no additional headers are set.
+        
+        - **value**: This is the value for the header key, also currently empty.
+        
+        - **type**: Specifies the type of the header, set to "default".
+        
+        - **disabled**: This boolean indicates whether the header is disabled. It is set to true, meaning this header will not be sent with the request.
+
+      - **body**: Represents the body of the request, which can hold data when sending requests that require a payload.
+      
+        - **mode**: Indicates the format of the body. Here it is set to "raw", which means the body will contain raw data.
+        
+        - **raw**: This is where the raw data would go. Currently, it is empty, indicating that no data will be sent in the request body. For a GET request, this is typically not used.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: signalId
+      in: query
+      schema:
+        type: string
+      example: signalId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

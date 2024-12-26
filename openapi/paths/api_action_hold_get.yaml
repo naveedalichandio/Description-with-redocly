@@ -1,0 +1,107 @@
+get:
+  tags:
+    - ActionHold
+  summary: Action - Hold - Get
+  description: >-
+    {
+      "name": "Action - Hold - Get",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "url": "http://localhost:3000/api/action/hold/get/?holdId=holdId&sessionId=sessionId&accountId=accountId",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        }
+      }
+    }
+
+
+    ### Description of Each Data
+
+
+    - **name**: This specifies the name of the API request. In this case, it is
+    "Action - Hold - Get", indicating that this request is intended to retrieve
+    information related to an action hold.
+
+
+    - **request**: This object contains all the details of the API request being
+    made.
+
+      - **auth**: This is the authentication method used for the request.
+        
+        - **type**: Indicates the type of authentication being used; in this instance, it is "bearer", which means that a bearer token is required to authorize the request.
+
+        - **bearer**: This is an array that contains authentication token details.
+
+          - **key**: Represents the name of the token, which is "token" in this case.
+
+          - **value**: This holds the actual bearer token value, represented here as "BearerToken". This token is required to authenticate the user making the request.
+
+          - **type**: Defines the data type of the token, which is "string" in this instance.
+
+      - **method**: Specifies the HTTP method to be used for the request. Here, "GET" indicates that this request is retrieving data from the server.
+
+      - **url**: This is the endpoint URL where the request is being sent. The URL includes query parameters:
+        
+        - **holdId**: Represents the ID of the hold that is being queried. It is marked here as a placeholder "holdId".
+
+        - **sessionId**: Represents the session's ID, which helps identify the session associated with this action. It is shown as a placeholder "sessionId".
+
+        - **accountId**: This indicates the account ID to be used in the request. It is labeled as a placeholder "accountId".
+
+      - **headers**: This array allows the inclusion of HTTP headers for the request.
+        
+        - **key**: The name of the header is currently empty, indicating that no custom headers are added.
+
+        - **value**: The value of the header is also empty.
+
+        - **type**: Specifies the type of the header; here it's set as "default".
+
+        - **disabled**: A boolean value indicating whether this header is disabled for this request. Currently set to true, meaning this header will not be sent.
+
+      - **body**: This describes the body of the request.
+
+        - **mode**: Indicates the body format being used. In this case, it is "raw", meaning the body is expected to be sent as raw data rather than as form data or other formats.
+
+        - **raw**: This field holds the actual content of the body. It is empty here, meaning no body content is required for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: holdId
+      in: query
+      schema:
+        type: string
+      example: holdId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

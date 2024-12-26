@@ -1,0 +1,48 @@
+post:
+  tags:
+    - ActionBuy
+  summary: Action - Buy - Delete
+  description: >-
+    ### Action - Buy - Delete Endpoint Description
+
+
+    This endpoint is designed to delete a specific buy action associated with a
+    user account.
+
+
+    1. **Request Method**: 
+       - **POST**: This method is used to send data to the server to perform the delete action.
+
+    2. **URL**: 
+       - **http://localhost:3000/api/action/buy/delete**: This is the local server URL where the delete request is sent. The path indicates that it’s related to actions for buying.
+
+    3. **Authentication**: 
+       - **Type**: Bearer Token.
+       - **Token**: The user must provide a session token identified by the key “token”. This token is essential for verifying the user’s identity and permission to perform the delete action.
+
+    4. **Headers**: 
+       - Currently, there are no additional headers included in the request, which means default behavior will apply. The header field is marked as disabled.
+
+    5. **Body**: 
+       - **Mode**: Raw.
+       - **Content**: The body of the request is sent in JSON format and contains three fields:
+         - **sessionId**: Represents the user's session ID to authenticate the request. This should match the token provided in the authentication step.
+         - **accountId**: This field specifies the account related to the buy action that needs to be deleted. It identifies whose action is being targeted.
+         - **buyId**: This uniquely identifies the specific buy action that is to be deleted from the system.
+
+    Ensure you replace the placeholders such as "sessionId", "accountId", and
+    "buyId" with actual values when making a request to this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"buyId\":\"buyId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

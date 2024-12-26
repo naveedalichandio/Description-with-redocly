@@ -1,0 +1,104 @@
+put:
+  tags:
+    - ConnectContact
+  summary: Connect - Contact - Update
+  description: >-
+    1. **name**: The name of the function or endpoint. Here, it represents an
+    operation to update contact in the 'Connect' functionality.
+
+
+    2. **request**: This object contains data relevant to making HTTP requests.
+
+
+    3. **auth**: The authorization method to be used. Here, it is 'bearer'
+    token-based auth.
+
+       - **type**: The type of authorization used. In this case, it is 'bearer'.
+       - **bearer**: An array that includes the token details to be sent along with an API request.
+         - **key**: The label of the auth token that we are sending. Here it is "token".
+         - **value**: This is the actual auth token which is called 'BearerToken'.
+         - **type**: Specifies the data type of the value, here it is 'string'.
+
+    4. **method**: The HTTP method to be used for the request. Here it is PUT,
+    which means we're updating existing data.
+
+
+    5. **url**: The URL to hit for the API endpoint. The given endpoint is for
+    updating contact in the 'Connect' functionality.
+
+
+    6. **headers**: An array that includes additional data to be sent along with
+    an API request.
+       - **key**: The label of the header that we are sending. Here it is "Client-UUID".
+       - **value**: This is the actual header value which is 'ClientUUID'.
+       - **type**: Specifies how the header is to be utilized, here it is 'default'.
+
+    7. **body**: This provides data that is sent as the body of the request.
+       - **mode**: Specifies how the body data is presented, here it is 'raw'.
+       - **raw**: The raw format of the data to be sent. It is in JSON format and contains various keys describing the contact's details like 'contactId', 'sessionId', 'accountId'.
+       - **options**: This provides additional settings for how the body data should be handled.
+         
+         Following are some of the essential parameters in the body you should be mindful of:
+         
+         - **contactId**: Uniquely identifies a contact to be updated.
+         - **sessionId**: Represents the unique Id for current session.
+         - **accountId**: The unique identifier of the user making the request.
+         - **name**: The name of the contact.
+         - **description**: Gives a brief about the contact.
+         - **tags**: Comma-separated values to categorize contacts. 
+         - **profilePhotoUrl**: URL of the profile image of the contact.
+         - **coverPhotoUrl**: URL of the cover image of the contact.
+         - **minimumTipAmount**: Smallest amount a user can tip the contact.
+         - **unlockAmount**: The amount required to unlock the contact.
+         - **category**: The general category under which the contact falls.
+         - **subCategory**: More specific category of the contact.
+         - **searchType**: Specifies the search type for the contact.
+         - **isContactPrivate**: A boolean indicating if the contact is private or not.
+         - **isTournamentOnly**: A boolean indicating if the contact is only for tournaments.
+         - **isEnabled**: A boolean indicating if the contact is enabled or not.
+         - **isContactDefault**: A boolean indicating if the contact is a default contact or not.
+         - **isPreLiveConnectAds**: A boolean indicating if pre-live connect ads are enabled for this contact.
+         - **breakPreLiveConnectUrl**: URL of the break pre-live connect video.
+         - **breakLivePauseConnectUrl**: URL of the break live pause connect video.
+         - **breakPostLiveConnectUrl**: URL of the break post-live connect video.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            contactId: contactId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeContact
+            description: This contact is my second contact
+            tags: second,contact
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isContactPrivate: true
+            isTournamentOnly: false
+            isContactDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

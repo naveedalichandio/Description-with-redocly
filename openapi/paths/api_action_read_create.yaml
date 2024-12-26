@@ -1,0 +1,119 @@
+post:
+  tags:
+    - ActionRead
+  summary: Action - Read - Create
+  description: >-
+    ### Action - Read - Create
+
+
+    This endpoint is used to create a read action in the system. The following
+    details outline the structure and expected input for the request:
+
+
+    #### Request Authentication
+
+    - **Auth Type:** Bearer
+      - This indicates that the request requires a bearer token for authentication. 
+      - **Bearer Token:**
+        - *Key*: `token` 
+        - *Value*: The value should be prefixed with "Bearer" followed by a space and then the actual token (e.g., "Bearer {YourActualToken}").
+        - *Type*: String
+
+    #### Request Method
+
+    - **Method:** POST
+      - This specifies that the request type is a POST method, typically used for creating new resources.
+
+    #### Request URL
+
+    - **URL:** `http://localhost:3000/api/action/read/create`
+      - This is the endpoint on the server where the request will be sent. The `/create` part indicates that it is for creating a new read action.
+
+    #### Request Headers
+
+    - **Headers:**
+      - Currently, no specific headers are defined as the key and value fields are empty. However, headers can typically be used for content type or other authentication details if needed.
+
+    #### Request Body
+
+    - **Body Mode:** Raw
+      - The body of the request is provided in raw format as a JSON string.
+
+    - **Raw JSON Structure:**
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "path": "/live/channel/video123",
+          "targetType": "streamer",
+          "targetId": "videoId",
+          "sourceType": "accountId",
+          "sourceId": "accountId",
+          "tokenAmount": 20,
+          "name": "read1",
+          "description": "",
+          "tags": ""
+      }
+      ```
+
+    #### JSON Field Descriptions
+
+    - **sessionId:** 
+      - This is a string that represents a unique identifier for the session in which the read action is taking place. 
+
+    - **accountId:** 
+      - A string that identifies the account associated with the read action.
+
+    - **path:** 
+      - The path is a string that specifies the location of the resource being read. In this case, it shows a live channel path.
+
+    - **targetType:** 
+      - A string that specifies the type of target being accessed. In this context, "streamer" indicates that the target is a streaming service or channel.
+
+    - **targetId:** 
+      - This string represents the unique identifier of the target resource. It should be the ID of the video or stream being accessed.
+
+    - **sourceType:** 
+      - This indicates the type of source from which the action is being initiated. Here, it is identified by "accountId."
+
+    - **sourceId:** 
+      - A string that denotes the unique identifier of the source from which the read action originates.
+
+    - **tokenAmount:** 
+      - A numeric value indicating the amount of tokens or credits used in this read action. In this case, it is set to 20.
+
+    - **name:** 
+      - A string that provides a name for the read action, allowing for easier identification.
+
+    - **description:** 
+      - A string meant for additional information about the read action. It is currently empty but can be populated with relevant details.
+
+    - **tags:** 
+      - A string intended for categorizing or tagging the action for easier searching or filtering. It is also currently empty.
+
+    This detailed breakdown of each field should help users understand the
+    required structure and purpose of the data being sent with this API request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: read1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

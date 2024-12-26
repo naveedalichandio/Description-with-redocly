@@ -1,0 +1,67 @@
+post:
+  tags:
+    - VideoUploadAfreecaTV
+  summary: POST Delete Video (AfreecaTV)
+  description: >-
+    ### POST Delete Video (AfreecaTV)
+
+
+    **Request Method:**  
+
+    This request uses the POST method to initiate the video deletion process on
+    AfreecaTV.
+
+
+    **Request URL:**  
+
+    The endpoint is located at `http://localhost:3000/api/VideoConnect`. This is
+    the address where the request is sent to handle video deletion.
+
+
+    **Headers:**  
+
+    - **Content-Type:** This header is set to `application/json`, indicating
+    that the request body will be formatted as JSON.
+
+
+    **Request Body:**  
+
+    The body of the request is formatted in raw JSON and contains the following
+    fields:
+
+
+    - **provider:** This field specifies the video service provider for the
+    video that is to be deleted. In this case, it is set to "afreecatv".
+
+
+    - **videoDetails:** This object should contain specific information about
+    the video that is intended for deletion. Currently, it is a placeholder
+    labeled `/* Video details */`, which should be replaced with actual video
+    attributes, such as video ID or title.
+
+
+    - **routeSettings:** This object defines how the request should be
+    processed. It contains the following property:
+      - **action:** This is set to "delete", indicating that the intended action for the request is to remove a video from the service. 
+
+    Make sure to fill out the `videoDetails` with the relevant information
+    before sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\n  \"provider\": \"afreecatv\",\n  \"videoDetails\": { /* Video
+            details */ },\n  \"routeSettings\": { \"action\": \"delete\" }\n}"
+  parameters:
+    - name: Content-Type
+      in: header
+      schema:
+        type: string
+      example: application/json
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

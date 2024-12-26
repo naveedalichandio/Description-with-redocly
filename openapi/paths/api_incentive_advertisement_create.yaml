@@ -1,0 +1,121 @@
+post:
+  tags:
+    - IncentiveAdvertisement
+  summary: Incentive - Advertisement - Create
+  description: >-
+    This endpoint titled as "Incentive - Advertisement - Create", is used to
+    create new advertisements in the Incentive system. 
+
+
+    It uses the POST method and the URL for this endpoint is
+    "http://localhost:3000/api/incentive/advertisement/create". 
+
+
+    The authentication required for this endpoint is type "bearer", with the
+    bearer token used as the authorization key. 
+
+
+    The request body is in raw JSON format, composed of details related to the
+    advertisement including:
+
+
+    - "accountId" is a string representing the account identifier under which
+    the advertisement is created.
+
+    - "sessionId" is a string, which represents the session in which the
+    advertisement is created.
+
+    - "title" represents the title of the advertisement.
+
+    - "description" provides a brief about the advertisement.
+
+    - "tags" are specific words or phrases that describe the advertisement.
+
+    - "coverPhotoUrl" represents an online URL where the cover photo of the
+    advertisement is hosted.
+
+    - "websiteUrl" is the link to the company or product's website that the ad
+    is promoting.
+
+    - "tokenAmount" represents the amount of tokens assigned to this
+    advertisement.
+
+    - "scheduleDate" and "scheduleTime" specifies when the advertisement should
+    be scheduled to go live.
+
+    - "pageType" describes the type of page where the advertisement will be
+    displayed.
+
+    - "city", "region", and "country" describe the location targeting of the
+    advertisement.
+
+    - "keywords" are specific words or phrases related to the theme and category
+    of advertisement.
+
+    - "category" is the overall category to which the advertisement belongs.
+
+    - "voteButtonQuantity" represents the number of voting buttons in the ad,
+    and "voteButtonText1", "voteButtonText2" are the respective button texts.
+
+    - "crossPlatformBudget" is an array representing the budget allocation for
+    different platforms over a specific number of days.
+
+    - "adShareSettings" indicates how the ad revenue will be split. 
+
+    - "isPaused" is a boolean indicating whether the ad is currently paused or
+    not. 
+
+
+    The endpoint does not accept any specific header values by default. The
+    response of the endpoint would need to be captured separately and is not
+    included in this information.
+
+
+    This document helps in understanding the data within the "POST" request for
+    the "Incentive - Advertisement - Create" API endpoint. For each specific
+    use-case, entries in the request body may need to be modified.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            title: Converse Shoes Campaign
+            description: Promote the latest Converse shoes.
+            tags: shoes,fashion,trending
+            coverPhotoUrl: https://example.com/images/converse-shoes.jpg
+            websiteUrl: https://example.com/converse
+            tokenAmount: 10
+            scheduleDate: '2024-11-25'
+            scheduleTime: '10:00:00'
+            pageType: Livestream
+            city: Henderson
+            region: Nevada
+            country: United States
+            keywords:
+              - category: Fashion
+                themes:
+                  - Trending
+                  - Shoes
+            category: Electronics & Gadgets
+            voteButtonQuantity: 2
+            voteButtonText1: Buy Now
+            voteButtonText2: Learn More
+            crossPlatformBudget:
+              - platform: google
+                perDay: 100
+                numberOfDays: 7
+              - platform: meta
+                perDay: 50
+                numberOfDays: 14
+            adShareSettings: 2 Way Split
+            isPaused: false
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

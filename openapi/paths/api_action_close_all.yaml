@@ -1,0 +1,61 @@
+get:
+  tags:
+    - ActionClose
+  summary: Action - Close - Get All
+  description: >-
+    ### Action - Close - Get All Endpoint Description
+
+
+    - **Name**: This is the name of the API request, indicating that it pertains
+    to retrieving all records associated with closing actions.
+
+
+    - **Request**: This section contains the details needed to make the API
+    call.
+
+      - **Auth**: Specifies the authentication method used for the request.
+        - **Type**: The authentication method is "bearer," meaning it uses a token to verify the identity of the user.
+        - **Bearer**: Contains the token information needed for authentication.
+          - **Key**: This specifies what the bearer contains; in this case, it is labeled as "token."
+          - **Value**: Placeholder value represented as "BearerToken." This should be replaced with an actual bearer token in real use to authenticate the request.
+          - **Type**: Indicates that the token is of string type.
+
+      - **Method**: The HTTP method used for this request, which is "GET." This means the request is retrieving data from the server without modifying it.
+
+      - **URL**: The endpoint being accessed. It consists of:
+        - **Base URL**: `http://localhost:3000/api/action/close/all/` which points to the local server.
+        - **Query Parameters**:
+          - `sessionId=sessionId`: Replace `sessionId` with the actual session identifier for which the closing actions are being retrieved.
+          - `accountId=accountId`: Replace `accountId` with the actual account identifier relating to the actions being fetched.
+
+      - **Headers**: Additional information sent with the request to provide context or metadata.
+        - **Key**: An empty string indicates no specific header key is being utilized.
+        - **Value**: An empty string indicates no specific header value is being utilized.
+        - **Type**: Marked as "default," indicating a standard header type.
+        - **Disabled**: Set to true, which means that this header will not be sent in the request.
+
+      - **Body**: Contains the data sent with the request.
+        - **Mode**: Set to "raw," indicating that the body is raw text or data.
+        - **Raw**: Empty, meaning there is no body content included in the request.
+
+    This description provides a clear understanding of the various components
+    involved in using this API request to obtain all closing actions for
+    specified session and account identifiers.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

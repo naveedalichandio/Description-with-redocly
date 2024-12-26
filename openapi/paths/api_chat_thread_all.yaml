@@ -1,0 +1,59 @@
+get:
+  tags:
+    - ChatThread
+  summary: Chat - Thread - Get All By Thread With Deleted
+  description: >-
+    This endpoint, "Chat - Thread - Get All By Thread With Deleted", allows you
+    to retrieve all threads, including deleted ones, associated with a specific
+    chat. There are different components of the data in this endpoint.
+
+
+    1. "auth": This represents the authentication section. It uses bearer token
+    authentication. 
+       - "type" denotes the type of the authorization, here it is "bearer".
+       - "bearer" denotes the array containing authentication token, with three properties: "key", "value", and "type". 
+       - "key" is "token".
+       - "value" - This should hold the value of the bearer token required for authorization.
+       - "type" indicates the data type of token, which is "string".
+
+    2. "method": This property denotes the HTTP method used for the request.
+    Here, "GET" method is used which is typically for retrieving data.
+
+
+    3. "url": This is the URL for the API endpoint. It points to the specific
+    location in your application where the request should go. Here, it's
+    "http://localhost:3000/api/chat/thread/all/?threadId=threadId&deleted=1".
+    The URL contains two query parameters "threadId" and "deleted". 
+       - "threadId" is parameter used to specify the particular Thread you're looking to access.
+       - "deleted" parameter is set to 1, indicating that deleted messages are also to be fetched.
+
+    4. "headers": Contains an array of objects with information to be sent as
+    headers with the request. Currently, it is empty and disabled. 
+
+
+    5. "body": Contains the format and content of the body of the request. In
+    this endpoint, it's indicated as 'raw' mode, which means you can send
+    whatever data you wish. But here the raw data is empty string denoting no
+    additional data is sent with this request. 
+
+
+    Please remember to replace 'BearerToken' and 'threadId' with your actual
+    bearer token and thread ID while using it.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: threadId
+      in: query
+      schema:
+        type: string
+      example: threadId
+    - name: deleted
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,105 @@
+put:
+  tags:
+    - NotificationTokens
+  summary: Notification - Tokens - Update
+  description: >-
+    The "Notification - Tokens - Update" endpoint is used for updating
+    notification tokens details. This endpoint requires "Bearer" token for
+    authentication and utilizes the PUT method.
+
+
+    The main keys in this endpoint are:
+
+
+    - `name`: Name of the endpoint.
+
+
+    - `request`: The actual request to be made.
+
+
+    - `auth`: The method to be used for authentication. Its type is `bearer`
+    which uses bearer token for authentication. The object contains `key`,
+    `value` and `type` fields. 
+
+      - `key` is the identifier which in this case is `token`.
+      
+      - `value` is the token string. Replace "BearerToken" with your actual bearer token.
+      
+      - `type` is the data type of the value. Here, it's a string.
+
+    - `method`: HTTP method to use for the request. Here, it's `PUT`.
+
+
+    - `url`: The URL to make the request. Replace
+    `http://localhost:3000/api/notification/tokens/update` with your server URL.
+
+
+    - `headers`: Additional headers to send with the request. In this case,
+    there's a `Client-UUID` header with a value denoted as "ClientUUID" which
+    needs to be replaced with an actual Client UUID.
+
+
+    - `body`: The body of the request. 
+
+      - `mode`: This refers to the type of the data in the body. Here, it's `raw`.
+
+      - `raw`: This contains a JSON string with multiple properties that need to be updated:
+
+         - `tokensId`: Unique identifier for your Tokens.
+
+         - `sessionId`: Session ID.
+
+         - `accountId`: Account ID.
+
+         - `name`: Name of your Tokens.
+
+         - `description`: Description of your Tokens.
+      
+         - `tags`: Tags related to your Tokens.
+
+         - `profilePhotoUrl`: URL of the profile photo.
+
+         - `coverPhotoUrl`: URL of the cover photo.
+
+         - `minimumTipAmount`: Minimum tipping amount.
+
+         - `categoryId` and `category`: ID and name of the parent category.
+
+         - `subCategoryId` and `subCategory`: ID and name of the sub-category.
+      
+         - `isTokensPrivate`: Boolean to indicate if the Tokens is private.
+     
+         - `isTournamentOnly`: Boolean to indicate if the Tokens is only for tournaments.
+
+         - `isTokensDefault`: Boolean to indicate if the Tokens is default.
+      
+         - `isPreLiveNotificationAds`, `isPostLiveNotificationAds`: Booleans to indicate if Ads will be shown before or after the live notification.
+      
+         - `breakPreLiveNotificationUrl`, `breakPostLiveNotificationUrl`: URLs where the break pre-live and post-live notifications are hosted.
+
+    All of the above-mentioned fields are enclosed in a JSON object and will
+    form the body of the 'PUT' request. Replace each of these placeholder values
+    with actual values.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"tokensId\":\"tokensId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Tokens 2.0\",\"description\":\"This tokens is my second
+            tokens\",\"tags\":\"second,tokens\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isTokensPrivate\":true,\"isTournamentOnly\":false,\"isTokensDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

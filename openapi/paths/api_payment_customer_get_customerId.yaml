@@ -1,0 +1,69 @@
+get:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Zelle - Get
+  description: >
+    **Endpoint Description**
+
+
+    This endpoint is designed for retrieving information related to a specific
+    customer's Zelle payment transactions.
+
+
+    **Data Description**
+
+
+    1. **name**: This refers to the distinct name of the endpoint. In this case,
+    the name is "Customer - Zelle - Get," which explains that this endpoint is
+    targeting customers who execute Zelle payments, and its function is to
+    retrieve data or get data from the database.
+
+
+    2. **request**: This object holds all the necessary data to make a HTTP
+    request.
+
+
+    - **method**: The method value is "GET". HTTP 'GET' is a request method that
+    is used to retrieve information from a specific resource.
+       
+    - **url**: The url field indicates where the request is sent. Here, it is
+    'http://localhost:3000/api/payment/customer/get/customerId', localhost
+    refers to a local server hosted by the machine where the code is running,
+    3000 is the port number, and the subsequent route
+    (/api/payment/customer/get/customerId) is the path pointing to the
+    resource. 
+
+      Parameters in the url:
+
+      - **customerId**: This is an identifier used to retrieve data specific to a customer. 
+
+      - **provider=zelle**: This parameter specifies that the payment provider is Zelle. 
+
+      - **accountId=accountId**: This parameter is used to pinpoint the exact account of a customer. 
+
+      - **sessionId=sessionId**: A session ID is a unique number that a server assigns a specific user for the duration of that user's visit (session).
+       
+    3. **headers**: Headers let the client and the server pass additional
+    information with an HTTP request or response. In this instance, no headers
+    are specified.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,53 @@
+post:
+  tags:
+    - ArticleGeneral
+  summary: Article - General - Delete
+  description: >-
+    This endpoint is called "Article - General - Delete". As the name suggests,
+    it is used to delete a general article. This is what each part of the
+    endpoint does:
+
+
+    1. `auth`: This section deals with authentication. This endpoint uses
+    `bearer` authentication. Here, `token` is the key, `sessionId` is the value
+    and the type of the `bearer token` is a `string`. This means you need to
+    input a valid session ID as your bearer token to be able to successfully
+    access this endpoint.
+
+
+    2. `method`: The method used here is `POST`. This means you're sending data
+    to the server with the request to delete a specific general article.
+
+
+    3. `url`: This is the URL you must send your request to. In this case, it is
+    http://localhost:3000/api/article/general/delete.
+
+
+    4. `headers`: The headers are set to `default` and `disabled`, which means
+    no extra HTTP headers are included in the request.
+
+
+    5. `body`: This section specifies the data you send to the server. The
+    `mode` specified here is `raw`, which means you're sending a string of text.
+       
+       Inside the `raw` string, there are three properties:
+       - `sessionId`: This is where you input the ID of the session.
+       - `accountId`: This is where you input the ID of the account that wants to delete the article.
+       - `article`: This is where you input the article that you want to delete.
+
+    Make sure to replace `sessionId`, `accountId` and `article` with the actual
+    information during your request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"article\":\"article\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

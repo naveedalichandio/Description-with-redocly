@@ -1,0 +1,112 @@
+put:
+  tags:
+    - TeamSubCategory
+  summary: Team - SubCategory - Update
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    **Name**: 
+
+    - This represents the name of the API request. In this case, it is
+    designated for updating a subcategory within a team.
+
+
+    **Request**: 
+
+    - This section contains all the details related to the HTTP request required
+    to interact with the API.
+
+
+    **Auth**: 
+
+    - This specifies the type of authentication needed for the API request.
+      - **Type**: Indicates that bearer token authentication is being used.
+      - **Bearer**: Contains an array of bearer token objects.
+        - **Key**: This indicates the name of the token.
+        - **Value**: This represents the actual bearer token, which should be replaced with a valid token in requests.
+        - **Type**: Specifies that the token is of type string.
+
+    **Method**: 
+
+    - This indicates the HTTP method used for the request. In this case, it is a
+    PUT request, which is used to update existing resources.
+
+
+    **URL**: 
+
+    - This specifies the endpoint of the API where the request should be sent.
+    In this case, it is a local server URL targeting the subcategory update
+    endpoint.
+
+
+    **Headers**: 
+
+    - This section outlines any additional information sent alongside the
+    request.
+      - **Key**: "Client-UUID" indicates the identifier for the client making the request.
+      - **Value**: This should be replaced with the actual client UUID used to authenticate the request.
+      - **Type**: Indicates that this is a default header.
+
+    **Body**: 
+
+    - This contains the actual data to be sent with the PUT request in a raw
+    format.
+
+
+    **Mode**: 
+
+    - Indicates the format of the body content. Here it is set to "raw", meaning
+    the content is a plain JSON string.
+
+
+    **Raw**: 
+
+    - This field contains the JSON object that includes the data necessary for
+    updating the subcategory. 
+      - **subCategoryId**: Unique identifier for the subcategory being updated.
+      - **sessionId**: Identifier for the session related to this update.
+      - **accountId**: Unique identifier for the account associated with the subcategory.
+      - **name**: The name of the subcategory to be updated.
+      - **description**: A brief overview or explanation of the subcategory.
+      - **tags**: Comma-separated keywords related to the subcategory for categorization purposes.
+      - **profilePhotoUrl**: URL link to the profile photo for the subcategory.
+      - **coverPhotoUrl**: URL link to the cover photo associated with the subcategory.
+      - **minimumTipAmount**: Specifies the minimum amount that can be tipped for this subcategory.
+      - **categoryId**: Identifier for the category to which the subcategory belongs.
+      - **category**: Name of the main category associated with this subcategory.
+      - **subCategory**: Name of the subcategory being processed.
+      - **isSubCategoryPrivate**: A boolean value indicating whether the subcategory is private.
+      - **isTournamentOnly**: A boolean that specifies if the subcategory is limited to tournament-related content only.
+      - **isSubCategoryDefault**: A boolean indicating if this subcategory is considered the default option for users.
+      - **isPreLiveTeamAds**: A boolean determining if pre-live advertisements can be displayed for this subcategory.
+      - **isPostLiveTeamAds**: A boolean indicating if post-live advertisements can be displayed for this subcategory.
+      - **breakPreLiveVideoUrl**: URL link to a video used during breaks in pre-live sessions.
+      - **breakPostLiveVideoUrl**: URL link to a video used during breaks in post-live sessions. 
+
+    This detailed description provides clarity on the purpose and structure of
+    each component within the API request for easier understanding by users.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"subCategoryId\":\"subCategoryId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second SubCategory 2.0\",\"description\":\"This subcategory is my
+            second
+            subcategory\",\"tags\":\"second,subcategory\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isSubCategoryPrivate\":true,\"isTournamentOnly\":false,\"isSubCategoryDefault\":true,\"isPreLiveTeamAds\":true,\"isPostLiveTeamAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

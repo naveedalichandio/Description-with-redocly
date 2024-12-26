@@ -1,0 +1,45 @@
+get:
+  tags:
+    - ConnectEvent
+  summary: Connect - Event - Get
+  description: >-
+    The given data is essentially the structure and details of an API endpoint
+    named 'Connect - Event - Get'. It is broken down as follows:
+
+
+    - **name**: A string value, which represents the name of the endpoint. In
+    this case, the name of the endpoint is "Connect - Event - Get". 
+
+
+    - **request**: An object containing the details of the request that will be
+    sent to the API endpoint. 
+
+      - **auth**: The authentication method used for the API request. Here, it is set to "bearer", which is a popular method used for API authentication.
+        
+          - **bearer**: An array where each element is an object representing the authentication token. 
+              - **key**: Describes what sort of value the system should expect, here it is "token".
+              - **value**: The actual value for the key parameter is "BearerToken". The type of the value is a string, as indicated by the "type" field.
+
+      - **method**: A string that represents the HTTP method to use for the request. The method of this request is "GET", meaning this request is used to retrieve data from the server.
+
+      - **url**: Specifies the server URL that will receive the API request. Here, it's retrieving from an API 'event' with a query parameter of 'eventId' on a local server (http://localhost:3000/api/connect/event/get/).
+
+      - **headers**: An array that can contain multiple objects that represent the API request headers. Here, though, there is a single, blank, object within the array. The 'key', 'value' are empty, the 'type' is 'default', and this header is 'disabled'.
+
+      - **body**: Contains the details of the body contents of the HTTP request. In this case, the 'mode' is set to 'raw', meaning the contents of the 'body' would normally be presented in plain text format. However, the 'raw' field is empty, indicating that no body data is being sent with this request.
+      
+    All these fields contribute to the configuration of this API and have an
+    integral part in the successful sending and receiving of data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: eventId
+      in: query
+      schema:
+        type: string
+      example: eventId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

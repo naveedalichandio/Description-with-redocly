@@ -1,0 +1,76 @@
+post:
+  tags:
+    - ActionBoost
+  summary: Action - Boost - Delete
+  description: |-
+    {
+      "name": "Action - Boost - Delete",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "sessionId",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/action/boost/delete",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"boostId\":\"boostId\"}"
+          }
+        },
+        "details": {
+          "auth": {
+            "type": "bearer": "The authentication method used for this API request, requiring a bearer token for authorization.",
+            "bearer": [
+              {
+                "key": "token": "The specific key indicating that a token is being used for authentication.",
+                "value": "sessionId": "This is a placeholder for the actual token value that will be used in the API request, which should represent the current user's session ID.",
+                "type": "string": "Indicates that the value is a string data type."
+              }
+            ]
+          },
+          "method": "POST": "The HTTP method used for the request, indicating that data is being sent to the server to perform an action.",
+          "url": "http://localhost:3000/api/action/boost/delete": "The endpoint URL that the request is targeting, in this case for deleting a boost action.",
+          "headers": [
+            {
+              "key": "": "The header key, which is empty in this case and therefore not used.",
+              "value": "": "The value for the header key, which is also empty here.",
+              "type": "default": "Indicates the type of header; however, it's not applicable since no headers are provided.",
+              "disabled": true: "This indicates that the header is currently disabled and will not be included in the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "The mode of the request body, indicating that the body will contain raw JSON data.",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"boostId\":\"boostId\"}": "This is the actual content of the request body, containing placeholders for the session ID, account ID, and boost ID. These need to be replaced with actual values when making the request."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"boostId\":\"boostId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

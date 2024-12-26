@@ -1,0 +1,59 @@
+post:
+  tags:
+    - ManageAdmin
+  summary: Manage - Admin - Delete
+  description: >-
+    This API endpoint is named "Manage - Admin - Delete". It's designed for
+    managing the deletion of admins in your application.
+
+
+    The API uses the `POST` method to delete information. This action is
+    performed by sending a request to this URL:
+    `http://localhost:3000/api/manage/admin/delete`.
+
+
+    The endpoint is secured using Bearer Authentication. This means the client
+    must send a Bearer token, which is typically a cryptic string, associated
+    with the request. The key for this token is "token" and the value is
+    "sessionId". The value will need to be replaced with an actual sessionId for
+    it to work.
+
+
+    The headers object has been left empty for now but is there in case you need
+    to include required headers in the future.
+
+
+    The part of the API that does the heavy lifting is the "body". Here, the
+    mode is set to "raw", meaning that the JSON payload will be sent as a raw
+    block of data. This block includes three pieces of information:
+
+    - "sessionId": a unique identifier for your session
+
+    - "accountId": a unique identifier for the account under which the admin
+    resides
+
+    - "adminId": a unique identifier for the specific admin you want to delete
+
+
+    Each field takes a string as a value and these strings need to be replaced
+    with actual values in order to send the request properly. Also, during the
+    deletion, the system uses these identifiers to ensure that the correct admin
+    is deleted from the right account and session.
+
+
+    Please replace `"sessionId"`, `"accountId"`, and `"adminId"` with actual
+    values when using this API endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"adminId\":\"adminId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

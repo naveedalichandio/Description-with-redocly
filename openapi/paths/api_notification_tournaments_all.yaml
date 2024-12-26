@@ -1,0 +1,59 @@
+get:
+  tags:
+    - NotificationTournaments
+  summary: Notification - Tournaments - Get All
+  description: >-
+    This data endpoint is titled `Notification - Tournaments - Get All`. As the
+    name suggests, it is used to retrieve all the notifications related to
+    tournaments. 
+
+
+    It uses the `GET` method, indicating its primary purpose is to retrieve
+    information. The endpoints URL is
+    `http://localhost:3000/api/notification/tournaments/all/`, where
+    `localhost:3000` is the local server address, and
+    `/api/notification/tournaments/all/` is the specific path to the endpoint.
+
+
+    This endpoint requires Bearer Token Authentication, which is a method for an
+    HTTP user agent to provide a single-string token to the server. The token is
+    provided as a value in the `BearerToken` field under `auth`. It is a type of
+    `string`.
+
+
+    Two query parameters are attached to the URL: `sessionId` and `accountId`.
+    These parameters should be replaced with the respective session ID and
+    account ID of the user.
+
+
+    The `headers` field in the request is currently empty and disabled. Headers
+    are often used to provide additional information about the request or
+    response.
+
+
+    The `body` of the request contains a `mode` field set to `"raw"`, suggesting
+    that raw data can be sent in the body of the request. However, because this
+    is a `GET` request, there is no body content or `raw` field provided as it's
+    usually used with `POST` or `PUT` requests to send data to the server.
+
+
+    Please replace `BearerToken`, `sessionId`, and `accountId` with actual
+    values when using this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

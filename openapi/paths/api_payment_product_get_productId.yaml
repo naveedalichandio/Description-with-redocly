@@ -1,0 +1,72 @@
+get:
+  tags:
+    - PaymentProduct
+  summary: Product - Zelle - Get
+  description: >-
+    This endpoint is titled "Product - Zelle - Get". It is designed to retrieve
+    information about a specific product from the Zelle payment interface. The
+    information retrieved is based on the unique identifier of the product.
+
+
+    The request involves three properties:
+
+
+    - Method: This is a GET request. This is a type of HTTP method used to
+    retrieve data from a server.
+
+
+    - URL: This is the specific location where the request is sent. It is
+    "http://localhost:3000/api/payment/product/get/productId"
+
+
+    There are three important parameters within the URL which need to be
+    substituted with actual values:
+
+
+    1. "productId": This refers to a unique identifier of a product in the Zelle
+    interface. Replace 'productId' with the actual identifier of the product you
+    intend to access.
+
+
+    2. "provider": This refers to the provider of the payment service, in this
+    case, it is 'zelle'. It is already filled hence doesn't need to be
+    substituted.
+
+
+    3. "accountId": This is the specific account related to the payment product.
+    Replace 'accountId' with the actual account ID.
+
+
+    4. "sessionId": This is the session during which the request is made.
+    Replace 'sessionId' with the actual session ID.
+
+
+    - Headers: This refers to the metadata sent with the API request. As
+    depicted, no specific headers are attached with the request. Therefore, no
+    specific data is required here. However, different API requests may require
+    different headers.
+
+
+    Please remember to replace these placeholders (i.e. productId, accountId,
+    sessionId) with your actual values when using this endpoint.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

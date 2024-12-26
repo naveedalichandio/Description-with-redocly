@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ReportsEarning
+  summary: Reports - Earning - Delete
+  description: >-
+    **Endpoint Name:**
+
+
+    Reports - Earning - Delete: An endpoint for deleting earning reports.
+
+
+    **Request:**
+
+
+    - Authentication: The API endpoint uses bearer token authentication. Ensure
+    that the bearer token you provide here is a valid session identifier. In the
+    input data, you'll find a `key` titled `token` with a `value` identifier
+    named `sessionId`. The `type` of these data fields is a string.
+
+
+    - Method: The HTTP request method for this endpoint is POST, used primarily
+    to send data to the server to create/update a resource.
+
+
+    - URL: The URL to communicate with the API is
+    `http://localhost:3000/api/reports/earning/delete`. This endpoint
+    specifically deals with deleting earning reports.
+
+
+    - Headers: The headers here include a default `key` and `value` pair which
+    are both empty and disabled, implying that no additional headers are
+    required for this particular API call.
+
+
+    **Body:**
+
+
+    This refers to the actual content or data you're sending to the server
+    through your HTTP request, containing the following information:
+
+
+    - Mode: The mode of the data encapsulated in the body of this request is
+    identified as `raw`. In simple terms, this implies that the data is sent in
+    an unprocessed manner, as a string of text.
+
+
+    - Raw: The `Raw` field is where the actual data to be sent to the server is
+    embedded. In this case, the raw data is in JSON format and it contains three
+    strings: `sessionId`, `accountId`, and `earningId`. These are all
+    identifiers; `sessionId` pertains to the session in context, `accountId`
+    relates to the user account and `earningId` is the unique identifier for the
+    specific earning report you wish to delete.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"earningId\":\"earningId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

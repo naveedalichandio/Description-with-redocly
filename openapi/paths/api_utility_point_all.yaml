@@ -1,0 +1,62 @@
+get:
+  tags:
+    - UtilityPoint
+  summary: Utility - Point - Get All
+  description: >-
+    ### Endpoint: Utility - Point - Get All
+
+
+    #### Authentication
+
+    - **Type**: Bearer Token
+      - **Key**: `token`
+      - **Value**: `BearerToken`
+      - **Type**: string  
+      This section requires a bearer token for authorization. Users need to replace `BearerToken` with a valid token to access the endpoint.
+
+    #### Request Method
+
+    - **Method**: GET  
+      This endpoint utilizes the GET HTTP method to retrieve data.
+
+    #### URL
+
+    - **URL**:
+    `http://localhost:3000/api/utility/point/all/?sessionId=sessionId&accountId=accountId`  
+      This is the endpoint URL where the request will be sent. It contains query parameters:
+      - **sessionId**: Replace `sessionId` with the actual session ID to identify the user's session.
+      - **accountId**: Replace `accountId` with the required account ID to specify which account's data to retrieve.
+
+    #### Headers
+
+    - **Headers**:  
+      - **Key**: (not set)  
+      - **Value**: (not set)  
+      - **Type**: default  
+      - **Disabled**: true  
+      This section shows a placeholder for additional headers which are currently not set and are disabled. Users can include any necessary headers if required by the API.
+
+    #### Body
+
+    - **Body**:  
+      - **Mode**: raw  
+      - **Raw**: (empty)  
+      This endpoint does not require a request body. The body is set to raw mode but is empty since no data needs to be sent with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

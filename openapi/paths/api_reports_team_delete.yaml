@@ -1,0 +1,68 @@
+post:
+  tags:
+    - ReportsTeam
+  summary: Reports - Team - Delete
+  description: >-
+    This endpoint is named "Reports - Team - Delete". As the name suggests, it
+    is used to delete reports associated with a particular team. 
+
+
+    The authentication type for this endpoint requires a "Bearer Token".  It
+    uses the bearer authentication scheme whereby the bearer of the token sends
+    it in the Authorization header.
+
+
+    An example of the token usage:
+
+    "type": "Bearer token sessionid"
+
+    Here, "sessionid" is representing the value that needs to be provided for
+    the "Bearer Token".
+
+
+    The HTTP method for this endpoint is "POST", meaning it's designed to send
+    data to the server for a specific resource.
+
+
+    The URL indicates the location where this request is sent. In this case, we
+    are performing an action on "http://localhost:3000/api/reports/team/delete".
+    This is the address to which the 'POST' request is made.
+
+
+    The headers field is empty in this example and has been disabled as well.
+    Headers hold additional information (key-value pairs) to be sent with the
+    request, but it's not being used in this case.
+
+
+    The request body is sent in 'raw' format and contains the data to be sent to
+    the server. This raw information is a JSON object containing three
+    parameters:
+
+
+    1. "sessionId": This is likely an identifier used by the server to validate
+    your session. In a fully-fledged application, this would be dynamically
+    replaced with an active session ID.
+
+    2. "accountId": This is likely the identifier for your account, used to
+    determine which account to perform the action on.
+
+    3. "teamId": This is probably the identifier for a specific team. It's what
+    helps the server know which team's reports you're intending to delete.
+
+
+    To successfully make a request to this endpoint, these input parameters must
+    be replaced with real values according to your system's specifications.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"teamId\":\"teamId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

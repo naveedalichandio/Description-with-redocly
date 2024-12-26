@@ -1,0 +1,117 @@
+put:
+  tags:
+    - TournamentInvite
+  summary: Tournament - Invite - Update
+  description: >-
+    ### Endpoint: Tournament - Invite - Update
+
+
+    **Request Type:** PUT  
+
+    **URL:** `http://localhost:3000/api/tournament/invite/update`  
+
+
+    #### Authentication
+
+    - **Auth Type:** Bearer  
+      This endpoint requires bearer token authentication to ensure only authorized users can update tournament invites.
+      - **Key:** `token`  
+        The authorization token required for the request. Replace `"BearerToken"` with the actual bearer token.
+
+    #### Headers
+
+    - **Client-UUID**  
+      - **Key:** `Client-UUID`  
+        This header should contain a unique identifier for the client making the request. Replace `"ClientUUID"` with the actual UUID.
+
+    #### Body
+
+    The body of the request should be a JSON object containing the following
+    fields:
+
+
+    1. **inviteId**  
+       - **Description:** Unique identifier for the invite that is being updated. Replace `"inviteId"` with the actual invite ID.
+
+    2. **sessionId**  
+       - **Description:** Identifier for the session associated with this invite. Replace `"sessionId"` with the actual session ID.
+
+    3. **accountId**  
+       - **Description:** Identifier for the account that the invite is associated with. Replace `"accountId"` with the actual account ID.
+
+    4. **name**  
+       - **Description:** The title or name of the invite. Replace `"My Second Invite 2.0"` with the desired name.
+
+    5. **description**  
+       - **Description:** A brief description of the invite. Replace `"This invite is my second invite"` with an appropriate description.
+
+    6. **tags**  
+       - **Description:** Tags associated with the invite for categorization purposes. Replace `"second,invite"` with relevant tags separated by commas.
+
+    7. **profilePhotoUrl**  
+       - **Description:** URL for the profile photo associated with the invite. Replace `"https://example.com/profile.jpg"` with the actual image URL.
+
+    8. **coverPhotoUrl**  
+       - **Description:** URL for the cover photo associated with the invite. Replace `"https://example.com/cover.jpg"` with the actual image URL.
+
+    9. **minimumTipAmount**  
+       - **Description:** Minimum tip amount required for the invite. Replace `10` with the actual minimum amount.
+
+    10. **categoryId**  
+        - **Description:** Unique identifier for the category that the invite falls under. Replace `"category123"` with the actual category ID.
+
+    11. **category**  
+        - **Description:** The main category name for the invite. Replace `"General"` with the category name.
+
+    12. **subCategoryId**  
+        - **Description:** Unique identifier for the subcategory of the invite. Replace `"subCategory456"` with the actual subcategory ID.
+
+    13. **subCategory**  
+        - **Description:** The subcategory name for the invite. Replace `"Specific"` with the appropriate subcategory name.
+
+    14. **isInvitePrivate**  
+        - **Description:** Boolean value indicating if the invite is private. Set as `true` for private or `false` for public.
+
+    15. **isTournamentOnly**  
+        - **Description:** Boolean value indicating if the invite is only applicable for tournaments. Set as `true` for tournament only, `false` otherwise.
+
+    16. **isInviteDefault**  
+        - **Description:** Boolean value indicating if this invite is a default invite. Set as `true` for default, `false` otherwise.
+
+    17. **isPreLiveTournamentAds**  
+        - **Description:** Boolean value indicating if ads should be shown before the tournament goes live. Set as `true` to enable, `false` to disable.
+
+    18. **isPostLiveTournamentAds**  
+        - **Description:** Boolean value indicating if ads should be shown after the tournament has ended. Set as `true` to enable, `false` to disable.
+
+    19. **breakPreLiveVideoUrl**  
+        - **Description:** URL for a video that will be shown during pre-live breaks. Replace `"https://example.com/break-pre-live.mp4"` with the actual video URL.
+
+    20. **breakPostLiveVideoUrl**  
+        - **Description:** URL for a video that will be shown during post-live breaks. Replace `"https://example.com/break-post-live.mp4"` with the actual video URL.
+
+    All values in the body should be replaced with actual data relevant to the
+    invite being updated.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"inviteId\":\"inviteId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Invite 2.0\",\"description\":\"This invite is my second
+            invite\",\"tags\":\"second,invite\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isInvitePrivate\":true,\"isTournamentOnly\":false,\"isInviteDefault\":true,\"isPreLiveTournamentAds\":true,\"isPostLiveTournamentAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

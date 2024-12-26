@@ -1,0 +1,40 @@
+get:
+  tags:
+    - ConnectEvent
+  summary: Connect - Event - Get All
+  description: >-
+    This endpoint refers to "Connect - Event - Get All", implying that it aims
+    to retrieve all events related to a particular account. Here's detailed
+    information on each data:
+
+
+    - `name`: This field represents the name of the endpoint. In this case, the
+    endpoint name is "Connect - Event - Get All".
+
+
+    - `request`: This is where we specify details about the HTTP request that is
+    to be sent.
+
+        - `auth`: This indicates the type of authentication required to access the endpoint. The shown type here is "bearer", denoting bearer token authentication. A bearer token is a security token that gives the holder access to the API.
+            - `bearer`: An array of bearer tokens. A bearer token is represented as an object having a "key", "value", and "type". The "key" is `token`, the bearer token's value is going to replace "BearerToken", and the "type" which is `string`.
+
+        - `method`: This stipulates the type of HTTP method used for this request. In this case, it is a "GET" method which is used to fetch data from the server.
+
+        - `url`: This refers to the endpoint that the request will be sent to. The specified url is `http://localhost:3000/api/connect/event/all/?accountId=accountId`. The `accountId` will be replaced by a specific account ID to fetch all related events.
+
+       - `headers`: An array containing the information that the client (or browser) needs to send to the server in the header of the HTTP request. In the provided data, there are no explicit headers set, as both "key" and "value" are empty strings and "disabled" is set to true.
+
+       - `body`: This houses the content that you want to send to the API. Given that we're dealing here with a "GET" method, the body is typically not needed, and as shown here, the "mode" is set to "raw" but the "raw" value is provided as an empty string. There isn't any particular content sent within the body of the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

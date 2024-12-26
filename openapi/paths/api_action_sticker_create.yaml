@@ -1,0 +1,81 @@
+post:
+  tags:
+    - ActionSticker
+  summary: Action - Sticker - Create
+  description: >-
+    ### Description of Request Data for "Action - Sticker - Create"
+
+
+    - **Auth**: This section is for authentication.
+      - **Type**: Specifies the type of authentication being used. In this case, it is a Bearer token which is required for secure API access.
+      - **Bearer**: An array that contains the authentication token.
+        - **Key**: Refers to the specific identifier for the token.
+        - **Value**: This is the actual bearer token that you need to provide for authentication.
+        - **Type**: This indicates the data type of the token, which is "string".
+
+    - **Method**: This specifies the HTTP method being used for the request.
+    Here, the method is "POST", indicating that data is being sent to the
+    server.
+
+
+    - **URL**: This is the endpoint to which the request is being sent. It is
+    set to "http://localhost:3000/api/action/sticker/create", indicating that
+    the creation of a sticker will happen at this API endpoint located on the
+    local server.
+
+
+    - **Headers**: This section would typically contain additional metadata for
+    the request.
+      - **Key**: This can be used to specify any specific header parameters. Currently, there are no headers defined as the key is empty.
+      - **Value**: As with the key, the value is currently empty.
+      - **Type**: Default, indicating a standard header.
+      - **Disabled**: This indicates whether the header is active or not. Currently, it is disabled.
+
+    - **Body**: This section contains the data payload for the request.
+      - **Mode**: Specifies the format of the payload. "raw" means that the data is sent directly as-is.
+      - **Raw**: The actual data being sent in JSON format. It includes:
+        - **sessionId**: A unique identifier for the session during which the sticker is created.
+        - **accountId**: The identifier for the account that is creating the sticker.
+        - **path**: Specifies the location associated with the sticker, given in a string format which includes a reference to a video.
+        - **targetType**: Denotes what type of target the sticker is being applied to. Here it is "videoId".
+        - **targetId**: The identifier for the target where the sticker will be placed, specifically a video.
+        - **sourceType**: Indicates the type of source being used. Here, it is set to "accountId".
+        - **sourceId**: The identifier for the source, which is also the accountId.
+        - **didUseSticker**: A boolean value indicating whether the sticker has been used or not, currently set to true.
+        - **stickerType**: The category or type of sticker being created; in this case, it is "funny".
+        - **tokenAmount**: Indicates the number of tokens being utilized in the creation of the sticker, set to 30.
+        - **name**: A placeholder for the name of the sticker, currently left blank.
+        - **description**: A placeholder for a description of the sticker, currently left blank.
+        - **tags**: Placeholder for any tags that may be associated with the sticker, currently left blank.
+      - **Options**: Additional options for the request payload.
+        - **Raw**: Specifies the language of the raw data, which is set to "json".
+
+    This structured data allows users to create a sticker through the specified
+    API endpoint, supplying necessary details about the session, account, and
+    properties of the sticker itself.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didUseSticker: true
+            stickerType: funny
+            tokenAmount: 30
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

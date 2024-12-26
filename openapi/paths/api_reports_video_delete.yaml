@@ -1,0 +1,64 @@
+post:
+  tags:
+    - ReportsVideo
+  summary: Reports - Video - Delete
+  description: >-
+    This endpoint is named "Reports - Video - Delete". It is used to delete
+    videos from the report. 
+
+
+    The request uses the "POST" method, indicating it is designed to send
+    information to the server to create a new resource. 
+
+
+    You need to authenticate yourself in order to access this endpoint. The
+    authorization uses the "bearer" type, which means that the authentication
+    information is sent in the header of the request. The bearer token, which is
+    a unique key generated for each user, is required for this endpoint. The
+    token is represented by a session ID, which is a string type.
+
+
+    The URL of the endpoint is `http://localhost:3000/api/reports/video/delete`.
+    This is the location where the request should be sent. The 'localhost' and
+    the port '3000' indicate that the server is running locally in the
+    development environment.
+
+
+    There is a header field available in this endpoint but it is disabled and
+    contains no key or value.
+
+
+    The request body contains data that is sent to the server. It uses the "raw"
+    mode, which allows you to write directly in the text input. The raw body
+    data includes three parameters which are represented as a JSON object. 
+
+
+    The "sessionId" is a string that represents the session ID of the user. It
+    is a unique identifier that points to the session of the authenticated
+    user. 
+
+
+    The "accountId" indicates the account ID which may be used to specify the
+    account from which the video should be deleted.
+
+
+    The "videoId" is used to specify the particular video in the report you want
+    to delete. It is a unique identifier for each video in the database. 
+
+
+    Make sure to replace "sessionId", "accountId", and "videoId" with real
+    values before sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"videoId\":\"videoId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

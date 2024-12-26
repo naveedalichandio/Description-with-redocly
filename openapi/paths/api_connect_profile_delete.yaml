@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ConnectProfile
+  summary: Connect - Profile - Delete
+  description: >-
+    This endpoint is called "Connect - Profile - Delete". It's responsible for
+    deleting a profile in the application. This endpoint expects a POST request
+    and uses Bearer token authentication. Detailed description of each part is
+    as follows:
+
+
+    1. "name": The name of the endpoint. This is used for identifying and
+    sorting the endpoint in the collection.
+
+
+    2. "request": Contains all the necessary details for making the request.
+
+
+    3. "auth": Specifies the authentication type to be used in the request.
+       
+       a. "type": The type of authentication. Here, it's "bearer".
+       
+       b. "bearer": It's an array containing the bearer token details.
+          
+          i. "key": The name of the key. Here it is "token".
+          
+          ii. "value": The value for the key. Here it is "sessionId".
+          
+          iii. "type": Specifies the type of data. It's a "string" in this case.
+
+    4. "method": The HTTP method to be used when making the request. For this
+    endpoint, "POST" method is used.
+
+
+    5. "url": The URL where the request will be sent. Here, it's
+    "http://localhost:3000/api/connect/profile/delete".
+
+
+    6. "headers": An array holding the headers for the request. In this case,
+    it's default and is disabled. Meaning, no additional headers are sent with
+    the request.
+
+
+    7. "body": Describes the body of the request.
+       
+       a. "mode": Shows the mode of the body in the request. Here it's "raw", which means that the body contains raw data.
+       
+       b. "raw": The actual data in the body as a raw string. This string should be a JSON object and it contains "sessionId", "accountId", and "profileId".
+
+    In summary, to use this endpoint, you should have a valid session Id,
+    account Id, and profile Id (all of type string). The endpoint then takes
+    these details, included as raw data in the body of the request, and uses it
+    to delete a profile within the application.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"profileId\":\"profileId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

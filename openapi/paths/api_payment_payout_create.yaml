@@ -1,0 +1,65 @@
+post:
+  tags:
+    - PaymentPayout
+  summary: Payout - Zelle - Create
+  description: >-
+    This endpoint is titled "Payout - Zelle - Create". It makes a POST request
+    to the URL "http://localhost:3000/api/payment/payout/create", thus is
+    utilized to create a new payout using Zelle as the payment provider.
+
+
+    Under the "request" object, there are several properties:
+
+
+    1. "method": This signifies the HTTP method, and in this case, it's set to
+    'POST'. This essentially means that the server creates or replaces the
+    resource at the provided URL.
+
+
+    2. "url": This contains the endpoint for the API call. This URL refers to
+    where the payment payout is created.
+
+
+    Under the nested "body" object, we have:
+
+
+    1. "mode": This specifies that the payload is sent in 'raw' format.
+
+
+    2. "raw": This is a stringified JSON payload carrying a number of
+    properties:
+       - "accountId": This represents the identification of the account holder.
+       - "sessionId": It signifies the individual session ID for the account.
+       - "source": When filled, this property might refer to the origin of the payment. However, it is set to null, indicating that this information is not included for this request.
+       - "isSavePayout": A boolean value. If set to true, the payout information is stored for future payouts.
+       - "isPrimary": A boolean value to mark the payout method as primary or not. False in this case intends the payout method won't be set as primary.
+       - "provider": Here, it is set to 'Zelle', signifying that Zelle is the chosen payout provider.
+
+    3. "options": Under the options, "raw" and "language": "json" are set,
+    indicating that the language and format used to transmit data is JSON.
+
+
+    This request does not include headers, indicated by the "headers": [] field.
+
+
+    When utilizing this API endpoint, ensure the proper accountId and sessionId
+    values are passed for creating a new payout, set the desired options
+    regarding saving the payout and marking it as primary, and specify the
+    provider as 'Zelle'.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source: null
+            isSavePayout: true
+            isPrimary: false
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

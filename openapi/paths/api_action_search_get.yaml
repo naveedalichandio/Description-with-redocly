@@ -1,0 +1,75 @@
+get:
+  tags:
+    - ActionSearch
+  summary: Action - Search - Get
+  description: >-
+    ### Action - Search - Get
+
+
+    #### Authentication
+
+    - **Type**: Bearer
+      - This request requires bearer token authentication. A valid token must be included in the request headers to access the API.
+      - **Key**: `token`
+        - Represents the authorization token needed for authentication.
+      - **Value**: `BearerToken`
+        - A placeholder for the actual bearer token that should be substituted before making the request.
+      - **Type**: String
+        - The token must be a string value.
+
+    #### Request Details
+
+    - **Method**: GET
+      - This endpoint uses the GET method, which is typically used to retrieve data from a specified resource.
+
+    - **URL**:
+    `http://localhost:3000/api/action/search/get/?searchId=searchId&sessionId=sessionId&accountId=accountId`
+      - This is the endpoint's address. It is structured to include query parameters for specifics.
+      - **Query Parameters**:
+        - **searchId**: A parameter used to specify the identifier for the search action. This should be replaced with the actual search ID.
+        - **sessionId**: A session identifier that may be used to track the user's session. Replace this with the actual session ID.
+        - **accountId**: Identifies the account associated with the search. This needs to be replaced with the actual account ID.
+
+    #### Headers
+
+    - An empty header is included by default:
+      - **Key**: `""`
+        - Currently, there is no header key specified.
+      - **Value**: `""`
+        - Currently, there is no header value specified.
+      - **Disabled**: true
+        - This header is not active; it will not be sent with the request.
+
+    #### Body
+
+    - **Mode**: Raw
+      - Indicates the format of the body content, which in this case, is set to raw text.
+    - **Raw**: `""`
+      - The body is currently empty, meaning no additional data is being sent with the request. No content is required for a GET request.
+
+    Make sure to provide actual values for the placeholder fields
+    (`BearerToken`, `searchId`, `sessionId`, `accountId`) when using this
+    endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: searchId
+      in: query
+      schema:
+        type: string
+      example: searchId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

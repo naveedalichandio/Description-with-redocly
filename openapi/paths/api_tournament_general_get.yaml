@@ -1,0 +1,67 @@
+get:
+  tags:
+    - TournamentGeneral
+  summary: Tournament - General - Get
+  description: >-
+    ### Tournament - General - Get
+
+
+    This endpoint is used to retrieve general information about a specific
+    tournament. Below is a detailed description of each component of the
+    request.
+
+
+    #### Request Details:
+
+
+    - **Auth**:
+      - **Type**: The authorization method used for this request is Bearer Token.
+      - **Bearer**: This specifies the details of the token used for authentication.
+        - **Key**: "token" indicates the name of the authorization parameter.
+        - **Value**: "BearerToken" serves as a placeholder for the actual bearer token that will be used for authentication. This token must be included in the request to access secured resources.
+        - **Type**: "string" indicates that the value of the token is a string.
+
+    - **Method**: 
+      - "GET" is the HTTP method used to retrieve data from the specified endpoint.
+
+    - **URL**: 
+      - The base URL for the request is `http://localhost:3000/api/tournament/general/get/`. The query parameters in the URL are:
+        - **tournamentId**: This parameter should contain the unique identifier for the specific tournament whose information is to be retrieved.
+        - **sessionId**: This parameter should contain the unique session identifier associated with the tournament.
+        - **accountId**: This parameter should contain the identifier for the user's account making the request.
+
+    - **Headers**: 
+      - This section includes any HTTP headers that may be sent along with the request. In this case, there are no headers specified, and the header is disabled. Headers can be added if necessary for additional specifications.
+
+    - **Body**: 
+      - **Mode**: "raw" indicates that the body of the request is expected to contain raw data.
+      - **Raw**: This field is empty, meaning there is no request body to send. A GET request typically does not include a body.
+
+    This endpoint is crucial for fetching tournament-related data from the
+    server, making it essential for applications that provide tournament
+    information or functionalities related to tournaments. Make sure to replace
+    the placeholder values in the URL with actual values when making the
+    request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: tournamentId
+      in: query
+      schema:
+        type: string
+      example: tournamentId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

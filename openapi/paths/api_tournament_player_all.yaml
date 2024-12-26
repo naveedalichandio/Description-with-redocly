@@ -1,0 +1,69 @@
+get:
+  tags:
+    - TournamentPlayer
+  summary: Tournament - Player - Get All
+  description: >-
+    ### Tournament - Player - Get All Endpoint Description
+
+
+    This endpoint is designed to retrieve a list of all players participating in
+    a specific tournament. Below is a detailed description of each component
+    involved in this API request.
+
+
+    - **Endpoint Name**: Tournament - Player - Get All
+      - This indicates the purpose of the API call, which is to fetch all players associated with a tournament.
+
+    - **Request Type**: GET
+      - The method used to send a request to retrieve data without affecting the server's state.
+
+    - **URL**:
+    `http://localhost:3000/api/tournament/player/all/?sessionId=sessionId&accountId=accountId`
+      - This is the endpoint address where the API request is sent. 
+      - The base URL is `http://localhost:3000/api/tournament/player/all/`, and it includes query parameters: 
+        - **sessionId**: A unique identifier for the session to ensure valid access.
+        - **accountId**: The identifier for the user's account, necessary for retrieving player information.
+
+    - **Auth**: 
+      - **Type**: bearer
+        - This indicates that the request requires bearer token authentication.
+      - **Bearer**: 
+        - A list containing an object with the authentication details:
+          - **Key**: `token`
+            - This represents the parameter's name that holds the authentication token.
+          - **Value**: `BearerToken`
+            - This is a placeholder for the actual bearer token that should be used in a real request for authentication purposes.
+          - **Type**: string
+            - Specifies that the token is a string type.
+
+    - **Headers**:
+      - This section defines additional information sent with the request. In this case:
+        - There are no headers specified since the key and value are empty, and it is marked as disabled. This means no custom headers are included in this request.
+
+    - **Body**:
+      - **Mode**: raw
+        - Indicates the body format; here it is set to raw, but since it's a GET request, this section is effectively empty as no body is sent with the request.
+      - **Raw**: 
+        - The raw body is an empty string, which is typical for GET requests, as most of the data is included in the URL parameters.
+
+    This detailed breakdown provides a clear understanding of how to use the
+    endpoint to get the data needed regarding all players in a specified
+    tournament.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

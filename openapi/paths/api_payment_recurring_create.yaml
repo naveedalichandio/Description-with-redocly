@@ -1,0 +1,75 @@
+post:
+  tags:
+    - PaymentRecurring
+  summary: Recurring - Zelle - Create
+  description: >-
+    This endpoint is named "Recurring - Zelle - Create" it is called via a POST
+    method. It's used to create a new recurring payment with the Zelle service.
+
+
+    URL: The endpoint URL is
+    [http://localhost:3000/api/payment/recurring/create]. This URL is structured
+    specifically for the testing environment with the localhost address and is
+    likely to change in production.
+
+
+    Headers: The request does not require any specific headers. 
+
+
+    Body: The request body should be a JSON object containing several
+    properties:
+
+
+    1. `accountId`: This is a required field. It should be a string that
+    provides the account ID associated with the user. The user's transactions
+    will be performed in reference to this account ID.
+
+
+    2. `sessionId`: This is another required field. It should be a string that
+    provides the unique session ID. This is presumably used for tracking
+    individual sessions to verify the user's state and track activities.
+
+
+    3. `source`: This field can be set to null. If necessary, it could include
+    more information about the transaction or user.
+
+
+    4. `isSaveRecurring`: This field should be a boolean. If set to true, it
+    indicates that the transaction is a recurring one and should be saved for
+    potential future recurring transactions.
+
+
+    5. `isPrimary`: This field should be a boolean. If set to true, it will set
+    the transaction as a primary transaction for the user's account.
+
+
+    6. `provider`: This field should be a string indicating the payment
+    provider. In this case, the provider is "zelle". This is essential in
+    determining how the transaction will be processed, according to the payment
+    provider.
+
+
+    Options: The options field provides additional settings for the body field.
+    Here, it's set to "language": "json" indicating that the body field should
+    be parsed as JSON.
+
+
+    Overall, this endpoint helps to facilitate recurring payments with Zelle, an
+    online payment method, making it easier to handle automated transactions.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source: null
+            isSaveRecurring: true
+            isPrimary: false
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

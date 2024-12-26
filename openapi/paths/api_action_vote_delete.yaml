@@ -1,0 +1,69 @@
+post:
+  tags:
+    - ActionVote
+  summary: Action - Vote - Delete
+  description: |-
+    {
+      "name": "Action - Vote - Delete",
+      "description": "This endpoint is used to delete a vote from a user's account. Users must provide a valid session ID, their account ID, and the ID of the vote they wish to delete. Here’s a breakdown of the data involved in this request:",
+      
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "sessionId",
+              "type": "string"
+            }
+          ],
+          "description": "Authentication is done via a bearer token. Users must provide their session ID as a token to authenticate the request."
+        },
+        
+        "method": "POST",
+        "description": "This specifies that the request should use the POST method, which is typically used for sending data to the server."
+
+        "url": "http://localhost:3000/api/action/vote/delete",
+        "description": "This is the URL endpoint where the delete vote request will be sent. It is expected to be accessed via localhost during development."
+
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "description": "No custom headers are required for this request as they are currently disabled. By default, the server will handle headers automatically."
+
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request contains the data that needs to be sent to the server to process the vote deletion.",
+          
+          "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"voteId\":\"voteId\"}",
+          "description": "This is a raw JSON format containing the necessary parameters for the request. It contains the following fields:",
+          
+          "fields": {
+            "sessionId": "This is the unique identifier for the user's session, required for authentication.",
+            
+            "accountId": "This is the unique identifier associated with the user's account, which will be used to locate the vote.",
+            
+            "voteId": "This is the unique identifier for the vote that the user wishes to delete."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"voteId\":\"voteId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

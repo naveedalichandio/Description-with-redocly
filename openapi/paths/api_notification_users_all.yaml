@@ -1,0 +1,44 @@
+get:
+  tags:
+    - NotificationUsers
+  summary: Notification - Users - Get All
+  description: >-
+    - `name`: This attribute refers to the name of the specific endpoint. In
+    this case, "Notification - Users - Get All". This name serves as a brief
+    description of the endpoint's functionality, i.e., retrieving all
+    notifications for users.
+
+
+    - `request`: This object encapsulates all the details related to the HTTP
+    request to be made to a specific service. 
+
+      - `auth`: This object describes the authentication method to be used for the request. The `type` specifies the authentication type. Here, a bearer token is used.
+      
+        - `bearer`: This array includes the details of the bearer token authentication. Each item in the array is an object that contains a `key` (i.e., the name of the field), `value` (i.e., the actual bearer token), and the `type` of the value, which in this instance is a string.
+      
+
+      - `method`: This defines the HTTP method to be used for the request. Here, it is GET method.
+      
+      - `url`: This is the API endpoint to which the request will be sent. The current URL includes query parameters (`sessionId` and `accountId`) which will need to be populated with appropriate values to retrieve notifications for a specific account and session.
+      
+      - `headers`: This array represents any additional HTTP headers that should be included in the request. It is currently empty and thus disabled, indicating that no extra headers are to be sent.
+      
+      - `body`: This contains any data that has to be sent in the body of the HTTP request. It contains `mode` and `raw`. The `mode` describes the way data present in the body should be formatted prior to being sent with the request. For instances, `raw` data is sent as it is without any modifications. But in this case, the `raw` value is an empty string indicating that no data is sent with the HTTP request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

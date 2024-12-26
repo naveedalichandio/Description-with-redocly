@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ActionDonate
+  summary: Action - Donate - Delete
+  description: >-
+    **Action - Donate - Delete Endpoint Description**
+
+
+    - **Name**: Action - Donate - Delete
+      - This is the name of the API action that is responsible for deleting a donation record.
+
+    - **Request**: Contains all the necessary details to make a request to the
+    endpoint.
+      
+      - **Auth**: Defines the authentication details required for this request.
+        - **Type**: "bearer"
+          - Specifies that bearer token authentication is used.
+        - **Bearer**: Contains information about the bearer token.
+          - **Key**: "token"
+            - This is the identifier for the authentication token.
+          - **Value**: "sessionId"
+            - This represents the actual session ID that must be used for authentication. Replace this with the actual session ID when making a request.
+          - **Type**: "string"
+            - Indicates that the value type for the token is a string.
+
+      - **Method**: "POST"
+        - This specifies that the request method to be used is POST, which is commonly used for creating or deleting resources.
+
+      - **URL**: "http://localhost:3000/api/action/donate/delete"
+        - This is the endpoint which the request will be sent to. It indicates that the action is related to deleting a donation resource.
+
+      - **Headers**: A list of HTTP headers to be sent with the request.
+        - **Key**: ""
+          - Currently an empty key, which means no specific header is set.
+        - **Value**: ""
+          - The corresponding value is also empty.
+        - **Type**: "default"
+          - Indicates that this is a default type header.
+        - **Disabled**: true
+          - This header is disabled and will not be included in the request.
+
+      - **Body**: Contains the payload that will be sent with the request.
+        - **Mode**: "raw"
+          - Indicates that the body of the request will be provided as raw data rather than a form or a specific format.
+        - **Raw**: "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"donateId\":\"donateId\"}"
+          - This is the raw JSON data that must be sent in the body of the request. It includes:
+            - **sessionId**: "sessionId"
+              - Identify the session for which the delete action is being performed. Replace with the actual session ID.
+            - **accountId**: "accountId"
+              - The ID of the account associated with the donation to be deleted. Replace with the actual account ID.
+            - **donateId**: "donateId"
+              - The ID of the specific donation record that you intend to delete. Replace with the actual donation ID.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"donateId\":\"donateId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

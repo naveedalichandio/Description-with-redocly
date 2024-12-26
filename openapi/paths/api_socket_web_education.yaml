@@ -1,0 +1,46 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Education
+  description: >-
+    ### Description of Endpoint Data for "Web - Socket - Recent Education"
+
+
+    - **Name**: 
+      - This represents the title of the API request. The name "Web - Socket - Recent Education" indicates that this endpoint is designed to fetch recent education-related data via a web socket.
+
+    - **Request**: 
+      - This section provides details about how to make a request to the API. 
+
+      - **Method**: 
+        - This specifies the type of HTTP request to be used. In this case, it is a "GET" request, which is typically used to retrieve data from the server.
+
+      - **URL**: 
+        - This is the endpoint where the API request is sent. The URL "http://localhost:3000/api/socket/web/education?recent=true&limit=limit" indicates that the request is made to a local server running on port 3000. 
+        - The path "/api/socket/web/education" specifies the resource being accessed, which is the education data through a web socket.
+        - The query parameters:
+          - `recent=true` suggests that only recent education data should be retrieved.
+          - `limit=limit` indicates that there may be a limit on the number of results returned; it should be replaced by an actual number when making the request.
+
+      - **Headers**: 
+        - This is an array that can include any additional metadata sent to the server with the request. In this case, it is empty, meaning no specific headers are required for this API call.
+
+    This description outlines each component of the request for users to
+    understand how to interact with the "Web - Socket - Recent Education"
+    endpoint effectively.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

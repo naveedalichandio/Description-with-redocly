@@ -1,0 +1,75 @@
+get:
+  tags:
+    - ActionDelete
+  summary: Action - Delete - Get All
+  description: >-
+    ### Action - Delete - Get All Endpoint Details
+
+
+    **Endpoint Name:**  
+
+    Action - Delete - Get All
+
+
+    **Request Method:**  
+
+    GET  
+
+    This indicates that the endpoint is designed to retrieve data without making
+    any modifications to the server's resources.
+
+
+    **URL:**  
+
+    `http://localhost:3000/api/action/delete/all/?sessionId=sessionId&accountId=accountId`  
+
+    This is the endpoint's address, where `sessionId` and `accountId` are query
+    parameters. These parameters are required to identify the specific session
+    and account for which the action deletion is being requested.
+
+
+    **Authentication:**  
+
+    - **Type:** Bearer Token  
+      This method of authentication requires a token to verify the identity of the user making the request.
+    - **Token:**  
+      - **Key:** token  
+      This represents the name of the bearer token required for the request.  
+      - **Value:** BearerToken  
+      This placeholder indicates that a valid bearer token should replace "BearerToken" when making a request. The token grants access to the API based on the user's permissions.
+      - **Type:** string  
+      This specifies that the token should be provided as a string format.
+
+    **Headers:**  
+
+    - **Key:** (empty)  
+      Indicates that there are no additional headers required for this request at the moment.  
+    - **Value:** (empty)  
+      Since no value is provided, it further confirms that no extra header information is necessary.  
+    - **Disabled:** true  
+      This shows that the header is not active and will not be included in the request.
+
+    **Body:**  
+
+    - **Mode:** raw  
+      Identifies the format of the request body being sent, which in this case is raw text.  
+    - **Raw:** ""  
+      This indicates that there is no content being sent in the body of the request. There are no parameters or data to provide in the body for this GET request, as all necessary information is passed through the URL.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

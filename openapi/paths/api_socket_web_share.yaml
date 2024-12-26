@@ -1,0 +1,81 @@
+post:
+  tags:
+    - WebSocketMessage
+  summary: Web - Socket - Share Message
+  description: >-
+    ### Web - Socket - Share Message
+
+
+    **Endpoint:**  
+
+    This API endpoint allows you to share a message over a WebSocket connection.
+
+
+    **Request Method:**  
+
+    - **POST**: This method is used to send data to the server to create or
+    update a resource.
+
+
+    **Request URL:**  
+
+    - `http://localhost:3000/api/socket/web/share`: This is the URL where the
+    request will be sent. It is set up to work on a local server running on port
+    3000.
+
+
+    **Request Headers:**  
+
+    - No specific headers are required for this request, as indicated by the
+    empty headers array. However, if authentication or content type headers are
+    needed, they can be added here.
+
+
+    **Request Body:**  
+
+    - The body of the request is sent in raw JSON format and includes the
+    following fields:
+
+      - **socketId**: This field is used to identify the specific WebSocket connection you want to use for sharing the message. You need to provide the unique identifier for the socket you intend to send the message through. 
+
+      - **messageId**: This field represents the unique identifier of the message you want to share over the WebSocket connection. This helps in tracking and managing the specific message being shared.
+
+      - **accountId**: This field indicates the account associated with the message. It is used to identify the user or entity that owns the message, ensuring it is sent to the correct recipient.
+
+    **Request Body Format:**  
+
+    - The request body must be in JSON format and should look like this:
+
+    ```json
+
+    {
+      "socketId": "socketId",
+      "messageId": "messageId",
+      "accountId": "accountId"
+    }
+
+    ```
+
+    Where you replace `"socketId"` with the actual socket ID, `"messageId"` with
+    the actual message ID, and `"accountId"` with the actual account ID.
+
+
+    **Body Options:**  
+
+    - The body has been set to use **raw** mode and the language is specified as
+    **json**, indicating that the data sent to the server should be in JSON
+    format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            messageId: messageId
+            accountId: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ConnectEvent
+  summary: Connect - Event - Create
+  description: >-
+    This endpoint, "Connect - Event - Create", is a Postman request for creating
+    an event in application.
+
+
+    1. "name": This is the name of the endpoint being defined.
+
+
+    2. "request": Which includes the main properties of the request.
+
+       - "auth": The section that contains the security parameters required for the connection.
+         - "type": This specifies the used authorization type which is a "bearer" in this case.
+         - "bearer": This is an array that contains the bearer token needed for authentication.
+           - "key": This specifies the header field name for the token, which is "token".
+           - "value": This specifies the value of the token as "BearerToken".
+           - "type": The format of the token specified here, which is a "string".
+      
+       - "method": This specifies the HTTP method being used, which is "POST" in this case.
+       
+       - "url": The URL where the request will be sent, specifically: "http://localhost:3000/api/connect/event/create".
+
+       - "headers": Additional headers to be sent as part of the request. In this case, it's empty and is disabled.
+
+       - "body": The body of the request.
+         - "mode": This specifies the format of the body, which is "raw" in this case.
+         - "raw": It includes the raw JSON data to be sent in the request body.
+             The different properties include: sessionId, accountId, name, description, tags, profile photo URL, cover photo URL, minimum tip amount, unlock amount, category, subcategory, search type, and various boolean flags.
+         - "options": further options for body processing.
+           - "raw": Allows specifying the language to be used when processing the raw body, which is "json" in this case.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeEvent
+            description: This event is my second event
+            tags: second,event
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 1
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isEventPrivate: true
+            isTournamentOnly: false
+            isEventDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

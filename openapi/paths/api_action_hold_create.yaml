@@ -1,0 +1,104 @@
+post:
+  tags:
+    - ActionHold
+  summary: Action - Hold - Create
+  description: |-
+    {
+      "name": "Action - Hold - Create",
+      "description": "This API endpoint is designed to create a hold action for a specific target, typically in a streaming context. Users can specify various parameters for the hold action, allowing for customization based on the session and account details.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ],
+          "description": "This is a bearer token authentication mechanism. Users need to provide a valid bearer token to authorize the request. Ensure that 'BearerToken' is replaced with an actual valid token."
+        },
+        "method": "POST",
+        "description": "This API uses the POST method, indicating that data is being sent to the server to create a new hold action.",
+        "url": "http://localhost:3000/api/action/hold/create",
+        "description": "This is the endpoint URL where the hold action request is sent. It is hosted locally on port 3000.",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "description": "Currently, there are no additional headers specified for this request. However, if required, users can add relevant headers such as Content-Type or Accept, depending on their needs.",
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request is in raw format, structured as a JSON object. It contains the necessary information to create the hold action.",
+          "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"streamer\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"tokenAmount\": 20,\n    \"name\": \"hold1\",\n    \"description\": \"\",\n    \"tags\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "description": {
+            "sessionId": {
+              "description": "Unique identifier for the current session. This helps in tracking the hold action within that session."
+            },
+            "accountId": {
+              "description": "Identifier for the account that is initiating the hold action. This is used to associate the hold with the correct user account."
+            },
+            "path": {
+              "description": "The path of the live channel related to the hold action. It generally indicates where the content is being streamed, e.g., '/live/channel/video123'."
+            },
+            "targetType": {
+              "description": "Specifies the type of target for the hold action. For instance, 'streamer' indicates that the hold is placed on a streamer."
+            },
+            "targetId": {
+              "description": "Unique identifier for the target of the hold action, typically the video ID of the content that the user is holding."
+            },
+            "sourceType": {
+              "description": "Defines the source type for the hold. In this case, it is set to 'accountId'."
+            },
+            "sourceId": {
+              "description": "Identifier of the source from which the hold is initiated. It is usually the same as accountId."
+            },
+            "tokenAmount": {
+              "description": "Represents the amount of tokens assigned to the hold action. In this case, it is set to 20 tokens."
+            },
+            "name": {
+              "description": "A given name for the hold action, in this example, it is 'hold1'. This helps to identify the action easily."
+            },
+            "description": {
+              "description": "An optional field for providing additional details about the hold action. Currently, it is left empty."
+            },
+            "tags": {
+              "description": "An optional field for adding tags to the hold action. This field is also currently empty."
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: hold1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

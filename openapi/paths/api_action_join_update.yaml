@@ -1,0 +1,112 @@
+put:
+  tags:
+    - ActionJoin
+  summary: Action - Join - Update
+  description: >-
+    ### Action - Join - Update Endpoint Description
+
+
+    **Request Method:** PUT  
+
+    **Request URL:** `http://localhost:3000/api/action/join/update`
+
+
+    **Authentication:**
+
+    - **Type:** Bearer Token  
+      - **Key:** `token`  
+      - **Value:** `BearerToken` (Replace with actual token)  
+      - **Type:** string
+
+    **Headers:**
+
+    - **Key:** `Client-UUID`  
+      - **Value:** `ClientUUID` (Replace with actual client UUID)  
+      - **Type:** default
+
+    **Request Body:**
+
+    The body of the request is in JSON format. Here is a breakdown of each
+    field:
+
+
+    - **sessionId:**  
+      Identifies the session associated with the join action. (String)
+
+    - **accountId:**  
+      Represents the account that is performing the join operation. (String)
+
+    - **path:**  
+      Specifies the path to the resource, in this case, a live video channel. It indicates where the join action is taking place. Example: `/live/channel/video123`.
+
+    - **targetType:**  
+      Indicates the type of resource being targeted for the join action. In this example, it is set to `videoId`, meaning the join is related to a specific video.
+
+    - **targetId:**  
+      Refers to the unique identifier of the target resource, which is presumably the video being joined. (String)
+
+    - **sourceType:**  
+      Specifies the type of source account that is initiating the join action. In this case, it is set to `accountId`.
+
+    - **sourceId:**  
+      Specifies the identifier of the source account, which is initiating the action. (String)
+
+    - **didJoin:**  
+      A boolean indicating whether the action of joining was successful. It is set to `true` if the join was successful.
+
+    - **isUndo:**  
+      A boolean to specify if the join action is being undone. It is set to `false` indicating that this is not an undo action.
+
+    - **groupType:**  
+      Defines the type of group related to the join action. In this example, it is set to `team`, indicating that the joining action is associated with a team.
+
+    - **name:**  
+      A string that describes the action being performed. In this example, it is labeled as `update`.
+
+    - **description:**  
+      This field is for additional details about the join action. It can be left empty or filled with relevant information.
+
+    - **tags:**  
+      Allows for tagging the join action for categorization or identification purposes. This field can also be left blank.
+
+    - **joinId:**  
+      A unique identifier for the join action, which can be used for tracking or reference purposes. (String)
+
+    ### Usage
+
+    This endpoint is used when a client wants to update the action of joining a
+    specific resource, such as a video, in a particular session. Ensure to
+    replace placeholder values with actual data before making the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didJoin: true
+            isUndo: false
+            groupType: team
+            name: update
+            description: ''
+            tags: ''
+            joinId: joinId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

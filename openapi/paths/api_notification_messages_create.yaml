@@ -1,0 +1,105 @@
+post:
+  tags:
+    - NotificationMessages
+  summary: Notification - Messages - Create
+  description: >-
+    This endpoint is named "Notification - Messages - Create". It uses the POST
+    method to create a new message in the notification system. The endpoint URL
+    is http://localhost:3000/api/notification/messages/create.
+
+
+    The authentication method for this endpoint is bearer token. You will need
+    to provide the "token" in the bearer array, and the provided token should be
+    a string. 
+
+
+    The body of the POST request should be in raw JSON format. It consists of
+    the following fields:
+
+
+    - "sessionId": A string that represents the ID of the current session.
+
+    - "accountId": The ID associated with the account of the user creating the
+    message.
+
+    - "name": The name of the message you are creating.
+
+    - "description": A brief explanation about the message.
+
+    - "tags": Keywords or labels associated with the message.
+
+    - "profilePhotoUrl": The URL of the user's profile photo.
+
+    - "coverPhotoUrl": The URL of the cover photo for the message.
+
+    - "minimumTipAmount": The minimum amount of tip acceptable. 
+
+    - "categoryId": The ID associated with the category of the message.
+
+    - "category": The category that the message belongs to.
+
+    - "subCategoryId": The ID of the subcategory of the message (if any).
+
+    - "subCategory": The sub-category that the message belongs to (if any).
+
+    - "isMessagesPrivate": A boolean that indicates whether the message is
+    private or not.
+
+    - "isTournamentOnly": A boolean to indicate if the message is only available
+    for tournaments or not.
+
+    - "isMessagesDefault": A boolean flag that indicates if this message is the
+    default.
+
+    - "isPreLiveNotificationAds": A boolean flag to indicate if there are
+    pre-live ads on the notification.
+
+    - "isPostLiveNotificationAds": A boolean flag to indicate if the post-live
+    notification includes ads.
+
+    - "breakPreLiveNotificationUrl": The URL for the pre-live notification break
+    video.
+
+    - "breakPostLiveNotificationUrl": The URL for the post-live notification
+    break video.
+
+
+    Please note that the headers key-value are set to default and is disabled.
+    This suggests that there are currently no standard or custom headers in use
+    for this API endpoint. 
+
+
+    Remember to replace the placeholders (e.g., BearerToken, sessionId,
+    accountId) with actual values when calling the endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Messages
+            description: This messages is my second messages
+            tags: second,messages
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isMessagesPrivate: true
+            isTournamentOnly: false
+            isMessagesDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

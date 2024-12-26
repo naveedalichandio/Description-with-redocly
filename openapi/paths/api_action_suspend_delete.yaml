@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ActionSuspend
+  summary: Action - Suspend - Delete
+  description: >-
+    ### Endpoint Description: Action - Suspend - Delete
+
+
+    - **Name**: Action - Suspend - Delete  
+      This is the name of the API request that outlines the action to suspend or delete a session.
+
+    - **Request Object**: This section contains all details related to the
+    request being made to the API.
+
+      - **Auth**: This subsection describes the authentication method used for the request.    
+        - **Type**: `bearer`  
+          This indicates that the request uses Bearer Token authentication.
+        - **Bearer**: This is an array that holds information about the authorization token.
+          - **Key**: `token`  
+            This represents the name of the authentication key that is expected in the request.
+          - **Value**: `sessionId`  
+            This is a placeholder for the actual session ID that needs to be provided for authentication.
+          - **Type**: `string`  
+            This specifies that the value associated with "token" is a string.
+
+      - **Method**: `POST`  
+        This indicates that the request uses the POST method to send data to the server.
+
+      - **URL**: `http://localhost:3000/api/action/suspend/delete`  
+        This is the endpoint URL where the request is being sent. It indicates that the action pertains to suspending or deleting a session.
+
+      - **Headers**: This section is intended for request headers.
+        - **Key**: *(empty)*  
+          No specific header key is provided in this request.
+        - **Value**: *(empty)*  
+          No specific header value is provided in this request.
+        - **Type**: `default`  
+          This denotes the type of header, even though it's currently disabled.
+        - **Disabled**: `true`  
+          This indicates that the provided header is currently not active and won’t be sent with the request.
+
+      - **Body**: This section contains the data that will be sent in the body of the POST request.
+        - **Mode**: `raw`  
+          This indicates that the body content is in raw format.
+        - **Raw**: `{"sessionId":"sessionId","accountId":"accountId","suspendId":"suspendId"}`  
+          This is the actual body data being sent in JSON format. It consists of:
+            - **sessionId**: A placeholder for the session ID to be suspended or deleted.
+            - **accountId**: A placeholder for the user account ID associated with the session.
+            - **suspendId**: A placeholder for the ID of the suspension action being referenced.
+
+    Overall, this endpoint is designed to suspend or delete a session associated
+    with a specific account, using Bearer Token authentication to ensure secure
+    access to the API.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"suspendId\":\"suspendId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

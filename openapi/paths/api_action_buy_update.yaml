@@ -1,0 +1,101 @@
+put:
+  tags:
+    - ActionBuy
+  summary: Action - Buy - Update
+  description: >-
+    **Description of each data in the "Action - Buy - Update" endpoint:**
+
+
+    1. **Request Name**: 
+       - The name given to this request is "Action - Buy - Update". This describes the purpose of the request, which is to update a purchase action.
+
+    2. **Authorization**:
+       - **Type**: "bearer"
+         - This specifies the type of authentication being used.
+       - **Bearer Token**:
+         - **Key**: "token"
+           - This is the key for the bearer token required for authentication.
+         - **Value**: "BearerToken"
+           - This is a placeholder for the actual token that is needed to authorize the request.
+         - **Type**: "string"
+           - This indicates that the value of the token is a string.
+
+    3. **HTTP Method**:
+       - **PUT**: 
+         - This indicates that the request is using the PUT method, which is employed to update an existing resource.
+
+    4. **Request URL**:
+       - **URL**: "http://localhost:3000/api/action/buy/update"
+         - This is the endpoint where the request will be sent. It points to the local server where the update action will be processed.
+
+    5. **Headers**:
+       - **Key**: "Client-UUID"
+         - This header is expected to be sent with the request. It identifies the client making the request.
+       - **Value**: "ClientUUID"
+         - A placeholder for the actual UUID value that should represent the client.
+
+    6. **Body**:
+       - **Mode**: "raw"
+         - The body of the request is sent in raw format.
+       - **Raw Content**: 
+         - This is the JSON formatted data that will be included in the body of the request:
+           - **sessionId**: 
+             - Identifies the user session. Placeholder is "sessionId" for the actual session identifier.
+           - **accountId**: 
+             - Represents the account associated with the action. Placeholder is "accountId".
+           - **path**: 
+             - Specifies the path to the resource being accessed, e.g., a video channel. Example provided is "/live/channel/video123".
+           - **targetType**: 
+             - Indicates the type of target for the action. In this case, it's set to "videoId".
+           - **targetId**: 
+             - Specifies the ID of the target resource. Placeholder is "videoId".
+           - **sourceType**: 
+             - Indicates the type of the source of the action. This is set to "accountId".
+           - **sourceId**: 
+             - Specifies the ID of the source, here also a placeholder for "accountId".
+           - **buyId**: 
+             - Represents the ID of the purchase to be updated. Placeholder is "buyId".
+           - **name**: 
+             - A placeholder string "update" for the name of the update action.
+           - **description**: 
+             - Currently left blank, it can be used to provide additional details about the update.
+           - **tags**: 
+             - Currently left blank, it can be used to categorize the update with tags.
+
+    7. **Body Options**:
+       - **Language**: "json"
+         - Indicates that the body content is formatted as JSON, which is the standard format for APIs. 
+
+    This overview outlines the purpose and structure of the "Action - Buy -
+    Update" endpoint request, including the required fields for making a
+    successful API call.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            buyId: buyId
+            name: update
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

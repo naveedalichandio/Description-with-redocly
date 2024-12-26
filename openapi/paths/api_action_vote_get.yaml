@@ -1,0 +1,73 @@
+get:
+  tags:
+    - ActionVote
+  summary: Action - Vote - Get
+  description: >-
+    ### Action - Vote - Get Endpoint Description
+
+
+    **Request Type**: GET  
+
+    This endpoint retrieves voting information based on the specified
+    parameters.
+
+
+    **Authentication**:
+
+    - **Type**: Bearer Token
+      - A security token is required to access this endpoint. The token must be included in the request headers.
+      - **Key**: `token` 
+      - **Value**: `BearerToken` (Replace with the actual token before making a request)
+      - **Type**: string (Indicates the format of the token)
+
+    **URL Format**:  
+
+    `http://localhost:3000/api/action/vote/get/?voteId=voteId&sessionId=sessionId&accountId=accountId`
+
+
+    - **Base URL**: `http://localhost:3000/api/action/vote/get/`
+
+    - **Query Parameters**:
+      - `voteId`: Identifier for the specific vote you want to retrieve.
+      - `sessionId`: Identifier for the session during which the vote was cast.
+      - `accountId`: Identifier for the user account associated with the vote.
+
+    **Headers**:  
+
+    - The request currently has an empty header configuration, which means no
+    additional headers are set. The header is disabled and will not be included
+    in the request unless modifications are made.
+
+
+    **Body**:  
+
+    - The body of the request is in `raw` mode but contains no content. No
+    payload is needed for this GET request, so the body remains empty. 
+
+
+    This endpoint is useful for retrieving details about specific votes based on
+    the provided identifiers, ensuring that the request is authenticated with
+    the necessary bearer token.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: voteId
+      in: query
+      schema:
+        type: string
+      example: voteId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

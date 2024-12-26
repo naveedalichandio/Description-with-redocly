@@ -1,0 +1,95 @@
+post:
+  tags:
+    - UtilityCrypto
+  summary: Utility - Crypto - Create for Team
+  description: >-
+    ### Endpoint: Utility - Crypto - Create for Team
+
+
+    - **Request Method**: POST  
+      This indicates that the endpoint is designed to create a new resource, in this case, for a team related to cryptocurrency.
+
+    - **URL**: `http://localhost:3000/api/utility/crypto/create`  
+      The endpoint where the request will be sent. This URL is pointing to a local server.
+
+    - **Authentication**:
+      - **Type**: Bearer  
+        This specifies that Bearer token is required for authentication.
+      - **Bearer Token**:
+        - **Key**: token  
+          This is the identifier for the bearer token in the authorization header.
+        - **Value**: BearerToken  
+          This represents the actual token that grants access to the API. Replace "BearerToken" with an actual valid token to authorize the request.
+        - **Type**: string  
+          Indicates that the value of the token is a string datatype.
+
+    - **Headers**:  
+      An empty headers object is present, which is currently disabled. While it can be used in some scenarios for adding custom headers, it is not being utilized in this request.
+
+    - **Body**:
+      - **Mode**: raw  
+        This signifies the format of the body being sent in the request.
+      - **Raw JSON**:
+        The following keys and values are included within the JSON body:
+        
+        - **sessionId**: `"sessionId"`  
+          This is a placeholder for the session identifier associated with the user's session. It must be replaced with the actual session ID.
+          
+        - **accountId**: `"accountId"`  
+          This is a placeholder for the unique identifier of the account making the request. It should be replaced with the actual account ID.
+          
+        - **targetType**: `"teamId"`  
+          This specifies the type of target associated with the action. Here, it is indicating that the target is a team.
+          
+        - **targetId**: `"teamId"`  
+          This is the ID of the team for which the cryptocurrency action is being created.
+          
+        - **name**: `"BTC"`  
+          This represents the name of the cryptocurrency involved, in this case, Bitcoin.
+          
+        - **description**: `"Bitcoin"`  
+          A brief description of the cryptocurrency, further clarifying that this is Bitcoin.
+          
+        - **type**: `"btc"`  
+          This indicates the cryptocurrency type. "btc" stands for Bitcoin.
+          
+        - **action**: `"buy"`  
+          This represents the action to be taken. In this instance, the action is to buy the specified cryptocurrency.
+          
+        - **rate**: `1`  
+          This signifies the rate at which the cryptocurrency is being bought. In this example, it is set to 1, possibly meaning one unit of currency for one BTC.
+          
+        - **amount**: `10000`  
+          This denotes the amount of the cryptocurrency to be purchased. In this case, it indicates a purchase of 10,000 units of Bitcoin.
+
+    - **Options**:  
+      - **Raw Settings**: 
+        - **Language**: json  
+          This indicates that the raw body content is formatted as JSON. This helps in ensuring proper parsing of the data being sent in the request.
+
+    This endpoint is useful for creating crypto transactions specific to a team
+    within the utility framework. The appropriate values for session ID, account
+    ID, and team ID need to be provided to complete the request successfully.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            targetType: teamId
+            targetId: teamId
+            name: BTC
+            description: Bitcoin
+            type: btc
+            action: buy
+            rate: 1
+            amount: 10000
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

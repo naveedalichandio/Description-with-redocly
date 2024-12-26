@@ -1,0 +1,84 @@
+post:
+  tags:
+    - ActionMessage
+  summary: Action - Message - Create
+  description: >-
+    ### Action - Message - Create Endpoint Description
+
+
+    This endpoint allows users to create a message action within a specified
+    context. Below is a detailed description of each data field used in the
+    request:
+
+
+    - **auth**: This section includes authentication details required to access
+    the endpoint.
+      - **type**: Specifies the type of authentication used. In this case, it is "bearer" authentication.
+      - **bearer**: Contains the information about the bearer token used for authorization.
+        - **key**: This defines the name of the token field. It is usually "token".
+        - **value**: This field contains the actual token value, which should be formatted as "BearerToken".
+        - **type**: Denotes the format of the value, which is a "string".
+
+    - **method**: Indicates the HTTP method to be used for the request. In this
+    case, it is "POST", which means data will be sent to the server to create a
+    new resource.
+
+
+    - **url**: The endpoint's URL where the request will be sent. The provided
+    URL is "http://localhost:3000/api/action/message/create". This implies the
+    API is hosted locally on port 3000.
+
+
+    - **headers**: This field is used to include any additional information in
+    the request headers.
+      - **key**: This is the name of the header. In this case, it is left empty.
+      - **value**: This holds the value for the corresponding header, which is also empty here.
+      - **type**: Indicates the type of header, which is "default".
+      - **disabled**: A boolean that indicates whether this header is active or inactive. Here, it is set to true, meaning this header is currently disabled.
+
+    - **body**: This contains the content of the request that will be sent to
+    the server.
+      - **mode**: The format of the data being sent. It is set to "raw", meaning the data will be sent as plain text.
+      - **raw**: This is the actual JSON data that will be sent in the request body. It includes several fields:
+        - **sessionId**: This is a unique identifier for the session associated with the message. Replace "sessionId" with the actual session identifier.
+        - **accountId**: This field refers to the unique identifier of the account on which the action is being performed. Replace "accountId" with the actual account identifier.
+        - **path**: This indicates the path to the resource that the message is associated with, such as a video channel, formatted as "/live/channel/video123'.
+        - **targetType**: Specifies the type of target for the message; in this case, it is set to "videoId".
+        - **targetId**: This is the unique identifier for the target resource. Replace "videoId" with the appropriate video identifier.
+        - **sourceType**: Indicates the type of source from which the message originates. Here it is set to "accountId".
+        - **sourceId**: This field identifies the source resource, typically the account's ID, which should match the actual account identifier.
+        - **didMessage**: A boolean field that indicates whether a message was sent. Here, it's set to true.
+        - **text**: This is the content of the message being sent. The example provided is "Hello".
+        - **priority**: Indicates the priority level of the message. Possible values could include "high", "medium", or "low". In this case, it is set to "high".
+        - **name**: An optional field that can hold a name related to the message. It is left empty in this example.
+        - **description**: An optional field intended for further description of the message. It is also left empty.
+        - **tags**: An optional field for any tags associated with the message, left empty here.
+
+    - **options**: This contains additional settings for the raw data.
+      - **raw**: Specifies the language format of the raw data. It is set to "json", indicating that the body content is in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didMessage: true
+            text: Hello
+            priority: high
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,119 @@
+put:
+  tags:
+    - ActionModerate
+  summary: Action - Moderate - Update
+  description: >-
+    ### Endpoint Description: Action - Moderate - Update
+
+
+    This endpoint allows the user to update moderation actions for a specific
+    video or content. Below is a detailed description of each data field
+    included in the request.
+
+
+    #### Request Fields:
+
+
+    - **Auth**: 
+      - **Type**: The type of authentication used for the request, which is "bearer".
+      - **Bearer**: This section contains the authentication token that must be included in the request.
+        - **Key**: This field represents the name of the token in the request. 
+        - **Value**: This is the actual token string that will authenticate the user. It should be replaced with a valid Bearer token when making a request.
+        - **Type**: Specifies that the data type for the token value is a string.
+
+    - **Method**: 
+      - The HTTP method used for the request, which is "PUT". This indicates that this endpoint is being used to update existing resources.
+
+    - **URL**: 
+      - The endpoint URL where the request will be sent. In this case, it’s `http://localhost:3000/api/action/moderate/update`.
+
+    - **Headers**: 
+      - This section includes additional metadata sent with the request.
+        - **Key**: "Client-UUID" is used to identify the client making the request.
+        - **Value**: This field should contain the unique Client UUID, which helps in tracking and managing client requests.
+        - **Type**: Describes the nature of the header, here it is "default".
+
+    #### Body Fields:
+
+
+    The body of the request contains the data required for updating the
+    moderation action:
+
+
+    - **sessionId**: 
+      - A unique identifier for the session during which the action is being moderated.
+
+    - **accountId**: 
+      - The ID of the account associated with the moderation action.
+
+    - **path**: 
+      - The path to the content that is being moderated, typically in a specific format such as `/live/channel/video123`.
+
+    - **targetType**: 
+      - Indicates the type of target being moderated. In this case, it is set to "videoId", suggesting that the moderation is specifically for a video.
+
+    - **targetId**: 
+      - The unique identifier for the target, which corresponds to the video being moderated.
+
+    - **sourceType**: 
+      - Specifies the source type for the action. It is set to "accountId", indicating that the action is coming from an account.
+
+    - **sourceId**: 
+      - The unique identifier for the source, which should match the account ID.
+
+    - **name**: 
+      - An optional field to provide a name or title for the moderation action.
+
+    - **description**: 
+      - An optional field for additional information or context regarding the moderation action.
+
+    - **tags**: 
+      - A field for specifying any relevant tags that can aid in categorizing or describing the moderation action.
+
+    - **didModerate**: 
+      - A boolean value indicating whether the moderation action was actually performed or not. It can be either true or false.
+
+    - **moderationType**: 
+      - Specifies the type of moderation applied (e.g., "none", "strict"). This indicates how the content was moderated.
+
+    - **moderateId**: 
+      - A unique identifier for the moderation action itself, allowing it to be tracked or referenced in the system.
+
+    ### Summary:
+
+    Sending a PUT request to this endpoint with the specified parameters allows
+    for the update of existing moderation actions associated with a video or
+    content, supporting functionalities such as tracking, auditing, and managing
+    content moderation.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            description: ''
+            tags: ''
+            didModerate: false
+            moderationType: none
+            moderateId: moderateId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

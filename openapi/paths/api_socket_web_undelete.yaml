@@ -1,0 +1,57 @@
+post:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Undelete
+  description: |-
+    ### Endpoint Description: Web - Socket - Undelete
+
+    - **Name**: Web - Socket - Undelete
+      - This is the identifier for the endpoint, indicating that it is related to websockets and the operation of undeleting a specific entity.
+
+    - **Request**: 
+      - This section contains details about the HTTP request required to interact with the endpoint.
+
+      - **Method**: 
+        - **POST**
+          - This specifies that the request type is POST, which is used to send data to the server to create or update a resource.
+
+      - **URL**: 
+        - **http://localhost:3000/api/socket/web/undelete**
+          - This is the endpoint URL where the request is sent. It indicates that the request is directed to a local server running on port 3000 and the specific path for undeleting a web socket.
+
+      - **Headers**: 
+        - **[]**
+          - This indicates that there are no custom headers required for this request. Headers are typically used to provide additional information about the request.
+
+      - **Body**: 
+        - This section outlines the body of the request, which includes the data being sent to the server.
+
+        - **Mode**: 
+          - **raw**
+            - This means that the body of the request will be sent in raw format rather than form data or another format.
+
+        - **Raw**: 
+          - **"{\"socketId\": \"socketId\"}"**
+            - This represents the actual data being sent in the body of the request. In this case, it is a JSON string that includes a property called `socketId`. The value of `socketId` should be replaced with the actual ID of the socket you want to undelete.
+
+        - **Options**: 
+          - This defines the format details of the raw data.
+
+          - **Raw**: 
+            - This specifies that the raw data will be formatted as JSON.
+
+          - **Language**: 
+            - **json**
+              - This indicates that the data being sent is in JSON format, which is a common data interchange format that is easy to read and write for humans and machines.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

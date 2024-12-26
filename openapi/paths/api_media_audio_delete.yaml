@@ -1,0 +1,64 @@
+post:
+  tags:
+    - MediaAudio
+  summary: Media - Audio - Delete
+  description: >-
+    This endpoint is titled "Media - Audio - Delete". It features a request
+    method of "POST", which implies this endpoint is used for deleting a
+    specified audio media from the web server.
+
+
+    The authentication required for this endpoint is of type "bearer". This
+    entails providing a token in the bearer field with the key "token" that's
+    linked with your "sessionId". This is a string type field and represents the
+    session ID of the user making the request.
+
+
+    The URL, "http://localhost:3000/api/media/audio/delete", is where the
+    request is sent. This path signifies that the endpoint is intended for
+    deleting audio media.
+
+
+    In the headers section, a default type header is mentioned. Its key-value
+    pairs are undefined and this header is disabled indicating it may not be
+    necessary for the request.
+
+
+    The main data that is required while making the request is embedded in the
+    raw body of the request payload. It takes the "raw" form and needs to be
+    sent as a JSON string.
+
+
+    The raw body needs to include three properties: "sessionId", "accountId",
+    "audioId". The "sessionId" is a repeat of the session ID that is assigned
+    during logging in. This identifies the client's session.
+
+
+    The "accountId" property is also a string and represents the user's account
+    ID. It is necessary to ensure that the operation is performed for the
+    correct user's account. 
+
+
+    Last but not least, the "audioId" is another string property in the raw
+    payload. This should correlate to the specific ID of the audio media file
+    that you want to be deleted. The system uses this to know the exact audio
+    file to remove in the database or storage.
+
+
+    Remember to appropriately replace the "sessionId", "accountId", and
+    "audioId" placeholders with actual values when you intend to execute the
+    request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"audioId\":\"audioId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

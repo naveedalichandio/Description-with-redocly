@@ -1,0 +1,70 @@
+post:
+  tags:
+    - PaymentProduct
+  summary: Product - Zelle - Create
+  description: >-
+    This endpoint is labeled "Product - Zelle - Create", signifying that its
+    main function is to create a new product under the payment service, Zelle.
+    It uses the POST method to send data to the specified URL
+    "http://localhost:3000/api/payment/product/create".
+
+
+    The endpoint accepts a JSON object as its body. The details of the body
+    content are as follows:
+
+
+    - `accountId`: This is a unique identifier for the account that you wish to
+    associate with the new product. It should be passed as a string.
+
+
+    - `sessionId`: This also needs to be a unique identifier that represents the
+    user's current session. It's again a string.
+
+
+    - `source`: The original source where this product data is coming from. It
+    can be supplied as a string or null if not available.
+
+
+    - `isSaveProduct`: A boolean indicating whether or not you want to save this
+    product after creation. If this value is true, the created product will be
+    saved to the account. If false, the product will not be saved.
+
+
+    - `isPrimary`: Another boolean flag that tells us whether this product
+    should be set as the primary product for the given account. True would mean
+    it is considered a primary product and false would mean it is not.
+
+
+    - `provider`: This signifies the provider of the product. In this case, it
+    is to be set as "zelle".
+
+
+    Remember, there's no specific headers required for this endpoint, however it
+    is case sensitive, so be sure to use the exact same cases as detailed above.
+
+
+    The endpoint also contains an options object that includes a language field
+    which is set to "json". This ensures that the raw body is treated and
+    processed as a JSON object when received.
+
+
+    Overall, use this endpoint when you need to create a new product tied with a
+    Zelle payment system, that you can specify as primary or non-primary and can
+    choose to be saved for future use or discarded after creation.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source: null
+            isSaveProduct: true
+            isPrimary: false
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

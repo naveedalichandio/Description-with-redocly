@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ActionSticker
+  summary: Action - Sticker - Get All
+  description: >-
+    ### Endpoint Description
+
+
+    #### Name
+
+    - **Action - Sticker - Get All**: This endpoint retrieves all sticker
+    actions available for the user.
+
+
+    #### Request Details
+
+
+    1. **Authentication** 
+       - **Type**: Bearer
+       - **Bearer**: This section contains an authorization token that is required to access the endpoint.
+         - **Key**: `token` - This is the name of the authorization key.
+         - **Value**: `BearerToken` - This is a placeholder for the actual bearer token that must be provided to authenticate the request. Users must replace it with a valid token.
+         - **Type**: `string` - Indicates that the value of the token is a string.
+
+    2. **Method**
+       - **GET**: This specifies that the endpoint uses the GET method, which is typically used for retrieving data from the server.
+
+    3. **URL**
+       - **Endpoint URL**: `http://localhost:3000/api/action/sticker/all/?sessionId=sessionId&accountId=accountId` - This is the URL used to access the endpoint. It includes query parameters:
+         - **sessionId**: A placeholder for the user's session identifier. Must be replaced with an actual session ID.
+         - **accountId**: A placeholder for the user's account identifier. Must be replaced with an actual account ID.
+
+    4. **Headers**
+       - The headers section is currently empty and disabled. Users can add any necessary headers for their request here, but as it stands, no additional headers are required.
+
+    5. **Body**
+       - **Mode**: `raw` - This indicates that the body of the request is in raw format.
+       - **Raw**: This field is empty, meaning no request body is sent with the GET request. GET requests typically do not include a body.
+
+    ### Usage Notes
+
+    - Ensure that you replace `BearerToken`, `sessionId`, and `accountId` with
+    appropriate values before making the request.
+
+    - Since this is a GET request, it is primarily used to retrieve information
+    from the server, and no data is sent in the body of the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

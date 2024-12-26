@@ -1,0 +1,146 @@
+put:
+  tags:
+    - ActionFeedback
+  summary: Action - Feedback - Update
+  description: >-
+    ### Action - Feedback - Update Endpoint Description
+
+
+    This endpoint allows users to update feedback related to a specific action.
+    Below are the details of each data field included in the request.
+
+
+    #### Request Method
+
+    - **Method**: PUT
+      - This indicates that the operation is intended to update an existing resource.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/feedback/update`
+      - This is the endpoint where the feedback update request is sent.
+
+    #### Request Authentication
+
+    - **Auth Type**: Bearer Token
+      - **Key**: `token`
+        - This is the authentication key used to securely identify the user making the request.
+      - **Value**: `BearerToken`
+        - This value should be replaced with an actual bearer token for authorization.
+
+    #### Request Headers
+
+    - **Header Key**: `Client-UUID`
+      - This is a unique identifier for the client making the request.
+    - **Value**: `ClientUUID`
+      - This should be replaced with the actual UUID of the client.
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - The body of the request is sent in a raw format as JSON.
+
+    ##### Body Fields:
+
+    - **sessionId**: `sessionId`
+      - An identifier for the session during which the feedback was given. This should be replaced with the actual session identifier.
+
+    - **accountId**: `accountId`
+      - The unique identifier associated with the user account giving the feedback.
+
+    - **path**: `/live/channel/video123`
+      - The path to the resource for which feedback is being provided. This typically includes the context for the feedback, such as a URL to a video.
+
+    - **targetType**: `videoId`
+      - Specifies the type of resource the feedback is targeting. In this case, it refers to a video.
+
+    - **targetId**: `videoId`
+      - The unique identifier of the target resource that is receiving the feedback.
+
+    - **sourceType**: `accountId`
+      - Defines the type of source providing the feedback. It’s usually associated with user accounts.
+
+    - **sourceId**: `accountId`
+      - The unique identifier of the feedback source.
+
+    - **didFeedback**: `false`
+      - A boolean indicating whether the user has provided feedback. Default is false.
+
+    - **category**: `Entertainment`
+      - The primary category under which the feedback falls.
+
+    - **subCategory**: `Music`
+      - A more specific categorization of the content related to the feedback.
+
+    - **subject**: `Video Feedback`
+      - A brief title summarizing the purpose of the feedback.
+
+    - **title**: `Great Performance`
+      - The title of the feedback, summarizing the user's experience or sentiment.
+
+    - **name**: `John Doe`
+      - The name of the user providing the feedback.
+
+    - **description**: `The video was amazing, the performance was top-notch!`
+      - A detailed description of the feedback, explaining the user's reaction or thoughts regarding the content.
+
+    - **tags**: `music, live performance, trending`
+      - A set of keywords related to the feedback, used for categorization and search purposes.
+
+    - **didReply**: `true`
+      - A boolean indicating whether there was a response to the original feedback.
+
+    - **didReview**: `true`
+      - A boolean indicating whether the user has left a review for the video.
+
+    - **replyText**: `this is updated reply`
+      - Text of the reply provided to the feedback, which can be updated as needed.
+
+    - **reviewStars**: `2`
+      - A rating given by the user, typically on a scale, indicating their level of satisfaction.
+
+    - **feedbackId**: `feedbackId`
+      - A unique identifier for the feedback that is being updated.
+
+    This structure allows for comprehensive updating of feedback for a
+    particular action, providing an efficient way to manage user interactions
+    with content.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didFeedback: false
+            category: Entertainment
+            subCategory: Music
+            subject: Video Feedback
+            title: Great Performance
+            name: John Doe
+            description: The video was amazing, the performance was top-notch!
+            tags: music, live performance, trending
+            didReply: true
+            didReview: true
+            replyText: this is updated reply
+            reviewStars: 2
+            feedbackId: feedbackId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

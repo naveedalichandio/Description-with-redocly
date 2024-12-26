@@ -1,0 +1,73 @@
+post:
+  tags:
+    - EventsGeneral
+  summary: Events - General - Create Auto
+  description: >-
+    1. `name`: This is the title of the API endpoint. This endpoint is labeled
+    as "Events - General - Create Auto".
+
+
+    2. `request`: This section contains all the details necessary to make a
+    network request.
+
+
+    3. `auth`: This part encloses information about the authentication type
+    required by the API endpoint. This particular endpoint requires `Bearer`
+    type authentication. You need to input the `BearerToken` to access this
+    endpoint successfully. The type of the value is a string.
+
+
+    4. `method`: It specifies the HTTP method used for the request. This
+    particular request requires the `POST` method.
+
+
+    5. `url`: This is the actual URL where the request will be sent. For this
+    endpoint, it's "http://localhost:3000/api/events/general/create".
+
+
+    6. `headers`: This section comprises the headers to be sent along with the
+    request. Currently, the default headers value is disabled and not defined.
+
+
+    7. `body`: This is where the actual data to be sent with the request is
+    defined. For the current request, the "raw" mode is used and is defined with
+    certain fields in a JSON format. Here, the following list of attributes are
+    defined:
+       - `accountId`: Identifies the account. Replace it with your actual account ID.
+       - `sessionId`: Represents the session ID. You should replace this with your actual session ID.
+       - `category`: Specifies the category of the event. Replace it with the desired category.
+       - `subCategory`: Provides details about the event's subcategory.
+       - `title`: This is the title of the event.
+       - `description`: It is a short summary of the event, explaining what it's about.
+       - `tags`: Contains the tags for the event, divided by comma. This labels the event for easy searching and classification.
+       - `date`: Indicates the date of the event in the format YYYY-MM-DD.
+       - `time`: Specifies the time of the event in the format HH:MM:SS.
+       - `details`: Could hold additional, more detailed information. For this instance, it's left empty but could be populated if required.
+
+    8. `options`: Specifies additional particulars about the request body. It's
+    set to JSON language for the format of the raw input.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            category: My New Category
+            subCategory: My Shiny SubCategory
+            title: Invisible Luggage Exhibition
+            description: >-
+              An exhibition exploring the unseen burdens of social justice,
+              gender identity, and immigration.
+            tags: Art,Exhibition,SocialJustice,GenderIdentity,Immigration
+            date: '2024-12-31'
+            time: '01:00:00'
+            details: {}
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,137 @@
+post:
+  tags:
+    - ConnectPost
+  summary: Connect - Post- Create
+  description: >-
+    1. "name" - This field represents the name of the endpoint. In this case,
+    the name is "Connect - Post- Create", which indicates that it might be an
+    endpoint used for creating a new post in a connection.
+
+
+    2. "request" - This field contains all the information related to the
+    request being made to the endpoint.
+
+
+    3. "auth" - Represents the authorization needed to make a request to the
+    endpoint. It has a "type" field which indicates the type of authorization,
+    in this case, "bearer". The "bearer" field contains an array of objects each
+    containing a "key", "value", and "type." Here, the key is "token", and it
+    requires a string value which is "BearerToken".
+
+
+    4. "method" - Specifies the HTTP method used for the request. Here, "POST"
+    method is used which is typically used for sending data to a server to
+    create/update a resource.
+
+
+    5. "url" - This is the URL of the endpoint where the request will be made. 
+
+
+    6. "headers" - Contain additional information that the client needs to pass
+    along with the request. In this case, no headers are mentioned, just an
+    empty default header is given which is also disabled.
+
+
+    7. "body" - It includes the actual data that has to be sent in the request.
+    Here, the "mode" is "raw" which specifies that the data is sent in raw text
+    and the language used is JSON. It contains fields like "sessionId",
+    "accountId", "provider", "postText", "title", and "isEnabled" which need to
+    be passed in the request body. 
+
+
+    Let's know about data in the body section:
+
+    - "sessionId": An identifier for the current user session.
+
+    - "accountId": Identifier for the user account.
+
+    - "provider": The blog provider's name, in this example it is mentioned as
+    'blogger'.
+
+    - "postText": The text of the blog post.
+
+    - "title": The title of the blog post.
+
+    - "isEnabled": A flag to specify whether the post is enabled or not. This is
+    a boolean field that accepts either true or false.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            provider: blogger
+            postText: This message is my second test message
+            title: test title
+            isEnabled: true
+  security:
+    - bearerAuth: []
+  responses:
+    undefined:
+      content:
+        text/plain:
+          schema:
+            type: string
+          examples:
+            example-0:
+              summary: instagram
+              value: null
+            example-1:
+              summary: facebook page
+              value: null
+            example-2:
+              summary: facebook profile
+              value: null
+            example-3:
+              summary: Facebook Group
+              value: null
+            example-4:
+              summary: linkedIn
+              value: null
+            example-5:
+              summary: medium
+              value: null
+            example-6:
+              summary: google review
+              value: null
+            example-7:
+              summary: pinterest
+              value: null
+            example-8:
+              summary: reddit
+              value: null
+            example-9:
+              summary: slack
+              value: null
+            example-10:
+              summary: threads
+              value: null
+            example-11:
+              summary: tumblr
+              value: null
+            example-12:
+              summary: whatsapp
+              value: null
+            example-13:
+              summary: weebly
+              value: null
+            example-14:
+              summary: wordpress
+              value: null
+            example-15:
+              summary: x
+              value: null
+            example-16:
+              summary: patreon
+              value: null
+            example-17:
+              summary: g2
+              value: null
+            example-18:
+              summary: trustpilot
+              value: null
+            example-19:
+              summary: yelp
+              value: null

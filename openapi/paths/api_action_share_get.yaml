@@ -1,0 +1,76 @@
+get:
+  tags:
+    - ActionShare
+  summary: Action - Share - Get
+  description: >-
+    ### Description of Endpoint Data
+
+
+    - **name**: This is the name of the API request. In this case, it is titled
+    "Action - Share - Get", indicating that it is used for retrieving share
+    actions.
+
+
+    - **request**: This section contains all the necessary information for
+    making the API request.
+
+      - **auth**: This part specifies the authentication method required to access the endpoint.
+      
+        - **type**: Indicates the type of authentication being used. Here, it is "bearer", which typically involves passing a token for authorization.
+        
+        - **bearer**: This array holds the details related to the bearer token.
+        
+          - **key**: This is a label for the token parameter. In this case, it is named "token".
+          
+          - **value**: This is where you input the actual bearer token you will use for authentication. The placeholder "BearerToken" is meant to be replaced with a valid token.
+          
+          - **type**: Indicates the data type of the value. Here, it is specified as "string", meaning the token should be a text value.
+
+      - **method**: This indicates the type of HTTP method used for the request. In this case, "GET" signifies that this request is meant to retrieve data from the server.
+
+      - **url**: This is the endpoint URL where the request will be sent. It includes several query parameters:
+      
+        - **shareId**: This parameter represents the unique identifier for the share you want to retrieve. It should be replaced with the actual share ID.
+        
+        - **sessionId**: This parameter is used to specify the session ID related to the request. It should be replaced with the actual session ID.
+        
+        - **accountId**: This parameter represents the unique identifier for the account associated with the share. It should be replaced with the actual account ID.
+
+      - **headers**: This section is a list of HTTP headers that may be included with the request.
+      
+        - **key**: This is intended for specifying the name of a header. In this case, it is empty.
+        
+        - **value**: This is where you would include the value for the header. It is also empty here.
+        
+        - **type**: This indicates the type of header. "default" means it is a standard HTTP header.
+        
+        - **disabled**: Indicates whether this header section is active or not. Here, it is set to true, meaning this specific header will not be sent with the request.
+
+      - **body**: This section holds the body of the HTTP request.
+      
+        - **mode**: This indicates how the body is formatted. "raw" means that the body content can be written freely in its raw form.
+        
+        - **raw**: This is where the actual data content for the request body would be specified. It is currently empty, implying that this GET request does not require a request body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: shareId
+      in: query
+      schema:
+        type: string
+      example: shareId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

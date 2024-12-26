@@ -1,0 +1,62 @@
+get:
+  tags:
+    - EventsSubCategory
+  summary: Events - SubCategory - Get By Name
+  description: >-
+    This endpoint, which is titled "Events - SubCategory - Get By Name", is
+    responsible for retrieving subcategories of events by their particular
+    names. Here's a detailed description of each field and its data.
+
+
+    1. "name" : This field denotes the name of the API endpoint which is "Events
+    - SubCategory - Get By Name". This is useful for identifying and
+    categorizing the endpoint in the collection.
+
+
+    2. "request" : This field contains all the information needed to make a
+    request to this endpoint.
+
+
+    3. "auth": This section deals with the authorization needed to access the
+    endpoint. It has three sub-fields:
+      - "type": The type of authorization used, which in this case is a "bearer" token.
+      - "bearer": This is an array of tokens required for bearer authorization:
+        - "key": The name of the bearer token which is "token" in this case.
+        - "value": The value of the bearer token.
+        - "type": Specifies the datatype of the bearer token, as "string".
+
+    4. "method": It indicates the HTTP verb that should be used when accessing
+    this endpoint. Here, you should use a "GET" request.
+
+
+    5. "url": It describes the address where the request should be sent. For
+    this endpoint, the URL is
+    "http://localhost:3000/api/events/subcategory/get/?name=eventSubCategoryName".
+    Here, "eventSubCategoryName" parameter is passed along with the URL to fetch
+    the specific subcategory data by name.
+
+
+    6. "headers" : This is a list of headers that should be sent along with the
+    request. The default header key and value are left empty and set to disabled
+    as it's not necessary for this request.
+
+
+    7. "body": This section concerns the body of the request. 
+      - "mode": Indicates how the body should be sent. In this case, it has the value "raw", which means the body should be sent as a raw data string.
+      - "raw": This sub-field is used to send raw data. However, as it's a GET request, there's no need to send any data in the body and hence it is left as an empty string.
+
+    Please ensure to replace the "BearerToken" and "eventSubCategoryName" values
+    with valid information before making the request to the endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: name
+      in: query
+      schema:
+        type: string
+      example: eventSubCategoryName
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

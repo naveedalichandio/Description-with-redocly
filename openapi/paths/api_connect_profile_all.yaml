@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ConnectProfile
+  summary: Connect - Profile - Get All
+  description: >-
+    1. "name": This field indicates the name of the API endpoint, which in this
+    case is "Connect - Profile - Get All". This will help users understand the
+    purpose of this API endpoint.
+
+
+    2. "request": This field contains information about the HTTP request that is
+    sent to the endpoint.
+
+
+    3. "auth": This nested field under request specifies the authentication
+    method and the necessary details for accessing the endpoint.
+
+        a. "type": The type of authentication used. Here, it's a "bearer" token.
+        
+        b. "bearer": A list of tokens used for bearer authentication.
+        
+        c. "key": The key for the token is set to "token".
+        
+        d. "value": The value field of the bearer token is set to "BearerToken".
+        
+        e. "type": This indicates the data type of the bearer token, which is "string".
+
+    4. "method": This field defines the HTTP method used to send requests to the
+    server. In this case, it is a "GET" request, which retrieves information
+    from the server.
+
+
+    5. "url": The URL field provides the exact address where the API request is
+    being sent. Here, it includes a placeholder 'accountId' which should be
+    replaced with the actual account Id.
+
+
+    6. "headers": This is an array of headers that are being sent along with the
+    API request. There is a default header which is currently disabled in the
+    provided data.
+
+
+    7. "body": This field represents the data being sent with the request. 
+
+        a. "mode": It describes the format of the data being sent in "body". In this case, the data format is "raw" meaning that no specific formatting is being utilized.
+        
+        b. "raw": This field contains the raw body content sent with the request. Currently, it is empty implying no specific content is being sent with the body of the request.
+       
+    Remember to replace placeholders like "BearerToken" and "accountId" with
+    actual values before making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

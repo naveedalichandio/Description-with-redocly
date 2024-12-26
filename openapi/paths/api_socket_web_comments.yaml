@@ -1,0 +1,46 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Comments
+  description: >-
+    ### Web - Socket - Recent Comments
+
+
+    This endpoint retrieves the most recent comments by using a WebSocket
+    connection. It is specifically designed to allow for real-time updates on
+    comments as they are posted.
+
+
+    #### Request Breakdown
+
+
+    - **Method**: 
+      - `GET`: This indicates that the request is made to retrieve data from the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/socket/web/comments?recent=true&limit=limit`: This is the endpoint where the request is sent. 
+        - The base URL is `http://localhost:3000/api/socket/web/comments`, and it is appended with two query parameters:
+          - `recent=true`: This parameter requests only the most recent comments.
+          - `limit=limit`: This parameter specifies the maximum number of comments to return. Replace `limit` with an actual number to set the desired limit.
+
+    - **Headers**: 
+      - `[]`: This indicates that no additional headers are sent with this request. Headers may sometimes be necessary for authentication or other purposes, but in this case, none are included.
+
+    This endpoint is useful for applications that require fetching the latest
+    comments dynamically, enhancing user engagement with real-time data.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

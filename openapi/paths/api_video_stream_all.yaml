@@ -1,0 +1,91 @@
+get:
+  tags:
+    - VideoStream
+  summary: Video - Stream - Get All
+  description: >-
+    {
+      "name": "Video - Stream - Get All",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "url": "http://localhost:3000/api/video/stream/all/?channelId=channelId",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        }
+      }
+    }
+
+
+    ### Description:
+
+
+    - **name**: This field specifies the name of the request. In this case, it
+    indicates that the request is related to retrieving all video streams.
+
+
+    - **request**: This is an object that contains all the details of the
+    request being made.
+
+      - **auth**: This section defines the type of authentication needed for this request.
+
+        - **type**: Indicates the authentication method, which is set to "bearer" for token-based authentication.
+        
+        - **bearer**: An array that includes the authentication token.
+        
+          - **key**: This is a label for the token value.
+          
+          - **value**: Actual bearer token that needs to be included in the request for authentication. The sample shows a placeholder "BearerToken".
+          
+          - **type**: Denotes the data type of the value, in this case, it is a "string".
+
+      - **method**: This indicates the HTTP method used to send the request. Here, it is set to "GET", meaning the request is intended to retrieve data.
+
+      - **url**: This is the endpoint where the request is being sent. It shows the base URL and includes a query parameter `channelId` that is used to specify the channel for which the video streams are being requested.
+
+      - **headers**: This is an array of headers that may be sent along with the request.
+
+        - **key**: This field is for the name of the header, but in this instance, it is left empty.
+        
+        - **value**: This is the value for the header, but it is also empty, suggesting that no custom headers are being used here.
+        
+        - **type**: Indicates the type of header, which is set to "default". 
+
+        - **disabled**: A boolean that signifies whether this header is active or not. It is set to true, meaning this header is currently disabled.
+
+      - **body**: This section details the body of the request.
+
+        - **mode**: Specifies the format of the body content. It is set to "raw", indicating raw input data can be provided.
+        
+        - **raw**: This field holds the actual content of the body. It is empty in this case, implying that no body content is needed for a GET request.
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: channelId
+      in: query
+      schema:
+        type: string
+      example: channelId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

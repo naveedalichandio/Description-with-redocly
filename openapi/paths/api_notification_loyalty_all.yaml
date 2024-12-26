@@ -1,0 +1,62 @@
+get:
+  tags:
+    - NotificationLoyalty
+  summary: Notification - Loyalty - Get All
+  description: >-
+    This endpoint is named "Notification - Loyalty - Get All", which suggests it
+    is likely used to retrieve all loyalty notifications.
+
+
+    In the `request` key, several details about the nature of this API call are
+    specified:
+
+
+    - `auth`: Specifies the type of authentication used. Here, `Bearer`
+    authentication is being used, and the bearer token should be placed in the
+    value of the `token` key. 
+
+
+    - `method`: Specifies the HTTP method used, in this case, `GET`, meaning the
+    API call will retrieve data from the server.
+
+
+    - `url`: Specifies the URL the request will be sent to. In this case, it
+    looks like the URL is calling an API locally and is intended to fetch all
+    loyalty notifications. There are two query parameters, `sessionId` and
+    `accountId`, which likely need to be populated with a valid session ID and
+    account ID respectively when calling this API. 
+
+
+    - `headers`: Contains information that the client (user's browser, for
+    instance) sends to the server. In this case, it appears that headers are not
+    necessarily required to call the given endpoint as the key and value are
+    empty and the header is disabled.
+
+
+    - `body`: Contains information sent to the server if data needs to be sent
+    along with the `GET` request. For this particular request, no raw data is
+    being sent in the body. The `mode` is set as `raw`, but the `raw` value is
+    an empty string. However, in cases when data needs to be sent, it would
+    likely contain further parameters or JSON objects. 
+
+
+    Please ensure to replace `BearerToken`, `sessionId` and `accountId` with the
+    actual valid data before sending the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

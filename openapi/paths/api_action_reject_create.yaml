@@ -1,0 +1,114 @@
+post:
+  tags:
+    - ActionReject
+  summary: Action - Reject - Create
+  description: |-
+    {
+      "description": {
+        "name": "Action - Reject - Create",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/action/reject/create",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"didReject\": true,\n    \"reason\": \"inappropriate content\",\n    \"name\": \"\",\n    \"description\": \"\",\n    \"tag\": \"\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        }
+      },
+      "details": {
+        "auth": {
+          "type": "bearer": This indicates that the request requires bearer token authentication.
+          "bearer": [
+            {
+              "key": "token": This is the key used for the authentication.
+              "value": "BearerToken": This is a placeholder for the actual token that grants access to the API.
+              "type": "string": This indicates that the value of the token is a string.
+            }
+          ]
+        },
+        "method": "POST": This specifies that the request method is POST, which is used to send data to the server to create a new resource.
+        
+        "url": "http://localhost:3000/api/action/reject/create": This is the endpoint URL where the POST request is sent to create an action to reject content.
+
+        "headers": [
+          {
+            "key": "": Indicates the name of the header, which is currently empty.
+            "value": "": Indicates the value of the header, which is also currently empty.
+            "type": "default": Specifies that this header type is default.
+            "disabled": true: This means that this header is currently disabled and won't be sent with the request.
+          }
+        ],
+
+        "body": {
+          "mode": "raw": This indicates the type of body data being sent, which is in raw format.
+          "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"didReject\": true,\n    \"reason\": \"inappropriate content\",\n    \"name\": \"\",\n    \"description\": \"\",\n    \"tag\": \"\"\n}": This is the JSON data that will be sent in the body of the request, containing the details of the rejection action.
+          "options": {
+            "raw": {
+              "language": "json": This indicates that the language format of the raw body data is JSON.
+            }
+          }
+        },
+        "bodyFields": {
+          "sessionId": "sessionId": This is the ID of the current session, which is needed to keep track of ongoing actions.
+          "accountId": "accountId": This is the ID of the account, indicating which user is making the request.
+          "path": "/live/channel/video123": This represents the path of the content that is being acted upon.
+          "targetType": "videoId": This indicates the type of target that is being rejected, in this case, a video ID.
+          "targetId": "videoId": This is the specific ID of the video that is being rejected.
+          "sourceType": "accountId": This indicates the source type of the content, which is from an account ID.
+          "sourceId": "accountId": This indicates the specific account ID that is the source of the content.
+          "didReject": true: This flag indicates that the action taken is indeed a rejection.
+          "reason": "inappropriate content": This field provides a reason for the rejection, stating the content was inappropriate.
+          "name": "": This is a placeholder for any name associated with the rejection, currently empty.
+          "description": "": This is a placeholder for any description related to the rejection, currently empty.
+          "tag": "": This is a placeholder for any tags that may be associated with the rejection, currently empty.
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didReject: true
+            reason: inappropriate content
+            name: ''
+            description: ''
+            tag: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

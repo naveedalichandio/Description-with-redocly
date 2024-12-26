@@ -1,0 +1,123 @@
+post:
+  tags:
+    - ActionDismiss
+  summary: Action - Dismiss - Create
+  description: >-
+    ### Endpoint Description
+
+
+    **Name:** Action - Dismiss - Create  
+
+    This API call is designed to create a dismiss action for a specific video or
+    content based on provided parameters.
+
+
+    #### Request Details
+
+
+    - **Auth:**
+      - **Type:** Bearer
+        - This specifies that the request uses Bearer Token authentication. 
+      - **Bearer:**
+        - **Key:** token
+          - This is the key used for the authentication token.
+        - **Value:** BearerToken
+          - This placeholder should be replaced with an actual Bearer token that authorizes the request.
+        - **Type:** string
+          - Indicates that the token should be sent as a string.
+
+    - **Method:** 
+      - **POST**
+        - This indicates that the request is a POST request, which is typically used to create new resources on the server.
+
+    - **URL:** 
+      - `http://localhost:3000/api/action/dismiss/create`
+        - This is the endpoint where the request is sent. In this case, it is a local server URL.
+
+    - **Headers:**
+      - An empty headers array is provided, which indicates that no additional headers are included in the request. The entry is marked as disabled.
+
+    #### Body Details
+
+
+    - **Mode:** 
+      - **raw**
+        - The body of the request is in raw format, meaning it will be sent as plain text and interpreted as JSON.
+
+    - **Raw Content:**
+      - The raw body being sent with the request is a JSON object that contains the following fields:
+      
+      - **sessionId:** 
+        - `"sessionId"`
+          - A unique identifier for the session in which the dismiss action is taking place. Should be replaced with the actual session ID.
+
+      - **accountId:**
+        - `"accountId"`
+          - The identifier for the account that is associated with this action. Should be replaced with the actual account ID.
+      
+      - **path:** 
+        - `"/live/channel/video123"`
+          - The path to the video or content being dismissed. This is typically a URL path format and should point to the specific resource.
+
+      - **targetType:**
+        - `"videoId"`
+          - Indicates the type of the target resource being dismissed. In this case, it refers to a video ID.
+
+      - **targetId:** 
+        - `"videoId"`
+          - The unique identifier for the target resource (the video) being dismissed. Should be replaced with the actual video ID.
+
+      - **sourceType:** 
+        - `"accountId"`
+          - Specifies the type that identifies the source of the action. Here it refers back to the account ID.
+
+      - **sourceId:** 
+        - `"accountId"`
+          - The unique identifier for the source account from which the dismiss action originates. Should be replaced with the actual account ID.
+
+      - **didDismiss:** 
+        - `true`
+          - A boolean value that indicates whether the dismiss action was performed. In this case, it is set to true.
+
+      - **name:** 
+        - `"this is name"`
+          - A string representing the name of the action or context for the dismissal. Should be replaced with a descriptive name.
+
+      - **description:** 
+        - `""`
+          - A string for additional description about the action. Currently empty but can be used to provide more context.
+
+      - **tags:** 
+        - `""`
+          - A string for any tags associated with the action. Currently empty, but can be utilized for categorization or identification purposes. 
+
+    ### Summary
+
+    This POST request creates a dismiss action for a specified video source
+    based on the supplied parameters. It requires a valid Bearer token for
+    authorization and expects certain details such as session ID, account IDs,
+    target IDs, and additional metadata in the request body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didDismiss: true
+            name: this is name
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,95 @@
+put:
+  tags:
+    - ReportsPlayer
+  summary: Reports - Player - Update
+  description: >-
+    This API endpoint is named "Reports - Player - Update". It's a PUT request,
+    which is used to update existing resources. This endpoint is authenticated
+    through Bearer authentication, which requires a "token" string to be passed
+    in the headers. 
+
+
+    The request is made to 'http://localhost:3000/api/reports/player/update'.
+    Along with the Bearer token, you also need to provide a "Client-UUID" in the
+    headers, which uniquely identifies each client.
+
+
+    The body of this request must be in raw JSON format, containing the player
+    report data that needs to be updated. The following parameters are included
+    in the JSON:
+
+
+    - "playerId": Identifier of the player.
+
+    - "sessionId": Session in which the player is participating.
+
+    - "accountId": Identifier of the player's account.
+
+    - "name": Updated name of the player. 
+
+    - "description": Updated description of the player.
+
+    - "tags": Tags associated with the player, usually for categorization or
+    search purposes. 
+
+    - "profilePhotoUrl": URL of the player's updated profile photo.
+
+    - "coverPhotoUrl": URL of the player's updated cover photo.
+
+    - "minimumTipAmount": The minimum amount for tips applicable to this player.
+
+    - "categoryId": Identifier for player's category.
+
+    - "category": Updated name of the player's category.
+
+    - "subCategoryId": Identifier for player's sub-category.
+
+    - "subCategory": Updated name of the player's sub-category.
+
+    - "isPlayerPrivate": Boolean value showing if the player is private or
+    public.
+
+    - "isTournamentOnly": Boolean value indicating if the player is only for
+    tournaments.
+
+    - "isPlayerDefault": Boolean value indicating if this player is set as the
+    default.
+
+    - "isPreLiveReportsAds": Boolean value indicating whether to show ads before
+    live reports.
+
+    - "isPostLiveReportsAds": Boolean value indicating whether to show ads after
+    live reports.
+
+    - "breakPreLiveReportsUrl": URL at which the pre-live reports break for ads
+    will be available.
+
+    - "breakPostLiveReportsUrl": URL at which the post-live reports break for
+    ads will be available.
+
+
+    The API will return a response that indicates the success or failure of the
+    operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"playerId\":\"playerId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Player 2.0\",\"description\":\"This player is my second
+            player\",\"tags\":\"second,player\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isPlayerPrivate\":true,\"isTournamentOnly\":false,\"isPlayerDefault\":true,\"isPreLiveReportsAds\":true,\"isPostLiveReportsAds\":true,\"breakPreLiveReportsUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveReportsUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

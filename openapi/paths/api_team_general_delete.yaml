@@ -1,0 +1,63 @@
+post:
+  tags:
+    - TeamGeneral
+  summary: Team - General - Delete
+  description: >-
+    ### Endpoint: Team - General - Delete
+
+
+    **Name**: Represents the name of the API endpoint which is designed to
+    delete a general team.
+
+
+    **Request**:
+
+    - **Auth**: This specifies the authentication method required to access the
+    endpoint.
+      - **Type**: Bearer token is used for authentication.
+      - **Bearer**: Contains an array of authentication parameters.
+        - **Key**: Indicates the name of the bearer token field, which is "token".
+        - **Value**: Represents the actual value to be provided in the request; in this case, "sessionId".
+        - **Type**: Indicates the data type for the value, which is "string".
+
+    - **Method**: The HTTP method to be used for the request is "POST", meaning
+    data will be sent to the server to delete a specified resource.
+
+
+    - **URL**: This is the endpoint where the request will be sent. It consists
+    of:
+      - **Protocol**: HTTP
+      - **Host**: localhost:3000
+      - **Path**: /api/team/general/delete - specifies that the request will delete a team.
+
+    - **Headers**: This section can include additional headers for the request.
+    In this case:
+      - **Key**: There are no specific headers set as the key is empty.
+      - **Value**: There are no specific values provided since disabled is set to true.
+      - **Type**: The header is of type "default".
+      - **Disabled**: Indicates that this header is not active for the request.
+
+    - **Body**: This part of the request contains the data being sent to the
+    server.
+      - **Mode**: Set to "raw", indicating the body is sent as raw JSON text.
+      - **Raw**: This will contain the JSON string with key-value pairs:
+        - **sessionId**: Represents the user session ID used for authentication and authorization.
+        - **accountId**: Represents the ID of the account from which the team will be deleted.
+        - **teamId**: Represents the ID of the specific team that is to be deleted. 
+
+    This API endpoint is used to delete a specified team by providing the
+    relevant session, account, and team identifiers in the request body.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"teamId\":\"teamId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

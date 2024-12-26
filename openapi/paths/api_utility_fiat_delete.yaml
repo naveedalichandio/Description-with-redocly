@@ -1,0 +1,82 @@
+post:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Delete
+  description: >-
+    ### Utility - Fiat - Delete Endpoint Description
+
+
+    **Name:**  
+
+    Utility - Fiat - Delete
+
+
+    **Request Type:**  
+
+    A POST request to delete a specific fiat record from the utility service.
+
+
+    **Authentication Method:**  
+
+    This endpoint requires bearer token authentication. The token must be
+    included in the authorization header of the request.
+
+
+    - **Auth Type:** Bearer token
+      - **Key:** token - This is the identifier for the token.
+      - **Value:** sessionId - The actual session token that verifies the user's identity and permissions.
+      - **Type:** string - The format of the token.
+
+    **HTTP Method:**  
+
+    POST - Used to submit data to be processed to the specified resource.
+
+
+    **URL:**  
+
+    `http://localhost:3000/api/utility/fiat/delete`  
+
+    The endpoint's URL where the delete request is sent.
+
+
+    **Headers:**  
+
+    There are currently no custom headers being sent with this request. A
+    default header entry exists but is disabled.
+
+
+    **Body:**  
+
+    The body of the request is sent in raw JSON format, which contains the
+    following fields:
+
+    - **sessionId:** This field should be populated with the session ID of the
+    user making the request, allowing the server to authenticate and authorize
+    the user.
+
+    - **accountId:** This field represents the ID of the account from which the
+    fiat record should be deleted. It specifies which user's fiat data is
+    affected by the operation.
+
+    - **fiatId:** This field contains the ID of the specific fiat record that is
+    to be deleted. This ID is used to identify which record in the database
+    should be removed.
+
+
+    In summary, this endpoint allows a user to delete a specific fiat record
+    associated with their account by providing the necessary IDs and a valid
+    session token.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"fiatId\":\"fiatId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

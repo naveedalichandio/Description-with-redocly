@@ -1,0 +1,73 @@
+post:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Delete
+  description: |-
+    ### Endpoint Description: Utility - Token - Delete
+
+    - **Name**: Utility - Token - Delete  
+      This is the designation for the operation that handles the deletion of a token related to a user session.
+
+    - **Request**: This section details how to set up the request to the server.
+
+      - **Auth**:  
+        Specifies the authentication method required to access the endpoint.
+        
+        - **Type**: Bearer  
+          Indicates that the authentication uses a bearer token.
+
+        - **Bearer**: Contains the necessary token information.  
+          - **Key**: `token`  
+            This is the identifier for the authentication token.
+          - **Value**: `sessionId`  
+            Represents the actual session identifier used to authenticate the request.
+          - **Type**: string  
+            Specifies that the value provided should be a string.
+
+      - **Method**: POST  
+        This shows that the request method used to interact with the endpoint is POST, which is typically used to submit data to the server.
+
+      - **URL**: `http://localhost:3000/api/utility/token/delete`  
+        This is the address of the API endpoint where the deletion request is sent. In this case, it targets the local server.
+
+      - **Headers**:  
+        An array of headers to be sent with the request.
+        - **Key**: (Empty)  
+          There are no specific headers set in this array.
+        - **Value**: (Empty)  
+          There are no values assigned as the key is empty.
+        - **Type**: default  
+          This indicates the standard type of header, but as there are no headers, it is currently disabled.
+
+      - **Body**:  
+        This section contains the data payload sent with the request. The body is formatted in raw JSON format.
+
+        - **Mode**: raw  
+          Indicates that the body content is being sent as raw data.
+
+        - **Raw**:  
+          This is the JSON object that will be transmitted in the request body.
+          ```json
+          {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "tokenId": "tokenId"
+          }
+          ```
+          - **sessionId**: A string representing the identifier for the session from which the token should be deleted.
+          - **accountId**: A string representing the unique identifier of the user account associated with the session.
+          - **tokenId**: A string that denotes the specific token that is to be deleted from the user's session.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tokenId\":\"tokenId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

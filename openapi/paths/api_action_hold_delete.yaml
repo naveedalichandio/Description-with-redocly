@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ActionHold
+  summary: Action - Hold - Delete
+  description: |
+    ### Endpoint: Action - Hold - Delete
+
+    **Name:** Action - Hold - Delete  
+    This describes a request designed to delete a hold action in the system.
+
+    **Request Details:**
+
+    - **Auth:**  
+      - **Type:** Bearer  
+        This indicates that the request uses bearer token authentication. This method requires a token to be sent along with the request to prove its authenticity.
+
+      - **Bearer:**  
+        - **Key:** token  
+          This is the name of the authentication key that will carry the session identifier.  
+        - **Value:** sessionId  
+          This placeholder represents the actual session ID that must be provided to authenticate the request.  
+        - **Type:** string  
+          The type indicates that the value for the token must be a string.
+
+    - **Method:** POST  
+      This indicates that the request uses the POST method, which is typically used for sending data to a server to create or update a resource.
+
+    - **URL:** `http://localhost:3000/api/action/hold/delete`  
+      This is the endpoint where the request is sent. It is hosted on localhost and specifies the delete action for a hold.
+
+    - **Headers:**  
+      This section is currently empty, meaning no specific headers are set for the request.  
+      - **Key:** ""  
+        No header key is provided.  
+      - **Value:** ""  
+        No header value is provided.  
+      - **Type:** default  
+        This indicates that the header type is default but no additional header is actively being used.  
+      - **Disabled:** true  
+        This means that this particular header is not active or in use.
+
+    - **Body:**  
+      The body of the request contains data necessary to perform the delete action.  
+      - **Mode:** raw  
+        Indicates that the body content is sent in raw, unformatted JSON.  
+      - **Raw:**  
+        The actual content being sent is:  
+        `{"sessionId":"sessionId","accountId":"accountId","holdId":"holdId"}`  
+        This JSON object needs to be populated with real values:
+        - **sessionId:** the session identifier for the user making the request.
+        - **accountId:** the identifier for the account associated with the hold to be deleted.
+        - **holdId:** the identifier for the specific hold that is being deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"holdId\":\"holdId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

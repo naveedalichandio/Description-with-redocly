@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionCancel
+  summary: Action - Cancel - Get All
+  description: |-
+    ### Action - Cancel - Get All Endpoint Description
+
+    - **Name**: Action - Cancel - Get All
+      - This is the name of the API call that retrieves all cancel actions.
+
+    - **Request**:
+      - This section outlines the details of the HTTP request that will be made to the server.
+
+      - **Auth**:
+        - **Type**: Bearer
+          - This indicates that the request uses bearer token authentication. The token must be included in the request to access secure endpoints.
+        - **Bearer**:
+          - This is an array that contains the authentication details required for the request.
+          - **Key**: token
+            - This specifies the name of the authentication parameter.
+          - **Value**: BearerToken
+            - This is a placeholder for the user's actual bearer token that will be used to authenticate the request.
+          - **Type**: string
+            - This indicates that the value of the token is a string.
+
+      - **Method**: GET
+        - This specifies that the HTTP method for the request is a GET, which is used to retrieve data from the specified resource.
+
+      - **URL**: http://localhost:3000/api/action/cancel/all/?sessionId=sessionId&accountId=accountId
+        - This is the endpoint URL to which the GET request will be sent. 
+        - **Base URL**: http://localhost:3000/api/action/cancel/all/
+        - **Query Parameters**:
+          - **sessionId**: sessionId
+            - A placeholder for the session ID that may be required to filter or retrieve specific session-related data.
+          - **accountId**: accountId
+            - A placeholder for the account ID that may be required to filter or retrieve specific account-related data.
+
+      - **Headers**:
+        - This section can include additional HTTP headers for the request.
+        - **Key**: (empty)
+          - This indicates that there is currently no additional header key included in the request.
+        - **Value**: (empty)
+          - This indicates that there is currently no corresponding value for the header key included in the request.
+        - **Type**: default
+          - This represents the default type for the header (though none are currently specified).
+        - **Disabled**: true
+          - This indicates that any headers defined in this list are disabled and will not be sent with the request.
+
+      - **Body**:
+        - This section contains the body of the request.
+        - **Mode**: raw
+          - This indicates that the body format is raw, meaning that it can accept any string format.
+        - **Raw**: ""
+          - This indicates that there is no body data to be sent with the GET request, as GET requests typically do not have a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

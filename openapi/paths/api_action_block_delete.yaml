@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ActionBlock
+  summary: Action - Block - Delete
+  description: >-
+    ### Description of Data for Endpoint: Action - Block - Delete
+
+
+    - **name**: This is the title of the endpoint, indicating that this action
+    is intended to delete a block in the system.
+
+
+    - **request**: This section defines the details of the HTTP request that
+    will be made to the endpoint.
+
+      - **auth**: This section specifies the type of authentication required to access the endpoint. In this case, it uses bearer token authentication.
+
+        - **type**: Indicates the kind of authentication used (bearer token in this case).
+        
+        - **bearer**: This is an array that contains the details for the bearer token authentication.
+
+          - **key**: Refers to the parameter name for the bearer token (in this case, it is labeled "token").
+          
+          - **value**: This indicates the value that is expected in the token field (set as "sessionId" for this specific request).
+          
+          - **type**: Represents the data type of the value (which is a string here).
+
+      - **method**: Specifies the HTTP method used for this request. This is a POST request, which means data is being sent to the server to perform a specific action.
+
+      - **url**: This is the endpoint's URL where the request will be sent. Here, the request will be sent to "http://localhost:3000/api/action/block/delete".
+
+      - **headers**: This section could include any additional headers that need to be sent with the request.
+
+        - **key**: This field is intended to specify the name of the header but is currently empty.
+        
+        - **value**: Corresponds to the header's value and is also empty.
+
+        - **type**: Indicates the type of header, but since no header is specified, it is marked as "default".
+
+        - **disabled**: This indicates whether this particular header is enabled or disabled for the request. In this case, it is disabled.
+
+      - **body**: This section contains the actual data being sent in the request body.
+
+        - **mode**: Specifies the format of the request body; in this case, it is set to "raw", meaning it will contain raw JSON data.
+
+        - **raw**: This field contains the actual JSON string that will be sent in the body of the request. It includes the following parameters:
+        
+          - **sessionId**: This is a parameter representing the session identifier for the user/application making the request.
+          
+          - **accountId**: This represents the unique identifier for the user's account that owns the block.
+          
+          - **blockId**: This indicates the unique identifier for the block that is to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"blockId\":\"blockId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,121 @@
+put:
+  tags:
+    - EventsGeneral
+  summary: Events - General - Update Auto
+  description: >-
+    This endpoint, named 'Events - General - Update Auto', allows you to update
+    the details of an event. The request requires several pieces of information
+    categorized into four main sections: 'auth', 'method', 'url', and 'body'.
+
+
+    1. Authentication ('auth'): It uses the bearer token authentication method,
+    taking in a string type token under the key 'token'.
+
+
+    2. Method: The HTTP method being used is PUT, indicating this endpoint is
+    used to update existing data.
+
+
+    3. URL: The URL where the request is sent is
+    'http://localhost:3000/api/events/general/update'.
+
+
+    4. Headers: There is an additional header provided via the 'Client-UUID',
+    which presumably carries a unique identifier for the client sending the
+    request.
+
+
+    5. Request Body: The body of the request contains the information being
+    updated. It's written in raw JSON, with the following fields:
+       
+       -  'eventId': The unique identifier for the event you want to update.
+       
+       -  'accountId': The unique identifier of the account associated with this event.
+       
+       -  'sessionId': The unique identifier of the session associated with this operation.
+       
+       -  'category' and 'subCategory': The new event's overall category and specific subcategory, respectively.
+       
+       -  'title': The title of the event.
+       
+       -  'description': A brief description of what the event is about.
+       
+       -  'tags': List of keywords associated with the the event, separated by commas.
+       
+       -  'date' and 'time': The date and exact time of the event.
+       
+       -  'details': More detailed properties associated with the event represented as objects, including:
+          
+          -  'startDate' and 'endDate': The starting and ending date of the event, respectively.
+          
+          -  'location': Where the event will take place.
+          
+          -  'featuredArtists': A list of featured artists at the event.
+          
+          -  'collections': The collections featured at the event.
+          
+          -  'events': List of auxiliary events taking place, each with its 'type', 'date', 'time', and its unique fields like 'activities', 'topic', or 'chef'.
+
+    Please note that all these details are required in the exact order as
+    mentioned above. Make sure to replace the placeholder values with your data
+    for a successful update.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            eventId: eventId
+            accountId: accountId
+            sessionId: sessionId
+            category: My New Category
+            subCategory: My Shiny SubCategory
+            title: New Years Celebration
+            description: >-
+              An exhibition exploring the unseen burdens of social justice,
+              gender identity, and immigration.
+            tags: Art,Exhibition,SocialJustice,GenderIdentity,Immigration
+            date: '2024-12-31'
+            time: '01:00:00'
+            details:
+              startDate: '2024-12-02'
+              endDate: '2024-12-15'
+              location: Historic Hampton House, Miami, FL
+              featuredArtists:
+                - Beth Rudin DeWoody
+                - Zoe Lukov
+                - Laura Dvorkin
+                - Maynard Monrow
+              collections:
+                - Rubell Family Collection
+                - Bernard Lumpkin Collection
+                - Joy Simmons Collection
+              events:
+                - type: Opening Night
+                  date: '2024-12-02'
+                  time: '18:00'
+                  activities:
+                    - Cocktails
+                    - Preview Dinner
+                    - Artist Introductions
+                - type: Panel Discussion
+                  date: '2024-12-05'
+                  time: '15:00'
+                  topic: Art and Social Justice
+                - type: VIP Dinner
+                  date: '2024-12-10'
+                  time: '19:00'
+                  chef: Jessica Harris
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,55 @@
+post:
+  tags:
+    - UniversityVideo
+  summary: University - Video - Delete
+  description: >-
+    ### Endpoint Overview: University - Video - Delete
+
+
+    #### Description:
+
+    This endpoint allows users to delete a video associated with a university
+    account. The request requires authentication and must be sent to the
+    appropriate URL.
+
+
+    #### Request Details:
+
+
+    - **Authentication**: 
+      - The request requires a bearer token for authentication. This token should be passed in the authorization header. 
+      - The bearer token is provided in the following format:
+        - **Key**: `token`
+        - **Value**: Represents the `sessionId`, which is used to verify the user's session.
+
+    - **HTTP Method**: 
+      - The request uses the `POST` method to submit the video deletion request.
+
+    - **URL**: 
+      - The endpoint URL for the delete request is `http://localhost:3000/api/university/video/delete`. This is the target where the delete operation is performed.
+
+    - **Headers**:
+      - Currently, there are no additional headers defined for the request. One of the headers is present but disabled and does not have a key or value assigned. This can be removed or updated as needed.
+
+    - **Body**: 
+      - The body of the request is sent in `raw` JSON format and contains the following key-value pairs:
+        - **sessionId**: This key holds the session identifier for the current user session which is necessary for validating the request.
+        - **accountId**: This key represents the unique identifier for the university account under which the video resides. 
+        - **videoId**: This key is the identifier of the video that needs to be deleted. It specifies which video will be removed from the account.
+
+    Make sure to replace the placeholders (`sessionId`, `accountId`, and
+    `videoId`) with actual values before sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"videoId\":\"videoId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

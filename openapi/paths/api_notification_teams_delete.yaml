@@ -1,0 +1,78 @@
+post:
+  tags:
+    - NotificationTeams
+  summary: Notification - Teams - Delete
+  description: >-
+    Here is a detailed description of each data in the endpoint for your Postman
+    API collection:
+
+
+    1. "name": This field contains the name of the endpoint. In this case, the
+    name is "Notification - Teams - Delete", which suggests that this endpoint
+    is used to delete notifications related to teams.
+
+
+    2. "request": This field contains all the required information to make a
+    request to the server. It includes authentication information, the HTTP
+    method, the request URL, any necessary headers, and the request body.
+
+
+    3. "auth": This subfield within the "request" data is responsible for the
+    authentication methods needed to make a request. It's a Bearer type, meaning
+    you have to provide a specific token to authenticate.
+
+
+    4. "type": This indicates the type of Authentication used. Here the value is
+    "bearer", meaning that the client must send a bearer token for
+    authorization.
+
+
+    5. "bearer": Contains an array of one object, which has three properties
+    (key, value, and type). The "key" is set as "token", the "value" is set as
+    "sessionId", and the "type" is set as "string".
+
+
+    6. "method": This determines the kind of request made to the server. Here
+    it's set as "POST", indicating that data is being sent to the server to
+    create/update a resource.
+
+
+    7. "url": This shows the URL where the request is sent. In this case, the
+    request is being sent to
+    "http://localhost:3000/api/notification/teams/delete", which is likely an
+    endpoint that supports deletion of team notifications.
+
+
+    8. "headers": This array is used to send additional information with the
+    HTTP request. Here, the object within the array doesn't have any values
+    provided which means no extra headers are sent in the request.
+
+
+    9. "body": This contains the actual data that you want to send with your
+    POST request. Here, it is being sent as raw JSON data that contains
+    "sessionId", "accountId" and "teamsId".
+
+
+    10. "mode": Describes how the data in the body is being sent. Here, it's
+    "raw", which means you're sending the data as a string in the exact format
+    you specified.
+
+
+    11. "raw": This is the actual raw data being sent in the HTTP body. It
+    appears to be a JSON string that includes "sessionId", "accountId", and
+    "teamsId". Each of these properties is very likely used to identify the
+    session, the account and the special team that the notification belongs to.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"teamsId\":\"teamsId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

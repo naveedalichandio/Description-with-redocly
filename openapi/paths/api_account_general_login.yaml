@@ -1,0 +1,48 @@
+post:
+  tags:
+    - AccountGeneral
+  summary: Account - General - Login Phone
+  description: >-
+    This endpoint is named "Account - General - Login Phone". It is a POST
+    request used for authenticating a user's phone-based login on the
+    account/general resource.
+
+
+    The endpoint uses Bearer Authentication. The bearer token is denoted by the
+    "token" key with the string type value "BearerToken". This token is passed
+    as a header in the format: Bearer (Access token).
+
+
+    The URL for the endpoint is http://localhost:3000/api/account/general/login.
+    It represents a local server environment which receives the request, handles
+    it by checking the account's general data, and authenticates login.
+
+
+    This endpoint doesn't require any additional headers as highlighted in the
+    headers field with the key and value set as default and empty, but it's not
+    active as the disabled property is set to true.
+
+
+    The request body is in JSON format, and it should be sent in raw mode. The
+    data in the body should include two properties: "phone" and "password". Both
+    are strings that represent a user's phone number and password respectively.
+    These inputs are essential for the phone-based login protocol.
+
+
+    Please note that this endpoint's functionality, response, or actions will
+    vary depending on the handled data server-side. Make sure to replace the
+    placeholders ("BearerToken," "phone," and "password") with actual
+    user-specific values while testing or using this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: '"{\"phone\":\"phone\",\"password\":\"password\"}"'
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

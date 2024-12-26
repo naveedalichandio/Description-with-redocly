@@ -1,0 +1,75 @@
+get:
+  tags:
+    - SearchResults
+  summary: Search - Results - Get Tournaments - By Team Name
+  description: >
+    ### Endpoint Description: Search - Results - Get Tournaments - By Team Name
+
+
+    **Endpoint Name**: This endpoint is used to search for tournaments by a
+    specific team name.
+
+
+    **Request Type**: 
+
+    - **Method**: `GET` 
+      - This indicates that the request will retrieve data from the server and will not modify any resources.
+
+    **Authorization**:
+
+    - **Auth Type**: `Bearer`
+      - This type of authentication requires a bearer token to be included in the request for access to the endpoint.
+      - **Token Structure**:
+        - **Key**: "token" 
+          - This is the name of the header that carries the authorization token.
+        - **Value**: "BearerToken" 
+          - This placeholder represents the actual bearer token needed for authentication. Users should replace this with their valid token.
+        - **Type**: "string" 
+          - This indicates that the token value is a string.
+
+    **URL**: 
+
+    -
+    `http://localhost:3000/api/search/results/all/?team=NikeShoes&find=tournaments`
+      - This is the request URL used to access the endpoint. 
+      - Query parameters explained:
+        - **team=NikeShoes**: This parameter specifies the name of the team whose tournaments are being searched. In this case, the team name is "NikeShoes".
+        - **find=tournaments**: This parameter indicates that the search is specifically looking for tournaments associated with the specified team.
+
+    **Headers**: 
+
+    - The header section currently shows an empty key and value pair and is
+    marked as disabled.
+      - This means no additional headers are being sent with the request. Users can add custom headers if needed.
+
+    **Body**:
+
+    - **Mode**: `raw`
+      - Indicates that the body of the request doesn’t contain any data since it's a GET request.
+    - **Raw**: 
+      - The raw data section is empty, which is expected for a GET request as the parameters needed are included in the URL.
+
+    ### Summary
+
+    This endpoint allows users to retrieve a list of tournaments by providing
+    the specific team name in the query parameters, all while ensuring security
+    through bearer token authentication. No additional headers or body content
+    are required for the GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: team
+      in: query
+      schema:
+        type: string
+      example: NikeShoes
+    - name: find
+      in: query
+      schema:
+        type: string
+      example: tournaments
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

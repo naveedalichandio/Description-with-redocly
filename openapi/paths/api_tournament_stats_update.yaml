@@ -1,0 +1,128 @@
+put:
+  tags:
+    - TournamentStats
+  summary: Tournament - Stats - Update
+  description: >-
+    ### Description of Endpoint Data
+
+
+    **Endpoint Name:**
+
+    - **Tournament - Stats - Update**
+      
+    **Request:**
+
+    - **Auth:** 
+      - **Type:** Bearer
+      - **Bearer:** 
+        - **Key:** token
+          - **Value:** BearerToken
+          - **Type:** string
+          - *This key is used to pass an authorization token that validates the user making the request.*
+
+    - **Method:** 
+      - **PUT**
+      - *Indicates that this request is meant to update existing data.*
+
+    - **URL:** 
+      - **http://localhost:3000/api/tournament/stats/update**
+      - *The endpoint where the request is sent to update tournament stats.*
+
+    - **Headers:** 
+      - **Client-UUID:** 
+        - **Key:** Client-UUID
+          - **Value:** ClientUUID
+          - **Type:** default
+          - *This is a unique identifier for the client making the request, used for identification purposes.*
+
+    - **Body:** 
+      - **Mode:** raw
+      - **Raw Content:** 
+        - *A JSON object containing the data for the update operation. The fields are as follows:*
+
+    1. **statsId:**
+       - *String identifier for the specific stats being updated.*
+
+    2. **sessionId:**
+       - *Identifier for the tournament session associated with the stats.*
+
+    3. **accountId:**
+       - *Identifier for the user's account that owns these stats.*
+
+    4. **name:**
+       - *A string representing the name of the stats being updated.*
+
+    5. **description:**
+       - *A string providing a description of the stats.*
+
+    6. **tags:**
+       - *Comma-separated string of tags for categorizing the stats.*
+
+    7. **profilePhotoUrl:**
+       - *String URL for the profile photo associated with the stats.*
+
+    8. **coverPhotoUrl:**
+       - *String URL for the cover photo associated with the stats.*
+
+    9. **minimumTipAmount:**
+       - *Numeric value indicating the minimum amount for tips related to this stats.*
+
+    10. **categoryId:**
+        - *String identifier for the category of the stats.*
+
+    11. **category:**
+        - *A string specifying the main category of the stats.*
+
+    12. **subCategoryId:**
+        - *String identifier for the sub-category of the stats.*
+
+    13. **subCategory:**
+        - *A string for the specific sub-category of the stats.*
+
+    14. **isStatsPrivate:**
+        - *Boolean value indicating whether the stats are private or public.*
+
+    15. **isTournamentOnly:**
+        - *Boolean indicating if these stats apply only to tournaments.*
+
+    16. **isStatsDefault:**
+        - *Boolean specifying if these stats are set as default stats for the account.*
+
+    17. **isPreLiveTournamentAds:**
+        - *Boolean indicating if ads are shown during pre-live tournaments.*
+
+    18. **isPostLiveTournamentAds:**
+        - *Boolean indicating if ads are shown after live tournaments.*
+
+    19. **breakPreLiveVideoUrl:**
+        - *String URL for a video to be shown during pre-live breaks.*
+
+    20. **breakPostLiveVideoUrl:**
+        - *String URL for a video to be shown during post-live breaks.*
+
+    *This detailed breakdown of the body fields provides clarity on the
+    necessary data for updating tournament stats and the expected format for
+    each field.*
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"statsId\":\"statsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Stats 2.0\",\"description\":\"This stats is my second
+            stats\",\"tags\":\"second,stats\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isStatsPrivate\":true,\"isTournamentOnly\":false,\"isStatsDefault\":true,\"isPreLiveTournamentAds\":true,\"isPostLiveTournamentAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

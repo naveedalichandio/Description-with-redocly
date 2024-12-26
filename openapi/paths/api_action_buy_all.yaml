@@ -1,0 +1,83 @@
+get:
+  tags:
+    - ActionBuy
+  summary: Action - Buy - Get All
+  description: |-
+    {
+      "name": "Action - Buy - Get All",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "url": "http://localhost:3000/api/action/buy/all/?sessionId=sessionId&accountId=accountId",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": ""
+          }
+        },
+        "details": {
+          "auth": {
+            "type": "bearer": 
+              "Indicates that the request uses Bearer token authentication. Users must include a valid token to access the endpoint.",
+            "bearer": [
+              {
+                "key": "token":
+                  "This is the identifier for the Bearer token. It is required for the authentication process.",
+                "value": "BearerToken":
+                  "Placeholder for the actual token needed to authenticate the request.",
+                "type": "string":
+                  "The type indicates that the token is a string value."
+              }
+            ],
+          },
+          "method":
+            "This indicates that the request method is GET, meaning it retrieves data from the server.",
+          "url":
+            "The endpoint to access the action buy resources. It includes query parameters for sessionId and accountId which are required to filter results according to user sessions and specific accounts.",
+          "headers":
+            "An array of headers to be sent with the request. Currently, there are no custom headers defined and the entry is disabled.",
+          "body":
+            {
+              "mode": "raw":
+                "The mode specifies the body format; in this case, it's raw, which means no data is being sent in the request body.",
+               "raw": 
+                "Empty string indicating that there is no request body content for this GET request."
+            }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

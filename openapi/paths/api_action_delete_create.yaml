@@ -1,0 +1,93 @@
+post:
+  tags:
+    - ActionDelete
+  summary: Action - Delete - Create
+  description: >-
+    ### Endpoint Description: Action - Delete - Create
+
+
+    This endpoint is used to initiate a delete action for a particular target
+    based on specific parameters. Below is a detailed description of each piece
+    of data included in the request.
+
+
+    #### Authentication
+
+    - **auth**: This section specifies the authentication type required to
+    access the endpoint.
+      - **type**: The type of authentication being used, which is a bearer token in this case.
+      - **bearer**: An array containing authentication details.
+        - **key**: The name of the authentication field, which is "token".
+        - **value**: The actual bearer token. Replace "BearerToken" with an actual token for authentication.
+        - **type**: Specifies that the value type is a string.
+
+    #### HTTP Method
+
+    - **method**: The HTTP method used for the request. This is set to "POST",
+    indicating that the request is meant to create or execute an action.
+
+
+    #### Request URL
+
+    - **url**: The endpoint URL where the request is sent. In this case, it is
+    "http://localhost:3000/api/action/delete/create".
+
+
+    #### Request Headers
+
+    - **headers**: This includes any additional headers that may be required,
+    though in this instance, no specific headers are provided as indicated by
+    the empty key and value.
+      - **disabled**: This property indicates that the header is currently not active (true).
+
+    #### Request Body
+
+    - **body**: This section contains the details of the request body, which is
+    formatted as raw JSON data.
+      - **mode**: Set to "raw" indicating that the body content is in raw format.
+      - **raw**: The actual JSON data being sent in the request. The following parameters are included:
+        - **sessionId**: A unique identifier for the session. Use the appropriate session ID.
+        - **accountId**: The ID of the account associated with the action. Replace "accountId" with the relevant account ID.
+        - **path**: The path of the target resource that is being deleted. For example, this could be a path to a video or stream.
+        - **targetType**: Specifies the type of target that is being deleted. In this case, the target type is "streamer".
+        - **targetId**: The unique identifier of the target being deleted, typically the ID of the video or stream.
+        - **sourceType**: Indicates the type of source account, which again is set to "accountId" in this request.
+        - **sourceId**: The ID of the source account. Often this will match the "accountId" provided above.
+        - **tokenAmount**: The number of tokens involved in this action. For this request, it is set to 20.
+        - **name**: A label for this delete action. This request has it set to "delete1".
+        - **description**: A field to provide extra details about the action being taken. Currently, it is empty.
+        - **tags**: Indicates any tags associated with the action. This is also currently left blank.
+
+    #### Options
+
+    - **options**: This specifies additional options for the request body
+    format.
+      - **raw**: This nested section indicates that the content type is set to JSON. The language is specified as "json".
+
+    This detailed breakdown should help users understand each parameter required
+    for this API call, enabling them to make requests to delete specified
+    resources effectively.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: delete1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

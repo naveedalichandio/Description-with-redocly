@@ -1,0 +1,54 @@
+post:
+  tags:
+    - NotificationStreamers
+  summary: Notification - Streamers - Delete
+  description: >-
+    This API endpoint is named "Notification - Streamers - Delete." As the name
+    suggests, it's intended to be used for deleting streamer notifications in
+    the system.
+
+
+    To authorize this endpoint, a 'Bearer token' is required. The 'token' is
+    represented by 'sessionId' which should be a string value. You need to
+    replace 'sessionId' with the actual session ID value.
+
+
+    The method used for this API endpoint is 'POST' and the URL is
+    'http://localhost:3000/api/notification/streamers/delete'. This means it'll
+    delete streamer notifications when this API endpoint is called.
+
+
+    There are no additional headers required for this API endpoint as shown in
+    'headers' attribute. The key and value fields are empty and this header
+    field is marked as 'disabled', hence it won't impact your API request.
+
+
+    The request payload or body should be in 'raw' format. In the raw JSON
+    object, three parameters are required:
+
+    1. 'sessionId': You have to replace this with your actual session ID for
+    valid authorization.
+
+    2. 'accountId': Replace this placeholder with the actual account ID for
+    which you want to delete the streamer notifications.
+
+    3. 'streamersId': Replace this placeholder with the actual ID of the
+    streamer whose notifications you want to delete.
+
+
+    Make sure the value you replace these placeholders with correspond to the
+    correct data type and are valid in your application context.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"streamersId\":\"streamersId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

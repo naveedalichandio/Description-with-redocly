@@ -1,0 +1,61 @@
+post:
+  tags:
+    - ActionSubscribe
+  summary: Action - Subscribe - Delete
+  description: >-
+    ## Description
+
+
+    ### Name
+
+    **Action - Subscribe - Delete**: This is the name of the API request,
+    indicating its function is to delete a subscription action.
+
+
+    ### Request
+
+    - **Auth**: This section describes the authentication method used to access
+    the API.
+      - **Type**: The authentication type is set to bearer, which implies that a token is required for authorization.
+      - **Bearer**: This array contains the parameters for the bearer token.
+        - **Key**: This is the identifier for the token parameter, specified as "token".
+        - **Value**: The expected value for this key is "sessionId", which should be replaced with the actual session token during a real request.
+        - **Type**: The type is set to "string", indicating that the value is a string format.
+
+    - **Method**: The HTTP method used for this request is POST. This means that
+    the request is intended to send data to the server to perform an action, in
+    this case, deleting a subscription.
+
+
+    - **URL**: The endpoint for this request is
+    "http://localhost:3000/api/action/subscribe/delete". This URL is where the
+    request will be sent to process the unsubscribe action.
+
+
+    - **Headers**: This section includes the HTTP headers for the request.
+      - There is an empty header entry present in the configuration, but it is currently disabled. This means no additional custom headers will be sent with the request.
+
+    - **Body**: This defines the content of the request.
+      - **Mode**: The body mode is set to "raw", indicating that the body content will be sent as raw text rather than through form-encoded data.
+      - **Raw**: The body content is a JSON string that contains the following parameters:
+        - **sessionId**: This key should be replaced with the actual session identifier for the user making the request.
+        - **accountId**: This key should be replaced with the actual account identifier to specify which account is being unsubscribed.
+        - **subscribeId**: This key should be replaced with the actual subscription identifier that needs to be deleted.
+
+    This endpoint is designed to handle requests to unsubscribe users from a
+    particular service or notifications by providing the necessary identifiers
+    in the request body.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"subscribeId\":\"subscribeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

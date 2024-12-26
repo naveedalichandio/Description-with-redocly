@@ -1,0 +1,137 @@
+post:
+  tags:
+    - ActionSell
+  summary: Action - Sell - Create
+  description: >-
+    # Action - Sell - Create Endpoint Description
+
+
+    This section outlines the details for the "Action - Sell - Create" endpoint
+    in the API. Users may utilize this information to understand how to
+    structure their requests effectively and make successful API calls.
+
+
+    ## Endpoint Details
+
+
+    ### Request Method
+
+    - **Method**: POST  
+      Indicates that this endpoint will be used to send data to the server to create a new resource.
+
+    ### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/sell/create`  
+      The endpoint where the POST request will be sent.
+
+    ### Authentication
+
+    - **Auth Type**: Bearer  
+      This API requires bearer token authentication to be added in the request header.
+      
+    - **Bearer Token**: 
+      - **Key**: token  
+        The key used for authentication is "token".
+      - **Value**: BearerToken  
+        Replace this with a valid bearer token to access the API.
+
+    ### Headers
+
+    - **Headers**: 
+      - The current configuration includes an empty header, which is disabled by default. You can add any required headers relevant to your implementation. 
+
+    ### Request Body
+
+    - **Body**: Raw JSON  
+      The body of the request must be sent in JSON format. Below are the required and optional fields:
+
+    #### Fields in the Request Body
+
+    1. **sessionId**:  
+       - Type: String  
+       - Description: Identifier for the session during which the sell action is being executed.
+
+    2. **accountId**:  
+       - Type: String  
+       - Description: Unique identifier for the account associated with the sell action.
+
+    3. **path**:  
+       - Type: String  
+       - Description: The path indicating the location of the resource. E.g., `/live/channel/video123`.
+
+    4. **targetType**:  
+       - Type: String  
+       - Description: Type of the target resource. For example, it could signify that the target is identified by a "videoId".
+
+    5. **targetId**:  
+       - Type: String  
+       - Description: Identifier for the specific target resource (e.g., the video being sold).
+
+    6. **sourceType**:  
+       - Type: String  
+       - Description: Type of the source resource, which could be an "accountId" in this context.
+
+    7. **sourceId**:  
+       - Type: String  
+       - Description: Identifier of the source resource corresponding to the selling action.
+
+    8. **tokenAmount**:  
+       - Type: Integer  
+       - Description: The quantity of tokens being sold in this action. 
+
+    9. **didSell**:  
+       - Type: Boolean  
+       - Description: A flag indicating whether the selling action was successfully completed (true) or not (false).
+
+    10. **itemType**:  
+        - Type: String  
+        - Description: Specifies the type of item being sold, e.g., "token".
+
+    11. **utilityType**:  
+        - Type: String  
+        - Description: Indicates the utility type of the item, such as "coin".
+
+    12. **name**:  
+        - Type: String  
+        - Description: A descriptive name associated with the sell action.
+
+    13. **description**:  
+        - Type: String  
+        - Description: A detailed description of the sell action. This can be kept empty if not needed.
+
+    14. **tags**:  
+        - Type: String  
+        - Description: Any tags relevant to the sell action to enhance categorization. This can also be left blank.
+
+    ### Conclusion
+
+    This endpoint allows for the creation of a new sell action in the API.
+    Ensure that all necessary fields are filled out and that valid
+    authentication is provided to successfully execute the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 10
+            didSell: true
+            itemType: token
+            utilityType: coin
+            name: this is name
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,135 @@
+post:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Create Settings
+  description: >
+    This endpoint is named "Connect - Video - Create Settings". It uses the POST
+    method to save new video settings. The request URL for the endpoint is
+    "http://localhost:3000/api/connect/video/createsettings".
+
+
+    A bearer token is required for authentication.
+
+
+    The body of the request needs to be a RAW JSON object with the following
+    fields:
+
+
+    1. "sessionId": This is required and should be the session ID string for the
+    user.
+
+    2. "accountId": This is required and should be the account ID string for the
+    user.
+
+    3. "name": A string to represent the name of the video stream.
+
+    4. "displayName": The name that will be displayed for the stream.
+
+    5. "tags": A comma-separated string of keywords related to the stream.
+
+    6. "title": The title of the streaming event.
+
+    7. "website": The URL where the stream will be hosted.
+
+    8. "description": A brief description of the streaming event.
+
+    9. "identifierKey": A unique identifier key.
+
+    10. "apiKey": The API key for the streaming server.
+
+    11. "apiSecret": The secret key paired with the API key.
+
+    12. "apiClientId": Client ID for the API.
+
+    13. "authToken": An authorization token for streaming server authentication.
+
+    14. "refreshToken": Token used to refresh the authorisation token.
+
+    15. "providerName": Name of the video streaming service provider.
+
+    16. "providerId": Unique identifier for the video streaming service
+    provider.
+
+    17. "uniqueKey": A unique key specific to the video stream.
+
+    18. "authUsername": Username needed for the authentication process.
+
+    19. "authPassword": Password needed for the authentication process.
+
+    20. "authEmail": Email used for authentication process.
+
+    21. "authSecurity": Security code for authentication.
+
+    22. "recaptchaCode": The re-captcha validation code.
+
+    23. "rtmpUrl": The URL of the RTMP server where the stream is broadcasted.
+
+    24. "streamKey": A unique key for the video stream.
+
+    25. "region": The geographic region of the RTMP server.
+
+    26. "channelUrl": The URL for the video streaming channel.
+
+    27. "server": The specific server used to handle the stream.
+
+    28. "createdAt": Timestamp representing when the video stream settings were
+    created.
+
+    29. "updatedAt": Timestamp representing when the video stream settings were
+    last updated.
+
+    30. "createdBy": Identifier for the user who created the video stream
+    settings.
+
+    31. "updatedBy": Identifier for the user who last updated the video stream
+    settings.
+
+
+    Ensure that all date and time values are represented in a valid ISO 8601
+    format (i.e., "YYYY-MM-DDTHH:mm:ssZ"). All keys must be enclosed by double
+    quotes as per the JSON standard, and all string values must also be enclosed
+    by double quotes.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Video Stream
+            displayName: My Stream Display Name
+            tags: live,streaming,video
+            title: Live Streaming Event
+            website: https://example.com
+            description: This is a live streaming event for our new product launch.
+            identifierKey: uniqueIdentifier123
+            apiKey: API_KEY_ABC123
+            apiSecret: SECRET_KEY_DEF456
+            apiClientId: CLIENT_ID_XYZ789
+            authToken: AUTH_TOKEN_123456
+            refreshToken: REFRESH_TOKEN_789012
+            providerName: rumble
+            providerId: yt_provider_001
+            uniqueKey: uniqueKey_001
+            authUsername: labourkamail69@gmail.com
+            authPassword: Demopass1?
+            authEmail: labourkamail69@gmail.com
+            authSecurity: securityCode123
+            recaptchaCode: recaptcha123
+            rtmpUrl: rtmp://stream.example.com/live
+            streamKey: streamKey_ABC123
+            region: us-west-1
+            channelUrl: https://youtube.com/channel/xyz
+            server: server_001
+            createdAt: '2024-08-31T12:34:56Z'
+            updatedAt: '2024-08-31T12:34:56Z'
+            createdBy: user123
+            updatedBy: user123
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,54 @@
+get:
+  tags:
+    - NotificationCoins
+  summary: Notification - Coins - Get All
+  description: >
+    The endpoint "Notification - Coins - Get All", as its name suggests, is used
+    to retrieve all coin notifications data. Here's a detailed description of
+    each data in this endpoint:
+
+
+    1. **name**: This is the identifier or name of the endpoint. In this case,
+    the endpoint's name is "Notification - Coins - Get All".
+
+
+    2. **request**: This object contains all the details of the request to be
+    made to the endpoint.
+
+       - **auth**: This attribute contains the authentication type and details required by the endpoint.
+        
+         - **type**: This declares the type of authentication needed for the endpoint. In this case, it is "bearer".
+        
+         - **bearer**: This is an array that carries the authentication key and values.
+            
+           - **key**: Specifies the key for authentication which is "token" in this case.
+            
+           - **value**: Contains the actual value of the bearer token authentication, known as "BearerToken".
+            
+           - **type**: The type of the value, in this case, the BearerToken value is a string.
+
+       - **method**: Defines the HTTP method required for the request. In this case, it's "GET", which is used to retrieve data from the server.
+
+       - **url**: This is the Uniform Resource Locator where the request will be sent. Parameters/sessions could be appended to these URLs. Here, "sessionId" and "accountId" are the query parameters used.
+
+       - **headers**: This contains any headers that should be included in the request. The headers are currently empty and disabled in this case.
+
+       - **body**: This contains the body of the request. It is set to "raw" mode, meaning any data inside "raw" will be sent as is; however, the "raw" field is currently empty for this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

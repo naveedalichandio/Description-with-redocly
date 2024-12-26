@@ -1,0 +1,105 @@
+put:
+  tags:
+    - ActionAward
+  summary: Action - Award - Update
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This is the title of the API request. It indicates the action
+    being performed, which in this case is to update an award.
+
+
+    - **request**: This object contains all the necessary details to execute the
+    request.
+
+      - **auth**: This section specifies the authentication method required for the request.
+        
+        - **type**: Indicates the type of authentication being used. In this case, it is "bearer," which means a token is needed for access.
+        
+        - **bearer**: This array includes the details of the bearer token.
+          
+          - **key**: This defines the parameter name for the bearer token, which is "token."
+          
+          - **value**: This represents the actual bearer token that will be used for authentication. In this example, it is denoted as "BearerToken."
+          
+          - **type**: Specifies the data type of the token, which is a string.
+
+      - **method**: This indicates the HTTP method used for the request. Here, it is "PUT," suggesting that this request will update an existing resource.
+
+      - **url**: This is the endpoint URL where the request is sent. In this case, it is directed to "http://localhost:3000/api/action/award/update."
+
+      - **headers**: This array contains any additional headers necessary for the request.
+        
+        - **key**: This defines the name of the header. It is set to "Client-UUID."
+        
+        - **value**: This represents the value associated with the header, which here is referred to as "ClientUUID."
+        
+        - **type**: Specifies the type of the header, labeled as "default."
+
+      - **body**: This object describes the content sent with the request.
+
+        - **mode**: Indicates the format of the body content. In this case, it is "raw," meaning the content is sent as a raw text string.
+        
+        - **raw**: This contains the actual data to be sent in the request body. It is formatted in JSON.
+          
+          - **sessionId**: This field holds the identifier for the session in which the action is taking place.
+          
+          - **accountId**: This represents the unique identifier for the user’s account involved in the action.
+          
+          - **awardId**: This indicates the unique identifier of the award that is being updated.
+          
+          - **path**: This specifies the path related to the action, likely indicating where the award action is relevant. Here, it is set to "/live/channel/video123."
+          
+          - **targetType**: This indicates the type of target for the award action. In this example, it is set to "streamer," denoting that the award is aimed at a streaming entity.
+          
+          - **targetId**: This is the unique identifier for the target of the action, in this case represented as "videoId."
+          
+          - **sourceType**: This denotes the type of source from which the action originates. Here, it is marked as "accountId."
+          
+          - **sourceId**: This provides the unique identifier for the source, which is the same as the accountId in this request.
+          
+          - **tokenAmount**: This indicates the number of tokens to be awarded in the action, specified as 20.
+          
+          - **name**: This field holds the name associated with the action, set to "Farooq" in this instance.
+          
+          - **description**: This provides additional details about the action being performed, here noted as "this is description."
+          
+          - **tags**: This field serves as a way to categorize the action, represented simply as "xyz."
+
+        - **options**: This object includes settings for the body content.
+          
+          - **raw**: This specifies additional format details for the raw content.
+            
+            - **language**: Indicates the language of the raw content, which is "json" in this case.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            awardId: awardId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

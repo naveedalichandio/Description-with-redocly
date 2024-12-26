@@ -1,0 +1,81 @@
+get:
+  tags:
+    - ChatThread
+  summary: Chat - Thread - Get By Owner With Deleted
+  description: >-
+    This endpoint, called "Chat - Thread - Get By Owner With Deleted," is
+    designed to allow you retrieve chat threads from the database. It
+    specifically fetches chat threads that are owned by a specific user and
+    considers both active and deleted threads. 
+
+
+    Here's a breakdown of the components:
+
+
+    1. **name**: This is the title or name of the endpoint, which describes what
+    the endpoint does. In this case, "Chat - Thread - Get By Owner With Deleted"
+    suggests that this endpoint retrieves chat threads (both deleted and active)
+    owned by a user.
+
+
+    2. **request**: This details the actual request that will be made to the
+    endpoint.
+
+
+    3. **auth**: This section contains authentication details required to get
+    access to the endpoint. It's using Bearer authentication, which expects a
+    token to be provided. 
+
+       - **type**: It indicates the type of authorization being used which is "bearer" in this case.
+       
+       - **bearer**: This is an array containing a single object that describes the token needed for authorization:
+         - **key**: This field indicates that a "token" is required.
+         - **value**: It shows the placeholder for the value of the bearer token.
+         - **type**: The data type of the "token", which is a "string".
+
+    4. **method**: The type of HTTP request that is being made. In this case,
+    it's a "GET" request, meaning it retrieves data from the server.
+
+
+    5. **url**: This is the actual URL where the request will be sent. It
+    includes three query parameters: threadType, threadTypeId, and deleted,
+    which respectively represent the type of thread, ID related with the thread,
+    and the status of deletion.
+
+
+    6. **headers**: The headers field is currently empty and disabled. When
+    enabled, it can contain additional information which will be sent with the
+    HTTP request. For now, no additional information is being passed.
+
+
+    7. **body**: The body carries essential data needed in processing the
+    request. However, for a GET request, no additional body data is required,
+    hence it remains empty.
+
+
+    Remember to replace the "BearerToken" with a valid token while making an
+    actual API call. Also, replace the query parameters in the URL with valid
+    threadType, threadTypeId and deleted status to get the desired result.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: threadType
+      in: query
+      schema:
+        type: string
+      example: account
+    - name: threadTypeId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: deleted
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

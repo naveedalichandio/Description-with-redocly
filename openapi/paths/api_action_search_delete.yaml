@@ -1,0 +1,62 @@
+post:
+  tags:
+    - ActionSearch
+  summary: Action - Search - Delete
+  description: >-
+    ### Action - Search - Delete Endpoint Description
+
+
+    #### Request Object
+
+    - **Auth**: This section specifies the authentication method used for the
+    API request.
+      - **Type**: The type of authentication is "bearer," which means the request will include a token that grants access to the endpoint.
+      - **Bearer**: This array contains the details of the bearer token.
+        - **Key**: The name of the field, which is "token" in this case.
+        - **Value**: This represents where the actual token is stored, referred to as "sessionId."
+        - **Type**: Indicates the data type of the value, which is a string.
+
+    - **Method**: The HTTP method for the request is "POST." This means that the
+    request is intended to send data to the server to perform an action (in this
+    case, deleting a search).
+
+
+    - **URL**: The endpoint URL for this request is
+    "http://localhost:3000/api/action/search/delete." This is the URL on the
+    local server where the delete action will be performed.
+
+
+    - **Headers**: This section includes any additional headers that may be
+    necessary for the request.
+      - Since there are currently no headers specified (the key and value are empty), this header is disabled and will not be sent with the request.
+
+    #### Request Body
+
+    - **Mode**: The body mode is set to "raw," indicating that the body content
+    is sent as plain text rather than in a specific format like form data or
+    URL-encoded data.
+
+
+    - **Raw**: This is the actual data sent within the body of the request. It
+    is a JSON string that contains:
+      - **sessionId**: A unique identifier for the user's session, used for authentication to verify the identity of the user making the request.
+      - **accountId**: This identifies the specific account associated with the action being performed. It allows the server to know which account's search is to be deleted.
+      - **searchId**: This represents the unique identifier of the specific search to be deleted. It tells the server which search record should be removed.
+
+    This endpoint is designed to allow users to delete a specific search
+    associated with their account by providing the necessary identifiers in the
+    request body.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"searchId\":\"searchId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

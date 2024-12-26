@@ -1,0 +1,151 @@
+post:
+  tags:
+    - VideoChannel
+  summary: Video - Channel - Create
+  description: >-
+    ### Endpoint: Video - Channel - Create
+
+
+    This endpoint allows users to create a new video channel with various
+    customizable settings. Below is a detailed description of each data field in
+    the request body.
+
+
+    #### Request Body Fields:
+
+
+    - **sessionId**: Represents the unique identifier for the current user
+    session. This is used to track the user's activity and ensure that actions
+    are associated with the correct session.
+
+
+    - **accountId**: This is the unique identifier for the user's account. It
+    links the channel to the specific account of the user creating it.
+
+
+    - **name**: The name of the channel. It is how the channel will be
+    identified and searched. For example, "Fortune".
+
+
+    - **description**: A brief description of the channel, providing insights
+    into the content or the purpose of the channel. For example, "This channel
+    is by Fortune Vieyra".
+
+
+    - **tags**: A comma-separated list of keywords associated with the channel.
+    Tags help categorize the channel and make it easier for users to find
+    content, such as "second,channel".
+
+
+    - **profilePhotoUrl**: The URL link to the profile photo of the channel.
+    This image represents the channel visually across the platform. For example,
+    "https://example.com/profile.jpg".
+
+
+    - **coverPhotoUrl**: The URL link to the cover photo of the channel. This is
+    the larger image that appears at the top of the channel page, providing a
+    visual identity. For example, "https://example.com/cover.jpg".
+
+
+    - **minimumTipAmount**: The minimum amount that a viewer can tip the channel
+    creator. This is defined in the currency set by the platform. For example,
+    the minimum tip could be 10 units.
+
+
+    - **unlockAmount**: The amount required to unlock specific content or
+    features in the channel. For example, an unlock amount of 1 unit might be
+    charged to access exclusive videos.
+
+
+    - **category**: The main category that the channel falls under. This helps
+    users navigate channels by content type. An example would be "General".
+
+
+    - **subCategory**: A more specific classification within the main category.
+    This helps further refine the channel’s classification, such as "Specific".
+
+
+    - **searchType**: Specifies the type of content that can be searched within
+    the channel. For example, "Game" indicates that the channel may focus on
+    gaming-related content.
+
+
+    - **isEnabled**: A boolean value indicating whether the channel is currently
+    active and visible to users. If set to true, the channel is enabled.
+
+
+    - **isChannelPrivate**: A boolean value that specifies whether the channel
+    is private and only accessible to selected viewers. If true, only invited
+    users can view the channel.
+
+
+    - **isTournamentOnly**: A boolean that indicates if the channel is
+    exclusively for tournaments. If set to true, only tournament-related content
+    will be available.
+
+
+    - **isChannelDefault**: A boolean value indicating whether this channel
+    should be set as the default channel. If true, it may be the first option
+    users see when accessing video channels.
+
+
+    - **isPreLiveVideoAds**: A boolean indicating whether ads are shown before
+    the live video starts. If true, viewers will see ads prior to the content.
+
+
+    - **isPostLiveVideoAds**: A boolean indicating whether ads are shown after
+    the live video ends. If true, viewers will see ads after the content
+    concludes.
+
+
+    - **breakPreLiveVideoUrl**: URL to a video that will be played during breaks
+    before the live video starts. This content can keep viewers engaged until
+    the live stream begins.
+
+
+    - **breakLivePauseVideoUrl**: URL to a video that will play if the live
+    stream is paused. This ensures viewers have something to watch rather than a
+    blank screen.
+
+
+    - **breakPostLiveVideoUrl**: URL to a video that will play after the live
+    stream ends. This could contain highlights or additional content related to
+    the channel.
+
+
+    This collection allows for detailed channel creation, catering to various
+    aspects of user engagement and content management.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Fortune
+            description: This channel is by Fortune Vieyra
+            tags: second,channel
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 1
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isChannelPrivate: true
+            isTournamentOnly: false
+            isChannelDefault: true
+            isPreLiveVideoAds: true
+            isPostLiveVideoAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseVideoUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

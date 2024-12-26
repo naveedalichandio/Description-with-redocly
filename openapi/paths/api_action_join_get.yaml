@@ -1,0 +1,82 @@
+get:
+  tags:
+    - ActionJoin
+  summary: Action - Join - Get
+  description: >-
+    ### Action - Join - Get
+
+
+    **Request Method:**  
+
+    This endpoint uses the HTTP GET method to retrieve information.
+
+
+    **URL:**  
+
+    The request is made to `http://localhost:3000/api/action/join/get/`. The URL
+    includes three query parameters:
+
+    - `joinId`: This parameter is used to specify the unique identifier for the
+    join action.
+
+    - `sessionId`: This parameter is used to indicate the session associated
+    with the join action.
+
+    - `accountId`: This parameter is used to identify the account related to the
+    join action.
+
+
+    **Authentication:**  
+
+    The request requires Bearer token authentication. The authentication details
+    are as follows:
+
+    - **Type:** bearer
+
+    - **Token:** A string value which is a placeholder for the actual token
+    required to access this endpoint. Replace "BearerToken" with the actual
+    token.
+
+
+    **Headers:**  
+
+    There are currently no headers specified for this request since the key and
+    value fields are empty and the header is disabled. If needed, headers can be
+    added based on requirements.
+
+
+    **Body:**  
+
+    The body of the request is set to raw mode but is currently empty. Since
+    this is a GET request, no body content is typically necessary. 
+
+
+    ### Summary
+
+    Use this endpoint to retrieve join action details based on the provided
+    joinId, sessionId, and accountId, ensuring to include a valid bearer token
+    for authentication. Adjust the query parameters as necessary to fetch the
+    desired information.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: joinId
+      in: query
+      schema:
+        type: string
+      example: joinId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

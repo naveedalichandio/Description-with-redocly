@@ -1,0 +1,101 @@
+put:
+  tags:
+    - ArticleSubcategory
+  summary: Article - SubCategory - Update Auto
+  description: >-
+    This endpoint is used to update an auto-generated subcategory under the
+    'Article' main category.
+
+
+    Here's a detailed explanation of each field that needs to be provided:
+
+
+    1. Name: This is the title or name of the endpoint, namely "Article -
+    SubCategory - Update Auto". 
+
+
+    2. Request: This section contains all the details regarding the HTTP
+    request.
+
+
+    3. Auth: Here, the type of authorisation is 'bearer', which means OAuth 2.0
+    authentication is used. The bearer key is where you have to input your
+    bearer token.
+
+
+    4. Method: The HTTP request method for this endpoint is 'PUT', indicating
+    that you are updating information.
+
+
+    5. Url: This is the API call's endpoint. By making a PUT request at this
+    URL, "http://localhost:3000/api/article/subcategory/update", you request the
+    server to update the specified subcategory.
+
+
+    6. Headers: In this field, there is one key-value pair defined,
+    'Client-UUID'. It uniquely identifies the client sending the request. 
+
+
+    7. Body: This section contains the specific data that should be updated. 
+
+
+    - Mode: Here, the chosen mode is 'raw', which allows you to write the data
+    as needed in text format.
+      
+    - Raw: This field contains JSON text with keys for 'subCategoryId',
+    'sessionId', 'accountId', 'category', 'displayName', 'description' and
+    'tags'. 
+
+
+    - 'subCategoryId': This is the unique identifier for the sub-category you
+    want to update.
+      
+    - 'sessionId': Input the session identifier here, which is used to maintain
+    session state between requests.
+      
+    - 'accountId': Input the account identifier, which is related to the user
+    account making the change.
+      
+    - 'category': This is the category name which you want to change or update.
+      
+    - 'displayName':  This field is for renaming the display name of the
+    category.
+      
+    - 'description': This is for updating the description of the category.
+      
+    - 'tags': The tags related to this category can be updated and should be
+    comma-separated strings.
+
+
+    - Options: In this field, the language specified is 'json' for the raw body
+    data.
+
+
+    Ensure to replace the placeholders with actual data before making the
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            subCategoryId: articleSubCategoryId
+            sessionId: sessionId
+            accountId: accountId
+            category: My Shiny New Category 2.0
+            displayName: Miami Art Week 2025
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

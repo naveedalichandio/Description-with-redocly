@@ -1,0 +1,84 @@
+get:
+  tags:
+    - UniversityTour
+  summary: University - Tour - Get
+  description: >-
+    ### Description of Endpoint Data
+
+
+    **Name:** University - Tour - Get  
+
+    This is the name of the endpoint, which indicates that it retrieves
+    information related to a university tour.
+
+
+    **Request:**  
+
+    This section details the specifics of how to make the request to the
+    endpoint.
+
+
+    - **Auth:**  
+      This specifies the authentication mechanism required to access the endpoint.
+      - **Type:** Bearer  
+        Indicates that bearer token authentication is used.
+      - **Bearer:**  
+        This is an array that contains the token details needed for authentication.
+        - **Key:** token   
+          The name of the token field that is used for authentication.
+        - **Value:** BearerToken  
+          This is a placeholder for the actual bearer token that must be provided when making the request.
+        - **Type:** string  
+          Specifies that the value should be in string format.
+
+    - **Method:** GET  
+      This describes the HTTP method used for the request, which is GET in this case, indicating the action is to retrieve data.
+
+    - **URL:**  
+      This is the endpoint URL that will be called to get the university tour information.  
+      Example URL structure:  
+      `http://localhost:3000/api/university/tour/get/?tourId=tourId&sessionId=sessionId&accountId=accountId`  
+      - **tourId:** Represents the unique identifier for the specific tour being requested.  
+      - **sessionId:** Refers to the session associated with the tour request.  
+      - **accountId:** Denotes the account identifying the user making the request.
+
+    - **Headers:**  
+      This section is intended for any additional HTTP headers that might be required in the request.
+      - **Key:** (empty)  
+        There is no header key provided in this request.
+      - **Value:** (empty)  
+        There is no header value provided in this request.
+      - **Type:** default  
+        Specifies that the type of header is default.
+      - **Disabled:** true  
+        Indicates that this header is currently disabled and will not be sent with the request.
+
+    - **Body:**  
+      This section contains the body of the request.
+      - **Mode:** raw  
+        Indicates that the body format is raw text rather than a structured format such as JSON.
+      - **Raw:** (empty)  
+        There is no body content provided for this request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: tourId
+      in: query
+      schema:
+        type: string
+      example: tourId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

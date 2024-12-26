@@ -1,0 +1,58 @@
+get:
+  tags:
+    - ConnectMessage
+  summary: Connect - Message - Get Settings
+  description: >-
+    1. "name": This field indicates the name of the operation that is being
+    performed. In this case, the name is "Connect - Message - Get Settings",
+    implying that the operation intends to get settings from a connect message.
+
+
+    2. "request": This field encapsulates all the information pertaining to the
+    actual request to be made to the target URL.
+
+        a. "auth": This field represents the authentication mechanism in use. Currently, it is set to "bearer" denoting bearer authentication.
+        
+            i. "type": The authentication type, which here is "bearer". Bearer authentication (also known as token authentication) is an HTTP authentication scheme that involves security tokens called bearer tokens.
+          
+            ii. "bearer": Contains the bearer token for authenticating the request.
+            
+                - "key": This field specifies the key for the authentication header field. Here, it is set as "token".
+                
+                - "value": This is the actual token used for bearer authentication. It is named as "BearerToken" in this instance.
+                
+                - "type": Here, the type indicates the datatype of the value. In this case, it is a string.
+
+        b. "method": This field refers to the HTTP method to be used for making the request. In this case, it is "GET", which would get data from the server.
+
+        c. "url": It specifies the target endpoint where the request is to be sent. In this case, the URL is "http://localhost:3000/api/connect/message/getsettings?accountId=accountId&sessionId=sessionId&providerName=meetup". This endpoint is expected to fetch the respective settings pertaining to a given accountId, sessionId, and providerName.
+
+        d. "headers": It's an array of headers that can be sent along with a request. In this case, the array has only one object which is empty with no headers defined for this request as the "disabled" property is set to true.
+
+    Take note that the URL contains parameters that need to be replaced with
+    appropriate values like 'accountId', 'sessionId', and 'providerName' for
+    successful requests. Further, an appropriate 'BearerToken' needs to be
+    provided.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: providerName
+      in: query
+      schema:
+        type: string
+      example: meetup
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

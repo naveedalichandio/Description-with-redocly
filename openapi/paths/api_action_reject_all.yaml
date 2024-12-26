@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ActionReject
+  summary: Action - Reject - Get All
+  description: >-
+    ### Action - Reject - Get All Endpoint Description
+
+
+    - **Name**: Action - Reject - Get All
+      - This is the name of the API request that is used to retrieve all rejected actions.
+
+    - **Request**:
+      - **Auth**:
+        - **Type**: Bearer
+          - Specifies that the authentication mechanism used is bearer token authentication.
+        - **Bearer**:
+          - An array that contains the authentication token.
+          - **Key**: token
+            - The identifier for the token field in the request.
+          - **Value**: BearerToken
+            - The actual token value needed for authorization (replace with a valid token).
+          - **Type**: string
+            - Indicates that the token value is a string.
+
+      - **Method**: GET
+        - This is the HTTP method used for the request. A GET method is used to retrieve data from the specified resource.
+
+      - **URL**: 
+        - `http://localhost:3000/api/action/reject/all/?sessionId=sessionId&accountId=accountId`
+          - This is the endpoint where the API request is sent. 
+          - It contains query parameters:
+            - **sessionId**: A placeholder for the session identifier, which should be replaced with the actual session ID.
+            - **accountId**: A placeholder for the account identifier, which should be replaced with the actual account ID.
+      
+      - **Headers**:
+        - An array of headers to be included in the request.
+        - The current header key and value are empty, and the header is disabled. This means no additional headers will be sent with the request.
+
+      - **Body**:
+        - **Mode**: raw
+          - Indicates that the body of the request is sent in raw format.
+        - **Raw**: 
+          - This field is empty, meaning no body content is sent in the request.
+
+    This endpoint is designed to retrieve all actions that have been rejected
+    based on the provided session and account identifiers. Adjust the sessionId
+    and accountId in the URL parameters as needed before sending the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

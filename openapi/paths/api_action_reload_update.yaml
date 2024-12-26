@@ -1,0 +1,122 @@
+put:
+  tags:
+    - ActionReload
+  summary: Action - Reload - Update
+  description: >-
+    ### Action - Reload - Update Endpoint Description
+
+
+    - **Name**: 
+      - Action - Reload - Update
+      
+    - **Request Details**:
+      - **Authentication**: 
+        - Type: Bearer Token
+          - The request requires a bearer token for authentication which should be included in the authorization header.
+          - Key: `token`
+          - Value: The token should be in the format of `BearerToken`.
+
+      - **Method**: 
+        - PUT
+          - This method is used to update existing resources or data on the server.
+          
+      - **URL**: 
+        - `http://localhost:3000/api/action/reload/update`
+          - This is the endpoint where the request is sent for updating the reload action.
+          
+      - **Headers**:
+        - **Client-UUID**:
+          - Key: `Client-UUID`
+          - Value: This header should contain the unique identifier of the client making the request.
+          
+      - **Body**: 
+        - Mode: Raw
+          - This indicates that the body of the request is sent as raw JSON data.
+        - Raw Content:
+          ```json
+          {
+              "sessionId": "sessionId",
+              "accountId": "accountId",
+              "path": "/live/channel/video123",
+              "targetType": "videoId",
+              "targetId": "videoId",
+              "sourceType": "accountId",
+              "sourceId": "accountId",
+              "name": "",
+              "description": "",
+              "tags": "",
+              "didReload": false,
+              "reloadId": "reloadId"
+          }
+          ```
+          - **sessionId**: 
+            - Represents the unique identifier for the session associated with the action.
+            
+          - **accountId**: 
+            - The unique identifier for the account that owns the resources or is making the request.
+            
+          - **path**: 
+            - Specifies the resource path, in this example, pointing to a live channel.
+            
+          - **targetType**: 
+            - Indicates the type of the target that is being acted upon; here, it is `videoId`.
+            
+          - **targetId**: 
+            - The unique identifier of the target resource (video) that is being referred to.
+            
+          - **sourceType**: 
+            - Defines the type of the source, stated as `accountId`, indicating it is associated with the account.
+            
+          - **sourceId**: 
+            - The unique identifier of the source which might be relevant to the action.
+            
+          - **name**: 
+            - A string field intended for the name of the reload action (can be left empty).
+            
+          - **description**: 
+            - A string field intended for providing a description of the reload action (can be left empty).
+            
+          - **tags**: 
+            - A field for specifying any tags associated with the reload action (can be left empty).
+            
+          - **didReload**: 
+            - A boolean indicating whether the reload action has been performed; `false` indicates it has not.
+            
+          - **reloadId**: 
+            - The unique identifier associated with the reload action.
+
+    This endpoint is intended for updating action-related data in a system that
+    handles video resources, particularly for live streaming channels. It
+    requires specific identifiers and may involve a change in the state of a
+    reload action based on the provided parameters.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            description: ''
+            tags: ''
+            didReload: false
+            reloadId: reloadId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

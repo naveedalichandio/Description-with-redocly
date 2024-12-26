@@ -1,0 +1,51 @@
+get:
+  tags:
+    - MediaAudio
+  summary: Media - Audio - Get - For Public
+  description: >-
+    This endpoint is named "Media - Audio - Get - For Public". It is a GET
+    request used to fetch audio data for the public based on the provided audio
+    ID.
+
+
+    1. **Authentication:** The endpoint uses Bearer authentication. A token
+    ("BearerToken") should be provided in order to authenticate the request. The
+    token should be a string type. 
+
+
+    2. **Method:** GET: This method is used when you are trying to get data from
+    a specified resource. 
+
+
+    3. **URL:** The URL where the request is sent is
+    "http://localhost:3000/api/media/audio/get/". Two URL parameters are
+    required, 'audioId' and 'public'. 
+       - 'audioId' represents the unique identifier for each audio and should be replaced with the actual audio id.
+       - 'public' is a flag to denote whether the audio is available for the public. If it's set to 1, it means the audio is available for the public.
+
+    4. **Headers:** Although a key-value pair for headers is provided, it is
+    currently empty and is disabled, which means it will not be sent along with
+    your request.
+
+
+    5. **Body:** The body of the request is set to be in raw mode. However, as
+    this is a GET request, no actual body data is sent in the request. The
+    provided 'raw' field is empty and will be ignored.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: audioId
+      in: query
+      schema:
+        type: string
+      example: audioId
+    - name: public
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

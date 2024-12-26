@@ -1,0 +1,52 @@
+post:
+  tags:
+    - ActionReject
+  summary: Action - Reject - Delete
+  description: >-
+    ### Endpoint: Action - Reject - Delete
+
+
+    - **Name**: This specifies the name of the action being executed, which is
+    "Action - Reject - Delete". It indicates that this API call is intended to
+    reject and delete a specific action.
+
+
+    - **Request**: This section contains details about how to execute the API
+    request.
+
+      - **Auth**: This defines the authentication method used for the API call.
+        - **Type**: Indicates that the authentication method is "bearer", meaning it uses a bearer token for access.
+        - **Bearer**: This is an array that contains the specific parameters needed for the bearer token.
+          - **Key**: Indicates the name of the token field, which is "token".
+          - **Value**: Specifies a placeholder value for the token, which is "sessionId". This will need to be replaced with the actual session ID when making the request.
+          - **Type**: Indicates that the type of value provided for the token is a string.
+
+      - **Method**: This specifies the HTTP method used for the request, which is "POST". This indicates that data will be sent to the server.
+
+      - **URL**: This is the endpoint where the request is sent. In this case, the URL is "http://localhost:3000/api/action/reject/delete". This indicates that the action will be processed at this location on the server.
+
+      - **Headers**: This section lists any headers that should be included in the request.
+        - **Key**: This is currently empty, meaning no specific header key will be sent with the request.
+        - **Value**: This value is also empty, indicating that there is no associated value with the key.
+        - **Type**: The type is set to "default" but is disabled, making this header inactive.
+
+      - **Body**: This specifies the data being sent with the request.
+        - **Mode**: This indicates the type of data mode being used, which is set to "raw". This means the body content is sent as a raw string.
+        - **Raw**: This section contains the actual data payload being sent in the request body. The format is JSON and includes three fields:
+          - **sessionId**: This is a placeholder for the session ID. It should be replaced with the actual session ID when making a request.
+          - **accountId**: This represents the account ID associated with the action being rejected and deleted. This should also be replaced with the actual account ID.
+          - **rejectId**: This is the identifier of the specific action to be rejected and deleted. It needs to be replaced with the actual reject ID when the request is made.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"rejectId\":\"rejectId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

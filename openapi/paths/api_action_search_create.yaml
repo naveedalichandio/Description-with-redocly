@@ -1,0 +1,137 @@
+post:
+  tags:
+    - ActionSearch
+  summary: Action - Search - Create
+  description: >-
+    ### Endpoint: Action - Search - Create
+
+
+    #### Request Method
+
+    - **Method**: POST  
+      This endpoint uses the POST HTTP method to create a new search action.
+
+    #### URL
+
+    - **URL**: `http://localhost:3000/api/action/search/create`  
+      This is the local address where the API endpoint can be accessed for creating a search action.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer  
+      This endpoint requires bearer token authentication.
+      - **Token**:  
+        - **Key**: `token`  
+          The key used to identify the token in the header.
+        - **Value**: `BearerToken`  
+          Placeholder for the actual bearer token that grants access to the API.
+
+    #### Headers
+
+    - **Headers**:  
+      Contains key-value pairs sent with the request.  
+      - **Key**: *Not specified*  
+        - No specific headers are required for this request. This entry is disabled.
+
+    #### Request Body
+
+    - **Body Mode**: Raw  
+      The request body is sent in raw JSON format.
+
+    - **JSON Structure**:  
+      The following fields are included in the JSON body:
+
+      1. **sessionId**:  
+         - Type: String  
+         A unique identifier for the current session.
+
+      2. **accountId**:  
+         - Type: String  
+         The identifier for the user's account.
+
+      3. **path**:  
+         - Type: String  
+         The path where the action is taking place, e.g., the URL of a video.
+
+      4. **targetType**:  
+         - Type: String  
+         Specifies the type of target for the action, e.g., 'videoId'.
+
+      5. **targetId**:  
+         - Type: String  
+         The identifier of the target, e.g., a specific video ID.
+
+      6. **sourceType**:  
+         - Type: String  
+         Specifies the type of source from where the action is derived.
+
+      7. **sourceId**:  
+         - Type: String  
+         The identifier of the source, e.g., the account ID.
+
+      8. **didSearch**:  
+         - Type: Boolean  
+         Indicates whether a search action was performed (true/false).
+
+      9. **query**:  
+         - Type: String  
+         The search query entered by the user, e.g., "example search".
+
+      10. **queryId**:  
+          - Type: String  
+          A unique identifier for the specific search query, e.g., 'dhasikdhjk23sd'.
+
+      11. **filter**:  
+          - Type: String  
+          Indicates the type of filter applied to the search results, e.g., 'spam'.
+
+      12. **filterId**:  
+          - Type: String  
+          A unique identifier for the specific filter applied, e.g., 'jdaslk2'.
+
+      13. **name**:  
+          - Type: String  
+          Optional name for the search action.
+
+      14. **description**:  
+          - Type: String  
+          Optional description providing more details about the search action.
+
+      15. **tags**:  
+          - Type: String  
+          Optional tags associated with the search action for easier categorization.
+
+    #### Summary
+
+    This endpoint allows the creation of a search action by providing necessary
+    identifiers, search parameters, and optional metadata to accurately describe
+    the action being taken. Use this whenever a new search is initiated in your
+    application.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didSearch: true
+            query: example search
+            queryId: dhasikdhjk23sd
+            filter: spam
+            filterId: jdaslk2
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,66 @@
+post:
+  tags:
+    - ConnectComment
+  summary: Connect - Comment - Delete
+  description: >
+    This endpoint is called "Connect - Comment - Delete". 
+
+
+    1. **name**: This field denotes the name of the endpoint. It indicates that
+    this API endpoint is used to manage (delete) comments within a connect
+    feature set.
+
+
+    2. **request**: This field contains all the necessary components to make a
+    HTTP request such as the authentication process, the HTTP method, the URL of
+    the request, headers (if any), and the body of the request.
+
+
+    3. **auth**: This is part of the request that deals with the authentication
+    process to access the endpoint. Here, it uses Bearer Token authentication.
+    This type of authentication is an HTTP authentication scheme that involves
+    security tokens called Bearer Tokens.
+        - **type**: The type of token required is called a "bearer".
+        - **bearer**: An array containing an object that holds information about the token.
+        - **key**: The name of the token which is "token".
+        - **value**: The value of the token is "sessionId", which indicates that a session id will be used for the authentication process.
+        - **type**: Indicates that the field requires a string value.
+
+    4. **method**: This specifies the HTTP method for the request, which is
+    'POST' in this case. It is used here because we are deleting information on
+    the server. 
+
+
+    5. **url**: This the URL where the server will receive the HTTP request.
+    Here, the request is sent to a local server
+    'http://localhost:3000/api/connect/comment/delete'.
+
+
+    6. **headers**: This is an array that contains an object which could
+    potentially hold information to be sent as part of the request header.
+    Though in this case, there is no key-value pair provided and has been
+    disabled.
+
+
+    7. **body**: This is the part where additional information or data that is
+    needed to complete the HTTP request is provided.
+        - **mode**: Tells the mode of the data/input sent with the request. Here it is 'raw', which indicates that the data/input is not processed and is sent as is.
+        - **raw**: This is actual data being sent with the request. For this endpoint, the raw data includes a JSON object containing a "sessionId", "accountId", and a "commentId" all of which have respective values. The values need to be replaced with a valid session id, account id, and comment id respectively before sending the request.
+      
+    Note: It is very important that you have the necessary authorization and
+    follow the description precisely to successfully make a request to this
+    endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"commentId\":\"commentId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

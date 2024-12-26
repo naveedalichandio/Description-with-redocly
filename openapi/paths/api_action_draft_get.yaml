@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ActionDraft
+  summary: Action - Draft - Get
+  description: >-
+    ### Description of Endpoint Data
+
+
+    - **name**: This field specifies the name of the API endpoint. In this case,
+    it is labeled "Action - Draft - Get," which signifies that this endpoint
+    retrieves draft actions.
+
+
+    - **request**: This section contains all the details for making a request to
+    the API.
+
+      - **auth**: This specifies the authentication method used for the request.
+        - **type**: Indicates the type of authentication. Here, it is set to "bearer," which means the request requires a bearer token for authorization.
+        - **bearer**: This is an array containing the details of the bearer token.
+          - **key**: This indicates the name of the parameter being sent, which is "token." 
+          - **value**: This is where the actual bearer token would be placed. Currently, it is represented as "BearerToken," indicating that a real token should be inserted here.
+          - **type**: This indicates the data type, which is "string" in this case.
+
+      - **method**: This indicates the HTTP method to be used when making the request. Here, it is set to "GET," which is typically used for retrieving data from a server.
+
+      - **url**: This is the endpoint URL where the request is sent. It includes query parameters for `draftId`, `sessionId`, and `accountId`, which should be replaced with actual values when making the request.
+        - **Base URL**: `http://localhost:3000/api/action/draft/get/`
+        - **Query Parameters**: 
+          - `draftId`: This represents the unique identifier for the draft.
+          - `sessionId`: This represents the unique identifier for the session.
+          - `accountId`: This signifies the unique identifier for the account.
+
+      - **headers**: This section can include additional headers sent with the request. 
+        - In this example, the header object is present but is not populated with any key or value. It is currently disabled, meaning it is not actively being used in the request.
+
+      - **body**: This defines the body of the request. 
+        - **mode**: This specifies the format of the body content. Here, it is set to "raw," which allows for custom content to be sent in the request.
+        - **raw**: This is where the actual content of the request body would be placed. It is currently empty, indicating that no body content is required for this GET request.
+
+    Users should replace the placeholders for the token and the query parameters
+    with actual values when using this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: draftId
+      in: query
+      schema:
+        type: string
+      example: draftId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

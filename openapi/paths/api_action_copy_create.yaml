@@ -1,0 +1,69 @@
+post:
+  tags:
+    - ActionCopy
+  summary: Action - Copy - Create
+  description: >-
+    ### Action - Copy - Create
+
+
+    #### Request Details:
+
+    - **Auth**: 
+      - **Type**: This specifies the authentication method used for the request. It is set to "bearer".
+      - **Bearer**: This section contains details for bearer token authentication.
+        - **Key**: Indicates the type of authentication used, labeled as "token".
+        - **Value**: Contains the bearer token which is used to authenticate the request. Placeholder value provided as "BearerToken".
+        - **Type**: Specifies the data type for the token, which is a "string".
+
+    - **Method**: 
+      - The HTTP method used for the request is "POST". This indicates that data will be sent to the server to create a new resource.
+
+    - **URL**: 
+      - The endpoint URL where the request is sent. In this case, it is `http://localhost:3000/api/action/copy/create`, which suggests that the API is being tested locally.
+
+    - **Headers**: 
+      - An array that can contain header key-value pairs for the request. Currently, no specific headers are provided (keys and values are blank) and this entry is marked as disabled.
+
+    - **Body**:
+      - **Mode**: Indicates the body format used in the request, which is set to "raw". This implies the payload is sent in its raw form.
+      - **Raw**: This is where the actual data sent in the body of the request is defined. The following JSON structure is provided:
+        - **sessionId**: A unique identifier for the session during which the copy action is performed.
+        - **accountId**: The ID of the account from which the content is being copied.
+        - **path**: The path of the resource that is being copied, in this example it references a video.
+        - **targetType**: Defines the type of target for the copy operation. In this case, it is set to "videoId".
+        - **targetId**: The specific identifier of the target video where the content is being copied.
+        - **sourceType**: Defines the type of source from which the content is copied, currently set as "accountId".
+        - **sourceId**: The unique identifier of the source account being referenced.
+        - **didCopy**: A boolean indicating whether the copy operation has been completed, set to `true` in this instance.
+        - **text**: A text field to provide any additional description or remarks regarding the copied content, with a placeholder message "this is copied text".
+        - **name**: A field to specify a name for the copied content, left blank as it currently stands.
+        - **description**: A field for providing a description of the copied content, also left blank.
+        - **tags**: A field for including any tags related to the copied resource, currently left empty.
+
+    This postman request is designed to copy resources within a specified
+    account and to define the specifics of the copy operation being performed.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didCopy: true
+            text: this is copied text
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

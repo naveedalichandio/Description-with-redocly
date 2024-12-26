@@ -1,0 +1,176 @@
+put:
+  tags:
+    - IncentiveLoyalty
+  summary: Incentive - Loyalty - Update
+  description: >-
+    This is the detailed description of the given endpoint data:
+
+
+    Endpoint Name: "Incentive - Loyalty - Update"
+
+
+    It is a put request type, meaning it's used to update an existing resource.
+
+
+    Authentication:
+
+    It uses bearer authentication. The bearer token should be passed in the
+    token key.
+
+
+    URL:
+
+    This is the URL where the API request will be sent:
+    "http://localhost:3000/api/incentive/loyalty/update".
+
+
+    Headers:
+
+    Client-UUID is being passed in the request header. Client-UUID identifies a
+    client device or session.
+
+
+    Body: 
+
+    The body is in raw JSON format including the following fields:
+
+
+    - "accountId": A unique ID for the account.
+
+    - "sessionId": The ID of the current session.
+
+    - "teamId": The ID of the the team.
+
+    - "loyaltyId": The unique ID for the loyalty program.
+
+    - "category": The category for the incentive, in this case it's electronics.
+
+    - "loyaltyType": The type of the loyalty, here it is a Coupon.
+
+    - "title": The title of the incentive. 
+
+    - "description": A brief description about the incentive.
+
+    - "tags": Relevant tags associated with the incentive.
+
+    - "price": The price of the incentive.
+
+    - "tokenAmount": The number of tokens required to claim the incentive.
+
+    - "isProcessPayment": Flag to indicate if payment processing is required.
+
+    - "isShipping": Flag to indicate if shipping is required.
+
+    - "redirectUrl": The URL for redeeming the incentive.
+
+    - "couponCode": The code for the coupon.
+
+    - "websiteUrl": Website address where the incentive can be claimed.
+
+    - "buttonText": Text displayed on the activation button.
+
+    - "releaseDate", "releaseTime": The date and time when the incentive will be
+    released.
+
+    - "expiresDate", "expiresTime": The date and time till when the incentive
+    can be claimed.
+
+    - "activationType": How this incentive will be activated. It's automatic in
+    this case.
+
+    - "coverPhotoUrl": The URL of the image used as a cover for the incentive.
+
+    - "videoPlaybackUrl": The URL of the video explaining the incentive details.
+
+    - "galleryPhotos": A list of the URLs of photos which will be displayed in a
+    gallery view.
+
+    - "didInviteUsers": Flag indicating if invitees have been added to the
+    incentive.
+
+    - "invitedData": Data detailing who was invited to the incentive.
+
+    - "didShareItem": Flag indicating if the incentive was shared.
+
+    - "sharedData": Detailed data of where the incentive was shared (which
+    platform and how many times).
+
+    - "didPromoteItem": Flag indicating if the incentive was promoted.
+
+    - "promotedData": Data detailing where the incentive was promoted.
+
+    - "createdBy": Username of the user who created the incentive.
+
+    - "createdAt": Timestamp indicating when the incentive was created.
+
+    - "updatedBy": Username of the user who updated the incentive.
+
+    - "updatedAt": Timestamp indicating when the incentive was last updated.
+
+
+    These are all the fields that you can likely update on this endpoint. You
+    will need to provide the valid data types in the request body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            teamId: teamId
+            loyaltyId: loyaltyId
+            category: electronics
+            loyaltyType: Coupon
+            title: Exclusive Membership Reward 2.0
+            description: Get access to premium features with this reward.
+            tags: premium, membership, reward
+            price: '29.99'
+            tokenAmount: 250
+            isProcessPayment: true
+            isShipping: false
+            redirectUrl: https://example.com/redeem
+            couponCode: PREMIUM20
+            websiteUrl: https://example.com
+            buttonText: Activate Reward
+            releaseDate: '2024-11-25'
+            releaseTime: '10:00:00'
+            expiresDate: '2024-12-25'
+            expiresTime: '23:59:59'
+            activationType: auto
+            coverPhotoUrl: https://example.com/images/reward-cover.jpg
+            videoPlaybackUrl: https://example.com/videos/reward.mp4
+            galleryPhotos:
+              - https://example.com/images/gallery1.jpg
+              - https://example.com/images/gallery2.jpg
+            didInviteUsers: true
+            invitedData:
+              - targetType: email
+                targetId: user001@example.com
+              - targetType: accountId
+                targetId: u12345bc-d87e-890f-gh12-ijk345678xyz
+            didShareItem: true
+            sharedData:
+              - platform: Facebook
+                shareCount: 50
+              - platform: Twitter
+                shareCount: 30
+            didPromoteItem: false
+            promotedData: []
+            createdBy: admin123
+            createdAt: '2024-11-20T14:30:00'
+            updatedBy: admin123
+            updatedAt: '2024-11-20T14:30:00'
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

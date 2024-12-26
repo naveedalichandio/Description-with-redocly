@@ -1,0 +1,72 @@
+get:
+  tags:
+    - NotificationTokens
+  summary: Notification - Tokens - Get All
+  description: >-
+    The provided endpoint fetches all notification tokens. Here's a detailed
+    description of each data point:
+
+
+    1. `"name"`: This specifies the name of the API endpoint. In this case,
+    "Notification - Tokens - Get All" indicates that this endpoint will retrieve
+    all notification tokens.
+
+
+    2. `"request"`: Request block holds the information about the type of the
+    request to be sent.
+
+
+    3. `"auth"`: This is used for authentication. This API uses bearer
+    authentication which is specified in the `"type"` field as `"bearer"`. 
+
+
+    4. `"bearer"`: This is an array that stores the list of bearer tokens
+    required for authentication.
+      
+        - `"key"`: Specifies the key related to the bearer token which is `"token"`.
+      
+        - `"value"`: Here, `"BearerToken"` is placeholder for the actual bearer token to be used in request.
+      
+        - `"type"`: This field specifies the data type of the `"value"` field which is of the `"string"` data type.
+      
+    5. `"method"`: This parameter indicates the HTTP method to be used for the
+    request. In this case, `"GET"` method will be used for the request.
+
+
+    6. `"url"`: Specifies the URL to which the request will be sent. It includes
+    the base URL, route, and query parameters. 
+
+       - `"http://localhost:3000/api/notification/tokens/all/"` is the base URL with specific route.
+
+       - `?sessionId=sessionId&accountId=accountId` are query parameters which include `sessionId` and `accountId` you need to add in the request.
+
+    7. `"headers"`: This is an array that would usually contain any additional
+    headers required for the request. No headers are sent in this request as the
+    only array object is disabled, that's why `"key"` and `"value"` fields are
+    empty.
+
+
+    8. `"body"`: Contains necessary information required for processing the
+    request.
+
+       - `"mode"`: The mode of the request body, in this case, it's `"raw"`, which means raw data can be written directly in the body.
+
+       - `"raw"`: This is the actual data to be sent along with the request. `"raw"` data is empty for this request because it's a GET request; GET requests do not typically use the request body to send data to the server.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

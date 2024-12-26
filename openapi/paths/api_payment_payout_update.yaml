@@ -1,0 +1,66 @@
+put:
+  tags:
+    - PaymentPayout
+  summary: Payout - Zelle - Update
+  description: >-
+    This endpoint is titled "Payout - Zelle - Update." It performs a PUT
+    request, a type of HTTP method that is generally used to update existing
+    resources. The URL for this endpoint is
+    http://localhost:3000/api/payment/payout/update, which seems to suggest that
+    it is used to update existing payout information for a payment.
+
+
+    The body of the request contains several fields:
+
+
+    1. "accountId" - This field likely holds a unique identifier for the account
+    that the payout is being updated for.
+
+
+    2. "sessionId" - This is also some unique identifier and it probably refers
+    to the specific session in which the update is being made.
+
+
+    3. "payoutId" - This field presumably houses a unique identifier
+    specifically for the payout that is being updated.
+
+
+    4. "source" - The endpoint accepts null for this field, suggesting that it
+    is optional. Its use is not specified here.
+
+
+    5. "isSavePayout" - This is a boolean field that suggests whether the
+    updated payout details should be saved or not. 
+
+
+    6. "isPrimary" - Another boolean field, possibly indicating whether this
+    payout is set as the default or main payout method for the account.
+
+
+    7. "provider" - This field appears to specify who the payout provider is. In
+    this case, it's given as Zelle, an online payments company.
+
+
+    These fields are sent as raw, which means that they are not encoded in any
+    way before being sent. They are also all written in JSON language. The
+    request does not seem to include any specific headers. Overall, this
+    endpoint appears to be for updating payout information for a payment in the
+    identified account and session.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            payoutId: payoutId
+            source: null
+            isSavePayout: true
+            isPrimary: true
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

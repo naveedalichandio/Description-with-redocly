@@ -1,0 +1,70 @@
+get:
+  tags:
+    - PaymentPayout
+  summary: Payout - Zelle - Get All
+  description: >-
+    This endpoint
+    `http://localhost:3000/api/payment/payout/getAll/payoutId?provider=zelle&accountId=accountId&sessionId=sessionId`
+    provides the function "Payout - Zelle - Get All". 
+
+
+    1. **name**: This field identifies the name of the backend function that the
+    endpoint connects to. In this case, "Payout - Zelle - Get All" signifies
+    that it is a function meant to fetch all the payout details related to the
+    Zelle platform.
+
+
+    2. **request**: This object provides information about the HTTP request that
+    will be made to the endpoint.
+
+
+    3. **method**: This field indicates the HTTP method used for the request. In
+    this case, the "GET" method shows that the function is retrieving data from
+    the server.
+
+
+    4. **url**: This field provides the URL/location to which the request is
+    sent. It consists of the base URL (`http://localhost:3000`), the endpoint
+    path (`/api/payment/payout/getAll/payoutId`), and query parameters
+    (`provider=zelle&accountId=accountId&sessionId=sessionId`). 
+
+
+    - "provider=zelle" indicates that the payments provider is Zelle. 
+
+    - "accountId=accountId" instructs the function to pull data related to a
+    specific account, determined by replacing "accountId" in the URL with the
+    actual account ID.
+
+    - "sessionId=sessionId" is a unique identifier to validate the session from
+    which the request was made, necessary for security purposes. 
+
+
+    5. **headers**: This field is an array, that contains metadata in the form
+    of key-value pairs to be sent as part of the HTTP request. In this case, no
+    custom headers are included with the request. Additional header information
+    might be needed based on the server configuration. 
+
+
+    Please make sure to replace "accountId" and "sessionId" with the actual
+    account and session IDs when using this endpoint.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,79 @@
+get:
+  tags:
+    - ActionIgnore
+  summary: Action - Ignore - Get
+  description: >-
+    ### Endpoint Description: Action - Ignore - Get
+
+
+    - **Name**: Action - Ignore - Get
+      - This is the title of the request, indicating that this endpoint is for retrieving information related to the action of ignoring something.
+
+    - **Request**: This section contains the details of how to make the API
+    request.
+      
+      - **Auth**: 
+        - **Type**: bearer
+          - This specifies that the authentication method used for this request is Bearer Token authentication.
+        - **Bearer**: 
+          - A list containing an object that stores the bearer token for authentication. 
+            - **Key**: token 
+              - This is the identifier for the token.
+            - **Value**: BearerToken
+              - This is a placeholder value for the actual bearer token that the user needs to provide to access the endpoint.
+            - **Type**: string
+              - Indicates that the value for the token is of type string.
+
+      - **Method**: GET
+        - This indicates that the HTTP method being used for this request is GET, which is typically used to retrieve data from the server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/action/ignore/get/?ignoreId=ignoreId&sessionId=sessionId&accountId=accountId`
+          - This is the endpoint URL for the GET request. It includes query parameters for `ignoreId`, `sessionId`, and `accountId` which need to be provided to filter or specify the data being retrieved.
+            - **ignoreId**: a parameter representing the unique identifier for the item to be ignored.
+            - **sessionId**: a parameter that indicates the session context in which the ignore action is being performed.
+            - **accountId**: a parameter that identifies the account related to the request.
+
+      - **Headers**: 
+        - This is an array that can hold any additional headers required for the request. In this case:
+          - **Key**: "" 
+            - The key is currently empty, indicating that no extra headers are being used in this request.
+          - **Value**: "" 
+            - The value is also empty for the same reason.
+          - **Type**: default
+            - This refers to the default type for the header.
+          - **Disabled**: true
+            - This indicates that the header is currently disabled and will not be included in the request.
+
+      - **Body**: 
+        - **Mode**: raw
+          - Indicates that the body of the request will contain raw data, but in this case, it is not being used.
+        - **Raw**: ""
+          - The raw data field is currently empty, suggesting that no data needs to be sent in the body of this GET request.
+
+    This endpoint is designed to retrieve information based on the provided
+    identifiers without needing to send any additional data in the body of the
+    request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: ignoreId
+      in: query
+      schema:
+        type: string
+      example: ignoreId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

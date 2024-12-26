@@ -1,0 +1,142 @@
+post:
+  tags:
+    - TournamentGeneral
+  summary: Tournament - General - Create
+  description: >-
+    **Description of Each Data in the Tournament - General - Create Endpoint:**
+
+
+    - **auth**: 
+      - Defines the type of authentication required for this request.
+      
+      - **type**: The authentication method being used. In this case, it is "bearer", meaning a bearer token is required for authorization.
+      
+      - **bearer**: A list of bearer token details needed for the request.
+        
+        - **key**: The name of the token being provided, labeled as "token".
+        
+        - **value**: Represents the actual bearer token value which will be sent with the request, represented here as "BearerToken".
+        
+        - **type**: Indicates the data type of the value, which is "string".
+
+    - **method**: This specifies the HTTP method used for the request. "POST"
+    means that the request is intended to create a new resource.
+
+
+    - **url**: The endpoint URL where the request will be sent. In this case, it
+    is "http://localhost:3000/api/tournament/general/create".
+
+
+    - **headers**: This is an array of HTTP headers sent with the request.
+    Currently, it has a disabled header that does not have a key or value.
+
+
+    - **body**: 
+      - The content being sent with the request. It is set to be in "raw" mode with JSON format.
+      
+      - **mode**: Specifies that the body content type is raw.
+      
+      - **raw**: Contains the actual JSON payload being sent with the request, which includes various fields necessary for tournament creation.
+
+        - **sessionId**: A unique identifier for the session in which the tournament is being created.
+        
+        - **accountId**: The identifier for the account that is creating this tournament.
+        
+        - **teamId**: The identifier for the team participating in the tournament.
+        
+        - **name**: The name of the tournament, in this case, "My Second Tournament".
+        
+        - **description**: A brief description of the tournament, providing context and purpose, e.g., "This tournament is my second attempt to engage a wider audience."
+        
+        - **tags**: Keywords associated with the tournament to enhance searchability, e.g., "second,tournament,engagement".
+        
+        - **category**: The general classification of the tournament, here labeled as "General".
+        
+        - **subCategory**: A more specific classification within the general category, marked as "Specific".
+        
+        - **scheduleDate**: The date when the tournament is scheduled to begin, formatted as "YYYY-MM-DD", e.g., "2023-10-15".
+        
+        - **scheduleTime**: The time when the tournament is set to start, noted in HH:MM:SS format, e.g., "14:00:00".
+        
+        - **streamHours**: The number of hours allocated for streaming the tournament, such as "4".
+        
+        - **coverPhotoUrl**: A URL linking to the cover photo for the tournament, used for promotional purposes, e.g., "https://example.com/cover.jpg".
+        
+        - **voteTokenQuantity**: The total number of voting tokens available for participants, denoted here as "100".
+        
+        - **votingTimeReset**: The duration (in minutes) that voting time will reset, in this instance, "5".
+        
+        - **voteButtonQuantity**: The number of voting options available to participants, here specified as "4".
+        
+        - **voteButtonText1** to **voteButtonText4**: The labels for the voting options presented to users, allowing them to choose between different options.
+        
+        - **isRewardsEnabled**: A boolean indicating whether rewards are enabled for the tournament, set to true.
+        
+        - **isTournamentPrivate**: A boolean indicating whether the tournament is private or public, set to false.
+        
+        - **isPreLiveTournamentAds**: A boolean indicating whether ads will run before the live event starts, set to true.
+        
+        - **isPostLiveTournamentAds**: A boolean indicating whether ads will run after the live event ends, set to false.
+        
+        - **breakPreLiveVideoUrl**: A URL for a video to be shown before the tournament begins, e.g., "https://example.com/break-pre-live.mp4".
+        
+        - **breakPostLiveVideoUrl**: A URL for a video to be shown after the tournament ends, e.g., "https://example.com/break-post-live.mp4".
+        
+        - **maxStreamerAmount**: The maximum number of streamers allowed in the tournament, specified as "10".
+        
+        - **maxTeamCaptainAmount**: The maximum number of team captains permitted, set to "2".
+        
+        - **maxScoreKeeperAmount**: The maximum number of scorekeepers allowed to participate, specified as "3".
+        
+        - **maxOpponentAmount**: The maximum number of opponents allowed to participate, indicated as "5".
+        
+        - **started**: A boolean indicating whether the tournament has started, currently set to false.
+        
+        - **paused**: A boolean indicating whether the tournament is currently paused, also set to false.
+        
+        - **stopped**: A boolean indicating whether the tournament has stopped, set to false.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            teamId: teamId
+            name: My Second Tournament
+            description: This tournament is my second attempt to engage a wider audience.
+            tags: second,tournament,engagement
+            category: General
+            subCategory: Specific
+            scheduleDate: '2023-10-15'
+            scheduleTime: '14:00:00'
+            streamHours: 4
+            coverPhotoUrl: https://example.com/cover.jpg
+            voteTokenQuantity: 100
+            votingTimeReset: '5'
+            voteButtonQuantity: 4
+            voteButtonText1: Option 1
+            voteButtonText2: Option 2
+            voteButtonText3: Option 3
+            voteButtonText4: Option 4
+            isRewardsEnabled: true
+            isTournamentPrivate: false
+            isPreLiveTournamentAds: true
+            isPostLiveTournamentAds: false
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+            maxStreamerAmount: 10
+            maxTeamCaptainAmount: 2
+            maxScoreKeeperAmount: 3
+            maxOpponentAmount: 5
+            started: false
+            paused: false
+            stopped: false
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,66 @@
+post:
+  tags:
+    - PaymentProduct
+  summary: Product - Zelle - Delete
+  description: >-
+    This endpoint is named "Product - Zelle - Delete". It is set up for a `POST`
+    request, which typically implies data submission or an action involving
+    manipulation or deletion of data.
+
+
+    The URL for this request is
+    `http://localhost:3000/api/payment/product/delete`. It suggests that this
+    endpoint could be used to delete a product from a payment collection stored
+    locally (localhost:3000) via the API route `/api/payment/product/delete`.
+
+
+    There are no specific headers set for this request, which might suggest
+    there's are no restrictions related to language, origin, authorization etc,
+    unless, they're already handled in some different way.
+
+
+    The request body is configured in `raw` mode. It consists of a JSON object
+    that is expected to contain four properties:
+
+
+    1. `accountId` : This is likely to be a unique identifier for a user account
+    within your system. You should replace "accountId" with the actual ID of the
+    account.
+
+
+    2. `sessionId`: It seems like an identifier for the current session. It
+    could be used for verifying that the user session is valid. Replace
+    "sessionId" with the actual session ID.
+
+
+    3. `productId`: This appears to be a unique identifier for the product that
+    is intended to be deleted. Replace "productId" with the actual product ID.
+
+
+    4. `provider`: This is set as "zelle". It indicates that the payment
+    provider for the product is Zelle.
+
+
+    Lastly, under options, you have `raw` which is set to a `language` of
+    `json`. It signifies that the API expects the request payload raw data to be
+    in JSON format. Make sure to send request body content as JSON. 
+
+
+    In summary, this "Product - Zelle - Delete" endpoint takes a JSON object
+    with four properties (accountId, sessionId, productId, provider) as a body
+    payload and is likley to delete a specific product under an account.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            productId: productId
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,125 @@
+put:
+  tags:
+    - UniversityTour
+  summary: University - Tour - Update
+  description: >-
+    ### Description of Each Data in the Endpoint:
+
+
+    **Endpoint Name:** University - Tour - Update
+
+
+    **Request Details:**
+
+
+    - **Authentication:**
+      - **Type:** Bearer
+        - This indicates that the request requires a bearer token for authorization.
+      - **Bearer Token:**
+        - **Key:** token
+        - **Value:** BearerToken
+        - **Type:** string
+        - This is the token used for authenticating the request against the API. Replace "BearerToken" with a valid token.
+
+    - **Method:** 
+      - **PUT**
+        - This specifies that the HTTP method used for the request is PUT, which is typically used for updating existing resources.
+
+    - **URL:**
+      - **http://localhost:3000/api/university/tour/update**
+        - This is the endpoint where the update request is sent. It is hosted on localhost and operates on port 3000.
+
+    - **Headers:**
+      - **Client-UUID:**
+        - **Key:** Client-UUID
+        - **Value:** ClientUUID
+        - **Type:** default
+        - This header is used to identify the client making the request. Replace "ClientUUID" with the actual UUID associated with the client.
+
+    **Body:**
+
+    - The body of the request contains a JSON object that includes the following
+    fields:
+
+      - **tourId:**
+        - The unique identifier of the tour that needs to be updated.
+      
+      - **sessionId:**
+        - The unique identifier for the session associated with the tour.
+
+      - **accountId:**
+        - The unique identifier for the account that owns the tour.
+
+      - **name:**
+        - A string representing the name of the tour. For example: "My Second Tour 2.0".
+
+      - **description:**
+        - A string providing a descriptive overview of the tour. For instance: "This tour is my second tour".
+
+      - **tags:**
+        - A comma-separated list of tags associated with the tour. For example: "second,tour".
+
+      - **profilePhotoUrl:**
+        - A URL pointing to the profile photo associated with the tour. Example: "https://example.com/profile.jpg".
+
+      - **coverPhotoUrl:**
+        - A URL pointing to the cover photo for the tour. Example: "https://example.com/cover.jpg".
+
+      - **minimumTipAmount:**
+        - A numeric value indicating the minimum amount that can be tipped for participating in the tour. For instance: 10.
+
+      - **categoryId:**
+        - The unique identifier for the category under which the tour is classified. For example: "category123".
+
+      - **category:**
+        - A string indicating the primary category of the tour. For example: "General".
+
+      - **subCategoryId:**
+        - The unique identifier for the subcategory of the tour. For example: "subCategory456".
+
+      - **subCategory:**
+        - A string indicating the specific subcategory for the tour. For example: "Specific".
+
+      - **isTourPrivate:**
+        - A boolean indicating whether the tour is private (true) or public (false).
+
+      - **isTournamentOnly:**
+        - A boolean indicating whether the tour is exclusive to tournaments (true) or open to all types of participation (false).
+
+      - **isTourDefault:**
+        - A boolean indicating whether this tour is set as the default option for users (true) or not (false).
+
+      - **isPreLiveUniversityAds:**
+        - A boolean indicating whether pre-live university ads should be displayed for this tour (true) or not (false).
+
+      - **isPostLiveUniversityAds:**
+        - A boolean indicating whether post-live university ads should be displayed for this tour (true) or not (false).
+
+      - **breakPreLiveVideoUrl:**
+        - A URL pointing to a video that plays during the break before the live session starts. Example: "https://example.com/break-pre-live.mp4".
+
+      - **breakPostLiveVideoUrl:**
+        - A URL pointing to a video that plays during the break after the live session ends. Example: "https://example.com/break-post-live.mp4".
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"tourId\":\"tourId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Tour 2.0\",\"description\":\"This tour is my second
+            tour\",\"tags\":\"second,tour\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isTourPrivate\":true,\"isTournamentOnly\":false,\"isTourDefault\":true,\"isPreLiveUniversityAds\":true,\"isPostLiveUniversityAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

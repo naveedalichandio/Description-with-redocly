@@ -1,0 +1,108 @@
+put:
+  tags:
+    - ActionTag
+  summary: Action - Tag - Update
+  description: >-
+    ### Action - Tag - Update
+
+
+    This endpoint allows users to update a tag associated with an action in the
+    system. Below is a detailed description of each data element in the request.
+
+
+    #### Request Components
+
+
+    - **Auth**
+      - **Type**: "bearer"
+        - This indicates that the request requires authorization using a bearer token.
+      - **Bearer**
+        - This is an array containing:
+          - **Key**: "token"
+            - The key for the bearer token in the header.
+          - **Value**: "BearerToken"
+            - The actual token used for authorization, which should be replaced with a valid token.
+          - **Type**: "string"
+            - Indicates the data type of the token.
+
+    - **Method**: "PUT"
+      - This specifies that the request method is PUT, which is typically used to update existing resources.
+
+    - **URL**: "http://localhost:3000/api/action/tag/update"
+      - This is the endpoint's URL where the request will be sent. It points to the action tag update functionality on the local server.
+
+    - **Headers**
+      - An array of header objects:
+        - **Key**: "Client-UUID"
+          - A unique identifier for the client making the request.
+        - **Value**: "ClientUUID"
+          - Placeholder for the actual UUID value that uniquely identifies the client.
+        - **Type**: "default"
+          - Indicates the header's type.
+
+    - **Body**
+      - **Mode**: "raw"
+        - This indicates that the body of the request is sent as raw data.
+      - **Raw**
+        - The content of the request body formatted in JSON. It includes the following key-value pairs:
+          - **sessionId**: "sessionId"
+            - Identifies the current session for tracking purposes. Replace with the actual session ID.
+          - **accountId**: "accountId"
+            - Identifies the account associated with the action. Replace with the actual account ID.
+          - **path**: "/live/channel/video123"
+            - The path or endpoint related to the resource being updated. Replace with the actual path.
+          - **targetType**: "videoId"
+            - Specifies the type of the target being updated; here, it designates a video ID.
+          - **targetId**: "videoId"
+            - The identifier for the target that is being modified. This should be replaced with the actual video ID.
+          - **sourceType**: "accountId"
+            - Indicates the type of source related to the tag; here, it is an account ID.
+          - **sourceId**: "accountId"
+            - The identifier for the source associated with the action. This should be replaced with the actual account ID.
+          - **didTag**: false
+            - A boolean indicating whether the tagging action was performed or not.
+          - **name**: ""
+            - A placeholder for the name of the tag. Provide the relevant name as needed.
+          - **description**: ""
+            - A placeholder for a description of the tag. Provide the relevant description as needed.
+          - **tags**: ""
+            - A placeholder for any tags associated with the action. Provide the relevant tags.
+          - **tagId**: "tagId"
+            - The identifier for the tag that is being updated. Replace with the actual tag ID.
+
+    ### Summary
+
+    This request is structured to facilitate the update of an action tag,
+    requiring proper authorization and the inclusion of various contextual
+    identifiers and metadata.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didTag: false
+            name: ''
+            description: ''
+            tags: ''
+            tagId: tagId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,99 @@
+get:
+  tags:
+    - ActionHold
+  summary: Action - Hold - Get All
+  description: >-
+    ### Action - Hold - Get All
+
+
+    This endpoint is used to retrieve a list of all actions that are currently
+    on hold. Below are the details of each component in the endpoint:
+
+
+    - **name**: 
+      - "Action - Hold - Get All"
+      - This is the identifier for the API request, indicating the purpose of the request.
+
+    - **request**: 
+      - This section contains all the necessary information to make the API call.
+
+      - **auth**: 
+        - This field specifies the authentication method required to access the endpoint.
+        
+        - **type**: 
+          - "bearer"
+          - Indicates that bearer token authentication is used.
+
+        - **bearer**: 
+          - This is an array that contains details about the authorization token.
+          
+          - **key**: 
+            - "token"
+            - The name of the property in the array that holds the token.
+            
+          - **value**: 
+            - "BearerToken"
+            - Placeholder for the actual token required for authentication. Users need to replace this with their valid bearer token.
+            
+          - **type**: 
+            - "string"
+            - Specifies that the value of the token is a string.
+
+      - **method**: 
+        - "GET"
+        - This indicates that the request method is GET, meaning it will retrieve data from the server without modifying any resources.
+
+      - **url**: 
+        - "http://localhost:3000/api/action/hold/all/?sessionId=sessionId&accountId=accountId"
+        - The endpoint URL where the request will be sent. 
+        - It includes query parameters:
+          - **sessionId**: A placeholder for the session identifier. Users must provide a valid session ID.
+          - **accountId**: A placeholder for the account identifier. Users must provide a valid account ID.
+
+      - **headers**: 
+        - This section is for any additional headers that may be required in the request.
+        
+        - **key**: 
+          - An empty string indicates that no custom headers are specified.
+          
+        - **value**: 
+          - An empty string indicates that no value is associated with a custom header.
+          
+        - **type**: 
+          - "default"
+          - Indicates that this is a default header type.
+          
+        - **disabled**: 
+          - true
+          - This signifies that the header is currently disabled and will not be sent with the request.
+
+      - **body**: 
+        - This part is used to define the body of the request.
+
+        - **mode**: 
+          - "raw"
+          - Indicates that the body of the request is in raw format.
+
+        - **raw**: 
+          - An empty string indicates that no raw body content is being sent with the request.
+
+    This structure should help users understand how to utilize the "Action -
+    Hold - Get All" endpoint effectively.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

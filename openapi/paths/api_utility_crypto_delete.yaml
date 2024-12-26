@@ -1,0 +1,63 @@
+post:
+  tags:
+    - UtilityCrypto
+  summary: Utility - Crypto - Delete
+  description: |-
+    ### Endpoint: Utility - Crypto - Delete
+
+    - **Name**: Utility - Crypto - Delete  
+      This is the title of the API request, indicating that it is used to delete a cryptocurrency entry within a utility context.
+
+    - **Request**:
+      - **Auth**:
+        - **Type**: Bearer  
+          This specifies that the request will use bearer token authentication.
+        - **Bearer**:  
+          An array containing authentication details for the request.
+          - **Key**: token  
+            This is the key that represents the authentication type.
+          - **Value**: sessionId  
+            This is the variable name that holds the actual session token required for authentication.
+          - **Type**: string  
+            This indicates that the value of the token is expected to be a string data type.
+
+      - **Method**: POST  
+        This indicates that the HTTP method for the request is POST, meaning that this request will send data to the server to perform the delete operation.
+
+      - **URL**: http://localhost:3000/api/utility/crypto/delete  
+        This is the endpoint URL where the delete request will be sent. It points to a local server with the specified path for deleting cryptocurrency entries.
+
+      - **Headers**:  
+        This section includes any custom headers that may be sent with the request.
+        - **Key**: (empty)  
+          Currently, there are no custom headers included in this request, as the key is empty.
+        - **Value**: (empty)  
+          No value is associated with the header as it is disabled.
+        - **Type**: default  
+          Indicates the default type for any headers, though it is not in use here since the header is disabled.
+
+      - **Body**:
+        - **Mode**: raw  
+          This indicates that the request body will be sent as raw text.
+        - **Raw**:  
+          A JSON object as a string which includes:
+          - **sessionId**: "sessionId"  
+            This is a placeholder for the actual session ID required for authentication. It must be replaced with a valid session ID when making the request.
+          - **accountId**: "accountId"  
+            This is a placeholder for the ID of the account from which the cryptocurrency should be deleted. This value needs to be replaced with the actual account ID when making the request.
+          - **cryptoId**: "cryptoId"  
+            This is a placeholder for the specific ID of the cryptocurrency that is intended to be deleted. Like the others, it should be replaced with the actual cryptocurrency ID in the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"cryptoId\":\"cryptoId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,68 @@
+post:
+  tags:
+    - ChatMessage
+  summary: Chat - Message - Create
+  description: >-
+    This endpoint, named "Chat - Message - Create", is a method to create a new
+    chat message on the server. 
+
+
+    It uses the 'POST' method, aiming at the URL
+    "http://localhost:3000/api/chat/message/create". The authentication type
+    required for this endpoint is "bearer". We use the BearerToken as the
+    authentication token provided under "auth" property with key "token".
+
+
+    The body of the request contains raw JSON data with the following fields:
+
+
+    1. "messageText": This should contain the text of the chat message being
+    sent. Type for this field is a string.
+       
+    2. "messagePriority": This is to mark the priority of the message. It's a
+    string where "0" could perhaps denote a standard message.
+       
+    3. "fromAccountId": This refers to the account id from which the message is
+    originating. It should be a string presenting an accountId.
+       
+    4. "toAccountId": This is the account id to which the message should be
+    sent. A string is expected here as well.
+       
+    5. "threadId": This could be used for threading or grouping messages. The
+    current message will belong to this thread. It's expected to be represented
+    as a string.
+       
+    6. "replyToId": If the current message is a reply to any other message, that
+    message's id should be specified here. This field should be a string.
+       
+    7. "accountId": This could denote the user who is currently logged in and
+    performing the action. The representation of this field is a string.
+       
+    8. "sessionId": It may be used to maintain the session of the user who is
+    making the request. The value here is expected to be a string.
+
+
+    All these fields are marked as strings wrapped in JSON format, according to
+    "options -> raw -> language". This endpoint doesn't require any specific
+    headers to be set.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            messageText: Hello, this is a message!
+            messagePriority: '0'
+            fromAccountId: fromAccountId
+            toAccountId: toAccountId
+            threadId: threadId
+            replyToId: replyToId
+            accountId: accountId
+            sessionId: sessionId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

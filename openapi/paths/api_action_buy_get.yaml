@@ -1,0 +1,58 @@
+get:
+  tags:
+    - ActionBuy
+  summary: Action - Buy - Get
+  description: >-
+    **Endpoint Description: Action - Buy - Get**
+
+
+    - **Name**: This identifies the action as "Action - Buy - Get."
+
+
+    - **Request**: This section contains details about the request that will be
+    made to the API.
+
+      - **Auth**: This details the authentication method required for the API request.
+        - **Type**: Specifies that the authentication method is "bearer."
+        - **Bearer**: A list that contains details about the bearer token needed for authentication.
+          - **Key**: Identifies the type of data being sent, which is "token."
+          - **Value**: This is a placeholder for the actual bearer token, represented as "BearerToken." This value needs to be replaced with an actual token.
+          - **Type**: Indicates that the value is a string.
+
+      - **Method**: The HTTP method used for this request is "GET." This means that the request is intended to retrieve data.
+
+      - **URL**: The endpoint URL for the request. It includes placeholders for parameters:
+        - `buyId`: This should be replaced with the unique identifier for the buying action.
+        - `sessionId`: This should be replaced with the identifier for the user session.
+        - `accountId`: This should be replaced with the identifier for the user account.
+        - The full URL template is `http://localhost:3000/api/action/buy/get/?buyId=buyId&sessionId=sessionId&accountId=accountId`.
+
+      - **Headers**: This section usually contains additional information sent with the request.
+        - In this case, there is a placeholder for a header key and value, but it is currently empty and marked as disabled. This means no additional headers will be sent with the request.
+
+      - **Body**: This section typically contains data sent with the request.
+        - **Mode**: Indicates the mode of the body content, which is set to "raw," meaning that raw data will be sent.
+        - **Raw**: There is no actual data to send in the body for this GET request, so it is left empty.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: buyId
+      in: query
+      schema:
+        type: string
+      example: buyId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

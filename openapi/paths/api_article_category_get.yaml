@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ArticleCategory
+  summary: Article - Category - Get By Short ID
+  description: >-
+    This endpoint is called "Article - Category - Get By Short ID". It is used
+    to retrieve a specific article category by a shorter identifier known as
+    "shortId". Now let's dive into each aspect of this endpoint:
+
+
+    1. "name": This property indicates the name of the endpoint, which is
+    "Article - Category - Get By Short ID".
+
+
+    2. "request": This property contains the majority of the data for running
+    this API call. 
+
+
+    3. "auth": This property describes the authentication method used for this
+    API request. This endpoint uses the 'bearer' token type. The "bearer" array
+    includes:
+        - "key": This signifies the type of data being sent in the bearer token. In this case, it is "token".
+        - "value": The "BearerToken" specifies the expected value. It should be replaced with a valid token string while using this endpoint.
+        - "type": This characterizes the data type of the token. As mentioned here, it's a string.
+
+    4. "method": This property mentions the HTTP method to be used, which in
+    this case is "GET".
+
+
+    5. "url": This is the API's endpoint URL where the Get request is being
+    sent.
+    "http://localhost:3000/api/article/category/get/?shortId=articleCategoryShortId"
+    is the URL, and 'articleCategoryShortId' at the end is a placeholder for the
+    short identifier that should be used to fetch the specific article category.
+
+
+    6. "headers": This array usually contains any additional HTTP headers to be
+    sent with the API request. However, in this case, the "key" and "value"
+    fields are empty, and the header is set to disabled. It would appear that
+    there are no additional headers required for this endpoint.
+
+
+    7. "body": This part of the request contains the data that is going out with
+    the request. In this case, the mode is set to 'raw', and the 'raw' field is
+    empty since there's no data to be sent with the GET request. 
+
+
+    In summary, this endpoint is intended to fetch a specific article category
+    by its 'shortId' using a GET request. It requires a bearer token for
+    authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: shortId
+      in: query
+      schema:
+        type: string
+      example: articleCategoryShortId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

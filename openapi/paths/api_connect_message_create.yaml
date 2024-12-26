@@ -1,0 +1,118 @@
+post:
+  tags:
+    - ConnectMessage
+  summary: Connect - Message - Create
+  description: >-
+    Here's a detailed description of each data in this endpoint:
+
+
+    - "name": This field represents the name of the endpoint, in this case, it
+    is "Connect - Message - Create".
+
+
+    - "request": This field contains all the details regarding the http request.
+    It includes authentication details, the request method, the URL for the
+    request, headers, and the body of the request.
+
+
+    - "auth": This field contains the details about the authentication. Here,
+    the authentication type is 'bearer'.
+
+
+    - "type" under "auth": This signifies the type of authentication. In this
+    case it is a bearer authentication.
+
+
+    - "bearer": This field contains a list of bearer tokens used for
+    authentication. It consists of a key-value pair, where the key is 'token'
+    and the value will be the bearer token string.
+
+
+    - "method": This field signifies the HTTP request method. In this case, it
+    is 'POST'.
+
+
+    - "url": This field is the endpoint to which the request will be sent.
+
+
+    - "headers": This field contains a list of all headers sent with the
+    request. Each header is represented by a key-value pair. Here, no header
+    information is provided.
+
+
+    - "body": This field contains the data sent along with the request. The
+    payload is in raw format.
+
+
+    - "mode" under "body": It signifies in which format the payload/body is
+    provided. It is in 'raw' format in this case.
+
+
+    - "raw" under "body": This is the actual payload or body of the request
+    which needs to be sent to the server. It consists of multiple key-value
+    pairs, which include sessionId, accountId, provider, messageText,
+    findUsername, and isEnabled. 
+
+        - "sessionId": This corresponds to a unique identifier for the session.
+      
+        - "accountId": This corresponds to a unique identifier for a specific account.
+      
+        - "provider": This indicates the provider of the service. In this case, the provider is 'whatsapp'.
+      
+        - "messageText": This field contains the actual text of the message to be sent.
+      
+        - "findUsername": This field holds the username. In this case, it is 'Usama AUH'.
+      
+        - "isEnabled": This is a boolean value indicating whether the service is enabled or not.
+
+    - "options" under "body": These are additional configurations for the
+    payload. Here, the language option is set to 'json' specifying that the raw
+    data provided in the body should be interpreted as a JSON object.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            provider: whatsapp
+            messageText: This message is my second test message
+            findUsername: Usama AUH
+            isEnabled: true
+  security:
+    - bearerAuth: []
+  responses:
+    undefined:
+      content:
+        text/plain:
+          schema:
+            type: string
+          examples:
+            example-0:
+              summary: slack
+              value: null
+            example-1:
+              summary: facebook page
+              value: null
+            example-2:
+              summary: facebook profile
+              value: null
+            example-3:
+              summary: google chat
+              value: null
+            example-4:
+              summary: linkedIn
+              value: null
+            example-5:
+              summary: snapchat
+              value: null
+            example-6:
+              summary: telegram
+              value: null
+            example-7:
+              summary: x
+              value: null
+            example-8:
+              summary: tiktok
+              value: null

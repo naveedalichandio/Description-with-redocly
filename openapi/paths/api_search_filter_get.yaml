@@ -1,0 +1,72 @@
+get:
+  tags:
+    - SearchFilter
+  summary: Search - Filter - Get By User
+  description: >-
+    Endpoint Name: "Search - Filter - Get By User"
+
+
+    1. "name": This specifies the name of the endpoint. In this case, it's
+    "Search - Filter - Get By User", which suggests that it allows searching and
+    filtering for specific user data.
+
+
+    2. "request": This contains all the detailed instructions that tell the
+    server what to do.
+
+
+    3. "auth": This is the authorization method needed to make a request to this
+    endpoint, which is based on bearer token authentication.
+
+       - "type": This indicates the type of authorization required. For this endpoint, it's bearer type.
+       
+       - "bearer": This is an array containing the information about the bearer token needed for authorization.
+        
+         - "key": The name of the token, in this case, it's "token".
+         
+         - "value": The value of the token. It should be replaced with the actual bearer token to authorize the request.
+         
+         - "type": Specifies the type of the value. It should be a string.
+
+    4. "method": Specifies the HTTP method to use for the request. In this case,
+    it's GET, which is used to retrieve data from a server.
+
+
+    5. "url": The URL is the address where the request is sent. It includes the
+    necessary query parameters which are 'filterId', 'sessionId', and
+    'accountId'.
+
+
+    6. "headers": An array that can contain multiple objects representing
+    several HTTP headers. In this case, there is a default empty header object
+    which is disabled.
+
+
+    7. "body": Contains data that you want to send to the server.
+
+        - "mode": Specifies the format of the data contained in the body. Here it's set to 'raw', which allows sending data without any conversion.
+        
+        - "raw": Holds the actual data that will be sent in the body. In this case, no data is being sent, so it's empty.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: filterId
+      in: query
+      schema:
+        type: string
+      example: filterId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

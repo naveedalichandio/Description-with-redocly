@@ -1,0 +1,114 @@
+put:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Update Fiat for Team
+  description: >-
+    ### Utility - Fiat - Update Fiat for Team
+
+
+    **Request Type:** PUT  
+
+    **Endpoint URL:** http://localhost:3000/api/utility/fiat/update
+
+
+    ### Authentication
+
+    - **Auth Type:** Bearer Token
+      - **Token Key:** "token"  
+      - **Token Value:** "BearerToken" (Replace with actual bearer token)
+
+    ### Headers
+
+    - **Client-UUID:**
+      - **Key:** "Client-UUID"
+      - **Value:** "ClientUUID" (Replace with actual Client UUID)
+
+    ### Request Body
+
+    The body of the request is in JSON format and includes the following fields:
+
+
+    - **sessionId:** A unique identifier for the user's session. This is used to
+    associate the request with the user's current session.
+
+
+    - **accountId:** The ID of the account that is being updated. This
+    identifies the specific account within the system.
+
+
+    - **fiatId:** The unique identifier for the fiat currency entry that is to
+    be updated. This allows the system to find the specific fiat currency
+    record.
+
+
+    - **targetType:** Specifies the type of target that the update applies to.
+    In this case, it should be set to "teamId" indicating that the update
+    applies to a team.
+
+
+    - **targetId:** The ID of the target, which is the specific team being
+    updated. This links the fiat update to a particular team.
+
+
+    - **name:** The name of the fiat currency. For example, "USD" represents the
+    United States Dollar.
+
+
+    - **description:** A brief description of the fiat currency. For example,
+    "United States Dollar" provides additional context about the currency.
+
+
+    - **type:** Specifies the type of fiat currency. For this case, it is set to
+    "usd" indicating that this is the US Dollar.
+
+
+    - **action:** Indicates the action to perform with this fiat currency
+    update. In this case, it is set to "gift", which may imply that this
+    currency is being given or allocated as a gift within the context of the
+    app.
+
+
+    - **rate:** The exchange rate for the fiat currency. In this example, it is
+    set to 1, indicating a 1:1 rate for this currency.
+
+
+    - **amount:** The amount of fiat currency being referenced in the update.
+    Here, it is set to 2, which would mean two units of the specified fiat
+    currency are being managed or allocated.
+
+
+    ### Notes
+
+    Make sure to replace placeholder values with actual data before making a
+    request. The endpoint is designed to update a specific fiat currency record
+    associated with a team in the utility application.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            fiatId: fiatId
+            targetType: teamId
+            targetId: teamId
+            name: USD
+            description: United States Dollar
+            type: usd
+            action: gift
+            rate: 1
+            amount: 2
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

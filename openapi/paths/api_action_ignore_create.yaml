@@ -1,0 +1,142 @@
+post:
+  tags:
+    - ActionIgnore
+  summary: Action - Ignore - Create
+  description: |-
+    ### Description of Data for the Endpoint: Action - Ignore - Create
+
+    - **name**: "Action - Ignore - Create"
+      - This is the name of the API request. It indicates that this particular request is used for creating an action that involves ignoring something.
+
+    - **request**: 
+      - This section describes the details of the API request being made.
+
+      - **auth**: 
+        - This specifies the authentication method used for the request.
+        
+        - **type**: "bearer"
+          - Indicates that the bearer token authentication method is used to authorize requests.
+
+        - **bearer**: 
+          - This array holds objects with token details.
+
+          - **key**: "token"
+            - This is the label for the bearer token.
+
+          - **value**: "BearerToken"
+            - This is where the actual bearer token string should be placed to authorize the API request.
+
+          - **type**: "string"
+            - Specifies the data type for the bearer token value.
+
+      - **method**: "POST"
+        - This indicates that the request uses the POST HTTP method to send data to the server.
+
+      - **url**: "http://localhost:3000/api/action/ignore/create"
+        - This is the URL endpoint to which the request is sent. It points to the local server at port 3000 and specifies the action to create an ignore action.
+
+      - **headers**: 
+        - This section is for any headers to be included in the request.
+
+        - **key**: ""
+          - Currently, this header does not have a specified key, meaning it is not being utilized.
+
+        - **value**: ""
+          - Corresponding value for the header is also not set.
+
+        - **type**: "default"
+          - This indicates that the header type is standard.
+
+        - **disabled**: true
+          - This indicates that the header is disabled and will not be sent with the request.
+
+      - **body**: 
+        - This section contains the data that will be sent with the POST request.
+
+        - **mode**: "raw"
+          - The body mode indicates that the raw data will be sent in the request.
+
+        - **raw**: 
+          - This is the actual raw data being sent, formatted as JSON:
+
+            ```json
+            {
+              "sessionId": "sessionId",
+              "accountId": "accountId",
+              "path": "/live/channel/video123",
+              "targetType": "videoId",
+              "targetId": "videoId",
+              "sourceType": "accountId",
+              "sourceId": "accountId",
+              "didIgnore": false,
+              "name": "sss",
+              "description": "",
+              "tags": ""
+            }
+            ```
+
+          - **sessionId**: "sessionId"
+            - This represents the unique identifier for the current session.
+
+          - **accountId**: "accountId"
+            - This specifies the account's unique identifier that is associated with the action.
+
+          - **path**: "/live/channel/video123"
+            - This indicates the specific path for the resource related to the action.
+
+          - **targetType**: "videoId"
+            - This defines the type of target that the action will focus on. In this case, it's a video identified by `videoId`.
+
+          - **targetId**: "videoId"
+            - This is the unique identifier for the target resource (video) that is being ignored.
+
+          - **sourceType**: "accountId"
+            - This specifies that the source type is based on the account's identifier.
+
+          - **sourceId**: "accountId"
+            - This indicates the identifier of the source, which is the account related to this action.
+
+          - **didIgnore**: false
+            - This boolean value indicates whether the action of ignoring has been performed. Here, it is set to false, meaning it has not been ignored yet.
+
+          - **name**: "sss"
+            - This field holds a name associated with the ignore action. 
+
+          - **description**: ""
+            - This field is a placeholder for a description of the ignore action. It is currently empty.
+
+          - **tags**: ""
+            - This is a placeholder for any tags related to the ignore action. It is currently empty.
+
+        - **options**: 
+          - This section specifies additional options for the body.
+
+          - **raw**: 
+            - This specifies the format of the raw data.
+
+            - **language**: "json"
+              - Indicates that the raw body is formatted in JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didIgnore: false
+            name: sss
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,76 @@
+get:
+  tags:
+    - VideoSubcategory
+  summary: Video - SubCategory - Get
+  description: >-
+    ### Description of each data in the endpoint
+
+
+    - **name**: Indicates the name of the API request. In this case, it is
+    titled "Video - SubCategory - Get," which signifies that this request is
+    meant to retrieve video data filtered by subcategories.
+
+
+    - **request**: This object contains all the properties needed to make the
+    API call.
+
+      - **auth**: A sub-object that specifies the type of authentication required to access this endpoint.
+      
+        - **type**: Indicates the method of authentication. Here, it is set to "bearer," which is a common method used to secure APIs.
+        
+        - **bearer**: An array containing the details of the bearer token needed for authentication.
+        
+          - **key**: Identifies the parameter name for the bearer token, which is generally required in the format of "Authorization". In this case, it's labeled "token".
+          
+          - **value**: The actual token value needed for authentication. It is represented as "BearerToken" here, indicating that the user should insert a valid token.
+          
+          - **type**: Specifies the data type of the value, which in this instance is "string".
+
+      - **method**: Describes the HTTP method to be used for the request. This is a GET request, which is typically used to retrieve data from the server.
+
+      - **url**: The endpoint URL where the request is sent. It incorporates query parameters for filtering results.
+      
+        - **subCategoryId**: A query parameter that specifies the ID of the subcategory for which video data is being requested.
+        
+        - **sessionId**: A query parameter representing the session ID, which may be used to track a user’s session.
+        
+        - **accountId**: A query parameter that identifies the user account for which the video data is being requested.
+
+      - **headers**: An array to define additional headers sent with the request.
+        
+        - **key**: This field is empty, meaning no specific headers are currently being set.
+      
+        - **value**: This field is also empty, indicating no header value is specified.
+
+        - **type**: Denoted as "default," meaning this header is a standard type.
+
+        - **disabled**: Set to true, indicating that this header is not currently active and will not be sent with the request.
+
+      - **body**: Defines the content sent with the request. Since this is a GET request, which typically does not send a body, it's configured as follows:
+      
+        - **mode**: States the body mode in which data would be sent, here it is "raw."
+
+        - **raw**: The content for the raw body, which is empty in this case, meaning no body content will be sent with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: subCategoryId
+      in: query
+      schema:
+        type: string
+      example: subCategoryId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

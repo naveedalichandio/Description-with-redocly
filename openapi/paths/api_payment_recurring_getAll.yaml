@@ -1,0 +1,69 @@
+get:
+  tags:
+    - PaymentRecurring
+  summary: Recurring - NowPayments - Get All
+  description: >-
+    This API endpoint is named "Recurring - NowPayments - Get All". It utilizes
+    a GET HTTP method to retrieve all recurring payment details related to the
+    NowPayments provider from the server.
+
+
+    Below is a detailed explanation of each data member:
+
+
+    - "name": This is the name of the endpoint, "Recurring - NowPayments - Get
+    All", it is used to identify this specific endpoint among others.
+
+
+    - "request": This section outlines the request that will be sent to the
+    server. 
+
+
+    - "method": this is the HTTP method being used for the request, "GET". GET
+    is a request method that is used to request data from a resource. 
+
+
+    - "url": this is the URL where the request will be sent. For this endpoint,
+    the URL is "http://localhost:3000/api/payment/recurring/getAll/". 
+
+
+    - "?provider=nowpayments&accountId=accountId&sessionId=sessionId": In the
+    URL, "?" indicates the start of the query string and "&" is used to separate
+    different query parameters. "provider", "accountId" and "sessionId" are
+    query parameters that filter the data based on the user preferences.
+    "provider" is set to "nowpayments" showing that NowPayments is the payment
+    provider. "accountId" and "sessionId" are identifiers for user's account and
+    session, respectively. Note: Change 'accountId' and 'sessionId' values to
+    actual account ID and session ID while making the request.
+
+
+    - "headers": Headers allow the client and the server to pass additional
+    information with the request or the response. For this endpoint, the
+    "headers" array is empty, indicating that there are no additional headers in
+    the request. 
+
+
+    This endpoint does not carry any payload, it does not include a request body
+    as it is a GET call. Any necessary information is passed as a part of the
+    URL parameters.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: nowpayments
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

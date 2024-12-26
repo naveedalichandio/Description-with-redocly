@@ -1,0 +1,121 @@
+put:
+  tags:
+    - ActionCopy
+  summary: Action - Copy - Update
+  description: >-
+    ### Description of Endpoint Data
+
+
+    #### Request Details
+
+    - **Request Type**: PUT
+      - This endpoint uses the HTTP PUT method, which is typically used to update existing resources.
+
+    - **URL**: `http://localhost:3000/api/action/copy/update`
+      - This is the endpoint where the request will be sent. It points to a local server running on port 3000 and accesses the `api/action/copy/update` path.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer Token
+      - This request requires authentication using a bearer token. You must include this token in the request to access the endpoint securely.
+
+    - **Bearer Token**:
+      - **Key**: `token`
+        - This is the key used to specify the authentication token.
+      - **Value**: `BearerToken`
+        - The actual token you will use for authentication. Replace `BearerToken` with the valid token.
+      - **Type**: string
+        - The datatype of the token is a string.
+
+    #### Headers
+
+    - **Header Key**: `Client-UUID`
+      - This header is required to identify the client making the request.
+      
+    - **Header Value**: `ClientUUID`
+      - Replace `ClientUUID` with the actual UUID of the client.
+
+    - **Header Type**: default
+      - Indicates this is a standard header type.
+
+    #### Request Body
+
+    - **Body Mode**: raw
+      - The request body is sent as raw data instead of form-encoded or other types.
+
+    - **Content**: 
+      - The body must be in JSON format, structured as follows:
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "videoId",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "didCopy": true,
+        "text": "this is updated text",
+        "copyId": "copyId",
+        "name": "update",
+        "description": "",
+        "tags": ""
+    }
+
+    ```
+
+
+    - **Field Descriptions**:
+        - **sessionId**: Identifier for the session. Replace with the actual session ID.
+        - **accountId**: Identifier for the account. Replace with the actual account ID.
+        - **path**: The path where the video is located. For example, `/live/channel/video123`.
+        - **targetType**: Specifies the type of target. In this case, it is a `videoId`.
+        - **targetId**: The ID of the item being targeted. Should be replaced with the actual video ID.
+        - **sourceType**: Indicates the type of source, which is `accountId` here.
+        - **sourceId**: The ID of the source account. Replace with the actual source account ID.
+        - **didCopy**: A boolean value indicating whether the copy was successful (`true` means it was copied).
+        - **text**: This field contains the text to be updated. Replace with the desired updated text.
+        - **copyId**: Identifier for the copy action. Replace with the actual copy ID.
+        - **name**: A string to name the update; in this case, it is set as `update`.
+        - **description**: A field for an optional description; currently empty.
+        - **tags**: A field for optional tags; currently empty.
+
+    #### Summary
+
+    This request updates an existing copy action on a specified video. Ensure
+    that all placeholders are replaced with actual values when making the
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didCopy: true
+            text: this is updated text
+            copyId: copyId
+            name: update
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ActionRevoke
+  summary: Action - Revoke - Get
+  description: |-
+    {
+      "name": "Action - Revoke - Get",
+      "description": "This endpoint retrieves information about a specific revoke action based on provided identifiers. It utilizes a GET HTTP method to fetch the data without modifying any resources.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "description": "Authentication is done using a bearer token. This token must be included in the request to authorize access to the endpoint.",
+          "bearer": [
+            {
+              "key": "token",
+              "description": "This represents the key for the bearer token used for authentication. Replace 'BearerToken' with your actual token.",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "description": "The HTTP method used for this request. In this case, it is a GET request, meaning it is used to retrieve data.",
+        "url": "http://localhost:3000/api/action/revoke/get/?revokeId=revokeId&sessionId=sessionId&accountId=accountId",
+        "description": "The URL endpoint for the request. Replace 'revokeId', 'sessionId', and 'accountId' with actual values to specify which revoke action to retrieve.",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true,
+            "description": "This section is currently empty and disabled. Headers can be added as necessary for additional request specifications."
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request is set to raw mode.",
+          "raw": "",
+          "description": "Currently, no body content is needed for this GET request as it does not require additional data submission."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: revokeId
+      in: query
+      schema:
+        type: string
+      example: revokeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

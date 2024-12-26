@@ -1,0 +1,70 @@
+get:
+  tags:
+    - ActionShare
+  summary: Action - Share - Get All
+  description: >-
+    ### Detailed Description of the Endpoint Data
+
+
+    - **name**: This is the identifier for the API endpoint. In this case, it is
+    named "Action - Share - Get All", which indicates that this endpoint is used
+    to retrieve all share actions available in the system.
+
+
+    - **request**: This object contains all the properties related to the HTTP
+    request that will be made to the API endpoint.
+
+      - **auth**: This section outlines the authentication method used when accessing the endpoint. Here, it specifies that a bearer token is required for authorization.
+
+        - **type**: This indicates the type of authentication being used. It is set to "bearer", which means that bearer token authentication is required.
+
+        - **bearer**: This is an array that holds the details for the bearer token.
+
+          - **key**: This represents the name of the parameter for the token. In this case, it is labeled as "token".
+
+          - **value**: This is the actual bearer token that will be passed in the authorization header. For demonstration purposes, it is shown as "BearerToken".
+
+          - **type**: This indicates the data type of the `value`. Here, it is specified as "string".
+
+      - **method**: This specifies the HTTP method used to interact with the endpoint. It is set to "GET", which indicates that this request is intended to retrieve data.
+
+      - **url**: This is the complete URL to which the request will be made. The URL provided is `http://localhost:3000/api/action/share/all/?sessionId=sessionId&accountId=accountId`, where:
+      
+        - `http://localhost:3000` is the base URL of the local server.
+        - `/api/action/share/all/` is the specific path for this API endpoint.
+        - `?sessionId=sessionId` is a query parameter for the session ID, where "sessionId" should be replaced with a valid session identifier.
+        - `&accountId=accountId` is another query parameter for the account ID, which should be replaced with a valid account identifier.
+
+      - **headers**: This section is for defining any additional HTTP headers that may be necessary for the request.
+
+        - **key**: In this instance, there is no key specified, meaning no additional headers are being sent with this request.
+
+        - **value**: Similar to the key, there is no value specified, so this field is left empty.
+
+        - **type**: This indicates the type of the header, which is set to "default".
+
+        - **disabled**: This property indicates whether the header is enabled or disabled for the request. It is set to true, meaning that this header will not be included in the request.
+
+      - **body**: This field is used to define the body of the request.
+
+        - **mode**: This specifies the format of the body. It is set to "raw", which indicates that the body will contain plain text.
+
+        - **raw**: This is the field where the actual body content would go if applicable. In this case, it is empty, which means there is no body content to be sent with the GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

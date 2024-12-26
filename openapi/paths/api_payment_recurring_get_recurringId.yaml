@@ -1,0 +1,72 @@
+get:
+  tags:
+    - PaymentRecurring
+  summary: Recurring - Zelle - Get
+  description: >-
+    This endpoint is named "Recurring - Zelle - Get". It's designed to retrieve
+    information about recurring payments processed through the Zelle payment
+    service.
+
+
+    1. Request Method:
+
+    The request method is "GET". This HTTP verb is typically used to retrieve
+    data from a specific resource. 
+
+
+    2. URL:
+
+    The URL is "http://localhost:3000/api/payment/recurring/get/recurringId". It
+    provides the path to the API that we'll be interacting with. This URL is
+    designed to fetch recurring payment information from a Zelle payment
+    service.
+
+
+    3. Query Parameters:
+
+
+    - provider: This query parameter is used to specify the payment provider. In
+    this case, it is set to "zelle".
+
+
+    - accountId: This is a query parameter used to pass the unique identifier of
+    the account for which you want to fetch the recurring payment details. You
+    will need to replace 'accountId' with the actual account ID.
+     
+    - sessionId: This is a query parameter that represents the session ID. It's
+    used to maintain session state in the application. Replace 'sessionId' with
+    your actual session ID.
+
+
+    4. Headers: 
+
+    There are no specified headers in this request. Headers are often used to
+    provide additional instructions to the server such as auth tokens or
+    specific content-types required by the server. If needed, they would be
+    included here.
+
+
+    When you make a request to this endpoint with the appropriate parameters, it
+    will return the details about recurring payments made through Zelle for the
+    specified account and session.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

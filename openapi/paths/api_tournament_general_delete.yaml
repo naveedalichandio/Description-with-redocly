@@ -1,0 +1,50 @@
+post:
+  tags:
+    - TournamentGeneral
+  summary: Tournament - General - Delete
+  description: |-
+    {
+      "name": "Tournament - General - Delete",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer": "Authentication method used to authorize the request. The bearer token is required for access control.",
+            "bearer": [
+              {
+                "key": "token": "This field represents the name of the authentication token.",
+                "value": "sessionId": "This is a placeholder for the actual session ID that confirms the user's active session.",
+                "type": "string": "Indicates that the value should be a string, specifically a session ID."
+              }
+            ]
+          },
+          "method": "POST": "The HTTP method used for this request is POST, indicating that data is being sent to the server to perform an action.",
+          "url": "http://localhost:3000/api/tournament/general/delete": "The endpoint where the request is directed. This is a local server endpoint for deleting a tournament.",
+          "headers": [
+            {
+              "key": "": "There are no specific headers included in the request.",
+              "value": "": "No additional headers are assigned.",
+              "type": "default": "The default type is indicated, which usually means no specific header type is set.",
+              "disabled": true: "This header entry is disabled, meaning it will not be sent with the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "The body of the request is sent in raw format, allowing for a custom JSON structure.",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tournamentId\":\"tournamentId\"}": "The body contains JSON data with three fields: sessionId (the ID of the current session), accountId (the ID of the user's account), and tournamentId (the ID of the tournament being deleted). Each ID is represented as a string placeholder."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tournamentId\":\"tournamentId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

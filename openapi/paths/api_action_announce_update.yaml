@@ -1,0 +1,148 @@
+put:
+  tags:
+    - ActionAnnounce
+  summary: Action - Announce - Update
+  description: |-
+    ### Action - Announce - Update
+
+    **Request Details:**
+
+    - **Auth**: 
+      - **Type**: Bearer token authentication is used.
+      - **Bearer**: 
+        - **Key**: `token` - This is the key used to send the bearer token.
+        - **Value**: `BearerToken` - This represents the actual bearer token that authenticates the request.
+        - **Type**: String - The token is expected to be in string format.
+
+    - **Method**: 
+      - **PUT** - The HTTP method used for the request; it updates existing data at the specified URL.
+
+    - **URL**: 
+      - **Endpoint**: `http://localhost:3000/api/action/announce/update` - This is the API endpoint where the update request is sent.
+
+    - **Headers**: 
+      - **Client-UUID**: 
+        - **Key**: `Client-UUID` - Identifies a specific client making the request.
+        - **Value**: `ClientUUID` - This is a placeholder for the unique identifier of the client.
+        - **Type**: Default - Indicates this is a standard header key-value pair.
+
+    - **Body**: 
+      - **Mode**: 
+        - **Raw** - The body of the request is sent as raw JSON data.
+        
+      - **Raw JSON**: 
+        ```json
+        {
+            "announceId": "announceId",
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "title": "My birthday",
+            "description": "Please wish me a happy birthday. Today is my birthday",
+            "tokenAmount": 100,
+            "category": "Birthday",
+            "country": "United States",
+            "scheduleDate": "2022-11-12",
+            "scheduleTime": "13:00:00",
+            "duration": 15000,
+            "path": "/live/channel/video123",
+            "targetType": "videoId",
+            "targetId": "videoId",
+            "sourceType": "accountId",
+            "sourceId": "accountId",
+            "name": "",
+            "tags": ""
+        }
+        ```
+
+    ### Detailed Descriptions of Body Parameters:
+
+    - **announceId**: 
+      - Unique identifier for the announcement being updated.
+
+    - **sessionId**: 
+      - Identifier for the session associated with the announcement.
+
+    - **accountId**: 
+      - Identifier for the user account associated with the announcement.
+
+    - **title**: 
+      - The title of the announcement, e.g., "My birthday".
+
+    - **description**: 
+      - A detailed message describing the announcement, e.g., "Please wish me a happy birthday. Today is my birthday".
+
+    - **tokenAmount**: 
+      - Number of tokens associated with the announcement; denotes the reward or incentive related to it.
+
+    - **category**: 
+      - The category assigned to the announcement, e.g., "Birthday".
+
+    - **country**: 
+      - The country from where the announcement is made, e.g., "United States".
+
+    - **scheduleDate**: 
+      - Date when the announcement is scheduled to occur, formatted as "YYYY-MM-DD".
+
+    - **scheduleTime**: 
+      - Time when the announcement is scheduled to occur, formatted as "HH:MM:SS".
+
+    - **duration**: 
+      - Duration of the announcement in milliseconds; e.g., 15000 milliseconds equals 15 seconds.
+
+    - **path**: 
+      - Path to the specific resource, e.g., a live video channel, represented as "/live/channel/video123".
+
+    - **targetType**: 
+      - Type of target being referenced, e.g., "videoId".
+
+    - **targetId**: 
+      - Identifier for the target of the announcement, e.g., "videoId".
+
+    - **sourceType**: 
+      - Type of source associated with the announcement, e.g., "accountId".
+
+    - **sourceId**: 
+      - Identifier for the source account, e.g., "accountId".
+
+    - **name**: 
+      - Placeholder for any additional name associated with the announcement; currently empty.
+
+    - **tags**: 
+      - Placeholder for any tags associated with the announcement; currently empty.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            announceId: announceId
+            sessionId: sessionId
+            accountId: accountId
+            title: My birtday
+            description: Please wish me a happy birthday. Today is my birthday
+            tokenAmount: 100
+            category: Birthday
+            country: United States
+            scheduleDate: '2022-11-12'
+            scheduleTime: '13:00:00'
+            duration: 15000
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

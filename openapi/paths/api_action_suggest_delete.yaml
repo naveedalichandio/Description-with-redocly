@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ActionSuggest
+  summary: Action - Suggest - Delete
+  description: >-
+    ### Action - Suggest - Delete
+
+
+    #### Request Overview
+
+    This endpoint is designed to delete a suggestion associated with a specific
+    account and session. It utilizes a POST request to execute the deletion
+    action.
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer Token
+      - This endpoint requires a bearer token for authentication. The token must be provided in the request header to authorize the user.
+      - **Token Details**:
+        - **Key**: `token`
+        - **Value**: `sessionId`
+        - **Type**: String
+      - The `sessionId` represents the unique identifier for the user's current session.
+
+    #### HTTP Method
+
+    - **Method**: POST
+      - This indicates that the request is sending data to the server to perform an action (in this case, deleting a suggestion).
+
+    #### URL
+
+    - **Endpoint URL**: `http://localhost:3000/api/action/suggest/delete`
+      - This is the local development URL where the API can be accessed.
+
+    #### Headers
+
+    - **Headers**: 
+      - Currently, there are no additional headers required for this request, as indicated by the empty key and value fields. The header is also disabled, meaning it is not currently in use.
+
+    #### Body
+
+    - **Body Mode**: Raw
+      - The request body is sent in raw format as a JSON string.
+      
+    - **Body Content**:
+      - The body includes the following fields:
+        - **sessionId**: This is the identifier for the user's current session. It is used to validate the request.
+        - **accountId**: This represents the unique identifier for the user's account. It links the action to the correct account.
+        - **suggestId**: This is the identifier of the suggestion that is to be deleted. It specifies which suggestion to remove from the database.
+
+    This structure allows users to easily understand how to use this endpoint
+    and what data needs to be provided for successful operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"suggestId\":\"suggestId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,58 @@
+get:
+  tags:
+    - ActionRead
+  summary: Action - Read - Get
+  description: >-
+    ### Description of the Endpoint Data
+
+
+    - **name**: This is the name of the API request. It describes the purpose of
+    the request which, in this case, is to read data through a "GET" action.
+
+
+    - **request**: This object contains all the details necessary to execute the
+    API request.
+
+      - **auth**: This section defines the authentication type required for the request.
+        - **type**: Specifies the authentication method used. Here, it's set to "bearer", which means that the request requires a bearer token for authorization.
+        - **bearer**: An array that contains the details of the bearer token.
+          - **key**: The name of the token field, which is "token" in this instance.
+          - **value**: This is where the actual token is provided, represented as "BearerToken". This value should typically be replaced with the actual bearer token needed for authentication.
+          - **type**: Specifies the data type, which is "string" in this case.
+
+      - **method**: Indicates the HTTP method used for the request. "GET" means this request is used to retrieve data from the server.
+
+      - **url**: This is the endpoint URL where the request is sent. It includes the following parameters:
+        - **readId**: Represents the ID of the item you want to read. This should be replaced with the actual ID you're querying.
+        - **sessionId**: Represents the session identifier associated with the request. This should also be replaced with the actual session ID.
+        - **accountId**: Represents the ID of the account you are retrieving data for. This should be replaced with the actual account ID.
+
+      - **headers**: Contains any additional headers to be sent along with the request.
+        - The current entry has an empty key and value, and is disabled, indicating that no extra headers are being used in this request.
+
+      - **body**: This section defines the content of the request body.
+        - **mode**: Indicates the format of the body. It's set to "raw", which means the payload is sent as plain text.
+        - **raw**: Contains the actual content of the body. In this case, it's empty, suggesting no body content is necessary for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: readId
+      in: query
+      schema:
+        type: string
+      example: readId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

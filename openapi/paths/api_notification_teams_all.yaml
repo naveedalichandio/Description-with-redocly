@@ -1,0 +1,66 @@
+get:
+  tags:
+    - NotificationTeams
+  summary: Notification - Teams - Get All
+  description: >-
+    This API endpoint named "Notification - Teams - Get All" is a GET request.
+    It is used to retrieve all notification records pertaining to teams from the
+    backend server.
+
+
+    1. `name`: This value, "Notification - Teams - Get All", is the specific
+    name of the endpoint and describes the main action of the API.
+
+
+    2. `request`: This object holds all the configurations regarding the HTTP
+    request.
+
+
+    3. `auth`: The auth object indicates the type of authentication required to
+    interact with this API endpoint. It requires a bearer token authentication.
+       - `type`: "bearer" denotes the authorization method for this request.
+       - `bearer`: It is an array that holds the bearer token configurations.
+         - `key`: "token" implies that you will need a token to access this endpoint.
+         - `value`: "BearerToken" represents the placeholder for authentication token.
+         - `type`: "string" indicates that the provided token should be a valid string.
+       
+    4. `method`: "GET". It specifies the HTTP method being used to make the
+    request to the API.
+
+
+    5. `url`:
+    "http://localhost:3000/api/notification/teams/all/?sessionId=sessionId&accountId=accountId".
+    This is the URL where the request will be sent.
+
+    You have to replace "sessionId" and "accountId" with actual values.
+
+
+    6. `headers`: It's an array that contains the header configurations for your
+    HTTP request. The default key-value pair here comes disabled; you can add
+    necessary keys if required.
+
+
+    7. `body`: Defines the data you want to send in the HTTP request. For this
+    GET request, the body mode is set to 'raw', meaning you'll directly write
+    data into the body. However, given this is a GET request, the body does not
+    need to contain any data, hence it's 'raw' and empty in this case. If it
+    were a `POST` or `PUT` request, the `raw` value might contain a JSON, XML or
+    plain text.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,48 @@
+get:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Status
+  description: >-
+    ### Endpoint Description: Web - Socket - Status
+
+
+    **Request Method:**  
+
+    - **GET** - This is a request method used to retrieve data from the server.
+
+
+    **URL:**  
+
+    - `http://localhost:3000/api/socket/web/status?socketId=socketId`  
+      This is the endpoint URL where the request will be sent. The placeholder `socketId` should be replaced with the actual socket ID you want to check the status for.
+
+    **Query Parameters:**  
+
+    - **socketId** - This is a required parameter that specifies the unique
+    identifier of the socket connection whose status you wish to retrieve.
+
+
+    **Headers:**  
+
+    - Currently, there are no headers specified for this API request, meaning it
+    does not require any special authentication or metadata beyond the basic GET
+    request.
+
+
+    ### Functionality:  
+
+    This endpoint is designed to check the status of a web socket connection. By
+    providing a valid socket ID, you can obtain the current status of that
+    particular socket, which can help in diagnosing connectivity issues or
+    ensuring that your application maintains a stable socket connection.
+  parameters:
+    - name: socketId
+      in: query
+      schema:
+        type: string
+      example: socketId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

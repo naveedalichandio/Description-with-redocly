@@ -1,0 +1,38 @@
+get:
+  tags:
+    - VideoUploadAfreecaTV
+  summary: GET Video Information (AfreecaTV)
+  description: >-
+    ### GET Video Information (AfreecaTV)
+
+
+    **Request Method**: GET  
+
+    This indicates that the request is used to retrieve data from the server.
+
+
+    **URL**: `http://localhost:3000/api/VideoConnect/afreecatv/videoId`  
+
+    This is the endpoint where the request is sent. It is expected to be run on
+    a local server at port 3000. The `videoId` in the URL should be replaced
+    with the actual identifier of the video you want to get information about.
+
+
+    **Headers**:  
+
+    - **Content-Type**: `application/json`  
+      This header specifies the format of the data being sent to the server. In this case, it indicates that the request will send and expect data in JSON format. 
+
+    Make sure to replace `videoId` with the specific video ID you want to
+    retrieve from AfreecaTV.
+  parameters:
+    - name: Content-Type
+      in: header
+      schema:
+        type: string
+      example: application/json
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

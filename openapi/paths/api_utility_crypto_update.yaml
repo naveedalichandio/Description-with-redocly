@@ -1,0 +1,107 @@
+put:
+  tags:
+    - UtilityCrypto
+  summary: Utility - Crypto - Update Crypto for Team
+  description: >-
+    ### Endpoint Description: Utility - Crypto - Update Crypto for Team
+
+
+    **Request Type:**  
+
+    - **Method:** PUT  
+      Indicates that this endpoint is used to update existing resources.
+
+    **Authentication:**  
+
+    - **Type:** Bearer  
+      This endpoint requires bearer token authentication. The token should be included in the Authorization header.
+
+    **Request URL:**  
+
+    - **URL:** `http://localhost:3000/api/utility/crypto/update`  
+      This is the endpoint where the update request will be sent. It is hosted locally.
+
+    **Headers:**  
+
+    - **Client-UUID:**  
+      - **Key:** `Client-UUID`  
+        This header is expected to contain the UUID of the client making the request. It uniquely identifies the client.
+
+    **Request Body:**  
+
+    The body of the request must be in raw JSON format and includes the
+    following fields:
+
+
+    1. **sessionId:**  
+       - A unique identifier for the current session. This is used to associate the update request with a specific session context.
+
+    2. **accountId:**  
+       - The identifier for the account that is being modified. This specifies which account the crypto update pertains to.
+
+    3. **cryptoId:**  
+       - The identifier for the cryptocurrency that is being updated. This tells the system which specific cryptocurrency to modify.
+
+    4. **targetType:**  
+       - The type of the target for this update. In this case, it is specified as `teamId`, indicating that the update is aimed at a team.
+
+    5. **targetId:**  
+       - The identifier for the team that is receiving the update. This specifies which team the action pertains to.
+
+    6. **name:**  
+       - The name of the cryptocurrency being updated. An example is "BTC" for Bitcoin.
+
+    7. **description:**  
+       - A brief description of the cryptocurrency. For example, "Bitcoin" is given as a description for BTC.
+
+    8. **type:**  
+       - The type of the cryptocurrency. This specifies the classification of the crypto, such as "btc" for Bitcoin.
+
+    9. **action:**  
+       - Indicates the action to be taken with the cryptocurrency. The example "buy" indicates that the action involves purchasing the specified crypto.
+
+    10. **rate:**  
+        - The rate at which the cryptocurrency is being bought or sold. For instance, `1` could represent the price in the specified quote currency.
+
+    11. **amount:**  
+        - The quantity of cryptocurrency being bought or sold. In this example, `2` indicates that two units of the cryptocurrency are involved in the action.
+
+    **Body Format:**  
+
+    - The body is raw JSON, which means it should be sent as is without any
+    additional formatting. Ensure that the values are correctly set before
+    making the request.
+
+
+    This detailed structure helps to understand what data is needed and how to
+    format the request for successful interaction with the endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            cryptoId: cryptoId
+            targetType: teamId
+            targetId: teamId
+            name: BTC
+            description: Bitcoin
+            type: btc
+            action: buy
+            rate: 1
+            amount: 2
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

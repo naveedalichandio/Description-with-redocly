@@ -1,0 +1,68 @@
+get:
+  tags:
+    - TeamGeneral
+  summary: Team - General - Get All By Sub Category ID
+  description: >-
+    ### Endpoint: Team - General - Get All By Sub Category ID
+
+
+    **HTTP Method:**  
+
+    - **GET**: This endpoint retrieves a list of teams based on a specified
+    sub-category ID.
+
+
+    **URL:**  
+
+    -
+    `http://localhost:3000/api/team/general/all?subCategoryId=teamSubCategoryId`:
+    The endpoint to access the resource. It includes a query parameter
+    `subCategoryId`, which should be replaced with the actual ID of the desired
+    sub-category.
+
+
+    **Authentication:**  
+
+    - **Type:** Bearer token authentication is required to access this
+    endpoint.  
+
+    - **Token:** The bearer token needs to be provided in the request header for
+    authentication. In the request, it is represented as `"BearerToken"`, which
+    should be replaced with a valid token string for actual use.
+
+
+    **Headers:**  
+
+    - No additional headers are specified in this request. The header entry is
+    present but disabled, indicating that it is not currently in use.
+
+
+    **Body:**  
+
+    - The body of the request is empty. This indicates that no additional data
+    is sent with the GET request, as typically GET requests do not have a body.
+
+
+    **Query Parameters:**  
+
+    - `subCategoryId`: This is a required query parameter that specifies the ID
+    of the sub-category for which teams are to be retrieved. The placeholder
+    `teamSubCategoryId` should be replaced with the actual sub-category ID when
+    making the request. 
+
+
+    This endpoint is used to efficiently fetch team data filtered by a specific
+    sub-category, requiring proper authentication through a bearer token.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: subCategoryId
+      in: query
+      schema:
+        type: string
+      example: teamSubCategoryId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

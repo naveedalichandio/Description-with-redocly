@@ -1,0 +1,51 @@
+post:
+  tags:
+    - ActionReport
+  summary: Action - Report - Delete
+  description: >-
+    **Endpoint Name**: Action - Report - Delete
+
+
+    **Description**: This endpoint is designed for deleting a report from the
+    system. It requires proper authentication and specific details to
+    successfully execute the deletion.
+
+
+    **Request Details**:
+
+    - **Authentication**:
+      - **Type**: Bearer
+      - **Bearer Token**: The authorization uses a bearer token, which is a common method for accessing secure APIs. The token required is a "sessionId" that validates the user's session.
+
+    - **HTTP Method**: POST  
+      - This method indicates that data is being sent to the server to perform an action—in this case, to delete a report.
+
+    - **URL**: 
+      - The endpoint URL is `http://localhost:3000/api/action/report/delete`. This is the address to which the request will be sent for report deletion.
+
+    - **Headers**:
+      - There are currently no custom headers specified. The default header setup is disabled, meaning it will not be sent with the request. Customize if necessary for your application.
+
+    - **Body**:
+      - **Mode**: Raw
+      - **Content**: The body of the request is sent as a raw JSON string. It contains:
+        - **sessionId**: A string identifier for the user's current session, which is necessary for authentication.
+        - **accountId**: A string identifier for the account associated with the report. This informs the system which user's report is being targeted.
+        - **reportId**: A string identifier for the specific report that needs to be deleted. This tells the system exactly which report to remove.
+
+    This detailed information should help users understand how to use the
+    "Action - Report - Delete" endpoint effectively.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"reportId\":\"reportId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

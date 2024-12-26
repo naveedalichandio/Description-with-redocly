@@ -1,0 +1,111 @@
+post:
+  tags:
+    - ConnectContact
+  summary: Connect - Contact - Create
+  description: >-
+    This API endpoint, `Connect - Contact - Create`, creates a new contact using
+    the `POST` method. The URL of the endpoint is
+    `http://localhost:3000/api/connect/contact/create`.
+
+
+    The `auth` object specifies the type of authentication: Bearer Token. The
+    `token` key needs to hold the value of the Bearer Token. This should be of
+    `string` data type.
+
+
+    In `request headers`, there's a default key-value pair which is disabled.
+    You can add necessary headers if needed.
+
+
+    The `body` of the request contains raw JSON data, specified by the `mode`.
+    It contains several key-value pairs:
+
+
+    - `sessionId`: This should hold the session id.
+
+    - `accountId`: This should hold the account id.
+
+    - `name`: This represents the name of the contact we are trying to create.
+
+    - `description`: A short description about the contact.
+
+    - `tags`: Labels or keywords related to the contact.
+
+    - `profilePhotoUrl`: The URL of the profile photo.
+
+    - `coverPhotoUrl`: The URL of the cover photo.
+
+    - `minimumTipAmount`: The minimum amount of tip that can be given to the
+    contact.
+
+    - `unlockAmount`: The amount required to unlock something regarding the
+    contact.
+
+    - `category`: The general category of the contact.
+
+    - `subCategory`: The more specific category inside the general category.
+
+    - `searchType`: The type of search associated with the contact.
+
+    - `isEnabled`: A boolean indicating whether the contact is enabled.
+
+    - `isContactPrivate`: A boolean indicating whether the contact is private.
+
+    - `isTournamentOnly`: A boolean indicating whether the contact is only for
+    tournaments.
+
+    - `isContactDefault`: A boolean indicating whether the contact is set as
+    default.
+
+    - `isPreLiveConnectAds`: A boolean indicating whether pre-live connect ads
+    are enabled.
+
+    - `isPostLiveConnectAds`: A boolean indicating whether post-live connect ads
+    are enabled.
+
+    - `breakPreLiveConnectUrl`: The URL to the pre-live connect ad break
+    content.
+
+    - `breakLivePauseConnectUrl`: The URL to the paused-live connect ad break
+    content.
+
+    - `breakPostLiveConnectUrl`: The URL to the post-live connect ad break
+    content.
+
+
+    You should format the body as JSON before sending the request, as indicated
+    by the `language` option inside the `options` object of the `body`.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeContact
+            description: This contact is my second contact
+            tags: second,contact
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 1
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isContactPrivate: true
+            isTournamentOnly: false
+            isContactDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

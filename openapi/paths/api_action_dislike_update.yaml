@@ -1,0 +1,108 @@
+put:
+  tags:
+    - ActionDislike
+  summary: Action - Dislike - Update
+  description: >-
+    ### Action - Dislike - Update Endpoint Description
+
+
+    - **name**: Indicates the name of the API action. In this case, it is
+    "Action - Dislike - Update", which signifies that this endpoint is used to
+    update a dislike action.
+
+
+    - **request**: This section details the specifics of the API request.
+
+      - **auth**: Describes the authentication method utilized for this request.
+      
+        - **type**: Specifies the type of authentication being used. Here, it is "bearer".
+        
+        - **bearer**: Contains an array of bearer token objects, which is used to authorize the request.
+        
+          - **key**: The name of the authentication token parameter. In this case, it is "token".
+          
+          - **value**: The actual bearer token used for authentication represented as "BearerToken".
+          
+          - **type**: Specifies the data type of the token, which is a string.
+
+      - **method**: Refers to the type of HTTP method used for this API call. The method here is "PUT", indicating that the request is intended to update existing data.
+
+      - **url**: Provides the endpoint URL where the request is made. The current URL is "http://localhost:3000/api/action/dislike/update".
+
+      - **headers**: Lists additional metadata sent with the request.
+
+        - **key**: Represents the name of a specific header, which is "Client-UUID". This header usually carries a unique identifier for the client making the request.
+        
+        - **value**: Displays the value assigned to the "Client-UUID" header, represented as "ClientUUID".
+
+        - **type**: Indicates the type of header. Here it is denoted as "default".
+
+      - **body**: Contains the main data sent with the request, specified in JSON format.
+
+        - **mode**: Indicates the format of the body, which is "raw". This signifies that the body is sent as raw data rather than as form fields.
+
+        - **raw**: This section consists of the JSON structure representing the data being sent.
+
+          - **sessionId**: A unique identifier for the current user session. Placeholder value is "sessionId".
+          
+          - **accountId**: Identifies the account of the user making the request. Placeholder value is "accountId".
+          
+          - **path**: The path or URL of the resource being disliked, represented as "/live/channel/video123".
+          
+          - **targetType**: Specifies the type of target for the dislike action. In this case, it is set as "videoId".
+          
+          - **targetId**: The specific identifier for the target item (e.g., a video) being disliked. Placeholder value is "videoId".
+          
+          - **sourceType**: Indicates the type of the source from which the dislike request originates; here it is "accountId".
+          
+          - **sourceId**: Identifies the source account initiating the dislike, which is indicated as "accountId".
+          
+          - **didDislike**: A boolean value indicating whether the dislike action was successfully performed. It is set to true in this context.
+          
+          - **isUndo**: A boolean indicating whether this request is intended to undo a previous dislike action. It is currently set to false.
+          
+          - **dislikeId**: A unique identifier for the dislike action. The placeholder value is "dislikeId".
+          
+          - **name**: An optional field for the name associated with this request, currently left empty.
+          
+          - **description**: An optional field for additional details about the request, currently also left empty.
+          
+          - **tags**: Specifies any relevant tags associated with the dislike, in this case set to "tags,sad".
+
+        - **options**: Contains configurations for the body content.
+        
+          - **raw**: Indicates the properties of the raw body data.
+          
+            - **language**: Specifies the language format for the raw content. Here it is "json".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didDislike: true
+            isUndo: false
+            dislikeId: dislikeId
+            name: ''
+            description: ''
+            tags: tags,sad
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

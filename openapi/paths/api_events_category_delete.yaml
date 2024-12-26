@@ -1,0 +1,64 @@
+post:
+  tags:
+    - EventsCategory
+  summary: Events - Category - Delete
+  description: >-
+    This endpoint is named "Events - Category - Delete". As the name denotes,
+    this API is generally used for deleting categories under events. The
+    comprehensive details of the data in this endpoint are as defined as
+    follows:
+
+
+    1. "name": This data represents the name of the API endpoint. In this given
+    context, the endpoint name is "Events - Category - Delete". 
+
+
+    2. "request": This is the primary body of the API call which contains all
+    the necessary data to perform the action.
+
+
+    3. "auth": It stands for Authorization. This API uses the Bearer token
+    method for authorization. This data contains authorization type and bearer
+    token information.
+
+        - "type": This signifies the Type of Authorization being used. Here, it's Bearer Authorization, representing an HTTP authentication scheme that involves security tokens called bearer tokens.
+        - "bearer": This is an array of data for the bearer token.
+            - "key": The bearer token key, referenced as "token".
+            - "value": The value of the key, here referred as "sessionId".
+            - "type": Signifies the data type of the bearer token. Here, it is a string.
+
+    4. "method": The HTTP method used for the API call. Here, it is POST that
+    usually means data will be sent to the server creating a new resource.
+
+
+    5. "url": The URL where the API request will be sent to. The given URL in
+    this case is http://localhost:3000/api/events/category/delete.
+
+
+    6. "headers": With a key-value pair structure, this field contains the
+    additional data sent with the request. In this case, it appears empty and is
+    disabled.
+
+
+    7. "body": The body of the request. This contains all the information that
+    needs to be sent to the server.
+
+        - "mode": The mode of the body denotes how the data is being sent. Here, it is in "raw" format that could include text or JSON or XML.
+        - "raw": It holds the raw data that need to be sent. Here, the data consists of three different keys i.e., sessionId, accountId, and a categoryId. These hold the values of Session ID, Account ID and Event's Category ID respectively. The server will use this data to delete the specific category.
+      
+    Each field plays a crucial role in successfully making a request and getting
+    a response from the server.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"categoryId\":\"eventsCategoryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

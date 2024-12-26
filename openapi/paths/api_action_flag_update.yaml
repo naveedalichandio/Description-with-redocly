@@ -1,0 +1,104 @@
+put:
+  tags:
+    - ActionFlag
+  summary: Action - Flag - Update
+  description: >-
+    **Action - Flag - Update Endpoint Description**
+
+
+    - **name**: Indicates the name of the API action, which in this case is
+    "Action - Flag - Update". This name should help users quickly identify the
+    purpose of the request.
+
+
+    - **request**: This section outlines the details of the HTTP request that
+    will be sent to the API.
+
+      - **auth**: Defines the authentication method used for the request.
+      
+        - **type**: Specifies the type of authentication; here, it is "bearer", indicating that a bearer token will be used.
+        
+        - **bearer**: A list containing details about the bearer token required for authentication.
+        
+          - **key**: The name of the token parameter which is "token".
+          
+          - **value**: The actual value of the token that needs to be passed; it is labeled as "BearerToken".
+          
+          - **type**: The data type of the token value, which is "string".
+
+      - **method**: Indicates the HTTP method to be used for the request; it is "PUT", which is typically used to update existing resources.
+
+      - **url**: The endpoint URL to which the request will be sent. In this case, it is "http://localhost:3000/api/action/flag/update".
+
+      - **headers**: A list of HTTP headers to be included with the request.
+
+        - **key**: The name of the header, in this case, "Client-UUID".
+        
+        - **value**: The value for the header, labeled as "ClientUUID", which is a unique identifier for the client.
+        
+        - **type**: The type of the header; here it is marked as "default".
+
+      - **body**: Contains the data to be sent with the request.
+
+        - **mode**: Specifies the format of the body content. Here, it is set to "raw", meaning the data will be sent as raw text.
+        
+        - **raw**: The actual data being sent with the request, formatted as a JSON object. The structure of this JSON is as follows:
+
+          - **sessionId**: A unique identifier for the current session.
+          
+          - **accountId**: The unique identifier for the account associated with the request.
+          
+          - **flagId**: The unique identifier for the specific flag being updated.
+          
+          - **path**: Specifies the location of the resource; in this case, it is "/live/channel/video123".
+          
+          - **targetType**: Indicates the type of target being updated; here, it specifies "streamer".
+          
+          - **targetId**: The unique identifier for the target; labeled as "videoId".
+          
+          - **sourceType**: The type of source of the request; it is labeled as "accountId".
+          
+          - **sourceId**: The unique identifier for the source, which is also set to "accountId".
+          
+          - **tokenAmount**: Represents the amount of tokens being adjusted; here, it is set to 20.
+          
+          - **name**: A label or identifier for the action, in this case, it is "Farooq".
+          
+          - **description**: A detailed description of the action being taken; stated as "this is description".
+          
+          - **tags**: Additional tags associated with the action; specified as "xyz".
+
+        - **options**: Additional settings related to the request body format.
+
+          - **raw**: An object specifying the language format of the raw data; it is set to "json", indicating that the body content is formatted as JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            flagId: flagId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

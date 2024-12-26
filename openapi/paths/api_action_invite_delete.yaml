@@ -1,0 +1,54 @@
+post:
+  tags:
+    - ActionInvite
+  summary: Action - Invite - Delete
+  description: >-
+    Here is a detailed description of each data element in the provided API
+    endpoint:
+
+
+    - **name**: This is the name of the API action being described. It is
+    labeled "Action - Invite - Delete," indicating that the endpoint is used to
+    delete an invitation.
+
+
+    - **request**: This object contains all the details necessary to make the
+    API request.
+
+      - **auth**: This section specifies the authentication method used for the request.
+        - **type**: Indicates the type of authentication required, which is "bearer" in this case.
+        - **bearer**: This array holds the specific details for the bearer token used for authentication.
+          - **key**: The identifier for the bearer token, set as "token."
+          - **value**: The placeholder for the actual session ID, represented as "sessionId."
+          - **type**: Indicates the data type of the value, which is "string."
+
+      - **method**: This is the HTTP method used for the request. It is set to "POST," meaning data will be sent to the server.
+
+      - **url**: This is the endpoint URL where the API request is sent. It is specified as "http://localhost:3000/api/action/invite/delete," indicating that it targets the delete action for invitations on a local server.
+
+      - **headers**: This section contains any HTTP headers that may be necessary for the request.
+        - This entry contains an empty key and value, and is marked as "disabled," meaning it won't be included in the request.
+
+      - **body**: This section includes the data sent in the body of the request.
+        - **mode**: Indicates the format of the request body. It is set to "raw," which means the body is sent as plain text.
+        - **raw**: This is the actual content being sent in the body of the request. The JSON structure includes:
+          - **sessionId**: The ID of the current session, which is necessary for identifying the user's session.
+          - **accountId**: The ID of the account associated with the invitation, represented here as "accountId."
+          - **inviteId**: The ID of the specific invitation to be deleted, represented as "inviteId."
+
+    This detailed description should help users understand the purpose and
+    structure of the API request for deleting an invitation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"inviteId\":\"inviteId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

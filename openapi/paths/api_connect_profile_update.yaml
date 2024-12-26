@@ -1,0 +1,140 @@
+put:
+  tags:
+    - ConnectProfile
+  summary: Connect - Profile - Update
+  description: >-
+    "Connect - Profile - Update" is the name of the endpoint. It is designed to
+    update user profiles. 
+
+
+    1. "request" - It encapsulates the details of the request made to this
+    endpoint.
+         
+    2. "auth" - Specifies the authentication type the API uses, here it’s bearer
+    token authentication.
+       
+    3. "bearer" - An array containing details about the bearer token used.
+       
+    4. "key" - Represents the name of a particular bearer token required for
+    authorization, here it’s "token".
+
+
+    5. "value" - Represents the value of the bearer token which is
+    "BearerToken".
+
+
+    6. "type" - Specifies the type of the bearer token which is a string.
+
+
+    7. "method" - Specifies the HTTP method used, here method is "PUT".
+
+
+    8. "url" - Specifies the URL of the API endpoint which is
+    "http://localhost:3000/api/connect/profile/update".
+
+
+    9. "headers" - Contains all headers required by this endpoint with its
+    corresponding value. Here, "Client-UUID" (the unique identifier for the
+    client making the request).
+
+
+    10. "body" - Contains the details to be passed in the request body. The
+    "mode" is set to "raw" which accepts a string containing data in JSON
+    format.
+
+
+    Within the "raw" field, we have different pieces of information to be
+    updated:
+
+
+    - "profileId": Unique identifier for the profile.
+
+    - "sessionId": Unique identifier for the current session.
+
+    - "accountId": Unique identifier for account.
+
+    - "name": Name of the profile.
+
+    - "description": Descriptive information about the profile.
+
+    - "tags": Tags associated with the profile.
+
+    - "profilePhotoUrl": Link to the profile's photo.
+
+    - "coverPhotoUrl": Link to the profile's cover photo.
+
+    - "minimumTipAmount": Minimum amount for tips.
+
+    - "unlockAmount": Amount to unlock something.
+
+    - "category": Category field for profile.
+
+    - "subCategory": Specific sub-category for profile.
+
+    - "searchType": Type of search related to profile.
+
+    - "isEnabled": Whether the profile is enabled.
+
+    - "isProfilePrivate": Status of the profile. If it’s set to true, it’s
+    private.
+
+    - "isTournamentOnly": Whether the profile is for tournament only.
+
+    - "isProfileDefault": Status of profile's default setting.
+
+    - "isPreLiveConnectAds": Whether to display Ads before live connection.
+
+    - "isPostLiveConnectAds": Whether to display Ads after disconnected.
+
+    - "breakPreLiveConnectUrl": Link to the video to be displayed during break
+    before connecting live.
+
+    - "breakLivePauseConnectUrl": Link to the paused video during live
+    streaming.
+
+    - "breakPostLiveConnectUrl": Link to the video to be displayed during break
+    after live connection finished.
+       
+    11. "options" - Specifies other options. Here, we are specifying the
+    language of the raw data, which is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            profileId: profileId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeProfile
+            description: This profile is my second profile
+            tags: second,profile
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isProfilePrivate: true
+            isTournamentOnly: false
+            isProfileDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

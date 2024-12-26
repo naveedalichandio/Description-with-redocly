@@ -1,0 +1,54 @@
+get:
+  tags:
+    - MediaVideo
+  summary: Media - Video - Get - For Public
+  description: >-
+    This endpoint is named as "Media - Video - Get - For Public". It refers to a
+    functionality which retrieves media, specifically videos for public
+    viewing. 
+
+
+    1. Auth: This is the authorization part of the endpoint. It uses bearer
+    token type authorization.
+       - Key: It identifies the name of the token, which is "token" here.
+       - Value: It is the actual token value, here represented as 'BearerToken'. 
+       - Type: This tells us what type of data the bearer token is. The type here is string.
+
+    2. Request Method: The HTTP method used for this endpoint is 'GET'. This
+    method is primarily designed to retrieve data from the server.
+
+
+    3. URL:
+    "http://localhost:3000/api/media/video/get/?videoId=videoId&public=1". This
+    is the URL that will be hit when sending the endpoint request. It contains
+    two parameters:
+       - videoId: This parameter is to provide the unique identifier of the video you want to retrieve.
+       - public: This parameter determines if the video is meant for public viewing. The value of 1 implies it is for the public.
+
+    4. Headers: The header fields are not currently used in this endpoint
+    request. It contains an empty key and value. The 'disabled' attribute set to
+    true indicates that this header field may have future uses but is currently
+    not being used.
+
+
+    5. Body: Here the mode is set as 'raw' which means it can send data without
+    any processing. But currently, no data is to be sent in the body, hence it
+    is empty.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: videoId
+      in: query
+      schema:
+        type: string
+      example: videoId
+    - name: public
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

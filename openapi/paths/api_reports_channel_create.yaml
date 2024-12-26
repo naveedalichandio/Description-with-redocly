@@ -1,0 +1,84 @@
+post:
+  tags:
+    - ReportsChannel
+  summary: Reports - Channel - Create
+  description: >-
+    This endpoint is named "Reports - Channel - Create" and its main function is
+    to create a new channel within a reporting system.
+
+
+    1. **Authentication** - This endpoint uses bearer token authentication. This
+    means that you will need to pass the bearer token in the headers of the
+    request. The placeholder for this is "BearerToken". Remember to replace this
+    placeholder with a valid token.
+
+
+    2. **Request Method** - The request method for this endpoint is POST,
+    implying that this API will be used to send data to the server to create a
+    new resource.
+
+
+    3. **URL** - The URL to which the request is to be sent is
+    "http://localhost:3000/api/reports/channel/create". This endpoint is located
+    on a local server, specifically on port 3000.
+
+
+    4. **Headers** - An empty default header structure is included in the
+    endpoint description. Unless there are specific headers that need to be
+    included, you will not need to use these.
+
+
+    5. **Body** - The body of the request includes all the data required to
+    create a new channel. This data should be sent in raw format in the body of
+    the request and is formatted in JSON language. It contains a number of
+    fields, each of which is described below:
+        - `sessionId` - The identifier for the session. Replace "sessionId" with the actual value.
+        - `accountId` - The identifier for the account. Replace "accountId" with the actual value.
+        - `name` - The name of the channel.
+        - `description` - A description of the channel.
+        - `tags` - Associated tags for the channel, separated by commas.
+        - `profilePhotoUrl` - The URL of the profile photo for the channel.
+        - `coverPhotoUrl` - The URL of the cover photo for the channel.
+        - `minimumTipAmount` - The minimum amount for tips on the channel.
+        - `categoryId` & `category` - The identifier and name of the category to which the channel belongs.
+        - `subCategoryId` & `subCategory` - The identifier and name of the sub-category to which the channel belongs.
+        - `isChannelPrivate` - A Boolean flag indicating whether the channel is private.
+        - `isTournamentOnly` - A Boolean flag indicating whether the channel is for tournaments only.
+        - `isChannelDefault` - A Boolean flag indicating whether the channel is the default channel.
+        - `isPreLiveReportsAds` & `isPostLiveReportsAds` - Boolean flags indicating whether the channel enables pre-live reports ads and post-live reports ads respectively.
+        - `breakPreLiveReportsUrl` & `breakPostLiveReportsUrl` - The URLs of the break pre-live report and break post-live report respectively.
+
+    Please ensure all the JSON keys and corresponding values are properly filled
+    out according to your requirements.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Channel
+            description: This channel is my second channel
+            tags: second,channel
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isChannelPrivate: true
+            isTournamentOnly: false
+            isChannelDefault: true
+            isPreLiveReportsAds: true
+            isPostLiveReportsAds: true
+            breakPreLiveReportsUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveReportsUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

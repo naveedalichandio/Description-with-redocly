@@ -1,0 +1,115 @@
+post:
+  tags:
+    - UtilityCrypto
+  summary: Utility - Crypto - Convert Crypto
+  description: >-
+    ### Endpoint Description: Utility - Crypto - Convert Crypto
+
+
+    **Request Method:**  
+
+    - **POST**: This endpoint is accessed using the POST method, indicating that
+    data will be sent to the server.
+
+
+    **Request URL:**  
+
+    - **http://localhost:3000/api/utility/crypto/convert**: This is the URL to
+    which the request will be sent. It is structured to indicate it is part of a
+    utility service for converting cryptocurrencies.
+
+
+    **Authentication:**  
+
+    - **Auth Type:** Bearer  
+      - A bearer token is used for authentication. It is a type of token that provides access to the API on behalf of a user or service.
+      - **Token Structure:**  
+        - **Key:** `token`      
+        - **Value:** `BearerToken`    
+        - **Type:** `string`  
+      - Replace `BearerToken` with the actual token value needed for authenticating the request.
+
+    **Headers:**  
+
+    - **Client-UUID**:  
+      - This header is used to identify the client making the request.
+      - **Key:** `Client-UUID`  
+      - **Value:** `ClientUUID`  
+      - Replace `ClientUUID` with the unique identifier for the client.
+
+    **Request Body:**  
+
+    - The body of the request contains key-value pairs in JSON format, detailing
+    the conversion operation.
+
+      **JSON Body Structure:**
+      - **sessionId**:  
+        - Type: `string`  
+        - This represents the unique identifier for the session during which the conversion is taking place.
+
+      - **accountId**:  
+        - Type: `string`  
+        - This is the identifier for the user's account that is requesting the conversion.
+
+      - **cryptoId**:  
+        - Type: `string`  
+        - This represents the identifier for the cryptocurrency that is being converted.
+
+      - **type**:  
+        - Type: `string`  
+        - This indicates the type of cryptocurrency being converted, for example, "btc" represents Bitcoin.
+
+      - **rate**:  
+        - Type: `number`  
+        - This denotes the current exchange rate for the cryptocurrency being converted.
+
+      - **amount**:  
+        - Type: `number`  
+        - This is the quantity of cryptocurrency to be converted.
+
+      - **convertTo**:  
+        - Type: `string`  
+        - This specifies the token or cryptocurrency to which the conversion is being made.
+
+    **Body Mode:**  
+
+    - **Mode:** `raw`  
+      - The request body is sent as raw data, formatted as JSON.
+
+    **Options:**  
+
+    - **Language:** `json`  
+      - This option specifies that the raw data being sent is formatted in JSON.
+
+    ### Summary:
+
+    This endpoint handles cryptocurrency conversions. It requires a bearer token
+    for authentication and expects specific parameters in the request body for
+    the conversion operation. Make sure to replace placeholder values with
+    actual data when using the endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            cryptoId: cryptoId
+            type: btc
+            rate: 1
+            amount: 1
+            convertTo: token
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

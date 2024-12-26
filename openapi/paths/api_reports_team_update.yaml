@@ -1,0 +1,91 @@
+put:
+  tags:
+    - ReportsTeam
+  summary: Reports - Team - Update
+  description: >-
+    This endpoint is named "Reports - Team - Update". It uses the PUT method for
+    updating details related to teams in reports. The URL you should send this
+    PUT request to is "http://localhost:3000/api/reports/team/update".
+
+
+    For authentication, it uses Bearer Token Authentication. The bearer token
+    must be provided under the key 'token'. 
+
+
+    The request must also include a header 'Client-UUID' key to ensure further
+    security and client identification. 
+
+
+    The main chunk of information required by this endpoint resides in the
+    request body. In the body, the details of the team updated report must be
+    expressed in raw format (JSON format). Below are the details required:
+
+
+    - "teamId": The unique identification for the team.
+
+    - "sessionId": The unique identifier of the session in which the report is
+    updated.
+
+    - "accountId": The unique account identifier for tracking purpose.
+
+    - "name": The updated name of the team.
+
+    - "description": A brief on what the team is about.
+
+    - "tags": Any tags that are attributed to the team.
+
+    - "profilePhotoUrl": The updated URL of the team's profile picture.
+
+    - "coverPhotoUrl": The updated URL of the team's cover picture.
+
+    - "minimumTipAmount": The minimum amount anyone can tip the team.
+
+    - "categoryId": The ID that refers to the categorization of the team.
+
+    - "category": The category where the team falls under.
+
+    - "subCategoryId": The ID of the subcategory of the team.
+
+    - "subCategory": The subcategory where the team falls under.
+
+    - "isTeamPrivate": A boolean indicating if the team is private or not.
+
+    - "isTournamentOnly": A boolean indicating if the team is only for
+    tournaments.
+
+    - "isTeamDefault": A boolean indicating if the team is the default team.
+
+    - "isPreLiveReportsAds": A boolean indicating if ads are allowed in pre-live
+    reports.
+
+    - "isPostLiveReportsAds": A boolean indicating if ads are allowed in
+    post-live reports.
+
+    - "breakPreLiveReportsUrl": The URL of the media for break in pre-live
+    reports.
+
+    - "breakPostLiveReportsUrl": The URL for the media for break in post-live
+    reports.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"teamId\":\"teamId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Team 2.0\",\"description\":\"This team is my second
+            team\",\"tags\":\"second,team\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isTeamPrivate\":true,\"isTournamentOnly\":false,\"isTeamDefault\":true,\"isPreLiveReportsAds\":true,\"isPostLiveReportsAds\":true,\"breakPreLiveReportsUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveReportsUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

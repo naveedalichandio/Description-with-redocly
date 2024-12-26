@@ -1,0 +1,60 @@
+post:
+  tags:
+    - NotificationUsers
+  summary: Notification - Users - Delete
+  description: >-
+    This endpoint is titled 'Notification - Users - Delete'. 
+
+
+    The Authentication type used for this endpoint is 'Bearer Authentication'.
+    It has a bearer token field labeled as 'token', which should carry a
+    'sessionId'. The value of this sessionId is a string type. This ID is
+    critical for user authentication. 
+
+
+    The HTTP request method for this endpoint is 'POST', implying that you are
+    sending (posting) data to the API.
+
+
+    The URL for the endpoint is
+    'http://localhost:3000/api/notification/users/delete'. This is the address
+    that the request will be sent to. 
+
+
+    In this endpoint, headers are included, but they have been disabled. This
+    means they will be ignored when the request is sent.
+
+
+    Within the body of the request is the 'raw' mode type. The raw format of the
+    data to be sent within the body of the request is in JSON (JavaScript Object
+    Notation). 
+
+
+    It contains the following attributes:
+
+    1. 'sessionId': A unique id related to the session of the API consumer. It
+    is assumed to be a unique identifier for tracking session.
+
+    2. 'accountId': This probably refers to the unique id of the account
+    involved in this API operation.
+
+    3. 'usersId': This field likely represents the unique user ids for which the
+    notifications need to be turned off or deleted. 
+
+
+    Ensure you replace 'sessionId', 'accountId', and 'usersId' with the correct
+    values before sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"usersId\":\"usersId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

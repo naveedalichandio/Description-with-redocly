@@ -1,0 +1,57 @@
+post:
+  tags:
+    - NotificationVideos
+  summary: Notification - Videos - Delete
+  description: >-
+    "Notification - Videos - Delete" is the name of the API endpoint. This name
+    is significant because it labels what the API endpoint is and what it's for.
+    It indicates the primary functionality of deleting notifications related to
+    videos.
+
+
+    The `request` field defines the details of the request that will be made to
+    the endpoint. 
+
+
+    The `auth` field within the request is used for authentication. In this
+    case, it makes use of a "bearer" type token. This token is passed in the
+    headers with the key name 'token' and its value set to 'sessionId'. The
+    'sessionId' is unique for each session and as such it is essential for
+    authentication.
+
+
+    The `method` field indicates the HTTP method that will be used for the
+    request. As it is 'POST', it suggests that the endpoint will process the
+    provided data or changes the state based on the data.
+
+
+    The `url` field: This points to the location of the endpoint which is
+    "http://localhost:3000/api/notification/videos/delete". 
+
+
+    In the `headers` field, there are options for adding additional headers. In
+    this case, the API does not require any extra headers as the value of the
+    key field and the key itself are both empty and it is disabled.
+
+
+    The 'body' field contains the actual data that we want to send or process.
+    Inside the body field, we have the 'mode' set to 'raw'. This indicates that
+    the body data will be sent as a raw JSON string. In the 'raw' field, there's
+    a JSON string with the keys 'sessionId', 'accountId', 'videosId'. These
+    likely represent the session ID of the user, the account ID of the user, and
+    the IDs of the videos that need to be deleted from the notifications
+    respectively.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"videosId\":\"videosId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

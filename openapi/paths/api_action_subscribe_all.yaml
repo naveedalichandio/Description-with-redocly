@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ActionSubscribe
+  summary: Action - Subscribe - Get All
+  description: |-
+    ```json
+    {
+      "description": {
+        "name": "Action - Subscribe - Get All": "This is the title of the endpoint request used to retrieve a list of all subscriptions for a user or a system action.",
+        
+        "request": {
+          "auth": {
+            "type": "bearer": "This indicates that bearer token authentication is being used to authorize the request.",
+            
+            "bearer": [
+              {
+                "key": "token": "This is the name of the authentication key used in the request.",
+                "value": "BearerToken": "This represents the actual bearer token that is required to authenticate the request. Users will need to replace 'BearerToken' with a valid token.",
+                "type": "string": "This indicates that the value of the token is of type string."
+              }
+            ]
+          },
+          
+          "method": "GET": "This specifies that the HTTP method used for the request is GET, which is used to request data from the specified resource.",
+          
+          "url": "http://localhost:3000/api/action/subscribe/all/?sessionId=sessionId&accountId=accountId": "This is the endpoint URL where the GET request is sent. It includes two query parameters: 'sessionId' and 'accountId', which need to be supplied with the actual session ID and account ID for the request to work.",
+          
+          "headers": [
+            {
+              "key": "": "This is a placeholder for any additional headers, which are currently empty.",
+              "value": "": "This is the value for the additional headers, which are currently empty.",
+              "type": "default": "This indicates the type of the header, although no headers are currently defined here.",
+              "disabled": true: "This indicates that the header is disabled and thus will not be included in the request."
+            }
+          ],
+          
+          "body": {
+            "mode": "raw": "This specifies that the body of the request is in raw format.",
+            
+            "raw": "": "This field is currently empty, meaning that there is no body payload required for this GET request."
+          }
+        }
+      }
+    }
+    ```
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

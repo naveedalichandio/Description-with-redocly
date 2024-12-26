@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ActionReload
+  summary: Action - Reload - Get
+  description: >-
+    ### Endpoint Description: Action - Reload - Get
+
+
+    - **Name**: This is the identifier for the API endpoint and indicates that
+    it is used to retrieve information about a reload action.
+
+
+    - **Request**: This section outlines the specific details required to make a
+    request to the endpoint.
+
+      - **Auth**:
+        - **Type**: This specifies the authentication method used. In this case, it uses **Bearer Token** authentication.
+        - **Bearer**: This contains the details of the bearer token.
+          - **Key**: The key used to identify the bearer token, labeled as "token".
+          - **Value**: This is where the actual bearer token is specified, labeled as "BearerToken". This is a placeholder that should be replaced with a valid token when making a request.
+          - **Type**: This indicates the datatype for the bearer token, which is a string.
+
+      - **Method**: Indicates the HTTP method used for this request. It is set to **GET**, meaning this endpoint is intended for retrieving data.
+
+      - **URL**: The endpoint URL specifies where the request should be sent. The URL includes query parameters:
+        - `reloadId`: Represents the unique identifier for the reload action that is being requested.
+        - `sessionId`: Represents the session identifier, which is related to the user's session when making the request.
+        - `accountId`: Represents the unique identifier for the account associated with the reload action.
+
+      - **Headers**: This section allows for custom headers to be sent with the request.
+        - **Key**: This is left blank, indicating that no additional header keys are specified at this time.
+        - **Value**: Similarly, the value is blank, so no specific values are provided.
+        - **Type**: The type is listed as **default**, indicating standard header settings.
+        - **Disabled**: This indicates that the header is currently disabled and will not be included in the request.
+
+      - **Body**: This section defines the content that can be sent with the request.
+        - **Mode**: The body mode is set to **raw**, which means that the body content will be sent as plain text.
+        - **Raw**: Currently, this is an empty string, indicating that no body content needs to be sent with the request.
+
+    This endpoint is designed to retrieve information related to a reload action
+    based on specific identifiers, utilizing bearer token authentication for
+    security.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: reloadId
+      in: query
+      schema:
+        type: string
+      example: reloadId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

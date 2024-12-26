@@ -1,0 +1,64 @@
+get:
+  tags:
+    - PaymentPayout
+  summary: Payout - Square - Get
+  description: >-
+    This endpoint represents a GET request to the 'Payout - Square - Get'
+    service.
+
+
+    1. "name": This field contains the name of the request. It is "Payout -
+    Square - Get", indicating that it is a service to get payout information
+    from the Square payment platform.
+
+
+    2. "request": This field encapsulates the details about the HTTP request
+    being sent.
+
+
+    3. "method": This field denotes the HTTP method to be used for the request,
+    which is "GET". GET is used to request data from a resource.
+
+
+    4. "url": This field contains the URL to which the request will be sent. It
+    is "http://localhost:3000/api/payment/card/get". The query parameters
+    following the "?" in the URL are "provider=square", "accountId=accountId",
+    "sessionId=sessionId" and "cardId=ccof:CA4SEFZspcQ7Py9BTX_j4-bnUPooAg". 
+
+        - "provider=square": This parameter specifies the provider of the card payment service, which is 'square' in this case.
+       
+        - "accountId=accountId": This is the unique identifier for the user's account. It should be replaced with the user's actual account ID for making the request.
+       
+        - "sessionId=sessionId": This is the unique identifier for the current session. It should be replaced with the actual session ID when making request.
+      
+        - "cardId=ccof:CA4SEFZspcQ7Py9BTX_j4-bnUPooAg": This parameter represents the card identifier. Replace it with the actual cardId when making a request. This ID is used by Square to uniquely identify a card.
+
+    5. "headers": This field contains an array that would typically include any
+    HTTP headers to be sent with the request. Right now, it's empty, indicating
+    no extra headers are being sent with this request.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: square
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: cardId
+      in: query
+      schema:
+        type: string
+      example: ccof:CA4SEFZspcQ7Py9BTX_j4-bnUPooAg
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

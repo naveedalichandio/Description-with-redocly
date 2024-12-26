@@ -1,0 +1,76 @@
+get:
+  tags:
+    - UtilityCoin
+  summary: Utility - Coin - Get Neutral Logs
+  description: |-
+    {
+      "name": "Utility - Coin - Get Neutral Logs",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }]
+          },
+          "method": "GET",
+          "url": "http://localhost:3000/api/utility/coin/get/?log=category&category=neutrals&sessionId=sessionId&accountId=accountId",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": ""
+          }
+        },
+        "description": {
+          "name": "This is the name of the API request which indicates its purpose." 
+          "auth.type": "This specifies the type of authentication used, which in this case is bearer token authentication."
+          "auth.bearer.key": "This is the key used in the authorization header for the bearer token."
+          "auth.bearer.value": "This is where the actual bearer token value should be placed."
+          "auth.bearer.type": "This indicates the type of data for the bearer token, which is a string."
+          "method": "This specifies the HTTP method to be used for the request, which is GET. This method retrieves data from the specified resource."
+          "url": "This is the endpoint url that will be called. It includes query parameters such as log type, category, session ID, and account ID."
+          "headers.key": "This is where you can add any additional headers required for the request. Currently, it is empty and disabled."
+          "headers.value": "This corresponding value for the header key which is also currently empty and disabled."
+          "body.mode": "This indicates the mode of the body for the API request, which is set to 'raw.'"
+          "body.raw": "This is the raw body of the request. Since it's a GET request, the body is empty."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: log
+      in: query
+      schema:
+        type: string
+      example: category
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: neutrals
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,76 @@
+get:
+  tags:
+    - VideoChannel
+  summary: Video - Channel - Get All
+  description: |-
+    {
+      "description": {
+        "name": "Video - Channel - Get All",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "url": "http://localhost:3000/api/video/channel/all/?accountId=accountId",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": ""
+          }
+        }
+      },
+      "details": {
+        "name": "This is the name of the API endpoint used to retrieve all video channels.",
+        "auth": {
+          "type": "bearer": "This indicates that the endpoint requires bearer token authentication.",
+          "bearer": [
+            {
+              "key": "token": "This is the key name for the authentication token.",
+              "value": "BearerToken": "This is a placeholder for the actual bearer token that should be used for authentication. Replace with a valid token.",
+              "type": "string": "This indicates that the value type is a string."
+            }
+          ]
+        },
+        "method": "GET": "This specifies that the request method is GET, meaning data will be retrieved from the server.",
+        "url": "http://localhost:3000/api/video/channel/all/?accountId=accountId": "This is the endpoint URL that needs to be called to get all video channels. The 'accountId' parameter should be set to the actual account ID you want to query.",
+        "headers": [
+          {
+            "key": "": "This is currently empty, indicating no specific header is required for this request.",
+            "value": "": "This is also empty, as there are no header values set.",
+            "type": "default": "This implies that the header type is a standard header.",
+            "disabled": true: "This indicates that this header is currently disabled and will not be sent with the request."
+          }
+        ],
+        "body": {
+          "mode": "raw": "This indicates the format of the body data, which is set to raw.",
+          "raw": "": "Since the request does not require a body for a GET request, this is left empty."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

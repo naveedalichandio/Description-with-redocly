@@ -1,0 +1,104 @@
+post:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Convert Token
+  description: >-
+    ### Endpoint Description: Utility - Token - Convert Token
+
+
+    #### Request Method
+
+    - **Method**: POST
+      - This endpoint requires a POST request to convert tokens.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/utility/token/convert`
+      - The endpoint is accessed at the specified URL on a local server.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer Token
+      - This endpoint requires bearer token authentication.
+      - **Token**: The bearer token is expected in the request header for authorization.
+      - **Key**: `token`
+        - Represents the authentication token.
+      - **Value**: `BearerToken`
+        - Replace this placeholder with the actual token needed for authentication.
+      - **Type**: string
+
+    #### Headers
+
+    - **Header Key**: `Client-UUID`
+      - This header is used to identify the client making the request.
+      - **Value**: `ClientUUID`
+        - Replace this placeholder with the actual UUID of the client.
+      - **Type**: default
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - The request body must be sent in raw format as a JSON object.
+      
+    - **Raw Body Content**:
+      - ```json
+        {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "amount": 10,
+            "rate": 1,
+            "type": "platform",
+            "target": "crypto",
+            "toType": "platform"
+        }
+        ```
+
+      - **Fields**:
+        - **sessionId**: Represents the unique identifier for the session in which the token conversion is taking place. Replace `sessionId` with the actual session ID.
+        
+        - **accountId**: Represents the unique identifier of the account that is performing the conversion. Replace `accountId` with the actual account ID.
+        
+        - **amount**: The number of tokens to convert. This is a numerical value; in this example, it is set to `10`.
+        
+        - **rate**: The conversion rate of the tokens. In this example, it is set to `1`, which can be adjusted based on the conversion policy.
+        
+        - **type**: Indicates the current type of the token being converted. In this example, it is set to `platform`, which should be updated based on the token type you are working with.
+        
+        - **target**: Specifies the target currency or token type that the conversion will be performed to. In this example, it is set to `crypto`.
+        
+        - **toType**: Indicates the final type of the token after conversion. In this example, it is also set to `platform`.
+
+    #### Notes
+
+    - Ensure that all placeholder values (like `BearerToken`, `ClientUUID`,
+    `sessionId`, and `accountId`) are replaced with valid data when making the
+    request.
+
+    - The response from this endpoint will typically provide information about
+    the success or failure of the token conversion operation.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            amount: 10
+            rate: 1
+            type: platform
+            target: crypto
+            toType: platform
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

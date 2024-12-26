@@ -1,0 +1,75 @@
+post:
+  tags:
+    - UtilityCoin
+  summary: Utility - Coin - Create for Team
+  description: >-
+    ### Endpoint Description: Utility - Coin - Create for Team
+
+
+    This endpoint allows the creation of a coin for a specific team within the
+    utility service. The request must be made using the POST method and requires
+    authentication via a bearer token.
+
+
+    #### Request Details:
+
+
+    - **Auth**: 
+      - **Type**: The method by which the request is authenticated. In this case, it is set to `bearer`, meaning a Bearer Token is used for authorization.
+      - **Bearer**: Contains the authorization token:
+        - **Key**: Indicates what type of token is provided, which is "token".
+        - **Value**: Placeholder for the actual Bearer Token that needs to be used for authentication. It should be replaced with a valid token in the format "BearerToken".
+        - **Type**: The data type of the token, which is a string.
+
+    - **Method**: 
+      - **POST**: This specifies that the request will create new information on the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/utility/coin/create`: This is the endpoint where the request will be sent. It indicates the local server running on port 3000 and the specific API path for creating the coin.
+
+    - **Headers**: 
+      - An array of header objects. In this case, there is currently an empty header object, which is indicated as disabled. Additional headers may be added depending on requirements.
+
+    - **Body**: 
+      - **Mode**: The format of the body content, which is set to `raw`, allowing for the direct input of JSON data.
+      - **Raw**: Contains the payload that must be sent with the POST request. The JSON object includes:
+        - **sessionId**: A unique identifier for the session during which the request is made, replace with actual session ID.
+        - **accountId**: Identifies the account for which the coin is being created, replace with real account ID.
+        - **targetType**: Specifies the type of the target entity, in this case, it is set to `teamId`, indicating that the coin is associated with a team.
+        - **targetId**: The ID of the team for which the coin is being created, replace with actual team ID.
+        - **name**: The name of the coin being created, which is set to "MPC" as a placeholder.
+        - **description**: A brief description of the coin, here it is set to "My Profile Coin".
+        - **type**: Indicates the platform for which this coin is designated, set to "platform".
+        - **action**: Specifies the action associated with the coin, which is "buy" in this case.
+        - **rate**: The exchange rate or value of the coin, currently set to `1` as a placeholder.
+        - **amount**: The total amount of the coin being created, which is set to `100000` as an example. 
+
+    - **Options**: 
+      - **Raw**: Specifies the language format for the request body, which is "json", indicating that the raw data is in JSON format.
+
+    This endpoint is crucial for managing coin creation within a team context,
+    and it is important to ensure that all required fields are filled with
+    appropriate values before making the API request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            targetType: teamId
+            targetId: teamId
+            name: MPC
+            description: My Profile Coin
+            type: platform
+            action: buy
+            rate: 1
+            amount: 100000
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

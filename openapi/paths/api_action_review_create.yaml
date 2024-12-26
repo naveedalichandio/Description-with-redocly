@@ -1,0 +1,77 @@
+post:
+  tags:
+    - ActionReview
+  summary: Action - Review - Create
+  description: >-
+    ### Action - Review - Create
+
+
+    **Request Details:**
+
+
+    - **Auth**:
+      - **Type**: Indicates the authentication method being used. In this case, it is a bearer token.
+      - **Bearer**: Contains the following information:
+        - **Key**: Represents the parameter name for the token. In this case, it is labeled as "token".
+        - **Value**: This is where the actual bearer token should be placed to authorize the request. For example, it is represented as "BearerToken".
+        - **Type**: Specifies the data type of the token, which is a string.
+
+    - **Method**: 
+      - **POST**: This indicates that the request is using the POST method, which is typically used to create new resources or submit data to the server.
+
+    - **URL**: 
+      - **Endpoint**: The URL endpoint where the request is sent. Here, it is "http://localhost:3000/api/action/review/create", indicating that this request is targeting a local server for action review creation.
+
+    - **Headers**:
+      - A key-value pair representing the headers for the HTTP request. In this case, the key and value are empty, and the header is disabled.
+
+    - **Body**: 
+      - **Mode**: The format of the request body. Here it is set to "raw", indicating that the body is sent as a raw string.
+      - **Raw**: Contains the actual content that will be sent in the request body. The content is formatted as JSON and consists of the following fields:
+        - **sessionId**: A string representing the unique identifier for the session in which the review is being created.
+        - **accountId**: A string that represents the identifier of the account making the review.
+        - **path**: A string indicating the path to the content being reviewed, such as a video on a live channel.
+        - **targetType**: A string defining the type of target being reviewed, in this case, it is labeled as "videoId".
+        - **targetId**: A string representing the unique identifier of the target, such as the video ID.
+        - **sourceType**: A string indicating the type of the source from which the review originates, which is set as "accountId".
+        - **sourceId**: A string representing the unique identifier of the source, mimicking the accountId.
+        - **didReview**: A boolean indicating whether the user has submitted a review (true) or not (false).
+        - **reviewScore**: An integer score given by the reviewer, here it is set to 5, representing the highest rating.
+        - **isUndo**: A boolean representing if the review should be undone; set to false indicates that this is a new review, not an undo action.
+        - **name**: An optional string field for the name associated with the review (currently empty).
+        - **description**: An optional string field for the description associated with the review (currently empty).
+        - **tags**: An optional string field for tags associated with the review (currently empty).
+
+    - **Options**:
+      - **Raw**:
+        - **Language**: Specifies the format of the raw body content as JSON.
+
+    This detailed description provides a comprehensive understanding of the
+    fields and structure for users interacting with the Action - Review - Create
+    API.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didReview: true
+            reviewScore: 5
+            isUndo: false
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

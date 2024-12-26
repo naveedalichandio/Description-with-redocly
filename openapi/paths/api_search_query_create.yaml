@@ -1,0 +1,111 @@
+post:
+  tags:
+    - SearchQuery
+  summary: Search - Query - Create
+  description: >-
+    This endpoint is called "Search - Query - Create". It is designed to take in
+    user-provided information and use it to create a new query that will then be
+    sent to a search database. 
+
+
+    - "name": Provides the name of the endpoint. In this case, it is "Search -
+    Query - Create".
+
+
+    The "request" object contains all the information required to make the API
+    request.
+
+
+    - "auth": This field refers to the authorization mechanism for the API
+    request. In this scenario, the type of the authorization mechanism is
+    "bearer". A bearer token is required to authorize the API request.
+      
+    - "bearer": This contains the bearer token. It is a simple security token
+    that the client can send to the server to authenticate requests.
+
+
+    - "method": This field signifies the type of HTTP method to be used when
+    making a request to the URL. It's set to "POST" which indicates that data
+    should be sent to the server to create a new resource.
+
+
+    - "url": This is the URL where the API request is to be made. In this case,
+    the URL points to a search API at
+    "http://localhost:3000/api/search/query/create".
+
+
+    The "headers" object contains the headers information to be sent along with
+    the API request.
+
+
+    - "key" and "value": These fields are empty in this case and they are
+    disabled. For actual application, we should provide header key-value pairs
+    depending on server requirements.
+
+
+    The "body" element stores the actual data to be sent with the HTTP request:
+
+
+    - "mode": It refers to the mode of the body data and it is set to "raw",
+    implying that the body content will be sent as a string of text.
+
+
+    - "raw": Contains a JSON string with various details for the search query
+    such as the query term, account ID, session ID, and usage metrics (device,
+    browser, region, year, month, week, day, hour).
+
+
+    - "options": This field defines the language to use for the raw data. In
+    this example, the raw data is written in JSON.
+
+
+    Each attribute in the "raw" field has a specific meaning:
+
+
+    - "query": The actual search query itself, i.e., the term being searched.
+
+    - "accountId": The ID of the account making the search.
+
+    - "sessionId": The ID of the session during which the search was made.
+
+    - "metrics": Provides detailed information about how the search was
+    conducted. It includes specifications of the device used, browser used,
+    region from where the search was made, and precise time the search was
+    initiated(year, month, week, day, hour).
+
+
+    This endpoint can be utilized to create a detailed search query by providing
+    the necessary details in the body of the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            query: Fortune
+            accountId: accountId
+            sessionId: sessionId
+            metrics:
+              device:
+                desktop: 1
+              browser:
+                chrome: 1
+              region:
+                us: 1
+              year:
+                '2024': 1
+              month:
+                '05': 1
+              week:
+                '02': 1
+              day:
+                '14': 1
+              hour:
+                '17': 1
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,69 @@
+get:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Get Settings
+  description: >-
+    This endpoint description details the "Connect - Video - Get Settings" API
+    request. Here's what you need to know about the data provided:
+
+
+    - `name`: This is the name of the endpoint, which is "Connect - Video - Get
+    Settings". It uniquely identifies this endpoint for any function or
+    operation it might serve in a given API.
+
+
+    - `request`: This is a JSON object containing all the details of the HTTP
+    request to be made. Said request is broken down into several components as
+    follows:
+
+
+    - `auth`: The authentication method used for this API endpoint. It employs
+    Bearer Authentication (token-based) method, which is a type of HTTP
+    authentication.
+      - `type`: It is "bearer" denoting the Bearer Authentication being used.
+      - `bearer`: An array that holds the authentication token. The `key` is "token" and its `value` contains the Bearer Token needed for accessing this endpoint. The `type` indicates that the token is a string.
+
+    - `method`: This indicates the type of HTTP method used for the request.
+    Here it is "GET", that means data is being retrieved from the server at the
+    provided URL.
+
+
+    - `url`: This is the endpoint's URL and holds the server address and path
+    where the Get request will be sent. It includes query parameters for
+    `accountId`, `sessionId`, and `providerName` whose values need to be
+    supplied when making the API request.
+
+
+    - `headers`: This is an array of header fields to be included in the HTTP
+    request. The descriptions of the properties are as below.
+      - `key`: The name of the header field.
+      - `value`: The value of the header field.
+      - `type`: This indicates the type of the header. Here it is a "default" header.
+      - `disabled`: It denotes whether or not the header is disabled. In this case, the value is set as "true" which means the header is disabled and it will not be sent with the HTTP request. 
+
+    Bear in mind that the token's value in 'auth', 'accountId', 'sessionId', and
+    'providerName' in the URL, are placeholders and need to be replaced with
+    real values when making a request to the API.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: providerName
+      in: query
+      schema:
+        type: string
+      example: youtube
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

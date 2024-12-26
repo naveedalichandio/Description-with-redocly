@@ -1,0 +1,83 @@
+post:
+  tags:
+    - ReportsVideo
+  summary: Reports - Video - Create
+  description: >-
+    The endpoint "Reports - Video - Create" will allow you to post a request to
+    create a new video report. Following is a detailed description for each data
+    included in the request.
+
+
+    - `auth`: This section handles authorization. It uses the "bearer" type
+    which employs a bearer token as an authorization method. There is a key
+    named "token" that stores the value of the bearer token as a string.
+
+
+    - `method`: This is the HTTP method for your request. In this case, it is
+    set to "POST" which means the API endpoint creates a new resource, a video
+    report, in this case.
+
+
+    - `url`: This is the endpoint to make the request,
+    http://localhost:3000/api/reports/video/create
+
+
+    - `headers`: This field is used to send additional information to the
+    server. Currently, it’s empty and disabled.
+
+
+    - `body`: It contains the data you send to the server. It has different
+    modes, raw in this case. The payload in raw mode is a JSON string that
+    contains the following fields:
+
+      - `sessionId`, `accountId`: They uniquely identify a session and an account respectively.
+      
+      - `name`, `description`, `tags`, `profilePhotoUrl`, `coverPhotoUrl`: These pertain to attributes particular to the video, i.e., name, description, tags, profile photo URL, and cover photo URL. 
+      
+      - `minimumTipAmount`: This is the minimum amount set for tips on the video.
+      
+      - `categoryId`, `category`, `subCategoryId`, `subCategory`: They specify the category and sub-category that the video belongs to. Both have their unique Ids and Names.
+      
+      - `isVideoPrivate`, `isTournamentOnly`, `isVideoDefault`, `isPreLiveReportsAds`, `isPostLiveReportsAds`: These are boolean fields indicating whether the video is private, meant for tournament only, is a default video, or whether there will be ads before and after the live reports respectively.
+      
+      - `breakPreLiveReportsUrl`, `breakPostLiveReportsUrl`: These are URLs for the videos that would be played during pre-live and post-live reports breaks respectively.
+
+    - `options`: Defined how the body content should be interpreted, in this
+    case, it tells that the body content language is JSON. 
+
+
+    This endpoint requires several information about a video in order to create
+    a valid video report. Please refer to above information while submitting a
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Video
+            description: This video is my second video
+            tags: second,video
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isVideoPrivate: true
+            isTournamentOnly: false
+            isVideoDefault: true
+            isPreLiveReportsAds: true
+            isPostLiveReportsAds: true
+            breakPreLiveReportsUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveReportsUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,76 @@
+get:
+  tags:
+    - TournamentTeam
+  summary: Tournament - Team - Get
+  description: >-
+    ### Endpoint: Tournament - Team - Get
+
+
+    #### Overview
+
+    This endpoint is designed to retrieve information related to a specific team
+    in a tournament context. The request is made using a GET method, indicating
+    that the information requested will not modify any server data.
+
+
+    #### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Bearer
+        - This endpoint requires authentication using a bearer token. The acknowledgement of a valid token signifies that the user has the necessary permissions to access the requested resources.
+        - **Bearer Token**: 
+          - **Key**: `token`
+          - **Value**: `BearerToken`
+          - **Type**: String
+            - The value should be replaced with an actual bearer token that authenticates the request.
+
+    - **Method**: 
+      - **GET**
+        - Indicates that the request is intended to retrieve data from the server rather than submit data.
+
+    - **URL**: 
+      - `http://localhost:3000/api/tournament/team/get/?teamId=teamId&sessionId=sessionId&accountId=accountId`
+        - This is the endpoint URL where the request is sent.
+        - **Query Parameters**:
+          - **teamId**: Represents the unique identifier of the team whose information is being requested. It should be replaced with the actual team ID.
+          - **sessionId**: Represents the session identifier for the current tournament. This allows the server to fetch data relevant to the specific session.
+          - **accountId**: Represents the unique identifier for the account making the request. This enables validation and access control for the account's data.
+
+    - **Headers**:
+      - There are no additional headers required for this request. An example placeholder is present but currently disabled.
+
+    - **Body**:
+      - **Mode**: Raw
+        - The body of the request is specified as raw, which means it does not contain any predefined structure like JSON or form data for this GET request.
+      - **Raw**: 
+        - This field is empty as GET requests typically do not require a body. If needed, it can remain blank.
+
+    ### Summary
+
+    Use this endpoint to get detailed information about a specific team within a
+    tournament. Ensure you provide valid tokens and identifiers in the URL
+    parameters for successful data retrieval.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: teamId
+      in: query
+      schema:
+        type: string
+      example: teamId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

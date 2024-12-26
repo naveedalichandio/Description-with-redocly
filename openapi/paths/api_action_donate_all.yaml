@@ -1,0 +1,76 @@
+get:
+  tags:
+    - ActionDonate
+  summary: Action - Donate - Get All
+  description: >-
+    ### Endpoint: Action - Donate - Get All
+
+
+    #### Request Details
+
+
+    - **Name**: Action - Donate - Get All  
+      This is the name of the API endpoint used for retrieving all donation actions.
+
+    - **Method**: GET  
+      This specifies the HTTP method used for the request, which is GET in this case. This method is typically used to retrieve data from a server.
+
+    - **URL**:
+    `http://localhost:3000/api/action/donate/all/?sessionId=sessionId&accountId=accountId`  
+      This is the endpoint's URL. It points to the local server and includes query parameters:
+      - **sessionId**: Represents the unique identifier for the session.
+      - **accountId**: Refers to the unique identifier for the account.
+
+    #### Authentication
+
+
+    - **Auth Type**: Bearer  
+      This indicates that the request requires bearer token authentication.
+
+    - **Bearer Token**:  
+      - **Key**: token  
+        This is the key that identifies the authorization token in the request.
+      - **Value**: BearerToken  
+        This is a placeholder for the actual bearer token that must be included in the authorization header. Replace "BearerToken" with a valid token.
+      - **Type**: string  
+        This indicates that the token value should be provided as a string.
+
+    #### Headers
+
+
+    - **Headers**:  
+      There are currently no custom headers defined for this request. The header entry is disabled and can be configured if needed.
+
+    #### Body
+
+
+    - **Body Mode**: raw  
+      The body of the request is set to raw, indicating that no form data or JSON object is being sent in the request.
+
+    - **Raw**:  
+      The body is empty in this case, as this GET request typically does not require a body.
+
+    ### Summary
+
+    This endpoint is designed to retrieve all donation actions for a given
+    account and session. The user needs to provide valid session and account
+    identifiers, as well as a valid bearer token for authentication. The request
+    does not include any additional headers or body content.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

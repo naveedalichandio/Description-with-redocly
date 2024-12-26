@@ -1,0 +1,33 @@
+get:
+  tags:
+    - ChatComment
+  summary: Chat - Comment - Get All With Deleted
+  description: "The endpoint, Chat - Comment - Get All With Deleted, fetches all chat comments including the deleted ones from the server. It comprises the following elements:\n\n1. \"name\": This is the name of the endpoint that's used to describe its purpose. For this endpoint, the name is \"Chat - Comment - Get All With Deleted\", implying its function to retrieve all chat comments, including those deleted.\n\n2. \"request\": This object consists of the specifications for the HTTP request that's made to the endpoint. \n\n   \ti. \"auth\": This object signifies an authorization method is used for the endpoint, the \"type\" indicates it's a bearer token authentication. \n\n   \tii. \"bearer\": This array holds an object containing details about the bearer token used for authentication. The \"key\" is the identifier for the token found in the request header. The \"type\" field specifies the data type of the token, here it is of \"string\" type. The \"value\", is the actual token value; \"BearerToken\" is just a placeholder indicating where the token should go.\n\n   \tiii. \"method\": This field specifies the HTTP method associated with the request. The value \"GET\" implies data is being fetched from the server.\n\n   \tiv. \"url\": This is the URL of the endpoint where the request is being sent. It is formatted as follows: \n\"localhost:3000/api/chat/comment/all?threadId=threadId&accountId=accountId&sessionId=sessionId&deleted=1\". The parameters after \"?\" are called query parameters and are used to filter the results. Here, \"threadId\", \"accountId\", \"sessionId\" are used to specify which thread's, account's, session's chat comments you want to retrieve, while \"deleted=1\" indicates also to include deleted comments.\n\n   \tv. \"headers\": This is an empty array, which signifies no additional HTTP headers are included in the request.\n\nPlease replace \"BearerToken\", \"threadId\", \"accountId\", \"sessionId\" with actual values before making a request."
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: threadId
+      in: query
+      schema:
+        type: string
+      example: threadId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: deleted
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

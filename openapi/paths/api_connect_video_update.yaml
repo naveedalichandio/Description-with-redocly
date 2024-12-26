@@ -1,0 +1,73 @@
+put:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Update
+  description: >-
+    This endpoint is named "Connect - Video - Update". It's used to update video
+    connect details with the method PUT. 
+
+
+    1. "auth": Represents the authentication part of the request.
+      - "type": The type of authentication used. In this case, it's "bearer" which means it uses bearer token authentication.
+      - "bearer": An array with the authentication information bearing the key, value, and type. The key is the "token", the value should be the actual "BearerToken", and the type is "string".
+
+    2. "method": Represents the HTTP method used which is "PUT" in this case.
+
+
+    3. "url": The URL where the request will be sent. Here, it is
+    "http://localhost:3000/api/connect/video/update".
+
+
+    4. "headers": An array of objects that represents any custom headers to be
+    sent along with the request. A "Client-UUID" header is given which should
+    have the client's UUID as the value.
+
+
+    5. "body": Contains the data to be sent along with the request.
+      - "mode": The mode of sending body data. "raw" indicates data will be sent in a string format.
+      - "raw": The actual data. It contains multiple parameters to update connect information like connectId, sessionId, accountId, name, description, tags, profilePhotoUrl, coverPhotoUrl, minimumTipAmount, unlockAmount, category, subCategory, searchType, isEnabled, isConnectPrivate, isTournamentOnly, isConnectDefault, isPreLiveConnectAds, isPostLiveConnectAds, breakPreLiveConnectUrl, breakLivePauseConnectUrl, breakPostLiveConnectUrl. All parameters are represented as keys in JSON format.
+      - "options": Specifies that the raw body contains JSON data.
+
+    Please ensure to replace key values in "bearer" authentication and
+    "headers", as well as all the parameters in "raw" body with actual values.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            connectId: connectId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeConnect
+            description: This connect is my second connect
+            tags: second,connect
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isConnectPrivate: true
+            isTournamentOnly: false
+            isConnectDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

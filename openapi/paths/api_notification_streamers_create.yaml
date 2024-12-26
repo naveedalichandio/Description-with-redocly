@@ -1,0 +1,78 @@
+post:
+  tags:
+    - NotificationStreamers
+  summary: Notification - Streamers - Create
+  description: >-
+    This endpoint is named "Notification - Streamers - Create". It's a HTTP POST
+    request that is used to create new streamers.
+
+
+    1. `"auth"`: This object contains authentication information. The
+    authentication type used is Bearer token authentication.
+       - `"type"` : The type of authentication which is bearer in this case.
+       - `"key"` : The key value for the bearer auth token.
+       - `"value"` : The actual token used for bearer authentication.
+
+    2. `"method"` : The HTTP method used for the request which is POST.
+
+
+    3. `"url"` : The URL of the API endpoint. This endpoint resides on localhost
+    at port 3000.
+
+
+    4. `"headers"` : The headers object is currently empty and disabled.
+
+
+    5. `"body"`: The request body is in raw JSON format and contains the
+    following keys:
+       - `"sessionId"` : The unique identifier for the session.
+       - `"accountId"` : The unique identifier for the account.
+       - `"name"` : The name of the streamer.
+       - `"description"` : Brief description of the streamers.
+       - `"tags"` : Tags associated with the streamers.
+       - `"profilePhotoUrl"` : The URL for the profile photo of the streamers.
+       - `"coverPhotoUrl"` : The URL for the cover photo of the streamers.
+       - `"minimumTipAmount"` : The minimum tip amount for the streamers.
+       - `"categoryId"` and `"category"` : The unique identifier and name of the category.
+       - `"subCategoryId"` and `"subCategory"` : The unique identifier and name of the sub category.
+       - `"isStreamersPrivate"` : A boolean to determine if the streamers is private.
+       - `"isTournamentOnly"` : A boolean to determine if the streamers is for tournament-only.
+       - `"isStreamersDefault"` : A boolean to determine if these settings should be the default for the streamers.
+       - `"isPreLiveNotificationAds"` : A boolean to determine if there are pre-live notification ads.
+       - `"isPostLiveNotificationAds"` : A boolean to determine if there are post-live notification ads.
+       - `"breakPreLiveNotificationUrl"` : The URL for the pre-live notification break advertisement.
+       - `"breakPostLiveNotificationUrl"` : The URL for the post-live notification break advertisement.
+
+    These fields are provided in a raw JSON object in the body of the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Streamers
+            description: This streamers is my second streamers
+            tags: second,streamers
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isStreamersPrivate: true
+            isTournamentOnly: false
+            isStreamersDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

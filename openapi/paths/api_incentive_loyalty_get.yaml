@@ -1,0 +1,78 @@
+get:
+  tags:
+    - IncentiveLoyalty
+  summary: Incentive - Loyalty - Get
+  description: >-
+    This API endpoint is called "Incentive - Loyalty - Get". This uses the HTTP
+    'GET' method to retrieve loyalty incentive information.
+
+
+    #### Authentication
+
+    The authentication required for this endpoint is of the type 'bearer'. This
+    requires a valid token to authenticate the requests made to the endpoint.
+    This token field key is "token" and should hold the bearer token string.
+
+
+    #### Method
+
+    The HTTP method used for this endpoint is GET. This HTTP method is used to
+    retrieve data from the server.
+
+
+    #### URL
+
+    The 'url' is where the request is being sent. This is where the server is
+    located to handle this specific endpoint. This URL format is
+    http://localhost:3000/api/incentive/loyalty/get and it's parameterized with
+    loyaltyId, sessionId, accountId. 
+
+
+    'loyaltyId' - This parameter is used to specify the loyalty program's ID.
+
+    'sessionId' -This parameter is used to maintain the session information.
+
+    'accountId' - This parameter is used to specify the account ID.
+
+
+    #### Headers
+
+    Headers can be added to amend the request. In the provided data, a header
+    template is included, but it is disabled by default. Hence, this field can
+    be left empty or can be filled with necessary request header info such as
+    content-type, auth-token etc.
+
+
+    #### Body
+
+    The 'body' carries the bulk of the request information. This endpoint uses
+    'raw' mode for the body, but as it is a GET request, it doesn't require a
+    body. Therefore, the 'raw' field is left empty. 
+
+
+    So, primarily you need to authenticate yourself and pass the user
+    'loyaltyId', 'sessionId' and 'accountId' as parameters in the request URL to
+    get the required information.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: loyaltyId
+      in: query
+      schema:
+        type: string
+      example: loyaltyId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

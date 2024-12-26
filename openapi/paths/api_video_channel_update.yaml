@@ -1,0 +1,148 @@
+put:
+  tags:
+    - VideoChannel
+  summary: Video - Channel - Update
+  description: >-
+    ### Endpoint: Video - Channel - Update
+
+
+    #### Auth
+
+    - **Type**: Bearer
+      - **Key**: `token`
+        - **Value**: `BearerToken` - This is the authorization token required to access the endpoint.
+
+    #### Method
+
+    - **Type**: PUT - This HTTP method is used to update an existing resource on
+    the server.
+
+
+    #### URL
+
+    - **Endpoint**: `http://localhost:3000/api/video/channel/update` - This is
+    the URL where the request will be sent to update the video channel.
+
+
+    #### Headers
+
+    - **Client-UUID**
+      - **Key**: `Client-UUID` - A unique identifier for the client making the request.
+      - **Value**: `ClientUUID` - This represents the UUID associated with the client.
+
+    #### Body
+
+    - **Mode**: Raw - The body of the request is sent in raw format.
+
+    - **Raw Content**: This is a JSON object that must be sent in the request
+    body. Below are the individual fields:
+
+      - **channelId**: 
+        - A unique identifier for the channel to be updated.
+
+      - **sessionId**: 
+        - A unique identifier for the user session.
+
+      - **accountId**: 
+        - A unique identifier for the account associated with the channel.
+
+      - **name**: 
+        - The name of the channel (e.g., "MyNikeChannel").
+
+      - **description**: 
+        - A brief description of the channel (e.g., "This channel is my second channel").
+
+      - **tags**: 
+        - Comma-separated list of tags associated with the channel (e.g., "second,channel").
+
+      - **profilePhotoUrl**: 
+        - A URL pointing to the profile photo for the channel (e.g., "https://example.com/profile.jpg").
+
+      - **coverPhotoUrl**: 
+        - A URL pointing to the cover photo for the channel (e.g., "https://example.com/cover.jpg").
+
+      - **minimumTipAmount**: 
+        - The minimum amount that can be tipped on the channel, specified in the relevant monetary unit (e.g., 10).
+
+      - **unlockAmount**: 
+        - The amount required to unlock specific content on the channel (e.g., 100).
+
+      - **category**: 
+        - The primary category for the channel (e.g., "General").
+
+      - **subCategory**: 
+        - A more detailed classification of the channel (e.g., "Specific").
+
+      - **searchType**: 
+        - The method or type of search associated with the channel (e.g., "Game").
+
+      - **isEnabled**: 
+        - A boolean value indicating if the channel is active (true) or not (false).
+
+      - **isChannelPrivate**: 
+        - A boolean that indicates whether the channel is private (true) or public (false).
+
+      - **isTournamentOnly**: 
+        - Indicates if the channel is exclusively for tournaments (true) or has other content (false).
+
+      - **isChannelDefault**: 
+        - A flag indicating if this is the default channel (true) or not (false).
+
+      - **isPreLiveVideoAds**: 
+        - Indicates whether pre-live video advertisements are enabled for the channel (true) or not (false).
+
+      - **isPostLiveVideoAds**: 
+        - Indicates whether post-live video advertisements are enabled for the channel (true) or not (false).
+
+      - **breakPreLiveVideoUrl**: 
+        - A URL for a video that plays during pre-live breaks (e.g., "https://example.com/break-pre-live.mp4").
+
+      - **breakLivePauseVideoUrl**: 
+        - A URL for a video that plays during live video pauses (e.g., "https://example.com/break-paused-live.mp4").
+
+      - **breakPostLiveVideoUrl**: 
+        - A URL for a video that plays after the live stream ends (e.g., "https://example.com/break-post-live.mp4"). 
+
+    These fields collectively define the properties and configuration of the
+    video channel to be updated in the system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            channelId: channelId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeChannel
+            description: This channel is my second channel
+            tags: second,channel
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isChannelPrivate: true
+            isTournamentOnly: false
+            isChannelDefault: true
+            isPreLiveVideoAds: true
+            isPostLiveVideoAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseVideoUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

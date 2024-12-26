@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ChatMessage
+  summary: Chat - Message - Get All With Deleted
+  description: >-
+    This API endpoint is named `Chat - Message - Get All With Deleted`. It is
+    designed for retrieving all chat messages in a given thread, including those
+    messages that have been deleted.
+
+
+    1. `Auth`: This section describes the type of authorization used by this
+    endpoint i.e., Bearer Authentication. This type of authorization validates
+    requests based on the bearer token included in the header. A bearer token
+    must be provided, the key should be `token`, and the value must be the
+    assigned `BearerToken` for the current session.
+
+
+    2. `Method`: The HTTP method used for this request is `GET`. This method is
+    typically used for retrieving data from a server.
+
+
+    3. `URL`: The URL where the endpoint is available is
+    `http://localhost:3000/api/chat/message/all`. Note that some query
+    parameters are required in the URL:
+
+        - `threadId`: This parameter is expected to be replaced with the real ID of the thread of interest.
+      
+        - `accountId`: This represents the ID of an account or user. You need to replace this with the actual account ID.
+      
+        - `sessionId`: This represents the ID of a chat session. You must replace this with the valid session ID.
+      
+        - `deleted`: This query parameter is a flag which specifies whether to include deleted messages in the response or not. If it's set to `1`, deleted messages will be included.
+
+    4. `Headers`: This field is currently empty, which means that there are no
+    additional headers required for this request. In case of changes, new
+    headers such as `Content-Type` or `Accept` may be needed in future.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: threadId
+      in: query
+      schema:
+        type: string
+      example: threadId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: deleted
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

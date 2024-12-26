@@ -1,0 +1,74 @@
+post:
+  tags:
+    - ActionAward
+  summary: Action - Award - Delete
+  description: |-
+    {
+      "name": "Action - Award - Delete",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer": {
+              "description": "Authentication method requiring a bearer token to authorize the request. The token is typically provided in the header for authentication."
+            },
+            "bearer": [
+              {
+                "key": "token": {
+                  "description": "Specifies the type of authorization token being used for this request."
+                },
+                "value": "sessionId": {
+                  "description": "This is the actual session ID that identifies the user's active session and grants access to the API."
+                },
+                "type": "string": {
+                  "description": "Indicates that the value of the token is expected to be a string."
+                }
+              }
+            ]
+          },
+          "method": "POST": {
+            "description": "The HTTP method used for this request. POST is typically used to submit data to be processed to a specified resource."
+          },
+          "url": "http://localhost:3000/api/action/award/delete": {
+            "description": "The endpoint URL where the request is sent. This URL points to the API function responsible for deleting an award."
+          },
+          "headers": [
+            {
+              "key": "": {
+                "description": "This normally indicates a header key that can be defined for sending additional information with the request, but it is not specified here."
+              },
+              "value": "": {
+                "description": "The corresponding value for the header key, which is also not specified here."
+              },
+              "type": "default": {
+                "description": "Indicates the type of the header. However, since the key and value fields are empty, no additional headers are being sent."
+              },
+              "disabled": true: {
+                "description": "This indicates that the header is currently disabled and will not be included in the request."
+              }
+            }
+          ],
+          "body": {
+            "mode": "raw": {
+              "description": "The body of the request is formatted as raw data. This means it is not structured as form data or JSON automatically."
+            },
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"awardId\":\"awardId\"}": {
+              "description": "This is the raw JSON payload sent in the body of the request. It includes three parameters: sessionId, accountId, and awardId. These values are placeholders and should be replaced with actual data when making the request."
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"awardId\":\"awardId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

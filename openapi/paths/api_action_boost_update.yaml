@@ -1,0 +1,79 @@
+put:
+  tags:
+    - ActionBoost
+  summary: Action - Boost - Update
+  description: >-
+    ### Endpoint Description: Action - Boost - Update
+
+
+    **Request**
+
+
+    - **Auth**: 
+      - **Type**: Indicates that authentication is done using a bearer token.
+      - **Bearer**:
+        - **Key**: Specifies that the authentication token will be provided under the key "token".
+        - **Value**: This is the placeholder for the actual bearer token, which should be replaced with a valid token string to access the endpoint.
+        - **Type**: Denotes that the value is of string type.
+
+    - **Method**: 
+      - The HTTP method used for the request is PUT. This indicates that the request is meant to update existing data.
+
+    - **URL**: 
+      - This is the endpoint where the update action will be sent. The specified URL is `http://localhost:3000/api/action/boost/update`, which indicates that this might be intended for a local environment.
+
+    - **Headers**: 
+      - **Key**: `Client-UUID`
+        - **Value**: This is a placeholder for the unique identifier for the client. It should be replaced with the actual Client UUID to associate the request with the correct client session.
+        - **Type**: This indicates that the header value is of default type.
+
+    - **Body**: 
+      - **Mode**: The body is sent in "raw" format, meaning the user will manually provide the content.
+      - **Raw**: Contains a JSON object with the following fields:
+        - **sessionId**: This field should contain the unique identifier for the session. It is required to identify which session the boost action is associated with.
+        - **accountId**: This is the unique identifier for the account that is performing the action. It is essential for tracking the source of the action.
+        - **path**: Represents the specific path to the target resource, in this case, a media channel with a video identifier (e.g., `/live/channel/video123`).
+        - **targetType**: Specifies the type of target being boosted; here it is indicated as `videoId`, meaning the operation pertains to a specific video.
+        - **targetId**: The unique identifier of the target (the video) that is subject to the boost operation.
+        - **sourceType**: Indicates the origin of the action; it is set to `accountId`, meaning the source is the user's account.
+        - **sourceId**: The identifier of the source, which, like the accountId, ties back to the user’s account.
+        - **tokenAmount**: The number of boost tokens being used for the operation. For this request, it is set to `10`, meaning ten tokens are dedicated to the action.
+        - **boostId**: This is the unique identifier for the specific boost action being issued.
+        - **name**: Descriptive identifier for this update operation, set as `update`.
+        - **description**: Placeholder for any additional information or description about the update; it’s currently left empty.
+        - **tags**: Placeholder for tags related to the operation; like description, it is currently blank.
+
+    The described structure allows users to effectively understand how to fill
+    in the request parameters to perform an update on a boost action via the
+    provided API.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 10
+            boostId: boostId
+            name: update
+            desription: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

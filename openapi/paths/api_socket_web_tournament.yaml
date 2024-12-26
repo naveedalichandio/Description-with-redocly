@@ -1,0 +1,50 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Tournament
+  description: >-
+    ### Endpoint: Web - Socket - Recent Tournament
+
+
+    #### Method
+
+    - **GET**: This endpoint uses the GET method to retrieve information about
+    recent tournaments from the server.
+
+
+    #### URL
+
+    -
+    **http://localhost:3000/api/socket/web/tournament?recent=true&limit=limit**:
+    This is the full URL for the endpoint, where:
+      - **http://localhost:3000**: Indicates the server is running locally on port 3000.
+      - **/api/socket/web/tournament**: This is the path for the tournament resource.
+      - **?recent=true**: This query parameter specifies that only recent tournaments should be fetched. Setting this parameter to true filters the response to include only the most current tournament data.
+      - **&limit=limit**: This query parameter allows the user to specify how many recent tournaments to return. The value for 'limit' should be replaced with an integer that represents the desired number of tournament entries.
+
+    #### Headers
+
+    - **headers**: This section is currently empty, meaning no special headers
+    are required for this request. If needed, headers can be added for
+    authentication or content type in future implementations.
+
+
+    This endpoint is designed to provide users with a list of the latest
+    tournaments, allowing them to define how many results they want to retrieve
+    through the 'limit' parameter.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

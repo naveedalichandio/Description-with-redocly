@@ -1,0 +1,102 @@
+post:
+  tags:
+    - ReportsPlayer
+  summary: Reports - Player - Create
+  description: >-
+    This endpoint, named `Reports - Player - Create`, is a POST request that
+    requires the "bearer" authentication type. The bearer token for this
+    endpoint must be supplied in the form of a string in the `token` field. The
+    endpoint url is `http://localhost:3000/api/reports/player/create`.
+
+
+    The following JSON body needs to be passed in the raw format with the JSON
+    language option:
+
+
+    - `sessionId`: A unique identification string for the session.
+
+    - `accountId`: A unique identification string for the account.
+
+    - `name`: A string field used to provide the name of the second player.
+
+    - `description`: A string field to describe the player. In the current
+    example, the second player is being described.
+
+    - `tags`: A string field for tags related to the player. Multiple tags can
+    be separated with commas.
+
+    - `profilePhotoUrl`: A string field for the URL of the player's profile
+    photo.
+
+    - `coverPhotoUrl`: A string field for the URL of the player's cover photo.
+
+    - `minimumTipAmount`: An integer indicating the least amount of tip the
+    player can receive.
+
+    - `categoryId`: A unique string identifying the category.
+
+    - `category`: A category string, general in application.
+
+    - `subCategoryId`: A unique string identifying the sub-category. 
+
+    - `subCategory`: A string specifying the sub-category, more specific in
+    application.
+
+    - `isPlayerPrivate`: A boolean field which when set to true makes the player
+    private.
+
+    - `isTournamentOnly`: A boolean field indicating if the player is for
+    tournaments only.
+
+    - `isPlayerDefault`: A boolean field indicating if the player is set as the
+    default.
+
+    - `isPreLiveReportsAds`: A boolean field indicating if the ads are to be
+    displayed before live reports.
+
+    - `isPostLiveReportsAds`: A boolean field indicating if the ads are to be
+    displayed after live reports.
+
+    - `breakPreLiveReportsUrl`: A string field for the URL of the pre-live
+    report break video.
+
+    - `breakPostLiveReportsUrl`: A string field for the URL of the post-live
+    report break video.
+
+
+    All these fields must be enclosed in double-quotes (`"`). Moreover, ensure
+    the fields are separated by commas (`,`). The entire JSON body must be
+    enclosed in curly braces (`{}`). There are currently no custom request
+    headers in the endpoint, hence that part is disabled.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Player
+            description: This player is my second player
+            tags: second,player
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isPlayerPrivate: true
+            isTournamentOnly: false
+            isPlayerDefault: true
+            isPreLiveReportsAds: true
+            isPostLiveReportsAds: true
+            breakPreLiveReportsUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveReportsUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

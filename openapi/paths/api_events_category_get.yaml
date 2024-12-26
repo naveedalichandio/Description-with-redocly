@@ -1,0 +1,67 @@
+get:
+  tags:
+    - EventsCategory
+  summary: Events - Category - Get By Account ID
+  description: >-
+    This endpoint corresponds to `Events - Category - Get By Account ID`. It is
+    used to fetch specific event categories linked to a particular account ID.
+
+
+    1. `name`: This data field represents the name of the endpoint. In this
+    case, it is 'Events - Category - Get By Account ID'. This indicates that the
+    data retrieved via this endpoint relates to specific categories of events
+    linked to a provided account ID.
+
+
+    2. `request`: This data field encapsulates all the information pertaining to
+    the API call being made. 
+
+
+    3. `auth`: This data object within the request field specifies the kind of
+    authorization required for this API call. For this endpoint, 'bearer'
+    authorization is used.
+
+        - `type`: The type of authorization used. Here, it's a 'bearer' type authorization.
+        
+        - `bearer`: It's an array having bearer token details.
+        
+            - `key`: The key referring to type of the authorization. Here it's 'token'.
+            
+            - `value`: Value field for the key, i.e., the actual Bearer token value goes here.
+
+            - `type`: Specifies the type of value that's expected for this token. In this case, it's a 'string'.
+
+    4. `method`: This data field specifies the HTTP method being employed for
+    this API call. For this endpoint, the 'GET' method is used, which is
+    typically used to retrieve data.
+
+
+    5. `url`: This data field represents the Uniform Resource Locator (URL)
+    which is the endpoint being hit by this API call. For this endpoint, it's
+    'http://localhost:3000/api/events/category/get/?accountId=accountId', where
+    'accountId' is a variable part of the URL and it should be replaced by the
+    real account ID value while making request.
+
+
+    6. `headers`: This is an array of objects where each object represents a
+    key-value pair of headers being sent in the request. In this case, there's a
+    default header defined but since 'disabled' is set to true, this header will
+    not be sent in the request.
+
+
+    7. `body`: This data object encapsulates any information provided to the
+    particular API endpoint. In this case, it contains a 'raw' mode but no
+    actual raw body has been specified hence it defaults to an empty string.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

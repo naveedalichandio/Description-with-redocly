@@ -1,0 +1,87 @@
+post:
+  tags:
+    - ActionLearn
+  summary: Action - Learn - Delete
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: Action - Learn - Delete  
+      This is the name of the request, indicating that it is related to deleting a learning action.
+
+    - **request**:  
+      This section contains various details about the request being made to the API.
+
+      - **auth**:  
+        This specifies the type of authentication used for the request.
+        
+        - **type**: bearer  
+          This indicates that the request uses Bearer Token authentication.
+
+        - **bearer**:  
+          This array contains the details of the bearer token used for authentication.
+          
+          - **key**: token  
+            This is the name of the key used for the authentication token.
+
+          - **value**: sessionId  
+            This indicates the placeholder for the session ID that should be used as the value for the token.
+
+          - **type**: string  
+            This describes the data type of the token value, which is a string.
+
+      - **method**: POST  
+        This specifies the HTTP method used for the request. In this case, it is a POST request.
+
+      - **url**: http://localhost:3000/api/action/learn/delete  
+        This is the endpoint URL where the request is sent. It indicates that the delete action for learning is being accessed at this location.
+
+      - **headers**:  
+        This section is used for specifying any additional headers for the request.
+
+        - **key**: (empty)  
+          The key for the header is empty, indicating that no custom headers are being sent.
+
+        - **value**: (empty)  
+          The value for the header is also empty, confirming that there are no custom headers in this request.
+
+        - **type**: default  
+          This indicates that the header type is set as default.
+
+        - **disabled**: true  
+          This indicates that this header is currently disabled and will not be sent with the request.
+
+      - **body**:  
+        This section contains the data that is sent with the request.
+
+        - **mode**: raw  
+          This indicates that the body data is in raw format, allowing for plain text input.
+
+        - **raw**:  
+          This is the actual raw JSON data sent in the body of the request. It contains placeholders for the following keys:
+          
+          - **sessionId**: "sessionId"  
+            This is a placeholder for the session ID. It must be replaced with an actual session ID for the request to be valid.
+
+          - **accountId**: "accountId"  
+            This is a placeholder for the account ID. This value should be replaced with the actual account ID relevant to the deletion.
+
+          - **learnId**: "learnId"  
+            This is a placeholder for the learning ID. It must be replaced with the actual ID of the learn action that is to be deleted.  
+
+    This detailed description provides clarity on each component of the endpoint
+    request for users who will utilize the Postman API collection.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"learnId\":\"learnId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

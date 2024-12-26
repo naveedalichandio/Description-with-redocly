@@ -1,0 +1,70 @@
+get:
+  tags:
+    - UtilityCrypto
+  summary: Utility - Crypto - Get All
+  description: >-
+    ### Description of Each Data in the Endpoint:
+
+
+    - **name**: This field specifies the name of the API request. In this case,
+    the name is "Utility - Crypto - Get All". This indicates that the request is
+    related to retrieving all cryptocurrency-related data.
+
+
+    - **request**: This object contains all the details necessary to make the
+    API request.
+
+      - **auth**: This section outlines the authentication method used for this API request.
+      
+        - **type**: This indicates the authentication type being used. Here, it is set to "bearer", which means that the request requires a bearer token for authentication.
+        
+        - **bearer**: This array contains the details of the bearer token.
+        
+          - **key**: A label for the data being passed, which in this case is "token".
+          
+          - **value**: The actual bearer token value that will authenticate the request. It is presented here as "BearerToken", which should be replaced with a valid bearer token by the user.
+          
+          - **type**: Specifies the data type of the token. Here, it is set to "string".
+
+      - **method**: This field states the HTTP method to be used for the request. It is set to "GET", indicating that data will be retrieved from the server.
+
+      - **url**: This is the endpoint URL for the API request. It is configured as "http://localhost:3000/api/utility/crypto/all/?sessionId=sessionId&accountId=accountId".
+        
+        - **sessionId**: A query parameter that is expected to provide the session identifier for the request. Users should replace "sessionId" with an actual session ID.
+        
+        - **accountId**: Another query parameter that specifies the account identifier related to the request. Users should replace "accountId" with a valid account ID.
+
+      - **headers**: This section lists any additional headers that should be included in the request.
+        
+        - **key**: The header field name. In this example, it is empty, suggesting no additional headers are required.
+        
+        - **value**: The value associated with the header, which is also empty in this case.
+        
+        - **type**: Indicates the type of the header. It is marked as "default", but it is also disabled, meaning this header will not be included in the request.
+
+      - **body**: This object outlines the request body content.
+        
+        - **mode**: Indicates the format of the request body, which is set to "raw". This suggests that if there were a body, it would accept unstructured text.
+        
+        - **raw**: This field is currently empty, indicating there is no request body content needed for this GET request.
+
+    Each user utilizing this API collection should pay close attention to the
+    bearer token and the query parameters to ensure valid requests are sent.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

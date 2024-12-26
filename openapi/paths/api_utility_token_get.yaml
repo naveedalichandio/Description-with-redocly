@@ -1,0 +1,68 @@
+get:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Get Neutral Logs
+  description: >-
+    ### Utility - Token - Get Neutral Logs
+
+
+    #### Request Details:
+
+
+    - **Authentication**: This endpoint requires authentication using a Bearer
+    token.
+      - **Key**: `token` - This is the identifier for the authentication method.
+      - **Value**: `BearerToken` - This is where the actual Bearer token should be provided, replacing "BearerToken" with the valid token string.
+      - **Type**: `string` - This denotes that the token should be formatted as a string.
+
+    - **Method**: `GET` - This indicates that the request is using the GET
+    method to retrieve data from the server.
+
+
+    - **URL**: This is the endpoint URL where the request will be sent. It uses
+    query parameters to filter the logs being requested:
+      - **Base URL**: `http://localhost:3000/api/utility/token/get/`
+      - **Query Parameters**:
+        - `log`: Specifies the log type to fetch; in this case, it is set to `category`.
+        - `category`: This specifically identifies the category of logs desired, which is set to `neutrals`.
+        - `sessionId`: This parameter should contain the unique session identifier to filter logs related to a particular session.
+        - `accountId`: This parameter should contain the account identifier to filter logs pertaining to a specific account.
+
+    - **Headers**: There is a header section included, but it is currently
+    disabled and does not contain any keys or values.
+      - **Key**: is empty.
+      - **Value**: is empty.
+      - **Type**: Default - Indicates the type of header being used (none in this case).
+      - **Disabled**: true - This means that the header is not active in the request.
+
+    - **Body**: 
+      - **Mode**: `raw` - Indicates that the body will be sent in raw format.
+      - **Raw**: Currently no data is included in the body for this GET request, as it typically does not require a request body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: log
+      in: query
+      schema:
+        type: string
+      example: category
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: neutrals
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

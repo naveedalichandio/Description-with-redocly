@@ -1,0 +1,61 @@
+get:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Stripe - Get All
+  description: >-
+    This API endpoint is labeled as "Customer - Stripe - Get All". This suggests
+    it's designed to retrieve all customer data associated with the Stripe
+    payment platform.
+
+
+    - Method: The request 'GET' method indicates it's utilized to retrieve data.
+
+
+    - URL: The URL "http://localhost:3000/api/payment/customer/getAll/"
+    indicates the location of the API on the server. It consists of several
+    parts:
+      - The base URL 'http://localhost:3000/' is the root address which points to your local server running at port 3000.
+      - 'api' signifies that it's an API endpoint.
+      - 'payment' could imply the financial transaction category being targeted.
+      - 'customer' suggests that the API is associated with customer data.
+      - 'getAll' refers to the functionality of the endpoint, meaning it's responsible for fetching all customers from the Stripe payment system.
+
+    - Query Parameters: These are present in the URL after the '?'. They are
+    used to filter and manipulate the response data based on the server's logic.
+    The endpoint requires three query parameters i.e., accountId, provider, and
+    sessionId.
+       - 'accountId' is likely a unique identifier for each distinct account.
+       - 'provider' refers to the payment platform in use, which in this case is 'stripe'.
+       - 'sessionId' is probably a unique identifier for the current session, which could be used for tracking or maintaining session-specific information safely.
+
+    - Headers: The 'headers' field is currently empty in this endpoint.
+    Normally, they would be used to provide additional request info like auth
+    tokens or the formatting of the data being sent. It's noted to be blank
+    here, suggesting that no additional information is required for this API
+    request at this time. 
+
+
+    It should be noted that this is a generalized explanation based on the data
+    provided and the actual functionality might vary depending on the server
+    side implementation and business logic.
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,56 @@
+get:
+  tags:
+    - NotificationInvites
+  summary: Notification - Invites - Get All
+  description: >-
+    This endpoint is named "Notification - Invites - Get All". It is a GET
+    request and its primary purpose is to retrieve all invites' notifications. 
+
+
+    The request made to this endpoint requires bearer authentication. The Bearer
+    Token should be inserted in the 'token' field to ensure authorized access to
+    this endpoint. This token is a string value and will act as an authorization
+    key.
+
+
+    The base URL for this endpoint is
+    "http://localhost:3000/api/notification/invites/all/". It accepts two
+    parameters which are included in the URL: 'sessionId' and 'accountId'. 
+
+    - 'sessionId' is expected to be filled with the reference to the specific
+    session related to the notifications. 
+
+    - 'accountId' is to be filled with the account's unique identifier related
+    to the notifications to be fetched. 
+
+
+    In headers, a default key-value pair is given, but it is disabled by default
+    and is not contributing any additional information to the request.
+
+
+    The body of the request uses the 'raw' mode, but it doesn't contain any data
+    (signified by the 'raw' field being empty). This means no additional data is
+    sent within the request body for this endpoint. 
+
+
+    Please ensure to replace 'BearerToken', 'sessionId', and 'accountId' with
+    your actual bearer token, session id, and account id respectively while
+    making a request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,102 @@
+put:
+  tags:
+    - ActionDelete
+  summary: Action - Delete - Update
+  description: >-
+    ## Description of API Endpoint Data
+
+
+    ### Name
+
+    - **Action - Delete - Update**: This is the name of the API action that
+    indicates its purpose, which is to delete or update an entry in the system.
+
+
+    ### Request
+
+    - **Auth**: The authentication method used for this request.
+      - **Type**: `bearer`: This specifies that bearer token authentication is used.
+      - **Bearer**: Contains the details for the bearer token.
+        - **Key**: `token`: Specifies that the key for the bearer is labeled as 'token'.
+        - **Value**: `BearerToken`: This is a placeholder for the actual bearer token that should be included for authentication.
+        - **Type**: `string`: Indicates that the value of the token is a string.
+
+    ### Method
+
+    - **PUT**: This specifies the HTTP method used for the request, indicating
+    that it will modify or update existing data.
+
+
+    ### URL
+
+    - **http://localhost:3000/api/action/delete/update**: This is the endpoint
+    where the request is being sent. It includes the base URL and the specific
+    path for the delete/update action.
+
+
+    ### Headers
+
+    - **Headers**: Additional information sent with the request to define the
+    context of the request.
+      - **Key**: `Client-UUID`: A unique identifier for the client making the request, allowing the server to identify and track different clients.
+      - **Value**: `ClientUUID`: This is a placeholder for the actual UUID that should be provided.
+      - **Type**: `default`: Indicates that this header is of a standard type.
+
+    ### Body
+
+    - **Mode**: `raw`: This indicates that the body of the request is being sent
+    as raw data.
+
+    - **Raw**: The actual content of the request body, formatted as JSON.
+      ```json
+      {
+          "sessionId": "sessionId",    // Unique identifier for the user session.
+          "accountId": "accountId",    // Unique identifier for the account related to the action.
+          "deleteId": "deleteId",      // Identifier for the item that is to be deleted.
+          "path": "/live/channel/video123", // Path to the resource, in this case, a specific video.
+          "targetType": "streamer",     // Type of target entity (e.g., streamer, channel).
+          "targetId": "videoId",        // Identifier for the target entity, which can be a video ID.
+          "sourceType": "accountId",    // The type of source, typically referring to account IDs.
+          "sourceId": "accountId",      // Identifier of the source related to the action.
+          "tokenAmount": 20,            // Amount of tokens to be adjusted or modified.
+          "name": "Farooq",             // Name associated with this action or entity.
+          "description": "this is description", // A brief description of the action or resource.
+          "tags": "xyz"                 // Tags associated with the action for categorization.
+      }
+      ```
+
+    ### Options
+
+    - **Raw**: Specifies how the body content is structured.
+      - **Language**: `json`: Indicates that the raw data is formatted in JSON language.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            deleteId: deleteId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

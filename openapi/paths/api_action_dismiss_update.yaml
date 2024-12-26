@@ -1,0 +1,111 @@
+put:
+  tags:
+    - ActionDismiss
+  summary: Action - Dismiss - Update
+  description: >-
+    ### Endpoint: Action - Dismiss - Update
+
+
+    #### Request Overview
+
+    This endpoint is used to update a dismissal action for a specific video. It
+    requires authentication via a Bearer token and expects a PUT request with
+    specific parameters in the request body.
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - **Token**: This is a security token required for authorization. It should be provided in the header of the request in the format `Bearer your_token_here`.
+
+    #### Request Method
+
+    - **Method**: PUT
+      - This indicates that the request is used to update an existing resource.
+
+    #### URL
+
+    - **Endpoint URL**: `http://localhost:3000/api/action/dismiss/update`
+      - This is the endpoint where the update request is sent.
+
+    #### Headers
+
+    - **Client-UUID**: 
+      - This header should contain a unique identifier for the client making the request. It is essential for tracking and managing client-specific operations.
+
+    #### Request Body
+
+    The body of the request should be structured as a JSON object with the
+    following properties:
+
+
+    - **sessionId**: 
+      - A unique identifier for the user session. It helps track the actions performed during that specific session.
+
+    - **accountId**: 
+      - This represents the unique identifier of the account that is being updated or referenced in this action.
+
+    - **path**: 
+      - The specific path for the resource, typically a URL that points to the video being dismissed. In this case, it might look like `/live/channel/video123`.
+
+    - **targetType**:
+      - This indicates the type of the target resource being acted upon. In this instance, it is specified as `videoId`.
+
+    - **targetId**: 
+      - The unique identifier for the target resource (video) that is being dismissed, referred to as `videoId`.
+
+    - **sourceType**: 
+      - This field indicates the type of the source resource. It is set as `accountId` in this case.
+
+    - **sourceId**: 
+      - The unique identifier for the source resource. Here it refers to the account ID of the source.
+
+    - **dismissId**: 
+      - This field contains the unique identifier for the dismissal action. It helps in tracking and referencing the specific dismissal event.
+
+    - **didDismiss**: 
+      - A boolean value indicating whether the action of dismissal has occurred. It can be set to `true` or `false`.
+
+    - **name**: 
+      - A descriptive name for the update action, which can help in identifying or categorizing the update.
+
+    - **description**: 
+      - An optional field where additional details about the update can be provided. It can be left empty if not necessary.
+
+    - **tags**: 
+      - A field for including any relevant tags that could aid in categorization or retrieval of the update. It can also be left empty if not applicable.
+
+    This endpoint is critical for updating the state of video dismissal in a
+    user session, requiring careful attention to the identifiers and boolean
+    flags presented in the request body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            dismissId: dismissId
+            didDismiss: false
+            name: this update
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

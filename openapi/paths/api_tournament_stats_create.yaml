@@ -1,0 +1,121 @@
+post:
+  tags:
+    - TournamentStats
+  summary: Tournament - Stats - Create
+  description: >-
+    ### Endpoint: Tournament - Stats - Create
+
+
+    This API endpoint is used to create statistics related to a tournament.
+    Below is a detailed description of each data field included in the request
+    body.
+
+
+    #### Request Details
+
+
+    - **Auth Type**: 
+      - The request requires bearer token authentication. Users must provide a valid token to authorize the request.
+
+    #### URL
+
+    - **Endpoint URL**: 
+      - This is the URL where the request is sent. It is set to `http://localhost:3000/api/tournament/stats/create`.
+
+    #### Request Body
+
+
+    - **sessionId**: 
+      - A unique identifier for the tournament session. This helps to associate the stats with a specific tournament session.
+
+    - **accountId**: 
+      - The unique identifier for the user account. This links the created stats to the user's account in the system.
+
+    - **name**: 
+      - The name given to the statistics being created. This should be a descriptive title that clearly indicates what these stats represent.
+
+    - **description**: 
+      - A detailed description of the statistics. This provides additional context about the stats being created, helping users understand their purpose.
+
+    - **tags**: 
+      - A string of comma-separated tags that describe the statistics. These tags can help in categorization and searching for similar stats later on.
+
+    - **profilePhotoUrl**: 
+      - A URL pointing to the profile photo associated with the stats. This image can represent the creator or the nature of the stats.
+
+    - **coverPhotoUrl**: 
+      - A URL for the cover photo related to the stats. This is typically displayed as a background image for the stats page.
+
+    - **minimumTipAmount**: 
+      - A numeric value that specifies the minimum amount users can tip while interacting with the stats. It sets a baseline for contributions.
+
+    - **categoryId**: 
+      - The unique identifier for the category under which these stats fall. This helps in organizing stats into broader classes.
+
+    - **category**: 
+      - The name or label of the category. This is a human-readable version of the categoryId and helps users quickly identify the category of the stats.
+
+    - **subCategoryId**: 
+      - A unique identifier for any specific subcategory further detailing the main category. This adds an additional layer of classification.
+
+    - **subCategory**: 
+      - The name or label of the subcategory. It gives more context about the specific type of stats being created.
+
+    - **isStatsPrivate**: 
+      - A boolean value indicating whether the stats should be visible only to the creator (true) or shared publicly (false).
+
+    - **isTournamentOnly**: 
+      - A boolean indicating if these stats are exclusively for tournament-related activities. When true, it means the stats are not applicable outside of tournament settings.
+
+    - **isStatsDefault**: 
+      - A boolean that designates whether these stats are the default stats associated with the tournament. Default stats may have standard settings or rules.
+
+    - **isPreLiveTournamentAds**: 
+      - A boolean indicating whether advertisements should be shown before the live tournament begins. This can be used for promotional purposes.
+
+    - **isPostLiveTournamentAds**: 
+      - A boolean indicating if advertisements can be shown after the live tournament has concluded. Useful for generating revenue through ads.
+
+    - **breakPreLiveVideoUrl**: 
+      - A URL to a video that can be played during breaks before the tournament starts. This can enhance user engagement during waiting times.
+
+    - **breakPostLiveVideoUrl**: 
+      - A URL for a video that can play during breaks after the tournament has concluded. Similar to the pre-live video, this keeps users engaged post-event.
+
+    ### Summary
+
+    This endpoint facilitates the creation of tournament-related statistics with
+    comprehensive configurations, allowing users to personalize and manage their
+    stats effectively.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Stats
+            description: This stats is my second stats
+            tags: second,stats
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isStatsPrivate: true
+            isTournamentOnly: false
+            isStatsDefault: true
+            isPreLiveTournamentAds: true
+            isPostLiveTournamentAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

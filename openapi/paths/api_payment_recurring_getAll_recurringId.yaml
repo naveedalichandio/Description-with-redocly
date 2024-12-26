@@ -1,0 +1,63 @@
+get:
+  tags:
+    - PaymentRecurring
+  summary: Recurring - Zelle - Get All
+  description: >-
+    This endpoint is named "Recurring - Zelle - Get All". It is used to retrieve
+    all the recurring transactions happening through the Zelle service.
+
+
+    Method: `GET`
+
+
+    URL:
+    `http://localhost:3000/api/payment/recurring/getAll/recurringId?provider=zelle&accountId=accountId&sessionId=sessionId`
+
+
+    Description of Each Data:
+
+
+    1. `http://localhost:3000/api/payment/recurring/getAll/recurringId` - This
+    is the base URL which the application will hit to retrieve the recurring
+    Zelle transactions.
+
+
+    2. `provider=zelle` - This is a query parameter denoting the service
+    provider "Zelle". This parameter is mandatory and needs to be included in
+    the endpoint.
+
+
+    3. `accountId` - This is another query parameter which indicates the account
+    ID of the client using the service. Replace `accountId` in the URL with the
+    actual account ID when making a request.
+
+
+    4. `sessionId` - This is a further query parameter indicating the session of
+    the client on the website. Replace `sessionId` in the URL with the actual
+    session ID when making a request.
+
+
+    This endpoint does not require any headers to be passed along with the
+    request. It is also to be noted that the method of request is "GET", which
+    indicates data is being retrieved or fetched from the server.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

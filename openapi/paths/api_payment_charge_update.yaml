@@ -1,0 +1,173 @@
+put:
+  tags:
+    - PaymentCharge
+  summary: Charge - Zelle - Update
+  description: >-
+    `name`: This indicates the name of the API endpoint. In this case, it's
+    "Charge - Zelle - Update". This name typically represents the purpose of the
+    endpoint. For example, this endpoint presumably updates information related
+    to a Zelle charge in some way.
+
+
+    `request`: This field is an object that defines the HTTP request made to the
+    endpoint.
+
+
+    - `method`: The HTTP method used for the request. In this case, it's `PUT`,
+    which is typically used for updating an existing resource.
+
+
+    - `url`: This is the URL where the request is being sent. It points to an
+    API on your local machine (`localhost`) on port `3000`.
+
+
+    - `headers`: HTTP headers let the client and the server pass additional
+    information with the request or the response. In this case, there are no
+    extra headers defined.
+
+
+    - `body`: This is the data that is sent with the request. The `body` field
+    here is an object.
+
+        - `mode`: The method of sending the body's data. Here, it's set to `raw` which implies the data would be sent as a string.
+
+        - `raw`: The actual data to be sent in the body. It appears to be in JSON format, contains different fields representing different data parameters. Each of these parameters has different roles:
+            - `accountId`: Likely represents the unique identifier for a user's account.
+            - `sessionId`: Likely represents the unique identifier for the current session.
+            - `chargeId`: Likely represents the unique identifier for the charge that will be updated.
+            - `source`: Its value is null. It might usually represent the origin of the charge.
+            - `isSaveCharge`: A boolean value, which when true, suggests that the charge should be saved. 
+            - `isPrimary`: This could mean that this particular charge is the main or primary charge for the account.
+            - `provider`: This signifies the provider of the charge source. Here, it's set to `Zelle`.
+
+        - `options`: Defines any extra settings for the body. Here, it indicates that the language of the raw data is `json`.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            chargeId: chargeId
+            source: null
+            isSaveCharge: true
+            isPrimary: true
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}
+post:
+  tags:
+    - PaymentCharge
+  summary: Charge - AuthorizeNet - update
+  description: >-
+    This endpoint is named "Charge - AuthorizeNet - update" and it uses the POST
+    method. The aim of this endpoint is to update the information related to a
+    charge on AuthorizeNet. The endpoint URL is
+    "http://localhost:3000/api/payment/charge/update".
+
+
+    Below are the details for each data:
+
+
+    - "accountId": This represents the unique identifier of the account. It
+    needs to be replaced with the actual account ID.
+
+    - "sessionId": This field represents the session ID and it needs to be
+    replaced with the actual session ID.
+
+    - "source": This object holds information about the payment source.
+      - "amount": This is the amount to be charged.
+      - "payment": This is an object that holds information about the card used for payment.
+        - "cardNumber": This is the card number for the payment card.
+        - "expirationDate": This is the expiration date of the card.
+        - "cardCode": This is the 3-digit CVV code of the card.
+      - "lineItems": This is an array that contains details about the items that are included in the charge.
+        - "itemId": This is the unique ID of the item.
+        - "name": This is the name of the item.
+        - "description": This is the description of the item.
+        - "quantity": This is the quantity of the item that was ordered.
+        - "unitPrice": This is the price per unit of the item.
+      - "tax", "duty", and "shipping": These objects hold information about the tax, duty, and shipping costs respectively. They have similar structure and include "amount", "name", and "description".
+      - "poNumber": This corresponds to the purchase order number.
+      - "customer": This object holds the customer's identification information.
+        - "id": This is the unique ID of the customer.
+      - "billTo" and "shipTo": These objects hold the billing and shipping information respectively. They include "firstName", "lastName", "company", "address", "city", "state", "zip", and "country".
+      - "userFields": This is an array that can store any additional user-defined data. Each item within the array is an object with "name" and "value" properties.
+    - "isSaveCharge": This is a boolean value that indicates whether the charge
+    info should be saved.
+
+    - "isPrimary": This is a boolean that indicates whether this payment method
+    should be set as the primary payment method.
+
+    - "provider": This is a string field to specify the provider name, in this
+    case, it is "authorizenet".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source:
+              amount: '5'
+              payment:
+                cardNumber: '5424000000000015'
+                expirationDate: 2025-12
+                cardCode: '999'
+              lineItems:
+                - itemId: '1'
+                  name: vase
+                  description: Cannes logo
+                  quantity: '18'
+                  unitPrice: '45.00'
+              tax:
+                amount: '4.26'
+                name: level2 tax name
+                description: level2 tax
+              duty:
+                amount: '8.55'
+                name: duty name
+                description: duty description
+              shipping:
+                amount: '4.26'
+                name: level2 tax name
+                description: level2 tax
+              poNumber: '456654'
+              customer:
+                id: '99999456654'
+              billTo:
+                firstName: Ellen
+                lastName: Johnson
+                company: Souveniropolis
+                address: 14 Main Street
+                city: Pecan Springs
+                state: TX
+                zip: '44628'
+                country: US
+              shipTo:
+                firstName: China
+                lastName: Bayles
+                company: Thyme for Tea
+                address: 12 Main Street
+                city: Pecan Springs
+                state: TX
+                zip: '44628'
+                country: US
+              userFields:
+                - name: MerchantDefinedFieldName1
+                  value: MerchantDefinedFieldValue1
+                - name: favorite_color
+                  value: blue
+            isSaveCharge: true
+            isPrimary: false
+            provider: authorizenet
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

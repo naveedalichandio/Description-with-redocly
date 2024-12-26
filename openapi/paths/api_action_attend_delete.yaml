@@ -1,0 +1,77 @@
+post:
+  tags:
+    - ActionAttend
+  summary: Action - Attend - Delete
+  description: >-
+    **Endpoint Description: Action - Attend - Delete**
+
+
+    - **Name**: Action - Attend - Delete  
+      This is the identifier of the API request. It signifies that the operation is intended for deleting an attendance action.
+
+    - **Request**: This section outlines the details required to make the API
+    call.
+
+      - **Auth**: This specifies the authentication method used for the request. In this case, it is a Bearer token authentication.
+      
+        - **Type**: Bearer  
+          Indicates that the request requires a Bearer token for authentication, which is a common method for securing API endpoints.
+        
+        - **Bearer**: This array contains information regarding the authentication token that must be included in the request.
+        
+          - **Key**: "token"  
+            This denotes the name of the token parameter.
+          
+          - **Value**: "sessionId"  
+            This represents the actual token placeholder that should be replaced with a valid session ID during the request.
+          
+          - **Type**: string  
+            Specifies that the token value should be a string.
+
+      - **Method**: POST  
+        This indicates the type of HTTP request method used when making the API call. Here, POST is used, which typically suggests that the request is intended to modify resources (in this case, deleting an attendance entry).
+
+      - **URL**: "http://localhost:3000/api/action/attend/delete"  
+        This is the endpoint URL where the request should be sent. It indicates that the action is to delete an attendance record in the system.
+
+      - **Headers**: This section outlines any headers that need to be included with the request.
+      
+        - **Key**: "" (empty)  
+          There are currently no specific headers included in this request, as the key field is empty.
+        
+        - **Value**: "" (empty)  
+          Similarly, there is no value assigned since no headers are being used.
+        
+        - **Type**: default  
+          Indicates the type of header, but here it does not apply as no headers are active (disabled: true).
+
+      - **Body**: This section specifies the format and content of the data being sent with the POST request.
+      
+        - **Mode**: raw  
+          This indicates that the body of the request will be in raw format, allowing for flexible content types like JSON.
+        
+        - **Raw**: "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"attendId\":\"attendId\"}"  
+          This JSON structure defines the required parameters to be sent in the request body:
+          
+          - **sessionId**: "sessionId"  
+            This is a placeholder that should be replaced with an actual session ID to identify the user's session.
+          
+          - **accountId**: "accountId"  
+            This is a placeholder for the account ID associated with the attendance record that needs to be deleted.
+          
+          - **attendId**: "attendId"  
+            This is a placeholder for the specific attendance ID that corresponds to the record intended for deletion.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"attendId\":\"attendId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

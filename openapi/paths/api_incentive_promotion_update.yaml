@@ -1,0 +1,154 @@
+put:
+  tags:
+    - IncentivePromotion
+  summary: Incentive - Promotion - Update
+  description: >-
+    This endpoint, `Incentive - Promotion - Update`, is designed to update an
+    existing promotion incentive in the system using the `PUT` HTTP method. The
+    endpoint URL is `http://localhost:3000/api/incentive/promotion/update`. 
+
+
+    The request requires `Bearer Token` authentication, which should be provided
+    in the `token` parameter in the `auth` object. 
+
+
+    There is one mandatory header, `Client-UUID`, which should have the UUID of
+    the client making the request.
+
+
+    The body of the request must be a raw JSON object which contains following
+    parameters:
+
+
+    - `sessionId`: A string representing the session ID.
+
+    - `accountId`: A string representing user's account ID.
+
+    - `promotionId`: A string representing the ID of the promotion.
+
+    - `title`: The title of the promotion.
+
+    - `description`: Brief details about the promotion.
+
+    - `tags`: Tag the promotion using relevant keywords (separated with commas).
+
+    - `category`: The category of the promotion.
+
+    - `price`: The price details of the promotion.
+
+    - `tokenAmount`: Number of tokens involved in promotion.
+
+    - `redirectUrl`: URL to which users will be directed.
+
+    - `couponCode`: A string representing the code for any coupon active in the
+    promotion.
+
+    - `websiteUrl`: The URL of the website hosting the promotion details.
+
+    - `buttonText`: Text that should be displayed on the button.
+
+    - `releaseDate`: The date when the promotion will be released.
+
+    - `releaseTime`: The time when the promotion will be released. 
+
+    - `expiresDate`: The date when the promotion will expire.
+
+    - `expiresTime`: The time when the promotion will expire. 
+
+    - `activationType`: The type of promotion activation (auto or manual).
+
+    - `profilePhotoUrl`: URL of profile photo of promotion.
+
+    - `coverPhotoUrl`: URL of cover photo of promotion.
+
+    - `videoPlaybackUrl`: URL of promotion video.
+
+    - `audioPlaybackUrl`: URL of promotion audio.
+
+    - `quantityTotal`: Total quantity available for the promotion.
+
+    - `quantityLeft`: Quantity left for the promotion.
+
+    - `livestreamsNeeded`: Number of livestreams needed to qualify for the
+    promotion.
+
+    - `subscribersNeeded`: Number of subscribers needed to qualify for the
+    promotion.
+
+    - `followersNeeded`: Number of followers needed to qualify for the
+    promotion.
+
+    - `connectAccountsNeeded`: Number of connected accounts needed to qualify
+    for the promotion.
+
+    - `tournamentsPlaysNeeded`: Number of tournament plays needed to qualify for
+    the promotion.
+
+    - `tournamentsWinsNeeded`: Number of tournament wins needed to qualify for
+    the promotion.
+
+    - `universityToursNeeded`: Number of university tours needed to qualify for
+    the promotion.
+
+    - `sharesNeeded`: Number of shares needed to qualify for the promotion.
+
+    - `votesNeeded`: Number of votes needed to qualify for the promotion.
+
+    - `isActive`: A boolean indicating whether the promotion is currently
+    active.
+
+
+    The JSON has to be submitted in raw format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            promotionId: promotionId
+            title: Summer Special Promotion
+            description: Enjoy exclusive discounts during our Summer Sale 2.0!
+            tags: sale,summer,discount
+            category: Retail & E-Commerce
+            price: '19.99'
+            tokenAmount: 50
+            redirectUrl: https://example.com/special-promotion
+            couponCode: SUMMER2024
+            websiteUrl: https://example.com
+            buttonText: Shop Now
+            releaseDate: '2024-06-01'
+            releaseTime: '08:00:00'
+            expiresDate: '2024-08-31'
+            expiresTime: '23:59:59'
+            activationType: auto
+            profilePhotoUrl: https://example.com/images/profile.jpg
+            coverPhotoUrl: https://example.com/images/cover.jpg
+            videoPlaybackUrl: https://example.com/videos/promotion.mp4
+            audioPlaybackUrl: https://example.com/audio/promotion.mp3
+            quantityTotal: 1000
+            quantityLeft: 900
+            livestreamsNeeded: 50
+            subscribersNeeded: 500
+            followersNeeded: 600
+            connectAccountsNeeded: 300
+            tournamentsPlaysNeeded: 20
+            tournamentsWinsNeeded: 10
+            universityToursNeeded: 5
+            sharesNeeded: 400
+            votesNeeded: 800
+            isActive: true
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

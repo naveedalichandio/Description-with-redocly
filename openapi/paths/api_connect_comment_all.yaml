@@ -1,0 +1,52 @@
+get:
+  tags:
+    - ConnectComment
+  summary: Connect - Comment - Get All
+  description: >-
+    This endpoint is named "Connect - Comment - Get All". It is designed to
+    retrieve all comments associated with a specified account ID from a Connect
+    application. The request sent to this endpoint involves several data
+    components:
+
+
+    - "auth": This required field specifies the authentication method for
+    accessing this endpoint. For this case, it uses bearer authentication, where
+    the credentials are sent in the HTTP header. The bearer token is expected to
+    be a string data type. A valid token is required to access this resource.
+
+
+    - "method": This endpoint utilizes the GET method. It's primarily designed
+    to retrieve data from a server.
+
+
+    - "url": This is where the server needs to send the request. The URL is
+    'http://localhost:3000/api/connect/comment/all/?accountId=accountId'. It is
+    designed to run on the local server on port 3000. The path
+    '/api/connect/comment/all' indicates it's accessing the Connect
+    application's comment feature to get all comments. It requires an
+    'accountId' query parameter representing the user's account ID.
+
+
+    - "headers": Headers can be used to pass additional information to/from a
+    server. In this case, the field is left empty and disabled, indicating no
+    extra header information is transmitted with the request.
+
+
+    - "body": Defines the data to be sent to the server. The 'mode' signifies
+    how the information is sent, 'raw' means the information is sent
+    unformatted. However, in this case, the 'raw' data is empty, indicating this
+    GET request does not send any data in the body since it's only retrieving
+    comments.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,119 @@
+put:
+  tags:
+    - ActionCredit
+  summary: Action - Credit - Update
+  description: |-
+    ### Endpoint: Action - Credit - Update
+
+    #### Request
+
+    - **Auth**: 
+      - **Type**: Bearer 
+        - This indicates that the request uses bearer token authentication.
+        - **Key**: `token`
+        - **Value**: This is a placeholder for the actual bearer token used in authentication, represented as `BearerToken`. It should be replaced with a valid token for real requests.
+
+    - **Method**: PUT 
+      - This HTTP method indicates that the request is used for updating existing resources.
+
+    - **URL**: 
+      - This is the endpoint for updating credit actions. The specified URL is `http://localhost:3000/api/action/credit/update`.
+
+    - **Headers**:
+      - **Key**: `Client-UUID` 
+        - This header is used to identify the client making the request.
+        - **Value**: `ClientUUID` is a placeholder for the actual UUID of the client that should be used in real requests.
+
+    #### Body
+
+    - **Mode**: Raw 
+      - This specifies that the body of the request is in raw format.
+
+    - **Raw Content**: 
+      - This is a JSON formatted string which contains the data for updating a credit action. Each field is detailed below:
+      - **sessionId**:  
+        - This refers to the unique identifier for the user session during which the credit action is being performed. It should be replaced with the actual session ID.
+        
+      - **accountId**: 
+        - This is the unique identifier for the account related to the credit action. It should also be replaced with the actual account ID.
+
+      - **path**: 
+        - This represents the specific path or location for the relevant content. In this case, it appears to be the path to a video resource, in this example, `"/live/channel/video123"`.
+
+      - **targetType**: 
+        - This indicates the type of target being affected by the credit action. For this request, it is set to `videoId`, suggesting that the action is related to a video.
+
+      - **targetId**: 
+        - This is the unique identifier for the target resource, which in this case should be replaced with the actual identifier of the video to be credited.
+
+      - **sourceType**: 
+        - This indicates the type of source of the credit. Here, it is set to `accountId`, which signifies that the source of the credit action relates to an account.
+
+      - **sourceId**: 
+        - Similar to `accountId`, this is the unique identifier for the account used as the source of the credit. It should be replaced with the actual account ID.
+
+      - **isAccepted**: 
+        - This boolean field indicates whether the credit action has been accepted, set to `true` in this case.
+
+      - **isCredited**: 
+        - This boolean field indicates whether the credit has actually been applied, set to `false` in this case.
+
+      - **isReversed**: 
+        - This boolean field indicates whether the credit action has been reversed, set to `false` in this case as well.
+
+      - **reverseStatus**: 
+        - This field indicates the current status of any reversal action related to the credit, set to `"pending"` in this case.
+
+      - **utilityType**: 
+        - This indicates the type of utility being used for the credit action, here it is set to `"token"`.
+
+      - **name**: 
+        - This is the name of the video related to the credit action. The example name provided is `"Sample Video Name update"`.
+
+      - **description**: 
+        - This field provides a brief description of the video linked to the action. The example text is `"Sample video description."`.
+
+      - **tags**: 
+        - This field is intended for any associated tags related to the video. It's currently empty but can be filled with relevant tags.
+
+      - **tokenAmount**: 
+        - This indicates the amount of tokens that are being credited or involved in the action. In this case, it is set to 50.
+
+      - **creditId**: 
+        - This field provides the unique identifier for the credit action being updated. The placeholder value is `"creditId"` which should be replaced with the actual credit ID in real use cases.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            isAccepted: true
+            isCredited: false
+            isReversed: false
+            reverseStatus: pending
+            utilityType: token
+            name: Sample Video Name update
+            description: Sample video description.
+            tags: ''
+            tokenAmount: 50
+            creditId: creditId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

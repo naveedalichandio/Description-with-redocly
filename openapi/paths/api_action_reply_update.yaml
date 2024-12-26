@@ -1,0 +1,77 @@
+put:
+  tags:
+    - ActionReply
+  summary: Action - Reply - Update
+  description: |-
+    {
+      "description": {
+        "name": "This is the name of the action to be performed. It indicates the purpose of the API call, which in this case is to update a reply.",
+        
+        "request": {
+          "auth": {
+            "type": "bearer": "Defines the type of authentication being used for the API request. In this case, it uses Bearer Token authentication.",
+            
+            "bearer": [
+              {
+                "key": "token": "This is the key for the Bearer Token in the authentication header.",
+                "value": "BearerToken": "This is where the actual Bearer Token value would be placed for authentication.",
+                "type": "string": "Indicates the data type of the token value, which is a string."
+              }
+            ]
+          },
+          
+          "method": "PUT": "Specifies that this API request is using the HTTP PUT method, which is typically used to update existing resources.",
+          
+          "url": "http://localhost:3000/api/action/reply/update": "The endpoint URL where the API request is directed. It includes the base URL and the specific path for updating a reply.",
+          
+          "headers": [
+            {
+              "key": "Client-UUID": "This is the key for the Client UUID that is being sent in the request header.",
+              
+              "value": "ClientUUID": "This is where the actual Client UUID value should be placed. It is used for client identification.",
+              
+              "type": "default": "Indicates the data type for the header value, which is set to default."
+            }
+          ],
+          
+          "body": {
+            "mode": "raw": "Specifies the format of the request body. 'raw' indicates that the body is to be sent as raw data.",
+            
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"replyId\":\"replyId\"\n}": "This is the actual JSON payload being sent in the request body. It contains key-value pairs where each key is a specific attribute related to the reply update.",
+            
+            "options": {
+              "raw": {
+                "language": "json": "Indicates that the language of the raw body content is JSON, which is a common format for API requests."
+              }
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            replyId: replyId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

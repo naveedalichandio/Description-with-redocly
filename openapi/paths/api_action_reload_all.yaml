@@ -1,0 +1,80 @@
+get:
+  tags:
+    - ActionReload
+  summary: Action - Reload - Get All
+  description: >-
+    ### Action - Reload - Get All Endpoint Description
+
+
+    **Name:**  
+
+    Action - Reload - Get All  
+
+    This endpoint is designed to retrieve all reload actions for a specific user
+    session and account.
+
+
+    **Request:**
+
+
+    - **Auth:**  
+      The endpoint requires bearer token authentication, which is a method of verifying access using a token.
+
+      - **Type:**  
+        This specifies the authentication method used, which is set to **bearer**.
+
+      - **Bearer:**  
+        This section contains the token details necessary for authentication.  
+
+        - **Key:**  
+          The key field indicates the name of the token parameter, which is **token**.  
+
+        - **Value:**  
+          The value field shows the actual token required for accessing this endpoint, prefixed with "Bearer". The placeholder here is **BearerToken** and should be replaced with the actual token during usage.
+
+        - **Type:**  
+          This denotes the data type of the value, which is **string**.
+
+    - **Method:**  
+      The HTTP method for this request is **GET**, indicating that this request is meant to retrieve data from the server.
+
+    - **URL:**  
+      The URL specifies the endpoint address to which the request will be sent.  
+      ```
+      http://localhost:3000/api/action/reload/all/?sessionId=sessionId&accountId=accountId
+      ```
+      - **Base URL:** The base URL is set to **http://localhost:3000**, indicating that the API is hosted locally on port 3000.  
+
+      - **Path:** The path **/api/action/reload/all/** indicates that this is the resource aimed at fetching all reload actions.  
+
+      - **Query Parameters:**  
+        - **sessionId:** A query parameter that needs to be replaced with the actual session ID to identify the user session.  
+        - **accountId:** Another query parameter that should be replaced with the actual account ID to access the specific account actions.  
+
+    - **Headers:**  
+      This section is currently set with an empty key and value and is disabled, meaning no additional headers are being used for this request. Users can enable or modify it as needed.
+
+    - **Body:**  
+      The body of the request is configured in a **raw** format but is left empty, implying that no additional data needs to be sent in the body for this GET request.
+
+    This endpoint is used to fetch all reload-related actions associated with a
+    specific user session and account, requiring appropriate authentication and
+    session details.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

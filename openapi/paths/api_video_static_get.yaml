@@ -1,0 +1,54 @@
+get:
+  tags:
+    - VideoStatic
+  summary: Video - Static - Get
+  description: |-
+    {
+      "name": "Video - Static - Get",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer": "Authentication method used is bearer token, which requires a valid token for access.",
+            "bearer": [
+              {
+                "key": "token": "The specific key representing the authentication token required for the API request.",
+                "value": "BearerToken": "A placeholder indicating where the actual bearer token should be placed in the request.",
+                "type": "string": "Indicates that the token should be provided as a string."
+              }
+            ]
+          },
+          "method": "GET": "The HTTP method used for the request, which in this case is GET, meaning the request is intended to retrieve data.",
+          "url": "http://localhost:3000/api/video/static/get/?channelId=channelId&staticId=staticId": "The endpoint URL where the API request is sent. It includes parameters for channelId and staticId, which should be replaced with actual values when making the request.",
+          "headers": [
+            {
+              "key": "": "An empty key A placeholder for any custom headers that may be added, currently not in use.",
+              "value": "": "Placeholder for header values; currently not in use.",
+              "type": "default": "Indicates the default type of header; currently, the header is disabled.",
+              "disabled": true: "Indicates that this header is currently disabled and will not be sent with the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "The type of body content being sent with the request, which is in raw format (not currently used in a GET request).",
+            "raw": "": "An empty value, as the GET request typically doesn't send a body."
+          }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: channelId
+      in: query
+      schema:
+        type: string
+      example: channelId
+    - name: staticId
+      in: query
+      schema:
+        type: string
+      example: staticId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

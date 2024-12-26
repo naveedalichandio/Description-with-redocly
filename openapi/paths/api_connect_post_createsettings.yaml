@@ -1,0 +1,81 @@
+post:
+  tags:
+    - ConnectPost
+  summary: Connect - Post - Create Settings
+  description: >-
+    This is the description of each data in the endpoint:
+
+
+    1. "name": This is the identifier of the endpoint, in this case it is
+    "Connect - Post - Create Settings".
+
+    2. "request": This holds the details about the http request sent to the
+    server.
+
+    3. "auth": This section contains information about the authorization, where
+    "bearer" authorization type is used in this case. The bearer token is passed
+    as a string in the "token" field.
+
+    4. "method": This is the http method used to send the request to the server.
+    In this case, the "POST" method is used.
+
+    5. "url": This is the URL of the server where the request will be sent.
+
+    6. "headers": These are the additional information sent with the http
+    request. Here, a default empty header is being sent which is currently
+    disabled.
+
+    7. "body": This contains the payload that is sent with the http request.
+    Here, body is sent in "raw" format.
+
+    8. "raw": This contains the JSON payload which includes various parameters
+    like `sessionId`, `accountId`, `name`, `displayName`, `tags`, `title`,
+    `website`, `description`, `identifierKey`, `apiKey`, `apiSecret`,
+    `apiClientId`, `authToken`, `refreshToken`, `providerName`, `providerId`,
+    `uniqueKey`, `authUsername`, `authPassword`, `authEmail`, `authSecurity`,
+    `recaptchaCode`.
+
+    9. "options": Contain settings for the body of the http request. The
+    "language" option is set to "json" for this request, since JSON data is
+    being sent in the body.
+
+
+    Please ensure that the appropriate values are put in place of placeholders
+    for all the parameters in the body of the request before making the request.
+    Also, the `authSecurity` field currently holds a null value and should be
+    filled with a suitable value if required.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Usama Nasir
+            displayName: usamanasir
+            tags: example, test, api
+            title: Developer
+            website: https://www.globalexpressdelivery.org
+            description: This is a sample description for John Doe.
+            identifierKey: id123456
+            apiKey: api_key_1234567890
+            apiSecret: api_secret_0987654321
+            apiClientId: client_id_abcdef123456
+            authToken: auth_token_abcdef123456
+            refreshToken: refresh_token_123456abcdef
+            providerName: wordpress
+            providerId: beladed_id_123456
+            uniqueKey: unique_key_abcdef123456
+            authUsername: beladeddev
+            authPassword: Demopass1?
+            authEmail: beladeddev
+            authSecurity: null
+            recaptchaCode: recaptcha_code_abcdef123456
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

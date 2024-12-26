@@ -1,0 +1,112 @@
+post:
+  tags:
+    - ActionRefund
+  summary: Action - Refund - Create
+  description: >-
+    ### Action - Refund - Create
+
+
+    #### Request Overview
+
+    This endpoint is used to create a refund action for a specific session and
+    account. It requires an authentication token and accepts a JSON body
+    containing details about the refund.
+
+
+    #### Authentication
+
+    - **Type**: Bearer
+
+    - **Bearer Token**: This is a placeholder for the actual token needed to
+    authenticate the request. Replace "BearerToken" with your valid bearer
+    token.
+
+
+    #### Request Method
+
+    - **Method**: POST
+      - This request method is used to create a new resource or perform an action on the server.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/refund/create`
+      - This is the endpoint where the refund action request is sent. It's hosted locally on port 3000.
+
+    #### Headers
+
+    - **Headers**: (No headers are defined)
+      - Currently, there are no headers defined in the request. You can modify this to include any necessary headers if required.
+
+    #### Request Body
+
+    - **Mode**: Raw
+      - The body of the request is defined in raw format as JSON.
+
+    ##### JSON Body Parameters
+
+    1. **sessionId**: 
+       - **Description**: This represents the unique identifier for the session related to the refund action. Replace "sessionId" with the actual session ID.
+
+    2. **accountId**: 
+       - **Description**: This is the unique identifier for the account that is initiating the refund. Replace "accountId" with the actual account ID.
+
+    3. **path**: 
+       - **Description**: This is the path to the specific content linked to the refund request. For example, it could reference a video or channel.
+
+    4. **targetType**: 
+       - **Description**: This specifies the type of target for the refund action. In this case, it is set to "videoId" indicating the target is a video.
+
+    5. **targetId**: 
+       - **Description**: This is the unique identifier of the target resource (e.g., video) to which the refund applies. Replace "videoId" with the actual target ID.
+
+    6. **sourceType**: 
+       - **Description**: This specifies the type of source for the refund, indicating where the refund is coming from. It is set to "accountId" for account-based refunds.
+
+    7. **sourceId**: 
+       - **Description**: This is the unique identifier of the source account for the refund. Replace "accountId" with the actual source ID.
+
+    8. **name**: 
+       - **Description**: This field allows you to provide a name for the refund action. It is currently left empty.
+
+    9. **description**: 
+       - **Description**: This field provides a space for a description of the refund action. It is currently left empty.
+
+    10. **tags**: 
+        - **Description**: This field can be used to specify tags related to the refund action. It is currently left empty.
+
+    11. **didRefund**: 
+        - **Description**: A boolean value indicating whether the refund has been processed. It's set to false by default, meaning the refund has not yet occurred.
+
+    12. **reason**: 
+        - **Description**: This field allows for the inclusion of a reason for the refund. It's set to "null", indicating no reason has been provided.
+
+    #### Options
+
+    - **Raw Options**: 
+      - **Language**: JSON
+        - The request body is formatted in JSON for clarity and ease of use.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            description: ''
+            tags: ''
+            didRefund: false
+            reason: 'null'
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

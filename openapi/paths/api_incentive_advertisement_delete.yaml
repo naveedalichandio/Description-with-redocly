@@ -1,0 +1,62 @@
+post:
+  tags:
+    - IncentiveAdvertisement
+  summary: Incentive - Advertisement - Delete
+  description: >-
+    1. `"name"`: This is the name of your API endpoint. In this case, the `name`
+    is "Incentive - Advertisement - Delete". This implies that this endpoint is
+    used to delete an incentive advertisement.
+
+
+    2. `"request"`: This outlines the details of the request made to the
+    endpoint. It includes the authentication used, the request method, the url
+    where the request should go to, headers if any, and the body of the request.
+
+
+    3. `"auth"`: This describes the type of authentication used for this
+    endpoint. In this case, it uses `bearer` authentication. When making a
+    request to this endpoint, you must supply a "token" in the request headers.
+    The `value` given here, "sessionId", suggests that you would replace this
+    placeholder with the actual session ID for authentication.
+
+
+    4. `"method"`: This is the HTTP Request method used for the endpoint. In
+    this case, it is `POST`, meaning this endpoint is used for sending data to
+    be processed to a resource on the server.
+
+
+    5. `"url"`: This is the URL of the endpoint. It specifies where the request
+    is sent when the endpoint is called. 
+
+
+    6. `"headers"`: These are additional settings included with the HTTP
+    request. Here, no specific key-value header pairs are given, and the only
+    listed header is disabled, meaning it won't be sent with the request.
+
+
+    7. `"body"`: This contains the data that you want to send to the route. It
+    is in `raw` format, and for this endpoint, it contains a sessionId,
+    accountId, and advertisementId. These would usually be replaced with actual
+    values when making a request.
+
+       - `"sessionId"`: The session ID which is likely used as a part of bearer 
+         authentication.
+       - `"accountId"`: Identifier for the specific account related to the request.
+       - `"advertisementId"`: Identifier for the specific advertisement the request is focused on.
+
+    Remember to replace "sessionId", "accountId" and "advertisementId" in the
+    request body with actual values when using this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"advertisementId\":\"advertisementId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

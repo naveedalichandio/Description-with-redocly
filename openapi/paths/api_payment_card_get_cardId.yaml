@@ -1,0 +1,57 @@
+get:
+  tags:
+    - PaymentCard
+  summary: Card - Zelle - Get
+  description: >-
+    This API endpoint is named "Card - Zelle - Get". 
+
+
+    1. __Method__: It uses the `GET` method, which typically requests data from
+    a resource without any side-effects.
+
+
+    2. __URL__: The URL for this endpoint is
+    "http://localhost:3000/api/payment/card/get/cardId". This is the local
+    server address where the API resides. You should replace `cardId` with the
+    actual ID of the card you want to get information about. It represents a
+    specific card that exists in your system.
+
+
+    3. __Query Parameters__:
+        
+        - __provider__: This parameter should be set to "zelle". This reveals that the underlying form of payment connected with the card is facilitated by Zelle.
+        - __accountId__: This parameter should contain the account ID associated with the user. It is a unique identifier that refers to a specific user in your system.
+        - __sessionId__: This parameter should contain a unique session ID generated for a particular user session. It helps in maintaining the state and tracking the behaviour of a user during a session.
+
+    4. __Headers__: As of now, the request doesn't require any specific headers.
+    Headers in HTTP requests provide additional parameters that are needed by
+    the API endpoint to process the request. Since it is empty, no extra data is
+    needed in the headers for this API call. However, based on the requirements
+    like authentication, content type etc., it might be required in the future.
+
+
+    In summary, this API is designed to retrieve card information associated
+    with a specific account using Zelle as the provider. A unique `cardId`,
+    `accountId`, and `sessionId` needs to be specified in the URL to get the
+    information.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

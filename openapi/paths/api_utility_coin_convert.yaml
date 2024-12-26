@@ -1,0 +1,73 @@
+post:
+  tags:
+    - UtilityCoin
+  summary: Utility - Coin - Convert Coin
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    #### Endpoint Name
+
+    - **Utility - Coin - Convert Coin**: This is the name of the API endpoint
+    responsible for converting a specific amount of one type of coin to another.
+
+
+    #### Request Details
+
+    - **Authentication**: 
+      - **Type**: Bearer. This indicates that the endpoint requires a bearer token for authorization.
+      - **Bearer Token**: Represents the token used for authentication, which should be replaced with a valid token. Here it's represented as "BearerToken".
+
+    - **Method**: 
+      - **POST**: The HTTP method used to send data to the server in order to execute the conversion request.
+
+    - **URL**: 
+      - **URL**: `http://localhost:3000/api/utility/coin/convert`. This is the endpoint where the conversion request is sent. The localhost indicates it's for local testing.
+
+    - **Headers**:
+      - **Client-UUID**: A unique identifier for the client making the request. This should be replaced with an actual UUID representing the client, here marked as "ClientUUID".
+
+    #### Body of the Request
+
+    - **Mode**: 
+      - **raw**: This indicates the request body is sent as raw data.
+      
+    - **Body Content**: 
+      - **Raw JSON**: The data sent in the body of the request, formatted in JSON. Below are the specific fields included in the body:
+        - **sessionId**: A unique identifier for the user's session. This should be replaced with an actual session ID.
+        - **accountId**: The identifier for the account from which the funds are being converted. Replace with the actual account ID.
+        - **rate**: A numeric value representing the conversion rate for the coin to be converted.
+        - **amount**: The amount of coins to be converted. This is a numeric value indicating how many coins to convert.
+        - **type**: Describes the type of conversion; in this case, it is set as "platform".
+        - **target**: Specifies the target currency or token to convert the amount into; indicated as "token" here.
+        - **toType**: The type of the result after conversion; also set to "platform".
+
+    This information contributes to the overall understanding of how to use the
+    endpoint for coin conversion effectively. Users should ensure they replace
+    placeholders with actual values before making requests.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            rate: 2
+            amount: 5
+            type: platform
+            target: token
+            toType: platform
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

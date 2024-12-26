@@ -1,0 +1,49 @@
+post:
+  tags:
+    - ActionCredit
+  summary: Action - Credit - Delete
+  description: >-
+    ### Action - Credit - Delete
+
+
+    **Request Type**: POST  
+
+    **Endpoint**: `http://localhost:3000/api/action/credit/delete`  
+
+
+    **Authentication**:  
+
+    - **Type**: Bearer Token  
+      - **Token**: This is a string that represents the user's session ID, used for authenticating the request. 
+
+    **Headers**:  
+
+    - Currently, there are no headers specified. The default header
+    configuration is disabled.
+
+
+    **Request Body**:  
+
+    - The body of the request is in raw JSON format. It contains the following
+    key-value pairs:
+      - **sessionId**: A string parameter that represents the user's active session, which is required for authentication.
+      - **accountId**: A string parameter that identifies the account associated with the credit that needs to be deleted.
+      - **creditId**: A string parameter that uniquely identifies the credit entry to be deleted from the account. 
+
+    This endpoint is designed to delete a specific credit entry from a user's
+    account, requiring proper authentication and identification of the credit to
+    be removed.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"creditId\":\"creditId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

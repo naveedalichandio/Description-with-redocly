@@ -1,0 +1,68 @@
+post:
+  tags:
+    - ActionShare
+  summary: Action - Share - Delete
+  description: >-
+    ### Action - Share - Delete Endpoint Description
+
+
+    - **Endpoint Name:** Action - Share - Delete
+      - This endpoint is used to delete a shared action.
+
+    - **Request Type:**
+      - **Method:** POST
+        - This endpoint uses the POST method to send a request to the server.
+
+    - **Authentication:**
+      - **Auth Type:** Bearer
+        - Authentication is done using a bearer token to validate the user's session.
+
+      - **Bearer Token Details:**
+        - **Key:** token
+          - This key is used to identify the authorization token within the request.
+        - **Value:** sessionId
+          - The value represents the session identifier, which must be replaced with the actual session ID during the request.
+        - **Type:** string
+          - Indicates that the token is a string value.
+
+    - **Request URL:**
+      - **URL:** `http://localhost:3000/api/action/share/delete`
+        - This is the endpoint URL where the request is sent. It is set to localhost for local testing.
+
+    - **Headers:**
+      - The request currently has a header defined but it is disabled and does not contain any key or value.
+        - **Key:** (empty)
+        - **Value:** (empty)
+        - **Type:** default
+        - **Disabled:** true
+          - This indicates that no additional headers are being sent with the request.
+
+    - **Request Body:**
+      - **Mode:** raw
+        - Indicates that the body of the request is in raw JSON format.
+      - **Raw Body Content:**
+        - The body contains a JSON object with the following parameters:
+          - **sessionId:** "sessionId"
+            - This field should contain the actual session ID for authentication.
+          - **accountId:** "accountId"
+            - This field should contain the actual account ID associated with the action to be deleted.
+          - **shareId:** "shareId"
+            - This field should contain the ID of the share that needs to be deleted.
+
+    Make sure to replace the placeholder values ("sessionId", "accountId",
+    "shareId") with actual values when making a request to successfully delete a
+    share.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"shareId\":\"shareId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,71 @@
+post:
+  tags:
+    - ChatComment
+  summary: Chat - Comment - Create
+  description: >-
+    This endpoint, named "Chat - Comment - Create", is used to create a new
+    comment in a chat. It is a HTTP POST request to the URL
+    http://localhost:3000/api/chat/comment/create. Here is a deeper look at the
+    different pieces of data provided in this endpoint:
+
+
+    1. **auth**: This contains the authorization method which is of type
+    "bearer". The bearer authentication (also called token authentication) is an
+    HTTP authentication scheme that involves security tokens called bearer
+    tokens. 
+
+       **key**: The key field contains the name of the header, which is "token".
+
+       **value**: The value field contains the actual Bearer token that needs to be added in the header for access.
+
+       **type**: This defines the data type of the value, in this case, it is a string.
+
+    2. **method**: The HTTP method used for this request is POST. HTTP POST
+    requests are used to send data to the server, like when you fill out a form
+    and hit 'submit'. In this case, it is used to create a new chat comment.
+
+
+    3. **url**: This is the endpoint where the POST request is to be sent. 
+
+
+    4. **headers**: This is currently empty but would typically contain any
+    extra headers that need to be added to the request.
+
+
+    5. **body**: This is the data that is sent with the POST request. The data
+    is in raw format and the mode type is "raw" under the body field.
+
+       **raw**: This is the actual data being sent in the request. It contains:
+       
+      - `commentText`: The text of the comment that is being created.
+      
+      - `threadId`: The unique identifier for the thread where the comment is being posted.
+      
+      - `replyToId`: The id of the comment this new comment is responding to, in case the new comment is a reply.
+      
+      - `accountId`: The id of the account creating the comment.
+      
+      - `sessionId`: The id of the current session.
+
+       **options**: In the options field, raw is defined with language as json. It means that the raw data is written in JSON format.
+
+    Remember to replace "BearerToken", "threadId", "replyToId", "accountId", and
+    "sessionId" with actual values when using this endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            commentText: Hello, this is a comment!
+            threadId: threadId
+            replyToId: replyToId
+            accountId: accountId
+            sessionId: sessionId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

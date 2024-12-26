@@ -1,0 +1,58 @@
+post:
+  tags:
+    - EventsSubCategory
+  summary: Events - SubCategory - Delete
+  description: >-
+    This endpoint is titled "Events - SubCategory - Delete". Its primary
+    function is to delete a particular sub-category from the events category.
+
+
+    Key details about this endpoint are listed below:
+
+
+    1. Auth Type: This endpoint uses Bearer Token authentication. The specific
+    token required in this case is referred to as a 'sessionId', and it must be
+    of type 'string'.
+
+
+    2. Request Method: The request method used for this endpoint is 'POST'.
+
+
+    3. URL: The specific URL that needs to be hit for accessing this endpoint is
+    "http://localhost:3000/api/events/subcategory/delete".
+
+
+    4. Headers: The endpoint includes an empty, disabled default header. If
+    needed, headers such as Content-Type could be added, but be aware that the
+    current configuration does not require any.
+
+
+    5. Body: The body of this request carries raw data. The raw data needs to
+    have three key-value pairs:
+
+        - "sessionId" which should correspond to the active session's ID.
+        - "accountId" which corresponds to the account ID where the command is to be exercised.
+        - "subCategoryId", which corresponds to the ID of the sub-category to be deleted from the events.
+
+    It is important to ensure that the data is properly structured and all
+    fields are filled in correctly before the request is sent to the designated
+    URL.
+
+
+    In summary, this represents a request to delete an events sub-category using
+    the provided account and session details. The request is executed via POST
+    method, and it requires Bearer Token authorization.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"subCategoryId\":\"eventSubCategoryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

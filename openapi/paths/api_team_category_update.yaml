@@ -1,0 +1,86 @@
+put:
+  tags:
+    - TeamCategory
+  summary: Team - Category - Update
+  description: >-
+    ### Endpoint: Team - Category - Update
+
+
+    **Request Type**: PUT  
+
+    **URL**: `http://localhost:3000/api/team/category/update`  
+
+
+    **Authentication**:  
+
+    - **Type**: Bearer Token  
+
+    - **Token**: A string value that represents the user's authentication token
+    to authorize the request.
+
+
+    **Headers**:  
+
+    - **Client-UUID**: A unique identifier for the client making the request.
+    This is used for tracking and managing client requests.
+
+
+    **Body Parameters**:  
+
+    The body of the request should be sent in JSON format and includes the
+    following fields:
+
+
+    1. **categoryId**:  
+       - Type: String  
+       - Description: This is the unique identifier for the category you want to update within the team.
+
+    2. **sessionId**:  
+       - Type: String  
+       - Description: This represents the identifier for the session associated with the category being updated.
+
+    3. **accountId**:  
+       - Type: String  
+       - Description: This is the unique identifier for the account that owns or manages the category.
+
+    4. **name**:  
+       - Type: String  
+       - Description: This is the new name you want to assign to the category. For example, "Miami Art Week 3".
+
+    5. **displayName**:  
+       - Type: String  
+       - Description: This is the name that will be displayed for the category, such as "Miami Art Week 2024". It should be user-friendly and descriptive.
+
+    6. **description**:  
+       - Type: String  
+       - Description: A detailed description of the category. This provides more context about what the category entails, such as "An immersive celebration of art and culture during Miami Art Week."
+
+    7. **tags**:  
+       - Type: String  
+       - Description: A comma-separated list of tags associated with the category. These tags can be used for categorization and search purposes, for example, "Art,Exhibition,Miami,Culture".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            categoryId: teamCategoryId
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 3
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

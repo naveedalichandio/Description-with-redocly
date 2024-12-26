@@ -1,0 +1,42 @@
+get:
+  tags:
+    - WebSocketPopular
+  summary: Web - Socket - Popular All
+  description: >-
+    ### Endpoint Description: Web - Socket - Popular All
+
+
+    - **Name**: This endpoint is labeled as "Web - Socket - Popular All,"
+    indicating its purpose is to retrieve a list of popular items through a
+    WebSocket connection.
+
+
+    - **Request**:
+      - **Method**: The HTTP method used for this request is GET. This means that the request is intended to fetch data from the server.
+      
+      - **URL**: The endpoint URL is `http://localhost:3000/api/socket/web/popular?popular=true&limit=limit`. This is where the GET request will be sent. It consists of several components:
+        - **Base URL**: `http://localhost:3000` – This is the base address of the server hosting the API, which, in this instance, is running locally on port 3000.
+        - **Path**: `/api/socket/web/popular` – This specifies the route within the API that is responsible for handling requests about popular items through a WebSocket.
+        - **Query Parameters**:
+          - `popular=true` – This parameter likely indicates that the request is specifically for popular items.
+          - `limit=limit` – This parameter is used to set a limit on the number of items returned in the response. The actual value for "limit" should be replaced with a specific number when making the request.
+
+    - **Headers**: There are no additional headers included in this request.
+    Headers are often used for purposes like authentication or specifying the
+    type of response desired, but in this case, none are needed.
+  parameters:
+    - name: popular
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

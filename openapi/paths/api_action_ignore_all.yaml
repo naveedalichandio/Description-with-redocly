@@ -1,0 +1,59 @@
+get:
+  tags:
+    - ActionIgnore
+  summary: Action - Ignore - Get All
+  description: >-
+    ### Detailed Description of the Endpoint Data
+
+
+    - **name**: Represents the label for the API call. In this case, it is
+    "Action - Ignore - Get All", indicating the purpose of the request.
+
+
+    - **request**: This object contains all the components needed to make the
+    API request.
+
+      - **auth**: Defines the authentication method used for the API call.
+        - **type**: Specifies the type of authentication. Here, it is set to "bearer", indicating that the request uses a Bearer Token for authorization.
+        - **bearer**: An array that holds the details of the bearer token used for authentication.
+          - **key**: This specifies the name of the token parameter. It is named "token".
+          - **value**: The actual bearer token or the placeholder in this case, "BearerToken", which should be replaced with a valid token during the request.
+          - **type**: Indicates the data type for the token, which is "string".
+
+      - **method**: Indicates the HTTP method used for the request. Here, "GET" implies that the request is meant to retrieve data from the server.
+
+      - **url**: The endpoint URL where the request will be sent. It consists of:
+        - The base URL: `http://localhost:3000`
+        - The path: `/api/action/ignore/all/`
+        - Query parameters, which include:
+          - **sessionId**: A placeholder named "sessionId" that should be replaced with an actual session ID when making the request.
+          - **accountId**: A placeholder named "accountId" that should be replaced with a valid account ID.
+
+      - **headers**: This defines any headers that should be included in the request.
+        - The current header indicates an empty key and value, and it is marked as disabled, meaning it will not be included in the request.
+
+      - **body**: Specifies the body of the request.
+        - **mode**: Indicates the format of the body; it is set to "raw" in this instance.
+        - **raw**: This is where the body content would be specified. In this case, it is empty, indicating that there is no additional data sent with the request.
+
+    This endpoint is designed to retrieve information related to ignored actions
+    for a specified session and account. Users need to provide valid session and
+    account IDs and a valid bearer token to authenticate the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

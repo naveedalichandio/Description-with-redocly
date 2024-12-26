@@ -1,0 +1,137 @@
+post:
+  tags:
+    - ActionCredit
+  summary: Action - Credit - Create
+  description: >-
+    ### Endpoint Description: Action - Credit - Create
+
+
+    This API endpoint is used to create a credit action related to a specific
+    video. Below is a detailed description of each data parameter used in the
+    request body.
+
+
+    #### Request Body Parameters:
+
+
+    - **sessionId**: 
+      - Type: String
+      - Description: A unique identifier for the session during which the credit action is initiated.
+
+    - **accountId**: 
+      - Type: String
+      - Description: Represents the identifier of the account that is involved in the credit action.
+
+    - **path**: 
+      - Type: String
+      - Description: The endpoint path to the video resource, which is typically in the format of `/live/channel/{videoId}`.
+
+    - **targetType**: 
+      - Type: String
+      - Description: Indicates the type of target for the credit action. In this case, it's set to "videoId", identifying that the target is a specific video.
+
+    - **targetId**: 
+      - Type: String
+      - Description: The unique identifier for the target video that is receiving the credit.
+
+    - **sourceType**: 
+      - Type: String
+      - Description: The type of source from which the credit is being drawn. This is labeled as "accountId", indicating that the credit is sourced from a user account.
+
+    - **sourceId**: 
+      - Type: String
+      - Description: The unique identifier of the source account that is providing the credit.
+
+    - **isAccepted**: 
+      - Type: Boolean
+      - Description: A flag that indicates whether the credit action has been accepted. Set to `true` means acceptance.
+
+    - **isCredited**: 
+      - Type: Boolean
+      - Description: A flag that indicates whether the credit has been successfully applied. Set to `false` means it has not yet been credited.
+
+    - **isReversed**: 
+      - Type: Boolean
+      - Description: A flag that indicates whether the credit action has been reversed. Set to `false` means there has been no reversal.
+
+    - **reverseStatus**: 
+      - Type: String
+      - Description: This parameter describes the status of any potential reversal action. Set to "pending" indicates that a reversal is awaited.
+
+    - **utilityType**: 
+      - Type: String
+      - Description: Specifies the type of utility being awarded through the credit. In this instance, it is set to "token".
+
+    - **name**: 
+      - Type: String
+      - Description: The name of the video to which the credit is associated.
+
+    - **description**: 
+      - Type: String
+      - Description: A description of the video associated with the credit. This provides more context or information about the video.
+
+    - **tags**: 
+      - Type: String
+      - Description: A field intended for tags related to the video. This can be used for categorization or searching but is left empty in this instance.
+
+    - **tokenAmount**: 
+      - Type: Number
+      - Description: The amount of tokens assigned to the credit action. In this case, the value is set to 20.
+
+    ### Authentication:
+
+
+    - **Auth Type**: Bearer Token
+      - Description: The request requires authentication via a bearer token where valid credentials must be provided for the action to be processed. The token value should replace "BearerToken" in actual requests. 
+
+    ### HTTP Method:
+
+
+    - **Method**: POST
+      - Description: The HTTP method used for this request is POST, indicating that this request is intended to create a new resource (in this case, a credit action). 
+
+    ### URL:
+
+
+    - **Endpoint URL**: 
+      - Description: `http://localhost:3000/api/action/credit/create`
+      - This is the URL where the request is sent to create the credit action. Adjust the base URL as needed for the production environment. 
+
+    ### Headers:
+
+
+    - **Headers**: 
+      - Description: No headers are specified in the request template, but additional custom headers may be added as needed (though the default header shown is disabled). 
+
+    This comprehensive description should aid users in understanding the
+    requirements and parameters needed for the Action - Credit - Create API
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            isAccepted: true
+            isCredited: false
+            isReversed: false
+            reverseStatus: pending
+            utilityType: token
+            name: Sample Video Name
+            description: Sample video description.
+            tags: ''
+            tokenAmount: 20
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

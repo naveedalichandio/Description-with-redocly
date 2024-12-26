@@ -1,0 +1,51 @@
+post:
+  tags:
+    - ReportsPlayer
+  summary: Reports - Player - Delete
+  description: >-
+    The endpoints in this JSON object are described as follows:
+
+
+    1. "name": "Reports - Player - Delete" - This is the name of the endpoint,
+    indicating that it is used for deleting player reports.
+
+
+    2. "request": This object contains all the details of the HTTP request.
+
+        a. "auth": This object describes the authentication method used for the request. 
+        
+            i. "type": "bearer" - This indicates the type of authentication used, which in this case is Bearer authentication.
+        
+            ii. "bearer": This array contains the bearer token details. Here, the bearer token is represented by a sessionId, of string type.
+
+        b. "method": "POST" - This indicates the HTTP method used for the request. Here it is "POST", which means data is sent to a server to create a resource.
+
+        c. "url": "http://localhost:3000/api/reports/player/delete" - This is the URL endpoint at which the request will be made.
+
+        d. "headers": This field is an array that would usually contain any additional headers that the request requires. In this case, it is an empty default header that is disabled.
+
+        e. "body": This object contains details of the request body. 
+
+            i. "mode": "raw" - This describes how the request body is formatted. Here, it is in "raw" mode which means the data is sent as it is written in the body field. 
+
+            ii. "raw": This field contains the raw data being sent in the body. It includes the sessionId, accountId, and playerId, all of which are necessary for identifying the correct player report to delete.
+
+    So, when executing this POST request, you should include the bearer token in
+    the request header. The token represents the sessionId and is a string type.
+    The request body should be in raw format and include three identifiers-
+    sessionId, accountId, and playerId. This information is necessary to specify
+    the player report to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"playerId\":\"playerId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

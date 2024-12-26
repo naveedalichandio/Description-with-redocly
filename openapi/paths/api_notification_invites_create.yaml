@@ -1,0 +1,102 @@
+post:
+  tags:
+    - NotificationInvites
+  summary: Notification - Invites - Create
+  description: >-
+    This endpoint is called "Notification - Invites - Create". It's a POST
+    request, which means it's intended to create a new content for notification
+    invites and send the information to the server. 
+
+
+    The endpoint URL is
+    "http://localhost:3000/api/notification/invites/create". 
+
+
+    It uses 'Bearer token' authentication. To reach the endpoint, you need to
+    provide a valid 'Bearer token' under the "token" key. If you don't, your
+    request will be rejected.
+
+
+    The request headers are currently empty and disabled by default. They are
+    not required to successfully complete the request.
+
+
+    In the body of the request, it requires various data:
+
+
+    - `sessionId`: A string that represents the session ID.
+
+    - `accountId`: A string that represents the account ID.
+
+    - `name`: The name of the invite.
+
+    - `description`: A string describing the invite.
+
+    - `tags`: The tags associated with the invite.
+
+    - `profilePhotoUrl`: A URL leading to the profile photo for the invite.
+
+    - `coverPhotoUrl`: A URL leading to the cover photo for the invite.
+
+    - `minimumTipAmount`: The minimum amount required for a tip.
+
+    - `categoryId` & `category`: These represent the category of the invite. 
+
+    - `subCategoryId` & `subCategory`: These represent the sub-category of the
+    invite. 
+
+    - `isInvitesPrivate`: A boolean variable indicating whether the invite is
+    private (true) or not (false).
+
+    - `isTournamentOnly`: A boolean variable indicating whether the invite is
+    only for a tournament (true) or not (false).
+
+    - `isInvitesDefault`: A boolean variable indicating whether the invite is
+    default (true) or not (false).
+
+    - `isPreLiveNotificationAds`: A boolean variable indicating whether pre-live
+    notification ads are enabled (true) or not (false).
+
+    - `isPostLiveNotificationAds`: A boolean variable indicating whether
+    post-live notification ads are enabled (true) or not (false).
+
+    - `breakPreLiveNotificationUrl`: A URL leading to a notification break
+    before the invite goes live.
+
+    - `breakPostLiveNotificationUrl`: A URL leading to a notification break
+    after the invite goes live.
+
+
+    All the data should be sent in the raw, JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Invites
+            description: This invites is my second invites
+            tags: second,invites
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isInvitesPrivate: true
+            isTournamentOnly: false
+            isInvitesDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

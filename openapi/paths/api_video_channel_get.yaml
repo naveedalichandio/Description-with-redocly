@@ -1,0 +1,56 @@
+get:
+  tags:
+    - VideoChannel
+  summary: Video - Channel - Get
+  description: |-
+    {
+      "description": {
+        "name": "Video - Channel - Get": "This refers to the name of the API endpoint which retrieves video data associated with a specific channel.",
+        
+        "request": {
+          "auth": {
+            "type": "bearer": "This indicates that the API request uses Bearer authentication, requiring a token for authorization.",
+            
+            "bearer": [
+              {
+                "key": "token": "This represents the key used in the authorization header.",
+                "value": "BearerToken": "This placeholder indicates where the actual Bearer token should be provided for authentication.",
+                "type": "string": "This specifies that the value of the Bearer token is a string."
+              }
+            ]
+          },
+          
+          "method": "GET": "This indicates that the HTTP method used for the request is 'GET', which is used to retrieve data from the specified resource.",
+          
+          "url": "http://localhost:3000/api/video/channel/get/?channelId=channelId": "This is the endpoint URL where the request is sent. It includes a query parameter 'channelId', which should be replaced with the actual ID of the channel for which video information is being requested.",
+          
+          "headers": [
+            {
+              "key": "": "This is an empty key indicating that no additional headers are being sent with the request.",
+              "value": "": "This is an empty value corresponding to the empty key, meaning no value is associated.",
+              "type": "default": "This indicates the type of header, which in this case is set to default, but is not actively used since headers are disabled.",
+              "disabled": true: "This indicates that the header is disabled and will not be included in the request."
+            }
+          ],
+          
+          "body": {
+            "mode": "raw": "This specifies the mode of the body for the API request, indicating that the body content is sent in raw format.",
+            
+            "raw": "": "This placeholder denotes that the body of the request is empty, as the GET method does not typically require a body."
+          }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: channelId
+      in: query
+      schema:
+        type: string
+      example: channelId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

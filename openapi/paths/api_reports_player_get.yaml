@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ReportsPlayer
+  summary: Reports - Player - Get
+  description: >-
+    - **name**: This denotes the name or title of this endpoint, which in this
+    case is 'Reports - Player - Get'. This is usually used for identifying the
+    API endpoint in a collection or documentation.
+
+
+    - **request.auth**: The 'auth' field represents the type of authorization
+    required to send a request to this endpoint. This endpoint requires Bearer
+    Token authorization. The generated token needs to be passed here as a
+    string.
+
+
+    - **request.method**: This is the HTTP method used for the request. Since
+    the method here is 'GET', this endpoint corresponds to retrieving data from
+    a server.
+
+
+    - **request.url**: This is the URL where the request will be sent. It
+    includes the base URL (http://localhost:3000/api/reports/player/get/) and
+    query parameters playerId, sessionId, and accountId to identify the specific
+    player, session, and account.
+
+
+    - **request.headers**: Headers can contain more information about the
+    request. For this endpoint, no additional headers are required as the
+    'disabled' value is set to 'true'.
+
+
+    - **request.body**: Here we define what data to send within the body of the
+    HTTP request. For this 'GET' request, there is no body. The mode is 'raw'
+    which means that if data were to be sent, it would be sent in unprocessed
+    form. For this endpoint, however, no 'raw' data is to be sent. 
+
+
+    Remember to replace the BearerToken string in the auth field, and playerId,
+    sessionId, accountId in the URL with actual values for a successful request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: playerId
+      in: query
+      schema:
+        type: string
+      example: playerId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

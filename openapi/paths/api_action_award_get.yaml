@@ -1,0 +1,73 @@
+get:
+  tags:
+    - ActionAward
+  summary: Action - Award - Get
+  description: >-
+    ### Endpoint: Action - Award - Get
+
+
+    #### Description of Data
+
+
+    - **name**: This specifies the name of the API request. In this case, the
+    request is titled "Action - Award - Get", which indicates that it is used
+    for retrieving award-related information.
+
+
+    - **request**: This section contains all the details related to the API
+    request.
+
+      - **auth**: This denotes the authentication method used for the request.
+        - **type**: Specifies the type of authentication. In this instance, it is set to "bearer", indicating a bearer token authentication method.
+        - **bearer**: This is an array that holds the authentication details.
+          - **key**: This is a label for the value being sent, which is "token" in this situation.
+          - **value**: This holds the actual bearer token. Here, it is labeled as "BearerToken", which should be replaced with a valid token when making the request.
+          - **type**: The data type of the value provided, which is "string".
+
+      - **method**: Specifies the HTTP method used for the request. This request uses the "GET" method, which is typically used to retrieve data from the server.
+
+      - **url**: This is the endpoint URL that the request is sent to. In this instance, it is:
+        ```
+        http://localhost:3000/api/action/award/get/?awardId=awardId&sessionId=sessionId&accountId=accountId
+        ```
+        - The URL contains query parameters:
+          - **awardId**: A placeholder for the ID of the award you want to retrieve. You must replace "awardId" with the actual award ID.
+          - **sessionId**: A placeholder for the session ID associated with the request. Replace "sessionId" with the actual session ID.
+          - **accountId**: A placeholder for the account ID associated with the request. Replace "accountId" with the actual account ID.
+
+      - **headers**: This section is meant for including additional headers in the request.
+        - **key**: This is left empty and does not contain any specific header information.
+        - **value**: This is also empty, indicating no value is associated with any header.
+        - **type**: This is labeled as "default".
+        - **disabled**: This property is set to true, which means that this particular header setup is disabled and will not be included in the request.
+
+      - **body**: This section describes the body of the request.
+        - **mode**: Indicates the format of the request body. Here, it is "raw", suggesting that the body content is sent as raw data.
+        - **raw**: This field is currently empty, which means there is no raw data being sent in the body of the request.
+
+    This description provides a comprehensive overview of the components
+    involved in the "Action - Award - Get" request, guiding users on how to
+    properly utilize the API.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: awardId
+      in: query
+      schema:
+        type: string
+      example: awardId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

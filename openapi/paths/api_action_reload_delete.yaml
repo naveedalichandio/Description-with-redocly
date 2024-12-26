@@ -1,0 +1,49 @@
+post:
+  tags:
+    - ActionReload
+  summary: Action - Reload - Delete
+  description: >-
+    ### Endpoint: Action - Reload - Delete
+
+
+    #### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Bearer Authentication is used to authorize access to the API. 
+      - **Bearer Details**: A token is required for the request, which will be passed as a `sessionId`. 
+
+    - **Method**: 
+      - **POST**: This endpoint uses the HTTP POST method to send data to the server.
+
+    - **URL**: 
+      - The request will be sent to `http://localhost:3000/api/action/reload/delete`, which is the local host address where the API is hosted. 
+
+    - **Headers**: 
+      - Currently, there are no custom headers specified. There is an empty header field that is disabled, meaning it will not be sent with the request.
+
+    - **Body**: 
+      - **Mode**: The body is in "raw" format, which allows for sending JSON data directly.
+      - **Raw Data**: The JSON payload being sent contains the following keys:
+        - **sessionId**: This represents the unique identifier for the user session that is currently active.
+        - **accountId**: This represents the unique identifier for the account linked to the session or action.
+        - **reloadId**: This signifies the unique identifier for the reload action that is to be deleted. 
+
+    This endpoint is designed to send a request to delete a specific reload
+    action associated with a user session and account. Make sure to properly
+    replace the placeholder values with actual identifiers when making a
+    request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"reloadId\":\"reloadId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,54 @@
+get:
+  tags:
+    - ConnectAd
+  summary: Connect - Ads - Get
+  description: >-
+    This endpoint is named "Connect - Ads - Get". This is a call to fetch
+    specific advertisement data based upon the adId provided. Here is a more
+    detailed explanation of its components:
+
+
+    1. `name`: The name of the endpoint. It is denoted as "Connect - Ads - Get".
+    It indicates the operation of connecting and fetching data related to ads.
+
+
+    2. `request`: This indicates an HTTP request that is to be sent. 
+
+
+    3. `auth`: The authentication type used for this request. It is using
+    'bearer' authentication which means that a bearer token will be used to
+    validate the request. The `token` key is the actual location where the
+    bearer token must be inserted. The token value should be of string type.
+
+
+    4. `method`: This is the HTTP method type. The "GET" method is used which
+    means this request fetches data from the server at the specified resource.
+
+
+    5. `url`: This is the URL where the request will be sent. The base URL is
+    `http://localhost:3000/api/connect/ad/get/` and it should be appended by
+    `?adId=` followed by the actual id of the ad you want to retrieve.
+
+
+    6. `headers`: This section is for specifying additional HTTP request
+    options. No key-value pair is provided in this request so, by default, no
+    additional headers will be included in the request.
+
+
+    7. `body`: This is the part of HTTP request where additional data is sent
+    along with the request. In this case, `mode` is set to 'raw' but no actual
+    data is being sent as the `raw` field is empty. So, 'raw' body mode will not
+    affect this request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: adId
+      in: query
+      schema:
+        type: string
+      example: adId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

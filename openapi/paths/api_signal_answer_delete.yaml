@@ -1,0 +1,66 @@
+post:
+  tags:
+    - WhipSignal
+  summary: Signal - Answer - Delete
+  description: >
+    ### Signal - Answer - Delete
+
+
+    This endpoint is used to delete a specific answer related to a signal. Below
+    is a detailed description of each data component associated with this API
+    request:
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - **Key**: This represents the type of authentication being used. In this case, it is a Bearer token.
+      - **Token**: A placeholder string "BearerToken" is used, which should be replaced with an actual Bearer token required for authentication.
+
+    #### Request Method
+
+    - **Method**: POST
+      - This indicates that the request will use the POST HTTP method to send data to the server for processing.
+
+    #### URL
+
+    - **URL**: `http://localhost:3000/api/signal/answer/delete`
+      - This is the endpoint where the request will be sent. It targets the local server on port 3000 and the specific path for deleting a signal answer.
+
+    #### Headers
+
+    - **Headers**: An array for defining any HTTP headers for the request. 
+      - Currently, it appears to have an empty header entry which is disabled. This means no additional headers are being sent in the request.
+
+    #### Body
+
+    - **Body**: 
+      - **Mode**: Raw
+        - This implies that the body of the request will contain raw data.
+      - **Raw**: `{"accountId":"accountId", "sessionId":"sessionId", "signalId":"signalId"}`
+        - This is the main content of the body where the data is structured in JSON format.
+        - **accountId**: Placeholder for the identifier of the account associated with the request.
+        - **sessionId**: Placeholder for the identifier of the session during which the request is made.
+        - **signalId**: Placeholder for the identifier of the signal that is targeted for deletion.
+      - **Options**:
+        - **Raw Language**: JSON
+          - Indicates that the format of the raw body content is JSON, ensuring proper handling of the data format.
+
+    This endpoint is crucial for managing signal answers by allowing users to
+    delete specific entries as needed.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            signalId: signalId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

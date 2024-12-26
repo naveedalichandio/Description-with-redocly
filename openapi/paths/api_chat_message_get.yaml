@@ -1,0 +1,70 @@
+get:
+  tags:
+    - ChatMessage
+  summary: Chat - Message - Get
+  description: >-
+    This API endpoint is called "Chat - Message - Get". It retrieves a specific
+    chat message from the server. Here's a detailed description of each data
+    included in the endpoint:
+
+
+    1. "**name**": This represents the name of the API endpoint, in this case -
+    "Chat - Message - Get".
+
+
+    2. "**request**": This contains all the details related to the API request
+    to be made.
+
+
+    3. "**auth**": This object is used for providing authorization details that
+    are sent with the request.
+      - "**auth.type**": It indicates the type of authorization used for the radio request. In this case, it is set to "bearer".
+      - "**auth.bearer**": This is an array containing information about the bearer token.
+        - "**auth.bearer[0].key**": The key for the bearer token, here it is "token".
+        - "**auth.bearer[0].value**": The value of the bearer token that you have generated.
+        - "**auth.bearer[0].type**": The datatype of the bearer token, in this case, it's a string.
+
+    4. "**method**": This is the HTTP method used for the request. For this API
+    endpoint, the GET method is being used. This means it is intended to
+    retrieve data from the server.
+
+
+    5. "**url**": This represents the URL endpoint where the request is sent. It
+    involves server address, API path, and query parameters. In this case, these
+    parameters include:
+      - "**messageId**": The unique identifier of the message.
+      - "**threadId**": The unique identifier for the thread in which the message is located.
+      - "**accountId**": The unique identifier associated with the user account. 
+      - "**sessionId**": The unique identifier representing the session.
+
+    6. "**headers**": This is a list containing any headers that should be
+    included with the request. In this API endpoint, there are no additional
+    headers set.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: messageId
+      in: query
+      schema:
+        type: string
+      example: messageId
+    - name: threadId
+      in: query
+      schema:
+        type: string
+      example: threadId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

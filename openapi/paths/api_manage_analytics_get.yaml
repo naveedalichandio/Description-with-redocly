@@ -1,0 +1,66 @@
+get:
+  tags:
+    - ManageAnalytics
+  summary: Manage - Analytics - Get
+  description: >-
+    Here's a detailed description of each data point in this endpoint:
+
+
+    1. `"name": "Manage - Analytics - Get"`: This is the name given to the
+    endpoint function. It suggests that this API is used to manage and fetch
+    analytics data.
+
+
+    2. `"request": {}`: This encapsulates all the necessary details required for
+    an API request. It contains: 
+       * `"auth": {}`: Determines the method of authentication for the API request.
+       * `"type": "bearer"`: Specifies the type of authentication. In this case, a 'Bearer' token is used for authentication.
+       * `"bearer": [...]`: This is an array of bearer tokens. It consists of:
+         * `"key": "token"`: The name of the header field to be sent with the request.
+         * `"value": "BearerToken"`: The actual bearer token value that authenticates the request.
+         * `"type": "string"`: Indicates the data type of the token, which is a string.
+     
+    3. `"method": "GET"`: The HTTP method used for the request. In this case, we
+    are using a GET request to retrieve data.
+
+
+    4. `"url": "http://localhost:3000/api/manage/analytics/get/?..."`: This is
+    the endpoint of the API. The data to be fetched (analyticsId, sessionId,
+    accountId) are passed as query parameters.
+
+
+    5. `"headers": [...]`: Includes an array of objects that represent HTTP
+    headers to be sent along with the request. In this case, there is no active
+    header as it is disabled by setting `"disabled":true`.
+
+
+    6. `"body": {}`: Represents the message body of the request.
+       * `"mode": "raw"`: This specifies that the option to input the body content is in raw format.
+       * `"raw": ""`: Since the method used is GET and it does not transmit a payload, this raw string is empty.
+     
+    This endpoint is designed to fetch specific analytics data pertaining to the
+    provided 'analyticsId', 'sessionId', and 'accountId'. The API uses Bearer
+    Token authentication to validate requests.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: analyticsId
+      in: query
+      schema:
+        type: string
+      example: analyticsId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

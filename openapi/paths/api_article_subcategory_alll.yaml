@@ -1,0 +1,46 @@
+get:
+  tags:
+    - ArticleSubcategory
+  summary: Article - SubCategory - Get All By Category ID
+  description: >-
+    This endpoint is called "Article - SubCategory - Get All By Category ID".
+    Here is a detailed description of each data:
+
+
+    - "name": It is the name of the endpoint. It indicates that this endpoint is
+    used to retrieve all the subcategories of articles under a specific
+    category, identified by a category ID.
+
+
+    - "request": The object contains all the necessary details required to make
+    the HTTP request.
+
+      - "auth": The authentication method required for this endpoint. It is of type "bearer". Bearer authentication (also called token authentication) is an HTTP authentication scheme that involves security tokens called bearer tokens. 
+        - "bearer": An array containing details about the bearer authentication token required for the endpoint. 
+          - "key": The name of the token, which is "token".
+          - "value": The placeholder for the bearer token, which should replaced with your actual bearer token (BearerToken).
+          - "type": The datatype of the value, here it is "string".
+
+      - "method": The HTTP method used for this request, which is "GET" in our case.
+
+      - "url": The URL where the request needs to be sent. Here it should be pointing to the place where your server is running, followed by the specific route to get the article subcategories. Replace 'articleCategoryId' with your actual article category id to fetch respective subcategories.
+
+      - "headers": An array where you can add additional headers. Currently, there are no additional headers required for the call, hence it's empty and disabled.
+
+      - "body": Details of the body of the request. Since this is a GET request, no body data is necessary and hence the "mode" is "raw" and "raw" data is empty.
+      
+    Remember, this endpoint requires a bearer token for authentication, so
+    ensure to include it in your request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: categoryId
+      in: query
+      schema:
+        type: string
+      example: articleCategoryId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

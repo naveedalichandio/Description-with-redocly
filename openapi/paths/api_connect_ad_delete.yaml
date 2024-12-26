@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ConnectAd
+  summary: Connect - Ads - Delete
+  description: >-
+    This endpoint is named "Connect - Ads - Delete". It is designed to delete
+    specific advertisements using a specific URL and requires a bearer
+    authentication type. Here are detailed descriptions of each of its data
+    components:
+
+
+    1. `name`: This parameter determines the endpoint's name. In this case, the
+    name is "Connect - Ads - Delete". This name indicates that the action
+    supported by this endpoint is the deletion of ads.
+
+
+    2. `request`: This object envelops all the necessary information required to
+    make a valid request to the endpoint.
+
+
+    3. `auth`: This is a security configuration that enforces the type of
+    authentication required by this endpoint. The current authorization type is
+    "bearer". It necessitates you to provide a token in order to access the
+    endpoint.
+
+       - `type`: Specifies the type of authentication. Value is "bearer".
+       - `bearer`: This is an array that contains all the bearer token details:
+            - `key`: Specifies the name of the token, which in this case is "token".
+            - `value`: The actual placeholder for the token value. The current placeholder is "sessionId".
+            - `type`: The type of value the key holds, which in this case is string.
+
+    4. `method`: The HTTP method that this endpoint uses. It currently uses the
+    "POST" method, implying that this endpoint is used to send data to be
+    processed to the specified resource.
+
+
+    5. `url`: This is the actual URL at which the endpoint resides. The current
+    URL is "http://localhost:3000/api/connect/ad/delete".
+
+
+    6. `headers`: This is an array that would typically hold any additional
+    header elements required by the endpoint. Currently, there are no additional
+    headers needed, and hence everything has been set to blank or disabled.
+
+
+    7. `body`: This marks where the payload of the request should be defined.
+       - `mode`: Relevantly indicates the format of the body payload. It's set to "raw", which means you can send anything in the body, but most often it is used to send JSON formatted string in unprocessed format.
+       - `raw`: Contains the actual information payload that will be sent to the server. This needs to be a string. The included information are "sessionId", "accountId" and "adId".
+
+    In summary, this endpoint deletes an ad by taking the adId from the user,
+    and it authorizes using bearer tokens. The endpoint URL is
+    "http://localhost:3000/api/connect/ad/delete", and it follows a POST HTTP
+    method.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"adId\":\"adId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

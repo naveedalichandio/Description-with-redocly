@@ -1,0 +1,119 @@
+post:
+  tags:
+    - ActionBoost
+  summary: Action - Boost - Create
+  description: >-
+    ### Action - Boost - Create
+
+
+    #### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Bearer
+        - This indicates that the request uses Bearer Token authentication.
+      - **Bearer Token**: 
+        - **Key**: token
+        - **Value**: BearerToken
+        - **Type**: string
+        - This is the actual authentication token used to authorize the request, which should be replaced with a valid Bearer token.
+
+    - **Method**: 
+      - **POST**
+        - This defines the HTTP method to be used for the request. POST is typically used to create new resources.
+
+    - **URL**: 
+      - **http://localhost:3000/api/action/boost/create**
+        - This is the endpoint where the request is sent. Ensure the server is running locally at the specified port.
+
+    - **Headers**: 
+      - There are no headers defined in this request. The existing header entry is disabled and does not need to be used.
+
+    #### Body Details
+
+
+    - **Mode**: 
+      - **raw**
+        - This indicates that the payload content is sent as raw data, specifically formatted in JSON.
+
+    - **Raw**: 
+      - This is the actual data being sent in the body of the request, formatted as JSON:
+      
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "videoId",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "tokenAmount": 10,
+        "name": "",
+        "description": "",
+        "tags": ""
+    }
+
+    ```
+      
+      - **Fields**:
+        - **sessionId**: 
+          - Represents the unique identifier for the session. This should be replaced with a valid session ID.
+          
+        - **accountId**: 
+          - Identifier for the user's account. Must be replaced with the actual account ID.
+
+        - **path**: 
+          - The API path or URL for the specific channel or resource the action is targeting. Example given is a path to a live channel.
+
+        - **targetType**: 
+          - Specifies the type of target for the action, in this case, it's indicating that the target is a video ID.
+
+        - **targetId**: 
+          - The unique identifier for the target resource, which in this scenario is a specific video.
+
+        - **sourceType**: 
+          - Indicates the type of source for the action, which here is an account ID.
+
+        - **sourceId**: 
+          - The unique identifier for the source resource, similar to the account ID.
+
+        - **tokenAmount**: 
+          - Specifies the amount of tokens to be used in the action, set to 10 in this example.
+
+        - **name**: 
+          - A placeholder for naming the action. This can be customized according to user preference.
+
+        - **description**: 
+          - A placeholder for describing the action. Users can provide additional context here.
+
+        - **tags**: 
+          - A placeholder for any tags associated with the action, which can help in categorizing or identifying the request.
+
+    This endpoint is designed to create a boost action that targets a specific
+    video, allowing users to interact with their account resources effectively.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 10
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

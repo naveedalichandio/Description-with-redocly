@@ -1,0 +1,143 @@
+post:
+  tags:
+    - UniversityUniversity
+  summary: University - General - Create
+  description: >-
+    ### Endpoint Description: University - General - Create
+
+
+    **Request Method:** POST  
+
+    **Request URL:** `http://localhost:3000/api/university/university/create`  
+
+    **Authentication Type:** Bearer Token
+
+
+    #### Authorization
+
+    - **Token:** A bearer token needed for authentication. Replace "BearerToken"
+    with the actual token for authorization.
+
+
+    #### Request Body
+
+    The body of the request should be in JSON format and contains the following
+    fields:
+
+
+    1. **sessionId**: A unique identifier for the current session. This is used
+    to track the user's activity during the session.
+
+
+    2. **accountId**: The identifier for the user's account which is creating
+    the university. This links the university to the specific user account.
+
+
+    3. **name**: The name of the university being created. This will be how the
+    university is identified in the system and seen by users.
+
+
+    4. **description**: A brief summary about the university. This field
+    provides additional information that describes the university.
+
+
+    5. **tags**: A comma-separated list of keywords related to the university.
+    Tags help categorize the university and can be useful for search purposes.
+
+
+    6. **profilePhotoUrl**: A URL pointing to the university's profile photo.
+    This image represents the university on its profile page.
+
+
+    7. **coverPhotoUrl**: A URL pointing to the university's cover photo. This
+    image is displayed prominently on the university's profile.
+
+
+    8. **minimumTipAmount**: A numerical value representing the minimum amount
+    that can be tipped in relation to this university. This establishes a
+    threshold for tipping.
+
+
+    9. **categoryId**: An identifier for the main category of the university.
+    This links the university to a specific category in the database.
+
+
+    10. **category**: The name of the main category to which the university
+    belongs. This field provides a broad classification.
+
+
+    11. **subCategoryId**: An identifier for the sub-category of the university.
+    This allows for more specific classification within the main category.
+
+
+    12. **subCategory**: The name of the sub-category to which the university
+    belongs. This field allows further refinement of the university’s
+    classification.
+
+
+    13. **isGeneralPrivate**: A boolean value indicating whether the university
+    is private or not. It defines if the university's details are only available
+    to selected users.
+
+
+    14. **isTournamentOnly**: A boolean value that specifies if the university
+    is for tournament usage only. If true, it suggests that the university is
+    centered around competitive events.
+
+
+    15. **isGeneralDefault**: A boolean value indicating whether this university
+    is set as a default option within its category. 
+
+
+    16. **isPreLiveUniversityAds**: A boolean value that indicates whether
+    advertisements for the university can appear before live sessions.
+
+
+    17. **isPostLiveUniversityAds**: A boolean value that indicates whether
+    advertisements for the university can appear after live sessions.
+
+
+    18. **breakPreLiveVideoUrl**: A URL pointing to a video that will play
+    before a live session begins, potentially providing promotional content
+    related to the university.
+
+
+    19. **breakPostLiveVideoUrl**: A URL pointing to a video that will play
+    after a live session ends, serving as a follow-up or promotional material
+    for the university.
+
+
+    Make sure to replace placeholders and URLs with actual data before sending
+    the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second General
+            description: This university is my second university
+            tags: second,university
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isGeneralPrivate: true
+            isTournamentOnly: false
+            isGeneralDefault: true
+            isPreLiveUniversityAds: true
+            isPostLiveUniversityAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

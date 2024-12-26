@@ -1,0 +1,74 @@
+get:
+  tags:
+    - ActionAttend
+  summary: Action - Attend - Get All
+  description: >-
+    ### Endpoint Description: Action - Attend - Get All
+
+
+    - **Name**: Action - Attend - Get All  
+      This is the title of the API request, indicating its purpose to retrieve all attendance actions.
+
+    - **Request**: This section outlines the configuration of the API request.
+
+      - **Auth**: This specifies the authentication method required for the request.
+        - **Type**: Bearer  
+          Indicates that the request uses bearer token authentication.
+        - **Bearer**: 
+          - **Key**: "token"  
+            This is the identifier for the authentication token.
+          - **Value**: "BearerToken"  
+            This represents the actual token value that must be used for authentication. Replace this placeholder with a valid bearer token.
+          - **Type**: String  
+            The data type for the token.
+
+      - **Method**: GET  
+        This indicates that the HTTP method used for the request is GET, which means the request is intended to retrieve data from the specified resource.
+
+      - **URL**: `http://localhost:3000/api/action/attend/all/?sessionId=sessionId&accountId=accountId`  
+        This is the endpoint where the GET request will be sent. It includes query parameters:
+        - **sessionId**: This parameter is used to specify the session identifier. Replace "sessionId" with the actual session ID you wish to query.
+        - **accountId**: This parameter indicates the account identifier. Replace "accountId" with the actual account ID you wish to query.
+
+      - **Headers**: 
+        This section lists any HTTP headers that need to be included in the request.
+        - **Key**: (empty)  
+          This indicates that there are no additional headers specified for this request.
+        - **Value**: (empty)  
+          No value is given since there are no headers to include.
+        - **Type**: Default  
+          Indicates that the header type is default.
+        - **Disabled**: True  
+          This indicates that the header is currently disabled and will not be included in the request.
+
+      - **Body**: 
+        This section defines the body content of the request.
+        - **Mode**: Raw  
+          Indicates that the request body is in raw format.
+        - **Raw**: (empty)  
+          This indicates that there is no body content provided for the request, which is typical for a GET request.
+
+    ### Summary
+
+    This API request is designed to get all attendance actions associated with a
+    specific session and account. It requires bearer token authentication and
+    uses query parameters to specify the session and account details. No
+    additional headers or body content are needed for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

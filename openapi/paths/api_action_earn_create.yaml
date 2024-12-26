@@ -1,12 +1,77 @@
 post:
   tags:
-    - General
+    - ActionEarn
   summary: Action - Earn - Create
-  description: >-
-    This endpoint is used to create a new earning action. It requires session
-    and account identifiers, as well as details about the target and source of
-    the earning. The utility type (e.g., points) and token amount can also be
-    specified.
+  description: |-
+    ### Endpoint Description: Action - Earn - Create
+
+    #### Request Details
+    - **Method**: `POST`
+      - This request method is used to submit data to the specified endpoint for creating an action related to earning. 
+
+    - **URL**: `http://localhost:3000/api/action/earn/create`
+      - The endpoint URL that the request is sent to. This is where the action creation request will be processed.
+
+    - **Authentication**: 
+      - **Type**: `bearer`
+        - Indicates that the request uses bearer token authentication, which requires a token to access the API.
+      - **Bearer Token**:
+        - **Key**: `token`
+          - Represents the identifier for the token being sent.
+        - **Value**: `BearerToken`
+          - A placeholder for the actual bearer token required for authentication. This token should be replaced with a valid one to authorize the request.
+        - **Type**: `string`
+          - Specifies that the value is of string type.
+
+    #### Headers
+    - **Headers**: 
+      - In this request, there are no custom headers set (keys and values are empty), and the header feature is currently disabled. Headers can provide additional context or authentication but are not utilized here.
+
+    #### Body
+    - **Body Mode**: `raw`
+      - Indicates that the body of the request is being sent in a raw format. 
+    - **Body Content**:
+      - This section contains the data that will be sent in the request body, formatted as JSON.
+
+    ##### Body Parameters
+    - **sessionId**: `"sessionId"`
+      - A unique identifier for the session during which the action is being created. This helps track the user's current operation.
+
+    - **accountId**: `"accountId"`
+      - The identifier for the account that is associated with the action being created. This is used to link the action to a specific user or entity.
+
+    - **path**: `"/live/channel/video123"`
+      - The path indicating the live channel or resource associated with this action. This helps relate the action to a specific content resource.
+
+    - **targetType**: `"videoId"`
+      - Specifies the type of target for the earning action. In this case, it's a video, denoting that the action is related to video content.
+
+    - **targetId**: `"videoId"`
+      - The identifier of the target resource (in this case, a specific video) that the action is associated with.
+
+    - **sourceType**: `"accountId"`
+      - Indicates the type of source that is generating the action. This entry suggests that the source is related to the account.
+
+    - **sourceId**: `"accountId"`
+      - The identifier of the source entity that is earning points. This typically would match or relate to the accountId.
+
+    - **didEarn**: `false`
+      - A boolean field indicating whether the action resulted in earning rewards or points. In this case, it is set to false, meaning no points were earned from this action.
+
+    - **utilityType**: `"points"`
+      - Specifies the type of utility being earned. Here, it indicates that the rewards are in the form of points.
+
+    - **tokenAmount**: `10`
+      - The amount of tokens (or points) being associated with this action. This number represents the quantity of points being accountable for the operation.
+
+    - **name**: `""`
+      - A placeholder for a name to describe the action further. Currently, it is not filled out and can be provided based on specific use cases.
+
+    - **description**: `""`
+      - A placeholder for an optional description of the action. This can be used to provide additional context or information about the purpose of the action being created.
+
+    - **tags**: `""`
+      - A placeholder for any tags associated with this action. Tags can help categorize or identify the action but are not specified in this request.
   requestBody:
     content:
       application/json:

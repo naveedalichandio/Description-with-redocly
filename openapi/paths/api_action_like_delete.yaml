@@ -1,0 +1,73 @@
+post:
+  tags:
+    - ActionLike
+  summary: Action - Like - Delete
+  description: >-
+    ### Description of Endpoint Data
+
+
+    #### Name
+
+    - **Action - Like - Delete**: This is the identifier for the API endpoint
+    that handles the deletion of a like action.
+
+
+    #### Request
+
+    - This section outlines the details of the API request.
+
+
+    ##### Authentication
+
+    - **Auth Type**: The authentication method used is Bearer token.
+
+    - **Bearer**: A token is required to authenticate the request.
+      - **Key**: Refers to the name of the token which in this case is "token".
+      - **Value**: The value for the token parameter is set to "sessionId". This should be replaced with an actual session identifier when making the request.
+      - **Type**: The type of the token is indicated as a string, which specifies the format of the value.
+
+    ##### Method
+
+    - **Method**: The HTTP method used for this request is POST. This indicates
+    that the request will submit data to the server for processing.
+
+
+    ##### URL
+
+    - **URL**: This points to the endpoint where the request is directed. In
+    this case, it is "http://localhost:3000/api/action/like/delete", which is
+    the local server address for deleting a like.
+
+
+    ##### Headers
+
+    - **Headers**: This section can include additional metadata for the request.
+      - **Key**: An empty key indicates that there are no custom headers added for this request.
+      - **Value**: The associated value is also empty.
+      - **Type**: The default type is noted, but it is currently disabled, implying that it will not be included in the request.
+
+    ##### Body
+
+    - **Body**: Contains the actual data being sent with the request.
+      - **Mode**: The body is configured in "raw" mode, meaning that the data is sent as plain text rather than a form-encoded string.
+      - **Raw**: The raw data being sent is in JSON format:
+        - **sessionId**: This should be replaced with the actual session identifier of the user making the request.
+        - **accountId**: This field represents the identifier for the user's account associated with the like action.
+        - **likeId**: This is the identifier of the like that is to be deleted. 
+
+    Make sure to replace the placeholders with the appropriate values when
+    making a request to this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"likeId\":\"likeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

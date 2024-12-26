@@ -1,0 +1,118 @@
+put:
+  tags:
+    - ActionReject
+  summary: Action - Reject - Update
+  description: >-
+    ### Detailed Description of each Data in the Endpoint
+
+
+    **Endpoint Overview**  
+
+    This endpoint is designed to update the rejection status of actions in a
+    system. It requires a PUT request and is authenticated via a bearer token.
+
+
+    #### Request Structure
+
+
+    1. **Authentication**
+       - **Type**: Bearer
+         - This specifies that the request uses bearer token authentication.
+       - **Token**: 
+         - This is where you will input your authentication token. It is essential for gaining access to the API resources.
+
+    2. **Method**
+       - **PUT**: 
+         - This indicates that the request will update an existing resource or create a new resource if it does not exist.
+
+    3. **URL**
+       - **Endpoint URL**: `http://localhost:3000/api/action/reject/update`
+         - This is the local server address where the request will be sent to perform the action of updating the rejection status.
+
+    4. **Headers**
+       - **Header Key**: `Client-UUID`
+         - This header is used to pass the client's universally unique identifier. It is required by the server to identify the client making the request.
+       - **Header Value**: `ClientUUID`
+         - You will need to replace this with your actual client UUID.
+
+    5. **Request Body**
+       - **Mode**: Raw
+         - The body is sent as a raw JSON string.
+       - **Content**: 
+         ```json
+         {
+           "sessionId": "sessionId",
+           "accountId": "accountId",
+           "path": "/live/channel/video123",
+           "targetType": "videoId",
+           "targetId": "videoId",
+           "sourceType": "accountId",
+           "sourceId": "accountId",
+           "didReject": false,
+           "reason": "none",
+           "name": "",
+           "description": "",
+           "tag": "",
+           "rejectId": "rejectId"
+         }
+         ```
+         
+       - **Field Descriptions**:
+         - **sessionId**: 
+           - Unique identifier for the session in which the action is being performed. It is necessary for tracking the context of the action.
+         - **accountId**: 
+           - Unique identifier for the account associated with the action. It represents the user or entity executing the request.
+         - **path**: 
+           - The specific path where the action is tied, indicating the resource's location (e.g., a video).
+         - **targetType**: 
+           - This specifies the type of the target being acted upon. In this case, it indicates that the target is identified by a video ID.
+         - **targetId**: 
+           - The unique identifier for the target resource (e.g., a video ID) that may be rejected.
+         - **sourceType**: 
+           - This indicates the type of source the action is originating from, typically an account ID.
+         - **sourceId**: 
+           - The unique identifier for the source account that is related to the action.
+         - **didReject**: 
+           - A boolean flag that indicates whether the action was rejected (true) or not (false). Defaulting to false means it was not rejected.
+         - **reason**: 
+           - A textual explanation for the rejection, if applicable. If not rejected, it may be set to "none" or left blank.
+         - **name**: 
+           - An optional name associated with the rejection record. This can be left blank if not needed.
+         - **description**: 
+           - Optional field to add more details regarding the rejection. It can also be left blank.
+         - **tag**: 
+           - Optional labeling for the rejection record that can help with categorization.
+         - **rejectId**: 
+           - Unique identifier for this rejection action. This helps track individual rejection actions and may be required for further processes.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didReject: false
+            reason: none
+            name: ''
+            description: ''
+            tag: ''
+            rejectId: rejectId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

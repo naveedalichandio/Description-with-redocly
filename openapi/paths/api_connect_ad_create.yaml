@@ -1,0 +1,83 @@
+post:
+  tags:
+    - ConnectAd
+  summary: Connect - Ads - Create
+  description: >-
+    This is a 'POST' request named "Connect - Ads - Create", used for creating
+    advertisement data. 
+
+
+    1. **Authentication:** Uses 'Bearer' token authentication. You have to
+    provide a 'token' in the bearer authorization field. The value of this token
+    is 'BearerToken' string.
+
+
+    2. **Headers:** There's a header field provided in the request, but it's
+    disabled by default, so it won't have any effect on your request.
+
+
+    3. **Request Body:** The needed data with their types and typical values
+    are:
+
+        - **sessionId (String):** The ID of the session. 
+        - **accountId (String):** The ID of the account creating the advertisement.
+        - **name (String):** The name of the advertisement e.g., 'MyNikeAds'.
+        - **description (String):** A brief description about the advertisement.
+        - **tags (String):** Tags associated with the advertisement separated by commas.
+        - **profilePhotoUrl (String):** The URL of the profile picture for the advertisement.
+        - **coverPhotoUrl (String):** The URL of the cover picture for the advertisement.
+        - **minimumTipAmount (Number):** The minimum tip amount for the advertisement.
+        - **unlockAmount (Number):** The amount to unlock the advertisement.
+        - **category (String):** The category for the advertisement.
+        - **subCategory (String):** The subcategory of the advertisement.
+        - **searchType (String):** The type of search to be made.
+        - **isEnabled (Boolean):** Indicating if the advertisement is enabled or not.
+        - **isAdsPrivate (Boolean):** Indicating if the advertisement is private or not.
+        - **isTournamentOnly (Boolean):** True if the advertisement is only for tournaments else false.
+        - **isAdsDefault (Boolean):** If true, makes this advertisement the default one.
+        - **isPreLiveConnectAds (Boolean):** Check if this is a pre-live ad.
+        - **isPostLiveConnectAds (Boolean):** Check if this is a post-live ad.
+        - **breakPreLiveConnectUrl (String):** URL for the pre-live break media.
+        - **breakLivePauseConnectUrl (String):** URL for the paused-live break media.
+        - **breakPostLiveConnectUrl (String):** URL for the post-live break media.
+
+    The request body is JSON formatted. Please make sure you input the correct
+    types against each key. 
+
+
+    Finally, you can send the request to the provided URL:
+    'http://localhost:3000/api/connect/ad/create'.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeAds
+            description: This ad is my second ad
+            tags: second,ad
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 1
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isAdsPrivate: true
+            isTournamentOnly: false
+            isAdsDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

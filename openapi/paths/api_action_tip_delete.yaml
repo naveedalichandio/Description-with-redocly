@@ -1,0 +1,83 @@
+post:
+  tags:
+    - ActionTip
+  summary: Action - Tip - Delete
+  description: |-
+    **Endpoint Description: Action - Tip - Delete**
+
+    - **Name**: Action - Tip - Delete  
+      This is the identifier for the action of deleting a tip.
+
+    - **Request**:  
+      Details regarding the request that needs to be made to the endpoint.
+
+      - **Auth**:  
+        This section details the authentication required to access the endpoint.
+        
+        - **Type**: bearer  
+          Indicates that a bearer token is used for authentication.
+        
+        - **Bearer**:  
+          Contains information about the bearer token.
+          
+          - **Key**: token  
+            This specifies the name of the token parameter.
+          
+          - **Value**: sessionId  
+            This is a placeholder that represents the actual session ID necessary for authentication.
+          
+          - **Type**: string  
+            This indicates that the value of the token is a string.
+
+      - **Method**: POST  
+        This signifies that the request method used will be POST, which is typically used for sending data to the server.
+
+      - **URL**: http://localhost:3000/api/action/tip/delete  
+        This is the endpoint where the delete request will be sent. It targets the action of deleting a tip.
+
+      - **Headers**:  
+        This section contains any HTTP headers that may need to accompany the request.
+        
+        - **Key**: (empty)  
+          No specific headers are being set in this request as the key is empty.
+        
+        - **Value**: (empty)  
+          Similarly, the value for the header is empty.
+
+        - **Type**: default  
+          This specifies the default type of the headers.
+
+        - **Disabled**: true  
+          This indicates that the header is currently disabled and will not be included in the request.
+
+      - **Body**:  
+        This section outlines the content that will be sent in the request body.
+
+        - **Mode**: raw  
+          The body content is sent as raw data.
+
+        - **Raw**:  
+          This is the actual payload being sent to the server. It contains three key-value pairs in JSON format.
+
+          - **sessionId**: "sessionId"  
+            This is a placeholder representing the user's session ID which is required for the operation.
+
+          - **accountId**: "accountId"  
+            This is a placeholder that indicates the account ID of the user associated with the tip.
+
+          - **tipId**: "tipId"  
+            This is a placeholder that refers to the unique identifier of the tip that needs to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tipId\":\"tipId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

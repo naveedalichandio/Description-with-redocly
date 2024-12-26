@@ -1,0 +1,97 @@
+post:
+  tags:
+    - ActionAnnounce
+  summary: Action - Announce - Delete
+  description: >-
+    {
+      "name": "Action - Announce - Delete",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "sessionId",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "url": "http://localhost:3000/api/action/announce/delete",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"announceId\":\"announceId\"}"
+        }
+      }
+    }
+
+
+    ### Description of Each Data
+
+
+    - **name**: This represents the title of the request, indicating that it is
+    an action to delete an announcement.
+
+
+    - **request**: This is the primary object containing all the details needed
+    to make the API call.
+
+      - **auth**: This section specifies the type of authentication required for the request.
+      
+        - **type**: Indicates that the authentication method is bearer token based.
+        
+        - **bearer**: This includes an array of bearer authentication tokens.
+          
+          - **key**: A descriptive label for the token, here it's set to "token".
+          
+          - **value**: The variable representing the actual bearer token, denoted as "sessionId".
+          
+          - **type**: Specifies that the type of value is a string.
+
+      - **method**: Indicates the HTTP method used for the request. In this case, it is a POST request.
+
+      - **url**: The endpoint where the request is sent. It specifies the route to delete an announcement.
+
+      - **headers**: This is an array of headers that might be included in the request.
+      
+        - **key**: The name of the header, which is empty in this case.
+        
+        - **value**: The value associated with the header, which is also empty here.
+        
+        - **type**: Specifies the type of header, which is set to default.
+        
+        - **disabled**: A boolean indicating if the header is inactive; it is true, meaning the header won't be sent.
+
+      - **body**: This section contains the data to be sent with the request.
+      
+        - **mode**: Indicates how the body content is structured; here it is set to "raw".
+        
+        - **raw**: This holds the actual data being sent in JSON format. The keys here are:
+        
+          - **sessionId**: Represents the identifier for the user session.
+          
+          - **accountId**: Represents the unique identifier for the user's account.
+          
+          - **announceId**: Represents the unique identifier for the announcement to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"announceId\":\"announceId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

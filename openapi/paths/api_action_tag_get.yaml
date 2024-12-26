@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionTag
+  summary: Action - Tag - Get
+  description: >-
+    ### Action - Tag - Get Endpoint Description
+
+
+    **Name**: Action - Tag - Get  
+
+    This is an API endpoint designed to retrieve information related to a
+    specific tag associated with an action.
+
+
+    **Request Details**:
+
+    - **Auth**: The request requires bearer token authentication. The token must
+    be included in the request header to authorize access.
+      - **Type**: This specifies the authentication type used. In this case, it’s set to "bearer".
+      - **Bearer**: This is a list of tokens that will be used for authorization.
+        - **Key**: This indicates the name of the token, which is "token" in this instance.
+        - **Value**: The value provided here should be a valid bearer token, formatted as "BearerToken".
+        - **Type**: Indicates the data type of the key value, which is a string.
+
+    - **Method**: The HTTP method used for the request is "GET". This means the
+    endpoint is intended to retrieve data rather than create or modify it.
+
+
+    - **URL**: This is the endpoint URL where the request will be sent. It
+    consists of a base URL followed by query parameters.
+      - **Base URL**: `http://localhost:3000/api/action/tag/get/`
+      - **Query Parameters**:
+        - **tagId**: This parameter is used to specify the ID of the tag that you wish to retrieve information for. It must be replaced with an actual tag ID value.
+        - **sessionId**: This parameter indicates the session ID for the request. Similar to tagId, it should be replaced with an actual session ID value.
+        - **accountId**: This parameter identifies the account associated with the request. It also needs a real account ID value.
+
+    - **Headers**: This section contains headers to be sent with the request. In
+    this instance:
+      - **Key**: No header key is specified.
+      - **Value**: No header value is specified.
+      - **Type**: Set to "default", indicating it is a standard header.
+      - **Disabled**: This is marked as true, suggesting that this header will not be included in the request.
+
+    - **Body**: The request does not include a body in this case.
+      - **Mode**: Set to "raw", indicating that if there were a body, it would be sent as raw data.
+      - **Raw**: An empty string is specified, indicating no body content is submitted with the request.
+
+    This endpoint is useful for fetching tag-related information by providing
+    specific identifiers, ensuring that the request is authenticated properly.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: tagId
+      in: query
+      schema:
+        type: string
+      example: tagId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

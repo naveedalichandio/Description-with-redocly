@@ -1,0 +1,57 @@
+get:
+  tags:
+    - PaymentPayout
+  summary: Payout - Stripe - Get
+  description: >-
+    This API endpoint is titled "Payout - Stripe - Get". It is designed to
+    retrieve payout information related to a specific payment carried out via
+    Stripe. The following defines each element of the endpoint data:
+
+
+    1. **name**: The given name of this endpoint is "Payout - Stripe - Get". The
+    name indicates that the endpoint is related to retrieving payout information
+    from the Stripe payment gateway.
+
+
+    2. **request**: This key encapsulates all the main data pertinent for the
+    API request.
+
+        - **method**: The HTTP method for the request is "GET". It is used to request data from a specified resource. Here, it seeks data from the provided URL.
+
+        - **url**: This is the resource locator for the "Payout - Stripe - Get" API. The exact endpoint is at "http://localhost:3000/api/payment/payout/get/". There are also query parameters toward the end of the URL that specify the (`payoutId`, `provider`, `accountId`, `sessionId`). Each of these parameters is described below:
+
+            - **payoutId**: This is the unique id provided by Stripe for a particular payout. Replace it with the Stripe payout id of the payout you are querying.
+
+            - **provider**: This identifies the payment gateway used. In this case, it would always be 'stripe'.
+
+            - **accountId**: This is the account identifier in your system. Replace it with the unique id of the account you are interested in.
+
+            - **sessionId**: This is an identifier for the session in which the payout operation was carried out. Replace it with the relevant session id.
+        
+        - **headers**: This is an array where you can define request headers if needed. Currently, it's empty, meaning no specific headers are required for this API endpoint.
+  parameters:
+    - name: payoutId
+      in: query
+      schema:
+        type: string
+      example: stripePayoutId
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

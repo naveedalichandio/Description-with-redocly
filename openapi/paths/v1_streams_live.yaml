@@ -1,0 +1,61 @@
+post:
+  tags:
+    - VideoStream
+  summary: Bitmovin - Create - Stream
+  description: >-
+    ### Endpoint: Bitmovin - Create - Stream
+
+
+    #### Request Details
+
+
+    - **Authentication**:
+      - **Type**: `apikey`
+        - This denotes that the API request requires an API key for authentication.
+        - **API Key Details**:
+          - **Key**: `X-Api-Key`
+            - This is the header field name used to pass the API key.
+          - **Value**: `da9b4135-88b7-43fd-a846-1c4cc7d82b6`
+            - This is the actual API key that authorizes the request. Keep this value secure as it provides access to the API.
+
+    - **Request Method**: `POST`
+      - This indicates that the request method is POST, which is typically used for creating new resources in RESTful APIs.
+
+    - **Request URL**: `https://api.bitmovin.com/v1/streams/live`
+      - This is the endpoint URL where the request is sent. It points to the live stream creation API of the Bitmovin service.
+
+    - **Headers**: 
+      - There are no additional headers specified in this request.
+
+    - **Body**:
+      - **Mode**: `raw`
+        - This means the body of the request is sent as raw data.
+      - **Raw Content**:
+        - The body contains a JSON formatted string which includes:
+          - **title**: `"test123"`
+            - This is a title for the stream being created. It is a string that helps identify the stream.
+          - **description**: `"This is a test 123"`
+            - This provides additional information about the stream being created. It is a string that offers more context or details.
+
+    - **Options**:
+      - **Raw Options**: 
+        - **Language**: `json`
+          - This indicates that the format of the raw body data is JSON, which is commonly used for transmitting data in web APIs. 
+
+    Overall, this endpoint is designed to create a new live stream on Bitmovin's
+    platform by sending a POST request with required details in the body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            title: test123
+            description: This is a test 123
+  security:
+    - apikeyAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,65 @@
+post:
+  tags:
+    - NotificationLoyalty
+  summary: Notification - Loyalty - Delete
+  description: >-
+    This endpoint, named "Notification - Loyalty - Delete", is designed to
+    receive a POST request in order to delete a specific loyalty notification.
+    Here are the details:
+
+
+    - **name**: This is simply the name of the endpoint which is "Notification -
+    Loyalty - Delete".
+
+
+    - **auth**: It houses information for authentication. It's a bearer type,
+    which means the authorization is based on a bearer token. It holds a
+    key-value pair, where the key is `token` and the value is a `sessionId`.
+
+
+    - **request**: This corresponds to the HTTP request. It contains the
+    authentication, method, url, headers, and body data.
+
+
+    - **method**: It is a `POST` method. This means data will be sent to a
+    server to create a certain resource.
+
+
+    - **url**: This is the URL where the API request will be sent. In this case,
+    the URL is
+    [http://localhost:3000/api/notification/loyalty/delete](http://localhost:3000/api/notification/loyalty/delete).
+
+
+    - **headers**: Holds the headers that are sent alongside the request.
+    Currently, no headers are sent and any existing ones are disabled, hence the
+    empty value and the `disabled` set to `true`.
+
+
+    - **body**: This has the actual data/content you'll send with your API
+    request. The mode is set to `raw`, which means you can enter the data as it
+    is, without any additional encoding.
+
+
+    - **raw**: Contains the raw JSON data that is to be sent in the request
+    body. It contains three strings: `sessionId`, `accountId`, and `loyaltyId`. 
+
+      - `sessionId`: This should be replaced with the actual session ID.
+      - `accountId`: Should be replaced with the target account ID of the loyalty scheme.
+      - `loyaltyId`: The identifier for the specific loyalty scheme to be deleted.
+      
+    Please ensure to replace fields with appropriate values when making a
+    request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"loyaltyId\":\"loyaltyId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

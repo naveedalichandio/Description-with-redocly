@@ -1,0 +1,138 @@
+put:
+  tags:
+    - VideoStatic
+  summary: Video - Static - Update
+  description: >-
+    ### Endpoint: Video - Static - Update
+
+
+    **Method**: PUT
+
+
+    **Request URL**: `http://localhost:3000/api/video/static/update`
+
+
+    #### Authentication
+
+
+    - **Auth Type**: Bearer
+      - **Token**: A string value that represents the bearer token needed for authentication. It should have the format `BearerToken`.
+
+    #### Headers
+
+
+    - **Client-UUID**: A unique identifier for the client making the request.
+    This value should be replaced with a relevant UUID to identify the client.
+
+
+    #### Request Body
+
+
+    The request body is in JSON format and contains the following fields:
+
+
+    - **sessionId**: A unique identifier for the session associated with the
+    request. This should be replaced with the actual session ID.
+
+
+    - **accountId**: The unique identifier for the user's account. Replace this
+    value with the actual account ID.
+
+
+    - **staticId**: The unique identifier for the static video that needs to be
+    updated. This should be replaced with the actual static video ID.
+
+
+    - **searchType**: Describes the type of search associated with the video.
+    For this request, the value should be set to "Game".
+
+
+    - **title**: The title of the video. This is the name that will be displayed
+    and must be provided.
+
+
+    - **description**: A brief description of the video content. This field
+    should be filled with an overview or summary of the video.
+
+
+    - **tags**: A comma-separated list of tags associated with the video. These
+    tags help categorize the content and improve searchability.
+
+
+    - **channelId**: The unique identifier for the channel under which the video
+    is categorized. Replace this with the relevant channel ID.
+
+
+    - **category**: The main category under which the video falls. For this
+    request, the value is "Comedy".
+
+
+    - **subCategory**: The subcategory within the main category. For this
+    request, the value is "Improv".
+
+
+    - **scheduleDate**: The date for scheduling the video in the format
+    `YYYY-MM-DD`. In this request, the sample date is `2024-02-01`.
+
+
+    - **scheduleTime**: The time for scheduling the video in the format
+    `HH:MM:SS`. In this request, the sample time is `18:00:00`.
+
+
+    - **coverPhotoUrl**: The URL of the cover photo for the video. This value
+    should point to the location of the cover image (e.g.,
+    `sample-cover-url.jpg`).
+
+
+    - **isRewardsEnabled**: A boolean value indicating whether rewards should be
+    enabled for this video. Set this to `true` or `false` based on the
+    requirement. In this request, it is set to `false`.
+
+
+    - **videoUrl**: The URL pointing to the location of the actual video
+    content. For this request, the sample URL is
+    `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`.
+
+
+    ### Summary
+
+
+    This endpoint allows users to update existing static video entries by
+    providing necessary identifiers and metadata in the request body. Proper
+    authentication and required headers must be included in the request for
+    successful processing.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            staticId: staticId
+            searchType: Game
+            title: Sample Video Title
+            description: Sample video description.
+            tags: tag1,tag2
+            channelId: channelId
+            category: Comedy
+            subCategory: Improv
+            scheduleDate: '2024-02-01'
+            scheduleTime: '18:00:00'
+            coverPhotoUrl: sample-cover-url.jpg
+            isRewardsEnabled: false
+            videoUrl: >-
+              http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

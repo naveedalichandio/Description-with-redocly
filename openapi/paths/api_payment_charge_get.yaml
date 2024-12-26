@@ -1,0 +1,66 @@
+get:
+  tags:
+    - PaymentCharge
+  summary: Charge - Stripe - Get
+  description: >-
+    This endpoint named "Charge - Stripe - Get" is a GET type HTTP request that
+    calls to retrieve specific data from the Stripe payment system. 
+
+
+    The request is executed through the URL:
+    http://localhost:3000/api/payment/charge/get/ which holds the application
+    host and the API path. This endpoint is related to fetching information
+    about a charge from the Stripe payment system.
+
+
+    Embedded in the URL are four query parameters which are crucial pieces of
+    data to consider:
+
+
+    1. "chargeId" - This required query parameter refers to the unique
+    identifier of a specific charge in the Stripe payment system. It helps to
+    retrieve the details for that particular transaction.
+
+
+    2. "provider" - This required query parameter specifies the payment gateway.
+    In this case, it's set to 'stripe'. This way, the system knows that the
+    Stripe provider should handle the request.
+
+
+    3. "accountId" - This required query parameter is the unique ID of the user
+    account associated with the charge. It helps to link the charge to a
+    specific user within the system.
+
+
+    4. "sessionId" - This is a required query parameter which is used for
+    session tracking. It uniquely identifies the user's current active session. 
+
+
+    At last, this endpoint doesn't contain any specific headers, which means any
+    standard or default headers your HTTP client sets are all that are sent.
+  parameters:
+    - name: chargeId
+      in: query
+      schema:
+        type: string
+      example: chargeId
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

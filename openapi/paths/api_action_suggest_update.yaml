@@ -1,0 +1,137 @@
+put:
+  tags:
+    - ActionSuggest
+  summary: Action - Suggest - Update
+  description: >-
+    ### Detailed Description of Each Data in the Endpoint
+
+
+    1. **name**: 
+       - This is the title of the request. It indicates that this endpoint is responsible for updating a suggestion action.
+
+    2. **request**: 
+       - This object encapsulates all elements required to make the API call.
+
+       - **auth**: 
+         - Contains authentication details.
+         - **type**: "bearer"
+           - Indicates that the request utilizes Bearer Token authentication.
+         - **bearer**: 
+           - An array that holds the authentication token.
+           - **key**: "token"
+             - Represents the key used to authenticate.
+           - **value**: "BearerToken"
+             - Placeholder for the actual Bearer token that will be used for authentication.
+           - **type**: "string"
+             - Specifies that the value type is a string.
+
+       - **method**: 
+         - "PUT"
+           - This indicates that the HTTP method used for the request will be PUT, typically used for updating resources.
+
+       - **url**: 
+         - "http://localhost:3000/api/action/suggest/update"
+           - This is the endpoint where the request is sent. The base URL follows with the specific path for updating a suggestion.
+
+       - **headers**: 
+         - Contains the additional headers to be sent with the request.
+         - **key**: "Client-UUID"
+           - This header is used to identify the client making the request.
+         - **value**: "ClientUUID"
+           - Placeholder for the actual Client UUID that will be included in the request.
+         - **type**: "default"
+           - Indicates that this is a standard header.
+
+       - **body**: 
+         - This section includes the payload sent with the PUT request.
+         - **mode**: "raw"
+           - Indicates that the body is being sent in a raw format.
+         - **raw**: 
+           - This is the actual JSON data being sent to the server for the update.
+           - **sessionId**: "sessionId"
+             - Identifies the specific session during which the action is made.
+           - **accountId**: "accountId"
+             - Represents the ID of the user account making the suggestion.
+           - **path**: "/live/channel/video123"
+             - Specifies the URI path related to the suggestion.
+           - **targetType**: "videoId"
+             - Defines what type of item the suggestion is related to.
+           - **targetId**: "videoId"
+             - The identifier for the specific target (video) related to the suggestion.
+           - **sourceType**: "accountId"
+             - Indicates the type of source from which the suggestion originated.
+           - **sourceId**: "accountId"
+             - The identifier for the source account related to the suggestion.
+           - **didSuggest**: true
+             - A boolean indicating if the user made a suggestion.
+           - **category**: "feature"
+             - Categorizes the suggestion type (e.g., feature request).
+           - **subcategory**: "uI improvements"
+             - Further classifies the suggestion under a specific subcategory.
+           - **subject**: "Dark mode req"
+             - A brief title summarizing the suggestion.
+           - **title**: "add dark mode"
+             - A more descriptive title reflecting what the suggestion entails.
+           - **description**: "It would be helpful to have a dark mode option."
+             - Provides detailed information and rationale behind the suggestion.
+           - **tags**: "feature request,dark mode"
+             - Keywords associated with the suggestion that may help in categorization or search functionalities.
+           - **didReply**: true
+             - Indicates whether a response to the suggestion has been provided.
+           - **didReview**: true
+             - Shows if the suggestion has been reviewed by the appropriate party.
+           - **replyText**: "Dark mode is in our roadmap"
+             - The text response provided regarding the suggestion.
+           - **reviewStars**: 1
+             - Indicates the rating given to the suggestion during the review process.
+           - **name**: ""
+             - Placeholder for the name of the individual or entity making the suggestion which is currently left empty.
+           - **suggestId**: "suggestId"
+             - A unique identifier for the suggestion being updated.
+
+       - **options**:
+         - This object specifies details about the raw body content.
+         - **raw**: 
+           - Indicates that the format of the raw data being sent is JSON.
+
+    This structure provides the necessary information to understand how to
+    interact with the API endpoint for updating suggestions effectively.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didSuggest: true
+            category: feature
+            subcategory: uI improvements
+            subject: Dark mode req
+            title: add dark mode
+            description: It would be helpful to have a dark mode option.
+            tags: feature request,dark mode
+            didReply: true
+            didReview: true
+            replyText: Dark mode is in our roadmap
+            reviewStars: 1
+            name: ''
+            suggestId: suggestId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

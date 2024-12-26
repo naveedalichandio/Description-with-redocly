@@ -1,0 +1,92 @@
+put:
+  tags:
+    - MediaVideo
+  summary: Media - Video - Update - For Reward
+  description: >
+    This endpoint, named "Media - Video - Update - For Reward", is used to
+    update a specific video related to a reward. It's a PUT request, which
+    suggests it's used to update existing information. This API will need to be
+    called using Bearer Token Authentication, hence, a token value will be
+    supplied in the form of 'BearerToken' under the type of bearer
+    authentication.
+
+
+    There are certain metadata passed as headers, specifically 'Client-UUID'
+    which will be the unique identifier for the client invoking the request.
+
+
+    The body of the request includes several key-value pairs:
+
+
+    1. 'sessionId': The unique identifier of the session.
+
+    2. 'accountId': The unique identifier of the user's account.
+
+    3. 'rewardId': The unique identifier of the reward for which the video is
+    being updated.
+
+    4. 'videoId': The unique identifier of the video which is being updated.
+
+    5. 'name': The new name that you want to assign to the video.
+
+    6. 'description': A brief detail about the video.
+
+    7. 'tags': Keywords related to the video which will be updated separated by
+    commas.
+
+    8. 'contentType': The specific filetype of the content being uploaded, in
+    this case 'application/webm'.
+
+    9. 'contentLength': The size of the video file. Although it's set to zero
+    now, it's expected to be filled with the actual size of the file.
+
+    10. 'targetKey': Presumably the key where the URL of the video will be
+    stored, in this case 'profilePhotoUrl'.
+
+    11. 'compressUsing': The method used for compression, in this case 'Base64'.
+
+    12. 'isCompressed': A flag indicating whether the video is compressed or
+    not. Here, it's true indicating the video is compressed.
+
+    13. 'isPrivate': A flag indicating the privacy status of the media, where
+    false indicates that it is public.
+
+    14. 'data': The content of the video as a string, shown here as '...'.
+
+
+    Note: The JSON data for the request is sent as raw data, indicated by the
+    "mode" key in the body of the request. The language of the raw data is JSON,
+    indicated by "language" key under "options" on "raw".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            rewardId: rewardId
+            videoId: videoId
+            name: My Second Media
+            description: This media is my second media
+            tags: second,media
+            contentType: application/webm
+            contentLength: 0
+            targetKey: profilePhotoUrl
+            compressUsing: Base64
+            isCompressed: true
+            isPrivate: false
+            data: ...
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

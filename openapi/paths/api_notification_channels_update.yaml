@@ -1,0 +1,84 @@
+put:
+  tags:
+    - NotificationChannels
+  summary: Notification - Channels - Update
+  description: >-
+    This endpoint, named "Notification - Channels - Update", is designed to
+    manage the process of updating information related to channels within the
+    notification system. 
+
+
+    - **Auth**: This is the authorization method for the endpoint. It uses type
+    "bearer" which means you need to supply a bearer token to authenticate. The
+    `token` value under the bearer section should hold this bearer token.
+
+
+    - **Request method**: The method of this endpoint is "PUT" which is
+    typically used to update an existing resource.
+
+
+    - **URL**: It shows the location of the endpoint which is
+    "http://localhost:3000/api/notification/channels/update" in this case.
+
+
+    - **Headers**: It uses a custom header named `Client-UUID`, the value for it
+    should be the 'UUID' that uniquely identifies the client.
+
+
+    - **Body**: This contains the data to be updated.
+      
+      - `channelsId`: The unique identifier of the channels. 
+                                           
+      - `sessionId`: Different sessions are assigned unique identifiers.
+
+      - `accountId`: This represents the unique identifier of the account making the request.
+      
+      - `name`: Name of the channel.
+
+      - `description`: Description about the channel.
+      
+      - `tags`: Tags associated with the channel. They need to be comma-separated values.
+      
+      - `profilePhotoUrl`: Url of the profile photo for the channel.
+
+      - `coverPhotoUrl`: Url of the cover photo for the channel.
+      
+      - `minimumTipAmount`: The minimum tip amount that the channel accepts.
+
+      - `categoryId` and `category`: Category ID and descriptive string to classify where in the server's system the channel belongs to.
+      
+      - `subCategoryId` and `subCategory`: Sub category ID and a descriptive string for further classifying the channel within its category.
+      
+      - `isChannelsPrivate`: A boolean flag which signifies whether the channels are private or not.
+      
+      - `isTournamentOnly`: A boolean flag indicating whether the channel is only for tournaments.
+      
+      - `isChannelsDefault`: A boolean flag indicating if the channel is a default one.
+      
+      - `isPreLiveNotificationAds`, `isPostLiveNotificationAds`: Boolean flags indicating whether pre-live and post-live notification ads are allowed on this channel.
+      
+      - `breakPreLiveNotificationUrl`, `breakPostLiveNotificationUrl`: URLs where the pre-live and post-live break notification adverts will play.
+      
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"channelsId\":\"channelsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Channels 2.0\",\"description\":\"This channels is my second
+            channels\",\"tags\":\"second,channels\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isChannelsPrivate\":true,\"isTournamentOnly\":false,\"isChannelsDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

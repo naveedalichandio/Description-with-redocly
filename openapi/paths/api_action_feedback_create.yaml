@@ -1,0 +1,148 @@
+post:
+  tags:
+    - ActionFeedback
+  summary: Action - Feedback - Create
+  description: >-
+    ### Action - Feedback - Create Endpoint
+
+
+    **Request Details:**
+
+
+    - **Authentication**: The request requires bearer token authentication. The
+    token should be provided in the authorization header.
+      - **Key**: `token`
+      - **Value**: `BearerToken` (this should be replaced with a valid token)
+      - **Type**: The type of authentication being used, which is a string.
+
+    - **HTTP Method**: This request uses the POST method to send data to the
+    server.
+
+
+    - **URL**: The endpoint for creating feedback is
+    `http://localhost:3000/api/action/feedback/create`. Make sure the server is
+    running on localhost and the correct port is specified.
+
+
+    - **Headers**: There are no specific headers required except for the bearer
+    token. One default header is present but disabled, which means it won’t be
+    sent.
+
+
+    **Body Parameters**: The body of the request contains the following fields
+    in JSON format:
+
+
+    - **sessionId**: A unique identifier for the session during which the
+    feedback is being submitted.
+      
+    - **accountId**: The identifier associated with the user account providing
+    the feedback.
+
+
+    - **path**: The path representation of the resource that the feedback is
+    related to. For example, it could reference the location of a video.
+
+
+    - **targetType**: Specifies the type of target the feedback is directed
+    towards, in this case, it is set to "videoId".
+
+
+    - **targetId**: The identifier of the video that the feedback is about.
+
+
+    - **sourceType**: Indicates the type of source the feedback is coming from,
+    which is also set to "accountId" in this case.
+
+
+    - **sourceId**: This is the identifier for the source account that is
+    providing the feedback.
+
+
+    - **didFeedback**: A boolean value indicating whether the user has
+    previously provided feedback. Defaults to false.
+
+
+    - **category**: Specifies the main category of the feedback, such as
+    "Entertainment".
+
+
+    - **subCategory**: A more specific classification under the main category,
+    in this case it's "Music".
+
+
+    - **subject**: The subject of the feedback. For example, this could be a
+    description of what the feedback pertains to, set to "Video Feedback".
+
+
+    - **title**: A short title or summary of the feedback provided, in this case
+    "Great Performance".
+
+
+    - **name**: The name of the user who is providing the feedback, in this
+    instance "John Doe".
+
+
+    - **description**: A detailed description of the feedback. For example, "The
+    video was amazing, the performance was top-notch!".
+
+
+    - **tags**: Keywords associated with the feedback that help categorize it,
+    such as "music, live performance, trending".
+
+
+    - **didReply**: A boolean flag that indicates whether a reply has been
+    provided in response to the feedback. Initially set to false.
+
+
+    - **didReview**: A boolean value indicating if the feedback included a
+    review. This is set to true in this case.
+
+
+    - **replyText**: If applicable, this field would contain the text of any
+    reply provided. It's currently set to an empty string, indicating no reply
+    has been given.
+
+
+    - **reviewStars**: A numeric rating given in stars (out of a possible
+    maximum, typically 5 stars). In this case, the rating is set to 5.
+
+
+    ### Summary
+
+    This endpoint allows users to submit feedback related to videos, including
+    categorization, detailed descriptions, and ratings. Users need to provide a
+    valid bearer token for authentication, and all data must be formatted in
+    JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didFeedback: false
+            category: Entertainment
+            subCategory: Music
+            subject: Video Feedback
+            title: Great Performance
+            name: John Doe
+            description: The video was amazing, the performance was top-notch!
+            tags: music, live performance, trending
+            didReply: false
+            didReview: true
+            replyText: ''
+            reviewStars: 5
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

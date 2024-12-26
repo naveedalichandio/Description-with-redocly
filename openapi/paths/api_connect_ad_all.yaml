@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ConnectAd
+  summary: Connect - Ads - Get All
+  description: >-
+    This endpoint, named "Connect - Ads - Get All", is designed to fetch all ads
+    associated with a specified account. 
+
+
+    Below are the details of the endpoint parameters:
+
+
+    - The `name` field signifies the title of the endpoint, here it is "Connect
+    - Ads - Get All", indicating that this endpoint is used to retrieve all the
+    ads from a destination (typically a server or cloud).
+
+
+    - The `request` field contains the characteristics of the API request. This
+    request type is a "GET" method as indicated in the `method` field. A GET
+    request is used to retrieve data from a server. 
+
+
+    In the `auth` subfield:  
+
+
+    - `type` indicates which type of authorization is used. Here it's "bearer",
+    which represents Bearer Authentication, often used for authentication
+    requests with tokens.
+      
+    - Under `bearer`:
+         - `key`: Refers to what kind of authorization detail is required. In this case, it is a "token".
+         - `value`: Displays the value of the authorization detail required; place your Bearer token here (represented by "BearerToken").
+         - `type`: Defines the data type of the `value`, it's a "string" in this case.  
+
+    - The `url` field provides the endpoint for the API request, here it is
+    "http://localhost:3000/api/connect/ad/all/?accountId=accountId". This is the
+    link to your local server or cloud where the request will fetch all the ads
+    based on the 'accountId' provided.
+
+
+    - The `headers` subfield contains an array of objects where you can specify
+    additional HTTP headers. In this case, the input is blank and set to
+    "default" with the disabled status set to true. It indicates that the header
+    is not participating in the current API request.
+
+
+    - The `body` field is used for data that needs to be sent to the server.
+    Since this is a GET request, there is typically no need to send a body.
+    Here, `mode` is set to "raw", indicating that unprocessed data will be sent,
+    however its `raw` value is currently set to an empty string ("").
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

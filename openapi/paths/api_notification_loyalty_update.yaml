@@ -1,0 +1,75 @@
+put:
+  tags:
+    - NotificationLoyalty
+  summary: Notification - Loyalty - Update
+  description: >-
+    This API endpoint is named "Notification - Loyalty - Update", which utilizes
+    the "PUT" method to update data related to loyalty notifications.
+
+
+    1. `auth`: This shows the authorization type used which is "bearer". It uses
+    a bearer token to authenticate the user. The key field is "token" and the
+    bearer token is provided in the value field as "BearerToken".
+
+
+    2. `method`: The method used to send the request is "PUT". This method is
+    used to update the existing loyalty notification details.
+
+
+    3. `url`: This field is the address to which the PUT request is sent. The
+    local host URL for the endpoint is
+    "http://localhost:3000/api/notification/loyalty/update".
+
+
+    4. `headers`: This contains header information for the request. The given
+    header is Client-UUID with its value as ClientUUID. This is typically used
+    for identifying the client.
+
+
+    5. `body`: Contains the content of the request. "mode" is "raw" which means
+    the data is in raw format.
+     The JSON formatted raw data comprises of several elements:
+
+        - `loyaltyId`: Unique identifier of the loyalty program.
+        - `sessionId`: Session identifier.
+        - `accountId`: Account identifier.
+        - `name`: Name of the loyalty program.
+        - `description`: A brief description of the loyalty program.
+        - `tags`: Tags related to the loyalty program.
+        - `profilePhotoUrl`: URL of the loyalty program's profile photo.
+        - `coverPhotoUrl`: URL of the loyalty program's cover photo.
+        - `minimumTipAmount`: Minimum tip amount set for the loyalty program.
+        - `categoryId`: Unique identifier of the category the program belongs to.
+        - `category`: Name of the main category.
+        - `subCategoryId`: Unique identifier of the sub-category.
+        - `subCategory`: Name of the sub-category.
+        - `isLoyaltyPrivate`: A boolean field to check whether the loyalty is private or not.
+        - `isTournamentOnly`: A boolean field to check whether the loyalty is intended for tournaments only.
+        - `isLoyaltyDefault`: A boolean field to check whether the loyalty is set as default.
+        - `isPreLiveNotificationAds`: A boolean field to check if pre-live notification ads are available.
+        - `isPostLiveNotificationAds`: A boolean field to check if post-live notification ads are available.
+        - `breakPreLiveNotificationUrl`: URL for the pre-live notification break advertisement.
+        - `breakPostLiveNotificationUrl`: URL for the post-live notification break advertisement.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"loyaltyId\":\"loyaltyId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Loyalty 2.0\",\"description\":\"This loyalty is my second
+            loyalty\",\"tags\":\"second,loyalty\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isLoyaltyPrivate\":true,\"isTournamentOnly\":false,\"isLoyaltyDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

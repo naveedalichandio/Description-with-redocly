@@ -1,0 +1,104 @@
+post:
+  tags:
+    - ActionAttend
+  summary: Action - Attend - Create
+  description: >-
+    ### Endpoint: Action - Attend - Create
+
+
+    This endpoint allows users to create an attendance action to a specific
+    session or event.
+
+
+    #### Request Overview
+
+    - **Method**: POST
+
+    - **URL**: `http://localhost:3000/api/action/attend/create`
+
+    - **Authentication**: Requires a Bearer token for access.
+
+
+    #### Authentication Details
+
+    - **Type**: bearer
+
+    - **Bearer Token**: A token must be provided in the header for
+    authorization. The placeholder `"BearerToken"` should be replaced with a
+    valid token value for access.
+
+
+    #### Headers
+
+    - Currently, no specific headers are required as the entry is disabled. If
+    needed, custom headers can be added by specifying the key and value.
+
+
+    #### Body Parameters
+
+    This request requires a JSON body formatted as raw data. Below are the
+    necessary fields:
+
+
+    1. **sessionId**: (string) The unique identifier for the session you are
+    attending.
+
+    2. **accountId**: (string) Your unique account identifier that will be
+    linked to the attendance record.
+
+    3. **path**: (string) The URL path available for live content, where the
+    attendance takes place (e.g., `/live/channel/video123`).
+
+    4. **targetType**: (string) The type of target you are attending to,
+    typically a label such as "videoId."
+
+    5. **targetId**: (string) The unique identifier for the target, such as the
+    specific video ID you are attending.
+
+    6. **sourceType**: (string) The type of source from which the attendance
+    originates, usually something like "accountId."
+
+    7. **sourceId**: (string) The unique identifier of the source, which
+    corresponds to your account ID.
+
+    8. **tokenAmount**: (integer) A numerical value representing the amount of
+    any tokens or credits associated with this action. It can be zero if no
+    tokens apply.
+
+    9. **name**: (string) An optional name for the attendance action being
+    created.
+
+    10. **description**: (string) An optional description of the attendance
+    event or action.
+
+    11. **tags**: (string) An optional field for any tags associated with the
+    attendance action for categorization or search purposes.
+
+
+    The body must be formatted in JSON, and an example is provided that outlines
+    how to structure these parameters correctly. Make sure to replace
+    placeholders with actual values when making a request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 0
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

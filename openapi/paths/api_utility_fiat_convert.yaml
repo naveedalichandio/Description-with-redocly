@@ -1,0 +1,92 @@
+post:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Convert Fiat
+  description: |-
+    ### Endpoint Description: Utility - Fiat - Convert Fiat
+
+    #### Request Method
+    - **Method**: POST
+      - This indicates that the request will send data to the server to convert Fiat currency.
+
+    #### Request URL
+    - **URL**: `http://localhost:3000/api/utility/fiat/convert`
+      - This is the endpoint that handles the Fiat currency conversion request. It's hosted locally.
+
+    #### Authentication
+    - **Auth Type**: Bearer
+      - This endpoint uses Bearer token authentication for secure access to the API.
+      
+    - **Bearer Token**
+      - **Key**: `token`
+        - The key under which the authentication token is sent.
+      - **Value**: `BearerToken`
+        - The actual authentication token string that grants access to this API.
+      - **Type**: String
+        - Specifies that the token is a string format.
+
+    #### Headers
+    - **Header**: Client-UUID
+      - **Key**: `Client-UUID`
+        - This header includes a unique identifier for the client making the API request. It is used for tracking and managing client-specific activities.
+      - **Value**: `ClientUUID`
+        - This should be replaced with a specific UUID value that identifies the client.
+      - **Type**: Default
+        - Indicates a standard header format.
+
+    #### Request Body
+    - **Body Mode**: Raw
+      - The body of the request will be sent as raw data, formatted as JSON.
+
+    - **Raw Body Content**:
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "fiatId": "fiatId",
+          "type": "usd",
+          "rate": 1,
+          "amount": 1,
+          "convertTo": "token"
+      }
+      ```
+      - **Field Descriptions**:
+        - **sessionId**: Represents a unique identifier for the current session. This helps in managing user interactions without them logging in repeatedly.
+        - **accountId**: Identifies the user's account that the Fiat conversion will be processed against. This is crucial for linking the transaction to the right user.
+        - **fiatId**: Refers to the specific Fiat currency identification that indicates which currency is to be converted.
+        - **type**: Specifies the type of Fiat currency being processed. For example, it may indicate "usd" for US dollars.
+        - **rate**: The conversion rate applied to the Fiat amount. This is the rate at which the Fiat is converted to the target currency.
+        - **amount**: The quantity of currency to convert. This is the actual amount of Fiat that the user wants to convert.
+        - **convertTo**: Indicates the currency or token to which the Fiat amount will be converted. For instance, it could specify that the amount should be converted to a cryptocurrency token.
+
+    #### Body Options
+    - **Options**: 
+      - **Raw**:
+        - **Language**: JSON
+          - This setting specifies that the raw body content is formatted as JSON, ensuring that the API can interpret the data correctly.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            fiatId: fiatId
+            type: usd
+            rate: 1
+            amount: 1
+            convertTo: token
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

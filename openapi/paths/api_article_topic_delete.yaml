@@ -1,0 +1,56 @@
+post:
+  tags:
+    - ArticleTopic
+  summary: Article - Topic - Delete
+  description: >-
+    This endpoint named "Article - Topic - Delete" allows you to delete a
+    specific topic from an article. Here is a detailed description for each
+    datum:
+
+
+    1. "name": It signifies the identifier of this endpoint which is "Article -
+    Topic - Delete".
+       
+    2. "request": This is an object which contains multiple properties under it.
+    Let's consider each one.
+
+       - "auth": This property is used for handling authentication. It uses bearer token authentication where you need to provide a token.
+          
+         - "type": The type of the provided token which is "bearer".
+          
+         - "bearer": This is an array of objects containing bearer's key, type and value. 
+             - "key": This denotes the token name. Here, the key is "token".
+             - "value": This stands for the passed value for the key which in this case is "sessionId".
+             - "type": Identifies the datatype of value (i.e., "sessionId"). It is a "string". 
+
+       - "method": An HTTP method used. This endpoint uses "POST" method.
+          
+       - "url": It provides the URL where this endpoint hits, which is "http://localhost:3000/api/article/topic/delete".
+       
+       - "headers": This is an array primarily meant for passing additional information while sending requests. It's set to empty here, and being ignored as it's "disabled": True.
+
+       - "body": It carries the data which needs to be processed in the HTTP request. Here, the data is in "raw" mode.
+
+           - "mode": Since the mode is set to "raw", you can write JSON or XML directly in the text input field.
+
+           - "raw": It holds JSON string which contains sessionId, accountId and topicId.
+               - "sessionId": It is the session identity of the user. Replace the placeholder "sessionId" with a valid one.
+               - "accountId": It represents the account identity that is associated with this action. Replace "accountId" with actual account identifier.
+               - "topicId": It is the specific identifier to an article's topic that you wish to delete. Enter the actual topicId instead of "articleTopicId".
+               
+    Please replace all placeholders with actual values while using this
+    endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"topicId\":\"articleTopicId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

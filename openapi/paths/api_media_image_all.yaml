@@ -1,0 +1,56 @@
+get:
+  tags:
+    - MediaImage
+  summary: Media - Image - Get All
+  description: >-
+    This API is named "Media - Image - Get All". It is a GET request intended to
+    retrieve all images from the media section of this application. Below are
+    the details regarding each part of the request.
+
+
+    - **Auth**: This request uses bearer token authentication. In order to
+    authenticate yourself, you need to provide a string value called
+    "BearerToken".
+
+
+    - **Method**: This is a GET request. This kind of request is generally used
+    to retrieve resources from a server. 
+
+
+    - **URL**: The endpoint where the request is made is
+    `http://localhost:3000/api/media/image/all`. Two query parameters should be
+    attached to the URL – `sessionId` & `accountId`. The values of these query
+    parameters should be replaced with actual session ID and account ID for the
+    user's session respectively.
+
+
+    - **Headers**: There is a placeholder for a header field in the request but
+    it is currently disabled and doesn't contain any value or key, means it
+    isn't used.
+
+
+    - **Body**: The body mode is set to "raw" but there is currently no content
+    in the body of the request. Generally, for GET requests, the body is left
+    empty as we are not sending any data to the server, we just retrieve it.
+
+
+    Remember to replace "BearerToken", "sessionId", and "accountId" with actual
+    values when testing or using this endpoint in an application context.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

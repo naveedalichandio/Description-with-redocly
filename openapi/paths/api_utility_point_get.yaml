@@ -1,0 +1,86 @@
+get:
+  tags:
+    - UtilityPoint
+  summary: Utility - Point - Get Neutral Logs
+  description: >-
+    ### Endpoint: Utility - Point - Get Neutral Logs
+
+
+    #### Request Method
+
+    - **Method**: `GET`
+      - This endpoint uses the GET method to request data from the server.
+
+    #### Request URL
+
+    - **URL**:
+    `http://localhost:3000/api/utility/point/get/?log=category&category=neutrals&sessionId=sessionId&accountId=accountId`
+      - This is the endpoint to retrieve neutral logs. It includes query parameters for filtering the logs.
+
+    #### Query Parameters
+
+    - **log**: 
+      - This parameter indicates the type of log being requested, which is set as "category".
+      
+    - **category**: 
+      - This specifies the category of logs to retrieve. In this case, it is set to "neutrals". This will filter the logs to only include those categorized as neutrals.
+
+    - **sessionId**: 
+      - This is a placeholder for the session ID. It is used to uniquely identify a user session. The actual session ID should be provided when making the request.
+
+    - **accountId**: 
+      - This is a placeholder for the account ID. It is used to specify which user's logs are being requested. The actual account ID should be provided when making the request.
+
+    #### Authentication
+
+    - **Auth Type**: `Bearer`
+      - This endpoint requires authentication using a Bearer token. 
+
+    - **Bearer Token**: 
+      - **Key**: `token`
+      - **Value**: `BearerToken`
+      - **Type**: `string`
+        - The user must include a Bearer token in the request header for authorization. The actual token should be substituted for "BearerToken" when making the request.
+
+    #### Headers
+
+    - **Headers**: 
+      - An empty header object is present but it's disabled. No additional headers are required for this endpoint.
+
+    #### Request Body
+
+    - **Body**: 
+      - **Mode**: `raw`
+      - **Raw**: `""`
+        - The body is empty for this GET request, as there is no need to send any additional data in the request body.
+
+    Overall, this endpoint allows users to retrieve logs categorized as neutral
+    by providing necessary parameters and authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: log
+      in: query
+      schema:
+        type: string
+      example: category
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: neutrals
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

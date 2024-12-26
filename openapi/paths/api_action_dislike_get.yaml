@@ -1,0 +1,51 @@
+get:
+  tags:
+    - ActionDislike
+  summary: Action - Dislike - Get
+  description: |-
+    {
+      "name": "Action - Dislike - Get",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "description": "This section defines the authentication method used for the request. A bearer token is required for accessing the API."
+          },
+          "method": {
+            "description": "This indicates the HTTP method to be used for the request. In this case, it is a GET request, which is typically used to retrieve data."
+          },
+          "url": {
+            "description": "This is the endpoint URL for the API call. It includes query parameters like dislikeId, sessionId, and accountId, which are necessary for identifying what data to retrieve. Replace dislikeId, sessionId, and accountId with actual values to make a successful request."
+          },
+          "headers": {
+            "description": "This section is for specifying additional HTTP headers for the request. Currently, it contains an empty key-value pair and is marked as disabled, which means no additional headers are being sent."
+          },
+          "body": {
+            "description": "This section indicates the body of the request. Since this is a GET request, the body is not used. It is set to 'raw' mode but is left empty."
+          }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: dislikeId
+      in: query
+      schema:
+        type: string
+      example: dislikeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

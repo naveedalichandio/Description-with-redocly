@@ -1,0 +1,121 @@
+post:
+  tags:
+    - TournamentPlayer
+  summary: Tournament - Player - Create
+  description: >-
+    ### Description of Endpoint Data:
+
+
+    - **name**: Identifies the endpoint as "Tournament - Player - Create,"
+    indicating that this is used to create a new player for a tournament.
+
+
+    - **request**: Contains details about the request being made to the API.
+
+      - **auth**: Specifies the authentication method used for the request.
+        
+        - **type**: Indicates that the authentication type is "bearer."
+        
+        - **bearer**: An array that holds authentication credentials.
+          
+          - **key**: The designation for the bearer token; labeled as "token."
+          
+          - **value**: The actual bearer token value which is a placeholder here as "BearerToken."
+          
+          - **type**: Specifies that the type of the value is a string.
+
+      - **method**: The HTTP method for the request, which is "POST," indicating that data will be sent to the server.
+
+      - **url**: The endpoint URL where the request is directed, which is "http://localhost:3000/api/tournament/player/create".
+
+      - **headers**: An array representing HTTP headers for the request.
+        
+        - **key**: The header key is left empty, and as such, it's not currently utilized.
+        
+        - **value**: The corresponding value for the key is also left empty.
+        
+        - **type**: Categorizes the header type as "default."
+        
+        - **disabled**: A boolean indicating whether this header is currently active; set to true, suggesting it is inactive.
+
+      - **body**: Represents the content included in the request.
+        
+        - **mode**: Specifies the format of the body content, which is "raw."
+
+        - **raw**: A JSON string that contains the details necessary to create the player. The JSON object includes:
+          
+          - **sessionId**: A unique identifier for the session associated with the player.
+          
+          - **accountId**: The identifier for the account under which the player is associated.
+          
+          - **name**: The name given to the player; in this case, "My Second Player."
+          
+          - **description**: A brief description of the player, detailing that this player is the user's second player.
+          
+          - **tags**: A comma-separated list of tags for categorizing the player; here, it includes "second" and "player."
+          
+          - **profilePhotoUrl**: A URL pointing to the player's profile photo.
+          
+          - **coverPhotoUrl**: A URL for the player's cover photo.
+          
+          - **minimumTipAmount**: Specifies the minimum amount that can be tipped to the player; set to 10.
+          
+          - **categoryId**: An identifier for the category to which the player belongs; labeled as "category123."
+          
+          - **category**: The name of the category, indicated as "General."
+          
+          - **subCategoryId**: An identifier for the subcategory assigned to the player; labeled as "subCategory456."
+          
+          - **subCategory**: The name of the subcategory, specified as "Specific."
+          
+          - **isPlayerPrivate**: A boolean indicating whether the player's profile is private; set to true.
+          
+          - **isTournamentOnly**: A boolean indicating if the player is available only for tournament play; set to false.
+          
+          - **isPlayerDefault**: A boolean indicating if this player is set as the default player; marked true.
+          
+          - **isPreLiveTournamentAds**: A boolean indicating if ads are allowed during pre-live tournaments; set to true.
+          
+          - **isPostLiveTournamentAds**: A boolean indicating if ads can run after live tournaments; set to true.
+          
+          - **breakPreLiveVideoUrl**: A URL pointing to the video to be played during pre-live breaks.
+          
+          - **breakPostLiveVideoUrl**: A URL pointing to the video to be played during post-live breaks.
+        
+        - **options**: Configuration options for the raw body.
+          
+          - **raw**: Contains specific language settings for the raw format.
+            
+            - **language**: Indicates that the language of the raw content is "json."
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Player
+            description: This player is my second player
+            tags: second,player
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isPlayerPrivate: true
+            isTournamentOnly: false
+            isPlayerDefault: true
+            isPreLiveTournamentAds: true
+            isPostLiveTournamentAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

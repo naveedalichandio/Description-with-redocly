@@ -1,0 +1,59 @@
+get:
+  tags:
+    - NotificationTokens
+  summary: Notification - Tokens - Get
+  description: >-
+    This endpoint is titled "Notification - Tokens - Get". It describes a `GET`
+    request to retrieve Notification Tokens.
+
+
+    Here is a detailed description of its structure:
+
+
+    1. **Name**: This is the identifier of the endpoint, known as "Notification
+    - Tokens - Get". This is used as a reference for the specific action the
+    endpoint is designed to perform.
+
+
+    2. **Request**: The main component of the endpoint, encompassing the
+    functionality and parameters of the HTTP request.
+       
+       - **Auth**: Specifies the authentication method required. In this case, a "Bearer" token is used which must be supplied in the header of the HTTP request.
+            
+            - **Key**: Refers to the field identifier for the authentication method, which is "token" here.
+            
+            - **Value**: This should be filled with the specific bearer token value - "BearerToken" here. The data type for this value is string.
+                
+       - **Method**: This indicates the HTTP method. It is a `GET` request, meaning data is being retrieved from the server based on the parameters passed in the URL.
+        
+       - **URL**: This is the specific endpoint on the server where the request will go. It includes placeholders for the "tokensId", "sessionId", and "accountId". These values should be replaced with the user's specific data when the request is made.
+
+       - **Headers**: These are default headers needed for the request, in this case, it is disabled. If further headers are required, they can be added here.
+
+       - **Body**: The body of the request contains additional data sent to the server. In this endpoint, the body is in "raw" mode, meaning it can be any kind of text. However, there's no specific data for the body here, it's left empty.
+
+    Each of these parameters needs to be filled out appropriately by users based
+    on their context to ensure the endpoint works as expected.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: tokensId
+      in: query
+      schema:
+        type: string
+      example: tokensId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

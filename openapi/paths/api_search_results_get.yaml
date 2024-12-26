@@ -1,0 +1,57 @@
+get:
+  tags:
+    - SearchResults
+  summary: Search - Results - Get - By Channel Name
+  description: >-
+    ### API Name: Search - Results - Get - By Channel Name
+
+
+    #### Request
+
+
+    - **Auth**: 
+      - **Type**: Indicates the kind of authentication used for the request. Here, it uses "bearer" token authentication.
+      - **Bearer**: Details about the bearer token.
+        - **Key**: This is the identifier for the token, labeled as "token".
+        - **Value**: The actual token value that is used for authentication. It follows the format "BearerToken".
+        - **Type**: Indicates that the value is a string.
+
+    - **Method**: 
+      - Specifies the HTTP method for the request, which in this case is "GET". This method is used to retrieve data from the specified resource.
+
+    - **URL**: 
+      - The endpoint to which the request is sent. It is structured as:
+        - **Base URL**: `http://localhost:3000`
+          - This denotes that the API is running locally on port 3000.
+        - **Path**: `/api/search/results/get/`
+          - Specifies the specific path to access the search results.
+        - **Query Parameter**: `?channel=MyNikeChannel`
+          - This part of the URL is used to pass specific parameters to the API. Here, it retrieves results for the channel named "MyNikeChannel".
+
+    - **Headers**: 
+      - This section defines any additional headers that may be sent with the request.
+        - **Key**: Initially left empty, indicating no specific header is defined.
+        - **Value**: Also left empty, suggesting there is no value associated with the header.
+        - **Type**: Marked as "default", which means it's a standard header type.
+        - **Disabled**: Set to true, indicating that this header will not be sent with the request.
+
+    - **Body**: 
+      - Describes the content being sent in the request.
+        - **Mode**: Indicates the format of the body content. Here, it is set to "raw".
+        - **Raw**: Currently empty, implying no body content is sent with a GET request, as is standard practice.
+
+    This endpoint is designed to allow users to fetch search results based on a
+    specified channel name.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: channel
+      in: query
+      schema:
+        type: string
+      example: MyNikeChannel
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,68 @@
+get:
+  tags:
+    - ActionFollow
+  summary: Action - Follow - Get All
+  description: >-
+    **Endpoint Description**
+
+
+    **Name**: Action - Follow - Get All  
+
+    This endpoint is used to retrieve all follow actions associated with a
+    specific session and account.
+
+
+    **Request Details**:
+
+
+    1. **Authorization**: 
+       - **Type**: Bearer
+         - This indicates that the API uses bearer token authentication. 
+       - **Bearer Token**: 
+         - **Key**: token
+         - **Value**: BearerToken
+         - **Type**: string
+         - The value 'BearerToken' should be replaced with an actual token that authenticates the user making the request. The token grants access to the API.
+
+    2. **Method**: 
+       - **GET**: 
+         - This HTTP method is used to request data from the server. In this case, it fetches data related to follow actions.
+
+    3. **URL**: 
+       - **Endpoint**: http://localhost:3000/api/action/follow/all/
+         - This is the base URL that directs the request to the API endpoint responsible for handling follow actions.
+       - **Query Parameters**: 
+         - **sessionId**: sessionId
+           - Replace this with the actual session ID to specify which user's session data to retrieve.
+         - **accountId**: accountId
+           - Replace this with the actual account ID to identify which account's follow actions you want to fetch.
+
+    4. **Headers**: 
+       - An array that could contain custom headers, but in this case, it is currently empty.
+       - The provided header configuration is disabled, meaning no additional headers will be sent with this request.
+
+    5. **Body**: 
+       - **Mode**: raw
+         - This indicates that there is no body content required for this GET request.
+       - **Raw**: An empty string, as the GET method typically does not send a body.
+
+    This endpoint will return all follow actions linked to the specified session
+    and account, given the correct authentication and parameter values.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

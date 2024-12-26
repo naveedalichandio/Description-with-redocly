@@ -1,0 +1,102 @@
+put:
+  tags:
+    - ActionAttend
+  summary: Action - Attend - Update
+  description: >-
+    ### Endpoint Description: Action - Attend - Update
+
+
+    **Request Type**: PUT
+
+
+    **Request URL**: `http://localhost:3000/api/action/attend/update`
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer Token
+      - **Key**: `token`
+      - **Value**: `BearerToken` (This is a placeholder where the actual bearer token should be provided.)
+
+    #### Headers
+
+    - **Client-UUID**: `ClientUUID`
+      - This header should contain a unique identifier for the client making the request.
+
+    #### Request Body
+
+    The body of the request is formatted in JSON and contains the following
+    fields:
+
+
+    1. **sessionId**:
+       - Represents the unique identifier for the session. This is vital for tracking the session associated with the attendance update.
+
+    2. **accountId**:
+       - This field stores the unique identifier of the user's account that is making the update. It helps in identifying which user's attendance is being modified.
+
+    3. **path**:
+       - The path to the specific video or resource. In this case, it indicates the location of the video being referenced, e.g., `/live/channel/video123`.
+
+    4. **targetType**:
+       - Specifies the type of target associated with the attendance update. Here, it's indicated as `tournamentId`, which signifies that the target is related to a tournament.
+
+    5. **targetId**:
+       - Contains the unique identifier of the target entity (e.g., the tournament) that the update relates to.
+
+    6. **sourceType**:
+       - Indicates the type of source of the update. In this case, it is set to `accountId`, implying the source is the account ID.
+
+    7. **sourceId**:
+       - This is the unique identifier of the source (the user's account) that is linked to the update.
+
+    8. **attendId**:
+       - A unique identifier for the attendance entry that is being updated.
+
+    9. **tokenAmount**:
+       - Represents the amount of tokens associated with the attendance. Here, it is set to `0`, which may indicate that no tokens are being transferred or used in this update.
+
+    10. **name**:
+        - A descriptive name for the attendance update. In this context, it is set to `update`.
+
+    11. **description**:
+        - An optional field for providing additional details about the attendance update. Here, it is left empty.
+
+    12. **tags**:
+        - This optional field can be used to include tags related to the attendance update, aiding in categorization or searching. It is also empty in this instance.
+
+    Overall, this endpoint allows users to update the attendance details
+    associated with a specific session and account, linking it to a target
+    tournament, while providing the flexibility to include metadata such as
+    tokens, names, descriptions, and tags.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: tournamentId
+            targetId: tournamentId
+            sourceType: accountId
+            sourceId: accountId
+            attendId: attendId
+            tokenAmount: 0
+            name: update
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,64 @@
+post:
+  tags:
+    - VideoStatic
+  summary: Video - Static - Delete
+  description: >-
+    ### Description of the Endpoint "Video - Static - Delete"
+
+
+    - **Name**: 
+      - This is the name of the API endpoint which is used for deleting a static video.
+
+    - **Request**: 
+      - This section contains the details required to make the API call.
+
+      - **Auth**: 
+        - **Type**: 
+          - Specifies the authentication method used for this request. In this case, it is set to "bearer" which requires a token for authorization.
+        - **Bearer**: 
+          - This is an array that contains the authentication details. The following details are included:
+            - **Key**: 
+              - The identifier for the token, which in this case is "token".
+            - **Value**: 
+              - Represents the session identifier that is required for validating the user's session.
+            - **Type**: 
+              - Indicates the data type of the token, which is set to "string".
+
+      - **Method**: 
+        - This specifies the HTTP method used for the request. The method chosen here is "POST", indicating that data will be sent to the server to perform the delete operation.
+
+      - **URL**: 
+        - This is the endpoint where the delete request is sent. For this API call, the URL is "http://localhost:3000/api/video/static/delete".
+
+      - **Headers**: 
+        - This section includes the headers that can be sent along with the request. In this case, there is an entry but it is disabled and has no key or value set.
+
+      - **Body**: 
+        - This section contains the data that will be sent in the body of the request.
+        - **Mode**: 
+          - The format of the body data. It is set to "raw", meaning the data will be sent as a raw JSON string.
+        - **Raw**: 
+          - This is the actual data being sent in the body. It is a JSON object containing:
+            - **sessionId**: 
+              - The ID representing the current user session.
+            - **accountId**: 
+              - The ID of the account associated with the video that is to be deleted.
+            - **videoId**: 
+              - The ID of the video that is being targeted for deletion. 
+
+    Use this information as a guide to understand how to interact with the
+    "Video - Static - Delete" API endpoint effectively.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"videoId\":\"videoId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

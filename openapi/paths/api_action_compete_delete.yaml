@@ -1,0 +1,51 @@
+post:
+  tags:
+    - ActionCompete
+  summary: Action - Compete - Delete
+  description: >-
+    ### Endpoint Description: Action - Compete - Delete
+
+
+    - **Name**: This is the identifier for the endpoint, specifically for
+    deleting an action related to the competition.
+
+
+    - **Request**:
+      - **Auth**:
+        - **Type**: The authentication method used is Bearer Token. This is a common method for securing API endpoints.
+        - **Bearer**: 
+          - **Key**: This is the identifier for the token in the request.
+          - **Value**: This represents the session ID that is required for authentication.
+          - **Type**: The type of data being passed for the token, which is a string.
+
+      - **Method**: The HTTP method used for this request is POST, which is typically used to send data to the server.
+
+      - **URL**: The endpoint that the request is being sent to. In this case, it is `"http://localhost:3000/api/action/compete/delete"`, which indicates it is running on a local server.
+
+      - **Headers**: 
+        - This section is currently empty and disabled. Typically, headers can provide additional context for the request, such as content type, but none are necessary for this specific call.
+
+      - **Body**:
+        - **Mode**: The body is configured in raw mode, meaning it directly accepts the text format.
+        - **Raw**: The body must contain a JSON object structured as follows:
+          - **sessionId**: Represents the unique identifier for the user's session.
+          - **accountId**: Refers to the unique identifier for the user’s account.
+          - **competeId**: Indicates the unique identifier for the competition that is to be deleted.
+
+    This API is intended to remove a specific competition action associated with
+    a user's account, utilizing the provided identifiers for proper
+    authentication and targeting.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"competeId\":\"competeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

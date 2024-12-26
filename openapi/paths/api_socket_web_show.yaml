@@ -1,0 +1,46 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Show
+  description: >-
+    ### Web - Socket - Recent Show
+
+
+    **Endpoint Description:**
+
+    This endpoint retrieves recent shows through a WebSocket connection. It is
+    used to fetch data about shows that have occurred recently, allowing users
+    to stay updated with the latest content.
+
+
+    **Request Method:**
+
+    - **GET**: This method is used to request data from the specified resource.
+
+
+    **Request URL:**
+
+    - **http://localhost:3000/api/socket/web/show?recent=true&limit=limit**
+      - **Base URL**: `http://localhost:3000`
+        - This indicates that the API is hosted locally on your machine at port 3000.
+      - **Path**: `/api/socket/web/show`
+        - This specifies the segment of the API that deals with WebSocket functionality related to shows.
+      - **Query Parameters**:
+        - **recent=true**: This parameter filters the results to only include shows that are recent.
+        - **limit=limit**: This parameter specifies the maximum number of shows to return in the response. Replace `limit` with an actual number to set the desired limit for the results.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,54 @@
+post:
+  tags:
+    - ActionGift
+  summary: Action - Gift - Delete
+  description: >-
+    ### Action - Gift - Delete Description
+
+
+    - **Name**: This is the name of the API action, which indicates that it
+    pertains to deleting a gift. 
+
+
+    - **Request**: This section outlines the specifications needed for the API
+    call.
+
+      - **Auth**: Details the type of authentication required for this request.
+        - **Type**: Specifies that the authentication type is "bearer".
+        - **Bearer**: An array that contains the authentication details.
+          - **Key**: The key for the bearer token, which is "token".
+          - **Value**: Represents the session ID used for authentication. Replace "sessionId" with the actual session ID string when making the request.
+          - **Type**: Indicates the type of value being passed, which is "string".
+
+      - **Method**: This indicates the HTTP method used for the request. In this case, it is "POST", meaning this action will send data to the server to delete a gift.
+
+      - **URL**: The endpoint this request targets. The URL is `http://localhost:3000/api/action/gift/delete`, which denotes that the request will be sent to a local server to delete a gift.
+
+      - **Headers**: This section contains any custom headers needed for the request.
+        - **Key**: There is no key provided in this example.
+        - **Value**: There is no value provided in this example.
+        - **Type**: Setting is "default", and this header is currently disabled, meaning it will not be sent with the request.
+
+      - **Body**: This section describes the data you need to send with the request.
+        - **Mode**: Indicates that the body is sent in "raw" format.
+        - **Raw**: Contains the JSON string that includes the necessary information to delete a gift. The body must include:
+          - **sessionId**: The ID used for the user session, replace "sessionId" with the actual session ID.
+          - **accountId**: The ID of the account that owns the gift, replace "accountId" with the actual account ID.
+          - **giftId**: The ID of the gift that is to be deleted, replace "giftId" with the actual gift ID. 
+
+    Make sure to swap out placeholder values with actual data when performing
+    this API call.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"giftId\":\"giftId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

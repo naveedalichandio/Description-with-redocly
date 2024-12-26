@@ -1,0 +1,65 @@
+post:
+  tags:
+    - PaymentPayout
+  summary: Payout - Zelle - Delete
+  description: >-
+    This endpoint, "Payout - Zelle - Delete", allows you to delete a specific
+    payout through Zelle.
+
+
+    Endpoint URL:
+
+    This endpoint is located at
+    `http://localhost:3000/api/payment/payout/delete`.
+
+
+    HTTP Method:
+
+    This endpoint uses the `POST` method.
+
+
+    Request Headers:
+
+    This endpoint does not require any headers.
+
+
+    Request Body:
+
+    The request body should be in `raw` format and in `JSON` language. The
+    fields included in the request body are:
+
+
+    - `accountId`: This field is used to identify the account related to the
+    payout operation. Replace the value `accountId` with the unique identifier
+    of the account.
+
+
+    - `sessionId`: This field is used for session identification and should be
+    replaced with the specific `sessionId`.
+
+
+    - `payoutId`: This field is used to identify the specific payout that you
+    want to delete. Replace `payoutId` with the unique identifier of the payout.
+
+
+    - `provider`: The provider field represents the payout service provider. In
+    this case, the provider is `Zelle`.
+
+
+    Please replace `accountId`, `sessionId`, and `payoutId` with the actual
+    values for the operation.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            payoutId: payoutId
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

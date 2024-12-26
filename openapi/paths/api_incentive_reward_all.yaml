@@ -1,0 +1,55 @@
+get:
+  tags:
+    - IncentiveReward
+  summary: Incentive - Reward - Get All
+  description: >-
+    This endpoint, named "Incentive - Reward - Get All", is designed to retrieve
+    all types of promotional incentives offered to users, such as loyalty
+    bonuses, referrals, discount codes, gift vouchers, etc.
+
+
+    It works with the GET method, meaning it's a read-only view which retrieves
+    and displays data from server. This operation is authenticated using the
+    "Bearer" type of token authorization. The place of the token is marked as
+    "BearerToken", which is meant to hold the actual API client's bearer token
+    as a string to grant access level.
+
+
+    The request is delivered to the URL:
+    "http://localhost:3000/api/incentive/reward/all/", and requires two query
+    parameters: 'sessionId' and 'accountId'. 'sessionId' refers to the unique ID
+    of the user's current session, and 'accountId' is a unique identifier for
+    the user's account. Both are mandatory and should be passed in the URL to
+    ensure the proper functioning of the endpoint by tailoring the response to
+    the specific user and session.
+
+
+    The endpoint does not require any specific headers, as indicated by the
+    empty key-value pair, and it is also disabled, meaning it can be disregarded
+    entirely in the request.
+
+
+    In terms of the request body, since this endpoint is using the GET method,
+    no data needs to be sent through the body. It's set to the 'raw' mode, yet
+    the 'raw' body field is left blank. This is to be expected, as GET methods
+    typically do not have a request body. If there's any change in the type of
+    request made to this endpoint, then the body parameters would need to be
+    added under the 'raw' field.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

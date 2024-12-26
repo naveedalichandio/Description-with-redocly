@@ -1,0 +1,141 @@
+put:
+  tags:
+    - TeamGeneral
+  summary: Team - General - Update Auto
+  description: >-
+    ### Endpoint Description
+
+
+    #### Name
+
+    - **Team - General - Update Auto**: This endpoint is designed for updating
+    general team information.
+
+
+    #### Request Details
+
+    - **Auth**: Authentication is required to access this endpoint, using a
+    bearer token.
+      - **Type**: Bearer
+        - **Token**: A placeholder for the bearer token required for authorization (e.g., "BearerToken").
+
+    - **Method**: 
+      - **PUT**: Indicates that this request will update existing team data.
+
+    - **URL**: 
+      - `http://localhost:3000/api/team/general/update`: The endpoint URL where the update request will be sent.
+
+    #### Headers
+
+    - **Client-UUID**: 
+      - This header allows identification of the specific client making the request. It should be populated with the actual client UUID (e.g., "ClientUUID").
+
+    #### Body
+
+    - **Mode**: 
+      - **Raw**: The body of the request will be sent in raw format.
+
+    - **Raw Data**: JSON object containing the details of the team to update:
+
+      - **teamId**: 
+        - A unique identifier for the team being updated (e.g., "teamId").
+
+      - **sessionId**: 
+        - Unique identifier for the session associated with the update (e.g., "sessionId").
+
+      - **accountId**: 
+        - Unique identifier for the account associated with the team (e.g., "accountId").
+
+      - **title**: 
+        - The title of the team (e.g., "Nike Shoes").
+
+      - **displayName**: 
+        - The display name for the team, which may be different from the title (e.g., "Nike Shoes").
+
+      - **description**: 
+        - A brief description of the team; helps in understanding the purpose or content of the team (e.g., "This team is my updated team").
+
+      - **tags**: 
+        - Comma-separated tags associated with the team for categorization (e.g., "second,team").
+
+      - **profilePhotoUrl**: 
+        - URL link to the team's profile photo (e.g., "https://example.com/profile.jpg").
+
+      - **coverPhotoUrl**: 
+        - URL link to the team's cover photo (e.g., "https://example.com/cover.jpg").
+
+      - **minimumTipAmount**: 
+        - The minimum amount that can be tipped in relation to the team, specified in the appropriate currency (e.g., 10).
+
+      - **category**: 
+        - The primary category under which the team falls (e.g., "General 2").
+
+      - **subCategory**: 
+        - A more specific category under the primary category (e.g., "Specific 2").
+
+      - **isGeneralPrivate**: 
+        - A boolean indicating whether the team is private to the general public (true/false).
+
+      - **isTournamentOnly**: 
+        - A boolean indicating whether the team is exclusive to tournament settings (true/false).
+
+      - **isGeneralDefault**: 
+        - A boolean that indicates if this team is a default team for users (true/false).
+
+      - **isPreLiveTeamAds**: 
+        - A boolean that indicates whether the team allows advertisements before going live (true/false).
+
+      - **isPostLiveTeamAds**: 
+        - A boolean that indicates whether the team allows advertisements after going live (true/false).
+
+      - **breakPreLiveVideoUrl**: 
+        - URL for a video played during break time before a live event (e.g., "https://example.com/break-pre-live.mp4").
+
+      - **breakPostLiveVideoUrl**: 
+        - URL for a video played during break time after a live event (e.g., "https://example.com/break-post-live.mp4").
+
+      - **isTeamPrivate**: 
+        - A boolean indicating whether the team itself is private (true/false).
+
+      - **isTeamDefault**: 
+        - A boolean indicating whether this team setting is the default for new users or accounts (true/false).
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            teamId: teamId
+            sessionId: sessionId
+            accountId: accountId
+            title: Nike Shoes
+            displayName: Nike Shoes
+            description: This team is my updated team
+            tags: second,team
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            category: General 2
+            subCategory: Specific 2
+            isGeneralPrivate: true
+            isTournamentOnly: false
+            isGeneralDefault: true
+            isPreLiveTeamAds: true
+            isPostLiveTeamAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+            isTeamPrivate: false
+            isTeamDefault: true
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

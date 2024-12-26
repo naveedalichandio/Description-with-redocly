@@ -1,0 +1,71 @@
+get:
+  tags:
+    - ActionReply
+  summary: Action - Reply - Get All
+  description: >-
+    ### Description of Data
+
+
+    - **name**: The name of this API request is "Action - Reply - Get All". It
+    indicates that the purpose of this request is to retrieve all replies
+    related to a specific action.
+
+
+    - **request**: This object contains all the necessary details required to
+    execute the API request.
+
+      - **auth**: Specifies the authentication method used to secure the API request.
+        
+        - **type**: Indicates the type of authentication, which is "bearer". This means that a token will be required for accessing the API.
+        
+        - **bearer**: This is an array containing the authentication data needed for the bearer token.
+          
+          - **key**: This is the key for the token field, labeled as "token".
+          
+          - **value**: This is where the actual token goes, marked here as "BearerToken". This should be replaced with the actual token when making requests.
+          
+          - **type**: Indicates the type of the value, which is a "string".
+
+      - **method**: Specifies the HTTP method to be used for the request, which is "GET". This method is utilized for retrieving data from the server.
+
+      - **url**: The endpoint URL to which the request is sent. It consists of:
+        
+        - Base URL: "http://localhost:3000/api/action/reply/all/"
+        - Query Parameters: 
+          - `sessionId`: A placeholder representing the session ID that needs to be passed with the request.
+          - `accountId`: A placeholder representing the account ID that needs to be provided with the request.
+
+      - **headers**: An array that specifies any headers that need to be included in the request. In this case, it contains:
+        
+        - **key**: Currently empty, meaning no additional headers are being sent.
+        
+        - **value**: Also empty, indicating no values are defined.
+        
+        - **type**: Set as "default", which is a standard type for headers payload.
+        
+        - **disabled**: Set to true, meaning this header is not active and will not be sent with the request.
+
+      - **body**: Represents the body of the request. The mode is set to "raw", meaning the body content would be raw data.
+        
+        - **raw**: Currently empty, indicating that there is no body content to send with this GET request.
+
+    This description clarifies each component of the API request and helps users
+    understand how to use the endpoint effectively.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,138 @@
+put:
+  tags:
+    - MediaImage
+  summary: Media - Image - Update - For Reward
+  description: >-
+    This endpoint, named "Media - Image - Update - For Reward," is designed for
+    updating the image associated with a reward. Here's what each piece of data
+    represents:
+
+
+    1. `auth`: This denotes the authentication method for this endpoint. It's
+    set to the bearer method, which is a way to authorize and certify the
+    identity of the server.
+
+
+    - `type`: The type of authentication, in this case, it is `bearer`.
+
+
+    - `bearer`: Contains the `token` to authenticate the server. The `value`
+    `BearerToken` is a placeholder for the actual token.
+
+
+    2. `method`: This is the HTTP method used for the request. Here, the `PUT`
+    method is used, which typically is used to update existing resources.
+
+
+    3. `url`: This is the URL to which the request is sent.
+
+
+    4. `headers`: This contains additional data sent with the request. Here,
+    `Client-UUID`, which uniquely identifies a client, is being sent.
+
+
+    5. `body`: This contains the data you want to put in the request body. It is
+    often used with `PUT`, `POST`, etc., methods.
+
+
+    In the `body`:
+
+
+    - `mode`: The mode of the content to send. Here it is set to `raw`, which
+    means you're sending raw data.
+
+
+    - `raw`: This contains the JSON object being sent with the request.
+
+
+    Inside the `raw`:
+
+
+    - `imageId`: Identifier for the image to be updated.
+
+
+    - `sessionId`: The session identifier.
+
+
+    - `accountId`: Identifier for the user's account.
+
+
+    - `rewardId`: Identifier for the reward.
+
+
+    - `name`: The new name for the image.
+
+
+    - `description`: A description of the image.
+
+
+    - `tags`: Relevant tags for the image, separated by commas.
+
+
+    - `contentType`: The format of the image. Here it's `image/jpeg`.
+
+
+    - `contentLength`: The size of the image. Here it's `0`, but you'd replace
+    that with the actual size.
+
+
+    - `targetKey`: This is likely the location where the image would be stored.
+
+
+    - `compressUsing`: The method of compression used for the image. Here it's
+    `Base64`.
+
+
+    - `isCompressed`: A boolean indicating if the image is compressed or not.
+
+
+    - `isPrivate`: A boolean indicating if the image is private or not.
+
+
+    - `data`: This likely contains the actual image data.
+
+
+    - `options`: Additional options for this request.
+
+
+    Inside `options`:
+
+
+    - `raw`: Only option available here is `language` which is set to `json`,
+    indicating the format of data sent in the `raw` field.
+      
+    Note: All the placeholder values like `BearerToken`, `imageId`, `sessionId`
+    etc., should be replaced with actual values while using this endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            imageId: imageId
+            sessionId: sessionId
+            accountId: accountId
+            rewardId: rewardId
+            name: My Second Media
+            description: This media is my second media
+            tags: second,media
+            contentType: image/jpeg
+            contentLength: 0
+            targetKey: profilePhotoUrl
+            compressUsing: Base64
+            isCompressed: true
+            isPrivate: false
+            data: ...
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

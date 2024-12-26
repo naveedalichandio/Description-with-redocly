@@ -1,0 +1,75 @@
+get:
+  tags:
+    - ActionSearch
+  summary: Action - Search - Get All
+  description: |-
+    {
+      "description": {
+        "name": "Action - Search - Get All",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "url": "http://localhost:3000/api/action/search/all/?sessionId=sessionId&accountId=accountId",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": ""
+          }
+        }
+      },
+      "details": {
+        "auth": {
+          "description": "Authentication information for the API request. This endpoint requires a Bearer Token for authorization.",
+          "token": {
+            "description": "The key used for authorization, which should be replaced with a valid token prior to making the request."
+          }
+        },
+        "method": {
+          "description": "The HTTP method used for this request. In this case, it is a GET request, which is used to retrieve data."
+        },
+        "url": {
+          "description": "The endpoint URL for the API request. This includes placeholders for sessionId and accountId that need to be replaced with actual values when executing the request.",
+          "example": "http://localhost:3000/api/action/search/all/?sessionId=yourSessionId&accountId=yourAccountId"
+        },
+        "headers": {
+          "description": "This section contains any additional headers for the request. Currently, there are no headers set, and the default header field is disabled."
+        },
+        "body": {
+          "description": "The body of the request. This request does not require a body since it is a GET request. The mode is set to raw, but no content is needed."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

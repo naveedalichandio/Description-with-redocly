@@ -1,0 +1,328 @@
+post:
+  tags:
+    - VideoEvent
+  summary: Video - Event - Delete - WordPress
+  description: >-
+    ### Endpoint Description: Video - Event - Delete - WordPress
+
+
+    #### Endpoint Summary
+
+    This endpoint is used to delete a video event that is hosted on WordPress.
+    It requires a POST request to the specified URL and expects JSON formatted
+    data in the body.
+
+
+    #### Request Details
+
+
+    - **Method**: 
+      - `POST`: This indicates that you are sending data to the server to request the deletion of a video event.
+
+    - **URL**: 
+      - `http://localhost:3000/api/video/event/delete`: Local server endpoint for deleting video events.
+
+    - **Headers**:
+      - `Content-Type`: `application/json`: This header specifies that the body content type is JSON.
+
+    #### Body Parameters
+
+
+    ##### Options Object
+
+    Contains various settings and identifiers related to the video event:
+
+
+    - **providerName**: 
+      - Specifies the name of the content provider, e.g., "wordpress".
+
+    - **providerId**: 
+      - Unique identifier for the content provider (leave empty if not needed).
+
+    - **apiKey**: 
+      - API key for authentication with the provider (can be null).
+
+    - **apiSecret**: 
+      - Secret key for secure access (can be null).
+
+    - **apiClientId**: 
+      - Client ID for the API requests (can be null).
+
+    - **authToken**: 
+      - Token used for authentication (can be null).
+
+    - **server**: 
+      - The server used for the video event (can be null).
+
+    - **rtmpUrl**: 
+      - Real-Time Messaging Protocol URL (can be null).
+
+    - **streamKey**: 
+      - Key for accessing the stream (can be null).
+
+    - **channelUrl**: 
+      - URL linking to the particular channel (can be null).
+
+    - **authUsername**: 
+      - Username for authentication (can be null).
+
+    - **authPassword**: 
+      - Password for authentication (can be null).
+
+    - **uniqueKey**: 
+      - Unique key used to identify this event (required).
+
+    - **videoId**: 
+      - The ID of the video that is to be deleted (required).
+
+    - **accountId**: 
+      - Identifier for the user account associated with the video (required).
+
+    - **channelId**: 
+      - Identifier for the channel (required).
+
+    - **sessionId**: 
+      - Identifier for the session in which the video event was created (required).
+
+    - **streamId**: 
+      - Identifier for the stream (required).
+
+    - **ipAddress**: 
+      - IP address of the user making the request (can be null).
+
+    - **country**: 
+      - The country associated with the event (default is "United States").
+
+    - **state**: 
+      - The state associated with the event (default is "California").
+
+    - **title**: 
+      - Title of the video event (for reference).
+
+    - **description**: 
+      - Short textual description of the video event.
+
+    - **tags**: 
+      - Comma-separated list of tags related to the video event.
+
+    ##### Details Object
+
+    Represents specific details of the video event to be deleted:
+
+
+    - **accountId**: 
+      - Same as in options, for user account identification.
+
+    - **sessionId**:
+      - Same as in options, for session identification.
+
+    - **channelId**:
+      - Same as in options, for channel identification.
+
+    - **videoId**:
+      - Same as in options, ID of the video to delete.
+
+    - **title**:
+      - Title of the event.
+
+    - **description**:
+      - Description of the event.
+
+    - **tags**:
+      - Tags associated with the video event.
+
+    - **streamType**:
+      - Represents the type of streaming (e.g., "Live").
+
+    - **searchType**:
+      - Refers to the type of content for searching (e.g., "Game").
+
+    - **started**:
+      - Indicates if the stream has started (boolean value).
+
+    - **startedOn**:
+      - Timestamp noting when the stream started.
+
+    - **paused**:
+      - Indicates if the stream has been paused (boolean value).
+
+    - **pausedOn**:
+      - Timestamp noting when the stream was paused.
+
+    - **stopped**:
+      - Indicates if the stream has been stopped (boolean value).
+
+    - **stoppedOn**:
+      - Timestamp noting when the stream was stopped (can be null).
+
+    - **streamId**:
+      - Same as in options, identifying the stream.
+
+    - **channel**:
+      - Name of the channel.
+
+    - **category**:
+      - Main category of the video content.
+
+    - **categoryId**:
+      - Identifier for the category.
+
+    - **subCategory**:
+      - Subcategory of the video content.
+
+    - **subCategoryId**:
+      - Identifier for the subcategory.
+
+    - **scheduleDate**:
+      - Date when the event was scheduled.
+
+    - **scheduleTime**:
+      - Time when the event was scheduled.
+
+    - **streamHours**:
+      - Duration of the stream in hours.
+
+    - **coverPhotoUrl**:
+      - URL for the cover photo of the event.
+
+    - **providerPlaybackUrl**:
+      - URL for playback through the provider (can be empty).
+
+    - **voteTokenQuantity**:
+      - Number of tokens required to vote.
+
+    - **votingTimeReset**:
+      - Time in seconds for resetting voting.
+
+    - **voteButtonQuantity**:
+      - Number of vote buttons available.
+
+    - **voteButtonText1** and **voteButtonText2**:
+      - Texts for the votable options.
+
+    - **isRewardsEnabled**:
+      - Indicates if rewards are enabled (boolean).
+
+    - **isTournamentEnabled**:
+      - Indicates if a tournament feature is active (boolean).
+
+    - **tournamentButtonText1** and **tournamentButtonText2**:
+      - Button texts for tournament actions.
+
+    - **streamLocatorName**:
+      - Name used to locate the stream.
+
+    - **streamAssetName**:
+      - Name associated with the stream's asset.
+
+    - **platformVideoIds**:
+      - Object containing identifiers for different platforms.
+
+    - **platformEventIds**:
+      - Object containing event identifiers for multiple platforms.
+
+    - **primaryCameraName**: 
+      - Name of the main camera used for the stream.
+
+    - **primaryMicrophoneName**: 
+      - Name of the main microphone used for the stream.
+
+    - **primarySpeakerName**: 
+      - Name of the main speaker used for audio playback.
+
+    - **additionalCameras**: 
+      - Array of objects representing additional camera and microphone setups.
+
+    - **createdDate**: 
+      - Date when the video event was created.
+
+    - **createdTime**: 
+      - Time when the video event was created.
+
+    - **updatedDate**: 
+      - Date the video event was last updated.
+
+    - **updatedTime**: 
+      - Time the video event was last updated.
+
+    - **deletedDate**: 
+      - Date when the video event was deleted (can be null).
+
+    - **deletedTime**: 
+      - Time when the video event was deleted (can be null).
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\n    \"options\":{\n        \"providerName\":
+            \"wordpress\",\n        \"providerId\": \"\",\n        \"apiKey\":
+            null,\n        \"apiSecret\": null,\n        \"apiClientId\":
+            null,\n        \"authToken\": null,\n        \"server\":
+            null,\n        \"rtmpUrl\": null,\n        \"streamKey\":
+            null,\n        \"channelUrl\": null,\n        \"authUsername\":
+            null,\n        \"authPassword\": null,\n        \"uniqueKey\":
+            \"uniqueKey\",\n        \"videoId\": \"videoId\",\n       
+            \"accountId\": \"accountId\",\n        \"channelId\":
+            \"channelId\",\n        \"sessionId\": \"sessionId\",\n       
+            \"streamId\": \"streamId\",\n        \"ipAddress\": null,\n       
+            \"country\": \"United States\",\n        \"state\":
+            \"California\",\n        \"title\":\"Fortune's Basketball
+            Challenge\",\n        \"description\":\"Basketball game featuring
+            amazing plays and challenges.\",\n       
+            \"tags\":\"basketball,game,challenge\"\n    },\n   
+            \"details\":{\n        \"accountId\":\"accountId\",\n       
+            \"sessionId\":\"sessionId\",\n       
+            \"channelId\":\"channelId\",\n       
+            \"videoId\":\"videoId\",\n        \"title\":\"Fortune's Basketball
+            Challenge\",\n        \"description\":\"Basketball game featuring
+            amazing plays and challenges.\",\n       
+            \"tags\":\"basketball,game,challenge\",\n       
+            \"streamType\":\"Live\",\n        \"searchType\":\"Game\",\n       
+            \"started\":true,\n       
+            \"startedOn\":\"2024-02-24T22:41:42.483Z\",\n       
+            \"paused\":false,\n       
+            \"pausedOn\":\"2024-02-24T22:41:42.483Z\",\n       
+            \"stopped\":false,\n        \"stoppedOn\":null,\n       
+            \"streamId\":\"streamId\",\n        \"channel\":\"Fortune's
+            Basketball Channel\",\n        \"category\":\"Board\",\n       
+            \"categoryId\":\"categoryId\",\n        \"subCategory\":\"Outdoor
+            Party\",\n        \"subCategoryId\":\"subCategoryId\",\n       
+            \"scheduleDate\":\"2024-02-01\",\n       
+            \"scheduleTime\":\"18:00:00\",\n        \"streamHours\":1,\n       
+            \"coverPhotoUrl\":\"basketball-cover-url.jpg\",\n       
+            \"providerPlaybackUrl\":\"\",\n       
+            \"voteTokenQuantity\":100,\n       
+            \"votingTimeReset\":\"5\",\n       
+            \"voteButtonQuantity\":4,\n       
+            \"voteButtonText1\":\"Layup\",\n       
+            \"voteButtonText2\":\"Dunk\",\n       
+            \"isRewardsEnabled\":false,\n       
+            \"isTournamentEnabled\":true,\n       
+            \"tournamentButtonText1\":\"Hit\",\n       
+            \"tournamentButtonText2\":\"Miss\",\n       
+            \"streamLocatorName\":\"basketball-locator-name\",\n       
+            \"streamAssetName\":\"basketball-asset-name\",\n       
+            \"platformVideoIds\":{\"youtubeOutputId\":false,\"twitchOutputId\":false,\"instagramOutputId\":false,\"tiktokOutputId\":false,\"facebookOutputId\":false,\"vimeoOutputId\":false,\"periscopeOutputId\":false,\"linkedInOutputId\":false,\"brightcoveOutputId\":false,\"twitterOutputId\":false,\"dailymotionOutputId\":false,\"kickOutputId\":false,\"rumbleOutputId\":false,\"trovoOutputId\":false,\"restreamPlaybackUrl\":false,\"telegramOutputId\":false,\"amazonLiveOutputId\":false,\"dLiveOutputId\":false,\"mixCloudOutputId\":false,\"kakaoTVOutputId\":false,\"naverTVOutputId\":false,\"nimoTVOutputId\":false,\"nonoLiveOutputId\":false,\"huyaOutputId\":false,\"zhanquiTVOutputId\":false,\"bilibiliOutputId\":false,\"afreecaTVOutputId\":false,\"mlgOutputId\":false,\"douyuOutputId\":false,\"liveEduOutputId\":false,\"vaughnLiveOutputId\":false,\"breakersTVOutputId\":false,\"picartoTVOutputId\":false,\"fc2LiveOutputId\":false,\"steamOutputId\":false},\n       
+            \"platformEventIds\":{\"facebookGroupEventId\":false,\"facebookPageEventId\":false,\"linkedInEventId\":false,\"youtubeEventId\":false,\"eventBrightEventId\":false,\"meetupEventId\":false,\"calendlyEventId\":false,\"googleEventId\":false,\"twitterEventId\":false,\"instagramEventId\":false,\"redditEventId\":false,\"telegramEventId\":false,\"tiktokEventId\":false,\"pinterestEventId\":false,\"wordpressEventId\":false,\"discordEventId\":false,\"mediumEventId\":false,\"tumblrEventId\":false,\"wixEventId\":false},\n       
+            \"primaryCameraName\":\"Sony 4K Ultra HD WebCam\",\n       
+            \"primaryMicrophoneName\":\"WirelessAudioTek Device\",\n       
+            \"primarySpeakerName\":\"Bose-Mega-Speaker 2.0\",\n       
+            \"additionalCameras\":[{\"camera\":\"camera-2\",\"microphone\":\"mic-2\"},{\"camera\":\"camera-3\",\"microphone\":\"mic-3\"}],\n       
+            \"createdDate\":\"2024-02-18\",\n       
+            \"createdTime\":\"14:54:25\",\n       
+            \"updatedDate\":\"2024-02-24\",\n       
+            \"updatedTime\":\"23:29:19\",\n       
+            \"deletedDate\":null,\n        \"deletedTime\":null\n    }\n}"
+  parameters:
+    - name: Content-Type
+      in: header
+      schema:
+        type: string
+      example: application/json
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

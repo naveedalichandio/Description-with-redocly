@@ -1,0 +1,126 @@
+put:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Update Token for Team
+  description: >-
+    ### Utility - Token - Update Token for Team
+
+
+    This endpoint is designed to update a token for a specific team within the
+    utility service. Below is a detailed description of the data involved in the
+    request.
+
+
+    #### Request Method
+
+    - **Method**: PUT
+      - This method is used to send data to the server to update an existing resource.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/utility/token/update`
+      - This is the endpoint where the PUT request is sent. It updates the token for the specified team.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - This type of authentication requires a bearer token to be included in the request. It verifies the identity of the user making the request.
+
+      - **Bearer Token**:
+        - **Key**: `token`
+        - **Value**: `BearerToken`
+          - A placeholder for the actual bearer token that grants access to the API.
+        - **Type**: string
+          - This is the data type of the token, which is sent as a string.
+
+    #### Headers
+
+    - **Header**: `Client-UUID`
+      - **Key**: `Client-UUID`
+        - A unique identifier for the client making the request.
+      - **Value**: `ClientUUID`
+        - A placeholder for the actual Client UUID value.
+      - **Type**: default
+        - Indicates that this is a standard HTTP header.
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - This indicates that the body of the request is sent as raw text.
+
+    - **Body Content**: 
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "tokenId": "tokenId",
+        "targetType": "teamId",
+        "targetId": "teamId",
+        "name": "BPT",
+        "type": "platform",
+        "action": "buy",
+        "amount": 1000
+    }
+
+    ```
+      - **sessionId**: `sessionId`
+        - A placeholder for the session identifier through which the user is authenticated.
+      
+      - **accountId**: `accountId`
+        - A placeholder representing the account that the token is associated with.
+
+      - **tokenId**: `tokenId`
+        - A placeholder for the ID of the token to be updated.
+
+      - **targetType**: `teamId`
+        - Specifies the type of the target, in this case, it indicates that the target is a team.
+
+      - **targetId**: `teamId`
+        - A placeholder for the ID of the team for which the token is being updated.
+
+      - **name**: `BPT`
+        - A placeholder for the name of the token. In this example, it is set to "BPT".
+
+      - **type**: `platform`
+        - Defines the type of the token being updated. Here it is specified as "platform".
+
+      - **action**: `buy`
+        - The action associated with the token update; in this case, it is set to "buy".
+
+      - **amount**: `1000`
+        - Indicates the amount related to the action. Here, it is set to 1000. 
+
+    #### Options
+
+    - **Language**: json
+      - This indicates that the raw body content is in JSON format, which is the expected format for this API endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            tokenId: tokenId
+            targetType: teamId
+            targetId: teamId
+            name: BPT
+            type: platform
+            action: buy
+            amount: 1000
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

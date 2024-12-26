@@ -1,0 +1,53 @@
+post:
+  tags:
+    - WebSocketMessage
+  summary: Web - Socket - Like Message
+  description: >-
+    ### Endpoint Description: Web - Socket - Like Message
+
+
+    - **Name**: Web - Socket - Like Message
+      - This is the identifier for the API endpoint used for sending a "like" message via a WebSocket connection.
+
+    - **Request**:
+      - **Method**: POST
+        - This indicates that the request will send data to the server to create or update a resource.
+      - **URL**: http://localhost:3000/api/socket/web/like
+        - This is the endpoint where the request will be sent. It specifies the protocol (HTTP), the server location (localhost), the port (3000), and the path for the API resource related to liking messages.
+
+    - **Headers**: 
+      - An array indicating any additional headers that should be sent with the request. In this case, it is empty, meaning no custom headers are being applied.
+
+    - **Body**:
+      - **Mode**: raw
+        - This specifies that the body of the request will consist of raw data rather than form-encoded or multipart data.
+      - **Raw**: 
+        - The content of the request body is in JSON format. This contains three key-value pairs:
+          - **socketId**: "socketId"
+            - This represents the identifier of the WebSocket connection through which the message is being sent.
+          - **messageId**: "messageId"
+            - This is the identifier of the message that is being liked, allowing the server to know which message needs to be updated.
+          - **accountId**: "accountId"
+            - This represents the identifier of the user or account that is performing the action of liking the message.
+      - **Options**:
+        - **Raw**:
+          - **Language**: json
+            - This indicates that the format of the data within the raw body is JSON, which is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. 
+
+    This structured information allows users to understand the purpose and
+    requirements for interacting with the endpoint for liking messages through
+    WebSocket.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            messageId: messageId
+            accountId: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

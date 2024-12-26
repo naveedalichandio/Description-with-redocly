@@ -1,0 +1,64 @@
+post:
+  tags:
+    - ActionTag
+  summary: Action - Tag - Delete
+  description: >-
+    **Action - Tag - Delete Endpoint Description**
+
+
+    - **Endpoint Name**: Action - Tag - Delete
+      - This endpoint is used to delete a tag associated with a specified account.
+
+    - **Request Type**: POST
+      - The HTTP method used to send the request is POST, indicating that data will be sent to the server to perform the deletion operation.
+
+    - **URL**: `http://localhost:3000/api/action/tag/delete`
+      - This is the endpoint's address where the request will be sent. It is hosted locally on port 3000.
+
+    - **Authentication**: Bearer Token
+      - The request requires authentication using a bearer token. This token must be included in the request to authorize the operation.
+
+    - **Authorization Details**:
+      - **Token Key**: `token`
+        - The key used to represent the bearer token in the request.
+      - **Token Value**: `sessionId`
+        - This is the placeholder for the actual session ID token that authenticates the user.
+      - **Token Type**: `string`
+        - Indicates that the token is expected to be a string value.
+
+    - **Headers**: 
+      - There is an empty header in the request that is currently disabled. This may be utilized for future header values but is not active at this time.
+
+    - **Body**:
+      - The request body is sent in raw JSON format.
+      - **Body Mode**: Raw
+        - The body is not formatted as form data or x-www-form-urlencoded, but rather as a plain JSON string.
+      - **Raw Content**: 
+        ```json
+        {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "tagId": "tagId"
+        }
+        ```
+        - **sessionId**: This field should contain the actual session ID for authentication.
+        - **accountId**: Represents the ID of the account from which the tag should be deleted.
+        - **tagId**: Represents the ID of the tag that is to be deleted.
+
+    This endpoint is primarily used to facilitate the removal of specific tags
+    associated with user accounts, ensuring that appropriate authorization is
+    maintained through the use of a session token.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tagId\":\"tagId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

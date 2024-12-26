@@ -1,0 +1,72 @@
+post:
+  tags:
+    - ActionDraft
+  summary: Action - Draft - Create
+  description: >-
+    ### Action - Draft - Create API Endpoint Description
+
+
+    - **Auth**: 
+      - **Type**: This specifies the authentication method used for the request.
+        - **Bearer**: Indicates that a bearer token is used for authorization.
+          - **Token**: A string that represents the bearer token used to authenticate the request. Replace "BearerToken" with your actual token.
+
+    - **Method**: 
+      - **POST**: This specifies that the HTTP method used for this request is POST, typically used to send data to the server.
+
+    - **URL**: 
+      - **Endpoint**: The URL where the API request is made. In this case, it's `http://localhost:3000/api/action/draft/create`. This indicates that the action for creating a draft is available at this location.
+
+    - **Headers**: 
+      - **Key**: The header key is currently empty and not set to be used (`disabled: true`). Generally, headers can contain information such as content type or custom parameters for the request but are not required in this case.
+
+    - **Body**:
+      - **Mode**: 
+        - **Raw**: Indicates that the data is sent in raw format.
+      - **Raw**: This is the payload sent with the request.
+        - **sessionId**: A string representing the unique identifier for the session.
+        - **accountId**: A string representing the unique identifier for the user account.
+        - **path**: A string indicating the path or location of the video resource, for example, `/live/channel/video123`.
+        - **targetType**: Specifies the type of target. Here, it uses "videoId" to indicate that the target is a video.
+        - **targetId**: The unique identifier for the target item, in this case, the video ID.
+        - **sourceType**: Indicates the type of source; it uses "accountId" to signify that the source is the user account.
+        - **sourceId**: The unique identifier for the source, matching the account ID.
+        - **isDrafted**: A boolean indicating whether the item is in draft status. Set to true for a draft.
+        - **draftType**: Specifies the category of the draft. Here, it's labeled as "streamer".
+        - **isAccepted**: A boolean indicating whether the draft has been accepted. Set to false.
+        - **isRejected**: A boolean indicating whether the draft has been rejected. Set to true.
+        - **isIgnored**: A boolean indicating whether the draft has been ignored. Set to false.
+        - **name**: A string providing the name or title of the draft.
+        - **description**: A string detailing the contents or purpose of the draft.
+        - **tags**: A string for any tags associated with the draft. It is currently empty and can be filled as needed. 
+
+    This endpoint is designed to create a draft of a video resource in the
+    system, allowing various attributes to be specified for further management.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            isDrafted: true
+            draftType: streamer
+            isAccepted: false
+            isRejected: true
+            isIgnored: false
+            name: this is name of draft
+            description: this is description of draft
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,83 @@
+post:
+  tags:
+    - VideoChannel
+  summary: Video - Channel - Delete
+  description: |-
+    ### Description of Each Data in the Endpoint
+
+    - **Name**: 
+      - This represents the name of the API request, which is "Video - Channel - Delete". It indicates that this request is used to delete a channel associated with a video.
+
+    - **Request**: 
+      - This section contains details about how the request should be made.
+
+      - **Auth**: 
+        - This specifies the authentication type needed for the request. In this case, it is a bearer token, which is a type of access token used for authentication.
+
+        - **Type**: 
+          - This indicates that the authentication method is "bearer".
+
+        - **Bearer**: 
+          - This array holds the details of the token used for authentication. 
+
+          - **Key**: 
+            - This is a description of the item in the token, which is "token". 
+
+          - **Value**: 
+            - This is the actual value associated with the key, here it is "sessionId", which should be replaced with a valid session identifier.
+
+          - **Type**: 
+            - This indicates the data type of the value, which is a string.
+
+      - **Method**: 
+        - This indicates the HTTP method used for the request. It is set to "POST", which means data will be sent to the server to request the deletion of the channel.
+
+      - **URL**: 
+        - This is the endpoint where the request is sent. It points to "http://localhost:3000/api/video/channel/delete", which is a local server URL pointing to the delete channel functionality.
+
+      - **Headers**: 
+        - This section may contain additional headers for the request.
+
+        - **Key**: 
+          - Currently empty, indicating that no additional header is defined for this request.
+
+        - **Value**: 
+          - Also empty, as there are no associated values with the key.
+
+        - **Type**: 
+          - Set to "default", which implies a standard header is expected.
+
+        - **Disabled**: 
+          - This is a boolean value indicating whether the header is enabled or not. It is set to true, meaning this header will not be included in the request.
+
+      - **Body**: 
+        - This section defines the body of the request, which contains the data that will be sent to the server.
+
+        - **Mode**: 
+          - Indicating the format of the request body. It is set to "raw", meaning the data is sent in a raw format.
+
+        - **Raw**: 
+          - This is where the actual data to be sent is defined. The body consists of a JSON object with three key-value pairs:
+          
+          - **sessionId**: 
+            - This key is meant to identify the user's session. It should be replaced with a valid session identifier when making a request.
+
+          - **accountId**: 
+            - This key represents the ID of the user's account. It requires a valid account identifier to specify which account is associated with the request.
+
+          - **channelId**: 
+            - This key is used to identify the specific channel that is to be deleted. It should be replaced with the relevant channel identifier when the request is made.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"channelId\":\"channelId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

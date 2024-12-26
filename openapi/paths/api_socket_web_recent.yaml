@@ -1,0 +1,51 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent All
+  description: >-
+    ### API Endpoint: Web - Socket - Recent All
+
+
+    #### Description
+
+    This API endpoint is designed to retrieve a list of recent WebSocket
+    connections. It provides functionality to fetch multiple recent entries
+    based on specific criteria.
+
+
+    #### Request Details
+
+
+    - **Method**: GET
+      - Specifies the type of request being made to the server. In this case, it is a GET request, which is typically used to retrieve data.
+
+    - **URL**:
+    `http://localhost:3000/api/socket/web/recent?recent=true&limit=limit`
+      - This is the endpoint's URL where the request is sent. The URL contains query parameters that help define the output of the request:
+        - `recent=true`: This parameter indicates that the client is interested in fetching recent data only.
+        - `limit=limit`: This parameter specifies the maximum number of entries the server should return. The actual limit value should replace "limit."
+
+    - **Headers**: []
+      - This array is currently empty, meaning no additional headers are required for this request. Headers can be added if authentication or specific content types are necessary for the API call.
+
+    ### Summary
+
+    Use this endpoint to access the most recent WebSocket connection data.
+    Customize the `limit` parameter to specify how many recent records you want
+    to retrieve.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

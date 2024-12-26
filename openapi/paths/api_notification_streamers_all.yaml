@@ -1,0 +1,57 @@
+get:
+  tags:
+    - NotificationStreamers
+  summary: Notification - Streamers - Get All
+  description: >-
+    This endpoint is titled "Notification - Streamers - Get All". It is designed
+    to retrieve all streamer notifications.
+
+
+    The authentication method for this request is a bearer token. This is
+    specified in the 'auth' field. 
+
+    The `"type": "bearer"` indicates the type of authorization used and `"key":
+    "token"`is the keyword that needs to be included in the headers of the API
+    requests. This is accompanied by `"value": "BearerToken"`, which is the
+    actual token value used for authorization and `"type": "string"` specifying
+    the data type of the token.
+
+
+    The `"method": "GET"` signifies that this request uses the GET HTTP method,
+    which is typically utilized to retrieve data.
+
+
+    The `"url":
+    "http://localhost:3000/api/notification/streamers/all/?sessionId=sessionId&accountId=accountId"`
+    field indicates the API endpoint URL. The 'sessionId' and 'accountId' are
+    the parameters included in the URL, used to specify the session and account
+    for which notifications are being retrieved.
+
+
+    The `"headers"` array is currently empty with `"key": ""`, `"value": ""` and
+    `"type": "default"`. This means that by default no additional information is
+    passed in the header of the request and this particular header is
+    `"disabled": true`.
+
+
+    Lastly, the `"body"` of the request is set to `"mode": "raw"` and `"raw":
+    ""`. This indicates that the request does not contain a body payload, making
+    it unnecessary to include any additional information in the request body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

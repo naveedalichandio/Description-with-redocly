@@ -1,0 +1,74 @@
+get:
+  tags:
+    - ActionUnlock
+  summary: Action - Unlock - Get
+  description: >-
+    ### Endpoint: Action - Unlock - Get
+
+
+    #### Description:
+
+    This endpoint is designed to retrieve information related to an unlock
+    action. It uses a GET request to fetch data based on specific identifiers.
+
+
+    #### Components:
+
+
+    1. **name**: 
+       - Describes the purpose of the endpoint, which is to retrieve information about an unlock action.
+
+    2. **request**:
+       - Contains all necessary details needed to make the API call.
+
+       - **auth**:
+         - Defines the authentication method used for the request.
+         - **type**: Indicates that the authentication method is a bearer token.
+         - **bearer**: Holds the details of the token used to authorize the request.
+           - **key**: The name of the token parameter, which is "token".
+           - **value**: Placeholder for the actual bearer token that will be used for authorization (represented as "BearerToken").
+           - **type**: Specifies the data type of the token, which is a "string".
+
+       - **method**:
+         - Specifies the HTTP method to be used for this request, which is "GET".
+
+       - **url**:
+         - This is the endpoint's URL, including query parameters that are required for the request:
+           - **unlockId**: A unique identifier for the unlock action.
+           - **sessionId**: Identifier for the session in which the unlock action is taking place.
+           - **accountId**: Identifier for the account that is involved in the unlock action.
+
+       - **headers**:
+         - An array of header parameters for the request.
+         - Currently, there is an entry without a key or value, which is disabled, indicating it is not in use for this request.
+
+       - **body**:
+         - Defines the body of the request.
+         - **mode**: Indicates the way the body is structured—here it is set to "raw".
+         - **raw**: This field is empty, meaning no additional data is sent in the body of the GET request.
+
+    This endpoint allows users to retrieve specific unlock action information by
+    providing the necessary identifiers in the URL.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: unlockId
+      in: query
+      schema:
+        type: string
+      example: unlockId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

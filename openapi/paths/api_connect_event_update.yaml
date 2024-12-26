@@ -1,0 +1,100 @@
+put:
+  tags:
+    - ConnectEvent
+  summary: Connect - Event - Update
+  description: >-
+    This API endpoint, titled "Connect - Event - Update", is used to update the
+    details of a specific event in your application. It is a PUT request, which
+    typically is used to update existing resources.
+
+
+    This endpoint requires Bearer token authentication. The "BearerToken" is
+    expected to be provided in the request header as the "token". 
+
+
+    The request is sent to the following URL:
+    "http://localhost:3000/api/connect/event/update". Alongside the standard
+    headers, there is an additional header with the key "Client-UUID" which can
+    be changed to the specific Client UUID.
+
+
+    In the body of the request, property values are provided in raw JSON format.
+    Let's break down each of these:
+
+
+    - "eventId": This is the unique identifier of the event that is to be
+    updated.
+
+    - "sessionId": This is the session ID associated with the user or event.
+
+    - "accountId": This is the user account ID associated with the event.
+
+    - "name": This refers to the name of the event.
+
+    - "description": This is the description of the event.
+
+    - "tags": This field can be used to apply searchable tags to the event.
+
+    - "profilePhotoUrl" & "coverPhotoUrl": These are URLs of the event's profile
+    and cover pictures.
+
+    - "minimumTipAmount": This is the minimum tip amount for this event.
+
+    - "unlockAmount": This is the amount required to unlock the event.
+
+    - "category" & "subCategory": This categorizes the event within the system.
+
+    - "searchType": This specifies the search type for the event.
+
+    - "isEnabled" & "isEventPrivate" & "isTournamentOnly" & "isEventDefault" &
+    "isPreLiveConnectAds" & "isPostLiveConnectAds": These boolean flags enable
+    or disable certain features of the event.
+
+    - "breakPreLiveConnectUrl", "breakLivePauseConnectUrl" &
+    "breakPostLiveConnectUrl": These are the URLs where the break clips for
+    pre-live, live paused, and post-live moments of the event are located.
+
+
+    All of these details are provided in raw JSON format, as specified in the
+    "options" property.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            eventId: eventId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeEvent
+            description: This event is my second event
+            tags: second,event
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isEventPrivate: true
+            isTournamentOnly: false
+            isEventDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

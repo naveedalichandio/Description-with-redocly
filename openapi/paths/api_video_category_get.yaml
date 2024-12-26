@@ -1,0 +1,66 @@
+get:
+  tags:
+    - VideoCategory
+  summary: Video - Category - Get
+  description: |-
+    {
+      "name": "Video - Category - Get",
+      "description": {
+        "endpoint": "This is the GET endpoint used to retrieve video details based on a specified category.",
+        
+        "auth": {
+          "type": "bearer": "This indicates that authentication is required via a bearer token. A valid token must be supplied in the request for successful access.",
+          
+          "bearer": {
+            "key": "token": "This is the key used to pass the authentication token.",
+            
+            "value": "BearerToken": "This placeholder represents the actual bearer token that must be included in the request. Replace 'BearerToken' with your valid token.",
+            
+            "type": "string": "This indicates that the value of the token should be formatted as a string."
+          }
+        },
+        
+        "method": "GET": "This specifies that the request method to be used is GET, which is typically used to retrieve data from a specified resource.",
+        
+        "url": "http://localhost:3000/api/video/category/get/?categoryId=categoryId&sessionId=sessionId&accountId=accountId": "This is the URL to access the endpoint. It includes three query parameters: 'categoryId', 'sessionId', and 'accountId'. Replace 'categoryId', 'sessionId', and 'accountId' with the actual values to specify the category of the videos you wish to retrieve, as well as the session and account identifiers.",
+        
+        "headers": [
+          {
+            "key": "": "This field is currently empty, indicating that no custom headers are required for this request.",
+            
+            "value": "": "This field is empty, as there are no custom values to provide in the header.",
+            
+            "type": "default": "Specifies that the header type is default. Note that this header is disabled and will not be included in the request."
+          }
+        ],
+        
+        "body": {
+          "mode": "raw": "This indicates that the body of the request is not used since it's a GET method, which typically does not require a body.",
+          
+          "raw": "": "This field is empty as there is no raw data to send in the body for a GET request."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: categoryId
+      in: query
+      schema:
+        type: string
+      example: categoryId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

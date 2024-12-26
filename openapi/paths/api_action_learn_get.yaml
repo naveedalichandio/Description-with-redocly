@@ -1,0 +1,70 @@
+get:
+  tags:
+    - ActionLearn
+  summary: Action - Learn - Get
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This represents the name of the API request. In this case, it is
+    labeled "Action - Learn - Get," indicating that this request is related to
+    retrieving information about a learning action.
+
+
+    - **request**: This object contains all the details required to make the API
+    request.
+
+      - **auth**: This specifies the type of authentication that is being used for this request.
+
+        - **type**: Indicates the type of authentication. Here, it is set to "bearer," which means that a bearer token is needed to authorize the request.
+
+        - **bearer**: This array holds the information required for the bearer token.
+
+          - **key**: Identifies the parameter being sent. In this case, it is labeled "token."
+
+          - **value**: This is the actual authentication token required to access the API. It is displayed as "BearerToken," a placeholder indicating where the user's actual token should go.
+
+          - **type**: Indicates the data type of the token, which is set to "string."
+
+      - **method**: This specifies the HTTP method to be used for the request. Here, it is "GET," indicating that this request will retrieve data from the server.
+
+      - **url**: This is the endpoint's URL to which the request will be sent. The URL contains query parameters for `learnId`, `sessionId`, and `accountId`. These parameters need to be replaced with actual values when making the request.
+
+      - **headers**: This array would typically include any additional HTTP headers that need to be sent with the request.
+
+        - **key**: This field is currently empty, meaning no custom headers are being sent.
+
+        - **value**: As with the key, this is empty, indicating that no specific value for headers is provided.
+
+        - **type**: Indicates the type of header being used. It is marked as "default."
+
+        - **disabled**: This boolean indicates whether the header is currently active or not. Here, it is set to true, meaning that it is disabled and will not be sent with the request.
+
+      - **body**: This object specifies the content to be sent with the request. 
+
+        - **mode**: This indicates the format of the body content. It is set to "raw," meaning the content is provided as raw text.
+
+        - **raw**: This is where the actual body content would be placed if it were being sent. The field is currently empty, indicating that no body content is necessary for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: learnId
+      in: query
+      schema:
+        type: string
+      example: learnId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,127 @@
+post:
+  tags:
+    - ActionDislike
+  summary: Action - Dislike - Create
+  description: >-
+    ### Action - Dislike - Create
+
+
+    #### Request Details:
+
+    - **Request Type**: This endpoint is for a POST request, used for creating a
+    new "dislike" action.
+
+
+    - **Authentication**: The request uses bearer token authentication. This
+    requires the user to provide a valid token in the request header for
+    authorization to access the resource.
+
+
+    #### URL:
+
+    - **Endpoint**: The endpoint to access this action is
+    `http://localhost:3000/api/action/dislike/create`. This should be changed to
+    the appropriate server URL in production.
+
+
+    #### Headers:
+
+    - **Headers**: There are no specific headers set in the request at this
+    time. The default headers are disabled and not in use.
+
+
+    #### Body:
+
+    The body of the request is sent in raw JSON format and contains the
+    following key-value pairs:
+
+
+    1. **sessionId**: This is a string that identifies the session in which the
+    dislike action is being recorded. It helps in tracking the user's current
+    state or interaction session.
+
+
+    2. **accountId**: This represents the unique identifier for the user account
+    making the dislike action. It is essential for associating the dislike with
+    the correct user.
+
+
+    3. **path**: This is a string that indicates the path of the content being
+    disliked. For example, it points to the location of the video, such as
+    `/live/channel/video123`.
+
+
+    4. **targetType**: Specifies the type of target that the dislike is directed
+    toward. In this case, it is set to `videoId`, indicating that the action
+    pertains to a video.
+
+
+    5. **targetId**: This is the unique identifier of the content that is being
+    disliked. In this example, it is labeled `videoId`, representing the
+    specific video the user is interacting with.
+
+
+    6. **sourceType**: Denotes the type of the source from which the dislike
+    action is being made. It is set to `accountId`, indicating that the action
+    originates from a user account.
+
+
+    7. **sourceId**: This is the unique identifier associated with the source.
+    It is also set to `accountId`, signifying the identity of the user making
+    the dislike action.
+
+
+    8. **didDislike**: A boolean value that indicates whether the user disliked
+    the content or not. Here, it is set to `false`, suggesting that the action
+    is intended to indicate a dislike (i.e., changing from a non-dislike state).
+
+
+    9. **isUndo**: This is another boolean value. If it is set to `true`, it
+    means the user is undoing a previous dislike action. It is set to `false`,
+    indicating that this is a fresh dislike action rather than an undoing of a
+    previous one.
+
+
+    10. **name**: This is an optional field that can hold a name or title
+    related to the dislike action. Currently, it is an empty string, awaiting
+    user-defined input if necessary.
+
+
+    11. **description**: Another optional field, intended for additional
+    information or notes regarding the dislike action. It is currently left
+    empty.
+
+
+    12. **tags**: This optional field allows for additional tagging related to
+    the dislike action. It is also an empty string and can be used to categorize
+    or provide more context if needed.
+
+
+    This endpoint is designed to create a dislike action against a specific
+    piece of content, capturing relevant information about the user and the
+    disliked item.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didDislike: false
+            isUndo: false
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

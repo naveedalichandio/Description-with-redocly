@@ -1,0 +1,54 @@
+post:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Delete (Soft)
+  description: >-
+    ### Endpoint Description: Web - Socket - Delete (Soft)
+
+
+    - **Name:** Web - Socket - Delete (Soft)
+      - This is the name of the API endpoint that indicates its purpose, which is to perform a soft delete operation on a WebSocket connection.
+
+    - **Request:**
+      - **Method:** POST
+        - This specifies that the request uses the POST HTTP method, typically used for sending data to the server.
+      
+      - **URL:** http://localhost:3000/api/socket/web/delete
+        - This is the endpoint's URL where the request should be sent. It points to a local server running on port 3000, specifically for the WebSocket soft delete action.
+
+      - **Headers:** 
+        - This section is currently empty, indicating that there are no specific headers required for this request. However, headers can be added if authentication or content type specifications are necessary.
+
+      - **Body:**
+        - **Mode:** raw
+          - The body content is sent in a raw format, allowing for custom data to be specified directly.
+          
+        - **Raw:** 
+          - The body contains JSON data in string format, specifically:
+            ```json
+            {
+              "socketId": "socketId"
+            }
+            ```
+          - This indicates that the request should include a JSON object with a `socketId` field, which is intended to identify the specific WebSocket connection that is to be soft deleted. The value "socketId" should be replaced with the actual identification string of the WebSocket to be removed.
+
+        - **Options:**
+          - **Raw:**
+            - **Language:** json
+              - This indicates that the raw body content is formatted as JSON, helping any API clients interpret the data correctly.
+
+    This detailed description provides all the necessary information for users
+    to understand the purpose and structure of the API endpoint when using the
+    Postman collection.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,90 @@
+get:
+  tags:
+    - TeamSubCategory
+  summary: Team - SubCategory - Get By Account ID
+  description: >-
+    ### Endpoint: Team - SubCategory - Get By Account ID
+
+
+    #### Overview
+
+    This API endpoint retrieves subcategory information associated with a
+    specific account ID. It uses the HTTP GET method and requires an
+    authorization token.
+
+
+    #### Detailed Description of Each Data Field:
+
+
+    - **name**: 
+      - This is the name of the API endpoint. It identifies the specific action being performed, which is to get subcategory details for a team based on an account ID.
+
+    - **request**: 
+      - This object contains all the necessary details for making the API request.
+
+      - **auth**: 
+        - This section specifies the authorization method used for the request.
+        
+        - **type**: 
+          - Indicates the type of authentication. In this case, it is a 'bearer' token.
+          
+        - **bearer**: 
+          - An array which holds the authorization token needed to authenticate the request.
+          
+          - **key**: 
+            - This is a placeholder for the token key. It is labeled 'token' which indicates that this is where your access token will be placed.
+            
+          - **value**: 
+            - This is the actual token value, prefixed with 'Bearer'. Replace 'BearerToken' with the actual bearer token for successful authentication.
+            
+          - **type**: 
+            - This specifies the data type of the token, which is 'string'.
+
+      - **method**: 
+        - This indicates the HTTP method used for the API request. The method here is 'GET', which is intended to retrieve data.
+
+      - **url**: 
+        - This is the endpoint URL that should be called. It includes a parameter for the account ID, which should be replaced with the actual account ID value when making a request.
+
+      - **headers**: 
+        - This is a collection of headers to be sent with the API request. 
+
+        - **key**: 
+          - Represents the name of the header. Currently, it is empty and disabled, which means no additional headers are being sent.
+          
+        - **value**: 
+          - Represents the value of the header. Since the key is empty, this is also not set.
+          
+        - **type**: 
+          - Denotes the type of the header. It is set to 'default'.
+
+        - **disabled**: 
+          - This boolean flag indicates whether the header is active. It is currently set to true, which means this header will not be sent.
+
+      - **body**: 
+        - This section defines the body of the request. 
+
+        - **mode**: 
+          - Indicates the type of body content. It is set to 'raw', suggesting that the body content will be sent as a raw string.
+        
+        - **raw**: 
+          - This is where the actual body content would go if required. Currently, it is empty, meaning no data will be sent in the request body since this is a GET request.
+
+    #### Usage
+
+    To use this endpoint, ensure that you replace the `accountId` in the URL
+    with the actual account ID you wish to query, and enter a valid bearer token
+    in place of `BearerToken` in the authorization section.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

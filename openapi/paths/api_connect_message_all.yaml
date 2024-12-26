@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ConnectMessage
+  summary: Connect - Message - Get All
+  description: >-
+    This endpoint is named "Connect - Message - Get All". It is designed to
+    retrieve all messages related to a specific account ID from the 'Connect'
+    application. 
+
+
+    Here are details of each data point: 
+
+
+    1. `name`: "Connect - Message - Get All" - This defines the custom name of
+    the endpoint. Its purpose is for humans to easily identify what the endpoint
+    does.
+
+
+    2. `request`: This object includes concrete details on what the request
+    should contain and how it will be made.
+
+
+    3. `auth`: Inside the `request` object, the `auth` key mentions that the
+    request type is a bearer token authentication. This type of authentication
+    uses security tokens called bearer tokens.
+
+       - `type`: Specifies the type of authentication required. In this case, it is 'bearer'.
+       - `key`: This represents the token name "token" which will be used for authentication.
+       - `value`: This should be the valid bearer token provided to be authenticated against the server. The placeholder here is 'BearerToken'.
+       - `type`: Specifies the datatype of the key-value pair, which is a string in this case.
+
+    4. `method`: The HTTP method used for this request is "GET". It is used to
+    fetch or get the data from a specified resource.
+
+
+    5. `url`: This is the route where the request will be sent. In this case,
+    it's "http://localhost:3000/api/connect/message/all/?accountId=accountId"
+    where the accountId in the URL will be replaced by the actual account Id for
+    which we want to retrieve messages.
+
+
+    6. `headers`: In this case, it is an empty header and is disabled by
+    default. If enabled and assigned with valid 'key' and corresponding 'value',
+    it would provide additional information about the client or the request
+    body.
+
+
+    7. `body`: For this 'GET' request, the body is 'raw' and empty, as data is
+    not sent via the body in this case. 'GET' requests usually contain all
+    information in the URL itself.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

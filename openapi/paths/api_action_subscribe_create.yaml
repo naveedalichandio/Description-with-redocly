@@ -1,0 +1,76 @@
+post:
+  tags:
+    - ActionSubscribe
+  summary: Action - Subscribe - Create
+  description: >-
+    ### Description of Endpoint Data
+
+
+    - **name**: This is the name of the API endpoint. It identifies the action
+    being performed, which is to subscribe to a service or item.
+
+
+    - **request**: This section describes the details of the API request.
+
+      - **auth**: This defines the authentication method required for the request.
+        - **type**: Indicates the type of authentication used. In this case, it is "bearer", which typically means that a token is required.
+        - **bearer**: Contains the details of the bearer token.
+          - **key**: A label for the bearer token field, here it is simply "token".
+          - **value**: The actual token string used for authorization. "BearerToken" is a placeholder for a valid token.
+          - **type**: Specifies the data type of the token, which is "string".
+
+      - **method**: The HTTP method used for the request. In this case, it is "POST", indicating data is being sent to the server.
+
+      - **url**: The URL to which the request is to be sent. Here it is a local endpoint: "http://localhost:3000/api/action/subscribe/create".
+
+      - **headers**: This section outlines any HTTP headers that are sent with the request.
+        - **key**: The name of the header. An empty key indicates there are no specific headers being set.
+        - **value**: The value of the header. Again, this is empty as indicated.
+        - **type**: Specifies the type of the header. "default" is the type used here.
+        - **disabled**: A boolean that shows if the header is currently disabled (true means it is disabled).
+
+      - **body**: This contains the data sent with the request.
+        - **mode**: Indicates the format of the body content. "raw" means the body is sent as raw data.
+        - **raw**: This is the actual content of the body in JSON format. The body parameters are as follows:
+          - **sessionId**: A unique identifier for the session. It's meant to track the current session of the action being requested.
+          - **accountId**: The unique identifier for the user’s account that is making a subscription.
+          - **path**: This specifies the path to the resource being subscribed to, in this case, a specific channel or video.
+          - **targetType**: Specifies the type of target for the subscription, here it indicates it is a "videoId".
+          - **targetId**: The unique identifier for the target item (i.e., the specific video).
+          - **sourceType**: Indicates the type of source from which the subscription originates, here it's an "accountId".
+          - **sourceId**: This is the unique identifier of the source account.
+          - **didSubscribe**: A boolean flag that indicates whether the subscribe action has been successfully executed.
+          - **isUndo**: A boolean flag that shows if the action is attempting to undo a previous subscription (false means it is not an undo).
+          - **name**: A string field for providing a name related to the subscription, currently empty.
+          - **description**: A string field for providing a description of the subscription, currently empty.
+          - **tags**: A string field to include any tags associated with the subscription, currently empty.
+        - **options**: Additional configuration for the body.
+          - **raw**: This specifies the format of the body being sent, in this case, it is JSON.
+
+    This endpoint aims to create a subscription for a user to a certain
+    resource, using the provided identifiers and metadata.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didSubscribe: true
+            isUndo: false
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,67 @@
+get:
+  tags:
+    - ReportsTeam
+  summary: Reports - Team - Get
+  description: >-
+    Endpoint Name: "Reports - Team - Get"
+
+    This endpoint is utilized for getting reports of a specific team.
+
+
+    Request Details:
+
+
+    1. Authentication Type - Bearer: This endpoint utilizes Bearer token
+    authentication, where a specific token has to be provided to gain access to
+    the data. The token should be a string.
+
+
+    2. Request Method - GET: This endpoint operates using the GET method, which
+    is used to retrieve data from a specific resource.
+
+
+    3. Request URL: The URL to call this endpoint is
+    http://localhost:3000/api/reports/team/get/. It contains query parameters
+    which are teamId, sessionId, and accountId. These parameters should be
+    replaced with actual values.
+
+        - teamId: It is the unique identifier of the team whose reports are to be fetched.
+        - sessionId: It is the unique identifier of the session during which team operates.
+        - accountId: It is the unique identifier of the account related to that specific team.
+
+    4. Headers: 
+
+    In this endpoint, no custom headers are defined. A key-value pair appears
+    but they are disabled and set to default. Hence there is no additional
+    header required to access this endpoint.
+
+
+    5. Request Body - Raw: The request body is set to raw mode but does not
+    require any data as no body content is required in this GET request.
+
+
+    Remember to replace "BearerToken", "teamId", "sessionId", and "accountId"
+    with actual values before sending a request to this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: teamId
+      in: query
+      schema:
+        type: string
+      example: teamId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

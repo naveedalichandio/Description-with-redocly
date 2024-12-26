@@ -1,0 +1,60 @@
+get:
+  tags:
+    - ActionInvite
+  summary: Action - Invite - Get All
+  description: >-
+    ### API Endpoint: Action - Invite - Get All
+
+
+    **Description of Request Data:**
+
+
+    - **Auth**: This section describes the authentication method required to
+    access the API. The request uses a bearer token for security.
+      - **Type**: The authentication type is set to "bearer", indicating that a token is needed for access.
+      - **Bearer**: Contains an array with a single object that defines the token.
+        - **Key**: The key is labeled as "token", this is the identifier for the token.
+        - **Value**: The value is set to "BearerToken", this should be replaced with an actual token string that grants access to the API.
+        - **Type**: The type is specified as "string", indicating that the value should be a string format.
+
+    - **Method**: This defines the HTTP method used for the request, which is
+    "GET". This method is used to retrieve information from the server.
+
+
+    - **URL**: This specifies the endpoint where the request is sent. 
+      - **Base URL**: "http://localhost:3000/api/action/invite/all/" is the root of the endpoint.
+      - **Query Parameters**: 
+        - **sessionId**: This parameter is used to specify the current session identifier, to filter results relevant to that session.
+        - **accountId**: This parameter denotes the account identifier, it helps in retrieving invites related to a specific account.
+
+    - **Headers**: This section allows for additional header fields to be sent
+    with the request. 
+      - **Key**: Currently left empty which means no additional headers are set.
+      - **Value**: Matches the key, indicating no value is provided.
+      - **Type**: Default values are assigned, which means it is a standard header type.
+      - **Disabled**: Set to true, meaning this header is currently inactive and won’t be included in the request.
+
+    - **Body**: This defines the data to be sent along with the request.
+      - **Mode**: Set to "raw", indicating that the body data format is unprocessed and sent as plain text.
+      - **Raw**: The raw data section is empty since a GET request typically does not have a body. 
+
+    This endpoint is used to fetch all invite actions based on the provided
+    session ID and account ID while requiring a valid token for access.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,69 @@
+get:
+  tags:
+    - ActionRefund
+  summary: Action - Refund - Get
+  description: >-
+    ### Description of Endpoint Data
+
+
+    - **Name**: This is the title of the API request which indicates its
+    purpose. In this case, the endpoint is for fetching refund details,
+    specifically titled "Action - Refund - Get".
+
+
+    - **Request**: This section contains all the details required to make the
+    API call.
+
+      - **Auth**: This specifies the type of authentication method used for the API. Here, it uses "bearer" authentication, which requires a token to authorize the user's access.
+
+        - **Type**: Indicates that the authentication method is "bearer".
+
+        - **Bearer**: This is an array that holds the token information used for authentication.
+
+          - **Key**: This field denotes the name of the token parameter. In this case, it is labeled as "token".
+
+          - **Value**: The actual token needed for authorization; here it is a placeholder "BearerToken".
+
+          - **Type**: Specifies the data type of the value, which is set as "string".
+
+      - **Method**: This indicates the HTTP method used for the request. For this endpoint, the method is "GET", which is typically used to retrieve data from the server.
+
+      - **URL**: This is the endpoint to which the request is made. The URL includes query parameters that are essential for the request.
+
+        - **Base URL**: "http://localhost:3000/api/action/refund/get/" is the base endpoint.
+
+        - **Query Parameters**:
+          - **refundId**: This is a required parameter that specifies the unique identifier for the refund that is to be retrieved.
+          - **sessionId**: This parameter is used to identify the session related to the refund request.
+          - **accountId**: This parameter indicates the account associated with the refund.
+
+      - **Headers**: This section is usually where custom HTTP headers can be defined for the request. In this instance, no specific headers are set, as indicated by empty key and value fields. The header is marked as disabled.
+
+      - **Body**: This part describes the request body content. For a GET request, it is typically empty, which is reflected here.
+
+        - **Mode**: Indicates the format of the body content. It is set to "raw".
+
+        - **Raw**: This field is empty, meaning no body content is sent with the GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: refundId
+      in: query
+      schema:
+        type: string
+      example: refundId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

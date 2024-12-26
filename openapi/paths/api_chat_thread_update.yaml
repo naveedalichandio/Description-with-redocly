@@ -1,0 +1,67 @@
+put:
+  tags:
+    - ChatThread
+  summary: Chat - Thread - Update
+  description: >-
+    This endpoint is named "Chat - Thread - Update". It uses the HTTP method PUT
+    and is used to update the information in a chat thread.
+
+
+    The endpoint requires bearer authentication, specified through a token. The
+    "auth" field requires an object with the "type" field as "bearer". Under the
+    "bearer" array, a key-value pair is given, with the "key" as "token" and its
+    relevant value being "BearerToken".
+
+
+    The request is made to the URL:
+    "http://localhost:3000/api/chat/thread/update".
+
+
+    The request carries with it headers. One such header is "Client-UUID", with
+    its value being "ClientUUID". This UUID represents a universal identifier
+    for the client using this API endpoint.
+
+
+    The request also includes a body with the "mode" key set to "raw",
+    indicating that the data being sent in raw format(i.e., just a sequence of
+    characters). The raw data being sent in the body is in JSON format
+    {"threadId":"threadId","accountId": "accountId","sessionId":
+    "sessionId","threadName": "General Discussion 3"} which includes:
+
+
+    - "threadId": The unique identifier of the thread that you want to update
+
+    - "accountId": The unique identifier of the user account making the update
+
+    - "sessionId": The unique identifier of the session within which the update
+    is made
+
+    - "threadName": The new name that you want to assign to the thread
+
+
+    The "options" key in the body contains an object, with "raw" key containing
+    another object {"language": "json"} which is specifying the format of data
+    that we have in the body, which in this case is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            threadId: threadId
+            accountId: accountId
+            sessionId: sessionId
+            threadName: General Discussion 3
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

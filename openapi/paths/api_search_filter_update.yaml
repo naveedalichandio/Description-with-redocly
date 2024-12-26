@@ -1,0 +1,78 @@
+put:
+  tags:
+    - SearchFilter
+  summary: Search - Filter - Update
+  description: >-
+    The endpoint `Search - Filter - Update` is used to update a particular
+    filter for a specific user.
+
+
+    It uses Bearer Authentication(`auth`) where the `token` is the
+    authentication token. The bearer token must be a string and placed in the
+    'token' field. This token is vital for authentication and authorization on
+    the secure server.
+
+
+    The endpoint is a `PUT` request(`method`) meaning it's meant to update
+    current resources with new data. 
+
+
+    The API endpoint URL(`url`) is
+    "http://localhost:3000/api/search/filter/update" which points to the server
+    where the request is handled.
+
+
+    In the HTTP request headers(`headers`), the 'Client-UUID' must be provided.
+    'Client-UUID' is an identifier for the client making the request. The value
+    of this header should be a unique identifier for each client.
+
+
+    The payload body(`body`) for this endpoint should be in a raw JSON
+    format(`mode`). 
+
+    The body contains:
+
+    - `filterId`, which is the unique identifier for the filter that needs to be
+    updated.
+
+    - `accountId`, which identifies the account related to the filter.
+
+    - `sessionId`, this indicates the session in which the filter update is
+    performed.
+
+    - `filter` contains the filter updates. It includes below fields:
+       - `types`: The game types to filter by. Example - 'game':1.
+       - `sort`: The type of sorting required, 'added':1 means data is sorted on the basis of added date.
+       - `privacy`: The privacy settings of the content, 'public':1 indicates filtering for public content.
+       - `date`: The date filter for the content, 'today':1 filters the today's content.
+       - `team`: The team status of the content, `active`:1 filters for content that's currently active.
+       - `stream`: The status of the stream, 'live':1 filters for live streams.
+       - `loyalty`: The loyalty or popularity level of the content, 'popular':1 indicates content that is popular or has high loyalty.
+
+    This API endpoint helps to update user-specific content filters based on the
+    user's needs and choices. The response from this endpoint should confirm the
+    successful update of said filter details.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"filterId\":\"filterId\",\"accountId\":
+            \"accountId\",\"sessionId\": \"sessionId\",\"filter\": {\"types\": {
+            \"game\": 1 },\"sort\": { \"added\": 1 },\"privacy\": { \"public\":
+            1 },\"date\": { \"today\": 1 },\"team\": { \"active\": 1
+            },\"stream\": { \"live\": 1 },\"loyalty\": { \"popular\":1}}}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

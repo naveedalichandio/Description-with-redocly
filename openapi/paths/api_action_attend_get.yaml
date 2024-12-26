@@ -1,0 +1,75 @@
+get:
+  tags:
+    - ActionAttend
+  summary: Action - Attend - Get
+  description: >-
+    ### Endpoint Description: Action - Attend - Get
+
+
+    - **Name**: Indicates the name of the endpoint, which is "Action - Attend -
+    Get". This is used to identify the specific action being performed.
+
+
+    - **Request**: This section contains all the details necessary to make the
+    request to the server.
+
+      - **Auth**: Specifies the authentication method required to access the endpoint.
+      
+        - **Type**: The type of authentication being used, which in this case is "bearer". This means that the request requires a bearer token for authorization.
+        
+        - **Bearer**: An array containing details about the bearer token being used for authentication.
+        
+          - **Key**: The key for the token which is labeled as "token".
+          
+          - **Value**: The actual token value that is being passed, represented here as "BearerToken". This should be replaced with the actual token when making the request.
+          
+          - **Type**: Specifies the type of the value, which is "string".
+
+      - **Method**: The HTTP method used for the request, which is "GET". This indicates that the endpoint is used to retrieve data.
+
+      - **URL**: The endpoint URL where the request is being sent. It includes the following parameters:
+      
+        - **attendId**: The identifier for the attendance record that you want to retrieve.
+        
+        - **sessionId**: The identifier for the session related to the attendance.
+        
+        - **accountId**: The identifier for the account associated with the attendance record.
+        
+        The example URL provided is: `http://localhost:3000/api/action/attend/get/?attendId=attendId&sessionId=sessionId&accountId=accountId`
+
+      - **Headers**: Contains any additional headers to be sent with the request. In this case:
+      
+        - **Key**: There is no key specified for headers (empty string).
+        
+        - **Value**: There is no value specified (empty string).
+        
+        - **Type**: Marked as "default", but this header is currently disabled and will not be included in the request.
+
+      - **Body**: Describes the body of the request, which in this instance:
+      
+        - **Mode**: The body mode is set to "raw".
+        
+        - **Raw**: There is no content in the body for this GET request, which is typical since GET requests usually do not send a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: attendId
+      in: query
+      schema:
+        type: string
+      example: attendId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

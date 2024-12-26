@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ActionCopy
+  summary: Action - Copy - Get
+  description: >-
+    ### Endpoint: Action - Copy - Get
+
+
+    **Description:** This endpoint is used to retrieve details about a specific
+    copy action based on the provided identifiers. 
+
+
+    #### Request Details:
+
+
+    - **Authentication:**
+      - **Type:** Bearer Token
+        - This method requires authentication through a bearer token, which must be included in the request for access to the resource.
+
+    - **Method:** 
+      - **GET:** This HTTP method is used to request data from the specified resource.
+
+    - **URL:** 
+      - `http://localhost:3000/api/action/copy/get/?copyId=copyId&sessionId=sessionId&accountId=accountId`
+        - This is the endpoint URL for the API. It contains placeholders that need to be replaced with actual values before making the request:
+          - `copyId`: The unique identifier for the copy action you want to retrieve.
+          - `sessionId`: The identifier for the session related to the copy action.
+          - `accountId`: The identifier for the account associated with the copy action.
+          
+    - **Headers:**
+      - **Key:** *(Not specified)*
+        - Currently, no headers are included in the request. You can add additional headers if necessary. The entry is disabled and does not influence the request.
+
+    - **Body:**
+      - **Mode:** Raw
+        - This indicates the body of the request is not being used since it's a GET method. 
+      - **Raw:** *(Empty)*
+        - There are no raw body data elements included since a GET request does not require body content.
+
+    **Note for Users:** Ensure to replace the placeholders in the URL with
+    actual values when making the request. Authentication is mandatory, and you
+    must obtain a valid bearer token to access this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: copyId
+      in: query
+      schema:
+        type: string
+      example: copyId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,110 @@
+put:
+  tags:
+    - UniversityVideo
+  summary: University - Video - Update
+  description: >-
+    ### Endpoint: University - Video - Update
+
+
+    #### Request
+
+
+    - **Auth**
+      - **Type**: Bearer
+        - **Key**: `token`
+          - **Value**: `BearerToken`
+            - **Type**: String
+          - Description: This is the authentication token required to authorize the API request. It should be a valid bearer token that grants access to the endpoint.
+
+    - **Method**
+      - **PUT**
+        - Description: This HTTP method indicates that the API will be updating an existing resource. In this case, it will update the video associated with the specified parameters.
+
+    - **URL**
+      - **Value**: `http://localhost:3000/api/university/video/update`
+        - Description: This is the endpoint URL where the update request will be sent. It points to the local server for testing purposes.
+
+    - **Headers**
+      - **Key**: `Client-UUID`
+        - **Value**: `ClientUUID`
+          - **Type**: Default
+        - Description: This header contains a unique identifier for the client making the request. It is used to track and manage requests from different clients.
+
+    #### Body 
+
+    - **Mode**: Raw
+      - Description: The request body is sent in raw JSON format.
+
+    - **Raw Content**: 
+      ```json
+      {
+        "videoId": "videoId",
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "name": "My Second Video 2.0",
+        "description": "This video is my second video",
+        "tags": "second,video",
+        "profilePhotoUrl": "https://example.com/profile.jpg",
+        "coverPhotoUrl": "https://example.com/cover.jpg",
+        "minimumTipAmount": 10,
+        "categoryId": "category123",
+        "category": "General",
+        "subCategoryId": "subCategory456",
+        "subCategory": "Specific",
+        "isVideoPrivate": true,
+        "isTournamentOnly": false,
+        "isVideoDefault": true,
+        "isPreLiveUniversityAds": true,
+        "isPostLiveUniversityAds": true,
+        "breakPreLiveVideoUrl": "https://example.com/break-pre-live.mp4",
+        "breakPostLiveVideoUrl": "https://example.com/break-post-live.mp4"
+      }
+      ```
+
+    - **Parameters**:
+      - **videoId**: The unique identifier of the video that is being updated. It indicates which video resource the request applies to.
+      - **sessionId**: The identifier for the session related to the video. This is required for linking the video to the appropriate viewing context.
+      - **accountId**: The identifier for the user account associated with the video. This links the video to the account that owns it.
+      - **name**: The new title of the video. This is a descriptive name that will be displayed to users.
+      - **description**: A text field that provides details about the video. It explains the content or context of the video.
+      - **tags**: A comma-separated list of tags associated with the video. Tags help categorize and make the video searchable.
+      - **profilePhotoUrl**: A URL pointing to the profile photo associated with the video creator or account.
+      - **coverPhotoUrl**: A URL for the cover image of the video, typically displayed as a thumbnail.
+      - **minimumTipAmount**: A numeric value indicating the minimum tip amount that can be given to support the video creator.
+      - **categoryId**: The unique identifier for the category under which the video falls.
+      - **category**: The name of the category to which the video belongs, defining the broad topic area.
+      - **subCategoryId**: The unique identifier for a more specific sub-category of the video.
+      - **subCategory**: The name of the sub-category under the main category, providing further context.
+      - **isVideoPrivate**: A boolean value indicating whether the video is private (true) or public (false).
+      - **isTournamentOnly**: A boolean value indicating if the video is only intended for tournament use (true) or not (false).
+      - **isVideoDefault**: A boolean indicating if this video should be marked as the default video for its category (true) or not (false).
+      - **isPreLiveUniversityAds**: A boolean that specifies if pre-live ads should be shown with the video (true) or not (false).
+      - **isPostLiveUniversityAds**: A boolean that specifies if post-live ads should be shown with the video (true) or not (false).
+      - **breakPreLiveVideoUrl**: A URL for a break video that plays before the live content starts.
+      - **breakPostLiveVideoUrl**: A URL for a video that plays after the live content ends. 
+
+    This body structure contains all the necessary information to successfully
+    update a video in the university video management system.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"videoId\":\"videoId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Video 2.0\",\"description\":\"This video is my second
+            video\",\"tags\":\"second,video\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isVideoPrivate\":true,\"isTournamentOnly\":false,\"isVideoDefault\":true,\"isPreLiveUniversityAds\":true,\"isPostLiveUniversityAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

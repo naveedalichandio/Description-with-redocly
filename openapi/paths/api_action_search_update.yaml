@@ -1,0 +1,117 @@
+put:
+  tags:
+    - ActionSearch
+  summary: Action - Search - Update
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This is the title of the API request, indicating that this
+    action will search and update relevant data.
+
+
+    - **request**: This field contains all the details necessary to perform the
+    request.
+
+      - **auth**: Specifies the authentication method used for this request.
+      
+        - **type**: Indicates the type of authentication. Here it is set to "bearer", which means a token will be used for access.
+        
+        - **bearer**: This holds the actual token needed for authentication.
+        
+          - **key**: This is the identifier for the token, labeled as "token".
+          
+          - **value**: This represents the actual bearer token required for authentication, labeled as "BearerToken".
+          
+          - **type**: Describes the data type of the token, which is set to "string".
+
+      - **method**: This indicates the HTTP method used for the request. In this case, it is a "PUT" method, typically used for updating existing resources.
+
+      - **url**: This is the endpoint where the request is sent. Here it is set to "http://localhost:3000/api/action/search/update", which suggests that the action is performed on a local server.
+
+      - **headers**: This is an array that contains header information sent along with the request.
+      
+        - **key**: Identifies the header. In this case, it is "Client-UUID".
+        
+        - **value**: This is the unique identifier for the client, labeled as "ClientUUID".
+        
+        - **type**: Indicates the type of the header, which is set to "default".
+
+      - **body**: This section holds the payload that will be sent with the request.
+      
+        - **mode**: Defines how the body is structured. It is set to "raw", meaning the data will be sent as-is, without any transformations.
+        
+        - **raw**: This contains the actual data being sent, represented in JSON format:
+        
+          - **sessionId**: This is a unique identifier for the session related to the action.
+      
+          - **accountId**: This represents the ID of the account associated with the action.
+      
+          - **path**: This is the specific resource path being accessed or modified, such as a video or channel (e.g., "/live/channel/video123").
+      
+          - **targetType**: Describes the type of target being updated or searched, in this case, it is specified as "videoId".
+      
+          - **targetId**: This is the ID of the target resource being manipulated or queried.
+      
+          - **sourceType**: Indicates the type of source for the search or update, here identified as "accountId".
+      
+          - **sourceId**: This is the ID of the source account associated with the action.
+      
+          - **didSearch**: A boolean value indicating whether a search action was performed.
+      
+          - **query**: This represents the search query that is being updated, for example, "example search updated".
+      
+          - **queryId**: A unique identifier for the search query.
+      
+          - **filter**: This specifies any filters applied to the search action, such as "spam".
+      
+          - **filterId**: A unique identifier for the filter being applied.
+      
+          - **searchId**: This is the identifier for the search operation.
+      
+          - **name**: This field is meant for the name associated with the action, currently left empty.
+      
+          - **description**: This allows for the addition of a description related to the action, currently left empty.
+      
+          - **tags**: This is for adding any relevant tags associated with the action, currently left empty.
+      
+        - **options**: This allows for additional settings for the body.
+        
+          - **raw**: This holds settings specific to raw body data.
+          
+            - **language**: Indicates the format of the raw data, which is set to "json".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didSearch: true
+            query: example search updated
+            queryId: dhasikdhjk23sd
+            filter: spam
+            filterId: jdaslk2
+            searchId: searchId
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

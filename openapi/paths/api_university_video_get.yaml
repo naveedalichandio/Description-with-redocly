@@ -1,0 +1,69 @@
+get:
+  tags:
+    - UniversityVideo
+  summary: University - Video - Get
+  description: >-
+    ### Endpoint Description: University - Video - Get
+
+
+    **Name**: University - Video - Get  
+
+    This endpoint is used to retrieve video information from the university's
+    database.
+
+
+    **Authentication**:  
+
+    - **Type**: Bearer  
+      Requires a Bearer token for authentication to access the API.
+
+    **Request Method**:  
+
+    - **Method**: GET  
+      This method is used to request data from the specified resource.
+
+    **URL**:  
+
+    - **URL**:
+    `http://localhost:3000/api/university/video/get/?videoId=videoId&sessionId=sessionId&accountId=accountId`  
+      This is the endpoint URL where the request is sent. It includes query parameters necessary for fetching the video:
+      - **videoId**: The unique identifier for the video you want to retrieve.
+      - **sessionId**: The identifier for the current session, useful for tracking purposes.
+      - **accountId**: The identifier for the user account making the request.
+
+    **Request Headers**:  
+
+    - This section currently contains an empty header object, meaning there are
+    no additional headers required for the request. This header is disabled.
+
+
+    **Request Body**:  
+
+    - **Mode**: Raw  
+      Since this is a GET request, the body does not carry any data. It is left empty, indicating that no additional information is being sent.
+
+    This endpoint is primarily used to fetch video details from the university's
+    system by providing the required identifiers through query parameters.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: videoId
+      in: query
+      schema:
+        type: string
+      example: videoId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

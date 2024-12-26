@@ -1,0 +1,84 @@
+put:
+  tags:
+    - ReportsVideo
+  summary: Reports - Video - Update
+  description: >-
+    This is the "Reports - Video - Update" endpoint. It uses the PUT method to
+    update the details of a video report. The request is authenticated through a
+    Bearer token system. A valid access token is required for this endpoint,
+    which is provided as a string type in the 'token' key.
+
+
+    The request is made to an API running at localhost on port 3000 at the path
+    '/api/reports/video/update'. The endpoint requires a UUID, which is a unique
+    identifier used to validate the client. It's specified in the 'Client-UUID'
+    key in the headers.
+
+
+    The body of the request delivers the payload in raw JSON format and it
+    contains multiple data fields:
+
+
+    1. 'videoId' is the unique identifier for the video being updated.
+
+    2. 'sessionId' is the unique identifier for the ongoing session.
+
+    3. 'accountId' is the unique identifier for the account where the video
+    resides.
+
+    4. 'name' is the updated name of the video.
+
+    5. 'description' provides details about the video.
+
+    6. 'tags' are keywords associated with the video for improved searchability.
+
+    7. 'profilePhotoUrl' and 'coverPhotoUrl' are URLs linking to the updated
+    profile and cover photos respectively for the video.
+
+    8. 'minimumTipAmount' specifies the minimum tip amount that can be
+    attributed to the video.
+
+    9. 'categoryId' and 'category' are identifiers and names respectively for
+    the updated category of the video.
+
+    10. 'subCategoryId' and 'subCategory' are identifiers and names respectively
+    for the updated sub-category of the video.
+
+    11. 'isVideoPrivate' indicates whether the video is private or not. If set
+    to true, the video is private.
+
+    12. 'isTournamentOnly' confirms if the video is only for tournaments. If set
+    to false, the video isn't exclusive to tournaments.
+
+    13. 'isVideoDefault' shows if the video is set as the default video. When
+    marked true, it is the default video.
+
+    14. PRE and POST live report ads flags are represented respectively by
+    'isPreLiveReportsAds' and 'isPostLiveReportsAds'. These booleans specify
+    whether pre-live and post-live ads are active in the video.
+
+    15. 'breakPreLiveReportsUrl' and 'breakPostLiveReportsUrl' are respective
+    URLs for linking to the break pre-live and break post-live video reports.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"videoId\":\"videoId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Video 2.0\",\"description\":\"This video is my second
+            video\",\"tags\":\"second,video\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isVideoPrivate\":true,\"isTournamentOnly\":false,\"isVideoDefault\":true,\"isPreLiveReportsAds\":true,\"isPostLiveReportsAds\":true,\"breakPreLiveReportsUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveReportsUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

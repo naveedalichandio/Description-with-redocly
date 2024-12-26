@@ -1,0 +1,124 @@
+put:
+  tags:
+    - ActionLearn
+  summary: Action - Learn - Update
+  description: >-
+    ### Endpoint Description: Action - Learn - Update
+
+
+    This endpoint allows users to update learning actions associated with a
+    specific session and account. Below is a detailed description of each piece
+    of data involved in this request.
+
+
+    #### Request Method:
+
+    - **PUT**: This method is used to update existing resources on the server.
+
+
+    #### URL:
+
+    - **http://localhost:3000/api/action/learn/update**: This is the endpoint
+    where the update request is sent.
+
+
+    #### Authentication:
+
+    - **Auth Type**: Bearer
+      - **Token**: A bearer token is used for authentication, which ensures that the request is made by a verified user. The value "BearerToken" should be replaced with a valid token.
+
+    #### Headers:
+
+    - **Client-UUID**: A unique identifier for the client making the request. It
+    helps in identifying the source of the API call. The value "ClientUUID"
+    should be replaced with the actual client UUID.
+
+
+    #### Body:
+
+    The body of the request is sent in JSON format and contains the following
+    fields:
+
+
+    1. **sessionId**: 
+       - Type: String
+       - Description: A unique identifier for the current session. This helps to associate the learning action with a specific session.
+
+    2. **accountId**: 
+       - Type: String
+       - Description: A unique identifier for the account associated with the learning action. This indicates which account the action belongs to.
+
+    3. **path**: 
+       - Type: String
+       - Description: The path or URL of the resource that is being interacted with. In this case, it indicates the location of the video (e.g., "/live/channel/video123").
+
+    4. **targetType**: 
+       - Type: String
+       - Description: The type of target that is being learned from. For example, it could be a video ID.
+
+    5. **targetId**: 
+       - Type: String
+       - Description: The unique identifier for the target resource (e.g., the ID of the video being updated).
+
+    6. **sourceType**: 
+       - Type: String
+       - Description: The type of source from where the learning action is initiated, which is likely an account ID.
+
+    7. **sourceId**: 
+       - Type: String
+       - Description: The unique identifier for the source account that is initiating the action.
+
+    8. **didLearn**: 
+       - Type: Boolean
+       - Description: A flag that indicates whether the learning action was successfully completed or not. It takes a value of `true` or `false`.
+
+    9. **name**: 
+       - Type: String
+       - Description: An optional field to provide a name for the learning action. This can be left empty if not needed.
+
+    10. **description**: 
+        - Type: String
+        - Description: An optional field to give a description of the learning action. This can also be left empty if not applicable.
+
+    11. **tags**: 
+        - Type: String
+        - Description: An optional field for tags associated with the learning action. This helps in categorizing or filtering actions based on certain keywords.
+
+    12. **learnId**: 
+        - Type: String
+        - Description: A unique identifier for the learning record being updated. This ensures the correct record is modified.
+
+    This structured request allows for comprehensive updates to the learning
+    action data, ensuring proper identification of sessions, accounts, and
+    resources.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didLearn: false
+            name: ''
+            description: ''
+            tags: ''
+            learnId: learnId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

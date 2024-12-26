@@ -1,0 +1,92 @@
+post:
+  tags:
+    - ActionBuy
+  summary: Action - Buy - Create
+  description: >-
+    ### Endpoint Description: Action - Buy - Create
+
+
+    #### Request Overview
+
+    This request is used to create a new buy action in the system. It utilizes a
+    POST method to send data to the specified URL.
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - **Token**: A string token is required for authentication. This token should be included in the authorization header as "BearerToken".
+
+    #### Request Method
+
+    - **Method**: POST
+      - The request is sent using the POST HTTP method.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/buy/create`
+      - This is the endpoint where the request is sent to create a new buy action.
+
+    #### Request Headers
+
+    - **Headers**: Currently, there are no custom headers specified. The header
+    field is disabled, meaning it will not be sent with the request.
+
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - The data is sent in the raw format, specifically as a JSON string.
+
+    - **JSON Payload**:
+      - **sessionId**: A unique identifier for the user session. This helps in tracking the action related to a specific user experience.
+      
+      - **accountId**: The identifier for the user's account involved in the action. This is necessary to associate the buy action with the correct account.
+      
+      - **path**: The specific path indicating the location of the resource, such as a video channel.
+      
+      - **targetType**: Specifies the type of target action. In this case, it indicates that the target is identified by "videoId".
+      
+      - **targetId**: The unique identifier of the target item (e.g., the video that is being bought).
+      
+      - **sourceType**: Represents the source type of the action, which is linked to the user account (denoted as "accountId").
+      
+      - **sourceId**: This is the identifier for the source linked to the buy action, also using "accountId".
+      
+      - **name**: A descriptive name for the buy action. In this instance, it is set to "sand".
+      
+      - **description**: A detailed description of the buy action, providing context about what is being purchased. Here, it notes "sand for building".
+      
+      - **tags**: Contains keywords related to the buy action. In this example, it is simply "sand", which may help with categorization or searching.
+
+    #### Additional Information
+
+    - **Body Options**: The body is set to use JSON language to ensure proper
+    formatting. 
+
+
+    This request structure allows users to submit a buy action and provide
+    necessary details required for processing the action in the system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: sand
+            description: sand for building
+            tags: sand
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,75 @@
+post:
+  tags:
+    - VideoCategory
+  summary: Video - Category - Delete
+  description: >
+    ### Video - Category - Delete
+
+
+    This endpoint is used to delete a specific category of videos associated
+    with a user's account. Below is a detailed description of each data element
+    involved in this API request:
+
+
+    - **name**: This indicates the name of the API request. In this case, it is
+    "Video - Category - Delete", which clearly describes the action being
+    performed.
+
+
+    - **request**: This section contains all the necessary information required
+    to make the API call.
+
+      - **auth**: This specifies the type of authentication to be used for the request. 
+
+        - **type**: Indicates that the authentication type is "bearer", which means an authorization token is needed.
+        
+        - **bearer**: This is an array of objects that contains the details of the bearer token needed for authorization.
+        
+          - **key**: This specifies the name of the token. Here, it is labeled as "token".
+          
+          - **value**: This represents the value of the token that will be used for authentication. The placeholder "sessionId" indicates where the actual session ID should be provided.
+          
+          - **type**: This indicates the type of value, which is set as "string".
+
+      - **method**: This indicates the HTTP method used for the request. In this case, it is a "POST" method, which is commonly used for actions that change the state on the server, such as deleting resources.
+
+      - **url**: This is the endpoint URL where the request will be sent. The specified URL is "http://localhost:3000/api/video/category/delete", indicating that this API is hosted locally on port 3000.
+
+      - **headers**: This section can include any additional headers that need to be sent with the request.
+
+        - **key**: This is a placeholder for any header key that may be needed. Currently, it is empty as no custom headers are required.
+        
+        - **value**: This is the corresponding value for the header key, which is also empty.
+        
+        - **type**: This indicates the type of header. It is set as "default".
+        
+        - **disabled**: This is a boolean that indicates whether this header is active or not. Here, it is set to true, meaning this header will not be sent in the request.
+
+      - **body**: This part of the request contains the data that will be sent to the server.
+
+        - **mode**: Specifies the format of the body content. It is set to "raw", indicating the body will contain a raw JSON string.
+        
+        - **raw**: This is the actual content sent in the request body. It includes three key-value pairs in JSON format:
+        
+          - **sessionId**: Placeholder for the ID of the session that is currently active for the user.
+          
+          - **accountId**: Placeholder for the unique identifier of the user's account from which the category should be deleted.
+          
+          - **categoryId**: Placeholder for the unique identifier of the video category that is to be deleted.
+
+    This API request allows users to specify which video category they wish to
+    delete by providing the relevant session ID, account ID, and category ID.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"categoryId\":\"categoryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

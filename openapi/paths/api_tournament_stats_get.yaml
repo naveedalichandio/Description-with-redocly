@@ -1,0 +1,75 @@
+get:
+  tags:
+    - TournamentStats
+  summary: Tournament - Stats - Get
+  description: |-
+    ### Endpoint Description: Tournament - Stats - Get
+
+    - **Endpoint Name**: Tournament - Stats - Get  
+      This is the name of the API endpoint, designated for retrieving tournament statistics.
+
+    - **Request**: This is the section detailing how the request is structured.
+
+      - **Auth**: 
+        - **Type**: Bearer  
+          The authentication method being used is Bearer Token, which is a common way to secure APIs.
+        - **Bearer**: 
+          - **Key**: token  
+            This is the identifier for the authentication token.
+          - **Value**: BearerToken  
+            This is a placeholder for the actual bearer token which is required to authenticate the request.
+          - **Type**: string  
+            Specifies that the token should be provided as a string.
+
+      - **Method**: GET  
+        Indicates the HTTP method used for this request. A GET request is typically used to retrieve data from the server.
+
+      - **URL**: http://localhost:3000/api/tournament/stats/get/?statsId=statsId&sessionId=sessionId&accountId=accountId  
+        This is the endpoint URL where the request is sent. The parameters include:
+        - **statsId**: statsId  
+          This parameter should be replaced with the actual ID of the statistics being requested.
+        - **sessionId**: sessionId  
+          This parameter should be replaced with the actual session ID associated with the tournament session.
+        - **accountId**: accountId  
+          This parameter should be replaced with the actual account ID of the user making the request.
+
+      - **Headers**:  
+        This section describes the headers sent with the request.
+        - **Key**: empty  
+          There are no additional headers specified, as indicated by the empty key.
+        - **Value**: empty  
+          Since there are no additional headers provided, the value is also empty.
+        - **Type**: default  
+          The header type is set to default.
+        - **Disabled**: true  
+          This indicates that the header is currently disabled and will not be sent with the request.
+
+      - **Body**:  
+        This section outlines the body of the request.
+        - **Mode**: raw  
+          Specifies that the body will be sent in raw format, which is typically for custom data types.
+        - **Raw**: empty  
+          The body is currently empty, which means no additional data will be sent with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: statsId
+      in: query
+      schema:
+        type: string
+      example: statsId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

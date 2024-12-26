@@ -1,0 +1,71 @@
+get:
+  tags:
+    - ActionCompete
+  summary: Action - Compete - Get
+  description: >-
+    ### Endpoint Description
+
+
+    **Endpoint Name:** Action - Compete - Get  
+
+    This endpoint is utilized to retrieve details for a specific "compete"
+    action.
+
+
+    **Request Details:**
+
+
+    - **Authentication:**
+      - **Type:** Bearer Token
+        - A Bearer Token is required for authentication to access this endpoint. The token allows secure access to protected resources.
+          - **Key:** `token` - The key used to send the bearer token in the request.
+          - **Value:** `BearerToken` - Replace this placeholder with the actual token value received during authentication.
+          - **Type:** string - Indicates that the value should be a string format.
+
+    - **HTTP Method:** GET  
+      This method is used to request data from the specified resource.
+
+    - **URL:**  
+      `http://localhost:3000/api/action/compete/get/?competeId=competeId&sessionId=sessionId&accountId=accountId`  
+      This is the target URL where the request will be sent to retrieve compete details. The URL includes the following query parameters:
+      - **competeId:** This parameter should be replaced with the specific ID of the compete for which data is being requested.
+      - **sessionId:** This parameter should be replaced with the relevant session identifier to provide context to the compete action.
+      - **accountId:** This parameter is intended to identify the account associated with the compete action.
+
+    - **Headers:**
+      - **Key:** (empty) - No specific headers are defined in this request. The header is disabled by default.
+      - **Value:** (empty) - No value defined for the key, indicating none are needed at this point.
+
+    - **Body:**
+      - **Mode:** Raw  
+        Indicates that the body format of the request is raw text.
+      - **Raw:** (empty) - The body is empty for this GET request, as no payload is sent with this type of request.
+
+    ### Summary
+
+    This endpoint allows you to retrieve details about a competition using
+    specific identifiers like competeId, sessionId, and accountId through a GET
+    request with appropriate authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: competeId
+      in: query
+      schema:
+        type: string
+      example: competeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

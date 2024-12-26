@@ -1,0 +1,69 @@
+get:
+  tags:
+    - NotificationInvites
+  summary: Notification - Invites - Get
+  description: >-
+    This endpoint is named 'Notification - Invites - Get'. It is designed to
+    retrieve information about invites through a GET request. 
+
+
+    AUTHENTICATION
+
+    The authentication for this endpoint requires a 'bearer' type which means
+    the request requires a bearer token for authorization. The key is 'token'
+    and its associated value is named 'BearerToken' and is a string format. This
+    token is typically generated through an authorization server and is passed
+    in the header of the HTTP request. 
+
+
+    METHOD
+
+    The HTTP method for this endpoint is 'GET'. A GET request is used to
+    retrieve data from a server.
+
+
+    URL
+
+    The URL for this endpoint is
+    "http://localhost:3000/api/notification/invites/get/?invitesId=invitesId&sessionId=sessionId&accountId=accountId".
+    InvitesId, sessionId and accountId are parameters in the URL.
+
+
+    HEADERS
+
+    A default header is included in the request, but it's disabled and contains
+    no key and value.
+
+
+    BODY
+
+    The body of the request is in 'raw' mode but contains no data. The raw mode
+    allows you to write down the request body as it is. In this case, no
+    specific data is required by the endpoint.
+
+
+    Remember that the user needs to replace the 'BearerToken', 'invitesId',
+    'sessionId' and 'accountId' with actual values while making a request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: invitesId
+      in: query
+      schema:
+        type: string
+      example: invitesId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

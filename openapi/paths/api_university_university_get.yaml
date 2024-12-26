@@ -1,0 +1,95 @@
+get:
+  tags:
+    - UniversityUniversity
+  summary: University - General - Get
+  description: >-
+    ### Endpoint Description: University - General - Get
+
+
+    **Request Method**: GET  
+
+    This endpoint is used to retrieve information about a specific university. 
+
+
+    **Authentication**: Bearer Token  
+
+    The request requires authentication via a bearer token, which must be
+    included in the request headers.
+
+
+    - **Key**: `token`  
+      - Represents the authentication token required for validating the request.
+
+    - **Value**: `BearerToken`  
+      - This is a placeholder for the actual bearer token that should be provided when the request is made.
+
+    - **Type**: string  
+      - Indicates that the value of the token must be a string.
+
+    **URL**:  
+
+    `http://localhost:3000/api/university/university/get/?universityId=universityId&sessionId=sessionId&accountId=accountId`  
+
+    This is the endpoint URL where the request is sent. It includes query
+    parameters that are necessary to identify the specific university and
+    session.
+
+
+    - **Query Parameters**:
+      - **universityId**:  
+        - This parameter is used to specify the unique identifier of the university that you want to retrieve information about.
+      
+      - **sessionId**:  
+        - This parameter is used to indicate the specific session for which the information is relevant. This could refer to a term, semester, or academic year.
+
+      - **accountId**:  
+        - This parameter represents the identifier for the account making the request, enabling any account-specific data retrieval or access control.
+
+    **Headers**:  
+
+    The request may include headers, but in this case, the provided header
+    parameters are empty and the header is disabled.
+
+
+    - **Key**:  
+      - Currently, there are no headers specified. However, additional headers can be defined if necessary by adding key-value pairs.
+
+    - **Value**:  
+      - As there are no headers in use, this remains empty.
+
+    - **Type**: default  
+      - Indicates the header type, though in this instance no headers are applied.
+
+    **Body**:  
+
+    The body of the request is not used in this GET request.
+
+
+    - **Mode**: raw  
+      - Specifies that the request body is in raw format, although no body content is included.
+
+    - **Raw**:  
+      - The body is empty (`""`), which is typical for GET requests as they do not require a message body to send data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: universityId
+      in: query
+      schema:
+        type: string
+      example: universityId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

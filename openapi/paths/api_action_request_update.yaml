@@ -1,0 +1,138 @@
+put:
+  tags:
+    - ActionRequest
+  summary: Action - Request - Update
+  description: >-
+    Here is the detailed description of each data element in the provided
+    endpoint:
+
+
+    ### Request Details
+
+
+    - **Name**: Action - Request - Update
+      - This is the name assigned to the API request. It describes the action that the request performs, which is to update a specific resource.
+
+    ### Request Configuration
+
+
+    - **Method**: PUT
+      - This specifies the HTTP method used for the request. A PUT method is typically used to update existing resources on the server.
+
+    - **URL**: http://localhost:3000/api/action/request/update
+      - This is the endpoint where the PUT request is sent. It indicates the location on the server where the action will take place.
+
+    ### Authentication
+
+
+    - **Auth**: 
+      - **Type**: Bearer
+        - Indicates that the request will use bearer token authentication. This is a common method for securing APIs.
+      
+      - **Bearer**:
+        - **Key**: token
+          - The name of the authorization field.
+        - **Value**: BearerToken
+          - This is a placeholder for the actual bearer token used to authenticate the request.
+        - **Type**: string
+          - Specifies that the token is of string data type.
+
+    ### Headers
+
+
+    - **Headers**:
+      - **Key**: Client-UUID
+        - A unique identifier for the client making the request.
+      - **Value**: ClientUUID
+        - This is a placeholder for the actual UUID value that uniquely identifies the client.
+      - **Type**: default
+        - Indicates the standard type for HTTP headers.
+
+    ### Request Body
+
+
+    - **Body**:
+      - **Mode**: raw
+        - This indicates that the body content is raw data, not encoded in a particular format (like form data).
+      
+      - **Raw**: 
+        - This field contains the actual data sent in the request body in JSON format. The structure includes the following parameters:
+
+          - **sessionId**: "sessionId"
+            - A placeholder for the unique identifier of the session during which the action is taking place.
+
+          - **accountId**: "accountId"
+            - Represents the identifier for the account involved in the action.
+
+          - **path**: "/live/channel/video123"
+            - The specific path that the action relates to, indicating the location of the resource on the server.
+
+          - **targetType**: "videoId"
+            - Specifies the type of the target resource, in this case, a video identified by its ID.
+
+          - **targetId**: "videoId"
+            - The unique identifier for the target resource being updated.
+
+          - **sourceType**: "accountId"
+            - Indicates the type for the source resource, which is also an account ID in this context.
+
+          - **sourceId**: "accountId"
+            - The unique identifier for the source resource associated with the request.
+
+          - **didRequest**: true
+            - A boolean flag indicating whether a request has been made.
+
+          - **requestType**: "feature"
+            - Defines the type of request being made, categorized as a feature request.
+
+          - **name**: ""
+            - A field intended to hold a name or title for the action, currently left empty.
+
+          - **description**: ""
+            - A field for a description of the action, currently left empty.
+
+          - **tags**: ""
+            - This field allows tagging the request for categorization or filtering, currently left empty.
+
+          - **requestId**: "requestId"
+            - A unique identifier for the request itself, allowing for tracking and referencing.
+
+        - **Options**:
+          - **Raw**: 
+            - **Language**: json
+              - Specifies that the format of the raw data is JSON.
+
+    This comprehensive description explains each component of the API request
+    for other users who will use your Postman API collection.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didRequest: true
+            requestType: feature
+            name: ''
+            description: ''
+            tags: ''
+            requestId: requestId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

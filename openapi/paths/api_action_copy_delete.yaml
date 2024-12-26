@@ -1,0 +1,56 @@
+post:
+  tags:
+    - ActionCopy
+  summary: Action - Copy - Delete
+  description: |-
+    {
+      "name": "Action - Copy - Delete",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "sessionId",
+                "type": "string"
+              }
+            ],
+            "description": "This section defines the authentication method required to access the endpoint. A bearer token, which is a type of access token, is used for authentication. The 'token' key represents the key for the authentication token, and 'sessionId' is a placeholder for the actual session token value that should be used."
+          },
+          "method": "POST",
+          "description": "This specifies the HTTP method to be used when making the request. In this case, the POST method indicates that data will be sent to the server to create or modify resources."
+          "url": "http://localhost:3000/api/action/copy/delete",
+          "description": "This is the endpoint URL where the request is sent. It is the API route for performing the delete action on a copy. The localhost indicates that the API is likely being tested on a local server running on port 3000."
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "description": "This section contains the headers to be sent with the request. In this case, the header fields are empty and marked as disabled, indicating that no additional headers are being sent with this request."
+          "body": {
+            "mode": "raw",
+            "description": "This specifies the format of the request body being sent. The 'raw' mode indicates that the body is a raw JSON string rather than form data or other formats.",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"copyId\":\"copyId\"}",
+            "description": "This is the content of the request body in raw JSON format. It includes three fields: 'sessionId', which is needed for user session identification; 'accountId', which uniquely identifies the account being accessed; and 'copyId', which identifies the specific copy to delete. Each of these fields must be populated with their respective values when making the request."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"copyId\":\"copyId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,67 @@
+put:
+  tags:
+    - ArticleCategory
+  summary: Article - Category - Update
+  description: >-
+    This is the data description for the endpoint named 'Article - Category -
+    Update'. It consists of various components as listed below:
+
+
+    1. **Auth:** This refers to the authentication needed to access this
+    endpoint. It uses a 'Bearer' token type, which should be provided as a
+    string value. The key for this token is 'token' and its value would be a
+    'BearerToken'. 
+
+
+    2. **Method:** This endpoint uses the 'PUT' method which means it is used
+    for updating an existing resource.
+
+
+    3. **URL:** The url 'http://localhost:3000/api/article/category/update'
+    represents the location on the server where the request should be sent to
+    update an article category.
+
+
+    4. **Headers:** Under this, a 'Client-UUID' key is provided with a value
+    'ClientUUID'. ClientUUID's are universally unique identifiers for a client
+    device.
+
+
+    5. **Body:** The body contains the request payload in raw JSON format.
+    Fields include:
+       - **categoryId:** Unique identifier for the category which needs to be updated.
+       - **sessionId:** Unique identifier for the current session.
+       - **accountId:** Unique identifier for the account that is performing the update.
+       - **name:** New name of the category.
+       - **displayName:** New display name of the category.
+       - **description:** New description of the category.
+       - **tags:** New tags associated with the category, divided by commas.
+
+    6. **Options:** This is an extension of the body where the format of raw
+    data is specified. Here, the raw data language is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            categoryId: articleCategoryId
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 2
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

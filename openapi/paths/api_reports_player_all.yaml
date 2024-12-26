@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ReportsPlayer
+  summary: Reports - Player - Get All
+  description: >-
+    This endpoint is named "Reports - Player - Get All". It fetches all reports
+    associated with a player from the server.
+
+
+    1. `name`: This is the name of the endpoint which is "Reports - Player - Get
+    All". You will use this name to identify this endpoint in your collection.
+
+
+    2. `request`: This object contains information about the HTTP request that
+    you will be sending.
+
+
+    3. `auth`: This object has details about the authentication required for the
+    endpoint.
+        - `type`: This specifies the authentication type, in this case "bearer", which means you should pass a bearer token for authentication.
+        - `bearer`: This field is an array and contains infomation about the bearer token.
+            - `key`: The field label or key, in this case "token".
+            - `value`: This is where you will substitute with the actual token, labelled here as "BearerToken".
+            - `type`: Specifies the type of the key value. Here, it's a "string".
+
+    4. `method`: The HTTP method used for this endpoint is "GET" - this
+    indicates you are retrieving data.
+
+
+    5. `url`: This is the URL of the endpoint. Parameters such as `sessionId`
+    and `accountId` are query strings. Replace `sessionId` and `accountId` with
+    the actual session ID and account ID respectively when making a request.
+
+
+    6. `headers`: This is an array of headers. It's empty, meaning no custom
+    headers are needed for this request.
+
+
+    7. `body`: This object contains details about the body of the request.
+        - `mode` : The mode of the body is set to "raw", implying you can send unstructured data. However, since this is a GET request, typically no request body is needed, so "raw" should be empty. 
+
+    That's what each part of this endpoint means. Make sure to replace the
+    placeholders like `BearerToken`, `sessionId`, and `accountId` with actual
+    values when sending a request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

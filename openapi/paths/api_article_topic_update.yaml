@@ -1,0 +1,65 @@
+put:
+  tags:
+    - ArticleTopic
+  summary: Article - Topic - Update Auto
+  description: >-
+    "name": This is the endpoint's name, "Article - Topic - Update Auto". It's
+    mainly used for identification purposes.
+
+
+    "request": This includes all the details required to make a HTTP request. 
+
+
+    Inside "request":
+       "auth": Contains authentication details required for authorizing the request.
+       "type": The auth type, which is "bearer" in this case. It means the authorization is following the Bearer scheme.
+       "bearer": An array containing the bearer token details which are key-value pairs with the key named "token" and value named "BearerToken"
+
+    "method": This is the HTTP verb to use for the request. Here we are using
+    the "PUT" method, which is generally used for updating resources.
+
+
+    "url": This is the web address to which the request will be sent.
+    "http://localhost:3000/api/article/topic/update" is the endpoint URL.
+
+
+    "headers": This is an array containing all the header information required
+    for processing the HTTP request. "Client-UUID" is a unique client identifier
+    that's being passed here.
+
+
+    "body": The data to be sent with the request comes under this. The mode is
+    set as "raw", indicating that we are sending raw bytes in the body of our
+    request.
+      
+    Inside "body":
+       "raw": Raw text to be included in the body of the request. This contains all the basic information required to update an article topic. It includes fields such as "topicId", "sessionId", "accountId", "category", "subCategory", "name", "displayName", "description", "tags".
+       "options": Parameters to configure the way raw data is interpreted. Here it's set to "json", meaning that the raw text included must be written in json format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            topicId: articleTopicId
+            sessionId: sessionId
+            accountId: accountId
+            category: My Brand New Category
+            subCategory: My Brand New Sub Category
+            name: Miami Art Week
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

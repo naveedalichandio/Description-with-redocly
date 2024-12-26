@@ -1,0 +1,67 @@
+get:
+  tags:
+    - ActionCancel
+  summary: Action - Cancel - Get
+  description: >-
+    ### Endpoint: Action - Cancel - Get
+
+
+    **Description**: This endpoint is designed to retrieve information related
+    to a cancellation action based on provided identifiers. 
+
+
+    #### Request Components:
+
+
+    - **Authorization**:
+      - **Type**: Bearer Token
+      - **Key**: `token`
+      - **Value**: `BearerToken` - This token should be replaced with a valid bearer token to authenticate the request.
+
+    - **Method**: 
+      - **GET** - This indicates that the endpoint is accessed using the HTTP GET method, which is typically used to retrieve data from the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/cancel/get/?cancelId=cancelId&sessionId=sessionId&accountId=accountId`
+        - This is the endpoint URL where the request is sent. 
+        - **Query Parameters**:
+          - `cancelId`: This parameter should be replaced with the unique identifier of the cancellation you wish to retrieve.
+          - `sessionId`: This parameter should be replaced with the session identifier relevant to the cancellation action.
+          - `accountId`: This parameter represents the account identifier associated with the cancellation.
+
+    - **Headers**:
+      - The headers section currently has an entry that is disabled and empty. This generally means there are no additional headers required for this request. If any headers are needed in the future, they should be added here.
+
+    - **Body**:
+      - **Mode**: Raw
+      - **Content**: The body of the request is empty, which is typical for a GET request as it generally does not require a body for retrieval of data.
+
+    ### Summary:
+
+    This API call allows users to fetch detailed information about a
+    cancellation action by supplying the necessary identifiers through URL
+    parameters. It requires authentication via a bearer token, and no additional
+    headers or body content are necessary for the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: cancelId
+      in: query
+      schema:
+        type: string
+      example: cancelId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ActionSuspend
+  summary: Action - Suspend - Get
+  description: >-
+    ### Action - Suspend - Get
+
+
+    This API endpoint is designed to retrieve information related to a specific
+    suspend action. Below is a detailed description of each component involved
+    in the request.
+
+
+    #### Request Information:
+
+
+    - **Auth**: 
+      - **Type**: Specifies that the authentication method used is Bearer Token.
+      - **Bearer**: 
+        - **Key**: This denotes the authorization key used in the request.
+        - **Value**: This is where you will insert the actual token required for authorization. Replace "BearerToken" with your valid token.
+        - **Type**: Indicates the data type of the token as a string.
+
+    - **Method**: 
+      - The HTTP method used for this request is `GET`. This implies that the request is intended to retrieve data from the server.
+
+    - **URL**: 
+      - This is the endpoint where the request is sent. The URL is structured as follows:
+        - **Base URL**: `http://localhost:3000/api/action/suspend/get/`
+        - **Query Parameters**:
+          - **suspendId**: Replace `suspendId` with the unique identifier for the suspend action you want to query.
+          - **sessionId**: Replace `sessionId` with the identifier for the session related to this action.
+          - **accountId**: Replace `accountId` with the identifier for the account you wish to retrieve information for.
+
+    - **Headers**: 
+      - This section can include additional HTTP headers required for the request. Currently, it is empty and disabled.
+
+    - **Body**:
+      - The body of the request is set to `raw` mode and is blank. For a `GET` request, traditionally, you do not send a body, so this section does not require any data. 
+
+    Make sure to update the placeholders in the URL with actual values before
+    executing the request to ensure it works correctly.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: suspendId
+      in: query
+      schema:
+        type: string
+      example: suspendId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,104 @@
+get:
+  tags:
+    - UniversityChannel
+  summary: University - Channel - Get
+  description: >-
+    {
+      "name": "University - Channel - Get",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "url": "http://localhost:3000/api/university/channel/get/?channelId=channelId&sessionId=sessionId&accountId=accountId",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": ""
+          }
+        }
+      }
+    } 
+
+
+    ### Description of Each Field:
+
+
+    - **request**: This field contains details about the request being made to
+    the API.
+
+      - **auth**: This specifies the authentication type used for the request.
+
+        - **type**: Indicates the type of authentication, which is set to "bearer".
+        
+        - **bearer**: A list containing details for bearer token authentication.
+
+          - **key**: A placeholder for the authentication key, here represented as "token".
+
+          - **value**: Represents the actual bearer token used for the request. In this case, it is indicated as "BearerToken".
+
+          - **type**: Describes the type of value for the bearer, which is a string.
+
+      - **method**: Defines the HTTP method used for this request, which is set to "GET". This method is generally used to retrieve data from the server.
+
+      - **url**: The endpoint where the request is directed. This consists of the base URL and query parameters which include:
+      
+        - **channelId**: This parameter is used to specify the unique identifier of the channel you want to retrieve information for.
+        
+        - **sessionId**: This parameter denotes the identifier for the current session, which may be required for the retrieval process.
+        
+        - **accountId**: This parameter represents the identifier for the account associated with the channel.
+
+      - **headers**: Contains any additional headers to be sent along with the request.
+      
+        - **key**: The name of the header, currently left empty.
+        
+        - **value**: The value for the header, which is also currently left empty.
+
+        - **type**: Indicates the type of the header, here it is set to "default".
+
+        - **disabled**: A boolean field indicating whether this header is active. In this case, it is set to true, meaning the header is disabled.
+
+      - **body**: Details the body of the request being sent.
+
+        - **mode**: The mode of the body content, which is set to "raw". This indicates that the request body is not formatted or structured but is sent as a raw string.
+
+        - **raw**: The actual content of the body, which is currently empty, indicating no body content will be sent with this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: channelId
+      in: query
+      schema:
+        type: string
+      example: channelId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

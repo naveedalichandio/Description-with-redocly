@@ -1,0 +1,83 @@
+put:
+  tags:
+    - VideoCategory
+  summary: Video - Category - Update
+  description: >-
+    ### Video - Category - Update
+
+
+    This API endpoint allows users to update an existing video category.
+
+
+    #### Request Details:
+
+
+    - **Authentication:**
+      - **Type:** Bearer Token
+      - **Description:** Users must provide a valid bearer token for authentication. The token is included in the request header and is crucial for authorizing access to the API.
+      
+    - **Method:** 
+      - **Description:** This endpoint accepts the `PUT` method, which is used to update the information of an existing video category.
+
+    - **URL:** 
+      - **Description:** The endpoint for this request is `http://localhost:3000/api/video/category/update`. This URL should be accessed to perform the update operation.
+
+    - **Headers:**
+      - **Client-UUID:**
+        - **Description:** This header must include a unique identifier for the client making the request. It helps distinguish between different clients or applications using the API.
+
+    #### Request Body:
+
+
+    The request body must be sent in JSON format and includes the following
+    fields:
+
+
+    - **categoryId:** 
+      - **Description:** The unique identifier of the category that is being updated. This field is required to specify which category is targeted for the update.
+
+    - **sessionId:** 
+      - **Description:** A unique identifier for the current session. This can be used for tracking or validation purposes.
+
+    - **accountId:** 
+      - **Description:** The identifier for the account associated with the request. This field is used to link the category update to a specific user account.
+
+    - **name:** 
+      - **Description:** The new name for the video category. It should accurately represent the category’s content and purpose.
+
+    - **description:** 
+      - **Description:** A brief description of the category. This field provides additional context or details about what the category represents.
+
+    - **tags:** 
+      - **Description:** A comma-separated list of tags associated with the category. Tags help in categorizing and searching for video content effectively.
+
+    - **searchType:** 
+      - **Description:** Indicates the type of search being performed for this category. This could refer to the type of content (e.g., Game).
+
+    - **isEnabled:** 
+      - **Description:** A boolean value that specifies whether the category is enabled or disabled. Setting this to `true` means the category is active and can be used; `false` disables it.
+
+    Make sure to populate the fields with the appropriate values to successfully
+    perform the category update operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"categoryId\":\"categoryId\",\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Category 2.0\",\"description\":\"This category is my second
+            category\",\"tags\":\"second,category\",\"searchType\":\"Game\",\"isEnabled\":true}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

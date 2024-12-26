@@ -1,0 +1,101 @@
+put:
+  tags:
+    - ManageAdmin
+  summary: Manage - Admin - Update
+  description: >-
+    This endpoint updates an admin's information in the management system.
+
+
+    Here are the details of each data:
+
+
+    1. `"name"`: This depicts the name of the endpoint which is "Manage - Admin
+    - Update". It signifies that the endpoint is for updating admin details.
+
+
+    2. `"request"`: The outer block that holds all of the HTTP request
+    information.
+
+
+    3. `"auth"`: Details of the authorization needed to access this endpoint. It
+    uses the bearer token authorization type indicated by `"type": "bearer"`.
+    The `"bearer"` array contains a `"token"` key, the value `"BearerToken"`
+    should be replaced with the actual auth token you want to use when making a
+    request.
+
+
+    4. `"method"`: The HTTP method used for this request. `"PUT"` indicates that
+    this endpoint is used to update existing information.
+
+
+    5. `"url"`: The URL where the API request is sent. In this case, the request
+    is sent to http://localhost:3000/api/manage/admin/update.
+
+
+    6. `"headers"`: This array contains the necessary headers to make a request.
+    In this case, it includes `"Client-UUID"`, which should be replaced with the
+    unique identifier for the client making the request.
+
+
+    7. `"body"`: The data sent with the HTTP request. It uses raw JSON data.
+    Each key-value pair in `"raw"` field represents a different data point
+    related to the admin being updated. Replace these with the respective value
+    each key indicates.
+
+
+    - `"adminId"`: The unique identifier for the admin that needs to be updated.
+
+    - `"sessionId"` and `"accountId"`: The session and account identifiers,
+    respectively.
+
+    - `"name"`: The updated name of the admin.
+
+    - `"description"`, `"tags"`, `"profilePhotoUrl"`, and `"coverPhotoUrl"`: The
+    updated information about the admin's description, tags, and image URLs for
+    profile and cover respectively.
+
+    - `"minimumTipAmount"`: It suggests the minimum tip amount that can be
+    applied.
+
+    - `"categoryId"`, `"category"`, `"subCategoryId"` and `"subCategory"`: These
+    represent the category and sub-category identifiers and names the admin
+    falls under.
+
+    - `"isGeneralPrivate"`: This boolean field shows whether the admin has a
+    private setting applied.
+
+    - `"isTournamentOnly"`, `"isGeneralDefault"`, `"isPreLiveManageAds"` and
+    `"isPostLiveManageAds"`: These are boolean fields that indicate whether the
+    admin is only for tournament, set as default, allowed to manage ads pre-live
+    or post-live.
+
+    - `"breakPreLiveManageUrl"` and `"breakPostLiveManageUrl"`: URLs for the
+    pre-live and post-live break times.
+
+
+    Please replace the corresponding key values with actual data when making a
+    request. The changes will be committed once the request is successfully
+    processed.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"adminId\":\"adminId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second General 2.0\",\"description\":\"This admin is my second
+            admin\",\"tags\":\"second,admin\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isGeneralPrivate\":true,\"isTournamentOnly\":false,\"isGeneralDefault\":true,\"isPreLiveManageAds\":true,\"isPostLiveManageAds\":true,\"breakPreLiveManageUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveManageUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

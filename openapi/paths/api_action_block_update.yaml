@@ -1,0 +1,100 @@
+put:
+  tags:
+    - ActionBlock
+  summary: Action - Block - Update
+  description: >-
+    ### Action - Block - Update
+
+
+    #### Request Authentication
+
+    - **Auth Type:** Bearer
+      - A token is required to authenticate the request. This is provided in the format of a Bearer token.
+
+    #### HTTP Method
+
+    - **Method:** PUT
+      - This request utilizes the PUT method, typically used for updating resources on a server.
+
+    #### URL
+
+    - **Endpoint URL:** `http://localhost:3000/api/action/block/update`
+      - This is the URL to which the PUT request is sent for updating a block action.
+
+    #### Headers
+
+    - **Client-UUID:** 
+      - This header should contain a unique identifier for the client making the request. It's used to distinguish requests from different clients.
+
+    #### Body
+
+    - **Body Mode:** Raw
+      - The body content is sent in raw format, specifically as a JSON object.
+
+    ##### JSON Body Content
+
+    - **sessionId:** 
+      - This is the identifier for the current session. It should be a unique value related to the user's session.
+
+    - **accountId:** 
+      - This is the identifier for the user's account. It signifies which account is relevant for the block update.
+
+    - **path:** 
+      - This specifies the path to the resource that is being updated. For example, it may indicate the location of a video being blocked.
+
+    - **targetType:** 
+      - This indicates the type of the target for the action being taken. In this case, it specifies that the target is identified by a video ID.
+
+    - **targetId:** 
+      - This is the identifier for the target resource, particularly the ID of the video that is being updated.
+
+    - **sourceType:** 
+      - This specifies the type of the source related to the action. Here, it indicates that the source references an account ID.
+
+    - **sourceId:** 
+      - This is the identifier for the source, corresponding to the account that is executing the action.
+
+    - **blockId:** 
+      - This is the unique identifier for the block action being updated.
+
+    - **name:** 
+      - A name or title for the update action. This can be used to identify the purpose of the block update.
+
+    - **description:** 
+      - An optional field where additional details about the block update can be provided. It can be left empty if not applicable.
+
+    - **tags:** 
+      - This field can be used to associate tags with the update for better categorization and identification. It may also be left empty if no tags are necessary. 
+
+    This describes how to construct a PUT request for updating a block action in
+    the given API, with each component of the request clearly defined.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            blockId: blockId
+            name: update
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

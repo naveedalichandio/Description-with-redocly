@@ -1,0 +1,93 @@
+post:
+  tags:
+    - ActionRevoke
+  summary: Action - Revoke - Create
+  description: >-
+    ### Action - Revoke - Create
+
+
+    This endpoint is designed to handle the action of revoking a specific
+    resource. Below is a detailed description of the data used in this endpoint:
+
+
+    #### Auth
+
+    - **type**: Specifies the type of authorization required. In this case, it
+    is a bearer token.
+
+    - **bearer**: This section contains the authentication details.
+      - **key**: This indicates the authentication key type, which is `token`.
+      - **value**: The actual token required for the request, here represented as `BearerToken`.
+      - **type**: Indicates the data type of the token, specified as a string.
+
+    #### Method
+
+    - **method**: The HTTP method used for this request. It is set to `POST`,
+    which is commonly used for creating new resources.
+
+
+    #### URL
+
+    - **url**: The endpoint to which the request is sent. In this case, it is
+    `http://localhost:3000/api/action/revoke/create`, which suggests that this
+    is a local development server.
+
+
+    #### Headers
+
+    - **headers**: This section contains any additional information sent with
+    the request.
+      - Currently, there are no specific headers mentioned as both the key and value are empty, and the header is marked as disabled.
+
+    #### Body
+
+    - **mode**: This indicates the format of the body data. It is set to `raw`,
+    meaning the body contains a raw JSON string.
+
+    - **raw**: The actual content of the body that contains the parameters
+    required for the revocation action in JSON format. Below are the details of
+    each field:
+      - **sessionId**: The unique identifier for the session from which the resource will be revoked.
+      - **accountId**: The identifier of the account associated with the operation.
+      - **path**: The specific path of the resource being revoked, represented as `"/live/channel/video123"`.
+      - **targetType**: Indicates the type of target from which the resource will be revoked, in this case, it is set to `streamer`.
+      - **targetId**: The unique identifier for the specific target being revoked, represented as `videoId`.
+      - **sourceType**: Indicates the origin type from where the resource is being revoked. Here, it relates to the account ID.
+      - **sourceId**: The identifier of the source account for context, represented as `accountId`.
+      - **tokenAmount**: The amount of tokens to be considered for this revocation, which is set to 20.
+      - **name**: A name for the revoke action, provided here as `revoke1`.
+      - **description**: A space for additional details about the operation. Currently left empty.
+      - **tags**: A space for any tags that may categorize or describe this request further. Currently left empty.
+
+    #### Options
+
+    - **options**: Specifies additional options for the request body.
+      - **raw**: Indicates that the body content is in raw format.
+        - **language**: Specifies the format of the raw content, here noted as `json`. 
+
+    This endpoint is crucial for managing the revocation of resources associated
+    with an account, allowing for controlled actions within the system.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: revoke1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

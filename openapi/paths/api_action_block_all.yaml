@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ActionBlock
+  summary: Action - Block - Get All
+  description: >-
+    ### Endpoint Description: Action - Block - Get All
+
+
+    - **Name**: Action - Block - Get All
+      - This is the title of the API request that indicates its purpose, which is to retrieve all blocked actions.
+
+    - **Request Method**: GET
+      - This specifies that the HTTP method used for the request is GET, meaning it is intended to fetch data from the server.
+
+    - **Request URL**: 
+      - `http://localhost:3000/api/action/block/all/?sessionId=sessionId&accountId=accountId`
+      - This URL points to the API endpoint that is called to get a list of all blocked actions. It includes two query parameters:
+        - **sessionId**: This parameter should be replaced with the actual session ID, which is used to identify the session when retrieving the blocked actions.
+        - **accountId**: This parameter should be replaced with the actual account ID, used to specify which account's blocked actions you want to retrieve.
+
+    - **Authentication**: 
+      - This request uses bearer token authentication. A token is required to authorize the request and must be included in the headers.
+      
+      - **Auth Type**: Bearer
+        - This indicates that the authentication mechanism being used is a bearer token, which is typically a string that grants access to the API resources.
+      
+      - **Bearer Token**: 
+        - **Key**: token
+          - The key used to reference the token in the authentication process.
+        - **Value**: BearerToken
+          - This is a placeholder for the actual bearer token needed for authorization. Users must replace "BearerToken" with their valid token to access the endpoint.
+        - **Type**: string
+          - The datatype of the token, which is a string.
+
+    - **Headers**: 
+      - The request contains an empty headers array, indicating that no additional headers are needed for this request. There is a potentially disabled header entry, signifying that it could be used if required in the future.
+
+    - **Body**: 
+      - **Mode**: raw
+        - This signifies that no body data is sent with the request, as it is a simple GET request.
+      - **Raw**: ""
+        - This indicates that there is no raw body content to include in the request.
+
+    This endpoint is designed to retrieve a collection of blocked actions based
+    on the provided session and account identifiers, requiring appropriate
+    authentication to function correctly.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,45 @@
+get:
+  tags:
+    - IncentiveLoyalty
+  summary: Incentive - Loyalty - Get All
+  description: >-
+    In this endpoint, there are multiple data points which have been included:
+
+
+    1. **name**: The 'name' attribute refers to the name of the endpoint. Here,
+    'Incentive - Loyalty - Get All' indicates that this endpoint is aimed at
+    retrieving all incentives related to loyalty.
+
+
+    2. **request**: The 'request' attribute denotes the HTTP request being sent
+    to the server. This includes the details about the authentication, method,
+    URL, headers, and body of the API request.
+
+        - **auth**: The 'auth' field specifies the type of authentication being used. Here, the 'bearer' authentication type is used. 
+            - **bearer**: This field includes an array of bearer tokens used for authentication. Each token has a 'key', 'value', and 'type'. Here, the 'key' is 'token', the 'value' is 'BearerToken', and the 'type' is 'string'.
+           
+        - **method**: The 'method' attribute describes the HTTP method being utilized for this API request. In this case, it is a 'GET' request, which requests data from a specified resource.
+
+        - **url**: The 'url' field refers to the API's endpoint URL. Here, the URL is 'http://localhost:3000/api/incentive/loyalty/all/?sessionId=sessionId&accountId=accountId'. This URL includes query parameters such as 'sessionId' and 'accountId', which are used to retrieve specific data.
+        
+        - **headers**: The 'headers' attribute contains an array of HTTP headers to be included in the API request. Here, a default header, which is currently disabled (as indicated by 'disabled: true'), is provided. Its 'key' and 'value' are both blank.
+        
+        - **body**: The 'body' field is where the main content of the HTTP message goes. However, since the 'mode' is 'raw' and the 'raw' content is blank, no body content is being sent with this 'GET' request. In other request methods like 'POST', this field would contain the data being sent to the server.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

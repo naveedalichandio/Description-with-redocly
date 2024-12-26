@@ -1,0 +1,111 @@
+post:
+  tags:
+    - ActionGift
+  summary: Action - Gift - Create
+  description: >-
+    ### Action - Gift - Create Endpoint Description
+
+
+    **Endpoint**: This endpoint is used to create a gift action within the
+    application. 
+
+
+    **HTTP Method**: POST
+
+
+    **URL**: `http://localhost:3000/api/action/gift/create`
+
+
+    #### Authentication:
+
+    - **Type**: Bearer authentication
+
+    - **Bearer Token**: Include a valid token for authentication purposes. The
+    token should be prefixed with `Bearer ` followed by the actual token string.
+
+
+    #### Request Body Parameters:
+
+    - **sessionId**: A unique identifier for the user session. This helps in
+    managing user interactions during their session.
+
+    - **accountId**: The identifier for the user’s account. It represents the
+    user who is sending the gift.
+
+    - **path**: The resource path where the action is being directed, typically
+    a URL representing the content (e.g., a live stream).
+
+    - **targetType**: Specifies the type of target for the gift. In this case,
+    it is identified as `videoId`, indicating that the gift is directed towards
+    a specific video.
+
+    - **targetId**: The unique identifier for the target, which corresponds to
+    the `videoId` being gifted to.
+
+    - **sourceType**: Indicates the type of source for the gift, which is
+    identified as `accountId`, showing that the gift's origin is from an
+    account.
+
+    - **sourceId**: The unique identifier for the source, matching the
+    `accountId` from which the gift is sent.
+
+    - **giftType**: Defines the type of gift being sent. For this request, it is
+    a `sticker`.
+
+    - **UtilityType**: Indicates the type of utility that the gift action uses,
+    in this case, it is `token`, suggesting that tokens are being spent to send
+    the gift.
+
+    - **didGift**: A boolean value (true/false) that indicates whether the gift
+    action has been successfully executed.
+
+    - **tokenAmount**: Represents the number of tokens being used to send the
+    gift. This is a numerical value indicating the cost of the gift.
+
+    - **name**: A name or title for the gift action. This could be a descriptive
+    label or the name of the gift.
+
+    - **description**: An optional field to provide additional details about the
+    gift. If not needed, this can be left empty.
+
+    - **tags**: Optional field for any tags associated with the gift. This can
+    help in categorizing or labeling the gift for easy identification.
+
+
+    ### Headers:
+
+    - No custom headers are defined for this request, and the default header has
+    been disabled.
+
+
+    This endpoint allows users to send gifts within the application by providing
+    necessary parameters related to the session, account, and gift
+    specifications. Be sure to replace the placeholder values with actual data
+    for successful requests.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            giftType: sticker
+            UtilityType: token
+            didGift: true
+            tokenAmount: 20
+            name: name
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

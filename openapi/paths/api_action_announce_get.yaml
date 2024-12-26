@@ -1,0 +1,85 @@
+get:
+  tags:
+    - ActionAnnounce
+  summary: Action - Announce - Get
+  description: >-
+    ### Endpoint Description: Action - Announce - Get
+
+
+    **Request Information:**
+
+    - **Method:** GET  
+      This specifies that the request is a GET request, which is typically used to retrieve data from the server.
+
+    - **URL:**  
+      `http://localhost:3000/api/action/announce/get/?announceId=announceId&sessionId=sessionId&accountId=accountId`  
+      This is the endpoint where the request is sent. It includes query parameters for `announceId`, `sessionId`, and `accountId`, which are essential for retrieving specific announcement details.
+
+    **Authorization:**
+
+    - **Auth Type:** Bearer  
+      This indicates that the request requires authorization using a bearer token.
+
+    - **Bearer Token:**  
+      - **Key:** token  
+        This is the parameter name that holds the bearer token used for authentication.
+      - **Value:** BearerToken  
+        This is a placeholder value representing the actual token needed to authenticate the request.
+      - **Type:** string  
+        Indicates that the token is in string format.
+
+    **Headers:**
+
+    - **Key:** (empty)  
+      No specific header key is defined in the request.  
+    - **Value:** (empty)  
+      No specific value is defined for headers.  
+    - **Type:** default  
+      Indicates that the header is of the default type.  
+    - **Disabled:** true  
+      This header is currently disabled and will not be sent with the request.
+
+    **Body:**
+
+    - **Mode:** raw  
+      This indicates that the body data is sent in a raw format rather than a structured format like JSON or form data.
+
+    - **Raw:**  
+      The body is empty, meaning there is no additional data being sent with the request. 
+
+    **Query Parameters:**  
+
+    - **announceId:**  
+      This parameter is used to identify the specific announcement to retrieve.
+      
+    - **sessionId:**  
+      This parameter is used to identify the session associated with the announcement.
+
+    - **accountId:**  
+      This parameter is used to specify the account related to the announcement.
+
+    Each of these components is crucial for successfully executing the API
+    request to fetch the announcement details.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: announceId
+      in: query
+      schema:
+        type: string
+      example: announceId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

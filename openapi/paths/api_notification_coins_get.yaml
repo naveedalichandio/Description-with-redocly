@@ -1,0 +1,67 @@
+get:
+  tags:
+    - NotificationCoins
+  summary: Notification - Coins - Get
+  description: >-
+    The data provided represents a GET request endpoint for the
+    "/api/notification/coins/get/" route, and includes authentication, request
+    method, url, headers, and body. Let's analyze each separately:
+
+
+    1. "name": This defines the name of the API endpoint, which in this case, is
+    "Notification - Coins - Get". This is used for easy understanding and
+    identification of this particular endpoint.
+
+
+    2. "request": This is the object that contains all the request details.
+
+       - "auth": Describes the method used for the authentication of the request.
+
+         - "type": Here "bearer" indicates the type of authentication method used, which signifies that a bearer token is required.
+
+         - "bearer": An array with an object that contains the key-value pair for the bearer token.
+
+           - "key": The key is named "token", which will be used to pass in the bearer token.
+
+           - "value": The value is "BearerToken", indicating that a bearer token should be provided here.
+
+           - "type": Defines the data type of this field, which in this case, it's a string.
+
+       - "method": Represents the HTTP method for the request, which is GET in this scenario.
+
+       - "url": Contains the exact URL to be hit for the API to respond. The string includes in it placeholder tokens representing "coinsId", "sessionId", and "accountId" these will need to be replaced by actual values.
+
+       - "headers": An array of key-value pairs meant to provide additional context or input to the request. Currently empty and disabled by default. These can include data like 'Content-Type' or 'Accept-Language'.
+
+       - "body": Defines the data that will be sent as the request body. 
+
+         - "mode": Defines the mode of the body, which is "raw" in this case.
+
+         - "raw": This is where you'd place the raw data to be sent in the body of the request, currently, it's empty.
+
+    Each of the elements in this data set has a unique and specific purpose, and
+    understanding each one is crucial when creating or debugging API requests.
+    It can be edited to match the specific demands of the specific API request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: coinsId
+      in: query
+      schema:
+        type: string
+      example: coinsId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

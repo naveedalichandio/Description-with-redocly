@@ -1,0 +1,48 @@
+get:
+  tags:
+    - ArticleGeneral
+  summary: Article - General - Get All By Topic ID
+  description: >-
+    This endpoint is titled "Article - General - Get All By Topic ID". Here is a
+    detailed explanation of each field:
+
+
+    - `name`: This is the title of the endpoint. It is an essential brief
+    description used to identify the endpoint's purpose. In this case, it is
+    used to retrieve all general articles associated with a given topic ID.
+
+
+    - `request`: This field contains the details of the API request to be made.
+
+       - `auth`: This part specifies the authentication required for making the API request.
+            - `type`: Shows the type of authentication. Here it is "bearer" authentication.
+            - `bearer`: Contains an array with information about the bearer token. 
+                - `key`: This is the name of the field required for the token, which in this case is "token".
+                - `value`: This is the placeholder for the token value.
+                - `type`: Shows the type of the field. For the "token" field, the type is "string".
+            
+       - `method`: Describes the type of API request. For this endpoint, a "GET" method is used, meaning it retrieves information from the server without modifying any data.
+
+       - `url`: This specifies the URL to which the API request is made. It includes a parameter, "topicId", where the topic ID to filter articles by should be inputted.
+
+       - `headers`: This section contains details regarding the headers to be sent with the request. In this case, it's an empty field, disabled, and set to the default type.
+
+       - `body`: This section contains information about the body of the request.
+           - `mode`: Represents how the data in the body is being sent. In this case, it is set to "raw", indicating that the data must be sent exactly as provided, but it's empty in this request since "GET" method is used.
+
+    Note: The bearer token should be replaced by a real token when sending the
+    request for authentication. Furthermore, a real topic ID should be included
+    in the URL instead of the placeholder "articleTopicId".
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: topicId
+      in: query
+      schema:
+        type: string
+      example: articleTopicId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

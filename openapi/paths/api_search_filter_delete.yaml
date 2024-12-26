@@ -1,0 +1,47 @@
+post:
+  tags:
+    - SearchFilter
+  summary: Search - Filter - Delete
+  description: >-
+    The provided data represents an endpoint named "Search - Filter - Delete"
+    with various fields in it:
+
+
+    1. **name**: Indicates the name tag for this endpoint, which is "Search -
+    Filter - Delete". This typically gives the user a brief idea about what this
+    endpoint does.
+
+
+    2. **request**: This section includes all the necessary data required to
+    make a request to the server.
+
+       - **auth**: The authentication section for the request indicates how we should authenticate ourselves to the server. In this case, we use a "bearer" authentication type, which means our requests carry a bearer token value in their headers. This value is obtained from a session and is specified as a string.
+         
+       - **method**: POST. This is the HTTP method used for sending the request. POST is typically used when you want to send/write data to the server.
+
+       - **url**: This is the endpoint's URL which specifies the address where the request will be sent to. Here, the URL is "http://localhost:3000/api/search/filter/delete".
+       
+       - **headers**: Header parameters are optional for the request and are usually used to define the operating parameters at the time of an HTTP request. In this case, no specific header key-value pair is provided and it is disabled.
+       
+       - **body**: This is the information which will be sent to the server in the request.
+
+         - **mode**: "raw". This parameter indicates that the data in the body section will be sent exactly as it is.
+
+         - **raw**: This fields includes the raw data string which is sent to the server. The data string should be in JSON format and contains three properties "sessionId", "accountId", and "filterId" each carry unique identifier values.
+
+    This endpoint is used to delete a specific filter from a search by providing
+    the session Id, account Id, and the filter Id in the body of the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"filterId\":\"filterId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

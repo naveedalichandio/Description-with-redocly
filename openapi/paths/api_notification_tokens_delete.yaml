@@ -1,0 +1,57 @@
+post:
+  tags:
+    - NotificationTokens
+  summary: Notification - Tokens - Delete
+  description: >-
+    This endpoint's name is "Notification - Tokens - Delete". 
+
+
+    The Request section contains the following data:
+
+
+    - **auth**: This is where the authentication method is described. The type
+    of authentication used here is "bearer". This typically involves sending a
+    token in the HTTP headers to authenticate requests. Here, a token with the
+    key 'token' is used as a bearer token. The value associated with this key is
+    'sessionId' and its type is a string.
+
+
+    - **method**: The HTTP method used for this request is 'POST', which is
+    usually used to send data to the server.
+
+
+    - **url**: This is the URL for the service that handles this request. In
+    this case, it's "http://localhost:3000/api/notification/tokens/delete".
+
+
+    For the **headers** of this request, the key and value are both empty, and
+    the type is default. This header is disabled, which means it does not add
+    any additional data to the request.
+
+
+    The **body** contains the actual content of the message. Here, the mode is
+    'raw', indicating that no special formatting is applied to the data. It
+    includes a raw JSON string that contains three key-value pairs:
+
+    1. "sessionId": The session identifier. This is usually used to recognize
+    the user on subsequent requests.
+
+    2. "accountId": The account identifier, used to specify for which account
+    the notification tokens should be deleted.
+
+    3. "tokensId": The tokens identifier, representing the specific notification
+    tokens to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tokensId\":\"tokensId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

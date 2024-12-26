@@ -1,0 +1,76 @@
+get:
+  tags:
+    - UniversityUniversity
+  summary: University - General - Get All
+  description: >-
+    **Endpoint Description: University - General - Get All**
+
+
+    This endpoint is designed to retrieve a list of all universities from the
+    server. Below is a detailed description of each component involved in this
+    API request.
+
+
+    - **Name**: This identifies the request within the collection. The name is
+    "University - General - Get All", indicating that it is meant to fetch
+    general information about all universities.
+
+
+    - **Request**: This section outlines the specifics of the API request being
+    made.
+
+      - **Auth**: This specifies the authentication method being used to access the endpoint.
+      
+        - **Type**: The authentication type is set to "bearer," indicating that a bearer token is required for authentication.
+        
+        - **Bearer**: This contains an array for the bearer token used in the request:
+          
+          - **Key**: The key is "token," naming the authorization parameter.
+          
+          - **Value**: Placeholder value "BearerToken" is used here, which should be replaced with an actual bearer token when making the request.
+          
+          - **Type**: The type is "string," indicating that the token should be a string value.
+
+      - **Method**: The HTTP method for this request is "GET," which is used to retrieve data from the server.
+
+      - **URL**: This is the endpoint URL where the request will be sent. It is structured as:
+        ```
+        http://localhost:3000/api/university/university/all/?sessionId=sessionId&accountId=accountId
+        ```
+        - **Base URL**: `http://localhost:3000` - indicates that the API is hosted locally on port 3000.
+        
+        - **Path**: `/api/university/university/all/` - this path specifies that the request is targeting the "all" universities endpoint.
+        
+        - **Query Parameters**:
+          - **sessionId**: This parameter should be replaced with a valid session identifier for authentication purposes.
+          - **accountId**: This parameter should be replaced with a valid account identifier for the user making the request.
+
+      - **Headers**: This section is currently empty, indicating that no additional HTTP headers are required beyond the bearer token for this request. The header is present but disabled.
+
+      - **Body**: The body of the request is specified here.
+      
+        - **Mode**: The mode is "raw," indicating that the body content can be written directly.
+        
+        - **Raw**: The raw payload is empty, indicating that no body data is needed for this GET request.
+
+    This endpoint allows the user to obtain a comprehensive list of all
+    universities stored in the system by issuing a properly formatted GET
+    request with the necessary authentication details.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

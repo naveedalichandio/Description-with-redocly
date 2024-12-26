@@ -1,0 +1,72 @@
+post:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Create for Team
+  description: >-
+    ### Utility - Fiat - Create for Team Endpoint Description
+
+
+    #### Request Details
+
+    - **Auth**: This endpoint requires bearer token authentication. The token
+    should be provided in the authorization header as a string.
+      - **Type**: Indicates that the authentication method used is a bearer token.
+      - **Bearer**: An array containing the token details for authentication.
+        - **Key**: "token" indicates the type of key used for authorization.
+        - **Value**: Placeholder "BearerToken" should be replaced with the actual token value when making requests.
+        - **Type**: Indicates the data type of the token, which is a string.
+
+    - **Method**: The HTTP method used for this request is POST, indicating that
+    data is being sent to the server to create a new resource.
+
+
+    - **URL**: This is the endpoint's address where the request will be sent.
+      - **Endpoint**: `http://localhost:3000/api/utility/fiat/create` is the specified URL for creating a new fiat utility entry for a team.
+
+    - **Headers**: 
+      - There are currently no custom headers configured (the key and value are left empty), and this section is disabled.
+
+    #### Body Details
+
+    - **Mode**: The body of the request is in raw format, specifically using
+    JSON.
+      
+    - **Raw JSON Content**: The content of the request body contains the
+    following fields:
+      - **sessionId**: A unique identifier for the session associated with the request. Should be replaced with the actual session ID.
+      - **accountId**: The identifier for the account related to the action being taken. This needs to be the actual account ID.
+      - **targetType**: Specifies the type of target for the action, in this case, it should be a string identifying the target type as "teamId".
+      - **targetId**: The unique identifier for the team that the action relates to. Replace "teamId" with the actual team's ID.
+      - **name**: The name of the fiat currency being created. Here, "USD" is provided as an example for the United States Dollar.
+      - **description**: A brief descriptor of the currency. "United States Dollar" provides a clear identification of the currency involved.
+      - **type**: This field indicates the type of currency, with "usd" being a designation for the United States Dollar.
+      - **action**: This indicates the action to be taken with the currency; in this case, "buy" indicates that the currency is being purchased.
+      - **rate**: The exchange rate for the currency, which is set to `1` as an example in this case.
+      - **amount**: The quantity of the currency to be created, here set to `1`. 
+
+    This endpoint serves to create an entry for fiat currency transactions
+    within a specified team context and requires appropriate authentication
+    alongside defined body parameters.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            targetType: teamId
+            targetId: teamId
+            name: USD
+            description: United States Dollar
+            type: usd
+            action: buy
+            rate: 1
+            amount: 1
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

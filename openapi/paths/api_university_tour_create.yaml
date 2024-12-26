@@ -1,0 +1,114 @@
+post:
+  tags:
+    - UniversityTour
+  summary: University - Tour - Create
+  description: >-
+    ### Endpoint Description: University - Tour - Create
+
+
+    - **Name**: Represents the name of the endpoint, indicating that this is the
+    API call for creating a university tour.
+
+
+    - **Request**: The structure of the HTTP request needed to access the
+    endpoint.
+
+      - **Auth**: Specifies the authorization method used for this request.
+      
+        - **Type**: Indicates that Bearer token authentication is required.
+        
+        - **Bearer**: Contains a list of bearer tokens to be included in the request.
+        
+          - **Key**: Used to identify the token.
+          
+          - **Value**: The actual token value that is used for authentication. It should be prefixed with "Bearer".
+          
+          - **Type**: The data type of the token, which is string in this case.
+      
+      - **Method**: The HTTP method used for this request, which is POST. This indicates that data is being sent to the server to create a new resource.
+
+      - **URL**: The endpoint URL where the request is sent. In this case, it points to `http://localhost:3000/api/university/tour/create` indicating it is likely being tested on a local server.
+
+      - **Headers**: A list of additional HTTP headers that may be included in the request. Currently, this section has an empty header key and value, which is disabled.
+
+      - **Body**: The main content of the request.
+      
+        - **Mode**: Indicates the format of the request body; in this case, it's set to "raw" for a raw JSON string.
+        
+        - **Raw**: Contains the actual JSON payload that is sent in the body of the request. It includes the following fields:
+
+          - **sessionId**: A unique identifier for the session related to the tour.
+          
+          - **accountId**: An identifier for the account creating the tour.
+          
+          - **name**: The name of the tour being created.
+          
+          - **description**: A brief description of the tour.
+          
+          - **tags**: A comma-separated list of tags associated with the tour for better categorization and searchability.
+          
+          - **profilePhotoUrl**: The URL link to the profile photo associated with the tour.
+          
+          - **coverPhotoUrl**: The URL link to the cover photo of the tour.
+          
+          - **minimumTipAmount**: Specifies the minimum amount expected as a tip for the tour.
+          
+          - **categoryId**: The identifier for the main category under which the tour is classified.
+          
+          - **category**: The name of the category for the tour.
+          
+          - **subCategoryId**: The identifier for any subcategory related to the tour.
+          
+          - **subCategory**: The name of the subcategory for further classification.
+          
+          - **isTourPrivate**: A Boolean value indicating whether the tour is private (true) or public (false).
+          
+          - **isTournamentOnly**: A Boolean value indicating if the tour is exclusively for tournaments.
+          
+          - **isTourDefault**: A Boolean that shows if this tour is set as the default option.
+          
+          - **isPreLiveUniversityAds**: A Boolean indicating whether pre-live university advertisements will be used.
+          
+          - **isPostLiveUniversityAds**: A Boolean indicating whether post-live university advertisements will be used.
+          
+          - **breakPreLiveVideoUrl**: A URL link to a video that plays before the live university tour starts.
+          
+          - **breakPostLiveVideoUrl**: A URL link to a video that plays after the live university tour ends.
+
+        - **Options**: Additional configuration for the raw body content.
+
+          - **Raw**: Specifies settings for the raw data format.
+          
+            - **Language**: Indicates the data type, which is JSON in this instance.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Tour
+            description: This tour is my second tour
+            tags: second,tour
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isTourPrivate: true
+            isTournamentOnly: false
+            isTourDefault: true
+            isPreLiveUniversityAds: true
+            isPostLiveUniversityAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

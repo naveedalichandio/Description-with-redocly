@@ -1,0 +1,53 @@
+get:
+  tags:
+    - NotificationStreamers
+  summary: Notification - Streamers - Get
+  description: >-
+    This endpoint is titled "Notification - Streamers - Get". It is designed to
+    pull out or "get" notification data related to streamers from the server.
+    Here are the different data components of this endpoint:
+
+
+    1. **Name**: The name of this endpoint is 'Notification - Streamers - Get'.
+    This is just an identifier to help you remember what this endpoint does.
+
+
+    2. **Request**: This property holds the information regarding the HTTP
+    request made to the server.
+
+       - **Auth**: The 'auth' attribute suggests that user must have valid authorization to access this endpoint. It requires 'Bearer Token' type authorization. Users should replace string 'BearerToken' with a valid bearer token value to authenticate the request.
+
+       - **Method**: 'GET' is the HTTP request method used. GET is used to request data from a specified resource.
+
+       - **URL**: 'http://localhost:3000/api/notification/streamers/get/?streamersId=streamersId&sessionId=sessionId&accountId=accountId' is the URL which will be hit by the API call. It includes query parameters that need to be replaced with actual 'streamersId', 'sessionId' and 'accountId' based on the user's requirements.
+
+       - **Headers**: These can be used to provide additional information about the request. In this case, the key and value fields are empty, and the 'disabled' field is set to 'true', which means that this header is not actually sent with the request.
+
+       - **Body**: Defines the body of the HTTP request. In this case, it is set to 'raw' mode with the raw field being empty. As it's a GET request, typically there wouldn't be need for any content in the body.
+
+    3. Note: All query parameters ('streamersId', 'sessionId', 'accountId') are
+    required, so please ensure you replace placeholders with valid values before
+    sending the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: streamersId
+      in: query
+      schema:
+        type: string
+      example: streamersId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

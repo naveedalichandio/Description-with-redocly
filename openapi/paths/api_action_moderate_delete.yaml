@@ -1,0 +1,92 @@
+post:
+  tags:
+    - ActionModerate
+  summary: Action - Moderate - Delete
+  description: >-
+    ### Action - Moderate - Delete
+
+
+    This endpoint is designed to handle the deletion of a moderation action.
+    Below is a detailed description of each component of the request:
+
+
+    - **Name**: Action - Moderate - Delete  
+      This is the title of the API endpoint, indicating that it is used for deleting a moderation action.
+
+    - **Request**:  
+      This section contains the details related to the request that will be sent to the API.
+
+      - **Auth**:  
+        This specifies the authentication method used for the request.
+        
+        - **Type**: `bearer`  
+          This indicates that the bearer token authentication method is being used.
+          
+        - **Bearer**:  
+          This section contains details about the bearer token.
+          
+          - **Key**: `token`  
+            This is the identifier for the token.
+            
+          - **Value**: `sessionId`  
+            This represents the actual session identifier that will be used for authentication.
+            
+          - **Type**: `string`  
+            This indicates that the value is of string type.
+
+      - **Method**: `POST`  
+        This specifies the HTTP method being used for the request. In this case, it is a POST request to send data to the server.
+
+      - **URL**: `http://localhost:3000/api/action/moderate/delete`  
+        This is the endpoint URL where the request will be sent. It points to the local server running on port 3000.
+
+      - **Headers**:  
+        This section allows for specifying additional HTTP headers for the request.
+        
+        - **Key**: `""`  
+          There are no specific headers set in this example (key is empty).
+          
+        - **Value**: `""`  
+          Corresponding value for the header is also empty.
+          
+        - **Type**: `default`  
+          This indicates that the header is of the default type.
+          
+        - **Disabled**: `true`  
+          This indicates that the header is currently disabled and will not be sent with the request.
+
+      - **Body**:  
+        This section contains the data that will be sent in the body of the request.
+
+        - **Mode**: `raw`  
+          This specifies that the body content is in raw format. 
+
+        - **Raw**:  
+          This contains the actual JSON data that will be sent to the server.
+
+          - **sessionId**: `sessionId`  
+            This field holds the session identifier used for the user session.
+            
+          - **accountId**: `accountId`  
+            This field holds the identifier for the account which is associated with the moderation action being deleted.
+            
+          - **moderateId**: `moderateId`  
+            This field holds the identifier for the specific moderation action that is to be deleted.
+
+    This endpoint is useful for developers who need to remove moderation actions
+    and requires proper authentication along with the relevant identifiers in
+    the request body.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"moderateId\":\"moderateId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

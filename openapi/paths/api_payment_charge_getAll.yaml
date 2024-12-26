@@ -1,0 +1,65 @@
+get:
+  tags:
+    - PaymentCharge
+  summary: Charge - Stripe - Get All
+  description: >-
+    This endpoint refers to 'Charge - Stripe - Get All'. This API endpoint is
+    configured to retrieve data from your local server
+    (http://localhost:3000/api/payment/charge/getAll/). This endpoint fetches
+    all the charges related specifically to the Stripe payment provider. 
+
+
+    Here's a breakdown of the provided data:
+
+
+    1. `name` - This is the name of the endpoint. It's used to identify this
+    particular API endpoint. The name 'Charge - Stripe - Get All' signifies that
+    this endpoint is designed to get all charge data related to Stripe.
+
+
+    2. `request` - This object contains all the details necessary to make the
+    API request. 
+
+        a. `method` - The 'GET' method is being used, which means the API endpoint is expected to retrieve or read data.
+
+        b. `url` - This specifies the location where the request is sent. In this case, the local server's /api/payment/charge/getAll/ route is the destination. 
+        
+        c. `headers` - Currently, no additional headers are being sent with this request.
+
+    3. `url parameters` - The URL contains several parameters:
+
+        a. `provider` - This parameter indicates the payment gateway you are using. In this case, the value is 'stripe'. 
+
+        b. `accountId` - It refers to the unique identifier of the account in question. You need to replace 'accountId' with the actual account ID.
+
+        c. `sessionId` - This parameter represents the unique identifier of the session during which the transactions were made. You should replace 'sessionId' with the actual session ID. 
+
+    Please replace the placeholders 'accountId' and 'sessionId' with actual
+    values when using this endpoint. 
+
+
+    This endpoint doesn't include any request body or additional headers which
+    means it relies solely on the URL parameters to perform the action. It's a
+    straight-forward API call meant to retrieve all the charge data associated
+    with the given Stripe account and session.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,93 @@
+post:
+  tags:
+    - ActionCancel
+  summary: Action - Cancel - Create
+  description: >-
+    ### Action - Cancel - Create Endpoint
+
+
+    #### Request Details
+
+
+    - **Authorization**:
+      - **Type**: Bearer
+        - **Key**: `token`
+          - This field contains the authentication token required to access the endpoint. The token should be prefixed with the word "Bearer".
+
+    - **Method**: 
+      - **POST**
+        - This indicates that the endpoint is used to create new data, specifically to cancel an action.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/cancel/create`
+        - The endpoint where the request is sent. It is set to the local server, so it is not accessible publicly.
+
+    - **Headers**:
+      - There is an empty header entry included by default. This has been disabled and does not contribute any information for the request. In practice, you may need to add relevant headers depending on your API requirements.
+
+    #### Body Parameters (JSON Format)
+
+
+    The request body needs to be formatted as JSON and includes the following
+    parameters:
+
+
+    - **sessionId**: 
+      - This is a unique identifier for the session related to the action being canceled. It helps in tracking the ongoing activities or requests.
+
+    - **accountId**: 
+      - This represents the identifier for the user account initiating the cancellation. It is crucial for linking the request to the correct user.
+
+    - **path**: 
+      - The path specifies the resource to which the cancellation action applies, such as the location of the live stream or video.
+
+    - **targetType**: 
+      - Indicates the type of target for the cancellation action. In this case, it specifies that the target is a "streamer".
+
+    - **targetId**: 
+      - This is the specific identifier for the target, such as the video ID of the livestream that is to be canceled.
+
+    - **sourceType**: 
+      - Designates the type of source from which the action is initiated. Here it is marked as "accountId", emphasizing that the source is an account.
+
+    - **sourceId**: 
+      - This is another identifier for the source, and it shares the same value as the accountId. This ensures that the source is clearly linked to the proper account.
+
+    - **tokenAmount**: 
+      - This integer value represents the amount of tokens involved in the cancellation action. It can refer to any kind of currency or virtual tokens specific to the application's context.
+
+    - **name**: 
+      - A string value providing a name for the cancellation action. This can serve as an identifier for later reference.
+
+    - **description**: 
+      - This field is currently empty and can be utilized for providing additional information about the cancellation action.
+
+    - **tags**: 
+      - Also currently empty, this field can be used to add tags for categorization or filtering purposes related to the cancellation action.
+
+    The body of the request supports raw JSON format and must adhere to the
+    structure outlined for it to be processed correctly.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: cancel1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

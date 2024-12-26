@@ -1,0 +1,92 @@
+put:
+  tags:
+    - SearchQuery
+  summary: Search - Query - Update
+  description: >-
+    This endpoint, named "Search - Query - Update", is a PUT method used to
+    update the search queries. 
+
+
+    1. **Auth**: 
+
+    - This endpoint is secured with a bearer authentication, which uses a token
+    to validate the request. 
+
+    - The `token` key should hold the token value. This value should be a
+    string.
+
+
+    2. **Method**: 
+
+    - PUT method, which is used to update the existing data on the server. 
+
+
+    3. **URL**: 
+
+    - The server's domain is "http://localhost:3000/api/search/query/update".
+      
+    4. **Headers**: 
+
+    - There's a mandatory header "Client-UUID". It should contain a unique id to
+    identify the client making requests.
+
+
+    5. **Body**: 
+
+    - The body of the request should be in `raw` mode and formatted as a JSON
+    string. 
+
+    - This JSON should include the following keys: 
+
+      - `queryId` : The unique id for the query.
+      - `sessionId` : The unique id corresponding to the search session.
+      - `accountId` : The unique id corresponding to the user account. 
+      - `metrics` : A JSON object that captures different metric data such as:
+        - `device` : An object having keys representing different devices. Here, `tablet` is used as a key and its value represents the number of times it's been used.
+        - `browser` : Similar to the device, here `chrome` is an example. 
+        - `region` : It captures the geographical location of the user. Here, `us` is an example.
+        - `year`, `month`, `week`, `day`, `hour`: These define the time of the search query. It can be used to sort or filter queries based on time.
+    - The `options` after the body defines the raw data language. In this case,
+    it's JSON.
+       
+    Remember, all these keys in the body are mandatory and should be
+    appropriately filled to successfully update the search query.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            queryId: queryId
+            sessionId: sessionId
+            accountId: accountId
+            metrics:
+              device:
+                tablet: 1
+              browser:
+                chrome: 1
+              region:
+                us: 1
+              year:
+                '2024': 1
+              month:
+                '05': 1
+              week:
+                '02': 1
+              day:
+                '14': 1
+              hour:
+                '17': 1
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

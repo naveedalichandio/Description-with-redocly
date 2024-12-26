@@ -1,0 +1,64 @@
+post:
+  tags:
+    - NotificationCoins
+  summary: Notification - Coins - Delete
+  description: >-
+    This endpoint, titled "Notification - Coins - Delete", is designed for
+    sending a POST request to delete a certain coin notification. 
+
+
+    To begin with, you'll find the `auth` object which requires a "bearer" type
+    token for authentication. Within the `auth` object, there is a single
+    `bearer` item which holds three attributes: "key", "value", and "type". 
+
+
+    - "key": It holds the value "token", which identifies the type of the bearer
+    token. 
+
+    - "value": It holds the placeholder "sessionId", indicating the actual token
+    value should be the user session ID. 
+
+    - "type": Defines the type of the value; here it's identified as a "string".
+
+
+    The `method` field is set to "POST", indicating that this is a POST request.
+
+
+    The `url` field signifies the location at where the request is to be sent,
+    with this API endpoint being located at
+    "http://localhost:3000/api/notification/coins/delete".
+
+
+    Under the `headers` section, there is an empty default value. The "key" and
+    the "value" are both blank and it's currently disabled. Most likely used for
+    adding any additional information if required in the future.
+
+
+    Lastly, we have the `body` section. 
+
+
+    - It is in RAW mode which means you can input JSON data directly. 
+
+    - The `raw` field contains a JSON object string. This JSON object has three
+    properties: "sessionId", "accountId" and "coinsId". 
+
+      - "sessionId": Represents the session ID of the currently logged-in user making the request; it must match the token used in the auth field.
+      - "accountId": Identifies the account for which the coin notification is to be deleted.
+      - "coinsId": This indicates the specific ID of the coin notification to be deleted from the mentioned accountId. 
+
+    For these properties to function correctly, they must be replaced with
+    actual values before sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"coinsId\":\"coinsId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

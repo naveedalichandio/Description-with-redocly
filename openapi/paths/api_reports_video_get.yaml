@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ReportsVideo
+  summary: Reports - Video - Get
+  description: >-
+    This endpoint is titled "Reports - Video - Get". The description of each
+    data is as follows:
+
+
+    1. "name": This field signifies the title of the endpoint, which is "Reports
+    - Video - Get".
+
+
+    2. "request": This field encapsulates all the aspects of the HTTP request
+    involved in this endpoint.
+
+
+    3. "auth": This field handles the authorization needed to access this
+    endpoint. The type of authorization used here is "bearer".
+
+
+    4. "bearer": Contains the details needed for bearer token authentication.
+    The "key" has the value "token" and the "value" is where the actual token
+    string "BearerToken" goes. The "type" defines the data type of the token,
+    which is a string.
+
+
+    5. "method": Refers to the HTTP method being used in the request. In this
+    case, it's "GET".
+
+
+    6. "url": This is the endpoint URL where the request has to be sent. 
+
+       It has path parameters that you need to replace with actual values:
+       
+       - videoId: Identifier for a unique video.
+       
+       - sessionId: Identifier for the session.
+       
+       - accountId: Identifier for the user account.
+
+    7. "headers": This is an array containing the data for HTTP headers to be
+    sent with the request. In this case, the headers are kept blank and are
+    disabled.
+
+
+    8. "body": The body of the HTTP request. Since this is a "GET" request, the
+    body is kept empty. "mode" signifies how the body will be transmitted, and
+    in this case, the body will be sent as is ("raw").
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: videoId
+      in: query
+      schema:
+        type: string
+      example: videoId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

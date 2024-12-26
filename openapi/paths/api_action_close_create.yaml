@@ -1,0 +1,95 @@
+post:
+  tags:
+    - ActionClose
+  summary: Action - Close - Create
+  description: >-
+    ### Action - Close - Create
+
+
+    This API endpoint is used to create a close action in the system. Below is a
+    detailed description of each data point utilized in this request:
+
+
+    #### Request Details
+
+
+    - **Authentication**: 
+      - **Type**: Bearer
+        - This endpoint requires bearer token authentication. You must provide a token in the request header to be authorized.
+
+    - **Method**: POST
+      - The request method used for this API call is POST, which means you are sending data to the server to create a new resource.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/close/create`
+        - This is the endpoint where the request is sent. It is hosted on the local server.
+
+    #### Request Body
+
+
+    This API expects a JSON body that contains several key-value pairs:
+
+
+    - **sessionId**: 
+      - A unique identifier for the session. This helps in tracking the session related to the close action.
+      
+    - **accountId**: 
+      - The identifier for the user's account that is associated with this request. It specifies which user's data is being manipulated.
+
+    - **path**: 
+      - A string that signifies the location of the resource involved in the action. In this case, it is a path to a channel/video on the platform (e.g., `/live/channel/video123`).
+
+    - **targetType**: 
+      - This denotes the type of target for the close action. It can specify categories like 'streamer', which identifies the target as a streamer in this context.
+
+    - **targetId**: 
+      - The unique identifier for the target resource, such as the specific video that is involved in this request (e.g., `videoId`).
+
+    - **sourceType**: 
+      - This field indicates the type of source that is generating this request; in this case, it is tied to the `accountId`.
+
+    - **sourceId**: 
+      - Similar to `accountId`, this serves as the unique identifier for the source related to the close action, which in this case is also the `accountId`.
+
+    - **tokenAmount**: 
+      - An integer representing the amount of tokens involved in this action. It could refer to a currency or point system where the value is set to 20.
+
+    - **name**: 
+      - A string that provides a name for the close action. It is useful for identification purposes (e.g., `close1`).
+
+    - **description**: 
+      - A string for adding a description of the close action. This field can be left empty if there is no additional information to provide.
+
+    - **tags**: 
+      - A string for any tags that may be relevant to the close action. This can help in categorizing or filtering actions but can also be left empty.
+
+    ### Summary
+
+    This endpoint is designed for creating a close action with specific
+    parameters related to users, sessions, and resources. Proper authentication
+    and correctly structured JSON data are required to successfully make a
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: close1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

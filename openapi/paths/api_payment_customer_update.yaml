@@ -1,0 +1,54 @@
+put:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Zelle - Update
+  description: >-
+    Here's a detailed description of each data field included in this endpoint:
+
+
+    1. `name`: This is the name of the API endpoint. Here, it is "Customer -
+    Zelle - Update". This indicates that this endpoint is used for updating
+    customer Zelle details.
+
+
+    2. `request`: This contains the information about the API request. It
+    comprises of the following fields:
+       - `method`: It indicates the HTTP method used for the API request. In this case, it's "PUT", which is typically used to update an existing resource.
+       - `url`: This is the URL where the API request needs to be sent. Here, it is "http://localhost:3000/api/payment/customer/update".
+       - `headers`: This array would contain any headers that need to be sent with the request. Currently, it is empty.
+       - `body`: This contains the body of the API request.
+
+    3. `body`: This contains the main content sent in the API request. It has
+    these fields:
+       - `mode`: It tells you that the data in the `raw` field is in raw format.
+       - `raw`: It includes the data that is to be sent in the API request in a stringified JSON format. Currently, it contains:
+           - `accountId`: This field should be replaced with the actual account ID for the customer who's Zelle details are being updated.
+           - `sessionId`: This field should be replaced with the current session ID.
+           - `customerId`: This field should be replaced with the actual customer ID.
+           - `source`: Currently, it is set to null.
+           - `isSaveCustomer`: It is a boolean value indicating whether to save the customer details or not. If true, the details are saved.
+           - `isPrimary`: It is a boolean value indicating whether the details to be updated are of a primary account or not. If true, the account is considered primary.
+           - `provider`: This is the name of the payment provider. In this case, it is "zelle". 
+       - `options`: This field contains additional options for processing the `body`. Currently, the only option is `raw`:
+          - `raw`: It indicates that the body data language is "json".
+
+    Remember to replace the "accountId", "sessionId", and "customerId" in `raw`
+    with actual values before making the API request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            customerId: customerId
+            source: null
+            isSaveCustomer: true
+            isPrimary: true
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

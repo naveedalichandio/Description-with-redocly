@@ -1,0 +1,103 @@
+put:
+  tags:
+    - UtilityCoin
+  summary: Utility - Coin - Update Coin for Team
+  description: |-
+    ### Description of Each Data in the Endpoint
+
+    #### Name
+    - **Utility - Coin - Update Coin for Team**
+      - This is the name of the API endpoint, indicating that it is used for updating a coin associated with a team.
+
+    #### Request
+    - **Auth**
+      - **Type**: Specifies the type of authentication required to access this endpoint.
+        - **Bearer**
+          - Uses a bearer token for authentication.
+          - **Bearer Token**: 
+            - **Key**: This is the name of the token property.
+            - **Value**: Replace "BearerToken" with the actual token required for authentication.
+            - **Type**: Indicates that this value should be a string.
+
+    - **Method**
+      - **PUT**
+        - This HTTP method is used to update an existing resource. In this case, it updates details for a coin.
+
+    - **URL**
+      - **http://localhost:3000/api/utility/coin/update**
+        - This is the endpoint URL for updating the coin. It is specified to run locally on port 3000.
+
+    - **Headers**
+      - Contains metadata that provides information about the request.
+      - **Client-UUID**
+        - **Key**: The name of the header.
+        - **Value**: Replace "ClientUUID" with the actual client UUID being used to identify the client making the request.
+        - **Type**: Specifies that the value is a default type header.
+
+    #### Body
+    - **Mode**
+      - **raw**
+        - Indicates that the body of the request will be sent as raw data.
+
+    - **Raw**
+      - This is the actual content of the request body formatted in JSON. The parameters to update the coin are specified here:
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "coinId": "coinId",
+          "targetType": "teamId",
+          "targetId": "teamId",
+          "name": "MPCT",
+          "description": "My Profile Coin Two",
+          "type": "platform",
+          "action": "buy",
+          "rate": 2,
+          "amount": 10
+      }
+      ```
+      - **sessionId**: Identifier for the current session.
+      - **accountId**: Identifier for the user's account.
+      - **coinId**: Identifier for the specific coin being updated.
+      - **targetType**: Indicates the type of entity that the coin is associated with, in this case, a team.
+      - **targetId**: Identifier for the specific team the coin is being updated for.
+      - **name**: The name of the coin being updated (e.g., "MPCT").
+      - **description**: A brief description of the coin (e.g., "My Profile Coin Two").
+      - **type**: Describes the type of coin (e.g., "platform").
+      - **action**: The action being performed with the coin, which is "buy" in this case.
+      - **rate**: The rate at which the coin is being bought.
+      - **amount**: The amount of the coin being bought.
+
+    - **Options**
+      - **Raw**
+        - **Language**: Specifies the programming language or format of the request body (JSON in this case).
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            coinId: coinId
+            targetType: teamId
+            targetId: teamId
+            name: MPCT
+            description: My Profile Coin Two
+            type: platform
+            action: buy
+            rate: 2
+            amount: 10
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

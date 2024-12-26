@@ -1,0 +1,77 @@
+get:
+  tags:
+    - ActionSticker
+  summary: Action - Sticker - Get
+  description: |-
+    ### Action - Sticker - Get Endpoint Description
+
+    - **Name**: Action - Sticker - Get  
+      This is the name of the API endpoint that retrieves information about a specific sticker based on provided identifiers.
+
+    - **Request**:
+      - **Auth**:  
+        - **Type**: Bearer  
+          The authentication method used for this request is bearer token authentication.
+
+        - **Bearer**:  
+          - **Key**: token  
+            This is the key used to pass the authentication token in the request.
+            
+          - **Value**: BearerToken  
+            This represents the actual bearer token value needed to authenticate the request. It must be replaced with a valid token to access the endpoint.
+
+          - **Type**: string  
+            This indicates that the value provided for the bearer token should be in string format.
+
+      - **Method**: GET  
+        This specifies that the HTTP method for this request is GET, which is typically used to retrieve data from a server.
+
+      - **URL**:  
+        `http://localhost:3000/api/action/sticker/get/?stickerId=stickerId&sessionId=sessionId&accountId=accountId`  
+        This is the endpoint URL used to fetch the sticker data. It includes query parameters:
+        - **stickerId**: This parameter should be replaced with the unique identifier of the sticker you want to retrieve.
+        - **sessionId**: This parameter should be replaced with the session identifier related to the active user session.
+        - **accountId**: This parameter should be replaced with the account identifier associated with the user making the request.
+
+      - **Headers**:
+        - **Key**: ""  
+          No custom headers are defined for this request as indicated by the empty key.
+          
+        - **Value**: ""  
+          There is no value associated with the custom header since the key is empty.
+
+        - **Type**: default  
+          This specifies that the header type is set to default.
+
+        - **Disabled**: true  
+          This indicates that any provided headers are currently disabled and will not be sent with the request.
+
+      - **Body**:
+        - **Mode**: raw  
+          The body of the request is set to "raw", which means it does not send any specific formatted data.
+
+        - **Raw**: ""  
+          The body is empty, meaning no data is required to be sent in the body of this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: stickerId
+      in: query
+      schema:
+        type: string
+      example: stickerId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

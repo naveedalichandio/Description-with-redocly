@@ -1,0 +1,49 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Video
+  description: >-
+    **Endpoint Name:** Web - Socket - Recent Video
+
+
+    **Request Details:**
+
+
+    - **Method:** GET  
+      This indicates that the request is intended to retrieve data from the server.
+
+    - **URL:** 
+      `http://localhost:3000/api/socket/web/video?recent=true&limit=limit`  
+      This is the endpoint where the request will be sent to obtain recent video data. It includes query parameters for filtering the results.
+
+    **Query Parameters:**
+
+
+    - **recent=true**  
+      This parameter specifies that only recent video entries should be returned in the response. When set to true, the server will prioritize videos that have been uploaded or added most recently.
+
+    - **limit=limit**  
+      This parameter defines the maximum number of video entries that the server should return in the response. It acts as a cap on the results to make the request more efficient and manageable.
+
+    **Headers:**  
+
+    Currently, there are no additional headers specified for this request.
+    Headers can be used to provide additional information or configuration
+    options when making an API call, but none are needed for this particular
+    request.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

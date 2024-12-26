@@ -1,0 +1,53 @@
+get:
+  tags:
+    - SearchQuery
+  summary: Search - Query - Get By User
+  description: >-
+    "name": This is a human-readable identifier that is used to label the
+    particular API endpoint. In this case, the "Search - Query - Get By User"
+    denotes this endpoint is for fetching search queries by a user.
+
+
+    "auth": This field defines the method of authentication that has to be
+    included in the API request. 
+
+      - "type": The authentication type here is 'bearer' which refers to bearer token authentication, a way of authorizing a user based on a token value. 
+      - "bearer": The bearer array further holds the key-value pair for the token used in authentication. A "value" of "BearerToken" instructs users to replace this placeholder with an actual bearer token.
+
+    "request": This field describes the information needed for the API request.
+
+      - "method": The method "GET" means that this API request is for retrieving information, not for posting, updating, or deleting data.
+      - "url": This is the endpoint to which the request will be sent. It includes placeholders for queryId, sessionId, and accountId, indicating these values need to be provided in the actual API request. 
+
+    "headers": This section describes the http headers to be included in the
+    request. The key-value pair for this section is empty meaning no additional
+    headers are required for this endpoint.
+
+
+    "body": This section describes the body of the request.
+
+      - "mode": The mode is set to "raw", indicating the body content type is plain text.
+      - "raw": This field is where the raw input of the request body would go but in this case, it's an empty string, indicating that no request body is needed for this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: queryId
+      in: query
+      schema:
+        type: string
+      example: queryId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

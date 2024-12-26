@@ -1,0 +1,71 @@
+get:
+  tags:
+    - TournamentTeam
+  summary: Tournament - Team - Get All
+  description: >-
+    ### Description of Data for the Endpoint "Tournament - Team - Get All"
+
+
+    - **name**: This specifies the name of the API endpoint. In this case, it is
+    "Tournament - Team - Get All," indicating that the API retrieves all teams
+    associated with a tournament.
+
+
+    - **request**: This section contains all the details necessary to make the
+    API request.
+
+      - **auth**: This indicates the authentication method used to secure the endpoint.
+      
+        - **type**: Specifies that the authentication type is "bearer," meaning a token is required for access.
+        
+        - **bearer**: This is an array containing the necessary authentication information.
+        
+          - **key**: This specifies the name of the token field, which is "token."
+          
+          - **value**: This is a placeholder value representing the actual bearer token which is needed to authenticate the request. It should be replaced with a valid token at runtime (e.g., "BearerToken").
+          
+          - **type**: Indicates the data type of the token, which is "string."
+
+      - **method**: This specifies the HTTP method used for the request. In this case, it is "GET," which means the request is intended to retrieve data.
+
+      - **url**: This is the endpoint URL where the API request will be sent. It includes query parameters for session ID and account ID:
+      
+        - **http://localhost:3000/api/tournament/team/all/**: Base URL indicating the local server and the specific API route for getting all teams in a tournament.
+        
+        - **sessionId=sessionId**: A query parameter where "sessionId" should be replaced with the actual session ID value during execution.
+        
+        - **accountId=accountId**: Another query parameter where "accountId" should be replaced with the actual account ID value during execution.
+
+      - **headers**: This is an array that can hold additional information needed in the request header.
+      
+        - **key**: The key for header information, which is currently empty.
+        
+        - **value**: The value associated with the header key, which is also currently empty.
+        
+        - **type**: Indicates that this is of default type.
+        
+        - **disabled**: A flag indicating whether this header is active; it is set to true, meaning this header will not be included in the request.
+
+      - **body**: This section describes the body of the request.
+      
+        - **mode**: Specifies the type of request body; it is set to "raw," indicating the body will be raw data.
+        
+        - **raw**: This holds the actual content of the body; it is currently empty, suggesting that no data is required in the body for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

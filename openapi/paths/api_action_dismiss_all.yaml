@@ -1,0 +1,76 @@
+get:
+  tags:
+    - ActionDismiss
+  summary: Action - Dismiss - Get All
+  description: >-
+    ### Endpoint: Action - Dismiss - Get All
+
+
+    **Description:**
+
+    This endpoint is used to retrieve all dismissal actions for a specific
+    session and account. The request is made using the GET method, and it
+    requires a valid bearer token for authentication.
+
+
+    ---
+
+
+    **Request Details:**
+
+
+    1. **Auth:**
+       - **Type:** Bearer
+         - This indicates the authentication method used. The bearer token will be included in the request to validate the user's identity and permissions.
+       - **Bearer Token:**
+         - **Key:** token
+         - **Value:** BearerToken
+           - This is a placeholder for the actual bearer token that should be used for authenticating the request.
+         - **Type:** string
+           - The token is represented as a string.
+
+    2. **Method:**
+       - **Type:** GET
+         - This specifies that the request is a GET request, which is used to retrieve data from the server.
+
+    3. **URL:**
+       - **URL:** `http://localhost:3000/api/action/dismiss/all/?sessionId=sessionId&accountId=accountId`
+         - This is the URL endpoint where the request is sent. It includes two query parameters:
+           - **sessionId:** This is a placeholder for the session identifier for which the dismissals are to be fetched.
+           - **accountId:** This is a placeholder for the account identifier associated with the dismissals.
+
+    4. **Headers:**
+       - **Key:** (No key specified)
+       - **Value:** (No value specified)
+       - **Type:** default
+       - **Disabled:** true
+         - This indicates that there are currently no additional headers being sent with the request, and the header section is disabled. Users can enable and modify this section if necessary.
+
+    5. **Body:**
+       - **Mode:** raw
+       - **Raw:** (Empty)
+         - The body is set to raw mode but currently has no content. Since this is a GET request, the body is typically not used in this context and can remain empty.
+
+    ---
+
+
+    This endpoint is primarily used to fetch all dismissal actions related to a
+    specific session and account using the necessary authentication methods.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

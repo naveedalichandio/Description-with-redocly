@@ -1,0 +1,78 @@
+get:
+  tags:
+    - ActionMessage
+  summary: Action - Message - Get All
+  description: >-
+    ### Endpoint Description: Action - Message - Get All
+
+
+    - **Name**: Action - Message - Get All
+      - This is the name of the API endpoint that retrieves all messages related to a specific action.
+
+    - **Request**:  
+      - This section outlines the configuration needed to make the request to the API.
+
+      - **Auth**:  
+        - **Type**: bearer
+          - This indicates that the request is authenticated using Bearer Token authentication.
+        - **Bearer**: 
+          - This is an array that contains the authentication details.
+          - **Key**: token 
+            - The name/key used for the token in the authentication.
+          - **Value**: BearerToken 
+            - This is a placeholder for the actual token needed for authentication.
+          - **Type**: string 
+            - Indicates that the token value is a string.
+
+      - **Method**:
+        - **GET**
+          - Specifies that this endpoint uses the GET HTTP method to retrieve information.
+
+      - **URL**: 
+        - `http://localhost:3000/api/action/message/all/?sessionId=sessionId&accountId=accountId`
+          - This is the endpoint URL where the request will be sent.
+          - It includes query parameters:
+            - **sessionId**: sessionId
+              - A placeholder for the session identifier, which may be required for context or security purposes.
+            - **accountId**: accountId
+              - A placeholder for the account identifier, which may specify which user's messages to retrieve.
+
+      - **Headers**: 
+        - An array of header fields to be included in the request.
+        - Each header consists of:
+          - **Key**: (currently empty)
+            - This is where you can define custom headers if necessary.
+          - **Value**: (currently empty)
+            - This is where you specify the value for the custom header.
+          - **Type**: default
+            - Indicates the default type of header.
+          - **Disabled**: true
+            - This means that this header is currently not in use. 
+
+      - **Body**: 
+        - **Mode**: raw
+          - Indicates that the body of the request is sent as raw data, although in this case, no data is provided.
+        - **Raw**: 
+          - This field is empty, meaning no request body content is required for this GET request. 
+
+    This endpoint is used to fetch all messages related to actions tied to a
+    user session and account. Ensure that the correct bearer token and query
+    parameters are provided when making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

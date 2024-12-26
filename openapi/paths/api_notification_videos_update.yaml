@@ -1,0 +1,93 @@
+put:
+  tags:
+    - NotificationVideos
+  summary: Notification - Videos - Update
+  description: >-
+    This endpoint, "Notification - Videos - Update", makes a PUT request to the
+    "http://localhost:3000/api/notification/videos/update" URL, and is used to
+    update the video notification settings.
+
+
+    The authentication required for this endpoint is the bearer token type. The
+    bearer token to be used should be the string "BearerToken".
+
+
+    The endpoint expects a header with the key "Client-UUID" and its value
+    should be "ClientUUID".
+
+
+    In the body of the request, a raw JSON object is sent containing the details
+    of the video notification settings that need to be updated.
+
+
+    - "videosId": The unique identifier of the video.
+
+    - "sessionId": The session identifier in which the video was created.
+
+    - "accountId": The account identifier to which the video belongs.
+
+    - "name": The updated name of the video.
+
+    - "description": The updated description of the video.
+
+    - "tags": The updated tags associated with the video, separated by commas.
+
+    - "profilePhotoUrl": The updated URL of the profile photo associated with
+    the video.
+
+    - "coverPhotoUrl": The updated URL of the cover photo of the video.
+
+    - "minimumTipAmount": The updated minimum tip amount for the video.
+
+    - "categoryId": The updated category identifier to which the video belongs.
+
+    - "category": The updated category name to which the video belongs.
+
+    - "subCategoryId": The updated sub-category identifier associated with the
+    video.
+
+    - "subCategory": The updated sub-category name associated with the video.
+
+    - "isVideosPrivate": A boolean value indicating whether the video is private
+    (true) or not (false).
+
+    - "isTournamentOnly": A boolean value indicating whether the video is only
+    for tournaments (true) or not (false).
+
+    - "isVideosDefault": A boolean value indicating whether the video is set as
+    default (true) or not (false).
+
+    - "isPreLiveNotificationAds": A boolean value indicating whether pre-live
+    notification ads are enabled (true) or not (false).
+
+    - "isPostLiveNotificationAds": A boolean value indicating whether post-live
+    notification ads are enabled (true) or not (false).
+
+    - "breakPreLiveNotificationUrl": The URL of any pre-live break notification
+    video.
+
+    - "breakPostLiveNotificationUrl": The URL of any post-live break
+    notification video.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"videosId\":\"videosId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Videos 2.0\",\"description\":\"This videos is my second
+            videos\",\"tags\":\"second,videos\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isVideosPrivate\":true,\"isTournamentOnly\":false,\"isVideosDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

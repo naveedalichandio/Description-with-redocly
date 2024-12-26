@@ -1,0 +1,79 @@
+get:
+  tags:
+    - UtilityCoin
+  summary: Utility - Coin - Get All
+  description: >-
+    ### Endpoint Description: Utility - Coin - Get All
+
+
+    This endpoint is designed to retrieve a list of all available coins from the
+    utility service. Below is a detailed description of each component involved
+    in the request.
+
+
+    - **Name**: "Utility - Coin - Get All"
+      - This is the name of the API request that indicates it is used for fetching all coins from the utility service.
+
+    - **Request**:
+      - **Auth**: This section describes the authentication method used for the API request.
+        - **Type**: "bearer"
+          - This indicates that the API requires bearer token authentication.
+        - **Bearer**:
+          - An array containing authentication details:
+            - **Key**: "token"
+              - Specifies the name of the authentication parameter.
+            - **Value**: "BearerToken"
+              - This value should be replaced with a valid token to authenticate the request.
+            - **Type**: "string"
+              - Indicates that the value provided for the token is a string.
+
+      - **Method**: "GET"
+        - This indicates the HTTP method used for the request. In this case, it is a GET request, which is used to retrieve data from the server.
+
+      - **URL**: "http://localhost:3000/api/utility/coin/all/?sessionId=sessionId&accountId=accountId"
+        - This is the endpoint URL that specifies where the request is sent. It includes:
+          - **Base URL**: "http://localhost:3000"
+            - This indicates the local server address where the API is hosted.
+          - **Path**: "/api/utility/coin/all/"
+            - This is the specific path for accessing all coins in the utility service.
+          - **Query Parameters**:
+            - **sessionId**: This should be replaced with the actual session identifier to track the user session.
+            - **accountId**: This should be replaced with the actual account identifier to specify the user's account.
+
+      - **Headers**:
+        - A list of HTTP headers that may be sent with the request. In this case:
+          - An empty header field is shown:
+            - **Key**: ""
+            - **Value**: ""
+            - **Type**: "default"
+            - **Disabled**: true
+              - This indicates that this particular header is not active or used in the current request.
+
+      - **Body**:
+        - This section defines the body content of the request.
+          - **Mode**: "raw"
+            - Indicates that the body content type is set to raw format.
+          - **Raw**: ""
+            - This indicates that there is no body content sent with the request, as GET requests typically do not include a body.
+
+    Overall, this endpoint is utilized to fetch all coins from the utility
+    service, and it requires a valid bearer token for authentication along with
+    necessary session and account identifiers in the URL.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@redocly/cli": "1.25.7",
+    "js-yaml": "^4.1.0",
     "postman-to-openapi": "^3.0.1"
   },
   "private": true,

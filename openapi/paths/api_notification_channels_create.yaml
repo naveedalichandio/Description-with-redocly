@@ -1,0 +1,108 @@
+post:
+  tags:
+    - NotificationChannels
+  summary: Notification - Channels - Create
+  description: >-
+    Endpoint Name: The provided `name` attribute represents the specific title
+    or identifier for the API endpoint. Here, "Notification - Channels - Create"
+    signifies that this API is designed to create new channels for
+    notifications.
+
+
+    Authentication: The `auth` attribute encapsulates the method and details of
+    authentication. In this case, the `bearer` method type is applied and the
+    `token` key needs to be set as "BearerToken".
+
+
+    HTTP Method: The `method` attribute presents the HTTP request type. In this
+    case, a 'POST' method is being used to create new data in your database.
+
+
+    Endpoint URL: The `url` attribute provides the address where the API request
+    is sent. Here, "http://localhost:3000/api/notification/channels/create" is
+    the endpoint to which you'd be navigating to undertake the procedure.
+
+
+    Headers: The `headers` represent any additional parameters that might be
+    required in the request. For this instance, no specific headers are
+    required.
+
+
+    Request Body: The `body` contains all the data sent with the HTTP request
+    during the API call. The given `raw` mode indicates the request data is sent
+    as a raw string. This Request body contains the data for the new channel to
+    be created, in JSON format.
+
+
+    - `sessionId`: Identifier for the session.
+
+    - `accountId`: Identifier for the account.
+
+    - `name`: Name of the channel.
+
+    - `description`: Description for the newly created channel.
+
+    - `tags`: Related tags to the channel.
+
+    - `profilePhotoUrl`: URL of the profile photo for the channel.
+
+    - `coverPhotoUrl`: URL for the cover photo of the channel.
+
+    - `minimumTipAmount`: Minimum tip amount that would be allowed in the
+    channel.
+
+    - `categoryId` and `category`: Identifier and name for the category of the
+    channel.
+
+    - `subCategoryId` and `subCategory`: Identifier and the name of the
+    subcategory of the channel.
+
+    - `isChannelsPrivate`: A boolean which states whether the channel is
+    private.
+
+    - `isTournamentOnly`: A boolean value stating whether the channel is
+    designated only for tournaments.
+
+    - `isChannelsDefault`: A boolean denoting if the channel is default.
+
+    - `isPreLiveNotificationAds` and `isPostLiveNotificationAds`: Booleans
+    representing whether to show ads before or after live notifications.
+
+    - `breakPreLiveNotificationUrl` and `breakPostLiveNotificationUrl`: URLs for
+    the break notifications before and after live streams.
+
+
+    Finally, `options` in the `body` suggests that the enclosed data is in JSON
+    format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Channels
+            description: This channels is my second channels
+            tags: second,channels
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isChannelsPrivate: true
+            isTournamentOnly: false
+            isChannelsDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

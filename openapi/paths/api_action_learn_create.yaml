@@ -1,0 +1,112 @@
+post:
+  tags:
+    - ActionLearn
+  summary: Action - Learn - Create
+  description: >-
+    ### Description of Data in the API Endpoint
+
+
+    **Endpoint Name**: Action - Learn - Create
+
+
+    **Request Details**:
+
+    - **Auth**:
+      - **Type**: Bearer
+        - **Bearer Token**: This is a security token that must be included in the request to authenticate the user. Replace "BearerToken" with your actual bearer token.
+      
+    - **Method**: POST
+      - This specifies that the request is intended to create a new resource or perform an action.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/learn/create`
+        - This is the endpoint where the request is sent. It is running on a local server on port 3000 and is intended for creating learning actions.
+
+    - **Headers**:
+      - The headers section currently does not contain any active headers, as it is marked as disabled. You may add necessary headers as needed for your API request.
+
+    **Body**:
+
+    - **Mode**: Raw
+      - The request body is sent in raw format.
+
+    - **Raw Content**:
+      ```json
+      {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "videoId",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "didLearn": true,
+        "name": "",
+        "description": "",
+        "tags": ""
+      }
+      ```
+
+      - **sessionId**: 
+        - Unique identifier for the current session. This helps in tracking user sessions.
+
+      - **accountId**: 
+        - Unique identifier for the user's account. This identifies which user's action is being recorded.
+
+      - **path**: 
+        - The specific path to the content that is being referred to, such as a video or a channel. Here, it points to a live channel for a specific video.
+
+      - **targetType**: 
+        - Specifies the type of the target item being learned. In this case, it indicates that the target is a video identified by a video ID.
+
+      - **targetId**: 
+        - Unique identifier for the targeted video. This is the ID of the video that the user has interacted with.
+
+      - **sourceType**: 
+        - Specifies the type of the source item. Here, it is set to 'accountId', indicating that the action is associated with the user's account.
+
+      - **sourceId**: 
+        - Unique identifier for the source, which corresponds to the user’s account ID. This links the action back to the user's account.
+
+      - **didLearn**: 
+        - A boolean value indicating whether learning has taken place (true or false). This marks the action as a learning experience.
+
+      - **name**: 
+        - A field for naming the action or experience. Currently, it is blank and can be filled as needed.
+
+      - **description**: 
+        - A field for providing additional details about the action. It is currently empty and can be elaborated on as needed.
+
+      - **tags**: 
+        - A field for adding relevant tags to the action. This is also currently blank and can be populated with relevant keywords or phrases.
+
+    ### Summary
+
+    This endpoint is designed for recording learning actions associated with a
+    user's account. It requires a bearer token for authentication and accepts
+    specific parameters in the request body. Users can track sessions and
+    interactions with content using the provided identifiers.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didLearn: true
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

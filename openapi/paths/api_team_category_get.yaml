@@ -1,0 +1,68 @@
+get:
+  tags:
+    - TeamCategory
+  summary: Team - Category - Get By Account ID
+  description: >-
+    ### Endpoint Description: Team - Category - Get By Account ID
+
+
+    - **Name**: Team - Category - Get By Account ID
+      - This is the title of the API endpoint which indicates that it retrieves categories associated with a specific team, filtered by the account ID.
+
+    - **Request**:
+      - **Auth**:
+        - **Type**: bearer
+          - This indicates that the endpoint uses Bearer Token authentication to authorize requests.
+        - **Bearer**:
+          - **Key**: token
+            - This is the name of the authorization key.
+          - **Value**: BearerToken
+            - Placeholder for the actual token value needed to authenticate requests. The user must replace "BearerToken" with a valid token.
+          - **Type**: string
+            - Indicates that the token is expected to be a string format.
+
+      - **Method**: GET
+        - This specifies that the request method used for this API call is a GET request, meaning it is used to retrieve data from the server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/team/category/get/?accountId=accountId`
+          - This is the endpoint where the request will be sent. The base URL is set to localhost on port 3000. The endpoint path indicates that it is retrieving categories for a team. The query parameter `accountId` must be replaced with the actual account ID to filter the data accordingly.
+
+      - **Headers**:
+        - **Key**: (blank)
+          - This field is currently empty and not being used, but it could be an optional place to add any required headers in future requests.
+        - **Value**: (blank)
+          - Similar to the key, this value is not currently assigned.
+        - **Type**: default
+          - Specifies the type of header.
+        - **Disabled**: true
+          - Shows that this header is currently disabled and will not be included in the request.
+
+      - **Body**:
+        - **Mode**: raw
+          - Indicates that the body of the request is in raw format. However, since this is a GET request, typically there isn’t a body to send.
+        - **Raw**: (empty)
+          - Currently empty since GET requests usually do not include request payloads.
+
+    ### Usage Notes:
+
+    - Make sure to insert a valid Bearer Token for authorization.
+
+    - Replace `accountId` in the URL with an actual account ID to fetch the
+    relevant data.
+
+    - If there are any specific headers needed for the request, they should be
+    added in the headers section.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,10 +1,61 @@
 post:
   tags:
-    - General
+    - ActionEarn
   summary: Action - Earn - Delete
   description: >-
-    This endpoint deletes a specific earning action. It requires the session ID,
-    account ID, and earning ID in the request body.
+    ### Action - Earn - Delete 
+
+
+    This endpoint is used to delete an earnings record associated with an
+    account. Below is a detailed description of each component of the request.
+
+
+    #### Request Components:
+
+
+    - **Authorization:**
+      - **Type:** Bearer
+      - **Bearer Token:** 
+        - **Key:** token
+        - **Value:** sessionId
+        - **Type:** string  
+        This section requires a bearer token for authentication. The token should be provided in the header of the request, representing the user's session.
+
+    - **Method:** 
+      - **HTTP Method:** POST  
+      This endpoint uses the POST method to send data to the server for processing.
+
+    - **URL:** 
+      - **Endpoint URL:** `http://localhost:3000/api/action/earn/delete`  
+      This URL is the endpoint where the delete request will be sent. It is currently configured to point to a local server.
+
+    - **Headers:**
+      - **Key:** (none specified)
+      - **Value:** (none specified)
+      - **Type:** default
+      - **Disabled:** true  
+      Currently, there are no custom headers specified for this request. This section is configured but not active.
+
+    - **Body:**
+      - **Mode:** raw  
+      The body of the request is sent in raw format containing JSON data.
+      - **Raw Payload:** 
+        ```json
+        {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "earnId": "earnId"
+        }
+        ```  
+        - **sessionId:** Represents the session identifier for the user. It is required to authenticate the request.
+        - **accountId:** This is the unique identifier for the account from which the earnings record will be deleted.
+        - **earnId:** This is the unique identifier of the earnings record that is to be deleted. 
+
+    ### Summary:
+
+    This request is designed to facilitate the deletion of a specific earnings
+    record by sending the necessary identifiers in the request body while
+    authenticating the user session with a bearer token.
   requestBody:
     content:
       '*/*':

@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionDonate
+  summary: Action - Donate - Get
+  description: >-
+    ### Action - Donate - Get
+
+
+    This API request is designed to retrieve information regarding a specific
+    donation action. Below are the details of the components involved in this
+    endpoint.
+
+
+    #### Request Components
+
+
+    - **auth**:
+      - **type**: Specifies the type of authentication required. In this case, it uses Bearer token authentication.
+      - **bearer**: This array contains the authentication token used to authorize the request. 
+        - **key**: Represents the name of the token attribute. Here, it's labeled as "token".
+        - **value**: This is where the actual token is supplied. It is indicated as "BearerToken", which should be replaced with a valid token for authentication.
+        - **type**: Specifies the type of the value, which is a string.
+
+    - **method**:
+      - Represents the HTTP method used for the request. The method specified is "GET", indicating that this request is used to retrieve data.
+
+    - **url**:
+      - The endpoint URL for the API call. 
+      - The structure includes query parameters that need to be provided:
+        - **donateId**: An identifier for the specific donation action you are querying.
+        - **sessionId**: An identifier for the session associated with the donation action.
+        - **accountId**: An identifier for the account related to the donation.
+      
+      The complete URL format appears as:
+      `http://localhost:3000/api/action/donate/get/?donateId=donateId&sessionId=sessionId&accountId=accountId`.
+
+    - **headers**:
+      - This section is for any additional HTTP headers that may be required for the request. In this case, it is currently empty, with no headers being passed.
+      - **disabled**: This field indicates the status of the header. It is set to `true`, meaning this header section is not actively used in the request.
+
+    - **body**:
+      - The body of the request is meant to contain any payload data if needed. It currently has a mode set to "raw", indicating that raw data would be used if there were any. However, it is empty here, implying that no body data is required for this GET request.
+
+    ### Summary
+
+    This endpoint allows users to retrieve donation information based on
+    specified identifiers. Proper authentication via a Bearer token is required,
+    and the request will include the necessary URL parameters for successful
+    retrieval of the desired data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: donateId
+      in: query
+      schema:
+        type: string
+      example: donateId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

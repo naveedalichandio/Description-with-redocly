@@ -1,0 +1,129 @@
+put:
+  tags:
+    - ActionSticker
+  summary: Action - Sticker - Update
+  description: |-
+    ### Endpoint Description: Action - Sticker - Update
+
+    **Request Details:**
+
+    - **Auth:**
+      - **Type:** Bearer
+        - **Token:**
+          - **Key:** token
+          - **Value:** BearerToken
+          - **Type:** string
+          - This is the authorization token required to authenticate the request. Replace "BearerToken" with your actual token.
+
+    - **Method:** PUT  
+      - This specifies that the request will update existing resources on the server.
+
+    - **URL:** `http://localhost:3000/api/action/sticker/update`  
+      - This is the endpoint where the request is sent to update the sticker action.
+
+    - **Headers:**
+      - **Client-UUID:**  
+        - **Key:** Client-UUID
+        - **Value:** ClientUUID
+        - **Type:** default  
+        - This header is used to identify the client making the request. Replace "ClientUUID" with the actual UUID of the client.
+
+    - **Body:**
+      - **Mode:** raw  
+        - Indicates that the body of the request is in raw format.
+      
+      - **Raw Content:**  
+        ```json
+        {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "path": "/live/channel/video123",
+          "targetType": "videoId",
+          "targetId": "videoId",
+          "sourceType": "accountId",
+          "sourceId": "accountId",
+          "didUseSticker": true,
+          "stickerType": "funny update",
+          "tokenAmount": 30,
+          "name": "",
+          "description": "",
+          "tags": "",
+          "stickerId": "stickerId"
+        }
+        ```
+      
+      - **Field Descriptions:**
+        - **sessionId:**  
+          - A unique identifier for the current session. Replace "sessionId" with the actual session ID.
+
+        - **accountId:**  
+          - The identifier for the user's account. Replace "accountId" with the actual account ID.
+
+        - **path:**  
+          - The path to the content where the sticker is applied. For example, "/live/channel/video123" indicates the specific location of the video.
+
+        - **targetType:**  
+          - Specifies the type of target the sticker will be applied to. In this case, it indicates that the target type is a video ID.
+
+        - **targetId:**  
+          - The specific ID of the target video where the sticker is being applied. Replace "videoId" with the actual video ID.
+
+        - **sourceType:**  
+          - Indicates the type of the source for the sticker action. In this case, it refers to an account ID.
+
+        - **sourceId:**  
+          - The identifier of the source where the sticker originated. Replace "accountId" with the actual account ID again.
+
+        - **didUseSticker:**  
+          - A boolean value indicating whether the sticker was used or not. Set to `true` means the sticker was applied.
+
+        - **stickerType:**  
+          - Describes the type of the sticker being used. In this example, it’s specified as "funny update".
+
+        - **tokenAmount:**  
+          - The amount of tokens used or rewarded for this sticker action. This example shows 30 tokens.
+
+        - **name:**  
+          - A field for the name of the sticker. Currently empty but can be used to define a custom name.
+
+        - **description:**  
+          - A field to provide a description of the sticker. Currently empty and can be utilized to elaborate on the sticker's purpose.
+
+        - **tags:**  
+          - Tags related to the sticker. This field is currently empty but can be used to categorize or label the sticker.
+
+        - **stickerId:**  
+          - The unique identifier for the sticker. Replace "stickerId" with the actual sticker ID.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didUseSticker: true
+            stickerType: funny update
+            tokenAmount: 30
+            name: ''
+            description: ''
+            tags: ''
+            stickerId: stickerId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

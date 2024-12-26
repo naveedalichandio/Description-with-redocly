@@ -1,0 +1,81 @@
+get:
+  tags:
+    - UniversityTour
+  summary: University - Tour - Get All
+  description: >-
+    ### Endpoint Description: University - Tour - Get All
+
+
+    - **Name**: University - Tour - Get All  
+      This is the name of the API endpoint, indicating that it retrieves all university tours.
+
+    - **Request**: This section outlines the details needed to make the request
+    to the API.
+
+      - **Auth**:  
+        This field specifies the type of authentication required to access the endpoint. For this endpoint, bearer token authentication is utilized.  
+
+        - **Type**: Bearer  
+          This indicates that the authentication uses a bearer token, which is a common method for securing API requests.
+
+        - **Bearer**:  
+          This is an array that includes the authentication details.  
+
+          - **Key**: Token  
+            This is the key name for the bearer token in the authorization header.  
+
+          - **Value**: BearerToken  
+            This placeholder represents the actual token that should be provided to grant access. Replace this with a valid bearer token when making the request.  
+
+          - **Type**: String  
+            This indicates that the token should be a string data type.
+
+      - **Method**: GET  
+        This indicates that the HTTP method used for this request is GET, meaning the client is requesting data from the server.
+
+      - **URL**: `http://localhost:3000/api/university/tour/all/?sessionId=sessionId&accountId=accountId`  
+        This is the endpoint URL where the request will be made. It includes query parameters:  
+        - **sessionId**: This parameter identifies the session associated with the request. Replace 'sessionId' with the actual session identifier.  
+        - **accountId**: This parameter represents the account identifier. Replace 'accountId' with the actual account identifier.
+
+      - **Headers**:  
+        This section is reserved for any additional headers that may be needed in the request.  
+
+        - **Key**: [Empty]  
+          This implies no specific headers are currently set for this request.
+
+        - **Value**: [Empty]  
+          There are no associated values for headers at this moment.
+
+        - **Type**: Default  
+          This indicates that the header types are default types, but since the headers are empty, they are not currently being used.
+
+        - **Disabled**: True  
+          This indicates that the header section is disabled, so no additional headers will be sent with the request.
+
+      - **Body**:  
+        This section defines the body of the request.
+        
+        - **Mode**: Raw  
+          This means that the body of the request will be sent in a raw format.
+
+        - **Raw**: [Empty]  
+          There is no content in the body of the request since this is a GET request, which typically does not require a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

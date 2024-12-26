@@ -1,0 +1,55 @@
+get:
+  tags:
+    - NotificationUniversity
+  summary: Notification - University - Get All
+  description: >-
+    This endpoint named "Notification - University - Get All" serves as a GET
+    request to retrieve all university notifications.
+
+
+    1. **Auth**: This endpoint utilizes bearer token authentication. It requires
+    a "token" key in which the assigned value should be a "BearerToken". A
+    bearer token is a type of access token which grants the bearer or holder of
+    the token, the authorization to access this endpoint. The value is a string
+    datatype.
+
+
+    2. **Method**: The type of HTTP request method used is "GET". This method
+    retrieves data from a particular URL. It does not modify or add to the data
+    on the server, it only requests and receives data.
+
+
+    3. **URL**: This is the unique address where the request will be sent. It's
+    designed for a local server running on port 3000. The full URL structure
+    includes two query string parameters;
+    localhost:3000/api/notification/university/all/?sessionId={sessionId}&accountId={accountId}. 
+        - `sessionId` is a parameter which holds the value of the current session. This is mainly used for state management.
+        - `accountId` is the unique identifier for a user account. This could be used to retrieve notifications related only to this specific account.
+
+    4. **Headers**: In this case, there are default headers attached to the
+    request that are currently disabled - meaning these headers are not sent
+    along with the request. Since both key and value are not provided, these
+    headers do not carry any additional information for the request.
+
+
+    5. **Body**: As a GET request, this endpoint does not send any data (raw or
+    form data) in the request body. Hence, the "mode" key is set to "raw" with
+    an empty "raw" key.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

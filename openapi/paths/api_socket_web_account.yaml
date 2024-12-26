@@ -1,0 +1,50 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Account
+  description: >-
+    ### Endpoint: Web - Socket - Recent Account
+
+
+    #### Method
+
+    - **GET**: This is a HTTP method used to request data from the specified
+    resource. In this case, it retrieves data related to recent accounts.
+
+
+    #### URL
+
+    - **http://localhost:3000/api/socket/web/account?recent=true&limit=limit**:
+    This is the endpoint where the request is sent. It consists of the following
+    components:
+      - **localhost:3000**: Refers to the server address; "localhost" indicates that the server is running on your local machine, and "3000" is the port number.
+      - **/api/socket/web/account**: This is the path to the resource on the server. It defines the specific API endpoint for accessing account data.
+      - **?recent=true**: This is a query parameter indicating that only recent accounts should be retrieved. Setting this to true filters the results to show only accounts that have been recently active.
+      - **&limit=limit**: This is another query parameter that specifies how many recent accounts to return. The actual number should replace the word "limit" in the query string.
+
+    #### Headers
+
+    - **headers**: This is an array where you can specify any HTTP headers that
+    may be needed for the request. In this case, it is empty indicating that no
+    additional headers are required for this request. 
+
+
+    This endpoint allows users to access a list of recent accounts through a
+    WebSocket connection, providing the option to limit the number of accounts
+    returned based on the specified limit.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

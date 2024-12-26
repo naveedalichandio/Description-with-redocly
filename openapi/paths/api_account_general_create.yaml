@@ -1,0 +1,54 @@
+post:
+  tags:
+    - AccountGeneral
+  summary: Account - General - Create
+  description: >-
+    1. "name": This specifies the name of the endpoint that is being used. Here
+    "Account - General - Create" conveys that this endpoint is used to create a
+    general account.
+
+
+    2. "request" - This object contains all the necessary details to make the
+    request to the server.
+
+       - "auth" - This details about the type of authentication used for the request. It specifies the 'bearer' token type of authentication.
+         - "type" - Specifies the type of authentication. In this case, it's 'bearer'.
+         - "bearer" - This is an array of bearer tokens to authenticate the request. Each object in this array has:
+           - "key" - The key of the bearer token. Should be 'token' in this case.
+           - "value" - The value of the bearer token or the BearerToken itself. 
+           - "type" - The datatype of the bearer token. Should be 'string'.
+
+       - "method" - Represents the HTTP method to be used when making the request. Here, it's "POST" method which implies we are sending data to be processed to a specified resource.
+
+       - "url" - This is the link to the API endpoint. This is where the request will be made.
+
+       - "headers" - This is an array of headers to be included in the request. Here It's empty and disabled.
+
+       - "body" - This contains the body of the request.
+         - "mode" - Specifies that the raw data type is being sent.
+         - "raw" - Contains the raw data in JSON format to be sent along with the request.
+           - "email" - The email of the user who is creating the account.
+           - "phone" - The phone number of the user.
+           - "accountType" - The type of the account. In this case, it's 'User'.
+           - "password" - The password for the account.
+           - "zipcode" - The zipcode of the area where the user is located. This information may be used for regional services or account recovery.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"email\":\"email\",\"phone\":\"phone\",\"accountType\":\"User\",\"password\":\"password\",\"zipcode\":\"95126\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: locale
+      in: query
+      schema:
+        type: string
+      example: en-US
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

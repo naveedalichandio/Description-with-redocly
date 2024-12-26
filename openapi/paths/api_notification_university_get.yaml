@@ -1,0 +1,71 @@
+get:
+  tags:
+    - NotificationUniversity
+  summary: Notification - University - Get
+  description: >-
+    This endpoint represents a GET request titled 'Notification - University -
+    Get'. Here's a detailed description about each data:
+
+
+    1. 'name': This is the name assigned to the endpoint. It's used for
+    identifying and organizing the different requests inside your collection.
+
+
+    2. 'request': This indicates the type of request being made. In this case,
+    it is a GET request which is normally used for read-only operations.
+
+
+    3. 'auth': This has to do with the authorization required to make the
+    request. It employs a 'bearer' token method of authorization. You must
+    provide a valid 'bearer' token as part of your authorization.
+
+        - 'key': The key for the authorization parameter, which in this case is 'token'.
+     
+        - 'value': This signifies the value of the bearer token which needs to be replaced with the actual token value while making a request.
+
+        - 'type': This signifies the value type which is string in this case.
+
+    4. 'method': This is the HTTP method used to send the request. This is a GET
+    method which is used to fetch a specific resource from the server.
+
+
+    5. 'url': This is the URL of the API you are making a request to. This
+    endpoint features query parameters such as 'universityId', 'sessionId', and
+    'accountId'. Replace these with actual values before making the request.
+
+
+    6. 'headers': These are additional information about the request. For this
+    particular request, the header is set to 'default' and is disabled. No
+    additional header values are required here.
+
+
+    7. 'body': This contains data that should be sent along with the request.
+    For this request, there is no data to send, hence the mode is 'raw' and the
+    value is empty. 
+
+
+    Please replace all the placeholders with appropriate values while trying to
+    use this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: universityId
+      in: query
+      schema:
+        type: string
+      example: universityId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,65 @@
+get:
+  tags:
+    - IncentivePromotion
+  summary: Incentive - Promotion - Get All
+  description: >-
+    1. `name`: This is the title or label for this API endpoint. It provides a
+    short brief of what the endpoint does. Here, the name `Incentive - Promotion
+    - Get All` suggests that this endpoint retrieves all the promotions under an
+    incentive.
+
+
+    2. `request`: This is the main part of the endpoint where the request
+    details are defined.
+
+
+    3. `request.auth`: This section contains the type of authentication needed
+    to access the endpoint. 
+
+        - `type`: The type of authentication. In this case, `bearer` type implies that the API uses bearer authentication.
+      
+        - `bearer.token`: This is where you provide your bearer token to authenticate your request. Bearer token is like a password in the form of a token sent to the server to authenticate the user. Here, `BearerToken` should be replaced with the actual bearer token.
+
+    4. `request.method`: This defines the HTTP method used for the request. It
+    is `GET` in this case which means the request will retrieve information from
+    the server.
+
+
+    5. `request.url`: This is the URL to which the request is made.
+    `http://localhost:3000/api/incentive/promotion/all/?sessionId=sessionId&accountId=accountId`
+    is the URL of the promotion to get all incentives and it requires
+    `sessionId` and `accountId` as parameters.
+
+
+    6. `request.headers`: This is an array where additional parameters can be
+    added to further customize the request if needed.
+
+
+    7. `request.body`: This section is used to specify the request payload. In
+    this case, it is set to `raw`, meaning that the request doesn't contain any
+    data payload. The `raw` field is left empty as it's a `GET` request which
+    usually does not need a request body.
+
+
+    Remember that the bearer token must be replaced with an actual valid token
+    for successful authentication. Please replace `sessionId` and `accountId` in
+    the URL with actual session ID and account ID values respectively, as these
+    are placeholders.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

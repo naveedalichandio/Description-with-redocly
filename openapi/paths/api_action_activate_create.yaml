@@ -1,0 +1,132 @@
+post:
+  tags:
+    - ActionActivate
+  summary: Action - Activate - Create
+  description: >-
+    ### Detailed Description of API Endpoint Data
+
+
+    #### Endpoint Name:
+
+    **Action - Activate - Create**  
+
+    This indicates the purpose of the request, which is to activate an action by
+    creating it via this endpoint.
+
+
+    #### Request:
+
+
+    - **Auth**:  
+      - **Type**: `bearer`  
+        This specifies that the authentication method used to access this endpoint is bearer token authentication.
+      - **Bearer**:  
+        - **Key**: `token`  
+          This is the identifier for the bearer token parameter that is required for authentication.
+        - **Value**: `BearerToken`  
+          This is a placeholder for the actual bearer token that will be used for authentication. It must be replaced with a valid token before making the request.
+        - **Type**: `string`  
+          The data type of the token is a string.
+
+    - **Method**: `POST`  
+      This indicates that the request method to interact with the endpoint is POST, which is typically used to create new resources.
+
+    - **URL**:  
+      `http://localhost:3000/api/action/activate/create`  
+      This is the endpoint URL where the request is sent. It indicates that the action will be activated by creating a new resource.
+
+    - **Headers**:  
+      - **Key**: (empty string)  
+        No specific headers are needed for this request, as the header entry is disabled.
+      - **Value**: (empty string)  
+        Since the key is disabled, there is no associated value.
+
+    #### Body:
+
+
+    - **Mode**: `raw`  
+      Indicates that the format of the body content being sent is raw data, specifically in JSON format.
+
+    - **Raw**:  
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "streamer",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "tokenAmount": 20,
+        "name": "activate1",
+        "description": "",
+        "tags": ""
+    }
+
+    ```
+      This JSON object contains the necessary data for creating and activating an action. 
+
+      - **sessionId**: `sessionId`  
+        Identifier for the current session. This is required to link the action to a specific session.
+
+      - **accountId**: `accountId`  
+        Represents the ID of the account associated with this action. This will associate the activated action with the user’s account.
+
+      - **path**: `"/live/channel/video123"`  
+        Specifies the path to the resource that is being activated. This typically points to a live channel or media stream.
+
+      - **targetType**: `"streamer"`  
+        Indicates the type of target for the action. In this case, it specifies that the target is a streamer.
+
+      - **targetId**: `"videoId"`  
+        This represents the identifier of the target, which could be a video ID related to the activation.
+
+      - **sourceType**: `"accountId"`  
+        This indicates the type of source from which the action originates. Here, it’s linked to the account.
+
+      - **sourceId**: `"accountId"`  
+        This corresponds to the source ID, which in this case is the same as the account ID.
+
+      - **tokenAmount**: `20`  
+        Represents the quantity of tokens involved in this action. This could be a currency or a unit of measure related to the activation.
+
+      - **name**: `"activate1"`  
+        A user-defined name for this activation action, useful for identification purposes.
+
+      - **description**: `""`  
+        An optional field for a description of the activation. Currently left empty.
+
+      - **tags**: `""`  
+        This is also an optional field for adding tags to the action, currently left empty.
+
+    #### Options:
+
+    - **Raw**:  
+      - **Language**: `json`  
+        This indicates that the raw body content is formatted in JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: activate1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

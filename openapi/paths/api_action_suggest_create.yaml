@@ -1,0 +1,152 @@
+post:
+  tags:
+    - ActionSuggest
+  summary: Action - Suggest - Create
+  description: >-
+    ### Endpoint: Action - Suggest - Create
+
+
+    #### Request Details
+
+
+    - **Auth**: This section specifies the authorization method used for the API
+    request. It uses a bearer token for authentication.
+      - **Type**: Indicates the type of authentication being used, which is "bearer".
+      - **Bearer**: This is an array that contains objects with authentication details.
+        - **Key**: The key used for the token, labeled as "token".
+        - **Value**: The actual bearer token value, marked as "BearerToken".
+        - **Type**: The data type of the token, which is "string".
+
+    - **Method**: Specifies the HTTP method to be used for this request, which
+    is "POST". This method is typically used to submit data to be processed to a
+    specified resource.
+
+
+    - **URL**: The endpoint URL where the request is sent. In this case, it is
+    `http://localhost:3000/api/action/suggest/create`.
+
+
+    - **Headers**: This section allows you to define any additional headers for
+    your request. 
+      - The header is currently empty (with no key or value) and is marked as disabled, meaning it won't be sent with the request.
+
+    #### Body Data
+
+
+    The body of the request is formatted as raw JSON and contains the following
+    fields:
+
+
+    - **sessionId**: A unique identifier for the session in which the action is
+    taking place. This helps in tracking user actions associated with a specific
+    session.
+
+
+    - **accountId**: The identifier for the user account that is making the
+    suggestion. 
+
+
+    - **path**: The path to the specific resource or context related to the
+    suggestion. In this example, it points to a video resource.
+
+
+    - **targetType**: Defines the type of the target for the suggestion. In this
+    case, it is specified as "videoId".
+
+
+    - **targetId**: The unique identifier of the target item (video) related to
+    the suggestion.
+
+
+    - **sourceType**: Indicates where the suggestion originates from. Here, it
+    is specified as "accountId" indicating that the source is a user account.
+
+
+    - **sourceId**: The unique identifier of the source that is making the
+    suggestion, mirroring the accountId.
+
+
+    - **didSuggest**: A boolean value indicating whether this user has made a
+    suggestion. This is set to `true`.
+
+
+    - **category**: The broader category under which the suggestion falls. In
+    this case, it is categorized as "feature".
+
+
+    - **subcategory**: A more specific classification of the category. Here, it
+    is specified as "UI improvements".
+
+
+    - **subject**: A brief description of what the suggestion is about, labeled
+    as "Dark mode req".
+
+
+    - **title**: A concise title summarizing the suggestion, which is "add dark
+    mode".
+
+
+    - **description**: A more detailed explanation of the suggestion, providing
+    context. In this case, it notes that having a dark mode option would be
+    helpful.
+
+
+    - **tags**: A comma-separated list of tags related to the suggestion for
+    better categorization and searchability. In this example, the tags are
+    "feature request" and "dark mode".
+
+
+    - **didReply**: A boolean indicating whether a reply has been made regarding
+    this suggestion. This is set to `true`.
+
+
+    - **didReview**: A boolean indicating whether the suggestion has been
+    reviewed. This is set to `true`.
+
+
+    - **replyText**: The text of the reply provided for the suggestion. Here, it
+    states that dark mode is part of the development roadmap.
+
+
+    - **reviewStars**: A numeric rating given during the review of the
+    suggestion, with a value of 5 indicating a high rating.
+
+
+    - **name**: An optional field, currently left empty, that could hold a name
+    related to the suggestion if needed. 
+
+
+    This detailed breakdown should provide clarity on each field in the API
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didSuggest: true
+            category: feature
+            subcategory: uI improvements
+            subject: Dark mode req
+            title: add dark mode
+            description: It would be helpful to have a dark mode option.
+            tags: feature request,dark mode
+            didReply: true
+            didReview: true
+            replyText: Dark mode is in our roadmap
+            reviewStars: 5
+            name: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

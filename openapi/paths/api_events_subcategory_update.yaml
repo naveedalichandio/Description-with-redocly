@@ -1,0 +1,81 @@
+put:
+  tags:
+    - EventsSubCategory
+  summary: Events - SubCategory - Update Auto
+  description: >-
+    This endpoint, named "Events - SubCategory - Update Auto", is designed to
+    handle HTTP PUT requests to update an existing sub-category of events. This
+    is achieved by sending a PUT request to the endpoint url
+    "http://localhost:3000/api/events/subcategory/update".
+
+
+    Authentication for the request is handled using bearer token authentication,
+    with the key "token" and the value is a "BearerToken" string. This security
+    layer ensures that only authorized users can interact with the API.
+
+
+    The request also includes a unique client identifier baked into the headers
+    with 'key' as "Client-UUID" and 'value' as the 'ClientUUID' to trace
+    requests back to the clients that made them. This value is of "default"
+    type.
+
+
+    The request payload or body is presented in raw mode using JSON language
+    containing all the necessary information to update the sub-category of an
+    event:
+
+
+    - "subCategoryId": A unique identifier for the sub-category that you wish to
+    update.
+
+    - "sessionId": A unique identifier associated with the session of the user
+    making this request.
+
+    - "accountId": A unique identifier associated with the account of the user
+    making this request.
+
+    - "name": The new name you want to assign to the sub-category.
+
+    - "displayName": A more user-friendly title for the sub-category that will
+    be shown to users (different from the main 'name').
+
+    - "description": A brief explanation or summary of what this sub-category
+    represents.
+
+    - "tags": A set of keywords associated with the sub-category to aid
+    searchability or categorization of the sub-category. Tags are provided in
+    string form, separated by commas.
+
+    - "category": The main category to which this sub-category belongs. This
+    could be any meaningful string that describes the type of events the
+    sub-category belongs to. 
+
+
+    Please input appropriate values for each key before sending the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            subCategoryId: eventSubCategoryId
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 3
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+            category: A Special Shiny Category
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

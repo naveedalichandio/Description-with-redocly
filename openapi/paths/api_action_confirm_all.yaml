@@ -1,0 +1,67 @@
+get:
+  tags:
+    - ActionConfirm
+  summary: Action - Confirm - Get All
+  description: >-
+    ### Endpoint Description
+
+
+    **Name:** Action - Confirm - Get All
+
+
+    **Request Details:**
+
+
+    - **Auth:**  
+      This section specifies the type of authentication required to access the endpoint. It uses bearer token authentication.
+      - **Type:** The method of authentication is 'bearer'.
+      - **Bearer:** This array contains authentication token details.
+        - **Key:** The name of the token parameter.
+        - **Value:** A placeholder for the bearer token value. This will be replaced with the actual token when making the request.
+        - **Type:** Indicates the data type of the token, which is a string.
+
+    - **Method:**  
+      The HTTP method used for this request is 'GET'. This method retrieves data from the specified resource without modifying it.
+
+    - **URL:**  
+      This is the endpoint's URL where the request will be sent.
+      - **Base URL:** `http://localhost:3000/` - This means the server is running locally on port 3000.
+      - **Path:** `/api/action/confirm/all/` - This indicates that we are accessing the 'confirm' action under the 'action' API.
+      - **Query Parameters:** 
+        - `sessionId=sessionId` - A placeholder for the session ID, which identifies the user session.
+        - `accountId=accountId` - A placeholder for the account ID, which identifies the user's account.
+
+    - **Headers:**  
+      This section lists any additional headers that may be sent along with the request.
+      - **Key:** Indicates the name of the header.
+      - **Value:** Specifies the value of the header.
+      - **Type:** Specifies the type of the header (default).
+      - **Disabled:** This header is currently disabled and will not be sent with the request.
+
+    - **Body:**  
+      This part defines the body of the request.
+      - **Mode:** The body mode is set to 'raw', indicating that the body is intended to be sent as-is without any formatting.
+      - **Raw:** There is no raw body content for this GET request, as typically GET requests do not have a body.
+
+    This endpoint is designed to retrieve all confirmation actions based on the
+    provided session ID and account ID. Users will need to replace the
+    placeholder values in the URL and the bearer token with actual values to
+    successfully make a request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

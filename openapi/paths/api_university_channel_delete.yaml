@@ -1,0 +1,61 @@
+post:
+  tags:
+    - UniversityChannel
+  summary: University - Channel - Delete
+  description: >-
+    ### Endpoint: University - Channel - Delete
+
+
+    #### Description
+
+    This endpoint is used to delete a specific channel associated with a
+    university. It requires authentication via a bearer token and expects a POST
+    request.
+
+
+    #### Request Details
+
+
+    - **Authentication**: 
+      - **Type**: Bearer Token
+      - **Key**: `token`
+        - **Value**: `sessionId`
+        - **Type**: String
+      - Explanation: The request must include a bearer token for authentication, which is expected to be represented by `sessionId`.
+
+    - **Method**: 
+      - **Type**: POST
+      - Explanation: This operation requires sending a POST request to perform the deletion operation.
+
+    - **URL**: 
+      - **Endpoint**: `http://localhost:3000/api/university/channel/delete`
+      - Explanation: This is the URL that points to the endpoint responsible for deleting a channel.
+
+    - **Headers**: 
+      - No specific headers need to be set for this request.
+      - Explanation: The default header section is disabled and does not require any additional headers for this request.
+
+    - **Body**: 
+      - **Mode**: Raw
+      - **Content**: `{"sessionId":"sessionId","accountId":"accountId","channelId":"channelId"}`
+      - Explanation: The body of the request must be in JSON format and should contain the following fields:
+        - **sessionId**: The session identifier used for authentication.
+        - **accountId**: The unique identifier for the account associated with the channel.
+        - **channelId**: The unique identifier of the channel that is to be deleted. 
+
+    This structured data provides all necessary information for users to
+    understand how to use the endpoint for deleting a university channel.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"channelId\":\"channelId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

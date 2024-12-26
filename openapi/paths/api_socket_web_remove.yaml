@@ -1,0 +1,59 @@
+post:
+  tags:
+    - WebSocketMessage
+  summary: Web - Socket - Remove Share Message
+  description: >-
+    ### Endpoint: Web - Socket - Remove Share Message
+
+
+    - **Name**: Web - Socket - Remove Share Message
+      - This indicates that the endpoint is designed for handling socket communication to remove a shared message.
+
+    - **Request**: 
+      - The request section contains details about how to interact with the API endpoint.
+
+      - **Method**: 
+        - `POST`: This indicates that the request will send data to the server to remove a shared message.
+
+      - **URL**: 
+        - `http://localhost:3000/api/socket/web/remove`: This is the endpoint's URL where the request is sent. `localhost:3000` implies that the server is running on the local machine at port 3000.
+
+      - **Headers**: 
+        - `[]`: Currently, there are no specific headers included in the request. Headers may be added in the future if needed.
+
+      - **Body**: 
+        - This section describes the data that needs to be sent in the body of the request.
+        
+        - **Mode**: 
+          - `raw`: The body is being sent in a raw format without any additional encoding or multipart form data.
+
+        - **Raw**: 
+          - `"{\"socketId\": \"socketId\", \"accountId\": \"accountId\", \"messageId\": \"messageId\", \"share\": true}"`: This JSON string specifies the data structure for the request body. It includes:
+            - **socketId**: This represents the unique identifier for the socket connection, which indicates which socket is being manipulated.
+            - **accountId**: This is the unique identifier for the user account, related to the action of sharing or removing a shared message.
+            - **messageId**: This is the unique identifier of the message that is to be removed from the shared list.
+            - **share**: A boolean value (`true` in this case) that indicates whether the action pertains to a shared message.
+
+      - **Options**: 
+        - **Raw**: 
+          - **Language**: 
+            - `json`: This specifies that the raw body content is in JSON format, which helps in understanding how to format the input data correctly. 
+
+    This detailed description helps users of the API understand what each field
+    in the request represents and how they should format their requests when
+    using this endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            accountId: accountId
+            messageId: messageId
+            share: true
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,42 @@
+post:
+  tags:
+    - IncentivePromotion
+  summary: Incentive - Promotion - Delete
+  description: >-
+    The data includes information about an API endpoint named 'Incentive -
+    Promotion - Delete'. Here's what each part of the data indicates:
+
+
+    1. "name": This field indicates the name of the endpoint, which in this
+    case, is 'Incentive - Promotion - Delete'.
+
+
+    2. "request": Information regarding the request to the endpoint is contained
+    in this object. 
+
+       - "auth": The type of authentication required for this endpoint is specified here. In this case, it uses 'bearer' token authentication. You'll need to provide a token in the 'bearer' array and the value of the key 'value' should be passed as "sessionId". This session ID is a string type data.
+
+       - "method": This indicates the HTTP method that's used to make the request. Here, the 'POST' method is chosen.
+
+       - "url": This is the URL to make the request to. Here, it's 'http://localhost:3000/api/incentive/promotion/delete'.
+
+       - "headers": This represents the additional information that you can send with your request through HTTP headers. Currently, it's empty and disabled.
+
+       - "body": Specifies the data that you are sending to the endpoint in the request body. In this case, the 'mode' field's value 'raw' indicates the body contains raw data in the form of a JSON object. The 'raw' field contains detailed JSON with keys as "sessionId", "accountId", and "promotionId" that you are expected to substitute with their respective values before making the request.
+       
+    Please make sure you update all the placeholders with the correct
+    information pertaining to your application before sending out the requests.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"promotionId\":\"promotionId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

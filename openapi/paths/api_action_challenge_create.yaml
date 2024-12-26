@@ -1,0 +1,122 @@
+post:
+  tags:
+    - ActionChallenge
+  summary: Action - Challenge - Create
+  description: >-
+    ### Endpoint Description: Action - Challenge - Create
+
+
+    **Endpoint**: `POST http://localhost:3000/api/action/challenge/create`
+
+
+    This endpoint is used to create a challenge action in the system. Below is a
+    detailed description of each data point used in the request.
+
+
+    #### Request Authentication
+
+    - **Auth Type**: Bearer
+      - This endpoint requires authentication using a bearer token.
+      - **Key**: `"token"`
+        - Represents the authorization token needed to access the endpoint.
+      - **Value**: `"BearerToken"`
+        - The actual token that grants access to secure the API.
+
+    #### Request Method
+
+    - **Method**: `POST`
+      - This indicates that data is being sent to the server to create a new resource.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/challenge/create`
+      - The endpoint URL where the request is sent to create a new challenge.
+
+    #### Request Headers
+
+    - **Headers**: 
+      - Currently includes an empty header that is disabled. 
+      - This may be left for future use or customization.
+
+    #### Request Body
+
+    - **Body Mode**: `raw`
+      - The body of the request is sent in raw format.
+      
+    - **Raw Data**:
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "path": "/live/channel/video123",
+          "targetType": "videoId",
+          "targetId": "videoId",
+          "sourceType": "accountId",
+          "sourceId": "accountId",
+          "name": "Tournament 1",
+          "targetText": "lets play a cricket match",
+          "description": "",
+          "tags": ""
+      }
+      ```
+      
+      - **sessionId**: 
+        - A unique identifier for the session related to the challenge.
+        
+      - **accountId**: 
+        - The identifier for the account that is creating the challenge.
+        
+      - **path**: 
+        - The path where the challenge is located, such as a link to a live channel or video.
+        
+      - **targetType**: 
+        - Specifies the type of target for the challenge. In this case, it is set to `"videoId"`.
+        
+      - **targetId**: 
+        - The specific ID of the target (video) for the challenge.
+        
+      - **sourceType**: 
+        - Defines the source type, which is `"accountId"` here, indicating the source is an account.
+        
+      - **sourceId**: 
+        - The ID of the source account creating the challenge.
+        
+      - **name**: 
+        - The name of the challenge; for example, "Tournament 1".
+        
+      - **targetText**: 
+        - Text associated with the challenge, like "lets play a cricket match", which provides context or description of the challenge.
+        
+      - **description**: 
+        - An optional field that can be used to provide a more detailed description of the challenge. It is currently empty.
+        
+      - **tags**: 
+        - An optional field for categorizing the challenge with tags. It is currently empty.
+
+    This endpoint allows users to create challenges with specific parameters and
+    authentication requirements, making it easier to manage and track challenges
+    within the platform.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: Tournament 1
+            targetText: lets play a cricket match
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

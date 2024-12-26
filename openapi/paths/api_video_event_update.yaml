@@ -1,0 +1,279 @@
+put:
+  tags:
+    - VideoEvent
+  summary: Video - Event - Update - WordPress
+  description: >-
+    ### API Endpoint: Video - Event - Update - WordPress
+
+
+    **Request Method:** PUT  
+
+    **Request URL:** `http://localhost:3000/api/video/event/update`  
+
+    **Headers:**
+
+    - **Content-Type:** The format of the request body. Here, it is set to
+    'application/json', indicating that the body contains JSON data.
+
+
+    ---
+
+
+    **Request Body:**
+
+
+    The body of the request includes two main sections: `options` and `details`.
+
+
+    #### 1. **Options:**
+
+    - **providerName:** Identifies the service used for the video provider,
+    which is "wordpress."
+
+    - **providerId:** A unique identifier for the provider. Currently left
+    blank.
+
+    - **apiKey:** Key for authenticating API requests. Currently set to null.
+
+    - **apiSecret:** Secret key for added security. Currently set to null.
+
+    - **apiClientId:** Client ID for the API. Currently set to null.
+
+    - **authToken:** Token used for authentication. Currently set to null.
+
+    - **server:** The server where the media is hosted. Currently set to null.
+
+    - **rtmpUrl:** The URL for the RTMP stream. Currently set to null.
+
+    - **streamKey:** Key used to authenticate the stream request. Currently set
+    to null.
+
+    - **channelUrl:** URL for the channel where the stream is broadcasted.
+    Currently set to null.
+
+    - **authUsername:** Username for authentication. Currently set to null.
+
+    - **authPassword:** Password for authentication. Currently set to null.
+
+    - **uniqueKey:** A unique string identifier for this video event.
+
+    - **videoId:** The ID associated with the video being updated.
+
+    - **accountId:** The ID of the user account related to this event.
+
+    - **channelId:** The ID of the channel related to this event.
+
+    - **sessionId:** The session ID for tracking the streaming session.
+
+    - **streamId:** The ID of the stream.
+
+    - **ipAddress:** The IP address of the user or server. Currently set to
+    null.
+
+    - **country:** The country associated with the event, set to "United
+    States."
+
+    - **state:** The state associated with the event, set to "California."
+
+    - **title:** The title of the video event, which is "Fortune's Basketball
+    Challenge."
+
+    - **description:** Description of the video event, explaining that it
+    features basketball games with amazing plays and challenges.
+
+    - **tags:** Comma-separated tags associated with the video, including
+    "basketball," "game," and "challenge."
+
+
+    #### 2. **Details:**
+
+    - **accountId:** Same as above, repeats the account ID.
+
+    - **sessionId:** Matches the session ID from above for tracking.
+
+    - **channelId:** Same as the channel ID specified in options.
+
+    - **videoId:** Same as the video ID specified in options.
+
+    - **title:** The title of the event, which is "Fortune's Basketball
+    Challenge."
+
+    - **description:** Description of the event, explaining that it features
+    basketball games with amazing plays and challenges.
+
+    - **tags:** Same tags as mentioned in options.
+
+    - **streamType:** Identifies the type of stream, which is "Live."
+
+    - **searchType:** The type of search associated with this event, listed as
+    "Game."
+
+    - **started:** Boolean value indicating if the streaming has started. Set to
+    true.
+
+    - **startedOn:** Timestamp when the event started.
+
+    - **paused:** Boolean indicating if the streaming is paused. Set to false.
+
+    - **pausedOn:** Timestamp when the stream was paused.
+
+    - **stopped:** Boolean indicating if the streaming has stopped. Set to
+    false.
+
+    - **stoppedOn:** Timestamp for when the stream stopped, currently set to
+    null.
+
+    - **streamId:** The ID of the stream.
+
+    - **channel:** Name of the channel where the event is broadcasted,
+    "Fortune's Basketball Channel."
+
+    - **category:** General category for the event, labeled as "Board."
+
+    - **categoryId:** ID related to the category, specified as "categoryId."
+
+    - **subCategory:** More specific categorization, here listed as "Outdoor
+    Party."
+
+    - **subCategoryId:** ID for the subcategory, specified as "subCategoryId."
+
+    - **scheduleDate:** Date on which the event is scheduled, set to
+    "2024-02-01."
+
+    - **scheduleTime:** Time at which the event is scheduled to begin, set to
+    "18:00:00."
+
+    - **streamHours:** Duration for the stream in hours, set to 1.
+
+    - **coverPhotoUrl:** URL pointing to the cover photo of the event, specified
+    as "basketball-cover-url.jpg."
+
+    - **providerPlaybackUrl:** URL for playback from the provider, currently set
+    to an empty string.
+
+    - **voteTokenQuantity:** Number of tokens available for voting, set to 100.
+
+    - **votingTimeReset:** Time after which voting time resets, set to 5.
+
+    - **voteButtonQuantity:** Number of voting buttons available, set to 4.
+
+    - **voteButtonText1 & 2:** Text for the two voting buttons labeled "Layup"
+    and "Dunk."
+
+    - **isRewardsEnabled:** Boolean indicating whether rewards are enabled. Set
+    to false.
+
+    - **isTournamentEnabled:** Boolean indicating if the tournament feature is
+    enabled. Set to true.
+
+    - **tournamentButtonText1 & 2:** Text for buttons related to the tournament,
+    "Hit" and "Miss."
+
+    - **streamLocatorName:** Name for the stream locator, set to
+    "basketball-locator-name."
+
+    - **streamAssetName:** Name for the streaming asset, defined as
+    "basketball-asset-name."
+
+    - **platformVideoIds:** Collection of video IDs for various platforms, all
+    currently set to false indicating no IDs are assigned.
+
+    - **platformEventIds:** Collection of event IDs for various platforms, all
+    currently set to false indicating no IDs are assigned.
+
+    - **primaryCameraName:** Name of the primary camera used for streaming,
+    designated as "Sony 4K Ultra HD WebCam."
+
+    - **primaryMicrophoneName:** Name of the primary microphone used, identified
+    as "WirelessAudioTek Device."
+
+    - **primarySpeakerName:** Name of the primary speaker used, identified as
+    "Bose-Mega-Speaker 2.0."
+
+    - **additionalCameras:** List of additional cameras and microphones used,
+    defining pairs of camera and microphone names.
+
+    - **createdDate & Time:** Date and time when the event was created, recorded
+    as "2024-02-18" and "14:54:25."
+
+    - **updatedDate & Time:** Date and time when the event was last updated,
+    recorded as "2024-02-24" and "23:29:19."
+
+    - **deletedDate & Time:** These fields are currently set to null, indicating
+    that the event has not been deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\n    \"options\":{\n        \"providerName\":
+            \"wordpress\",\n        \"providerId\": \"\",\n        \"apiKey\":
+            null,\n        \"apiSecret\": null,\n        \"apiClientId\":
+            null,\n        \"authToken\": null,\n        \"server\":
+            null,\n        \"rtmpUrl\": null,\n        \"streamKey\":
+            null,\n        \"channelUrl\": null,\n        \"authUsername\":
+            null,\n        \"authPassword\": null,\n        \"uniqueKey\":
+            \"uniqueKey\",\n        \"videoId\": \"videoId\",\n       
+            \"accountId\": \"accountId\",\n        \"channelId\":
+            \"channelId\",\n        \"sessionId\": \"sessionId\",\n       
+            \"streamId\": \"streamId\",\n        \"ipAddress\": null,\n       
+            \"country\": \"United States\",\n        \"state\":
+            \"California\",\n        \"title\":\"Fortune's Basketball
+            Challenge\",\n        \"description\":\"Basketball game featuring
+            amazing plays and challenges.\",\n       
+            \"tags\":\"basketball,game,challenge\"\n    },\n   
+            \"details\":{\n        \"accountId\":\"accountId\",\n       
+            \"sessionId\":\"sessionId\",\n       
+            \"channelId\":\"channelId\",\n       
+            \"videoId\":\"videoId\",\n        \"title\":\"Fortune's Basketball
+            Challenge\",\n        \"description\":\"Basketball game featuring
+            amazing plays and challenges.\",\n       
+            \"tags\":\"basketball,game,challenge\",\n       
+            \"streamType\":\"Live\",\n        \"searchType\":\"Game\",\n       
+            \"started\":true,\n       
+            \"startedOn\":\"2024-02-24T22:41:42.483Z\",\n       
+            \"paused\":false,\n       
+            \"pausedOn\":\"2024-02-24T22:41:42.483Z\",\n       
+            \"stopped\":false,\n        \"stoppedOn\":null,\n       
+            \"streamId\":\"streamId\",\n        \"channel\":\"Fortune's
+            Basketball Channel\",\n        \"category\":\"Board\",\n       
+            \"categoryId\":\"categoryId\",\n        \"subCategory\":\"Outdoor
+            Party\",\n        \"subCategoryId\":\"subCategoryId\",\n       
+            \"scheduleDate\":\"2024-02-01\",\n       
+            \"scheduleTime\":\"18:00:00\",\n        \"streamHours\":1,\n       
+            \"coverPhotoUrl\":\"basketball-cover-url.jpg\",\n       
+            \"providerPlaybackUrl\":\"\",\n       
+            \"voteTokenQuantity\":100,\n       
+            \"votingTimeReset\":\"5\",\n       
+            \"voteButtonQuantity\":4,\n       
+            \"voteButtonText1\":\"Layup\",\n       
+            \"voteButtonText2\":\"Dunk\",\n       
+            \"isRewardsEnabled\":false,\n       
+            \"isTournamentEnabled\":true,\n       
+            \"tournamentButtonText1\":\"Hit\",\n       
+            \"tournamentButtonText2\":\"Miss\",\n       
+            \"streamLocatorName\":\"basketball-locator-name\",\n       
+            \"streamAssetName\":\"basketball-asset-name\",\n       
+            \"platformVideoIds\":{\"youtubeOutputId\":false,\"twitchOutputId\":false,\"instagramOutputId\":false,\"tiktokOutputId\":false,\"facebookOutputId\":false,\"vimeoOutputId\":false,\"periscopeOutputId\":false,\"linkedInOutputId\":false,\"brightcoveOutputId\":false,\"twitterOutputId\":false,\"dailymotionOutputId\":false,\"kickOutputId\":false,\"rumbleOutputId\":false,\"trovoOutputId\":false,\"restreamPlaybackUrl\":false,\"telegramOutputId\":false,\"amazonLiveOutputId\":false,\"dLiveOutputId\":false,\"mixCloudOutputId\":false,\"kakaoTVOutputId\":false,\"naverTVOutputId\":false,\"nimoTVOutputId\":false,\"nonoLiveOutputId\":false,\"huyaOutputId\":false,\"zhanquiTVOutputId\":false,\"bilibiliOutputId\":false,\"afreecaTVOutputId\":false,\"mlgOutputId\":false,\"douyuOutputId\":false,\"liveEduOutputId\":false,\"vaughnLiveOutputId\":false,\"breakersTVOutputId\":false,\"picartoTVOutputId\":false,\"fc2LiveOutputId\":false,\"steamOutputId\":false},\n       
+            \"platformEventIds\":{\"facebookGroupEventId\":false,\"facebookPageEventId\":false,\"linkedInEventId\":false,\"youtubeEventId\":false,\"eventBrightEventId\":false,\"meetupEventId\":false,\"calendlyEventId\":false,\"googleEventId\":false,\"twitterEventId\":false,\"instagramEventId\":false,\"redditEventId\":false,\"telegramEventId\":false,\"tiktokEventId\":false,\"pinterestEventId\":false,\"wordpressEventId\":false,\"discordEventId\":false,\"mediumEventId\":false,\"tumblrEventId\":false,\"wixEventId\":false},\n       
+            \"primaryCameraName\":\"Sony 4K Ultra HD WebCam\",\n       
+            \"primaryMicrophoneName\":\"WirelessAudioTek Device\",\n       
+            \"primarySpeakerName\":\"Bose-Mega-Speaker 2.0\",\n       
+            \"additionalCameras\":[{\"camera\":\"camera-2\",\"microphone\":\"mic-2\"},{\"camera\":\"camera-3\",\"microphone\":\"mic-3\"}],\n       
+            \"createdDate\":\"2024-02-18\",\n       
+            \"createdTime\":\"14:54:25\",\n       
+            \"updatedDate\":\"2024-02-24\",\n       
+            \"updatedTime\":\"23:29:19\",\n       
+            \"deletedDate\":null,\n        \"deletedTime\":null\n    }\n}"
+  parameters:
+    - name: Content-Type
+      in: header
+      schema:
+        type: string
+      example: application/json
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

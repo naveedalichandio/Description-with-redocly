@@ -1,0 +1,81 @@
+get:
+  tags:
+    - TeamSubCategory
+  summary: Team - SubCategory - Get All By Category ID
+  description: >-
+    {
+      "description": {
+        "name": "Team - SubCategory - Get All By Category ID",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "url": "http://localhost:3000/api/team/subcategory/all/?categoryId=teamCategoryId",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": ""
+          }
+        }
+      }
+    }  
+
+
+    - **name**: This is the title of the endpoint, indicating it retrieves all
+    subcategories related to a specific team category ID.
+
+
+    - **request**: This section defines the attributes needed to make the API
+    call.
+
+      - **auth**: This indicates the type of authentication required for accessing the API.
+      
+        - **type**: Specifies that bearer token authentication is used.
+        
+        - **bearer**: Contains the authentication details in a list format.
+        
+          - **key**: This is a label for the token which is "token."
+          
+          - **value**: It holds the actual token value needed for authentication, represented here as "BearerToken." Users should replace this with their actual bearer token.
+          
+          - **type**: Specifies that the value is of type "string."
+
+      - **method**: Indicates the HTTP method to be used for the API call, which is "GET" in this case. This means the request is for retrieving data.
+
+      - **url**: This is the endpoint URL that will be called. It includes a query parameter (`categoryId`) that needs to be filled with the actual team category ID intended to fetch subcategories.
+
+      - **headers**: This section can include any additional HTTP headers you may need to send with the request. Here, it's currently empty and is marked as disabled, indicating no custom headers are set.
+
+      - **body**: Usually contains the payload sent with the request.
+        
+        - **mode**: This indicates how the body content is structured. In this case, it's set to "raw."
+        
+        - **raw**: This is where the request body content would go. It’s currently empty, as a GET request typically doesn’t contain a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: categoryId
+      in: query
+      schema:
+        type: string
+      example: teamCategoryId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

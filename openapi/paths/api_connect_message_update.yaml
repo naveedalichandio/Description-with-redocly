@@ -1,0 +1,118 @@
+put:
+  tags:
+    - ConnectMessage
+  summary: Connect - Message - Update
+  description: >-
+    This endpoint is named "Connect - Message - Update" and it uses the HTTP PUT
+    method. Its purpose is to update a message in the "Connect" system. This
+    operation needs Authorization, which is a Bearer token, passed in the
+    Authorization header of the request.
+
+
+    The request URL is "http://localhost:3000/api/connect/message/update". It
+    communicates with the api on the localhost server at port 3000.
+
+
+    There's a unique identifier for the client making the request, labeled as
+    "Client-UUID". This refers to a unique identifier for the client application
+    and it's passed as a default type header in the request.
+
+
+    The body of the request needs to be a raw JSON object with the specific
+    properties as follows:
+
+
+    1. messageId : Unique identifier of the message that needs to be updated.
+
+    2. sessionId: Unique identifier for the current session.
+
+    3. accountId: ID associated with the account.
+
+    4. name: Name of the message, as a string.
+
+    5. description: Description related to the message.
+
+    6. tags: A string of tags related to the message.
+
+    7. profilePhotoUrl: A URL leading to the profile picture associated with
+    this message.
+
+    8. coverPhotoUrl: A URL to a cover photo related to this message.
+
+    9. minimumTipAmount: This is the minimum amount of tip that can be given.
+
+    10. unlockAmount: The necessary amount to unlock.
+
+    11. category: The general category the message falls under.
+
+    12. subCategory: A more specific category within the general category for
+    the message.
+
+    13. searchType: This is the type of search.
+
+    14. isEnabled: Flag indicating if the message is enabled or not.
+
+    15. isMessagePrivate: A boolean indicating if the message is private.
+
+    16. isTournamentOnly: This field determines if the message is only for
+    tournament.
+
+    17. isMessageDefault: Flag showing whether this message is set as default.
+
+    18. isPreLiveConnectAds: This flag indicates if there are ads before live
+    connect.
+
+    19. isPostLiveConnectAds: Flag indicating if there are ads after live
+    connect.
+
+    20. breakPreLiveConnectUrl: This is the URL for pre-live break ads.
+
+    21. breakLivePauseConnectUrl: URL for break ads during paused live session.
+
+    22. breakPostLiveConnectUrl: URL for post-live break ads.
+
+
+    Those details in the JSON body of the request provide information about the
+    message being updated in the system. The request body also has language
+    option set to JSON as it accepts JSON formatted data.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            messageId: messageId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeMessage
+            description: This message is my second message
+            tags: second,message
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isMessagePrivate: true
+            isTournamentOnly: false
+            isMessageDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

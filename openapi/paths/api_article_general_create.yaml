@@ -1,0 +1,115 @@
+post:
+  tags:
+    - ArticleGeneral
+  summary: Article - General - Create Auto
+  description: >-
+    This endpoint is titled "Article - General - Create Auto". It is used to
+    create a new article through an HTTP POST request, with the URL specified as
+    "http://localhost:3000/api/article/general/create".
+
+
+    The authentication used for this endpoint is "Bearer Authentication". It
+    requires a bearer token provided in the format: "BearerToken".
+
+
+    There's also a placeholder for potential additional headers, although it's
+    currently disabled by default.
+
+
+    The input body of the endpoint request is in raw JSON format. These are:
+
+
+    1. "accountId" - The account identifier string representing the user.
+
+    2. "sessionId" - The session identifier string representing the session.
+
+    3. "category" - Represents the main categorization of the article.
+
+    4. "subCategory" - Represents the sub categorization under the main
+    category.
+
+    5. "topic" - The primary discussion point of the article.
+
+    6. "title" - The title of the article.
+
+    7. "author" - The name of the author of the article.
+
+    8. "estimatedTime" - The estimated time to read the article.
+
+    9. "date" - The date the article was written.
+
+    10. "image" - A URL string to an image related to the article.
+
+    11. "tags" - An array of strings including various tags related to the
+    article.
+
+    12. "content" - An object containing extended content for the article like:
+         - "startDate" and "endDate": Event duration for the article feature
+         - "location": Where the event of the featured article takes place
+         - "featuredArtists": Artists who are highlighted in the article
+         - "collections": The collections featured or mentioned in the article.
+         - "article": An array of objects where each object represents an event related to the article with fields like:
+            - "type": Type of the event
+            - "date": Date of the event
+            - Various other fields depending on the type of event (like "time", "activities", "chef" based on context)
+
+    The language type of the input request body is set to JSON. This confirms
+    that the server expects the body content to be in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            category: My New Shiny Category
+            subCategory: My New Shiny Sub Category
+            topic: My New Interesting Topic
+            title: Invisible Luggage Exhibition
+            author: Fortune Vieyra
+            estimatedTime: 5 minutes
+            date: '2024-12-02'
+            image: https://www.beladed.com/img/logo.png
+            tags:
+              - Art
+              - Exhibition
+              - SocialJustice
+              - GenderIdentity
+              - Immigration
+            content:
+              startDate: '2024-12-02'
+              endDate: '2024-12-15'
+              location: Historic Hampton House, Miami, FL
+              featuredArtists:
+                - Beth Rudin DeWoody
+                - Zoe Lukov
+                - Laura Dvorkin
+                - Maynard Monrow
+              collections:
+                - Rubell Family Collection
+                - Bernard Lumpkin Collection
+                - Joy Simmons Collection
+              article:
+                - type: Opening Night
+                  date: '2024-12-02'
+                  time: '18:00'
+                  activities:
+                    - Cocktails
+                    - Preview Dinner
+                    - Artist Introductions
+                - type: Panel Discussion
+                  date: '2024-12-05'
+                  time: '15:00'
+                  topic: Art and Social Justice
+                - type: VIP Dinner
+                  date: '2024-12-10'
+                  time: '19:00'
+                  chef: Jessica Harris
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

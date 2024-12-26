@@ -1,0 +1,65 @@
+post:
+  tags:
+    - PaymentCard
+  summary: Card - Zelle - Delete
+  description: >-
+    This endpoint is named "Card - Zelle - Delete". It uses the POST method to
+    delete a Zelle card from the specified account. Its URL is
+    http://localhost:3000/api/payment/card/delete.
+
+
+    Here's the detailed description of each data:
+
+
+    1. `name`: This is the name of the endpoint. In this case, the name is "Card
+    - Zelle - Delete". This name usually illustrates the purpose of this
+    endpoint, which is to delete a Zelle card.
+
+
+    2. `request`: This field envelops all the request-related information for
+    the API call.
+
+
+    3. `method`: The request type. Here, the method is POST, which is typically
+    used to submit data to be processed.
+
+
+    4. `url`: This is the endpoint URL to which the request is sent. In this
+    case, the URL is http://localhost:3000/api/payment/card/delete.
+
+
+    5. `headers`: This is an array that could possibly contain metadata for the
+    HTTP request. In this instance, it is empty.
+
+
+    6. `body`: This contains data that you want to send to the server.
+
+       * `mode`: Defines the way the data is being sent. As mentioned in the provided data, the mode used here is "raw".
+
+       * `raw`: This field contains all the raw data to be sent with the request in a JSON format. The data it contains includes:
+            - `accountId`: The unique identifier of the account where the Zelle card is being deleted from.
+            - `sessionId`: The current session's unique identifier.
+            - `cardId`: The unique identifier of the card that needs to be deleted.
+            - `provider`: The card provider's name, indicating from which provider's list the card needs to be removed.
+
+        * `options`: This field provides options for processing body data.
+            * `raw`: Further options specifically for processing raw data.
+               * `language`: The language in which the raw data is written, here it is JSON.
+
+    Please note that the actual values are not provided in the example and need
+    to be replaced with proper values before the request is made.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            cardId: cardId
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

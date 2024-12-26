@@ -1,0 +1,63 @@
+post:
+  tags:
+    - ActionMessage
+  summary: Action - Message - Delete
+  description: >-
+    ### Action - Message - Delete
+
+
+    #### Request Overview
+
+    This endpoint is used to delete a specific message from the system. It
+    requires authentication and the relevant identifiers for the session,
+    account, and message that needs to be deleted.
+
+
+    #### Request Details
+
+
+    - **Authentication**:
+      - **Type**: Bearer Token
+      - **Bearer Token**: This uses a bearer token for authentication.
+        - **Key**: `token` 
+        - **Value**: `sessionId` 
+        - **Type**: This is specified as a string. The `sessionId` acts as the authorization credential to validate the user's session.
+
+    - **Method**: 
+      - **Type**: POST 
+      - This method is used to request the deletion of a message.
+
+    - **URL**:
+      - **Endpoint**: `http://localhost:3000/api/action/message/delete`
+      - This is the endpoint that handles the delete request for messages.
+
+    - **Headers**: 
+      - No headers are specified. The default header configuration is disabled.
+
+    - **Body**:
+      - **Mode**: Raw
+      - **Content**: The body of the request is in raw JSON format containing the following fields:
+        - **sessionId**: This is the unique identifier for the user's session. It is used to authenticate the user making the request.
+        - **accountId**: This is the unique identifier for the user's account. It links the action to a specific account in the system.
+        - **messageId**: This is the unique identifier for the message that needs to be deleted. It specifies which message the system should remove.
+
+    #### Summary
+
+    The "Action - Message - Delete" endpoint allows users to delete a message by
+    providing the necessary identifiers for session, account, and message. It
+    requires a valid bearer token for authentication and sends the necessary
+    data in the body of the POST request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"messageId\":\"messageId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

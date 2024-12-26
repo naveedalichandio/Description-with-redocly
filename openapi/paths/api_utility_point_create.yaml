@@ -1,0 +1,108 @@
+post:
+  tags:
+    - UtilityPoint
+  summary: Utility - Point - Create for Team
+  description: |-
+    {
+      "description": "This endpoint allows you to create a utility point for a specific team. Below is a detailed description of each data component involved in this request.",
+
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ],
+          "description": "Authentication is handled using a Bearer token. Replace 'BearerToken' with your actual token to authenticate the request."
+        },
+        
+        "method": {
+          "value": "POST",
+          "description": "This indicates that the request method is POST, which is used to send data to the server."
+        },
+        
+        "url": {
+          "value": "http://localhost:3000/api/utility/point/create",
+          "description": "The endpoint URL where the request will be sent. It is currently set to a local server address."
+        },
+        
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true,
+            "description": "No additional headers are required for this request, and this default header is disabled."
+          }
+        ],
+
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"targetType\": \"teamId\",\n    \"targetId\": \"teamId\",\n    \"name\": \"TTP\",\n    \"description\": \"Team Tournament Point\",\n    \"type\": \"platform\",\n    \"action\": \"award\",\n    \"rate\": 1,\n    \"amount\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json",
+              "description": "The body of the request is in raw JSON format and contains the following fields:"
+            }
+          },
+          "fields": {
+            "sessionId": {
+              "description": "A unique identifier for the session. This should be replaced with the actual session ID."
+            },
+            "accountId": {
+              "description": "The account identifier associated with the action. Replace with the actual account ID."
+            },
+            "targetType": {
+              "description": "Defines the type of target for the utility point, in this case, it is set to 'teamId' indicating that the points are for a team."
+            },
+            "targetId": {
+              "description": "The specific identifier of the team that will receive the points. Replace with the actual team ID."
+            },
+            "name": {
+              "description": "A name for the utility point entry. In this example, it is 'TTP' which can represent a tournament point."
+            },
+            "description": {
+              "description": "A detailed description of what the utility point represents, in this case, 'Team Tournament Point'."
+            },
+            "type": {
+              "description": "Identifies the platform type associated with the point. Here it is specified as 'platform'."
+            },
+            "action": {
+              "description": "Specifies the action being performed with the utility point. In this example, it is set to 'award', indicating that points are being granted."
+            },
+            "rate": {
+              "description": "This field indicates the rate of the points being awarded. A value of 1 suggests that the points are awarded at a rate of 1."
+            },
+            "amount": {
+              "description": "The total amount of points being awarded to the team. In this case, it is set to 5."
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            targetType: teamId
+            targetId: teamId
+            name: TTP
+            description: Team Tournament Point
+            type: platform
+            action: award
+            rate: 1
+            amount: 5
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,97 @@
+put:
+  tags:
+    - ManageAnalytics
+  summary: Manage - Analytics - Update
+  description: >-
+    This endpoint, named "Manage-Analytics-Update", is designed to update
+    details about an existing analytics data using the PUT method.
+
+
+    A bearer token is required in the `auth` field for authorization. The format
+    expected is a string including the `BearerToken` to be replaced with your
+    bearer token.
+
+
+    The request URL is `http://localhost:3000/api/manage/analytics/update` by
+    default, but you must replace `localhost:3000` with your server's domain
+    name and port number.
+
+
+    In the `headers`, a "Client-UUID" key must be provided containing a unique
+    client user identifier. 
+
+
+    In the request `body`, it expects raw JSON data with the following keys:
+
+
+    - `analyticsId`: The unique identifier for the analytics.
+
+    - `sessionId`: The unique identifier for the session.
+
+    - `accountId`: The ID of the account that registered analytics.
+
+    - `name`: The name of your analytics.
+
+    - `description`: A textual description of your analytics.
+
+    - `tags`: Keywords separated by commas, to identify your analytics.
+
+    - `profilePhotoUrl`: The URL of the profile photo related to your analytics.
+
+    - `coverPhotoUrl`: The URL of the cover photo related to your analytics.
+
+    - `minimumTipAmount`: The minimum amount for tipping.
+
+    - `categoryId`: The ID of the category the analytics belongs to.
+
+    - `category`: The name of the category.
+
+    - `subCategoryId`: The ID of the sub-category the analytics falls under.
+
+    - `subCategory`: The name of the sub-category
+
+    - `isAnalyticsPrivate`: A boolean value indicating if the analytics is
+    private.
+
+    - `isTournamentOnly`: A boolean value indicating if the analytics is for
+    tournament purposes only.
+
+    - `isAnalyticsDefault`: A boolean value indicating if the analytics is set
+    to default.
+
+    - `isPreLiveManageAds`: A boolean value indicating if the pre-live manage
+    ads are on.
+
+    - `isPostLiveManageAds`: A boolean value indicating if the post-live manage
+    ads are on.
+
+    - `breakPreLiveManageUrl`: The URL of the pre-live manage ads' break video.
+
+    - `breakPostLiveManageUrl`: The URL of the post-live manage ads' break
+    video.
+
+
+    Replace the placeholders in the key-value pairs with your actual data.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"analyticsId\":\"analyticsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Analytics 2.0\",\"description\":\"This analytics is my second
+            analytics\",\"tags\":\"second,analytics\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isAnalyticsPrivate\":true,\"isTournamentOnly\":false,\"isAnalyticsDefault\":true,\"isPreLiveManageAds\":true,\"isPostLiveManageAds\":true,\"breakPreLiveManageUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveManageUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

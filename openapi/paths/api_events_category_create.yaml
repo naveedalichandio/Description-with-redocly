@@ -1,0 +1,71 @@
+post:
+  tags:
+    - EventsCategory
+  summary: Events - Category - Create
+  description: >-
+    This endpoint is named "Events - Category - Create" and is utilized to
+    create a category within an events context.
+
+
+    The request is made via the "POST" method to the URL
+    "http://localhost:3000/api/events/category/create".
+
+
+    A bearer token is required for authentication, denoted by the "auth" field.
+    It requires a "token" key whose value should be your unique BearerToken.
+    This value will be expected as a string type.
+
+
+    The headers are set to default and have no defined keys or values. The
+    disabled field set to true means the default headers are not functional
+    unless defined.
+
+
+    The "body" of the request should be in raw mode with a raw JSON data
+    containing the following key-value pairs:
+
+
+    1. "sessionId": This is a required string that stands for the unique session
+    ID.
+
+    2. "accountId": This represents the unique account ID involved in the
+    creation of the event and is also a required string.
+
+    3. "name": This refers to the technical name of the event category you wish
+    to create. It is expected in string format.
+
+    4. "displayName": This represents the show name for the event category. This
+    name can be user-friendly and more descriptive. The value should be a
+    string.
+
+    5. "description": A brief text providing information about the event
+    category. This should be a concise summary of what the category is about.
+    This field accepts a string type value.
+
+    6. "tags": This is to include any labels or keywords related to the event
+    category. These tags make the event more searchable and should be sent as a
+    comma-separated string.
+
+
+    The option for the body mode is set to 'raw' and language is expected to be
+    in 'json' format which implies that the body values need to be in valid JSON
+    syntax.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 5
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

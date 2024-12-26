@@ -1,0 +1,58 @@
+put:
+  tags:
+    - PaymentProduct
+  summary: Product - Zelle - Update
+  description: >-
+    This endpoint is designed for the specific purpose of updating a product.
+    The product in question is related to Zelle, a digital payment service. The
+    key details about the data in this endpoint are as follows:
+
+
+    1. `name`: This refers to the title of this particular endpoint action,
+    which is 'Product - Zelle - Update'. The endpoint is used to update
+    information about a product connected to the Zelle service.
+
+
+    2. `request`: Under this field, information regarding the specific API
+    request is given 
+       - `method`: The request type indicated here is 'PUT'. This means the request will be used to update an existing resource on the server.
+       - `url`: This is the URL to which the API request is sent. In this case, 'http://localhost:3000/api/payment/product/update'.
+
+    3. `headers`: The empty array indicates there are no additional headers
+    provided for the API request.
+
+
+    4. `body`: This contains information that will be sent to the server. 
+       - `mode`: The data transmission format is 'raw'.
+       - `raw`: This field contains the payload or the actual data that is being sent in the request.
+         - `accountId`: This uniquely identifies the account associated with the product.
+         - `sessionId`: This identifies the specific session.
+         - `productId`: This would be the unique identifier for the product that will be updated.
+         - `source`: This is currently set to null, indicating no source information is provided.
+         - `isSaveProduct`: This is a boolean indicator for whether the product should be saved. A value of 'true' indicates the product will be saved.
+         - `isPrimary`: Another boolean field indicating if the product is the primary one. 'true' value means it is a primary product.
+         - `provider`: This is set as 'zelle', indicating that the provider of the service is Zelle.
+       - `options`: It indicates any specific preferences for the request. In this case, it specifies that the payload mentioned in the raw field will be in the JSON language. 
+
+    Overall, this endpoint facilitates an update action on a product related to
+    the Zelle service. If more details can be provided about the original nature
+    of the product, better documentation can be provided regarding how this
+    endpoint will specifically affect it.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            productId: productId
+            source: null
+            isSaveProduct: true
+            isPrimary: true
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

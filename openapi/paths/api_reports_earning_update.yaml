@@ -1,0 +1,98 @@
+put:
+  tags:
+    - ReportsEarning
+  summary: Reports - Earning - Update
+  description: >-
+    This endpoint is named "Reports - Earning - Update". It uses the PUT HTTP
+    method to update an existing earning report. The URL for this endpoint is
+    "http://localhost:3000/api/reports/earning/update".
+
+
+    This endpoint requires bearer token authentication. You must provide a valid
+    bearer token in the 'auth' field which contains the key named 'token', and
+    the value field should contain the actual bearer token.
+
+
+    There is a header key that must be included named "Client-UUID". Its value
+    should be the Unique Identifier (UUID) of the client making the request.
+
+
+    The main body of the request must be in raw JSON format and contains the
+    following properties:
+
+
+    1. "earningId": The unique identifier of the earning report to be updated.
+
+    2. "sessionId": The identifier for the session linked with this earning.
+
+    3. "accountId": The account identifier linked to this earning.
+
+    4. "name": The updated name of the earning. 
+
+    5. "description": The updated description of the earning.
+
+    6. "tags": The updated set of tags for the earning, separated by commas.
+
+    7. "profilePhotoUrl": The updated URL of the profile photo.
+
+    8. "coverPhotoUrl": The updated URL of the cover photo.
+
+    9. "minimumTipAmount": The updated minimum tip amount for this earning.
+
+    10. "categoryId": The identifier of the updated category this earning
+    belongs to.
+
+    11. "category": The updated category name this earning belongs to.
+
+    12. "subCategoryId": The identifier of the updated sub-category this earning
+    belongs to.
+
+    13. "subCategory": The updated sub-category name this earning belongs to.
+
+    14. "isEarningPrivate": A boolean value indicating if this earning is
+    private.
+
+    15. "isTournamentOnly": A boolean value indicating if this earning is
+    applicable only to tournaments.
+
+    16. "isEarningDefault": A boolean value indicating if this earning is set as
+    default.
+
+    17. "isPreLiveReportsAds": A boolean value to decide whether to show
+    pre-live report ads.
+
+    18. "isPostLiveReportsAds": A boolean value to decide whether to show ads
+    after publishing the live report.
+
+    19. "breakPreLiveReportsUrl": URL of the ad to be displayed before
+    publishing the live report.
+
+    20. "breakPostLiveReportsUrl": URL of the ad to be displayed after
+    publishing the live report. 
+
+
+    Json body needs to be properly formatted with these correct data keys and
+    values.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"earningId\":\"earningId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Earning 2.0\",\"description\":\"This earning is my second
+            earning\",\"tags\":\"second,earning\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isEarningPrivate\":true,\"isTournamentOnly\":false,\"isEarningDefault\":true,\"isPreLiveReportsAds\":true,\"isPostLiveReportsAds\":true,\"breakPreLiveReportsUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveReportsUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,101 @@
+put:
+  tags:
+    - NotificationStreamers
+  summary: Notification - Streamers - Update
+  description: >-
+    Endpoint Name: "Notification - Streamers - Update" - This endpoint updates
+    streamers details in the notifications.
+
+
+    Authentication: 
+
+    The request requires Bearer Token authentication. 
+
+
+    Request Method: PUT 
+
+
+    URL: The endpoint URL is
+    http://localhost:3000/api/notification/streamers/update.
+
+
+    Headers: There's one header key ("Client-UUID") which should hold a default
+    type value known as ClientUUID.
+
+
+    Request Payload:
+
+    The payload should be a raw JSON with below keys -
+
+
+    1. streamersId: A unique identifier for the streamer.
+
+    2. sessionId: Session identifier for the current user session.
+
+    3. accountId: Identifier for the account associated with the streamer.
+
+    4. name: The updated name of the streamer.
+
+    5. description: An updated description about the streamer.
+
+    6. tags: Updated, comma-separated tags associated with the streamer.
+
+    7. profilePhotoUrl: The URL of the streamer's updated profile photo.
+
+    8. coverPhotoUrl: The URL of the streamer's updated cover photo.
+
+    9. minimumTipAmount: The minimum amount of tip that can be given to the
+    streamer.
+
+    10. categoryId: The identifier of the new category the streamer belongs to.
+
+    11. category: The name of the new category the streamer belongs to.
+
+    12. subCategoryId: The identifier of the new sub-category the streamer
+    belongs to.
+
+    13. subCategory: The name of the new sub-category the streamer belongs to.
+
+    14. isStreamersPrivate: A boolean indicating whether the streamer's stream
+    is private.
+
+    15. isTournamentOnly: A boolean indicating whether the streamer only
+    participates in tournaments.
+
+    16. isStreamersDefault: A boolean indicating whether the streamer is set as
+    the default streamer.
+
+    17. isPreLiveNotificationAds: A boolean indicating whether ads will be shown
+    in pre-live notifications of the streamer.
+
+    18. isPostLiveNotificationAds: A boolean indicating whether ads will be
+    shown in post-live notifications of the streamer.
+
+    19. breakPreLiveNotificationUrl: The URL from where the pre-live
+    notification ads video can be fetched.
+
+    20. breakPostLiveNotificationUrl: The URL from where the post-live
+    notification ads video can be fetched.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"streamersId\":\"streamersId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Streamers 2.0\",\"description\":\"This streamers is my second
+            streamers\",\"tags\":\"second,streamers\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isStreamersPrivate\":true,\"isTournamentOnly\":false,\"isStreamersDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

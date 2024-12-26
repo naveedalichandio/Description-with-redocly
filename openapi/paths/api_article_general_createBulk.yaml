@@ -1,0 +1,436 @@
+post:
+  tags:
+    - ArticleGeneral
+  summary: Article - General - Create Bulk Auto
+  description: >
+    The endpoint `Article - General - Create Bulk Auto` is a HTTP `POST` request
+    used to create multiple ("bulk") articles in the system.
+
+
+    The `auth` object is how the API handles authentication. It uses a `type` of
+    "bearer", which means it's expecting a bearer token in the request header.
+    The `bearer` array holds key-value pair objects, where the `key` is the
+    "token" and its corresponding `value` is the "BearerToken" we provide.
+
+
+    The `url` is the path where the request is sent. In this case, it's a local
+    development server (`localhost`) on port `3000`.
+
+
+    The `headers` object in the request is currently empty and has `disabled`
+    set to `true`, which means no specific HTTP headers are set for this
+    request.
+
+
+    The `body` encompasses the actual content of the request. It is sent as
+    `raw` JSON. 
+
+
+    The data in the `body` includes:
+
+
+    - `sessionId`: The unique identifier for the ongoing session.
+
+    - `accountId`: The unique identifier for the user's account.
+
+    - `articles`: An array of objects, with each object representing an
+    individual article and containing:
+      - `title`: The article's title.
+      - `category`: The category the article belongs to.
+      - `subCategory`: Subcategory of the article.
+      - `topic`: Topic of the article.
+      - `date`: The date of the article.
+      - `author`: Author of the article.
+      - `estimatedTime`: Estimated reading time of the article.
+      - `image`: URL of the image related to the article.
+      - `content`: An array representing sections of the article's content. Each section is an object that includes a `type` (either "text" or "section"), `title` (for "section" type), and `content`.
+      - `tags`: An array of tags associated with the article.
+
+    Note: The `title` of each article must be unique in the bulk creation. The
+    `date` needs to be in a recognized format like "DD MM YYYY". The `image` URL
+    needs to be a valid, publicly accessible URL.
+
+
+    The `options` object (inside `body`) defines the language of the `raw` input
+    as `json`.
+
+
+    In summary, this endpoint allows the bulk creation of articles based on the
+    provided JSON data, including details as article title, category,
+    sub-category, author, estimated reading time, image URL, content, and tags.
+    It requires a bearer token for authentication.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example: |-
+            {
+              "sessionId": "sessionId",
+              "accountId": "accountId",
+              "articles": [
+                {
+                  "title": "how to change your email address on beladed",
+                  "category": "Account Management",
+                  "subCategory": "Account and Security",
+                  "topic": "Update my account",
+                  "date": "15 May 2024",
+                  "author": "Alex Johnson",
+                  "estimatedTime": "5 mins",
+                  "image": "https://www.bldcdn.com/images/articles/how%20to%20change%20your%20email%20address%20on%20beladed.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Keeping your email address up-to-date on Beladed is crucial for account security and communication. Follow these steps to change your email address quickly and securely."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 1: Log In to Your Beladed Account",
+                      "content": "Start by logging into your Beladed account using your current credentials at beladed.com."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 2: Navigate to Account Settings",
+                      "content": "Once logged in, click on your profile icon in the top-right corner and select 'Account Settings' from the dropdown menu."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 3: Locate Email Settings",
+                      "content": "In the Account Settings page, find the 'Email' or 'Contact Information' section."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 4: Enter New Email Address",
+                      "content": "Click on the 'Change Email' button and enter your new email address in the provided field. You may need to enter your current password for security verification."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 5: Verify New Email",
+                      "content": "Beladed will send a verification link to your new email address. Check your inbox (and spam folder) for this email and click the verification link to confirm the change."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 6: Confirmation",
+                      "content": "Once verified, log out and log back in to ensure the change has taken effect. You should now receive all Beladed communications at your new email address."
+                    },
+                    {
+                      "type": "text",
+                      "content": "Remember to update your email on any linked accounts or services to maintain seamless integration with your Beladed account."
+                    }
+                  ],
+                  "tags": [
+                    "Account Management",
+                    "Email",
+                    "Security",
+                    "Profile Settings"
+                  ]
+                },
+                {
+                  "title": "resetting your password on beladed",
+                  "category": "Account Management",
+                  "subCategory": "Account and Security",
+                  "topic": "Update my account",
+                  "date": "20 May 2024",
+                  "author": "Sam Lee",
+                  "estimatedTime": "4 mins",
+                  "image": "https://www.bldcdn.com/images/articles/resetting%20your%20password%20on%20beladed.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Forgot your password? Don't worry! Beladed makes it easy to reset your password and regain access to your account. Follow these simple steps to create a new, secure password."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 1: Access the Login Page",
+                      "content": "Go to the Beladed login page at beladed.com/login."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 2: Click 'Forgot Password'",
+                      "content": "Look for the 'Forgot Password?' link below the login form and click on it."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 3: Enter Your Email",
+                      "content": "On the password reset page, enter the email address associated with your Beladed account and click 'Submit' or 'Reset Password'."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 4: Check Your Email",
+                      "content": "Beladed will send a password reset link to your email. Check your inbox (and spam folder) for an email from Beladed support."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 5: Click the Reset Link",
+                      "content": "Open the email and click on the password reset link provided. This will take you to a page where you can create a new password."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 6: Create a New Password",
+                      "content": "Enter your new password. Make sure it's strong and unique. Beladed may have specific requirements for password strength, so follow the guidelines provided."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 7: Confirm and Log In",
+                      "content": "After setting your new password, you'll be redirected to the login page. Use your email and new password to log in to your account."
+                    },
+                    {
+                      "type": "text",
+                      "content": "Remember to use a unique, strong password for your Beladed account to ensure the best security. Consider using a password manager to keep track of your passwords securely."
+                    }
+                  ],
+                  "tags": [
+                    "Account Management",
+                    "Password",
+                    "Security",
+                    "Login"
+                  ]
+                },
+                {
+                  "title": "updating your profile information on beladed",
+                  "category": "Account Management",
+                  "subCategory": "Profile Customization",
+                  "topic": "Updating profile picture and banner",
+                  "date": "25 May 2024",
+                  "author": "Jamie Smith",
+                  "estimatedTime": "6 mins",
+                  "image": "https://www.bldcdn.com/images/articles/updating%20your%20profile%20information%20on%20beladed.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Keeping your Beladed profile up-to-date helps viewers find and connect with you more easily. This guide will walk you through the process of updating your profile information to ensure your Beladed presence is current and engaging."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 1: Log In to Beladed",
+                      "content": "Start by logging into your Beladed account at beladed.com using your email and password."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 2: Access Your Profile Settings",
+                      "content": "Click on your profile icon in the top-right corner of the page, then select 'Profile Settings' from the dropdown menu."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 3: Edit Basic Information",
+                      "content": "In the profile settings, you can update your display name, bio, and profile picture. Click on the 'Edit' button next to each section to make changes."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 4: Update Your Stream Information",
+                      "content": "Scroll down to find sections for updating your stream title, game category, and tags. Keep these current to help viewers find your content."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 5: Manage Social Media Links",
+                      "content": "Look for the 'Social Links' section where you can add or update links to your other social media profiles. This helps viewers connect with you on other platforms."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 6: Customize Your Channel Appearance",
+                      "content": "Beladed offers options to customize your channel's look. Explore the 'Channel Appearance' settings to update your banner image, accent colors, and other visual elements."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 7: Save Your Changes",
+                      "content": "After making all desired updates, scroll to the bottom of the page and click the 'Save Changes' button to apply your updates."
+                    },
+                    {
+                      "type": "text",
+                      "content": "Remember to review and update your profile regularly to keep your information fresh and relevant. A well-maintained profile can help attract and retain viewers on Beladed."
+                    }
+                  ],
+                  "tags": [
+                    "Profile Management",
+                    "Customization",
+                    "Account Settings"
+                  ]
+                },
+                {
+                  "title": "recovering a hacked beladed account",
+                  "category": "Account Management",
+                  "subCategory": "Account and Security",
+                  "topic": "Account issues",
+                  "date": "30 May 2024",
+                  "author": "Chris Taylor",
+                  "estimatedTime": "8 mins",
+                  "image": "https://www.bldcdn.com/images/articles/recovering%20a%20hacked%20beladed%20account.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "If you suspect your Beladed account has been hacked, it's crucial to act quickly to regain control and secure your account. Follow these steps to recover your hacked account."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 1: Reset Your Password",
+                      "content": "Immediately change your password by using the 'Forgot Password' feature on the login page. This will help prevent further unauthorized access."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 2: Enable Two-Factor Authentication",
+                      "content": "After regaining access, enable two-factor authentication (2FA) to add an extra layer of security to your account."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 3: Review Account Activity",
+                      "content": "Check your account's recent activity, including stream history, chat logs, and any changes to your profile or settings."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 4: Update Email and Recovery Options",
+                      "content": "Ensure your email address is up-to-date and add additional recovery options like a phone number or backup email."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Step 5: Contact Beladed Support",
+                      "content": "If you're still experiencing issues or notice unauthorized changes you can't reverse, contact Beladed support for further assistance."
+                    },
+                    {
+                      "type": "text",
+                      "content": "Remember to use strong, unique passwords for all your accounts and be cautious about phishing attempts to prevent future hacking incidents."
+                    }
+                  ],
+                  "tags": [
+                    "Account Security",
+                    "Hacking",
+                    "Recovery",
+                    "Security"
+                  ]
+                },
+                {
+                  "title": "creating engaging stream overlays",
+                  "category": "Streaming Essentials",
+                  "subCategory": "Getting Started with Streaming",
+                  "topic": "Streaming software setup",
+                  "date": "1 June 2024",
+                  "author": "David Park",
+                  "estimatedTime": "12 mins",
+                  "image": "https://www.bldcdn.com/images/articles/creating%20engaging%20stream%20overlays.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Learn how to design and implement professional-looking stream overlays that enhance viewer experience."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Essential Overlay Elements",
+                      "content": "Discover the key components that make up an effective stream overlay, from alerts to social media displays."
+                    }
+                  ],
+                  "tags": [
+                    "Stream Design",
+                    "Overlays",
+                    "Customization",
+                    "Branding"
+                  ]
+                },
+                {
+                  "title": "maximizing revenue through channel memberships",
+                  "category": "Monetization",
+                  "subCategory": "Earning Revenue",
+                  "topic": "Channel Subscriptions",
+                  "date": "3 June 2024",
+                  "author": "Rachel Kim",
+                  "estimatedTime": "15 mins",
+                  "image": "https://www.bldcdn.com/images/articles/maximizing%20revenue%20through%20channel%20memberships.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Explore strategies to create valuable membership tiers and increase subscriber retention."
+                    },
+                    {
+                      "type": "section",
+                      "title": "Designing Membership Tiers",
+                      "content": "Learn how to structure your membership levels to provide value at every price point."
+                    }
+                  ],
+                  "tags": [
+                    "Monetization",
+                    "Memberships",
+                    "Revenue",
+                    "Subscriber Benefits"
+                  ]
+                },
+                {
+                  "title": "setting up streamlabs alerts effectively",
+                  "category": "Technical Troubleshooting",
+                  "subCategory": "Software Issues",
+                  "topic": "Integration Issues",
+                  "date": "5 June 2024",
+                  "author": "Marcus Chen",
+                  "estimatedTime": "8 mins",
+                  "image": "https://www.bldcdn.com/images/articles/setting%20up%20streamlabs%20alerts%20effectively.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Configure your Streamlabs alerts to enhance viewer engagement and show appreciation for support."
+                    }
+                  ],
+                  "tags": [
+                    "Streaming Tools",
+                    "Alerts",
+                    "Streamlabs",
+                    "Stream Setup"
+                  ]
+                },
+                {
+                  "title": "building a moderation team for your channel",
+                  "category": "Safety and Community Guidelines",
+                  "subCategory": "Community Standards",
+                  "topic": "Moderation Tools",
+                  "date": "7 June 2024",
+                  "author": "Sophie Martinez",
+                  "estimatedTime": "10 mins",
+                  "image": "https://www.bldcdn.com/images/articles/building%20a%20moderation%20team%20for%20your%20channel.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Learn how to recruit, train, and manage effective moderators for your streaming community."
+                    }
+                  ],
+                  "tags": [
+                    "Moderation",
+                    "Community Management",
+                    "Safety",
+                    "Team Building"
+                  ]
+                },
+                {
+                  "title": "optimizing your stream for mobile viewers",
+                  "category": "Mobile Streaming",
+                  "subCategory": "Mobile Setup",
+                  "topic": "Technical Requirements",
+                  "date": "9 June 2024",
+                  "author": "James Wilson",
+                  "estimatedTime": "7 mins",
+                  "image": "https://www.bldcdn.com/images/articles/optimizing%20your%20stream%20for%20mobile%20viewers.webp",
+                  "content": [
+                    {
+                      "type": "text",
+                      "content": "Ensure your stream looks great on all devices with these mobile-friendly optimization tips."
+                    }
+                  ],
+                  "tags": [
+                    "Mobile Streaming",
+                    "Optimization",
+                    "Technical Setup"
+                  ]
+                },
+                {
+                  "title": "creating compelling channel panels",
+                  "category": "Content Creation",
+                  "subCategory": "Stream Planning",
+                  "topic": "Stream Preparation",
+                  "date": "11 June 2024",
+                   "Content Rights"
+                  ]
+                }
+              ]
+            }
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

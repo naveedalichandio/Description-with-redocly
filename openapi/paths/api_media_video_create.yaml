@@ -1,0 +1,93 @@
+post:
+  tags:
+    - MediaVideo
+  summary: Media - Video - Create - For Reward
+  description: >-
+    This endpoint is named "Media - Video - Create - For Reward" and its
+    function is to create a new video media for a particular reward. The request
+    is authenticated using a bearer token, which is a type of HTTP
+    authentication method. 
+
+
+    The request method is POST, which means it's used to send data to the server
+    to create a new resource. The endpoint URL where this data is sent is
+    "http://localhost:3000/api/media/video/create".
+
+
+    There are headers included in the request but they are currently disabled
+    and not holding any key-value pair.
+
+
+    The body of the request contains the data that you are sending to the
+    server. This data is being sent in raw JSON format which has the following
+    elements:
+
+
+    - `sessionId`: The unique ID for the session. This is a string.
+
+    - `accountId`: The unique ID for the account involved in creating the media.
+    This also is a string.
+
+    - `rewardId`: The unique ID for the reward for which this media is being
+    created. This is also a string.
+
+    - `name`: The name of the media being created.
+
+    - `description`: A brief description of the media being created.
+
+    - `tags`: Tags attached to the media for categorizing or labeling. Multiple
+    tags are separated by comas.
+
+    - `contentType`: The MIME type of the content. In this case, it's
+    `application/webm` which is typically used for web video files.
+
+    - `contentLength`: The length of the content, expressed in bytes. In this
+    case, it's set to 0, indicating the length is yet to be determined.  
+
+    - `targetKey`: The key specifying where the media is to be used in the
+    user's profile.
+
+    - `compressUsing`: The method of compression used, in this case 'Base64'.
+
+    - `isCompressed`: Determines if the media file is compressed. A boolean
+    value, true indicates that it is compressed.
+
+    - `isPrivate`: Determines if the media file is private or publicly
+    accessible. A boolean value, false indicates that it is publicly accessible.
+
+    - `data`: The actual content of the media in string format, represented by
+    '...'. 
+
+
+    Finally, the body has additional options for raw data wherein the language
+    being used is specified, in this case, JSON. 
+
+
+    Keep in mind when using this endpoint, always replace placeholders with
+    actual data to be sent for proper functioning.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            rewardId: rewardId
+            name: My Second Media
+            description: This media is my second media
+            tags: second,media
+            contentType: application/webm
+            contentLength: 0
+            targetKey: profilePhotoUrl
+            compressUsing: Base64
+            isCompressed: true
+            isPrivate: false
+            data: ...
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

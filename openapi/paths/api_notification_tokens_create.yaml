@@ -1,0 +1,112 @@
+post:
+  tags:
+    - NotificationTokens
+  summary: Notification - Tokens - Create
+  description: >-
+    Title of Endpoint: "Notification - Tokens - Create"
+
+
+    This endpoint is responsible for creating a new notification token. 
+
+
+    Authentication:
+
+    The authentication uses a bearer token that requires the "token" key and its
+    value, specified as "BearerToken".
+
+
+    Request Method: `POST`
+
+
+    URL: http://localhost:3000/api/notification/tokens/create
+
+
+    Headers: This endpoint currently does not require any additional headers as
+    the key and value fields are disabled.
+
+
+    Body: The body of the request is a raw JSON object with the following
+    properties:
+
+
+    - "sessionId": It represents the session identifier. 
+
+    - "accountId": It represents the account identifier.
+
+    - "name": This refers to the name of the notification token.
+
+    - "description": This holds a description of the notification token.
+
+    - "tags": This is used to tag the tokens with certain categories or labels.
+
+    - "profilePhotoUrl": This contains the URL of the profile photo associated
+    with the token.
+
+    - "coverPhotoUrl": This contains the URL of the cover photo associated with
+    the token.
+
+    - "minimumTipAmount": Specifies the minimum tip amount required.
+
+    - "categoryId": Represents the category ID for the token.
+
+    - "category": Represents the name of the category the token belongs to.
+
+    - "subCategoryId": Represents the sub category ID.
+
+    - "subCategory": Represents the name of the sub category.
+
+    - "isTokensPrivate": It's a boolean value that indicates if the token is
+    private.
+
+    - "isTournamentOnly": It's a boolean value that indicates if the token is
+    only for the tournament.
+
+    - "isTokensDefault": It's a boolean value that indicates if it's a default
+    token.
+
+    - "isPreLiveNotificationAds": This boolean indicates if there are ads before
+    live notification.
+
+    - "isPostLiveNotificationAds": This boolean indicates if there are ads after
+    live notification.
+
+    - "breakPreLiveNotificationUrl": This URL is used for pre-live break
+    notification.
+
+    - "breakPostLiveNotificationUrl": This URL is used for post-live break
+    notification.
+
+
+    Options: The language used to write the raw data in the body is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Tokens
+            description: This tokens is my second tokens
+            tags: second,tokens
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isTokensPrivate: true
+            isTournamentOnly: false
+            isTokensDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

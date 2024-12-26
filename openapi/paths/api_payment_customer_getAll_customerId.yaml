@@ -1,0 +1,59 @@
+get:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Zelle - Get All
+  description: >-
+    This endpoint is named "Customer - Zelle - Get All". It uses the GET HTTP
+    method to retrieve all the Zelle payment customers.
+
+
+    Below is a step-by-step breakdown of the components:
+
+
+    1. "name": It's the title of the endpoint. In this case, "Customer - Zelle -
+    Get All" indicates that the endpoint is meant to retrieve all Zelle
+    customers.
+
+
+    2. "method": This represents the HTTP method used. "GET" method retrieves
+    information from the specified source.
+
+
+    3. "url": This contains the URL where the request will be sent.
+    "http://localhost:3000/api/payment/customer/getAll/customerId" is the
+    address of the endpoint.
+
+       The URL has several parameters attached to it which include:
+
+       - "provider": This parameter specifies the payment provider. Here, it's set to 'zelle'.
+
+       - "accountId": This parameter signifies the unique id for a customer's account. The actual accountId should be substituted in place of 'accountId'.
+
+       - "sessionId": This parameter is used to track sessions. The actual sessionId should be replaced in the place of 'sessionId'.
+
+    4. "headers": At the moment, the "headers" array is empty. It usually
+    contains any required additional information to process the request
+    correctly, or metadata about the incoming request, such as the host, user
+    agent, etc. It's empty in this case, which means no extra information is
+    required for this API call.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

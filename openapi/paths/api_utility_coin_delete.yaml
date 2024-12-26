@@ -1,0 +1,68 @@
+post:
+  tags:
+    - UtilityCoin
+  summary: Utility - Coin - Delete
+  description: >-
+    ### Endpoint: Utility - Coin - Delete
+
+
+    - **Name**: Utility - Coin - Delete  
+      This denotes the purpose of the API request, which is to delete a specific coin from a utility service associated with a user.
+
+    #### Request Details
+
+
+    - **Authentication**:  
+      This API requires bearer token authentication.
+      - **Type**: Bearer  
+        Indicates that the request must include a bearer token.
+      - **Bearer Token**:  
+        - **Key**: token  
+          This represents the key used in the authorization header.
+        - **Value**: sessionId  
+          Placeholder for the actual session identifier used to authenticate the user. This should be replaced with a real session ID issued during user login.
+        - **Type**: string  
+          Specifies that the value is a string.
+
+    - **Method**: POST  
+      This indicates that the request type is POST, which is typically used for creating or modifying data on the server.
+
+    - **URL**: http://localhost:3000/api/utility/coin/delete  
+      This is the endpoint where the delete request is sent. The URL suggests that the API is hosted locally on port 3000, and the specific path indicates that it is meant for deleting a coin.
+
+    - **Headers**:  
+      - **Key**: (empty)  
+        There are no additional headers included in this request as indicated by the empty key, and this header field is disabled.
+
+    - **Body**:  
+      This is where the data for the delete operation is specified.
+      - **Mode**: raw  
+        The body content is sent in raw format.
+      - **Raw Content**:  
+        This is a JSON string that contains the fields required for the delete operation:
+        - **sessionId**: "sessionId"  
+          This placeholder should be replaced with the real session ID of the user making the request.
+        - **accountId**: "accountId"  
+          Placeholder for the unique identifier of the user's account from which the coin is to be deleted. This should be replaced with a real account ID.
+        - **coinId**: "coinId"  
+          Placeholder for the unique identifier of the coin that is to be deleted. This should be replaced with a real coin ID.
+
+    ### Summary
+
+    This API endpoint allows users to delete a specific coin from their account
+    in a utility service by sending a POST request with the necessary
+    authentication token and identifying information in the request body.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"coinId\":\"coinId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

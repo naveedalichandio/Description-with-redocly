@@ -1,0 +1,80 @@
+put:
+  tags:
+    - ActionBalance
+  summary: Action - Balance - Update
+  description: >-
+    ### Action - Balance - Update
+
+
+    #### Request Details:
+
+    - **Auth**: This section outlines the authentication method used for the
+    request.
+      - **Type**: The type of authentication being used is bearer token.
+      - **Bearer Token**: A key-value pair where:
+        - **Key**: The name for the token, labeled as "token".
+        - **Value**: The actual bearer token placeholder, noted as "BearerToken". This token must be replaced with a valid token for authorization.
+
+    - **Method**: The HTTP method used for this request is PUT, which indicates
+    that this request is intended to update an existing resource.
+
+
+    - **URL**: The endpoint for making the request is:
+      - `http://localhost:3000/api/action/balance/update`
+      - This is the designated path for updating balance information.
+
+    - **Headers**: Custom headers to be sent with the request.
+      - **Client-UUID**: A key-value pair where:
+        - **Key**: The header's name is "Client-UUID".
+        - **Value**: The placeholder "ClientUUID" must be replaced with the actual client UUID for identification purposes.
+
+    #### Body:
+
+    - The body of the request contains a raw JSON object that specifies the
+    details necessary for the balance update.
+      - **SessionId**: A unique identifier for the session, replace "sessionId" with the actual session ID.
+      - **AccountId**: Identifier for the account in question, to be replaced with the actual account ID.
+      - **BalanceId**: Unique identifier for the balance record to be updated, must replace "balanceId" with the correct value.
+      - **Path**: A string representing the path where the action is being executed, for example, "/live/channel/video123".
+      - **TargetType**: Specifies the type of target for the operation, here it is set to "streamer".
+      - **TargetId**: Identifier for the target object, replace "videoId" with the actual ID.
+      - **SourceType**: Type of source for the operation, to be set as "accountId".
+      - **SourceId**: Identifier for the source account, will also be "accountId" in this case.
+      - **TokenAmount**: The quantity of tokens being updated, currently set to 20.
+      - **Name**: A string representing the name associated with the action, currently set as "Farooq".
+      - **Description**: A brief string description for the action, currently set to "this is description".
+      - **Tags**: Comma-separated tags that describe the action, currently set to "xyz".
+
+    This information is structured in JSON format and is necessary for executing
+    the balance update action in the API.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            balanceId: balanceId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

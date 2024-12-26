@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ManageAdmin
+  summary: Manage - Admin - Get All
+  description: >-
+    This endpoint named "Manage - Admin - Get All" is designed to retrieve
+    specific information related to the admin from the local server.
+
+
+    - `name`: This key suggests the specific name of the endpoint. The given
+    name here is "Manage - Admin - Get All".
+
+
+    - `request`: A container for everything that makes up an HTTP request, this
+    section includes fields like `auth`, `method`, `url`, `headers`, and `body`.
+
+
+    - `auth`: Defines the authentication method and details required to connect
+    with the service. 
+
+        - `type`: Indicates which kind of authentication is used. In this case, it uses the "bearer" authentication type.
+      
+        - `bearer`: Contains the bearer token details.
+      
+            - `key`: Indicates the key field of the bearer token. The key field here is "token".
+      
+            - `value`: Defines the value of the bearer token. Here, "BearerToken" is the placeholder value.
+      
+            - `type`: It specifies the data type of the value. The type here is "string".
+
+    - `method`: This key signifies HTTP method used for the request. The value
+    "GET" indicates that it retrieves information.
+
+
+    - `url`: The URL field describes the endpoint where the request will be
+    sent. Here, it's
+    "http://localhost:3000/api/manage/admin/all/?sessionId=sessionId&accountId=accountId",
+    with query parameters `sessionId` and `accountId`.
+
+
+    - `headers`: Defines HTTP headers key-value pairs to include in the request.
+
+      - `key`: The name of the header field. Currently, it's kept empty.
+      
+      - `value`: The corresponding value of the header key. Currently, it's also empty.
+      
+      - `type`: Describes the type of the header. Here, it's "default".
+      
+      - `disabled`: A boolean to toggle the header on or off. Here, it is set as 'true' making it non-functional.
+
+    - `body`: This is the data sent by the request. There are no specific
+    details provided in this request since 'body' type is set as 'raw', but no
+    raw data is provided. 'Mode' describes how the data is sent; in this
+    instance, it is raw data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

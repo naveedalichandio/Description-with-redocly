@@ -1,0 +1,41 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Team
+  description: >-
+    ### Endpoint Description: Web - Socket - Recent Team
+
+
+    - **Name**: Web - Socket - Recent Team  
+      This endpoint retrieves the most recent teams via a WebSocket connection.
+
+    - **Request Method**: GET  
+      The HTTP method used for this request is GET, which is used to request data from the specified resource.
+
+    - **URL**:  
+      `http://localhost:3000/api/socket/web/team?recent=true&limit=limit`  
+      This is the endpoint URL. The parameters in the query string include:
+      - **recent**: A flag set to true to indicate that only recent teams should be fetched.
+      - **limit**: A placeholder for the maximum number of teams to return. Replace 'limit' with the desired number.
+
+    - **Headers**:  
+      This request does not require any specific headers to be included in the request.
+
+    This endpoint is useful for applications that need to display the latest
+    team information in real time.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

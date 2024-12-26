@@ -1,0 +1,92 @@
+put:
+  tags:
+    - ActionDraft
+  summary: Action - Draft - Update
+  description: |-
+    ### Description of Each Data in the Endpoint
+
+    - **name**:
+      - Describes the purpose of the request, specifically updating a draft action.
+
+    - **request**:
+      - Contains all necessary information to perform the API request.
+
+    - **auth**:
+      - Specifies the authentication method used for this request.
+      - **type**: Indicates that bearer token authentication is required.
+      - **bearer**: Provides the bearer token needed for authorization.
+        - **key**: The identifier for the token type.
+        - **value**: The string value of the bearer token, which should be replaced with the actual token.
+        - **type**: Specifies that the token is a string.
+
+    - **method**:
+      - The HTTP method used for the request, which in this case is PUT, indicating that this request is used to update an existing resource.
+
+    - **url**:
+      - The endpoint URL to which the request is sent. Here it is directed to update a draft at the specified localhost server.
+
+    - **headers**:
+      - Contains key information that is sent along with the request.
+      - **key**: The name of the header which is "Client-UUID".
+      - **value**: The actual UUID of the client, which should be replaced with the client's unique identifier.
+      - **type**: Indicates that the header is of a standard type.
+
+    - **body**:
+      - This section contains the data being sent with the request.
+      - **mode**: Indicates that the body is in raw format.
+      - **raw**: Contains the JSON data that represents the draft details to be updated. The fields within the JSON are as follows:
+        - **sessionId**: The unique identifier for the session related to this action.
+        - **accountId**: The unique identifier for the user account associated with the draft.
+        - **path**: The path to the resource that the draft relates to, in this case, a video.
+        - **targetType**: Specifies the type of target for the action; here it is designated as "videoId".
+        - **targetId**: The unique identifier of the target resource, which would be a video ID.
+        - **sourceType**: Indicates the type of the source, which is "accountId" in this case.
+        - **sourceId**: The unique identifier for the source, corresponding to the account ID.
+        - **isDrafted**: A boolean value indicating whether the draft has been created or marked.
+        - **draftType**: Specifies the type of draft; here it is labeled as "streamer".
+        - **isAccepted**: A boolean value indicating if the draft has been accepted.
+        - **isRejected**: A boolean value indicating if the draft has been rejected.
+        - **isIgnored**: A boolean value stating if the draft action should be ignored.
+        - **name**: A string that indicates the title or name of the draft.
+        - **description**: A string that provides additional details about the draft.
+        - **tags**: A comma-separated list of tags that can be associated with the draft for categorization.
+        - **draftId**: The unique identifier for the draft being updated. 
+
+    - **options**:
+      - Provides formatting details for the raw body.
+      - **raw**: Specifies the language format of the body content, which is JSON in this case.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            isDrafted: true
+            draftType: streamer
+            isAccepted: false
+            isRejected: true
+            isIgnored: false
+            name: this is name of draft
+            description: this is description of draft
+            tags: tag1,tag2,tag3
+            draftId: draftId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

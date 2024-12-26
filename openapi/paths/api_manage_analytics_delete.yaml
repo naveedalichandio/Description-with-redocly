@@ -1,0 +1,51 @@
+post:
+  tags:
+    - ManageAnalytics
+  summary: Manage - Analytics - Delete
+  description: >-
+    This endpoint is named "Manage - Analytics - Delete". It's designed to
+    handle the deletion of analytic data. 
+
+
+    Here are the details for each part of the endpoint: 
+
+
+    1. **auth**: This object contains information about the required
+    authorization method for this endpoint.
+       - **type**: This field should hold the string "bearer", specifying that a bearer token is necessary for authorization.
+       - **bearer**: This array lists all bearer tokens required for access; in this case, there is only one: "token".
+          - **key**: "token": This indicates that the bearer token's name is "token".
+          - **value**: "sessionId": This shows that the token should hold the value "sessionId".
+          - **type**: "string" indicates that the token would be of string data type.
+
+    2. **method**: This field shows that a "POST" HTTP method is used for this
+    API endpoint.
+
+
+    3. **url**: This field contains the URL
+    "http://localhost:3000/api/manage/analytics/delete" where the request will
+    be sent.
+
+
+    4. **headers**: This is an array that usually contains details about key and
+    value of the headers to be included in the request. However, in this case,
+    it is empty, meaning no extra headers are required.
+
+
+    5. **body**: This object contains information about the body of the request.
+       - **mode**: This field should hold the string "raw", indicating that the body is in raw format.
+       - **raw**: This field contains a JSON object with three properties: "sessionId", "accountId", and "analyticsId". Each of these properties should have string values. These values are used to identify the session, the account, and the specific analytics data point that is to be deleted respectively.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"analyticsId\":\"analyticsId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

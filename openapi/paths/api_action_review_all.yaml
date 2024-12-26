@@ -1,0 +1,91 @@
+get:
+  tags:
+    - ActionReview
+  summary: Action - Review - Get All
+  description: >-
+    ### Endpoint Description: Action - Review - Get All
+
+
+    This API endpoint retrieves all reviews associated with actions. Below is a
+    detailed description of each component of the request.
+
+
+    - **Name**: Action - Review - Get All  
+      This is the name of the API request. It indicates that the endpoint is used to get all reviews related to actions.
+
+    - **Request**: 
+      The main section where the details of the API request are defined.
+
+      - **Auth**:  
+        Specifies the authentication method used for the API call.
+        
+        - **Type**: `bearer`  
+          This indicates that the API uses Bearer Token authentication.
+          
+        - **Bearer**:  
+          An array that contains a single object for the token.
+          
+          - **Key**: `token`  
+            The key used to signify the token in the authorization header.
+            
+          - **Value**: `BearerToken`  
+            A placeholder string for the actual Bearer Token required for authentication. Users should replace `BearerToken` with their actual token.
+            
+          - **Type**: `string`  
+            This denotes that the value of the token is a string data type.
+            
+      - **Method**: `GET`  
+        This specifies that the request method is GET, which means it will retrieve data from the server.
+
+      - **URL**: `http://localhost:3000/api/action/review/all/?sessionId=sessionId&accountId=accountId`  
+        The endpoint URL for the API request. It consists of the base URL followed by the specific route to access all reviews. It also includes two query parameters:
+        
+        - **sessionId**: a placeholder for the unique identifier of the session. This should be replaced with the actual session ID.
+        
+        - **accountId**: a placeholder for the unique identifier of the account. This should be replaced with the actual account ID.
+
+      - **Headers**:  
+        An array that allows you to specify any additional HTTP headers for the request.
+        
+        - **Key**: `""`  
+          In this case, there are no custom headers defined as the key is empty.
+          
+        - **Value**: `""`  
+          Similarly, since the key is empty, there is no value defined.
+          
+        - **Type**: `default`  
+          Indicates the type of the header, which defaults to standard headers.
+          
+        - **Disabled**: `true`  
+          This means that the header configuration is currently disabled and will not be sent with the request.
+          
+      - **Body**:  
+        Contains the data to be sent with the request.
+        
+        - **Mode**: `raw`  
+          This indicates that the body of the request is in raw format.
+          
+        - **Raw**: `""`  
+          The body is empty, meaning no additional data is sent with the request. This is typical for GET requests where no body is required. 
+
+    This detailed description serves to help users understand how to interact
+    with the endpoint correctly and what information they need to prepare when
+    making a request to retrieve action reviews.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,65 @@
+get:
+  tags:
+    - PaymentPayout
+  summary: Payout - Zelle - Get
+  description: >-
+    This endpoint is for the "Payout - Zelle - Get" service. 
+
+
+    - "name": This refers to the name of the endpoint, which in this case is
+    "Payout - Zelle - Get". This is the name that will be used to identify this
+    endpoint in the API collection.
+
+
+    - "request": This is a JSON object that holds all the details of the request
+    that will be made to this endpoint.
+
+
+    - "method": This is the HTTP method that will be used to make the request to
+    this endpoint. In this case, the method is GET.
+
+
+    - "url": This is the URL of the endpoint. For this service, the URL is
+    "http://localhost:3000/api/payment/payout/get/payoutId". This is the link
+    where the request will be sent.
+
+
+    - "provider": This is a query parameter in the URL that specifies the
+    payment provider. For this endpoint, the provider is "zelle".
+
+
+    - "accountId": This is another query parameter in the URL that identifies
+    the account making the payout. Each account will have a unique accountId
+    which should be provided to get details about a specific payout.
+
+
+    - "sessionId": This is another query parameter in the URL used for session
+    management. This sessionId will be unique for every session and helps in
+    identifying and maintaining the session for the given user.
+
+
+    - "headers": Headers are often used to provide additional information about
+    the request. In this case, no specific headers have been provided, which
+    means the endpoint uses default headers or doesn't require any additional
+    header information.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

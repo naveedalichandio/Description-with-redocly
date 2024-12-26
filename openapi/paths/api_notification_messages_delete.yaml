@@ -1,0 +1,61 @@
+post:
+  tags:
+    - NotificationMessages
+  summary: Notification - Messages - Delete
+  description: >-
+    1. "name": This value corresponds to the name of the endpoint. In this case,
+    the name of the endpoint is "Notification - Messages - Delete". This
+    indicates that this endpoint is used to delete messages from the
+    Notification.
+
+
+    2. "request": This section contains all the information regarding the
+    request sent to the endpoint.
+
+
+    3. "auth": This section details the authentication required for the request.
+    It is using a "bearer" type authentication, which uses encrypted security
+    tokens. 
+
+
+    4. "bearer": An array representing the bearer token in the authentication
+    process. It has an object containing:
+
+       - "key": Name of the authorization token, in this case, it's "token".
+       - "value": The required value for the key, here it's "sessionId".
+       - "type": Specifies the data type of the value. Here it indicates that the session ID should be a string.
+
+    5. "method": This indicates the HTTP method for the request. Here, the
+    method is "POST". This means that the request wants to send data to the
+    server to create/update a resource.
+
+
+    6. "url": The URL where the request is to be sent. The endpoint for this
+    request is "http://localhost:3000/api/notification/messages/delete".
+
+
+    7. "headers": This section contains additional parameters that you need to
+    send with request header. In this case, it's empty by default, meaning no
+    additional header parameters are sent.
+
+
+    8. "body": This section represents the data sent to the server with the HTTP
+    request. Here, it's in "raw" format indicating JSON request body. It
+    includes:
+
+       - "mode": This specifies the format of the body. The value "raw" specifies that the body contains raw data.
+       - "raw": This includes the raw request body. It consists of a JSON object with the "sessionId", "accountId" and "messagesId". These values represent the session identifier, user's account identifier and identifier for the messages that need to be deleted respectively.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"messagesId\":\"messagesId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,84 @@
+put:
+  tags:
+    - ActionShare
+  summary: Action - Share - Update
+  description: >-
+    ### Action - Share - Update
+
+
+    This API endpoint allows users to update sharing details for specific
+    content.
+
+
+    #### Request
+
+
+    - **Auth**:
+      - **Type**: Bearer
+        - **Bearer Token**: The token required for authorization to access this endpoint. The token should be supplied in the format: "Bearer <token>".
+
+    - **Method**: 
+      - **PUT**: This HTTP method is used to update existing resources on the server.
+      
+    - **URL**: 
+      - **Endpoint**: `http://localhost:3000/api/action/share/update` 
+        - This is the endpoint where the request will be sent to perform the update action.
+
+    - **Headers**:
+      - **Client-UUID**: A unique identifier for the client making the request. This helps the server identify the client and its context.
+
+    - **Body**:
+      - **Mode**: Raw
+        - This indicates that the request body contains raw data in JSON format.
+
+      - **Raw JSON Data**:
+        - **sessionId**: A unique identifier for the user's session, which is useful for tracking user interactions and data sharing sessions.
+        - **accountId**: The ID associated with the user's account that is performing the sharing action.
+        - **path**: The location of the content being shared. For example, it might denote a URL path for a video.
+        - **targetType**: Specifies the type of target being shared, such as "videoId", indicating that the target of the share is a video identified by its ID.
+        - **targetId**: The unique identifier of the target content that is being shared.
+        - **sourceType**: The type of the source account that is sharing the content. This might be an "accountId" indicating the account sharing the video.
+        - **sourceId**: The unique identifier of the source account that is responsible for sharing.
+        - **didShare**: A boolean value indicating whether the share action was successfully executed. Set to true if the item was shared.
+        - **shareType**: Indicates the method of sharing, such as "link", specifying how the content is being shared.
+        - **text**: A custom message that can accompany the shared content. In this case, it states "check this out update".
+        - **name**: A placeholder for any name associated with the share, currently left empty.
+        - **description**: A space for a description of the shared content, also currently left empty.
+        - **tags**: Tags associated with the shared content for better categorization, currently left empty.
+        - **shareId**: A unique identifier for the share action itself, which could be used to track or reference this particular share operation.
+
+    This endpoint is designed for users to modify sharing details effectively,
+    ensuring that all relevant information is captured in the request body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didShare: true
+            shareType: link
+            text: check this out update
+            name: ''
+            description: ''
+            tags: ''
+            shareId: shareId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,53 @@
+post:
+  tags:
+    - ActionIgnore
+  summary: Action - Ignore - Delete
+  description: >-
+    ### Endpoint: Action - Ignore - Delete
+
+
+    #### Request Details
+
+
+    - **Authentication**: 
+      - **Type**: Bearer
+        - This indicates that the request requires a bearer token for authentication.
+        - **Token**: A placeholder value `sessionId` is specified here. In practice, this should be replaced with an actual session token that is required to authenticate the user making the request.
+
+    - **Method**: 
+      - **POST**: This request uses the POST method to send data to the server. It is typically used for submitting data or making changes to the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/ignore/delete`: This is the endpoint where the request is sent. It is hosted locally on port 3000 and pertains to the action of ignoring or deleting an entry.
+
+    - **Headers**: 
+      - The headers section is currently empty with a disabled entry. You can add any necessary HTTP headers (like Content-Type) here if needed, but as it stands, there are no headers in use.
+
+    #### Request Body
+
+
+    - **Mode**: 
+      - **Raw**: The body format being used is raw data. This means the data is sent as plain text.
+
+    - **Raw Data**: 
+      - The body of the request contains JSON formatted data that includes:
+        - **sessionId**: A placeholder string `sessionId`. This should contain the actual session identifier for the user.
+        - **accountId**: A placeholder string `accountId`. This should represent the unique identifier for the user’s account that is being referenced in the operation.
+        - **ignoreId**: A placeholder string `ignoreId`. This should be replaced with the identifier of the specific ignore action that the user wishes to delete.
+
+    This endpoint is designed to delete an ignore action based on the provided
+    IDs, requiring proper authentication and the specific identifiers.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"ignoreId\":\"ignoreId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

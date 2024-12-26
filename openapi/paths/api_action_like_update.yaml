@@ -1,0 +1,110 @@
+put:
+  tags:
+    - ActionLike
+  summary: Action - Like - Update
+  description: >-
+    ### Action - Like - Update Endpoint Description
+
+
+    This documentation outlines the details of the "Action - Like - Update"
+    endpoint, which is used to update the like status of a specific video. The
+    request method is PUT and requires authentication via a bearer token.
+
+
+    #### Request Details
+
+
+    - **Auth Type:**
+      - The request uses bearer token authentication.
+      - The token is passed in the authorization header using the format: `Bearer BearerToken`.
+
+    - **HTTP Method:**
+      - PUT: This method is used to update existing resources.
+
+    - **URL:**
+      - `http://localhost:3000/api/action/like/update`: This is the endpoint used to update the like action for a specific video.
+
+    - **Headers:**
+      - **Client-UUID:** 
+        - This header contains the unique identifier for the client making the request, which is used for tracking and analytics. It should be replaced with the actual UUID of the client.
+
+    #### Request Body
+
+
+    The body of the request is in JSON format and contains the following fields:
+
+
+    - **sessionId:**
+      - A unique identifier for the user session, used to track the user's current interaction.
+
+    - **accountId:**
+      - The unique identifier for the user's account. This indicates which user's like action is being updated.
+
+    - **path:**
+      - The path to the specific video resource being affected, in this case, it follows the format `/live/channel/video123`, where `video123` should be replaced with the actual video's identifier.
+
+    - **targetType:**
+      - Indicates the type of target being liked. In this case, it specifies that the target is identified by `videoId`.
+
+    - **targetId:**
+      - The unique identifier for the video that is being liked or unliked.
+
+    - **sourceType:**
+      - This field indicates the type of source of the like action. Here it uses `accountId` to specify that the source is based on the user account.
+
+    - **sourceId:**
+      - This is the same as the `accountId` and represents the source account performing the action.
+
+    - **didLike:**
+      - A boolean value indicating whether the user liked the video (`true` for liked, `false` for unliked).
+
+    - **isUndo:**
+      - A boolean value indicating whether the action is intended to undo a previous like status. Setting this to `true` will remove a like if it exists.
+
+    - **name:**
+      - A string field reserved for a name associated with the like action. It can be left empty if not needed.
+
+    - **description:**
+      - A string field reserved for a description associated with the like action. It can be left empty if not needed.
+
+    - **tags:**
+      - A field for any tags related to the like action. It is optional and can be left empty.
+
+    - **likeId:**
+      - A unique identifier for the specific like action being updated. This is necessary to reference the previous like status.
+
+    Overall, this endpoint effectively allows the user to update whether they
+    like or dislike a specific video while providing all necessary identifiers
+    and information.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didLike: false
+            isUndo: true
+            name: ''
+            description: ''
+            tags: ''
+            likeId: likeId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,63 @@
+post:
+  tags:
+    - ArticleTopic
+  summary: Article - Topic - Create Auto
+  description: >-
+    1. `name`: This is the name of the endpoint, which in this case is "Article
+    - Topic - Create Auto". It is used to give a description of the action being
+    carried out by this endpoint.
+
+
+    2. `request`: The request object consists of several key properties:
+
+        - `auth`: This object provides information about the authentication method used for this API endpoint. The authentication type here is Bearer token authentication which typically involves sending a token in the authorization header of the HTTP request.
+            - `type`: It describes the type of authentication used. Here, 'bearer' authentication is used.
+            - `bearer`: This array contains the bearer token details.
+                - `key`: The key is "token" which is the standard key value when using bearer token authentication.
+                - `value`: This stands for the actual token value which is to be replaced with the actual bearer token.
+                - `type`: The type of the token. Here, it is a string.
+
+        - `method`: HTTP method being used for the request. Here it is "POST" which is used to send data to a server to create a resource.
+
+        - `url`: It is the endpoint URL where the HTTP request is sent. Here the URL is "http://localhost:3000/api/article/topic/create".
+
+        - `headers`: This is an object that contains all the HTTP headers that you want to include in your request. Here, no specific headers have been provided and the disabled property set to true indicating that there's no active header being used for this API request.
+
+        - `body`: Contains the actual content/data you're sending with the request. Here, it is in raw JSON format and contains the following fields:
+            - `sessionId`: This is most likely a unique identifier for the current user session.
+            - `accountId`: Possibly the account ID of the user creating the article or the topic.
+            - `category`: This contains the category for the new article or topic.
+            - `subCategory`: This contains the sub category for the new article or topic.
+            - `name`: This is the name of the new article or topic.
+            - `displayName`: The human-readable name for the new article or topic.
+            - `description`: A brief description of the new article or topic.
+            - `tags`: These are the tags related to the new article or topic. They seem to be a comma-separated list of words related to the article or topic. 
+
+        - `options`: Contains additional options related to the body of the request.
+              - `raw`: It possesses an object which states the language format of the raw data, in this instance, the language choice is JSON.
+
+    In summary, this endpoint is for creating a new article or topic within a
+    certain category and sub-category using their account ID and session ID, as
+    well as providing a name, display name, description and related tags. The
+    bearer token used for authenticated requests is expected to be provided.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            category: My Brand New Category
+            subCategory: My Brand New Sub Category
+            name: Miami Art Week 8
+            displayName: Miami Art Week 2028
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

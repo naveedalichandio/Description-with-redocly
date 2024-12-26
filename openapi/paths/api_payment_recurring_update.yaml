@@ -1,0 +1,64 @@
+put:
+  tags:
+    - PaymentRecurring
+  summary: Recurring - Zelle - Update
+  description: >-
+    1. `name`: This is the name of the API Endpoint and it is labelled as
+    "Recurring - Zelle - Update".
+
+
+    2. `request`: This field describes the entire HTTP request details.
+
+       - `method`: This indicates the HTTP method or verb that is being used for this request, which in this case is "PUT". It is used to update an existing resource.
+       
+       - `url`: The URL field contains the endpoint where the request is being sent: "http://localhost:3000/api/payment/recurring/update".
+
+       - `headers`: This field is for any meta-data associated with the API request. It's currently empty, meaning no additional data is being sent with the request.
+
+       - `body`: This includes the content or the data of the request.
+            
+          - `mode`: The mode field indicates that the data format is "raw".
+            
+          - `raw`: Contains the actual data being sent in the request. 
+              
+             - `accountId`: This is the account identification in string format to update the payment detail.
+                
+             - `sessionId`: Session ID in string format representing the user session during which the update is being made.
+                
+             - `recurringId`: Identification of recurring payment which is to be updated.
+                
+             - `source`: The source of the payment. Currently set to null implying no specific source is assigned.
+                
+             - `isSaveRecurring`: Boolean field that checks whether the recurring payment needs to be saved or not. It's currently set to true, meaning the recurring payment needs to be saved.
+                
+             - `isPrimary`: Indicates if the recurring payment is the primary payment mode. It's currently set to true, meaning it is set as the primary payment mode.
+            
+             - `provider`:  Specifies the payment provider. Here it is mentioned as "zelle", which represents Zelle payment.
+            
+          - `options`: This defines the options of raw data.
+              
+             - `raw`: This field allows for custom raw data options.
+                  
+                - `language`: The language field indicates that the data format used is "json".
+       
+    The endpoint described is used to update existing recurring payments through
+    Zelle. The account information, session details, and recurring payment
+    details would be needed as input.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            recurringId: recurringId
+            source: null
+            isSaveRecurring: true
+            isPrimary: true
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

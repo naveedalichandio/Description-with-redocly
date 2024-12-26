@@ -1,0 +1,56 @@
+get:
+  tags:
+    - SearchFilter
+  summary: Search - Filter - Get All By User
+  description: >-
+    The endpoint described here bears the name "Search - Filter - Get All By
+    User". This name suggests that the endpoint is responsible for retrieving
+    all filter items related to a specific user based on a search operation.
+    Here's a detailed breakdown of each data component:
+
+
+    1. "request": This is the main body of the request for this endpoint.
+
+
+    2. "auth": This refers to the authentication method used for this request.
+    In this instance, a "bearer" type authentication is utilized.
+
+       - "bearer": This is an authentication method that involves sending a bearer token. In this case, the token's key is simply "token", and the value is "BearerToken". The token type is a string.
+
+    3. "method": This is the HTTP method used for the API call. For this
+    endpoint, a "GET" method is used, indicating that it retrieves particular
+    resources.
+
+
+    4. "url": This is the URL of the API that the call is sent to. The endpoint
+    can be accessed at `http://localhost:3000/api/search/filter/all/` with two
+    query parameters, `accountId` and `sessionId`.
+
+
+    5. "headers": This section is used to send additional information about the
+    API request. In this case, the key and value fields are empty and disabled,
+    meaning no additional header details are required for the API call.
+
+
+    6. "body": This section represents the data that is sent with the API
+    request. The mode is set to "raw" but no data is meant to be sent with this
+    request hence the "raw" field is empty. This suggests that this API endpoint
+    only needs the information available in the URL to complete its operation.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

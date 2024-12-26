@@ -1,0 +1,92 @@
+post:
+  tags:
+    - UniversityVideo
+  summary: University - Video - Create
+  description: |-
+    {
+      "description": {
+        "name": "The name of the API endpoint, indicating that it is used to create a video for the university.",
+        "request": {
+          "auth": {
+            "type": "bearer": "This specifies the type of authentication required. A Bearer token must be provided in order to access this endpoint.",
+            "bearer": [
+              {
+                "key": "token": "This is a key that represents the type of authentication (token).",
+                "value": "BearerToken": "This is where the actual Bearer token should be placed for authentication. It must be a valid token to authorize the request.",
+                "type": "string": "This indicates that the value should be a string."
+              }
+            ]
+          },
+          "method": "POST": "This specifies that the HTTP method used for this request is POST, indicating that data will be sent to create a new resource.",
+          "url": "http://localhost:3000/api/university/video/create": "This is the URL endpoint for the API where the request will be sent to create a video.",
+          "headers": [
+            {
+              "key": "": "This is the key for the header. In this case, it is empty.",
+              "value": "": "This is the value for the header. In this case, it is also empty.",
+              "type": "default": "This specifies the type of the header, which is set to default.",
+              "disabled": true: "This indicates that this header is currently disabled and will not be included in the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "This indicates that the body of the request is being sent in raw format.",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My Second Video\",\"description\":\"This video is my second video\",\"tags\":\"second,video\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isVideoPrivate\":true,\"isTournamentOnly\":false,\"isVideoDefault\":true,\"isPreLiveUniversityAds\":true,\"isPostLiveUniversityAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}": "This is the actual content of the request body in JSON format. It contains various properties related to the video being created.",
+            "options": {
+              "raw": {
+                "language": "json": "This specifies that the raw content is in JSON format, indicating that the body follows JSON syntax."
+              }
+            }
+          }
+        },
+        "sessionId": "A unique identifier for the session under which the video is being created.",
+        "accountId": "The identifier associated with the user account that is creating the video.",
+        "name": "The title of the video being created.",
+        "description": "A brief overview or narrative about the content of the video.",
+        "tags": "A comma-separated list of keywords associated with the video for search and categorization.",
+        "profilePhotoUrl": "A URL pointing to the profile photo to be associated with the video creator.",
+        "coverPhotoUrl": "A URL pointing to the cover photo that will be displayed for the video.",
+        "minimumTipAmount": "The minimum amount that can be tipped by viewers for this video.",
+        "categoryId": "The unique identifier for the category under which this video falls.",
+        "category": "The general category of the video content (e.g., General, Education).",
+        "subCategoryId": "The unique identifier for the sub-category of the video.",
+        "subCategory": "The specific sub-category of the video content.",
+        "isVideoPrivate": "A boolean flag that indicates whether the video should be private or public.",
+        "isTournamentOnly": "A boolean flag that indicates if the video is exclusive to tournament events.",
+        "isVideoDefault": "A boolean flag that indicates whether this video is set as a default video for the creator.",
+        "isPreLiveUniversityAds": "A boolean flag that indicates if pre-live university advertisements should be included with the video.",
+        "isPostLiveUniversityAds": "A boolean flag that indicates if post-live university advertisements should be included with the video.",
+        "breakPreLiveVideoUrl": "A URL linking to a video that will be displayed before the live event starts.",
+        "breakPostLiveVideoUrl": "A URL linking to a video that will be displayed after the live event has concluded."
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Video
+            description: This video is my second video
+            tags: second,video
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isVideoPrivate: true
+            isTournamentOnly: false
+            isVideoDefault: true
+            isPreLiveUniversityAds: true
+            isPostLiveUniversityAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

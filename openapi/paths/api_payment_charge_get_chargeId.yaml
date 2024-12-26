@@ -1,0 +1,66 @@
+get:
+  tags:
+    - PaymentCharge
+  summary: Charge - Zelle - Get
+  description: >-
+    This endpoint is named "Charge - Zelle - Get". It's designed to retrieve
+    details about a specific charge from the Zelle payment provider.
+
+
+    It uses the GET method, which is typically used when you're trying to read
+    or retrieve data from a resource.
+
+
+    "url": This is the path from where the API endpoint can be accessed. It's
+    set to "http://localhost:3000/api/payment/charge/get/chargeId". In this URL:
+
+    - "localhost:3000" indicates that the API server is running locally on port
+    3000.
+
+    - "api/payment/charge/get/chargeId" is the specific path on the server where
+    our endpoint is located. The "chargeId" part in our example is a placeholder
+    for the actual charge ID that you need to provide to get charge details.
+
+
+    The endpoint accepts two query parameters in the URL: 
+
+    - "provider" is used to indicate the payment provider, in this case, it's
+    set to "zelle".
+
+    - "accountId" is used to specify the account ID from which the charge was
+    made. This should be replaced with the actual account ID.
+
+    - "sessionId" is used to keep track of the user session. The actual session
+    ID should be provided here.
+
+
+    "headers": This field is currently empty, indicating that the endpoint does
+    not require any specific HTTP headers. However, in some cases, headers might
+    include additional data that is needed for the request, such as API tokens
+    or keys for authentication.
+
+
+    Please note that actual values should replace placeholders accordingly, and
+    URL parameters should properly URL encoded if they contain special
+    characters or spaces.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

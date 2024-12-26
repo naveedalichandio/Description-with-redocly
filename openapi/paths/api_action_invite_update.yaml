@@ -1,0 +1,89 @@
+put:
+  tags:
+    - ActionInvite
+  summary: Action - Invite - Update
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This describes the endpoint and its purpose. In this case, it is
+    for updating an invite action.
+
+
+    - **request**: This section contains all the details necessary to make the
+    HTTP request.
+
+      - **auth**: Specifies the authentication method used for the request.
+        - **type**: Indicates that the authentication type is a bearer token.
+        - **bearer**: Contains the details of the bearer token used for authentication.
+          - **key**: The key under which the token is provided ("token").
+          - **value**: The actual bearer token value, which identifies the user making the request.
+          - **type**: Indicates the type of the bearer token as a string.
+
+      - **method**: The HTTP method used for this request. Here, it is set to "PUT," indicating that this request will be used to update existing resources.
+
+      - **url**: The endpoint URL where the request will be sent. In this case, it points to a local server at `http://localhost:3000/api/action/invite/update`.
+
+      - **headers**: This section includes any custom headers that need to be sent with the request.
+        - **key**: The name of the header ("Client-UUID").
+        - **value**: The value for the header, which is a unique identifier for the client making the request.
+        - **type**: Specifies that this is a default type header.
+
+      - **body**: The body of the request contains the data being sent to the server in raw format.
+        - **mode**: Indicates the formatting of the body, which is set to "raw."
+        - **raw**: Here is the actual JSON data being sent in the request body.
+          - **sessionId**: A unique identifier for the session related to the invite action.
+          - **accountId**: The account identifier for the user making the invitation.
+          - **path**: The path to the resource, indicating where the invite is directed (e.g., a specific video).
+          - **targetType**: The type of entity being targeted by the invite (in this case, a video).
+          - **targetId**: The identifier for the target entity (e.g., videoId).
+          - **sourceType**: The type of source for the invite, usually corresponding to the account type (e.g., accountId).
+          - **sourceId**: The identifier for the source of the invitation (e.g., accountId).
+          - **didInvite**: A boolean flag indicating whether the invite has been sent.
+          - **inviteType**: The type of invite being sent (e.g., "friend").
+          - **isAccepted**: A boolean flag indicating whether the invite has been accepted.
+          - **isRejected**: A boolean flag indicating whether the invite has been rejected.
+          - **isIgnored**: A boolean flag indicating whether the invite has been ignored.
+          - **name**: A descriptive name for this invite update action.
+          - **description**: A text field intended for additional details about the invite (currently empty).
+          - **tags**: A field for associated tags (currently empty).
+          - **inviteId**: The unique identifier for this specific invite, used for reference in the update.
+
+      - **options**: Additional options for the request body.
+        - **raw**: Specifies the format of the raw body.
+          - **language**: Indicates that the language of the raw data is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didInvite: false
+            inviteType: freind
+            isAccepted: false
+            isRejected: false
+            isIgnored: false
+            name: update
+            description: ''
+            tags: ''
+            inviteId: inviteId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

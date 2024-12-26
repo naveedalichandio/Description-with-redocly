@@ -1,0 +1,63 @@
+post:
+  tags:
+    - UniversityUniversity
+  summary: University - General - Delete
+  description: >-
+    **Endpoint Name:** University - General - Delete
+
+
+    **Request:**
+
+
+    - **Authorization:**
+      - **Type:** Bearer
+        - This indicates that the request uses a Bearer token for authentication. The token is essential for verifying the identity of the user making the request.
+        - **Bearer Token Details:**
+          - **Key:** token
+            - This is the identifier for the token being passed in the request.
+          - **Value:** sessionId
+            - This placeholder represents the actual session ID required for authentication purposes. This should be replaced with a valid session ID.
+          - **Type:** string
+            - Indicates that the value of the token is expected to be a string data type.
+
+    - **Method:** POST
+      - This specifies that the HTTP method for the request is POST, which is typically used to send data to the server to be processed.
+
+    - **URL:** http://localhost:3000/api/university/university/delete
+      - This is the endpoint where the request is being sent. It points to the local server's API for deleting a university.
+
+    - **Headers:**
+      - **Key:** (Empty)
+        - The header key is currently empty and not being used. It is marked as disabled.
+      - **Value:** (Empty)
+        - Similar to the key, the header value is also empty and not in use. It is marked as disabled.
+      
+    - **Body:**
+      - **Mode:** raw
+        - This indicates that the body of the request is sent in raw format, which allows for the transmission of a raw JSON string.
+      - **Raw Content:** 
+        - `{"sessionId":"sessionId","accountId":"accountId","universityId":"universityId"}`
+          - **sessionId:** 
+            - A placeholder for the session ID, which is used for authentication.
+          - **accountId:** 
+            - A placeholder for the account ID, which identifies the user account making the deletion request.
+          - **universityId:** 
+            - A placeholder for the university ID of the university that is to be deleted. This value should be replaced with the actual university ID that is intended for deletion.
+
+    This endpoint is designed to delete a university based on the provided
+    university ID and requires both a valid session ID for authentication and an
+    account ID associated with the requesting user.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"universityId\":\"universityId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

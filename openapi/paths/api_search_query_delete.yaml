@@ -1,0 +1,54 @@
+post:
+  tags:
+    - SearchQuery
+  summary: Search - Query - Delete
+  description: >-
+    This endpoint description carries the name "Search - Query - Delete", which
+    points to its basic purpose, that is to perform deletion operations on
+    search queries.
+
+
+    - `auth`: This field holds the authentication details needed for the
+    endpoint. This endpoint uses `bearer token` authentication. There is a
+    key-value pair within an array. The `key` is designated as `token` while the
+    `value` is the `sessionId`. Every session must provide this `sessionId` as a
+    string value in order to initiate authenticated requests.
+
+
+    - `method`: The HTTP method utilized by this endpoint is `POST`. This means
+    the endpoint is designed to send or append data to be processed on the
+    server side.
+
+
+    - `url`: This field contains the URL where the request is being sent. The
+    endpoint communicates with `http://localhost:3000/api/search/query/delete`,
+    indicating that it is used for deleting search queries on your local
+    development environment.
+
+
+    - `headers`: In this case, an array with an empty `key`-`value` pair and
+    `type` set to the `default` is specified, but its use is currently disabled
+    as indicated by the `disabled` Boolean value.
+
+
+    - `body`: This contains the data that's being sent with the request. The
+    `mode` used for the body of this POST request is `raw`, which means the data
+    in the body isn't in key/value format. Rather, it's in a JSON string format.
+    In the `raw` field, an object is being passed with key-value pairs of
+    `sessionId`, `accountId`, and `queryId`. These are necessary parameters for
+    deleting a search query, suggesting that you can't delete a query without
+    having the `sessionId`, `accountId`, and `queryId`.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"queryId\":\"queryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

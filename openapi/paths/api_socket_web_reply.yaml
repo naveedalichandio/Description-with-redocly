@@ -1,0 +1,76 @@
+post:
+  tags:
+    - WebSocketMessage
+  summary: Web - Socket - Reply Message
+  description: >-
+    ### Web - Socket - Reply Message Endpoint Description
+
+
+    **Endpoint Name:** Web - Socket - Reply Message  
+
+    This endpoint is designed to send a reply message through a WebSocket
+    connection.
+
+
+    **Request Details:**
+
+
+    - **Method:**  
+      This endpoint uses the HTTP POST method to send data to the server.
+
+    - **URL:**  
+      The request is sent to the specified local server URL: `http://localhost:3000/api/socket/web/reply`. This URL indicates where the reply message will be processed.
+
+    - **Headers:**  
+      There are currently no headers defined for this request. Headers are typically used to provide additional information about the request, such as content type or authentication.
+
+    - **Body:**  
+      The body of the request is sent in raw JSON format. It contains the following fields:
+
+      - **socketId:**  
+        This field should contain the unique identifier for the WebSocket connection. It is used to route the message to the correct user or session.
+
+      - **messageId:**  
+        This field should contain the unique identifier for the message being replied to. It allows the recipient to reference the original message for context.
+
+      - **accountId:**  
+        This field should include the unique identifier for the account from which the user is sending the reply. It helps to identify the sender of the message.
+
+      - **message:**  
+        This field contains the content of the reply message itself. The text that the user wishes to send in response to the original message will be placed here.
+
+    **Body Format:**  
+
+    The body is formatted as JSON, where all fields are key-value pairs. The raw
+    body content is structured as follows:
+
+
+    ```json
+
+    {
+      "socketId": "socketId",
+      "messageId": "messageId",
+      "accountId": "accountId",
+      "message": "message"
+    }
+
+    ```
+
+
+    This structure ensures that the server receives all necessary information to
+    process the reply appropriately.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            messageId: messageId
+            accountId: accountId
+            message: message
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

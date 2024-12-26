@@ -1,0 +1,55 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Loyalty
+  description: >-
+    ### Web - Socket - Recent Loyalty
+
+
+    #### Request Method
+
+    - **GET**: This method is used to retrieve data from the specified endpoint.
+
+
+    #### URL
+
+    - **http://localhost:3000/api/socket/web/loyalty?recent=true&limit=limit**: 
+      - This is the API endpoint where the request is sent. 
+      - It is assumed to be running on the local server, specifically on port 3000.
+      - The endpoint is related to "loyalty", suggesting it retrieves information about customer loyalty activities or data. 
+
+    #### Query Parameters
+
+    - **recent=true**: 
+      - This parameter filters the response to include only the most recent loyalty information.
+      - Setting this to true means that the system is requested to prioritize the latest entries.
+
+    - **limit=limit**: 
+      - This parameter specifies the maximum number of loyalty entries to return in the response.
+      - The specified limit should be replaced with an actual numeric value to determine how many entries are fetched.
+
+    #### Headers
+
+    - **[]**: 
+      - There are no custom headers defined for this request. 
+      - The request will be sent without additional metadata or security tokens.
+
+    This endpoint is designed to fetch the latest loyalty data from a web socket
+    service, allowing users to easily access recent loyalty activity with the
+    option to limit the number of results returned.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

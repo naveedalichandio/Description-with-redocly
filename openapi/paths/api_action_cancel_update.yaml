@@ -1,0 +1,102 @@
+put:
+  tags:
+    - ActionCancel
+  summary: Action - Cancel - Update
+  description: >-
+    ### Endpoint Description for Action - Cancel - Update
+
+
+    This endpoint is used to update a cancellation action. Below is a detailed
+    description of the data involved in this request.
+
+
+    1. **Authentication:**
+       - **Type:** Bearer
+       - **Token:** Used for authorization to access the endpoint. This should be a valid bearer token.
+
+    2. **Request Method:**
+       - **Method:** PUT
+       - The HTTP method used to update the resource.
+
+    3. **URL:**
+       - **URL:** `http://localhost:3000/api/action/cancel/update`
+       - The endpoint where the request is sent for updating the cancellation action.
+
+    4. **Headers:**
+       - **Client-UUID:**
+         - Key: `Client-UUID`
+         - Value: `ClientUUID`
+         - This header is used to identify the client making the request uniquely.
+
+    5. **Body:**
+       - The body of the request is in raw JSON format and contains the following fields:
+
+       - **sessionId:** 
+         - A unique identifier for a user session. This is used to track the session during which the cancellation action is taking place.
+
+       - **accountId:**
+         - The identifier for the account involved in the cancellation. It helps link the action to a specific user account.
+
+       - **cancelId:**
+         - The identifier for the specific cancel action that is being updated. This is used to identify which cancellation is being modified.
+
+       - **path:**
+         - A string representing the path to the resource, such as a live channel or video. For example, `/live/channel/video123`.
+
+       - **targetType:**
+         - The type of target that is being affected by the cancellation (such as `streamer`).
+
+       - **targetId:**
+         - The identifier for the target being canceled, which could represent a video or streamer.
+
+       - **sourceType:**
+         - Indicates the type of source from which the cancellation request is originating (e.g., `accountId`).
+
+       - **sourceId:**
+         - The source identifier that corresponds to the `sourceType`, typically representing the user's account ID.
+
+       - **tokenAmount:**
+         - The amount of tokens involved in the cancellation action, which could represent a monetary value or other quantifiable measure (20 in this case).
+
+       - **name:**
+         - A string representing the name associated with the cancellation. For instance, `Farooq`.
+
+       - **description:**
+         - A brief description of the cancellation action, providing additional context (e.g., "this is description").
+
+       - **tags:**
+         - A string used for tagging or categorizing the cancellation action, which could be useful for filtering or searching (e.g., "xyz"). 
+
+    This information will help users understand the purpose and requirements of
+    the API request when using the Postman collection.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            cancelId: cancelId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

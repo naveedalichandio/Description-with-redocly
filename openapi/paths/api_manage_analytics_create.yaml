@@ -1,0 +1,77 @@
+post:
+  tags:
+    - ManageAnalytics
+  summary: Manage - Analytics - Create
+  description: >-
+    The data provided represents an API request endpoint titled "Manage -
+    Analytics - Create". The following is a detailed breakdown of each data
+    field:
+
+
+    1. `name`: This string field indicates the name of the endpoint, which is
+    "Manage - Analytics - Create".
+
+
+    2. `request`: This object represents the entire HTTP request.
+
+
+    3. `auth`: This object holds the authentication details required to access
+    the endpoint.
+         - `type`: Specifies the type of authentication being used, in this case "bearer".
+         - `bearer`: This is an array containing bearer token information, which includes:
+              - `key`: The key name for the bearer token, here it's "token".
+              - `value`: The bearer token placeholder value.
+              - `type`: The data type of the bearer token value, which is a "string".
+
+    4. `method`: The string value representing the HTTP method to be used for
+    the request, which is "POST".
+
+
+    5. `url`: This string represents the full URL to which the request is to be
+    sent.
+
+
+    6. `headers`: This array currently contains an empty object since there are
+    no specified headers for the request.
+
+
+    7. `body`: The body of the request.
+         - `mode`: Represents how the body of the request will be sent. Here, it's set as "raw".
+         - `raw`: Contains the raw JSON body of the request. It includes fields such as `sessionId`, `accountId`, `name`, `description`, `tags`, `profilePhotoUrl`, `coverPhotoUrl`, `minimumTipAmount`, `categoryId`, `category`, `subCategoryId`, `subCategory`, `isAnalyticsPrivate`, `isTournamentOnly`, `isAnalyticsDefault`, `isPreLiveManageAds`, `isPostLiveManageAds`, `breakPreLiveManageUrl` and `breakPostLiveManageUrl`. All keys are explained by their names.
+         - `options`: Settings for how the body of the request is to be treated. In this case, it specifies the language of the raw body as JSON.
+
+    Please make sure to replace all placeholder values like "BearerToken",
+    "sessionId", "accountId" and others with actual values before making the
+    request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Analytics
+            description: This analytics is my second analytics
+            tags: second,analytics
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isAnalyticsPrivate: true
+            isTournamentOnly: false
+            isAnalyticsDefault: true
+            isPreLiveManageAds: true
+            isPostLiveManageAds: true
+            breakPreLiveManageUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveManageUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

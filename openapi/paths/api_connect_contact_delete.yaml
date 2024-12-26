@@ -1,0 +1,54 @@
+post:
+  tags:
+    - ConnectContact
+  summary: Connect - Contact - Delete
+  description: >-
+    This endpoint is named "Connect - Contact - Delete". It's a POST request
+    intended to delete a contact in the system. The detailed description for
+    each field in the endpoint is as follows:
+
+
+    1. **`name`**: The name of the endpoint, i.e., "Connect - Contact - Delete".
+    It describes the operation performed by the endpoint.
+
+
+    2. **`request`**: This object contains all the information needed to make
+    the HTTP request. It is divided into several fields:
+       
+        a. **`auth`**: The method of authorization required to access this endpoint is set in this object.
+       
+            - **`type`**: The value "bearer" indicates the type of authorization is Bearer Token Authentication.
+             
+            - **`bearer`**: A list of objects specifying the details of the bearer token.
+              
+                - **`key`**: This is the term used in the header for the authentication token; in this case it's "token".
+              
+                - **`value`**: The value to be replaced by the actual session Id.
+                
+                - **`type`**: The data type of the value, in this case, it is "string".
+       
+        b. **`method`**: This field denotes the HTTP method to be used for the request. "POST" allows data to be sent as a body of the request.
+
+        c. **`url`**: This represents the endpoint where the request will be sent. In this case, it's http://localhost:3000/api/connect/contact/delete.
+
+        d. **`headers`**: A list of objects specifying the HTTP headers to be sent to the request. In this case, all fields are empty or default indicating no additional headers are needed for the request.
+
+        e. **`body`**: This contains the actual data to be sent with the request.
+
+            - **`mode`**: The mode of the body content, in this case, it's "raw", meaning the content will be sent as a raw string.
+            
+            - **`raw`**: The raw request payload, composed of key-value pairs represented as a string. The keys are: "sessionId", "accountId", and "contactId". Their values need to be replaced with the actual session id, account id, and contact id respectively.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"contactId\":\"contactId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

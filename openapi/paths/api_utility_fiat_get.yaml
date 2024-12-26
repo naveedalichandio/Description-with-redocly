@@ -1,0 +1,101 @@
+get:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Get Neutral Logs
+  description: >-
+    ### Endpoint Description: Utility - Fiat - Get Neutral Logs
+
+
+    - **Name**: Utility - Fiat - Get Neutral Logs  
+      This is a descriptive name for the API endpoint, indicating its purpose which is to retrieve neutral logs related to fiat transactions.
+
+    - **Request**:  
+      The request section contains all the details needed to make a call to the API.
+
+      - **Auth**:  
+        Specifies the authentication method used to access the endpoint.
+        
+        - **Type**: Bearer  
+          Indicates that bearer token authentication is required to access this endpoint.
+
+        - **Bearer**:  
+          A list containing the details of the bearer token.
+
+          - **Key**: token  
+            Refers to the key under which the bearer token is passed.
+
+          - **Value**: BearerToken  
+            This placeholder represents the actual bearer token that must be provided for authentication.
+
+          - **Type**: string  
+            Indicates that the value for the bearer token should be in string format.
+
+      - **Method**: GET  
+        This specifies that the request method for this endpoint is GET, which is used for retrieving data.
+
+      - **URL**:  
+        The endpoint URL which is used to make the request.
+        
+        - `http://localhost:3000/api/utility/fiat/get/?log=category&category=neutrals&sessionId=sessionId&accountId=accountId`  
+          This is the complete URL to access the API, which includes query parameters:
+          
+          - `log=category`: Indicates the type of logs to filter by, in this case, by category.
+          - `category=neutrals`: Specifies that the category of logs to retrieve is 'neutrals'.
+          - `sessionId=sessionId`: A placeholder for the session identifier, which is required to filter logs for a specific session.
+          - `accountId=accountId`: A placeholder for the user's account identifier, necessary for scoping the logs to a specific account.
+
+      - **Headers**:  
+        Contains any additional headers that might be required in the request.
+        
+        - **Key**: (empty)  
+          This indicates there are no custom headers included in this request; the default headers are used.
+
+        - **Value**: (empty)  
+          As there are no specific values for headers, this remains empty.
+
+        - **Type**: default  
+          Indicates the type of header, which in this case is set to default.
+
+        - **Disabled**: true  
+          This indicates that the headers specified are currently disabled and won’t be included in the request.
+
+      - **Body**:  
+        Details about the body of the request.
+
+        - **Mode**: raw  
+          The body of the request is in raw format, meaning it does not conform to any specific type like form data or URL-encoded data.
+
+        - **Raw**: (empty)  
+          The raw body content is empty, indicating that no body data needs to be sent with this GET request.
+
+    This endpoint is designed to access and retrieve neutral logs associated
+    with fiat transactions, requiring authentication and specific parameters to
+    filter the results accurately.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: log
+      in: query
+      schema:
+        type: string
+      example: category
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: neutrals
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

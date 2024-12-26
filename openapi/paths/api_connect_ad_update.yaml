@@ -1,0 +1,100 @@
+put:
+  tags:
+    - ConnectAd
+  summary: Connect - Ads - Update
+  description: >
+    1. "name": This is the name of the API endpoint. For this particular
+    endpoint, the name is "Connect - Ads - Update". This indicates that the
+    endpoint is used to update ads within a connect feature.
+      
+    2. "request": This specifies the details needed to make the HTTP request. 
+
+
+    3. "auth": This indicates the type of authorization used to access this
+    endpoint. This endpoint uses Bearer Token for authorization.
+
+
+    4. "bearer": This contains the bearer token details. The "key" is "token",
+    the "value" is "BearerToken", and the "type" is "string".
+
+
+    5. "method": This denotes the HTTP method to be used for the request. The
+    endpoint uses the PUT method, used for updating the resource.
+
+
+    6. "url": This is where the request will be sent. The API link is
+    "http://localhost:3000/api/connect/ad/update".
+
+
+    7. "headers": This contains additional parameters sent with the request.
+    There's one header where the "key" is "Client-UUID", the "value" is
+    "ClientUUID", and the "type" is "default".
+
+
+    8. "body": This is the data to be sent as the request body. The request body
+    should be sent in the raw format.
+
+
+    9. "mode": This indicates the format of the body data. The "mode" is "raw".
+
+
+    10. "raw": This contains the data to be sent for an update. The data to be
+    sent here includes adId, sessionId, accountId, name, description, tags,
+    profilePhotoUrl, coverPhotoUrl, minimumTipAmount, unlockAmount, category,
+    subCategory, searchType, isEnabled, isAdsPrivate, isTournamentOnly,
+    isAdsDefault, isPreLiveConnectAds, isPostLiveConnectAds,
+    breakPreLiveConnectUrl, breakLivePauseConnectUrl, and
+    breakPostLiveConnectUrl. All these parameters are contained in a JSON
+    object.
+
+
+    11. "options": This indicates the options for processing the body data. In
+    this case, only the "raw" option is specified and the "language" is "json".
+    This means the incoming data is expected to be a raw JSON. 
+
+
+    Please note: All bool parameters (isEnabled, isAdsPrivate, etc.) accept true
+    or false. URL parameters (profilePhotoUrl, etc.) accept valid URL strings.
+    Other parameters accept mostly string values. Numeric parameters like
+    minimumTipAmount and unlockAmount accept integer values.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            adId: adId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeAds
+            description: This ad is my second ad
+            tags: second,ad
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isAdsPrivate: true
+            isTournamentOnly: false
+            isAdsDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

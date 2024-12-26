@@ -1,0 +1,56 @@
+get:
+  tags:
+    - PaymentPayout
+  summary: Payout - Stripe - Get All
+  description: >-
+    This endpoint is named "Payout - Stripe - Get All". As the name suggests,
+    this endpoint is designed to retrieve all payout information associated with
+    a particular account on Stripe, a third-party payment processing system. 
+
+
+    1. `Request method`: A GET method is being employed here, which is used to
+    request data from a specific resource. It reads and retrieves the
+    information but doesn’t change anything in the database.
+
+
+    2. `URL`: The URL "http://localhost:3000/api/payment/payout/getAll/" refers
+    to your local server. It directs the GET request to an API endpoint named
+    '/api/payment/payout/getAll'. 
+
+       - `provider=stripe`: The 'provider' attribute in the URL refers to the payment processing system the operation is being performed with. Here it is set to 'stripe'.
+       
+       - `accountId=accountId`: This refers to a specific identifier used by Stripe to associate the request to a specific account. The 'accountId' here should be replaced with actual Stripe account Id when making the request.
+
+       - `sessionId=sessionId`: This refers to a unique identifier that is generated per individual session. This helps to identify the session through which the operations are being performed. Replace 'sessionId' with unique session ID when making the request.
+
+    3. `Headers`: The headers value is an array and it appears to be currently
+    empty. It is typically where you would define specifics about the request,
+    such as the content type or authorization information. If required, headers
+    can be added for additional configuration. 
+
+
+    This endpoint is designed to interact with the Stripe API to retrieve all
+    payouts belonging to the account-id from the session provided. It does not
+    appear to modify any data - simply retrieves the existing payout
+    information.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,117 @@
+put:
+  tags:
+    - ConnectComment
+  summary: Connect - Comment - Update
+  description: >-
+    This endpoint is named "Connect - Comment - Update". It uses the PUT method,
+    suggesting that it's used for updating existing records. The URL for this
+    endpoint is "http://localhost:3000/api/connect/comment/update". 
+
+
+    It requires Bearer token authentication, where the token needs to be
+    provided as a string in the 'token' key.
+
+
+    The 'Client-UUID' which is of default type needs to be provided in the
+    headers. It uniquely identifies the client making the request.
+
+
+    In the body of the request, the data needs to be in raw JSON format. Below
+    is a description of each field that is expected in the request body:
+
+
+    - `commentId`: The unique identifier of the comment that is being updated.
+
+    - `sessionId`: The unique identifier of the session.
+
+    - `accountId`: The unique identifier of the account.
+
+    - `name`: The name of the comment.
+
+    - `description`: A descriptive text about the comment.
+
+    - `tags`: Related tags for the comment separated by commas.
+
+    - `commentPhotoUrl`: The URL of the photo related to the comment.
+
+    - `coverPhotoUrl`: The URL of the cover photo.
+
+    - `minimumTipAmount`: The minimum amount for tipping.
+
+    - `unlockAmount`: The amount required to unlock.
+
+    - `category`: The category of the comment.
+
+    - `subCategory`: A more specific category under the main category.
+
+    - `searchType`: The type of game related to the comment.
+
+    - `isEnabled`: A boolean field to indicate if the comment is enabled or not.
+
+    - `isCommentPrivate`: A boolean field to indicate if the comment is private
+    or not.
+
+    - `isTournamentOnly`: A boolean field to indicate if the comment is for
+    tournaments only.
+
+    - `isCommentDefault`: A boolean field to indicate if the comment is the
+    default.
+
+    - `isPreLiveConnectAds`: A boolean field to indicate if ads should be
+    displayed before the live connect.
+
+    - `isPostLiveConnectAds`: A boolean field to indicate if ads should be
+    displayed after the live connect.
+
+    - `breakPreLiveConnectUrl`: The URL where the break pre-live connect would
+    be directed.
+
+    - `breakLivePauseConnectUrl`: The URL where the paused live connect would be
+    directed.
+
+    - `breakPostLiveConnectUrl`: The URL where the break post-live connect would
+    be directed.
+
+
+    The language used for raw data in options is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            commentId: commentId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeComment
+            description: This comment is my second comment
+            tags: second,comment
+            commentPhotoUrl: https://example.com/comment.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isCommentPrivate: true
+            isTournamentOnly: false
+            isCommentDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

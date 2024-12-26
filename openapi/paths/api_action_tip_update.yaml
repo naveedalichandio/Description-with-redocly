@@ -1,0 +1,104 @@
+put:
+  tags:
+    - ActionTip
+  summary: Action - Tip - Update
+  description: >-
+    ### Endpoint Description: Action - Tip - Update
+
+
+    **Request Type:** PUT  
+
+    **Endpoint URL:** http://localhost:3000/api/action/tip/update  
+
+
+    #### Authentication:
+
+    - **Type:** Bearer Token  
+      - **Token:** A string value representing the authorization token required for accessing the API. Replace "BearerToken" with the actual token.
+
+    #### Headers:
+
+    - **Client-UUID:** 
+      - A unique identifier for the client making the request. Replace "ClientUUID" with the actual client UUID.
+
+    #### Body Parameters (in JSON format):
+
+    1. **sessionId:** 
+       - The ID of the session related to the action being performed. Replace "sessionId" with the appropriate session identifier.
+
+    2. **accountId:** 
+       - The unique identifier for the account associated with the action. Replace "accountId" with the actual account ID.
+
+    3. **path:** 
+       - The URL path pointing to the specific resource being tipped. This typically includes the type of resource and its identifier, such as "/live/channel/video123".
+
+    4. **targetType:** 
+       - Specifies the type of the target receiving the tip, such as "videoId". This indicates what kind of resource is being interacted with.
+
+    5. **targetId:** 
+       - The unique identifier of the target that is being tipped. Replace "videoId" with the actual identifier of the target resource.
+
+    6. **sourceType:** 
+       - Indicates the type of the source from which the tip is coming, such as "accountId". 
+
+    7. **sourceId:** 
+       - The unique identifier of the source from which the tip is being sent. Replace "accountId" with the appropriate identifier.
+
+    8. **didTip:** 
+       - A boolean value indicating whether a tip has been given. Set this to `true` to indicate that a tip is being made.
+
+    9. **utilityType:** 
+       - Specifies the type of utility being used for the tip, such as "token". This indicates the medium used for the tip.
+
+    10. **tokenAmount:** 
+        - The amount of tokens being tipped. Replace "10" with the actual number of tokens intended to be tipped.
+
+    11. **name:** 
+        - An optional field for a name or title associated with the tip. It can be left blank if not needed.
+
+    12. **description:** 
+        - An optional field for a description of the tip. It can be left blank if not needed.
+
+    13. **tags:** 
+        - Optional tags associated with the tip action. This can be used for categorization and can be left blank if not utilized.
+
+    14. **tipId:** 
+        - The unique identifier for the tip action being updated. Replace "tipId" with the actual identifier of the tip.
+
+    ### Note:
+
+    Make sure to replace placeholder values in the request with actual values
+    relevant to the action you intend to update.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didTip: true
+            utilityType: token
+            tokenAmount: 10
+            name: ''
+            description: ''
+            tags: ''
+            tipId: tipId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

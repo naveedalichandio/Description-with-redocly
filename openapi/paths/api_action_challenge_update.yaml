@@ -1,0 +1,139 @@
+put:
+  tags:
+    - ActionChallenge
+  summary: Action - Challenge - Update
+  description: >-
+    ### Action - Challenge - Update
+
+
+    This endpoint is used to update an action challenge with the specified
+    details.
+
+
+    #### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Bearer authentication.
+      - **Bearer**: 
+        - **Key**: `token`
+          - **Value**: `BearerToken` - This should be replaced with a valid token to authorize the request.
+
+    - **Method**: 
+      - **PUT** - This indicates that the request is intended to update existing data.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/challenge/update` - This is the endpoint where the request is sent for updating the challenge.
+
+    - **Headers**: 
+      - **Client-UUID**: `ClientUUID` - This should be replaced with the unique identifier for the client making the request.
+
+    #### Body Parameters
+
+
+    The body of the request is expected to be in JSON format and contains the
+    following fields:
+
+
+    - **sessionId**: 
+      - Type: string
+      - Description: The identifier for the session associated with the challenge.
+
+    - **accountId**: 
+      - Type: string
+      - Description: The unique identifier for the account involved in the challenge.
+
+    - **path**: 
+      - Type: string
+      - Description: The path to the resource related to the challenge, for example, a URL to a live channel or video.
+
+    - **targetType**: 
+      - Type: string
+      - Description: Specifies the type of target entity being updated, e.g., `videoId`.
+
+    - **targetId**: 
+      - Type: string
+      - Description: The unique identifier for the target entity to be updated.
+
+    - **sourceType**: 
+      - Type: string
+      - Description: Specifies how the source entity is identified, for example, by `accountId`.
+
+    - **sourceId**: 
+      - Type: string
+      - Description: The unique identifier for the source entity.
+
+    - **challengeId**: 
+      - Type: string
+      - Description: The identifier for the specific challenge that is being updated.
+
+    - **isConfirm**: 
+      - Type: boolean
+      - Description: Indicates whether the challenge is confirmed. Set to `true` or `false`.
+
+    - **isReject**: 
+      - Type: boolean
+      - Description: Indicates whether the challenge is rejected. Set to `true` or `false`.
+
+    - **isDismiss**: 
+      - Type: boolean
+      - Description: Indicates whether the challenge is dismissed. Set to `true` or `false`.
+
+    - **isIgnore**: 
+      - Type: boolean
+      - Description: Indicates whether the challenge is ignored. Set to `true` or `false`.
+
+    - **name**: 
+      - Type: string
+      - Description: The updated name for the challenge.
+
+    - **targetText**: 
+      - Type: string
+      - Description: The text associated with the target, used for identifying the context of the challenge.
+
+    - **description**: 
+      - Type: string
+      - Description: A brief description of the challenge. Can be left empty.
+
+    - **tags**: 
+      - Type: string
+      - Description: Tags associated with the challenge for categorization. Can be left empty. 
+
+    This data structure provides a comprehensive way to specify the details
+    needed to update an action challenge, ensuring all relevant information is
+    captured in the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            challengeId: challengeId
+            isConfirm: false
+            isReject: false
+            isDismiss: false
+            isIgnore: false
+            name: this is updated name
+            targetText: this is target text
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

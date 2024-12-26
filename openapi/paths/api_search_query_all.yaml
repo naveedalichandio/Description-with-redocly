@@ -1,0 +1,67 @@
+get:
+  tags:
+    - SearchQuery
+  summary: Search - Query - Get All By User
+  description: >-
+    1. "name": This data field signifies the name of the endpoint. It is called
+    "Search - Query - Get All By User". This is essentially an identifier that
+    tells you the purpose of the endpoint. 
+
+
+    2. "request": Contains all the information required to make an HTTP request.
+    This includes authentication, method, URL, headers, and body.
+
+
+    3. "auth": Represents the authentication method to access the endpoint. This
+    is of type "bearer", which means that the authorization requires a bearer
+    token to be sent in the request.
+
+
+    4. "bearer": This is an array containing the bearer token that will be used
+    for authentication in the request. The "key" field is named "token",
+    indicating the kind of token used for authentication. The "value" field is
+    the token itself, usually generated from the server. The "type" field
+    indicates the data type of the "value", which is "string".
+
+
+    5. "method": Represents the HTTP method used for the request. In this case,
+    it is a "GET" request, which is used to retrieve information from the
+    server.
+
+
+    6. "url": This is the URL or the path of the server where the request is
+    being made. In this case, it's a local server
+    http://localhost:3000/api/search/query/all?. Followed by the URL, there are
+    two query parameters "accountId" and "sessionId" which are used to filter
+    the results.
+
+
+    7. "headers": This is an array that contains the information that the client
+    (or your browser) sends in an HTTP request to the server. It may include any
+    extra information you want to send to the server. In this case, no key-value
+    pairs are provided and it is disabled.
+
+
+    8. "body": Contains the body of the request. For a GET method, this will
+    typically be empty as shown here. The "mode" indicates how the body data
+    will be sent to the server. In this case, "raw" means the data is sent as it
+    is without any encoding or extra processing. There is no raw data provided
+    in this case.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,71 @@
+get:
+  tags:
+    - ActionActivate
+  summary: Action - Activate - Get
+  description: |-
+    ### Endpoint Description: Action - Activate - Get
+
+    - **Name**: Action - Activate - Get
+      - This represents the specific endpoint intended for retrieving activation details based on provided parameters.
+
+    - **Request**:
+      - **Auth**:
+        - **Type**: Bearer
+          - This specifies that Bearer token authentication is used for this request.
+        - **Bearer**:
+          - **Key**: token
+            - This refers to the authentication key used to validate access permissions for the API.
+          - **Value**: BearerToken
+            - This is a placeholder value representing the authorization token required to access the endpoint; it should be replaced with a valid token when making real requests.
+          - **Type**: string
+            - This indicates that the value for the token should be a string format.
+
+      - **Method**: GET
+        - This signifies that the request method being used is GET, which is typically used to retrieve data from a server.
+
+      - **URL**: `http://localhost:3000/api/action/activate/get/?activateId=activateId&sessionId=sessionId&accountId=accountId`
+        - This is the endpoint URL where the GET request will be sent.
+        - **Parameters**:
+          - **activateId**: Represents the unique identifier for the activation process that you wish to retrieve.
+          - **sessionId**: Represents the session identifier associated with the action.
+          - **accountId**: Represents the account identifier for which the activation information is being requested.
+        - All the parameters (`activateId`, `sessionId`, and `accountId`) should be substituted with actual values when making the request.
+
+      - **Headers**:
+        - **Key**: (Empty)
+          - No specific header keys are required for this request as it currently stands.
+        - **Value**: (Empty)
+          - No specific header values are provided for this request.
+        - **Type**: Default
+          - Indicates that these headers are of the default type.
+        - **Disabled**: True
+          - This means that any headers listed are currently disabled and won't be sent with the request.
+
+      - **Body**:
+        - **Mode**: Raw
+          - This indicates the format of the body being sent with the request.
+        - **Raw**: ""
+          - Represents that there is no body content to send with this GET request, as it is typically not required in a GET operation.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: activateId
+      in: query
+      schema:
+        type: string
+      example: activateId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

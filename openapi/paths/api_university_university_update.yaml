@@ -1,0 +1,142 @@
+put:
+  tags:
+    - UniversityUniversity
+  summary: University - General - Update
+  description: |-
+    ### Endpoint Description: University - General - Update
+
+    #### Request Details
+
+    - **Auth** 
+      - **Type**: Bearer Token
+        - Specifies the authentication method for accessing this endpoint.
+        - **Bearer**: Contains an array of authentication tokens.
+          - **Key**: "token" - Identifier for the token.
+          - **Value**: "BearerToken" - Placeholder for the actual bearer token that needs to be provided for authorization.
+          - **Type**: string - Indicates that the token value is a string.
+
+    - **Method**: PUT
+      - The HTTP method used for the request. PUT is typically used to update existing resources on the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/university/university/update` - The endpoint where the update request is sent. This URL points to a local server.
+
+    #### Headers
+    - **Client-UUID**
+      - **Key**: "Client-UUID" - An identifier for the client making the request.
+      - **Value**: "ClientUUID" - Placeholder value indicating where the actual client UUID should be inserted.
+      - **Type**: default - Indicates that this is a standard header.
+
+    #### Body
+    - **Mode**: raw
+      - Indicates the format of the body content being sent in the request.
+
+    - **Raw**: 
+      ```json
+      {
+        "universityId": "universityId",
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "name": "My Second General 2.0",
+        "description": "This university is my second university",
+        "tags": "second,university",
+        "profilePhotoUrl": "https://example.com/profile.jpg",
+        "coverPhotoUrl": "https://example.com/cover.jpg",
+        "minimumTipAmount": 10,
+        "categoryId": "category123",
+        "category": "General",
+        "subCategoryId": "subCategory456",
+        "subCategory": "Specific",
+        "isGeneralPrivate": true,
+        "isTournamentOnly": false,
+        "isGeneralDefault": true,
+        "isPreLiveUniversityAds": true,
+        "isPostLiveUniversityAds": true,
+        "breakPreLiveVideoUrl": "https://example.com/break-pre-live.mp4",
+        "breakPostLiveVideoUrl": "https://example.com/break-post-live.mp4"
+      }
+      ```
+
+    ##### Body Parameters
+    - **universityId**: 
+      - A unique identifier for the university to be updated.
+
+    - **sessionId**: 
+      - An identifier for the current session.
+
+    - **accountId**: 
+      - An identifier for the user or account making the request.
+
+    - **name**: 
+      - The name of the university that is being updated.
+
+    - **description**: 
+      - A textual description providing more information about the university.
+
+    - **tags**: 
+      - A comma-separated list of tags associated with the university for better categorization.
+
+    - **profilePhotoUrl**: 
+      - A URL pointing to the profile photo of the university.
+
+    - **coverPhotoUrl**: 
+      - A URL pointing to the cover photo of the university.
+
+    - **minimumTipAmount**: 
+      - The minimum amount for tips related to the university.
+
+    - **categoryId**: 
+      - An identifier for the category under which the university falls.
+
+    - **category**: 
+      - The general category designation for the university.
+
+    - **subCategoryId**: 
+      - An identifier for the sub-category associated with the university.
+
+    - **subCategory**: 
+      - The specific sub-category designation for the university.
+
+    - **isGeneralPrivate**: 
+      - A boolean that indicates whether the university is private or not. True means it's private.
+
+    - **isTournamentOnly**: 
+      - A boolean indicating if the university is exclusively for tournaments. True means it is.
+
+    - **isGeneralDefault**: 
+      - A boolean indicating if this is the default general university setting. True means it is the default.
+
+    - **isPreLiveUniversityAds**: 
+      - A boolean indicating if pre-live ads are enabled for the university. True means ads can be shown before live events.
+
+    - **isPostLiveUniversityAds**: 
+      - A boolean indicating if post-live ads are enabled for the university. True means ads can be shown after live events.
+
+    - **breakPreLiveVideoUrl**: 
+      - A URL to a video that can be shown before live events as a break.
+
+    - **breakPostLiveVideoUrl**: 
+      - A URL to a video that can be shown after live events as a break.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"universityId\":\"universityId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second General 2.0\",\"description\":\"This university is my second
+            university\",\"tags\":\"second,university\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isGeneralPrivate\":true,\"isTournamentOnly\":false,\"isGeneralDefault\":true,\"isPreLiveUniversityAds\":true,\"isPostLiveUniversityAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

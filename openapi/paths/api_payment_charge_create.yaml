@@ -1,0 +1,67 @@
+post:
+  tags:
+    - PaymentCharge
+  summary: Charge - Zelle - Create
+  description: >-
+    This endpoint is named "Charge - Zelle - Create". It is designed to create a
+    payment charge using the Zelle payment method. 
+
+
+    The request uses the "POST" method, which means it's used to submit data to
+    be processed to the identified resource. The URL that the request is sent to
+    is 'http://localhost:3000/api/payment/charge/create'. 
+
+
+    The request body is in raw mode, representing an unparsed sequence of
+    characters. The data sent via this method is in JSON format (Javascript
+    Object Notation, a human-readable and easy-to-parse data exchange format).
+
+
+    The data included in the body are as follows:
+
+
+    - `accountId`: This field is used to specify the unique identifier for the
+    account undertaking the transaction. Replace "accountId" with the actual
+    account ID.
+      
+    - `sessionId`: This field requires the session ID value. It is the unique
+    identifier for the current transaction session. Replace "sessionId" with the
+    active session ID.
+      
+    - `source`: This field is for providing the source of the funds for the
+    payment. However, in this given case it's null as Zelle doesn't require any
+    source.
+      
+    - `isSaveCharge`: This is a boolean (true or false) field. If set to 'true',
+    it means that the charge information for this transaction should be saved
+    for future reference or use.
+
+
+    - `isPrimary`: This is another boolean field. If set to 'true', it implies
+    that the current payment method (Zelle) is set as the primary method of
+    payment. In this case, it is set to 'false', meaning that Zelle is not the
+    primary method.
+      
+    - `provider`: This field represents the payment provider. In this case, it
+    is set to "zelle". You may replace this with other providers if needed.
+
+
+    Inside the 'options' field, the 'language' is set to 'json'. This indicates
+    that the request body is coded in JSON language.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source: null
+            isSaveCharge: true
+            isPrimary: false
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

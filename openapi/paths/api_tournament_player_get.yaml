@@ -1,0 +1,62 @@
+get:
+  tags:
+    - TournamentPlayer
+  summary: Tournament - Player - Get
+  description: >-
+    **Endpoint Name:** Tournament - Player - Get
+
+
+    **Description:**
+
+
+    - **Auth:** 
+      - **Type**: Bearer authentication is required for accessing this endpoint.
+      - **Bearer**: 
+        - **Key**: "token" is the identifier for the authentication token.
+        - **Value**: The token should be prefixed with "Bearer" (e.g., "BearerToken").
+        - **Type**: The token must be of type string.
+
+    - **Method:** 
+      - **GET**: This endpoint uses the GET method, which is used to retrieve data from the server.
+
+    - **URL:** 
+      - **Request URL**: The URL for this request is "http://localhost:3000/api/tournament/player/get/". This is the base path for the API endpoint.
+      - **Query Parameters**: 
+        - **playerId**: This is a query parameter used to specify the unique identifier for the player whose information is being retrieved.
+        - **sessionId**: This query parameter is used to specify the session under which the player is participating.
+        - **accountId**: This query parameter identifies the account associated with the player.
+
+    - **Headers:** 
+      - **Key**: The headers array includes a key which is currently empty.
+      - **Value**: The value for the header is also empty.
+      - **Type**: The type is set to default, and the header is disabled, meaning it will not be sent in the request.
+
+    - **Body:** 
+      - **Mode**: The body mode is set to "raw".
+      - **Raw**: The raw body content is empty, indicating that this request does not require a body payload.
+
+    This endpoint is designed to retrieve player information based on their ID,
+    session, and account, secured by a bearer token for authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: playerId
+      in: query
+      schema:
+        type: string
+      example: playerId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

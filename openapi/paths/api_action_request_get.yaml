@@ -1,0 +1,97 @@
+get:
+  tags:
+    - ActionRequest
+  summary: Action - Request - Get
+  description: >-
+    ### Description of Endpoint Data:
+
+
+    - **name**: 
+      - This refers to the identifier for the request in the API collection, indicating that this is an action request of type "Get".
+
+    - **request**: 
+      - This object contains all the necessary details to make the API request.
+
+      - **auth**: 
+        - This specifies the authentication method for the request.
+        
+        - **type**: 
+          - Indicates that bearer token authentication is being used, which is a common method for securing API accesses.
+          
+        - **bearer**: 
+          - An array containing objects that define the bearer token's key, value, and type.
+          
+          - **key**: 
+            - Represents the token identifier, here labeled as "token".
+            
+          - **value**: 
+            - Represents the actual token to be used for authentication, indicated as "BearerToken", which should be replaced with a valid token during actual use.
+            
+          - **type**: 
+            - Specifies the data type of the token, which is a string.
+
+      - **method**: 
+        - This defines the HTTP method to be used for the request, which is "GET" in this case, indicating that data will be retrieved from the server.
+
+      - **url**: 
+        - This is the endpoint URL where the request will be sent. It includes query parameters to specify the necessary identifiers.
+        
+        - **requestId**: 
+          - A query parameter indicating a unique identifier for the request.
+          
+        - **sessionId**: 
+          - A query parameter representing the session ID related to the request.
+          
+        - **accountId**: 
+          - A query parameter representing the account ID associated with the request.
+
+      - **headers**: 
+        - This object contains any additional HTTP headers that may need to be sent with the request.
+        
+        - **key**: 
+          - Placeholder for a header key; currently empty.
+          
+        - **value**: 
+          - Placeholder for the corresponding header value; currently empty.
+          
+        - **type**: 
+          - Specifies the type of the header, marked as "default".
+          
+        - **disabled**: 
+          - A boolean indicating whether this header is currently active or not; this one is set to true, meaning it is inactive.
+
+      - **body**: 
+        - This object contains the body of the request if applicable.
+        
+        - **mode**: 
+          - Indicates the format of the request body; set to "raw", meaning that the body content will be plain text.
+          
+        - **raw**: 
+          - Represents the actual content of the request body; currently empty since a body is not needed for a GET request.
+
+    This is a detailed description of all components in the specified endpoint
+    data structure, pointing out the purpose and usage of each item for ease of
+    understanding by users of the Postman API collection.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: requestId
+      in: query
+      schema:
+        type: string
+      example: requestId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

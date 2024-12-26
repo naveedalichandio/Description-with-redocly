@@ -1,0 +1,80 @@
+post:
+  tags:
+    - ActionConfirm
+  summary: Action - Confirm - Delete
+  description: >-
+    ### API Endpoint Description: Action - Confirm - Delete
+
+
+    - **Name**: Action - Confirm - Delete
+      - This is the name of the API endpoint that is used for confirming and deleting an action.
+
+    - **Request**:
+      - The entire request structure for the API call, which includes authentication, HTTP method, URL, headers, and the body of the request.
+
+      - **Auth**:
+        - **Type**: Bearer
+          - This specifies that bearer token authentication is used to authorize the request, which is a common method for API security.
+
+        - **Bearer**:
+          - An array containing the authentication details.
+          
+          - **Key**: token
+            - This signifies the type of token being used for authentication.
+
+          - **Value**: sessionId
+            - This represents the actual value of the token, which is the session ID required for the current user session.
+
+          - **Type**: string
+            - Indicates that the value provided is a string type.
+
+      - **Method**: POST
+        - This indicates that the request method being used is POST, which is typically used to send data to the server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/action/confirm/delete`
+          - This is the endpoint URL where the request is being sent. It points to a local server running on port 3000.
+
+      - **Headers**:
+        - An array that would typically contain additional metadata for the request.
+        
+        - Currently, the header is empty with a disabled state:
+          - **Key**: (empty)
+          - **Value**: (empty)
+          - **Type**: default
+          - **Disabled**: true
+            - This means that no additional headers are set, and the header section is currently inactive.
+
+      - **Body**:
+        - **Mode**: Raw
+          - Indicates that the request body is in a raw format rather than using form or file uploads.
+
+        - **Raw**: 
+          - This is the actual data being sent in the body of the request, represented in JSON format:
+          ```json
+          {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "confirmId": "confirmId"
+          }
+          ```
+          - **sessionId**: Represents the user's current session ID to maintain state during the operation.
+          - **accountId**: Represents the identifier for the account associated with the action to be deleted.
+          - **confirmId**: Represents the unique identifier confirming the action that is meant to be deleted. 
+
+    This description should assist other users in understanding how to
+    appropriately use this API endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"confirmId\":\"confirmId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

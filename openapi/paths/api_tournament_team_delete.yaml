@@ -1,0 +1,70 @@
+post:
+  tags:
+    - TournamentTeam
+  summary: Tournament - Team - Delete
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This indicates the name of the API endpoint, which is
+    "Tournament - Team - Delete". This suggests that the endpoint is intended
+    for deleting a team from a tournament.
+
+
+    - **request**: This section contains all the details necessary to make the
+    API request.
+
+      - **auth**: This specifies the type of authentication used for the API request.
+      
+        - **type**: This indicates the type of authentication. In this case, it is "bearer", meaning that the request requires a bearer token for authorization.
+        
+        - **bearer**: This is an array containing the details for the bearer token.
+        
+          - **key**: The key for the token object. Here, it is specified as "token".
+          
+          - **value**: This is the placeholder for the session ID that the user should provide when making the request. It is represented as "sessionId".
+          
+          - **type**: Indicates the data type of the token value. It is specified as "string".
+
+      - **method**: This shows the HTTP method used for the request. In this case, it is "POST", indicating that this endpoint is intended to send data to the server to delete a resource.
+
+      - **url**: This is the endpoint URL where the API request is directed. It is currently set to "http://localhost:3000/api/tournament/team/delete", which means it is expected to run locally on port 3000.
+
+      - **headers**: This section contains any HTTP headers to be included in the request. Currently:
+      
+        - **key**: There is no specified key for the header, indicating that no custom headers are being sent.
+        
+        - **value**: There is no value provided, suggesting that this header is not in use.
+        
+        - **type**: It is set to "default", which is the standard header type.
+        
+        - **disabled**: This is set to true, indicating that the header is currently inactive and will not be included in the request.
+
+      - **body**: This contains the data that will be sent in the request body.
+      
+        - **mode**: This indicates the format of the request body. It is set to "raw", meaning the data is sent as plain text.
+        
+        - **raw**: This is the actual data sent in the request body. It is a JSON object containing:
+          
+          - **sessionId**: The identity token of the user's session, represented as "sessionId". The user needs to replace this with the actual session ID.
+          
+          - **accountId**: The account identifier for the user whose action this delete request is tied to, represented as "accountId". The actual account ID must be substituted here.
+          
+          - **teamId**: The identifier of the team that is to be deleted, represented as "teamId". The team ID needs to be replaced with the specific ID of the team to be deleted.
+
+    This detailed breakdown explains the purpose and structure of the request to
+    delete a team from a tournament in the API.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"teamId\":\"teamId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

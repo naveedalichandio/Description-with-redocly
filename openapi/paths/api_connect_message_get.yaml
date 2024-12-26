@@ -1,0 +1,53 @@
+get:
+  tags:
+    - ConnectMessage
+  summary: Connect - Message - Get
+  description: >-
+    "Connect - Message - Get" is the name of the API endpoint. This name is used
+    to identify the specific API operation.
+
+
+    The "request" object stands for the details of the HTTP request being made
+    to the endpoint. 
+
+
+    Under the "request" object, "auth" specifies the authentication method for
+    the API request. The "type" is set to "bearer", which means that it uses
+    bearer token authentication. The "bearer" array contains an object with
+    "key" as "token" and "value" as "BearerToken". The "type" is set to
+    "string". This means a token string called "BearerToken" is expected as a
+    part of the API access token for authentication.
+
+
+    The "method" denotes that this HTTP request is a "GET" method. 
+
+
+    The "url" is the actual endpoint where the request will hit. In this case,
+    it's "http://localhost:3000/api/connect/message/get/?messageId=messageId".
+    The "messageId" is a dynamic value which you can replace with the actual
+    message Id you want to fetch.
+
+
+    Under "headers", the "key" and "value" fields are empty in the provided
+    object, and it is currently disabled. This typically serves to provide
+    additional information for HTTP requests.
+
+
+    Lastly, "body" is used for the data sent by a HTTP request. In this case,
+    the "mode" is set to "raw", and the "raw" field is empty. This implies there
+    is no data body being sent with the request. This is not unusual for a GET
+    request as these usually retrieve data from the specified URL, rather than
+    sending information to it.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: messageId
+      in: query
+      schema:
+        type: string
+      example: messageId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

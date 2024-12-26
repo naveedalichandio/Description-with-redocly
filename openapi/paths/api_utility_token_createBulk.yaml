@@ -1,0 +1,139 @@
+post:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Create Bulk for User
+  description: >-
+    ### Endpoint: Create Bulk Token for User
+
+
+    #### Overview
+
+    This endpoint allows the creation of multiple tokens in bulk for a specified
+    user. The request needs to include authentication via a bearer token and the
+    details of the tokens to be created.
+
+
+    #### Request Details
+
+
+    - **Auth**
+      - **Type**: Bearer
+        - This indicates that authorization is done using a bearer token.
+      - **Bearer Token**: 
+        - **Key**: token
+        - **Value**: BearerToken
+          - Replace "BearerToken" with the actual token value for authentication.
+        - **Type**: string
+
+    - **Method**: POST
+      - This HTTP method is used to send data to the server for processing.
+
+    - **URL**: 
+      - `http://localhost:3000/api/utility/token/createBulk`
+        - This is the endpoint where the request should be sent.
+
+    - **Headers**: 
+      - Currently, there are no custom headers included in the request (disabled option).
+
+    - **Body**:
+      - **Mode**: raw
+        - The body type is raw JSON data.
+      - **Raw Data**:
+        - A JSON object containing the following attributes:
+          - **sessionId**: 
+            - A unique identifier for the session. 
+            - Replace with an actual session ID.
+          - **accountId**: 
+            - A unique identifier for the account the tokens are being created for.
+            - Replace with the actual account ID.
+          - **list**: 
+            - An array of token objects that specify details for each token to be created. Each object in the list contains:
+              - **targetType**: 
+                - Specifies the type of target (e.g., teamId).
+              - **targetId**: 
+                - The identifier of the target (corresponding to the type specified).
+              - **name**: 
+                - The name of the token.
+              - **description**: 
+                - Provides a brief description of what the token represents.
+              - **type**: 
+                - Indicates the platform type (e.g., platform).
+              - **action**: 
+                - The action that can be performed with the token (e.g., sell).
+              - **rate**: 
+                - The rate at which the token is valued.
+              - **amount**: 
+                - The total amount of tokens to be created.
+
+    #### Example Body Structure
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "list": [
+            {
+                "targetType": "teamId",
+                "targetId": "teamId",
+                "name": "BPT",
+                "description": "Beladed Platform Token",
+                "type": "platform",
+                "action": "sell",
+                "rate": 1,
+                "amount": 13
+            },
+            {
+                "targetType": "teamId",
+                "targetId": "teamId",
+                "name": "BPT",
+                "description": "Beladed Platform Token",
+                "type": "platform",
+                "action": "sell",
+                "rate": 1,
+                "amount": 13
+            }
+        ]
+    }
+
+    ```
+
+
+    ### Notes
+
+    Make sure to replace the placeholder values (`sessionId`, `accountId`,
+    `teamId`, etc.) with actual data before making the request. The response
+    from the server will indicate whether the tokens were successfully created
+    or if any errors occurred.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            list:
+              - targetType: teamId
+                targetId: teamId
+                name: BPT
+                description: Beladed Platform Token
+                type: platform
+                action: sell
+                rate: 1
+                amount: 13
+              - targetType: teamId
+                targetId: teamId
+                name: BPT
+                description: Beladed Platform Token
+                type: platform
+                action: sell
+                rate: 1
+                amount: 13
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

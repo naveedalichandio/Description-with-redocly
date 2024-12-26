@@ -1,0 +1,70 @@
+put:
+  tags:
+    - NotificationUniversity
+  summary: Notification - University - Update
+  description: >-
+    This endpoint is titled "Notification - University - Update" and facilitates
+    updating a University notification. It utilizes the PUT method indicating
+    that it is for updating information. Here is a breakdown of each data:
+
+
+    - **auth**: This part deals with the authentication details, specifically
+    using bearer token authorization provided in the string format.
+
+
+    - **url**: This is the URL where the request is to be sent. It is pointing
+    to a local host and appears to be for a localhost development environment.
+
+
+    - **headers**: Contains additional information (metadata) to be sent along
+    with the request. A "Client-UUID" header is included in the request.
+
+
+    - **body**: This is where the actual content to be sent with the request is
+    contained. The mode specified is "raw", which means the data included is not
+    encoded. A JSON object is sent in string format. This object includes:
+
+        - **universityId, sessionId, accountId**: These are identifiers related to the university, session, and account respectively.
+
+        - **name**: Represents the updated name of the university.
+
+        - **description**: Holds the updated description of the university.
+
+        - **tags**: It indicates the tag values associated with the university.
+
+        - **profilePhotoUrl, coverPhotoUrl**: The URLs for the university's profile and cover photos.
+
+        - **minimumTipAmount**: The minimum acceptable tip amount for the university.
+
+        - **categoryId, category, subCategoryId, subCategory**: These are identifiers and names of the category and sub-category, where this university belongs.
+
+        - **isUniversityPrivate, isTournamentOnly, isUniversityDefault, isPreLiveNotificationAds, isPostLiveNotificationAds**: These are boolean values that specify certain attributes or options relevant to the university.
+
+        - **breakPreLiveNotificationUrl, breakPostLiveNotificationUrl**: These variables are URLs which point to resources of Pre-Live and Post-Live notification break videos respectively.
+
+    This endpoint indicates a detailed update setup for a university
+    notification where all aspects related to a university can be updated.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"universityId\":\"universityId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second University 2.0\",\"description\":\"This university is my
+            second
+            university\",\"tags\":\"second,university\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isUniversityPrivate\":true,\"isTournamentOnly\":false,\"isUniversityDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

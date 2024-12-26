@@ -1,0 +1,84 @@
+post:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Connect
+  description: >-
+    ### Description of Endpoint Data
+
+
+    **Name:**  
+
+    - This represents the name of the API request, which is "Web - Socket -
+    Connect". It indicates that this request is intended to establish a
+    connection for a web socket.
+
+
+    **Request:**  
+
+    - This section describes the specifics of the API request made to the
+    endpoint.
+
+
+    **Method:**  
+
+    - The HTTP method used for this request is POST. This indicates that the
+    request is intended to send data to the server to create or update a
+    resource.
+
+
+    **URL:**  
+
+    - The request is sent to the URL
+    `http://localhost:3000/api/socket/web/connect`. This is the endpoint where
+    the request is directed, which typically represents a specific resource or
+    action at the server.
+
+
+    **Headers:**  
+
+    - This section is currently empty, meaning no additional HTTP headers are
+    set for this request. Headers might typically include authentication tokens,
+    content types, or other metadata if needed.
+
+
+    **Body:**  
+
+    - The body of the request contains the data being sent to the server.
+
+
+    **Mode:**  
+
+    - The mode is set to "raw", indicating that the body is being sent as a raw
+    JSON string.
+
+
+    **Raw:**  
+
+    - The content of the body is a JSON string: `{"socketId": "socketId",
+    "accountId": "accountId"}`. This includes two key-value pairs:
+      - **socketId:** This is a placeholder for the unique identifier of the socket connection being established. It represents the specific socket instance that the server will use to facilitate communication.
+      - **accountId:** This is a placeholder for the unique identifier associated with the user's account. It links the socket connection to a specific user, allowing for personalized interaction.
+
+    **Options:**  
+
+    - This section provides additional specifications for the body format.
+
+
+    **Raw Language:**  
+
+    - The language of the raw body is specified as "json", indicating that the
+    data is formatted as JSON, which is a common data interchange format used in
+    web APIs.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            accountId: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

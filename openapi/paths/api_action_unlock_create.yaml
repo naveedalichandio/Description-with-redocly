@@ -1,0 +1,118 @@
+post:
+  tags:
+    - ActionUnlock
+  summary: Action - Unlock - Create
+  description: >-
+    {
+      "description": {
+        "name": "Action - Unlock - Create",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/action/unlock/create",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"videoId\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"didUnlock\": true,\n    \"unlockType\": \"channel\",\n    \"didClickthrough\": true,\n    \"tokenAmount\": 40,\n    \"name\": \"\",\n    \"description\": \"\",\n    \"tags\": \"\"\n}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    1. **name**: This field represents the name of the API action. It indicates
+    that this endpoint is used for creating an unlock action.
+
+
+    2. **request**: This nested object details the request properties for the
+    API call.
+
+       - **auth**: This section defines the authentication method used for the request. In this case, a bearer token is required to authorize the request.
+         
+         - **type**: Specifies the type of authentication; here, it is bearer.
+         - **bearer**: This array contains the bearer token information.
+           
+           - **key**: The name of the token parameter, which is "token".
+           - **value**: The actual bearer token value expected to be used for authentication. In this example, it is indicated as "BearerToken".
+           - **type**: Indicates the data type of the token, specified as string.
+
+       - **method**: This specifies the HTTP method for the API call. Here, it is a POST method, indicating that data is being sent to the server to create a new resource.
+
+       - **url**: The endpoint URL for the API that will process the request. In this case, it's a local server URL pointing to the action unlock create route.
+
+       - **headers**: This is an array that can hold additional headers for the request. In this example, the header is empty and disabled.
+
+       - **body**: This section contains the details of the data being sent in the POST request.
+         
+         - **mode**: Indicates the format of the body data. Here it is set to "raw", meaning the content is provided as a plain text.
+         
+         - **raw**: This is the raw JSON data that will be sent in the request body. It includes various parameters.
+           
+           - **sessionId**: Identifier for the current user session. This is used to track the user's activities within the application.
+           - **accountId**: Unique identifier for the user’s account. This is necessary for associating the unlock action with the right user account.
+           - **path**: The specific path or URL where the unlock action is being applied, denoted by "/live/channel/video123".
+           - **targetType**: This indicates the type of target being unlocked, which is set as "videoId" in this case.
+           - **targetId**: The ID of the target item that is being unlocked, referenced here as "videoId".
+           - **sourceType**: Represents the type of source that is initiating the unlock action, indicated as "accountId".
+           - **sourceId**: The identifier for the source account that is performing the unlock action, marked as "accountId".
+           - **didUnlock**: A boolean that indicates if the unlock action was successful; set to true in this example.
+           - **unlockType**: Describes the type of unlock performed, with "channel" being the specified type.
+           - **didClickthrough**: A boolean indicating whether the user clicked through to unlock; also set to true here.
+           - **tokenAmount**: The amount of tokens to be deducted or used for unlocking, set to 40.
+           - **name**: A placeholder for the name associated with the unlock action, currently empty.
+           - **description**: A placeholder for a description of the unlock action, currently empty.
+           - **tags**: A placeholder for tags related to the unlock action, currently empty.
+
+         - **options**: This object specifies options related to the body format.
+           
+           - **raw**: Contains formatting options for raw data.
+             
+             - **language**: Specifies the language of the raw data, set to "json".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didUnlock: true
+            unlockType: channel
+            didClickthrough: true
+            tokenAmount: 40
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

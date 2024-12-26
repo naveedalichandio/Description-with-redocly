@@ -1,0 +1,66 @@
+get:
+  tags:
+    - ActionReject
+  summary: Action - Reject - Get
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: The name of the API request is "Action - Reject - Get". This
+    indicates that the endpoint is related to retrieving action details,
+    specifically for a rejection process.
+
+
+    - **request**: This is the main object containing all the details related to
+    the API request.
+
+      - **auth**: This section defines the authentication method required to access the endpoint.
+        - **type**: The type of authentication being used is "bearer". This means that the API requires a bearer token for secure access.
+        - **bearer**: This is an array containing the authentication details.
+          - **key**: This is the name of the token parameter. It is labeled "token", indicating that it is the key for the bearer token.
+          - **value**: This is the placeholder for the actual token being used for authentication. The placeholder shows "BearerToken", which should be replaced with a valid token.
+          - **type**: This defines the data type of the value. It is set as "string", meaning the token should be in string format.
+
+      - **method**: This indicates the HTTP method used for the request. In this case, it is "GET", which is typically used for retrieving data from the server.
+
+      - **url**: This is the endpoint URL to which the request will be sent. It consists of the base URL "http://localhost:3000/api/action/reject/get/" followed by query parameters:
+        - **rejectId**: This is a query parameter that needs to be specified for determining the specific rejection action to retrieve.
+        - **sessionId**: This is another query parameter that identifies the user session associated with the request.
+        - **accountId**: This query parameter is used to specify the account related to the rejection action being requested.
+
+      - **headers**: This section defines any custom headers that should be sent with the request.
+        - **key**: Currently, there are no custom headers specified, as the key is empty.
+        - **value**: Similarly, there is no value set for any headers.
+        - **type**: The type is set to "default".
+        - **disabled**: This is set to true, meaning that these headers are currently disabled and not included in the request.
+
+      - **body**: This section represents the body content of the request.
+        - **mode**: The body mode is set to "raw", indicating that the body content is raw data without any specific format.
+        - **raw**: This is left empty, suggesting that there is no body content required for this GET request.
+
+    This endpoint is designed to retrieve information about a rejection action
+    based on the specified identifiers while ensuring the request is
+    authenticated via a bearer token.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: rejectId
+      in: query
+      schema:
+        type: string
+      example: rejectId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,98 @@
+get:
+  tags:
+    - MediaVideo
+  summary: Media - Video - Get All
+  description: >-
+    **Endpoint Description:**
+
+
+    **Name: "Media - Video - Get All"**
+
+    This is the label or identifier of the endpoint. It suggests that this
+    endpoint's primary task is to retrieve (Get) all video media.
+
+
+    **Request:**
+
+    It covers various aspects regarding the API request that will be made.
+
+
+    **Auth-->Type: "bearer"**
+
+    This refers to the authentication method that is employed for this request.
+    Bearer authentication (also called token authentication) is an HTTP
+    authentication scheme that involves security tokens called bearer tokens.
+    The name "Bearer authentication" can be understood as "give access to the
+    bearer of this token".
+
+
+    **Auth-->Bearer-->Key: "token"**
+
+    This is the key information required for bearer authorization. It's
+    typically named 'token'.
+
+
+    **Auth-->Bearer-->Value: "BearerToken"**
+
+    This is the actual bearer token for authentication. Replace "BearerToken"
+    with the real bearer token.
+
+
+    **Auth-->Bearer-->Type: "string"**
+
+    This indicates the data type of the bearer token. In this case, it is a
+    string.
+
+
+    **Method: "GET"**
+
+    This defines the HTTP method to be used when making the API request. A 'GET'
+    request is used to request data from a resource.
+
+
+    **URL:
+    "http://localhost:3000/api/media/media/all/?sessionId=sessionId&accountId=accountId"**
+
+    This is the API's endpoint URL. The parameters 'sessionId' and 'accountId'
+    should be replaced with actual session and account id values.
+
+
+    **Headers:**
+
+    These are additional parameters that can be sent with the request. At
+    present, there isn't any specific key-value pair given.
+
+
+    **Body-->Mode: "raw"**
+
+    This indicates the data mode for the body of the request. The 'raw' mode
+    allows you to write text, JSON, XML or HTML requests directly in the text
+    editor.
+
+
+    **Body-->Raw: ""**
+
+    Since it's a GET request, no body data needs to be sent, which is why this
+    field is empty.
+
+
+    Remember to replace all placeholder values with actual data before making
+    the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

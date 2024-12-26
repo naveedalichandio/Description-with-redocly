@@ -1,0 +1,59 @@
+post:
+  tags:
+    - ArticleSubcategory
+  summary: Article - SubCategory - Create Bulk Auto
+  description: >-
+    1. `name`: This specifies the name of the API endpoint, i.e., "Article -
+    SubCategory - Create Bulk Auto". This denotes that this endpoint is used to
+    create multiple subcategories automatically in articles.
+
+
+    2. `request`: This constitutes the main body of the API request and includes
+    several subparts:
+
+       2.1. `auth`: This dictates the type of authentication used for this API endpoint. In this case, `type` is "bearer", implying bearer token authentication is required. `bearer` consists further of a `key` termed as "token", and a `value` signaled as "BearerToken". It should be replaced with the actual token for authentication.
+
+       2.2. `method`: This mentions the HTTP method (or verb) used for the API request. In this case, it specifies "POST", which means this request will be used to send data to the server to create new resources.
+
+       2.3. `url`: This represents the URL where the API request will be sent. Here, it signifies our local host URL targeted at creating bulk subcategories in articles.
+
+       2.4. `headers`: This usually holds metadata associated with the API request. Currently, it has no definite value enabled.
+
+       2.5. `body`: This forms the main content of the API request.
+
+           2.5.1. `mode`: It states that data is sent in a "raw" format.
+       
+           2.5.2. `raw`: It encompasses the actual JSON data to be sent in the request. It contains `sessionId`, `accountId`, and `subCategories`. Subcategories field is an array of objects. Each object in the array has `name`, `displayName`, `categoryId`, `category`, `description`, and `tags`. These fields provide detailed information about each subcategory such as its name, id, associated category, and brief description along with relevant tags.
+       
+           2.5.3. `options`: It defines how the `raw` data should be interpreted, with `language` stating that the raw data is JSON formatted.
+
+    The above data constitutes a detailed description of all the information
+    present in the `POST` request API endpoint for creating multiple
+    subcategories in articles.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            subCategories:
+              - name: Digital Art
+                displayName: Digital Art Subcategory
+                categoryId: '12345'
+                category: Art
+                description: Subcategory for digital artworks.
+                tags: Digital,Art,Subcategory
+              - name: AI Innovations
+                displayName: AI in Art
+                category: Art
+                description: Subcategory for AI-based artistic innovations.
+                tags: AI,Art,Innovation
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,77 @@
+get:
+  tags:
+    - ActionBalance
+  summary: Action - Balance - Get
+  description: >-
+    ### Action - Balance - Get Endpoint Description
+
+
+    - **name**: Represents the name of the API action being performed. In this
+    case, it is "Action - Balance - Get", indicating that this endpoint is used
+    to retrieve balance details.
+
+
+    - **request**: This section outlines the details of the HTTP request that
+    will be made to the server.
+
+      - **auth**: This part specifies the authentication method used for the request.
+      
+        - **type**: Indicates the authentication mechanism. Here, it is "bearer", meaning the request requires a bearer token for authorization.
+        
+        - **bearer**: This is an array that contains the parameters for the bearer token.
+        
+          - **key**: A label for the token, in this instance, it is "token".
+          
+          - **value**: Represents the actual bearer token to be sent with the request. It is currently marked as "BearerToken", which should be replaced with an actual token when making the request.
+          
+          - **type**: Indicates the data type of the token value, which is specified as "string".
+
+      - **method**: The HTTP method used for this request. It is a "GET" request, which means the endpoint is used to retrieve information rather than modify it.
+
+      - **url**: The endpoint URL where the request will be sent. This includes:
+      
+        - The base URL: `http://localhost:3000`
+        
+        - The API path: `/api/action/balance/get/`
+        
+        - Query parameters:
+          - **balanceId**: A parameter that should be replaced with the actual balance ID to specify which balance to retrieve.
+          - **sessionId**: A parameter that should be replaced with the actual session ID, used to identify the user session.
+          - **accountId**: A parameter that should be replaced with the actual account ID to retrieve the relevant balance for the specified account.
+
+      - **headers**: This section lists HTTP headers to be included in the request.
+      
+        - The current header is empty, meaning no additional headers are sent. The header is marked as "disabled", which implies it is not active and will not be included in the request.
+
+      - **body**: The body of the request.
+      
+        - **mode**: Indicates the format of the body. For a GET request, this is generally not used, but here it is set to "raw".
+        
+        - **raw**: Contains the request body data, which is currently empty, as GET requests typically do not include a body.
+
+    This detailed description provides a comprehensive overview of the
+    components involved in the "Action - Balance - Get" endpoint for effective
+    usage by other users.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: balanceId
+      in: query
+      schema:
+        type: string
+      example: balanceId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

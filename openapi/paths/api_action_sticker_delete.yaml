@@ -1,0 +1,67 @@
+post:
+  tags:
+    - ActionSticker
+  summary: Action - Sticker - Delete
+  description: >-
+    ### Description of Each Data Element in the Endpoint
+
+
+    - **name**: This is the title of the API request. It describes the action
+    being performed, in this case, it indicates that this endpoint is used to
+    delete a sticker.
+
+
+    - **request**: This section contains all the details related to the API
+    request being made.
+
+      - **auth**: This specifies the authentication mechanism being used for the request.
+      
+        - **type**: This indicates the method of authentication. In this case, it is a "bearer" token, which means that access is controlled via a token that must be included in the request.
+        
+        - **bearer**: This array holds the details of the bearer token required for authentication.
+        
+          - **key**: This is the identifier for the token. Here it is labeled "token," indicating its purpose.
+          
+          - **value**: This is a placeholder for the actual value of the bearer token needed for the request. In the context of the request, it is set to "sessionId," indicating that the session ID will be used as the bearer token.
+          
+          - **type**: This indicates the data type of the value. It is specified as "string," meaning that the value should be treated as a string.
+
+      - **method**: This states the type of HTTP request being made. In this case, "POST" indicates that data is being sent to the server, which is typical for deleting resources.
+
+      - **url**: This is the endpoint URL where the API request is directed. The URL "http://localhost:3000/api/action/sticker/delete" indicates that the request is being made to a local server running on port 3000 to perform the action of deleting a sticker.
+
+      - **headers**: This section can include custom headers that provide additional context for the request.
+
+        - **key**: This is the name of a header. Here it is left empty, possibly indicating that there are no additional headers required for this request.
+        
+        - **value**: This is the value associated with the key. It is also empty in this case.
+        
+        - **type**: This specifies the type of header, which is "default" in this case indicating standard header behavior.
+        
+        - **disabled**: This boolean indicates whether the header is currently enabled or disabled. It is set to true, meaning that this header will not be included in the request.
+
+      - **body**: This section holds the data sent with the request.
+
+        - **mode**: This specifies the format of the request body. It is set to "raw," indicating that the body will be sent as raw JSON data.
+        
+        - **raw**: This is a string representation of the actual data being sent in the request body. The raw data includes:
+        
+          - **sessionId**: This field should contain the valid session ID for the user making the request. It is a placeholder indicating that the actual session ID needs to be provided.
+          
+          - **accountId**: This field is meant to hold the identifier for the account associated with the sticker being deleted. Like sessionId, it indicates that the actual account ID needs to be specified.
+          
+          - **stickerId**: This field is used to specify the unique identifier of the sticker that is to be deleted. Again, this is a placeholder, and the actual sticker ID needs to be included in the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"stickerId\":\"stickerId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

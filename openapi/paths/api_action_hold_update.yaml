@@ -1,0 +1,101 @@
+put:
+  tags:
+    - ActionHold
+  summary: Action - Hold - Update
+  description: |-
+    #### Action - Hold - Update
+
+    **Request Authentication**
+    - **Type:** Bearer
+      - **Token:** The authorization token provided for accessing this API endpoint. This should be in the format "Bearer <token>", where "<token>" is the actual bearer token you have received for authentication.
+
+    **HTTP Method**
+    - **Method:** PUT 
+      - This indicates that the request is meant to update existing resources at the specified URL.
+
+    **URL**
+    - **Endpoint URL:** `http://localhost:3000/api/action/hold/update` 
+      - This is the endpoint where the update request will be sent. It manages actions related to a "hold" update.
+
+    **Headers**
+    - **Client-UUID:** 
+      - A unique identifier for the client making the request. It is used to identify and authorize the client in the system.
+
+    **Request Body**
+    - **Mode:** Raw
+      - The request body is being sent in raw format, specifically as JSON.
+
+    - **Raw JSON Body:**
+      - This contains the following fields:
+      
+      1. **sessionId:** 
+         - A unique identifier for the session. It helps in tracking the current user's session.
+      
+      2. **accountId:** 
+         - The unique identifier for the account associated with the hold. This indicates which user's account is being updated.
+      
+      3. **holdId:** 
+         - The identifier for the specific hold that is being updated. It points to the current hold in the system.
+      
+      4. **path:** 
+         - The path or URL where the resource is located. In this case, it is pointing to a live channel, "/live/channel/video123".
+      
+      5. **targetType:** 
+         - Indicates the type of target impacted by the hold action. In this case, it specifies that the target is a "streamer".
+      
+      6. **targetId:** 
+         - The unique identifier for the target, which in this context is the video ID (e.g., "videoId") associated with the hold.
+      
+      7. **sourceType:** 
+         - The type of the source associated with the hold. Here, it refers to an "accountId".
+      
+      8. **sourceId:** 
+         - The unique identifier for the source, specifically linking back to the account ID involved in this action.
+      
+      9. **tokenAmount:** 
+         - The number of tokens associated with this hold action. In this case, it is set to 20.
+      
+      10. **name:** 
+          - A descriptive name for the hold or action. For instance, "Farooq" is likely a user or hold name.
+      
+      11. **description:** 
+          - A textual description providing more context about the hold. Here it's marked as "this is description".
+      
+      12. **tags:** 
+          - Tags related to this hold action. Here it is marked as "xyz" which could be used for categorization or filtering.
+
+    **Body Options**
+    - **Options:**
+      - **Raw Language:** JSON
+        - Specifies the format of the raw body content being sent which is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            holdId: holdId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

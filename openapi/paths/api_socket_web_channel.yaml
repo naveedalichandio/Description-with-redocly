@@ -1,0 +1,44 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Channel
+  description: |-
+    **Endpoint Description: Web - Socket - Recent Channel**
+
+    - **Name**: Web - Socket - Recent Channel
+      - This is the identifier for the API endpoint, indicating that it deals with recent channels within a web socket context.
+
+    - **Request**: 
+      - This section outlines the details of the API call that can be made to retrieve data.
+
+      - **Method**: 
+        - **GET**
+          - This specifies that the request will be a 'GET' method, which is typically used to fetch data from a server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/socket/web/channel?recent=true&limit=limit`
+          - This is the endpoint URL where the GET request will target.
+          - It consists of the following components:
+            - `http://localhost:3000`: This indicates that the API is being accessed locally on port 3000.
+            - `/api/socket/web/channel`: This portion specifies that the request is related to the web socket API for channels.
+            - `?recent=true`: This query parameter is being used to filter the response to only include recent channels.
+            - `&limit=limit`: This query parameter is intended to define the maximum number of channels returned in the response. Users need to replace `limit` with an actual numerical value to set this limit.
+
+    - **Headers**: 
+      - This section is currently empty, which means that no custom headers are being sent with the request. Headers may include information such as authentication tokens or content types if needed in future implementations.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

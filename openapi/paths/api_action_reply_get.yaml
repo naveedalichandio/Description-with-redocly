@@ -1,0 +1,98 @@
+get:
+  tags:
+    - ActionReply
+  summary: Action - Reply - Get
+  description: |-
+    ### Detailed Description of Endpoint: Action - Reply - Get
+
+    - **name**: Action - Reply - Get  
+      This is the name of the API endpoint, indicating that it handles retrieval actions related to replies.
+
+    - **request**:  
+      This object encapsulates all the details regarding the API request configuration.
+
+      - **auth**:  
+        This field defines the authentication method required for the request.
+
+        - **type**: "bearer"  
+          Specifies that bearer token authentication is used to authorize access to the resource.
+
+        - **bearer**:  
+          This array contains the bearer token information.
+
+          - **key**: "token"  
+            This is the identifier for the token in the request, indicating what to expect in the authorization header.
+
+          - **value**: "BearerToken"  
+            This represents the actual bearer token value that will be sent with the request. It should be replaced with a valid token.
+
+          - **type**: "string"  
+            Indicates that the value of the token is formatted as a string.
+
+      - **method**: "GET"  
+        Denotes the HTTP method used for this request. In this case, it is a GET request, which is typically used to retrieve data from a server.
+
+      - **url**:  
+        The URL endpoint to which the request is sent.
+
+        - **http://localhost:3000/api/action/reply/get/**  
+          This is the base URL for the API. The local server runs on port 3000, and this endpoint is specifically for getting reply information.
+
+        - **query parameters**:  
+          The URL includes several query parameters used to specify the request further.
+
+          - **replyId**: "replyId"  
+            This parameter should be replaced with the ID of the reply you wish to fetch.
+
+          - **sessionId**: "sessionId"  
+            This parameter should be replaced with the ID of the session associated with the reply.
+
+          - **accountId**: "accountId"  
+            This parameter should be replaced with the ID of the account that owns the reply.
+
+      - **headers**:  
+        This array would contain any HTTP headers that are necessary for the request.
+
+        - **key**: ""  
+          The key for the header, currently remains empty.
+
+        - **value**: ""  
+          The value for the header, currently remains empty.
+
+        - **type**: "default"  
+          Indicates the type of header, which is currently set to default.
+
+        - **disabled**: true  
+          This field shows that this header is not currently active; it won't be sent with the request.
+
+      - **body**:  
+        This object defines the body of the request, which is not utilized in the case of a GET request.
+
+        - **mode**: "raw"  
+          This indicates that the body content would be in raw format.
+
+        - **raw**: ""  
+          Currently, there is no body content included in this request, as GET requests generally do not require a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: replyId
+      in: query
+      schema:
+        type: string
+      example: replyId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

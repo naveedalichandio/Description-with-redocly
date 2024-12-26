@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionLike
+  summary: Action - Like - Get All
+  description: >-
+    ### Endpoint: Action - Like - Get All
+
+
+    #### Request Details:
+
+
+    - **Auth**: 
+      - **Type**: Bearer
+        - This type of authentication requires a valid bearer token to access the endpoint. 
+      - **Bearer Token**:
+        - **Key**: `token`
+          - This is the key used to access the bearer token.
+        - **Value**: `BearerToken`
+          - This represents the actual bearer token that needs to be included in the request for authentication purposes.
+        - **Type**: `string`
+          - Indicates that the token value is a string data type.
+
+    - **Method**: 
+      - **GET**
+        - This specifies that the request method is GET, which is used to retrieve data from the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/like/all/?sessionId=sessionId&accountId=accountId`
+        - This is the endpoint URL where the request will be sent.
+        - **sessionId**: This is a query parameter representing the unique identifier for the user’s current session.
+        - **accountId**: This is another query parameter that corresponds to the unique identifier of the user’s account for which the likes are being retrieved.
+
+    - **Headers**: 
+      - An array of headers that can be included in the request.
+        - **Key**: An empty string, which means no specific key is provided.
+        - **Value**: An empty string, indicating no particular value is supplied.
+        - **Type**: `default`
+          - This shows the default type for the header entry.
+        - **Disabled**: `true`
+          - This means that the header is currently disabled and will not be sent with the request.
+
+    - **Body**:
+      - **Mode**: `raw`
+        - This indicates that the body of the request is sent in raw format.
+      - **Raw**: 
+        - An empty string, meaning no data is being sent in the body of the request. The GET method typically does not require a body.
+
+    ### Summary:
+
+    This request is used to retrieve all "like" actions for a specific account
+    based on the session identifier provided. Authentication is achieved using a
+    bearer token in the request. The generated URL includes query parameters to
+    specify which session and account to target, but no additional headers or
+    body content is needed.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

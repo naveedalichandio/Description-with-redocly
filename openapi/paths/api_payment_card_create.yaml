@@ -1,0 +1,81 @@
+post:
+  tags:
+    - PaymentCard
+  summary: Card - Zelle - Create
+  description: >-
+    Endpoint Title: Card - Zelle - Create
+
+
+    This endpoint describes the API call for creating a new card using the Zelle
+    payment provider. It employs a "POST" method used to create a resource in a
+    database, allowing users to create a new card linked with specific account
+    details.
+
+
+    Details:
+
+
+    1. Method: POST 
+
+    The request employs a "POST" method indicating it is used to send data to
+    'create' a resource on a server-side database. 
+
+
+    2. URL: http://localhost:3000/api/payment/card/create
+
+    The URL indicates the route to a local server's Create Card API used for
+    creating a new card for a payment gateway.
+
+
+    3. Name: Card - Zelle - Create
+
+    The name suggests that this endpoint is defined for creating a card using
+    the 'Zelle' payment provider.
+
+
+    4. Headers: None
+
+    No further header information is required to authorize or give additional
+    details about this request.
+
+
+    5. Body:
+       - Mode: Raw
+    It needs raw data input, where you will enter a raw JSON object containing
+    the data to create a new card.
+
+       - accountId: This is a string value representing the owner's account id; it indicates who the newly created card will be associated with.
+
+       - sessionId: This is another string value representing the session id, used to track interactions with the server, ensuring requests come from valid users.
+
+       - source: This value represents the source through which the card creation was initiated. However, here, it is set to null.
+
+       - isSaveCard: This boolean value indicates whether the user desires to save the card for easier future payment interactions. If true, the card details will be stored for future use.
+
+       - isPrimary: Another boolean value that specifies whether this card is a primary card. By default, it is set to false, indicating it's not the main card for this account.
+
+       - provider: This string explicitly states the card's payment service provider. Here, 'Zelle' is used.
+
+    6. Options:
+       - Language: JSON
+    The request body should be written in JSON format.
+       
+    In conclusion, this endpoint is used to create a new card using the Zelle
+    payment provider with defined account and session details.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source: null
+            isSaveCard: true
+            isPrimary: false
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

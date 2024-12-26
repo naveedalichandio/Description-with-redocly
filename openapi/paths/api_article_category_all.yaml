@@ -1,0 +1,59 @@
+get:
+  tags:
+    - ArticleCategory
+  summary: Article - Category - Get All By Account ID
+  description: >-
+    This endpoint, named "Article - Category - Get All By Account ID", is used
+    to retrieve all articles by a specific account ID via a GET request. The
+    details of each segment in this endpoint are as follows:
+
+
+    1. "name": This is the key that refers to the name of the API endpoint. In
+    this case, it is "Article - Category - Get All By Account ID".
+
+
+    2. "request": This is where the configuration of the API request is defined.
+    It includes:
+
+
+    - "auth": This defines the type of authorization required to access this
+    endpoint. The endpoint uses 'Bearer token' authorization. The token is
+    provided in the "bearer" field with a key named "token" and a value of
+    "BearerToken".
+
+
+    - "method": Method used to get the information for the API. It's a 'GET'
+    request which is used when you want to retrieve data.
+
+
+    - "url": This is the URL which the request will be sent to. It is
+    "http://localhost:3000/api/article/category/all/?accountId=accountId". The
+    accountId at the end indicates where you would replace it with the actual ID
+    of the account.
+
+
+    - "headers": These are metadata in the form of key-value pairs, sent in the
+    request. In this case, no headers are defined which is why the key and value
+    fields are empty and "disabled" is set to true
+
+
+    - "body": This is the data that you send to the path in the HTTP protocol.
+    However, in this case, it has no content; the mode is "raw" and the raw
+    field is empty.
+
+
+    Remember to replace 'BearerToken' and 'accountId' with actual values in your
+    application.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

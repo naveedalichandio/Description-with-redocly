@@ -1,0 +1,68 @@
+get:
+  tags:
+    - IncentivePromotion
+  summary: Incentive - Promotion - Get
+  description: >-
+    This is the "Incentive - Promotion - Get" endpoint. It's structured as
+    follows:
+
+
+    1. `name`: It's the name used to identify this endpoint. For this case, it's
+    called "Incentive - Promotion - Get".
+
+
+    2. `request`: This section contains all the information about the HTTP
+    request that will be sent to this endpoint.
+
+
+    - `auth`: This part stores the authentication details. The type of
+    authentication used here is the bearer. You have to pass a token as the
+    bearer authorization header.
+        - `key`: It's the way the value is referred to in the authentication protocol. Here, it's the string "token".
+        - `value`: It refers to the actual value that is required for authorization. It should be replaced with the actual Bearer Token value when sending the request.
+        - `type`: Indicates what data type the "value" should have. In this case, it's a string.
+
+    - `method`: This represents the HTTP method used for the request. For this
+    instance, "GET" is used, which retrieves whatever information in the form of
+    an entity which is identified by the `url`.
+
+
+    - `url`: It's the network address where the request will be sent. In this
+    case, it's "http://localhost:3000/api/incentive/promotion/get". Additional
+    parameters are also included such as `promotionId`, `sessionId` and
+    `accountId` which need to be replaced with actual values when sending the
+    request.
+
+
+    - `headers`: These are HTTP headers you can use to provide additional
+    information about the request. In this endpoint, the header is currently
+    disabled and contains no key or value.
+
+
+    - `body`: Contains any additional data you want to send with your request.
+    In this scenario, the `mode` is set as "raw", meaning you can include raw
+    data (like a string of JSON) in your request. Currently, no `raw` data is
+    provided.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: promotionId
+      in: query
+      schema:
+        type: string
+      example: promotionId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

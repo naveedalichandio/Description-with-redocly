@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ActionReport
+  summary: Action - Report - Get
+  description: >-
+    **Description of the Data in the Endpoint:**
+
+
+    - **name**: This is the title of the request. It indicates that this request
+    is related to getting a report action. The name helps in identifying the
+    purpose of the API call.
+
+
+    - **request**: This object encapsulates all the details required to execute
+    the API call.
+
+      - **auth**: This section defines the authentication method used for the request. In this case:
+        - **type**: Specifies that the authentication method is "bearer", which typically uses a token to validate access.
+        - **bearer**: This is an array containing the details of the bearer token:
+          - **key**: This indicates the type of the token. It's labeled "token".
+          - **value**: This is a placeholder for the actual bearer token that you will use for authentication. Replace "BearerToken" with your actual token.
+          - **type**: Specifies that the token is of type "string".
+
+      - **method**: This defines the HTTP method used for the request. Here, it is "GET", which is used to retrieve data from the server.
+
+      - **url**: This is the endpoint where the API request is sent. It includes query parameters:
+        - **reportId**: This query parameter is used to specify which report is being requested. Replace "reportId" with the actual ID of the report you want to retrieve.
+        - **sessionId**: This parameter is used to identify the session for which the report is generated. Replace "sessionId" with the actual session ID.
+        - **accountId**: This parameter identifies the user account related to the report. Replace "accountId" with the appropriate account ID.
+
+      - **headers**: This section contains any additional headers that may need to be sent with the request. In this case:
+        - **key**: Currently set to an empty string, which indicates there are no additional headers needed in this request.
+        - **value**: Also set to an empty string for the same reason.
+        - **type**: Specifies that the header type is "default".
+        - **disabled**: Set to true, indicating that this header is currently not being used.
+
+      - **body**: This section contains the body of the request:
+        - **mode**: Indicates the format of the body. Here it is set to "raw", which is often used for API requests that do not require a body.
+        - **raw**: Contains the actual content of the body. It is empty in this request, indicating that no body content is required for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: reportId
+      in: query
+      schema:
+        type: string
+      example: reportId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

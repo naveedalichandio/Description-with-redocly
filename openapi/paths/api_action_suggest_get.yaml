@@ -1,0 +1,92 @@
+get:
+  tags:
+    - ActionSuggest
+  summary: Action - Suggest - Get
+  description: |-
+    ### Endpoint Description: Action - Suggest - Get
+
+    - **Name**: Action - Suggest - Get  
+      This is the identifier for the API request and hints at its purpose, which is to retrieve suggestions.
+
+    - **Request**:  
+      This section contains details about how to make the API request.
+
+      - **Auth**:  
+        Details the authentication method required to access this endpoint.
+        
+        - **Type**:  
+          The type of authentication being used.
+          - **Bearer**: This indicates that bearer token authentication is required.
+        
+        - **Bearer**:  
+          Contains information about the bearer token used for authentication.
+          
+          - **Key**:  
+            This is the identifier for the token.
+            - **Token**: The key used to pass the authentication token.
+          
+          - **Value**:  
+            The actual token string needed for authentication.
+            - **BearerToken**: Placeholder for the actual bearer token that must be provided when making the request.
+          
+          - **Type**:  
+            Specifies that the value type of the token is a string.
+
+      - **Method**:  
+        Specifies the HTTP method to be used for the API request.
+        - **GET**: The request should use the GET method to retrieve data.
+
+      - **URL**:  
+        This is the endpoint address to which the GET request is sent.
+        - `http://localhost:3000/api/action/suggest/get/?suggestId=suggestId&sessionId=sessionId&accountId=accountId`: This is the endpoint where the request is directed. It includes query parameters for:
+          - **suggestId**: Represents the ID of the suggestion being requested.
+          - **sessionId**: Represents the current session ID.
+          - **accountId**: Represents the ID of the account for which suggestions are being retrieved.
+
+      - **Headers**:  
+        Contains any additional parameters to be included in the request.
+        - **Key**:  
+          Currently empty, indicating there are no specific header keys set.
+          
+        - **Value**:  
+          Also currently empty, showing no specific header values.
+          
+        - **Type**:  
+          This suggests the type of header, set to ‘default’.
+          
+        - **Disabled**:  
+          Set to true, indicating that this header is currently inactive and will not be sent with the request.
+
+      - **Body**:  
+        Details the structure of the body of the request.
+        
+        - **Mode**:  
+          Indicates how the body of the request is structured.
+          - **Raw**: Specifies that the body of the request will be sent as raw data.
+        
+        - **Raw**:  
+          This is the content of the request body.
+          - Currently empty, indicating that no body content is needed or provided for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: suggestId
+      in: query
+      schema:
+        type: string
+      example: suggestId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

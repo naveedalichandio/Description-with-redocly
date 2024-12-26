@@ -1,0 +1,87 @@
+put:
+  tags:
+    - ActionSubscribe
+  summary: Action - Subscribe - Update
+  description: >-
+    ### Description of Endpoint Data
+
+
+    #### Name
+
+    - **Action - Subscribe - Update**: The name of the action that indicates
+    this endpoint is meant for updating subscription information.
+
+
+    #### Request
+
+    - **Auth**: Authentication method used to access the endpoint.
+      - **Type**: Specifies the authentication type being used, which is "bearer".
+      - **Bearer**: This array contains the authentication details.
+        - **Key**: The name of the authentication key, set as "token".
+        - **Value**: The placeholder value for the bearer token, indicating where to insert the actual token.
+        - **Type**: The data type of the value, noted as "string".
+
+    - **Method**: The HTTP method used for the request, which is "PUT". This
+    indicates that the client requests to update existing resources.
+
+
+    - **URL**: The endpoint where the request is sent.
+      - **Value**: "http://localhost:3000/api/action/subscribe/update", this is where the update action is performed.
+
+    - **Headers**: Additional information included in the request.
+      - **Key**: The name of the header being sent, which is "Client-UUID".
+      - **Value**: Placeholder for the client-specific UUID value that identifies the client making the request.
+      - **Type**: The type of the header, noted as "default".
+
+    - **Body**: This contains the data sent with the request.
+      - **Mode**: Set to "raw", indicating that the body content is provided as raw text.
+      - **Raw**: The payload sent in JSON format containing various fields related to the subscription update.
+        - **sessionId**: Unique identifier for the current session.
+        - **accountId**: Identifier for the user’s account involved in the subscription.
+        - **path**: The URL path related to the specific resource being updated, in this case pointing to a video.
+        - **targetType**: Specifies the type of target for the subscription, set to "videoId", signifying the content type.
+        - **targetId**: The unique identifier for the target resource, which is the video being subscribed to.
+        - **sourceType**: Indicates the type of source from which the subscription comes, here specified as "accountId".
+        - **sourceId**: The unique identifier for the source account associated with the subscription.
+        - **didSubscribe**: A boolean value indicating whether the subscription action is being confirmed or not.
+        - **isUndo**: A boolean that indicates if the action is meant to revert a previous subscription.
+        - **name**: An optional field for providing a name associated with the subscription.
+        - **description**: An optional field for providing a description associated with the subscription.
+        - **tags**: An optional field where tags can be provided to categorize the subscription.
+        - **subscribeId**: A unique identifier for the subscription itself, used for tracking.
+
+    - **Options**: Configuration options for the body content.
+      - **Raw**: Specifies that the content is in raw format.
+        - **Language**: Indicates the language used for the raw data, set to "json".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didSubscribe: true
+            isUndo: false
+            name: ''
+            description: ''
+            tags: ''
+            subscribeId: subscribeId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

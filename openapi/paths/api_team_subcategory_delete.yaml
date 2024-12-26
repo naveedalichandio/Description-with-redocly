@@ -1,0 +1,91 @@
+post:
+  tags:
+    - TeamSubCategory
+  summary: Team - SubCategory - Delete
+  description: >-
+    {
+      "description": {
+        "name": "Team - SubCategory - Delete",
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "sessionId",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/team/subcategory/delete",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"subCategoryId\":\"subCategoryId\"}"
+          }
+        }
+      }
+    }
+
+
+    1. **name**: This is the name of the endpoint indicating that it is used to
+    delete a subcategory within a team.
+
+
+    2. **request**: This section outlines the details necessary to make a
+    request to the API.
+
+       - **auth**: This indicates the type of authentication used to access the API. In this case, it is a bearer token.
+       
+         - **type**: Specifies that the authentication method is "bearer".
+         
+         - **bearer**: This is an array containing the authentication details.
+         
+           - **key**: The key is "token", which signifies the type of information being sent for authentication.
+           
+           - **value**: The value "sessionId" indicates that the actual session ID will be provided here during the request.
+           
+           - **type**: This indicates that the value type is a string.
+
+       - **method**: The HTTP method used for the request, which is "POST" in this case. This suggests that data will be sent to the server to perform an action.
+
+       - **url**: This is the endpoint URL where the request will be sent. It is set to "http://localhost:3000/api/team/subcategory/delete", indicating a local server instance.
+
+       - **headers**: This section would typically include any required HTTP headers for the request.
+       
+         - In this case, the headers array is defined but left empty and marked as disabled, meaning no additional headers are being sent with the request.
+
+       - **body**: This details the content of the request.
+       
+         - **mode**: The body mode is set to "raw", which indicates that the body will contain raw data in its original form.
+         
+         - **raw**: This contains the actual JSON string that will be sent in the request body. It includes the following fields:
+           
+           - **sessionId**: This field represents the session identifier for the user making the request.
+           
+           - **accountId**: This field indicates the account ID associated with the request.
+           
+           - **subCategoryId**: This field contains the identifier for the subcategory that is to be deleted.
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"subCategoryId\":\"subCategoryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,111 @@
+post:
+  tags:
+    - UtilityFiat
+  summary: Utility - Fiat - Create Bulk for Team
+  description: >-
+    ### Endpoint: Utility - Fiat - Create Bulk for Team
+
+
+    #### Request Description
+
+
+    - **Authentication**
+      - **Type**: Bearer Token
+        - **Key**: `token`
+        - **Value**: `BearerToken`
+        - **Type**: String
+      - This section requires a bearer token for authorization to access the endpoint.
+
+    - **Method**: `POST`
+      - This specifies that the request method is POST, indicating that data will be sent to the server for processing.
+
+    - **URL**: `http://localhost:3000/api/utility/fiat/createBulk`
+      - This is the endpoint where the POST request will be sent. It is hosted locally on port 3000.
+
+    - **Headers**
+      - There are currently no custom headers specified for this request as the header key and value are empty and marked as disabled.
+
+    - **Body**
+      - **Mode**: Raw
+        - This indicates that the body of the request contains raw data. The data format is JSON.
+      
+      - **Content**: 
+        - The body contains a JSON object with the following fields:
+          - **sessionId**: 
+            - Type: String
+            - Description: An identifier for the session during which the request is being made.
+          
+          - **accountId**: 
+            - Type: String
+            - Description: An identifier for the account involved in the transaction.
+
+          - **list**: 
+            - Type: Array
+            - Description: A collection of transaction objects to be processed in bulk. Each object within the list contains:
+              - **targetType**: 
+                - Type: String
+                - Description: Indicates the type of target for the transaction, here it is consistently `teamId`.
+              
+              - **targetId**: 
+                - Type: String
+                - Description: An identifier for the specific team that the transaction will be directed towards.
+              
+              - **name**: 
+                - Type: String
+                - Description: This denotes the currency name, e.g., "USD" for United States Dollar.
+              
+              - **description**: 
+                - Type: String
+                - Description: A description of the currency being used, providing more context about the currency type.
+              
+              - **type**: 
+                - Type: String
+                - Description: Specifies the currency type, such as `usd`.
+              
+              - **action**: 
+                - Type: String
+                - Description: Indicates the type of action to be performed with the currency, such as `buy`.
+              
+              - **rate**: 
+                - Type: Number
+                - Description: The exchange rate for the transaction; in this example, it is set to 1.
+              
+              - **amount**: 
+                - Type: Number
+                - Description: The total amount of currency for the transaction, here it is set to 1.
+
+    This structure allows the user to create multiple transactions involving
+    buying a specified amount of a currency for a team in a single bulk request.
+    Each transaction is represented as an object within the list array.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            list:
+              - targetType: teamId
+                targetId: teamId
+                name: USD
+                description: United States Dollar
+                type: usd
+                action: buy
+                rate: 1
+                amount: 1
+              - targetType: teamId
+                targetId: teamId
+                name: USD
+                description: United States Dollar
+                type: usd
+                action: buy
+                rate: 1
+                amount: 1
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

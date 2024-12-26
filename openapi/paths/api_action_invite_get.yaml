@@ -1,0 +1,92 @@
+get:
+  tags:
+    - ActionInvite
+  summary: Action - Invite - Get
+  description: >-
+    This is an API request for retrieving an invitation based on specific
+    identifiers. Below is a detailed description of each piece of data in this
+    request:
+
+
+    - **name**: "Action - Invite - Get"
+      - This is the name of the API request, indicating that it is intended to retrieve (get) an invite action.
+
+    - **request**: This section contains all the details required to make the
+    API call.
+      
+      - **auth**: Specifies the type of authentication required to access the API.
+        
+        - **type**: "bearer"
+          - Indicates that bearer token authentication will be used.
+        
+        - **bearer**: An array containing authentication details.
+          
+          - **key**: "token"
+            - Represents the key used for the bearer token in the authentication process.
+            
+          - **value**: "BearerToken"
+            - This is a placeholder for the actual token that will be used to authenticate requests to the API. Users need to replace this with a valid token.
+            
+          - **type**: "string"
+            - Specifies that the value of the token is a string.
+
+      - **method**: "GET"
+        - Indicates the HTTP method to be used for the request. In this case, it is a GET request, which is used to retrieve data from the server.
+
+      - **url**: "http://localhost:3000/api/action/invite/get/?inviteId=inviteId&sessionId=sessionId&accountId=accountId"
+        - This is the endpoint URL for the API request. It contains placeholders for query parameters that must be replaced with actual values when making the request:
+        
+          - **inviteId**: A unique identifier for the invitation that you want to retrieve.
+            
+          - **sessionId**: A unique identifier for the session associated with the invite. 
+
+          - **accountId**: The account identifier to specify the account related to the invitation.
+
+      - **headers**: A collection of HTTP headers to be sent with the request.
+        
+        - **key**: " " (empty)
+          - This field is reserved for specifying a header key but is currently empty.
+            
+        - **value**: " " (empty)
+          - This field is reserved for specifying a header value but is currently empty.
+         
+        - **type**: "default"
+          - Indicates that this is a standard header type.
+          
+        - **disabled**: true
+          - This indicates that the header is currently disabled and will not be included in the request.
+
+      - **body**: Contains information about the request body.
+        
+        - **mode**: "raw"
+          - Indicates that the body of the request is in raw format.
+            
+        - **raw**: ""
+          - The raw body currently has no content. For this GET request, a body is generally not required.
+
+    This description outlines the structure and purpose of the data in this API
+    request, providing clarity for users on how to utilize the collection in
+    Postman.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: inviteId
+      in: query
+      schema:
+        type: string
+      example: inviteId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

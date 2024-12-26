@@ -1,0 +1,62 @@
+post:
+  tags:
+    - NotificationUniversity
+  summary: Notification - University - Delete
+  description: >-
+    This endpoint represents an operation related to the deletion of a
+    university notification. Here is a detailed explanation of the data
+    contained in this endpoint:
+
+
+    1. "name": This field indicates the title or identifier for this endpoint.
+    The provided string "Notification - University - Delete" suggests that this
+    API allows the user to delete notifications related to universities.
+
+
+    2. "request": This group of data comprises all the necessary information
+    that the API needs to successfully execute a request.
+
+
+    3. "auth": This section includes the authentication scheme for the request.
+    The "type" field, having a value of "bearer", tells us this API uses Bearer
+    Token Authentication. 
+
+       - "bearer": An array that holds the token information. 
+       - "key" field with the value "token" suggests that the client must send a 'token' field as part of the authentication. 
+       - "value" field with the value "sessionId" implies that the value for 'token' should be the session Id. 
+       - "type" denotes the data type of the "token" which is in this case, a string.
+
+    4. "method": The HTTP method employed for this request is "POST" which
+    indicates that this API sends data to the server to create a resource.
+
+
+    5. "url": This string is the URL where the API request is sent. Here, it is
+    specifically directed to the "notification/university/delete" path of the
+    local server running on port 3000.
+
+
+    6. "headers": This is an array to specify any custom HTTP headers for the
+    request. Currently, it contains a disabled default key-value pair, which
+    implies no additional headers are required for this request.
+
+
+    7. "body": The body of the request contains the actual data that needs to be
+    sent to the server.
+
+       - "mode": This field defines how the body data should be treated. Its value "raw" explains that the body data will be taken as it is, without further transformation.
+       
+       - "raw": Contains a JSON formatted string specifying the data to be included in the request. It consists of the "sessionId", "accountId", and "universityId" fields, signifying the session, account, and university identifiers respectively, required for this delete operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"universityId\":\"universityId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

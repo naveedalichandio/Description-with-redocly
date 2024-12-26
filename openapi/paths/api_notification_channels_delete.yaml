@@ -1,0 +1,60 @@
+post:
+  tags:
+    - NotificationChannels
+  summary: Notification - Channels - Delete
+  description: >-
+    This endpoint is titled "Notification - Channels - Delete". As the name
+    suggests, it is made for deleting a notification channel.
+
+
+    The endpoint requires "bearer" type authorization. Here, the bearer token
+    must be provided to handle authentication and authorization to use this
+    endpoint. The key for the bearer token is "token" and the value should be
+    the "sessionId". The "sessionId" should be a string type value, representing
+    the ID of the active session.
+
+
+    This endpoint is accessed via the "POST" method indicating that you're
+    supplying information to be processed by the server.
+
+
+    The URL to send this POST method is
+    "http://localhost:3000/api/notification/channels/delete". Upon successful
+    operation, this endpoint will remove the respective notification channel.
+
+
+    There are headers in the request but they are disabled and empty by default.
+    Though they are present, they aren't required or being used currently.
+
+
+    Inside the "body" of the request, you'll notice it's in "raw" mode meaning
+    you can enter any text. However, it expects a JSON object that contains
+    three fields:
+
+
+    1. The "sessionId" field, which should be a string type value, stands for
+    the session identifier.
+
+    2. The "accountId" field is also a string type value. This represents the
+    account identifier from which you want to delete the notification channel.
+
+    3. The "channelsId" field denotes the identifier of channels that is to be
+    deleted from the account.
+
+
+    Please remember, while filling out the data in the body, ensure that you're
+    following the provided JSON format.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"channelsId\":\"channelsId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,47 @@
+get:
+  tags:
+    - ReportsVideo
+  summary: Reports - Video - Get All
+  description: >-
+    This endpoint, named "Reports - Video - Get All," is used to retrieve and
+    display all video reports. Here's a breakdown of each data field present in
+    the endpoint:
+
+
+    - **name**: This is the name of the endpoint. It's labelled as 'Reports -
+    Video - Get All', implying that its purpose is to fetch all video reports.
+
+
+    - **request**: This segment contains all the necessary components to make a
+    request and the method of the request.
+      
+      - **auth**: This section is for authentication purposes. It uses the 'bearer' authentication method. In this case, you will need to provide a valid token (BearerToken) of type 'string'. This token is crucial for authorizing your request.
+
+      - **method**: This defines the HTTP method used for request. For this endpoint, the 'GET' method is used which means it retrieves information.
+
+      - **url**: This is the URL or location where the request will be sent. It specifies the path to retrieve all video reports. It contains parameters `sessionId` and `accountId` which should be replaced with actual session ID and account ID respectively for successful data fetch.
+
+      - **headers**: This part is currently empty and disabled. The 'default' type implies that if it's enabled and provided with a 'key' and 'value', they will be sent with every request. It is used to provide additional information about the request.
+
+      - **body**: The body part signifies the data to be sent along with the request. The 'mode' is currently set to 'raw', meaning any data contained in the 'raw' field will be transmitted as it is. At present, it is empty as it's a 'GET' request which generally doesn't include any body.
+
+    Be sure to fill in all necessary fields and replace any placeholders with
+    valid information to ensure the endpoint functions correctly.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,105 @@
+post:
+  tags:
+    - NotificationTournaments
+  summary: Notification - Tournaments - Create
+  description: >-
+    The given endpoint represents the creation of a notification for
+    tournaments. The data consist of various key-value pairs which are described
+    below:
+
+
+    1. "name": This field represents the name of the endpoint, which in this
+    case is "Notification - Tournaments - Create".
+
+
+    2. "request": This field contains the details of the request needed to call
+    the endpoint.
+
+      a) "auth": This field contains authentication methods needed to access the endpoint. It's using bearer token authentication where "key" should be the string "token" and "value" should be the actual bearer token. 
+
+      b) "method": This field contains the HTTP method for the request which is "POST".
+
+      c) "url": This field contains the URL of the endpoint.
+
+      d) "headers": Headers to be included with the request but here it's empty and disabled.
+
+      e) "body": This field contains the payload or data to be sent to the server:
+
+      - "mode": Specifies how the body data is structured, which is "raw" in this case.
+
+      - "raw": Contains the raw body data which will be sent to this endpoint, in JSON format. Each property within the "raw" field is explained below:
+
+        i) "sessionId": This field holds the session Id.
+
+        ii) "accountId": The account id associated with the session.
+
+        iii) "name": Name of the tournament.
+
+        iv) "description": Description of the tournament.
+
+        v) "tags": Tags for the tournament.
+
+        vi) "profilePhotoUrl": URL for the profile photo associated with the tournament.
+
+        vii) "coverPhotoUrl": URL for the cover photo of the tournament.
+
+        viii) "minimumTipAmount": Minimum tip amount for the tournament.
+
+        ix) "categoryId": Id of the category.
+
+        x) "category": Category name.
+
+        xi) "subCategoryId": Id of the subcategory.
+
+        xii) "subCategory": Subcategory name.
+
+        xiii) "isTournamentsPrivate": Boolean value indicating if the tournament is private.
+
+        xiv) "isTournamentOnly": Boolean value indicating if this is tournament only.
+
+        xv) "isTournamentsDefault": Boolean value indicating if this is the default tournament.
+
+        xvi) "isPreLiveNotificationAds": Boolean value indicating if there are pre-live ads.
+
+        xvii) "isPostLiveNotificationAds": Boolean value indicating if there are post-live ads.
+
+        xviii) "breakPreLiveNotificationUrl": URL for the pre-live ads video.
+
+        xix) "breakPostLiveNotificationUrl": URL for the post-live ads video.
+
+      - "options": Specifies additional options for the body of the request. Here, it is specifying that the language used in the "raw" field is JSON.
+      
+    Each of these properties plays an essential part in the request body and
+    should be filled in appropriately.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Tournaments
+            description: This tournaments is my second tournaments
+            tags: second,tournaments
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isTournamentsPrivate: true
+            isTournamentOnly: false
+            isTournamentsDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

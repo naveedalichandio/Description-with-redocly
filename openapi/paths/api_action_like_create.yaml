@@ -1,0 +1,104 @@
+post:
+  tags:
+    - ActionLike
+  summary: Action - Like - Create
+  description: >-
+    ### Action - Like - Create Endpoint Description
+
+
+    #### Request Details
+
+
+    - **Auth Type**: Bearer Token
+      - **Token**: A security token that authorizes access to the endpoint. Replace `BearerToken` with your actual bearer token.
+
+    - **HTTP Method**: POST
+      - This method is used to send data to the server to create a new resource. In this case, it is used to express a "like" action.
+
+    - **URL**: 
+      - The endpoint for the request is `http://localhost:3000/api/action/like/create`. This is where the request will be sent.
+
+    #### Headers
+
+
+    - **Headers**: Currently, there are no headers specified and any default
+    headers are disabled.
+
+
+    #### Request Body
+
+
+    - **Mode**: Raw
+      - This mode allows you to send the request body in raw format. The body is specified in JSON format.
+
+    - **Raw Body**: 
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "path": "/live/channel/video123",
+          "targetType": "videoId",
+          "targetId": "videoId",
+          "sourceType": "accountId",
+          "sourceId": "accountId",
+          "didLike": true,
+          "isUndo": false,
+          "name": "",
+          "description": "",
+          "tags": ""
+      }
+      ```
+
+      #### Body Fields Description
+
+      - **sessionId**: Identifies the current session. Replace `sessionId` with the actual session identifier for tracking user interactions.
+      
+      - **accountId**: The unique identifier for the user account acting in this request. Replace `accountId` with the specific account ID of the user.
+      
+      - **path**: Specifies the path to the resource being interacted with, such as a video or channel. It indicates where the action is taking place (e.g., `/live/channel/video123`).
+      
+      - **targetType**: Defines the type of the target that is being liked. In this case, it is set to `videoId`, indicating that the target of the like is a video.
+      
+      - **targetId**: The unique identifier for the target resource that is being liked. Replace `videoId` with the actual ID of the video.
+      
+      - **sourceType**: Specifies the type for the source of the like action. It is set to `accountId`, indicating that the like comes from a user account.
+      
+      - **sourceId**: The unique identifier for the source of the like action. It should be the same as `accountId` in this context.
+
+      - **didLike**: A boolean value indicating whether the like action was performed. Set to `true` to denote that the user has liked the resource.
+      
+      - **isUndo**: A boolean value indicating whether this action is intended to undo a previous like. Set to `false` if it is a new like action rather than an undo.
+      
+      - **name**: Optional field for a name related to the like action. It can be left blank if not used.
+
+      - **description**: Optional field for a description related to the like action. It can be left blank if not applicable.
+
+      - **tags**: Optional field for any associated tags. It can be left blank if no tags are necessary. 
+
+    Ensure to replace the placeholder values in the request body with actual
+    data before sending the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didLike: true
+            isUndo: false
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

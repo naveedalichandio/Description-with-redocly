@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionRead
+  summary: Action - Read - Get All
+  description: |-
+    ### Endpoint Description: Action - Read - Get All
+
+    - **Name**: Action - Read - Get All
+      - This refers to a specific API operation designed to retrieve all actions stored in the database.
+
+    - **Request**:
+      - **Auth**:
+        - **Type**: Bearer
+          - This indicates that the request requires authentication via a bearer token.
+          - **Bearer**: Provides details for authentication.
+            - **Key**: 
+              - `token`
+                - This represents the authentication key required by the API to authorize the request.
+            - **Value**: 
+              - `BearerToken`
+                - This is where the actual bearer token must be placed for authentication. Replace `BearerToken` with a valid token to access the API.
+            - **Type**: 
+              - `string`
+                - Designates that the expected value for the token is a string.
+
+      - **Method**:
+        - **GET**
+          - This specifies that the request will be using the HTTP GET method, which is typically used to retrieve data from the server.
+
+      - **URL**:
+        - `http://localhost:3000/api/action/read/all/?sessionId=sessionId&accountId=accountId`
+          - This is the endpoint URL where the API can be accessed.
+          - `sessionId` and `accountId` are query parameters that must be filled in with appropriate values to identify the session and account for which actions are being retrieved.
+
+      - **Headers**:
+        - An empty header is defined but currently disabled.
+          - **Key**: `""`
+            - This part is where you can specify custom headers if needed.
+          - **Value**: `""`
+            - The expected value for the custom header, currently left blank.
+          - **Type**: 
+            - `default`
+              - Indicates the type of the header, which is default in this case.
+          - **Disabled**: 
+            - `true`
+              - This means this particular header will not be sent with the request.
+
+      - **Body**:
+        - **Mode**: 
+          - `raw`
+            - Indicates that the body of the request is sent in raw format.
+        - **Raw**: 
+          - `""`
+            - The body of the request is currently empty, as this is a GET request where typically no body is included.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

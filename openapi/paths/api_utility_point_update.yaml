@@ -1,0 +1,120 @@
+put:
+  tags:
+    - UtilityPoint
+  summary: Utility - Point - Update Point for Team
+  description: >-
+    ### Endpoint: Utility - Point - Update Point for Team
+
+
+    **Request Type:** PUT
+
+
+    **URL:** `http://localhost:3000/api/utility/point/update`
+
+
+    #### Authorization
+
+    - **Auth Type:** Bearer
+      - **Token:** A token that is required for authorization. It should be replaced with the actual bearer token during the request.
+
+    #### Headers
+
+    - **Client-UUID:** A unique identifier for the client making the request.
+    This should be replaced with the actual UUID for the client.
+
+
+    #### Body
+
+    The request body should be sent in raw JSON format and contains the
+    following fields:
+
+
+    1. **sessionId**: Represents the session identifier for tracking the user's
+    session during the request. This value should be replaced with the actual
+    session ID.
+
+
+    2. **accountId**: The unique identifier for the account that is associated
+    with the points being updated. This should be replaced with the actual
+    account ID.
+
+
+    3. **pointId**: This is the unique identifier for the point entry that needs
+    to be updated. The value should correspond to the point ID you wish to
+    change.
+
+
+    4. **targetType**: Specifies the type of target that is being updated with
+    points. In this case, it should be set to "teamId" to indicate that points
+    are awarded to a team.
+
+
+    5. **targetId**: The unique identifier for the team that is receiving the
+    points. This should be replaced with the actual team ID.
+
+
+    6. **name**: A string representing the name of the point update. In this
+    example, it is set to "TTP" (Team Tournament Point), but this can be
+    customized to reflect the specific point update.
+
+
+    7. **description**: A brief description of the point update. For instance,
+    "Team Tournament Point" provides context about what the points are related
+    to.
+
+
+    8. **type**: Indicates the category or platform for the points. For this
+    request, it is set to "platform," but could represent different contexts as
+    necessary.
+
+
+    9. **action**: Defines the action being taken with respect to the points. It
+    is set to "award" here, indicating that points are being given to the team.
+
+
+    10. **rate**: Specifies the rate or multiplier for the points being awarded.
+    In this example, the rate is set to 1.
+
+
+    11. **amount**: Represents the total points being awarded to the team. In
+    this case, it is set to 5 points.
+
+
+    ### Notes
+
+    - Ensure that the values for `sessionId`, `accountId`, `pointId`,
+    `targetId`, and other fields are correctly populated before making the
+    request.
+
+    - The endpoint is designed for updating team points effectively based on the
+    provided parameters.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            pointId: pointId
+            targetType: teamId
+            targetId: teamId
+            name: TTP
+            description: Team Tournament Point
+            type: platform
+            action: award
+            rate: 1
+            amount: 5
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

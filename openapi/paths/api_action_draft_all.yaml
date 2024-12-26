@@ -1,0 +1,79 @@
+get:
+  tags:
+    - ActionDraft
+  summary: Action - Draft - Get All
+  description: >-
+    ### Action - Draft - Get All Endpoint Description
+
+
+    #### Name
+
+    - **Action - Draft - Get All**
+      - This is the name of the API endpoint designed to retrieve all draft actions.
+
+    #### Request
+
+    - **Auth**
+      - This section outlines the authentication method required to access the endpoint.
+      - **Type**: Bearer
+        - Indicates that bearer token authentication is used.
+      - **Bearer**: 
+        - Contains the following details:
+          - **Key**: token
+            - This specifies the type of authentication parameter being used.
+          - **Value**: BearerToken
+            - Placeholder for the actual bearer token, which is required for authorization.
+          - **Type**: string
+            - Indicates that the value for the token is in string format.
+
+    - **Method**
+      - **GET**
+        - This HTTP method is used to request data from the specified resource.
+
+    - **URL**
+      - **http://localhost:3000/api/action/draft/all/?sessionId=sessionId&accountId=accountId**
+        - The endpoint URL for making the GET request to obtain all draft actions.
+        - **Parameters**:
+          - **sessionId**: sessionId
+            - This query parameter is used to identify the user's session.
+          - **accountId**: accountId
+            - This query parameter is used to specify the user’s account from which drafts are being retrieved.
+
+    - **Headers**
+      - This section contains any additional metadata that may be required when making the request.
+      - **Key**: (empty)
+        - There are currently no custom headers being specified.
+      - **Value**: (empty)
+        - Corresponding value for the key, not specified.
+      - **Type**: default
+        - Indicates the default type for headers.
+      - **Disabled**: true
+        - This means that the header is currently not in use (disabled).
+
+    - **Body**
+      - **Mode**: raw
+        - Indicates the content type of the body being sent.
+      - **Raw**: (empty)
+        - The request body is empty because no additional data is being sent with the GET request. 
+
+    This endpoint allows users to fetch all draft actions associated with a
+    specific session and account, requiring a valid bearer token for
+    authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,72 @@
+get:
+  tags:
+    - TournamentGeneral
+  summary: Tournament - General - Get All
+  description: >-
+    ### Endpoint: Tournament - General - Get All
+
+
+    **Description:**
+
+    This API endpoint retrieves all general information related to tournaments.
+
+
+    #### Request Details:
+
+
+    - **Authentication:**
+      - **Type:** Bearer Token
+      - **Bearer Token:**
+        - **Key:** token
+          - This is the name of the authorization key used to pass the bearer token in the request.
+        - **Value:** BearerToken
+          - This should be replaced with the actual bearer token required for authentication. The token must be valid to access the data.
+        - **Type:** string
+          - Indicates that the token value should be a string format.
+
+    - **HTTP Method:** 
+      - **GET**
+        - This request uses the GET method to fetch data from the API. No data is sent to the server; instead, it retrieves current data.
+
+    - **URL:**
+      - `http://localhost:3000/api/tournament/general/all/?sessionId=sessionId&accountId=accountId`
+        - This is the endpoint used to access the tournament data.
+        - **Query Parameters:**
+          - **sessionId:** sessionId
+            - The identifier for the current session, which may be required to fetch relevant tournament data.
+          - **accountId:** accountId
+            - The identifier for the user’s account, necessary for filtering data associated with a particular user.
+
+    - **Headers:**
+      - **Key:** (not specified)
+        - No custom headers are being used in this request since the key and value are empty.
+        - **Value:** (not specified)
+        - This header is currently disabled, indicating that it does not play a role in this specific request.
+
+    - **Body:**
+      - **Mode:** raw
+        - The body format is set to raw, meaning no specific type of body content is being sent with the request.
+      - **Raw:** 
+        - The body is empty as no additional data is transmitted in this GET request. 
+
+    This structure allows users to fetch comprehensive tournament details
+    without having to provide additional data in the body. Make sure to replace
+    the session and account IDs with actual values before making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

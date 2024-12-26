@@ -1,0 +1,52 @@
+get:
+  tags:
+    - ConnectComment
+  summary: Connect - Comment - Get
+  description: >-
+    This endpoint is labeled "Connect - Comment - Get". It provides a
+    functionality to retrieve a comment from the connect API. 
+
+
+    1. "auth": This is the authorization method required for the API. It uses a
+    'bearer token' for authorization. A bearer token is a type of access token
+    that is sent as a part of the header in API requests to authenticate the
+    user making the request. 
+        - "type": Is "bearer", indicating the type of authorization method in use.
+        - "bearer": This is an array containing bearer token information.
+            - "key": Specifies "token" as the key.
+            - "value": The value is expected to be the actual "BearerToken" to authenticate the request.
+            - "type": Is "string", specifying that the value of the token will be a string.
+
+    2. "method": The method to be used to request the particular endpoint. In
+    this case, it is "GET", meaning the request will retrieve information from
+    the API.
+
+
+    3. "url": This is the address where the API is located. Here it is
+    "http://localhost:3000/api/connect/comment/get/?commentId=commentId". It
+    also includes a parameter "commentId", which allows users to specify the
+    comment they want to retrieve information about.
+
+
+    4. "headers": This field is used to send additional information in the
+    request header. In this endpoint, it is set to empty (both key and value)
+    and is also disabled.
+
+
+    5. "body": This section contains any data that needs to be sent with a
+    request. Here, the "mode" is set to "raw", indicating that the body content
+    should be taken 'as is'. In this endpoint, no body data (raw content) should
+    be sent as it's a GET request and so, "raw" is set to an empty string.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: commentId
+      in: query
+      schema:
+        type: string
+      example: commentId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

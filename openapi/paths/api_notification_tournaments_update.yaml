@@ -1,0 +1,96 @@
+put:
+  tags:
+    - NotificationTournaments
+  summary: Notification - Tournaments - Update
+  description: >-
+    This endpoint, named `Notification - Tournaments - Update`, is designed to
+    update the data of a specific tournament on a server running on localhost
+    port 3000. The data is sent via the `PUT` HTTP method to
+    `/api/notification/tournaments/update`.
+
+
+    Authenticating is done using the `bearer` method requiring a token input as
+    a string.
+
+
+    The request header must include a `Client-UUID`, a unique identifier for the
+    client.
+
+
+    The request body must be in `raw` format containing the following data:
+
+
+    - `tournamentsId`: Unique identifier for the tournament.
+
+    - `sessionId`: Session id reference of active user.
+
+    - `accountId`: Identifier for the related account.
+
+    - `name`: The new name of the tournament.
+
+    - `description`: A brief description about the tournament.
+
+    - `tags`: Tags associated with the tournament.
+
+    - `profilePhotoUrl`: URL of the profile photo for the tournament.
+
+    - `coverPhotoUrl`: URL of the cover photo for the tournament.
+
+    - `minimumTipAmount`: Minimum tip amount if applicable.
+
+    - `categoryId`: Unique identifier for the category.
+
+    - `category`: The General category of the tournament.
+
+    - `subCategoryId`: Unique identifier for the subcategory.
+
+    - `subCategory`: More specific subcategory of the tournament.
+
+    - `isTournamentsPrivate`: Boolean field for tournament's privacy, if it's
+    private this is true.
+
+    - `isTournamentOnly`: Boolean field indicating if the tournament is
+    exclusive.
+
+    - `isTournamentsDefault`: Boolean field, if the tournament is the account's
+    default tournament this is true.
+
+    - `isPreLiveNotificationAds`: Boolean field, if set to true ads are shown
+    before live notifications.
+
+    - `isPostLiveNotificationAds`: Boolean field, if set to true ads are shown
+    after live notifications.
+
+    - `breakPreLiveNotificationUrl`: URL of the pre-live notification break
+    video. 
+
+    - `breakPostLiveNotificationUrl`: URL of the post-live notification break
+    video.
+
+
+    Make sure to replace placeholder values with the actual data when making the
+    request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"tournamentsId\":\"tournamentsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Tournaments 2.0\",\"description\":\"This tournaments is my
+            second
+            tournaments\",\"tags\":\"second,tournaments\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isTournamentsPrivate\":true,\"isTournamentOnly\":false,\"isTournamentsDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

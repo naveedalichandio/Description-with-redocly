@@ -1,0 +1,79 @@
+get:
+  tags:
+    - ActionSuggest
+  summary: Action - Suggest - Get All
+  description: >-
+    ### Endpoint: Action - Suggest - Get All
+
+
+    **Name**: Action - Suggest - Get All  
+
+    This is the name of the API request, indicating that it is used to retrieve
+    all suggestions related to actions.
+
+
+    **Request**:  
+
+    This section contains the details of how to make the API request.
+
+
+    - **Auth**:  
+      Contains information about the authentication method used for this request.
+      
+      - **Type**:  
+        Specifies the authentication type as "bearer", which indicates that a bearer token will be used for authentication.
+        
+      - **Bearer**:  
+        This is an array containing details about the bearer token required to authorize the request.
+        
+        - **Key**:  
+          Indicates the name of the bearer token parameter. In this case, it's labeled "token".
+          
+        - **Value**:  
+          Represents the actual authorization token that needs to be sent with the request. Here it is shown as "BearerToken", and users should replace this with their actual token.
+          
+        - **Type**:  
+          Shows that the token should be sent as a string.
+
+    - **Method**:  
+      The HTTP method to be used for this request is "GET". This means that the request is intended to retrieve data from the server.
+
+    - **URL**:  
+      The endpoint URL where the request will be sent. In this case:
+      `http://localhost:3000/api/action/suggest/all/?sessionId=sessionId&accountId=accountId`. Users should replace `sessionId` and `accountId` with actual values relevant to their session and account.
+
+    - **Headers**:  
+      This section allows for additional data to be sent along with the request, which can help facilitate the communication between the client and server.
+      
+      - **Key**:  
+        A string intended for the header's name. This is currently empty.
+        
+      - **Value**:  
+        The value associated with the header's key, which is also empty. Together, this header is disabled and does not contribute to the request.
+
+    - **Body**:  
+      This section contains data that can be sent with the request, although for a GET request, a body is typically not used.
+      
+      - **Mode**:  
+        Specifies the mode of the request body, which is set to "raw". This means the body is intended to carry raw data.
+        
+      - **Raw**:  
+        This is the area where the raw body data would be entered. Currently, it is empty since a GET request does not usually include a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

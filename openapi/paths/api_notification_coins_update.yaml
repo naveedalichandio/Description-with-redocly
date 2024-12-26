@@ -1,0 +1,94 @@
+put:
+  tags:
+    - NotificationCoins
+  summary: Notification - Coins - Update
+  description: >-
+    This endpoint is named "Notification - Coins - Update". It's a PUT request
+    used to alter the details of certain coin notifications.
+
+
+    The "Auth" field specifies the type of authentication required, which is of
+    "bearer" type. There's also a "bearer" attribute that holds an array of
+    objects. In that array, there's an object which has a key "token", with
+    value being "BearerToken" of a string type.
+
+
+    "Method" field indicates that the HTTP method used here is "PUT".
+
+
+    "Url" field describes the URL where the API request is sent. The given URL
+    here is "http://localhost:3000/api/notification/coins/update".
+
+
+    In the "Headers", there's a key named "Client-UUID" with a value of
+    "ClientUUID". This is of default type.
+
+
+    In the "Body" section, the "Mode" field specifies that the data sent to the
+    server is raw JSON data. 
+
+
+    The "Raw" field contains the actual data sent to the server in JSON format.
+    It includes:
+
+    - "coinsId": ID of the coin.
+
+    - "sessionId": It refers to ID of the current session.
+
+    - "accountId": An account identifier.
+
+    - "name": Name of the coin.
+
+    - "description": Detailed info about the coin.
+
+    - "tags": Relevant tags for the coin.
+
+    - "profilePhotoUrl": URL of the profile picture for the coins.
+
+    - "coverPhotoUrl": URL of the cover picture for the coins.
+
+    - "minimumTipAmount": Smallest amount of tip allowed.
+
+    - "categoryId" and "category": Unique ID and name of the category the coin
+    falls under respectively.
+
+    - "subCategoryId" and "subCategory": ID and name of the subcategory the coin
+    pertains to.
+
+    - "isCoinsPrivate": Boolean to indicate if the coins are private or not.
+
+    - "isTournamentOnly": Boolean field to indicate if the coins are only for
+    tournaments.
+
+    - "isCoinsDefault": Boolean field that shows if the given coins are assigned
+    as default.
+
+    - "isPreLiveNotificationAds" and "isPostLiveNotificationAds": Boolean fields
+    to indicate if pre-live and post-live notification ads are enabled.
+
+    - "breakPreLiveNotificationUrl" and "breakPostLiveNotificationUrl": URLs to
+    the media files that should be played during pre-live and post-live
+    notification breaks.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"coinsId\":\"coinsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Coins 2.0\",\"description\":\"This coins is my second
+            coins\",\"tags\":\"second,coins\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isCoinsPrivate\":true,\"isTournamentOnly\":false,\"isCoinsDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

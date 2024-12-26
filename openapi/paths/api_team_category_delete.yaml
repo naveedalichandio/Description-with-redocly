@@ -1,0 +1,77 @@
+post:
+  tags:
+    - TeamCategory
+  summary: Team - Category - Delete
+  description: >-
+    **Endpoint Description:**
+
+
+    This API endpoint is used to delete a category associated with a team. The
+    operation requires an authenticated request and is executed using the HTTP
+    POST method.
+
+
+    **Detailed Breakdown of Each Data Point:**
+
+
+    - **name**: Represents the name of the API request. "Team - Category -
+    Delete" indicates that this endpoint is intended to remove a category from a
+    team.
+
+
+    - **request**: This section describes the specifics of the API request.
+
+      - **auth**: This object specifies the authentication method used for the request.
+      
+        - **type**: Indicates the type of authentication used. Here, it is set to "bearer", which means that the request requires a bearer token.
+        
+        - **bearer**: This is an array that contains the details of the bearer token.
+        
+          - **key**: This is the identifier for the bearer token. It is named "token".
+          
+          - **value**: This indicates where the actual session token will be provided. The placeholder "sessionId" indicates that the user must substitute this with their actual session identifier.
+          
+          - **type**: Specifies the data type of the key, which is "string".
+
+      - **method**: Indicates the HTTP method used for this request. In this case, "POST" means that the request is intended to submit data to the server.
+
+      - **url**: The URL endpoint that the request is sent to. "http://localhost:3000/api/team/category/delete" is the local server address for deleting a team category.
+
+      - **headers**: This array is for additional HTTP headers that can be included in the request. 
+
+        - **key**: The identifier for the header. In this case, it is left empty.
+        
+        - **value**: The value for the header. This is also left empty.
+        
+        - **type**: Indicates the type of header. Here, it is labeled as "default".
+        
+        - **disabled**: A boolean value indicating whether this header is active. It is set to true, meaning this header is currently disabled.
+
+      - **body**: This section contains the data being sent with the request.
+
+        - **mode**: Indicates the format of the request body. It is set to "raw", meaning the body contains unformatted data.
+
+        - **raw**: This holds the actual data being sent in JSON format. The structure includes:
+        
+          - **sessionId**: A placeholder for the current user's session identifier. This must be replaced with the actual session ID.
+          
+          - **accountId**: A placeholder for the user's account identifier. Similar to sessionId, this should be replaced with the real account ID.
+          
+          - **categoryId**: A placeholder for the specific category identifier that the user wishes to delete. This should be filled with the actual category ID to identify which category is being targeted for deletion.
+
+    **Note**: Ensure that all placeholders are replaced with actual values when
+    making a request to this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"categoryId\":\"teamCategoryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

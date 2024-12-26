@@ -1,0 +1,92 @@
+put:
+  tags:
+    - MediaAudio
+  summary: Media - Audio - Update - For Reward
+  description: >-
+    The given endpoint "Media - Audio - Update - For Reward" is designed to
+    update audio media and associate it with a reward in the system. The
+    endpoint interacts with the media audio update service and operates through
+    a PUT method.
+
+
+    - `"name"`: This is the name of the endpoint, and it provides a brief
+    description of the endpoint's function.
+
+
+    - `"request"`: This specifies the permissible HTTP method, in our case, it's
+    PUT. It is used to update existing information.
+
+
+    In the request object, we have:
+
+
+    - `"auth"`: This authenticates the user making the request. It uses bearer
+    token authorization. The `"bearer"` array implements this authentication
+    method, where `"token"` is the label for the token value, `"BearerToken"`,
+    which is a placeholder for your actual token.
+
+
+    - `"url"`: This is the URL where the request will be sent. 
+
+
+    - `"headers"`: This contains additional parameters that are needed by the
+    API to process the request. Here `Client-UUID` is used as a unique
+    identifier to identify the client sending the request.
+
+
+    The request `"body"` contains the data to be updated:
+
+
+    - `"raw"`: This contains all the data passed for the update function in JSON
+    format. Key-value pairs inside the JSON object include:
+
+      - `"audioId"`: The unique identifier associated with the audio that needs to be updated.
+      - `"sessionId"`: Identifies user session.
+      - `"accountId"`: Account identity to which the audio belongs.
+      - `"rewardId"`: Reward identity with which the audio needs to be associated.
+      - `"name"`: New name for the audio.
+      - `"description"`: New textual description about the audio.
+      - `"tags"`: Keywords associated with the audio for categorization or identification.
+      - `"contentType"`: The format of the audio file (i.e., application/mp3).
+      - `"contentLength"`: The size of the audio file.
+      - `"targetKey"`: The attribute in the database where the audio URL is stored (i.e., profilePhotoUrl).
+      - `"compressUsing"`: The algorithm used for compression (i.e., Base64).
+      - `"isCompressed"`: Boolean variable indicating compression status.
+      - `"isPrivate"`: Boolean variable indicating whether the updated media is private or public.
+      - `"data"`: The raw audio data.
+
+    - `"options"`: Additional communication options. Used here to specify the
+    language of the raw data in the body (Json in this case).
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            audioId: audioId
+            sessionId: sessionId
+            accountId: accountId
+            rewardId: rewardId
+            name: My Second Media
+            description: This media is my second media
+            tags: second,media
+            contentType: application/mp3
+            contentLength: 0
+            targetKey: profilePhotoUrl
+            compressUsing: Base64
+            isCompressed: true
+            isPrivate: false
+            data: ...
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,27 @@
+get:
+  tags:
+    - UtilityToken
+  summary: Utility - Token - Get All
+  description: |-
+    {
+      "name": "Utility - Token - Get All",
+      "description": "This endpoint is used to retrieve all token information associated with a given session and account. It supports authentication via a bearer token that must be included in the request header. The API call is made using the GET method, indicating that it is intended for data retrieval without side effects. The URL for the request includes two query parameters: sessionId and accountId, which are required to specify the session and account whose tokens are being requested. The request does not include any additional headers or body content since it solely relies on the URL parameters and the authentication token."
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

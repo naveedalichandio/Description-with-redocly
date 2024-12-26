@@ -1,0 +1,80 @@
+get:
+  tags:
+    - ActionAward
+  summary: Action - Award - Get All
+  description: >-
+    ### Endpoint: Action - Award - Get All
+
+
+    #### Overview
+
+    This endpoint retrieves a list of all awards associated with a given session
+    and account. 
+
+
+    #### Detailed Description of Each Field
+
+
+    - **name**: 
+      - This is the name of the API request. It is labeled as "Action - Award - Get All," indicating that it fetches all the available awards.
+
+    - **request**: 
+      - This object contains all the details needed to perform the API request.
+
+      - **auth**:
+        - This specifies the authentication method for the API request.
+        - **type**: 
+          - The type of authentication being used. In this case, it is "bearer," which indicates that a token is required to authorize the request.
+        - **bearer**: 
+          - This array holds the details for the bearer token.
+          - **key**: 
+            - This represents the name of the token. Here, it's labeled as "token."
+          - **value**: 
+            - This is the actual token value you need to supply for authorization. This is presented as "BearerToken" but should be replaced with a real token.
+          - **type**: 
+            - Indicates the data type of the value provided for the bearer token. It is set to "string."
+
+      - **method**: 
+        - This indicates the HTTP method used for the request. It is set to "GET," which is used for retrieving data.
+
+      - **url**: 
+        - This is the endpoint URL where the API request is sent. 
+        - The structure includes parameters for session ID and account ID: 
+          - `sessionId=sessionId`: This placeholder should be replaced with the actual session ID for the query.
+          - `accountId=accountId`: This placeholder should be replaced with the actual account ID for the query.
+        - The full URL for the request is: `http://localhost:3000/api/action/award/all/?sessionId=sessionId&accountId=accountId`.
+
+      - **headers**: 
+        - This is an array that contains any additional headers that may be needed for the API request. In this case, the array contains an empty object, indicating that no custom headers are required, and the header is currently disabled.
+
+      - **body**: 
+        - This section holds the body of the request.
+        - **mode**: 
+          - Indicates the format of the body content. It is set to "raw," implying a raw data type is expected.
+        - **raw**: 
+          - This is where the raw data would be placed if necessary. Currently, it is empty since a GET request typically does not require a body.
+
+    #### Usage 
+
+    Use this endpoint to retrieve all awards for a specified session and account
+    by supplying the required parameters and a valid bearer token for
+    authentication. Be sure to replace the placeholders in the URL with actual
+    values before making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,77 @@
+get:
+  tags:
+    - ActionReinstate
+  summary: Action - Reinstate - Get All
+  description: >-
+    ### Endpoint Description
+
+
+    **Name**: Action - Reinstate - Get All  
+
+    This is an API endpoint designed to retrieve all reinstatement actions. 
+
+
+    ---
+
+
+    ### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Bearer 
+        - The request is authorized using a bearer token. This means that a token must be provided to verify the user's identity.
+        - **Bearer**: 
+          - **Key**: token 
+            - This is the identifier for the authentication method.
+          - **Value**: BearerToken 
+            - This is a placeholder for the actual bearer token that must be used for authorization.
+          - **Type**: string 
+            - This indicates that the token value is a string.
+
+    - **Method**: GET 
+      - This indicates that the request method is GET, which is used to retrieve data from the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/reinstate/all/?sessionId=sessionId&accountId=accountId`
+        - This is the full URL used to access the endpoint.
+        - **Base URL**: `http://localhost:3000/api/action/reinstate/all/` 
+          - This part specifies the server and the path to the resource.
+        - **Query Parameters**:
+          - **sessionId**: sessionId 
+            - This is a placeholder for the actual session ID to identify the user's session.
+          - **accountId**: accountId 
+            - This is a placeholder for the actual account ID to filter the reinstatement actions by account.
+
+    - **Headers**: 
+      - An array that can contain any additional header information. In this case, it is empty and disabled, meaning no extra headers are sent with this request.
+
+    - **Body**: 
+      - **Mode**: raw 
+        - This indicates that the body content type is raw text.
+      - **Raw**: 
+        - The body is empty in this request, meaning no additional data is being sent with the GET request.
+
+    ---
+
+
+    This endpoint can be used to fetch all reinstatement actions associated with
+    a specific session and account, provided that the correct bearer token and
+    IDs are supplied.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

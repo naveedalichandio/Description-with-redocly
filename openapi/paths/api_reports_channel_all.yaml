@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ReportsChannel
+  summary: Reports - Channel - Get All
+  description: >-
+    1. "name": This field indicates the name or title of the endpoint. In this
+    case, the name "Reports - Channel - Get All" suggests that this endpoint is
+    used to get all channel reports.
+
+
+    2. "request": This field contains all the information required to make a
+    particular API request.
+
+
+    3. "auth": This field specifies the type of authorization needed to access
+    this API endpoint. It is of type "bearer," indicating that a bearer token
+    must be provided. 
+
+        i. "type": Specifies the authorization type as "bearer".
+        
+        ii. "bearer": Contains the key-value pair for bearer token.
+
+           a. "key": The key is set to "token" indicating that this value represents the bearer token.
+           
+           b. "value": It is set to "Bearer Token" where the actual token will be pasted. 
+
+           c. "type": Specifies the data type of the value, which is "string" in this case.
+
+    4. "method": Specifies the HTTP method used for the API request. In this
+    case, the "GET" method indicates that it is retrieving data from the server.
+
+
+    5. "url": This field holds the address of the API endpoint. The query
+    parameters "sessionId" and "accountId" are appended to this URL and their
+    values need to be provided as part of the request.
+
+
+    6. "headers": Headers allow the client to pass additional information about
+    the request or about itself to the server. In this case, no headers are
+    required as the "key" and "value" fields are empty and this header is
+    disabled.
+
+
+    7. "body": This field represents the data that is sent to the API endpoint.
+    The "mode" is set to "raw", indicating that the request body is sent as it
+    is entered. No specific data ("raw": "") is needed in the body for this
+    endpoint as it's a GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

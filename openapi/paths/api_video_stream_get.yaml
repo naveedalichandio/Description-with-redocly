@@ -1,0 +1,61 @@
+get:
+  tags:
+    - VideoStream
+  summary: Video - Stream - Get
+  description: >-
+    ### Endpoint: Video - Stream - Get
+
+
+    #### Request Details:
+
+    - **Authentication**:
+      - **Type**: Bearer
+        - This indicates that the API requires a bearer token for authentication. You must provide a valid token in the request header.
+        - **Token**:
+          - **Key**: token
+          - **Value**: BearerToken (replace with your actual token)
+          - **Type**: string
+          - The bearer token is used to securely access the API.
+
+    - **Method**: GET
+      - This specifies that the request uses the GET HTTP method, which retrieves data from the server.
+
+    - **URL**:
+      - **Format**: `http://localhost:3000/api/video/stream/get/?streamId=streamId&channelId=channelId`
+        - You need to replace `streamId` and `channelId` in the URL with the actual values you want to query.
+        - This URL targets the specific endpoint responsible for retrieving video stream data based on the given parameters.
+
+    - **Headers**:
+      - This section contains any additional HTTP headers you may need to send with the request.
+      - In this case, no headers are defined (it has an empty key and value), and it is marked as disabled. You can add custom headers if required for your specific use case.
+
+    - **Body**:
+      - **Mode**: raw
+        - This indicates that the body of the request is sent in a raw format, but for this GET request, the body is not utilized.
+      - **Raw**: 
+        - The raw body content is empty, meaning that no data is being sent in the body of the request. GET requests typically do not include a body.
+
+    ### Notes:
+
+    - Ensure you have a valid bearer token to access this endpoint.
+
+    - Make sure to correctly replace the placeholders in the URL with real
+    `streamId` and `channelId` values prior to making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: streamId
+      in: query
+      schema:
+        type: string
+      example: streamId
+    - name: channelId
+      in: query
+      schema:
+        type: string
+      example: channelId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

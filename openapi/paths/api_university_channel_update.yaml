@@ -1,0 +1,156 @@
+put:
+  tags:
+    - UniversityChannel
+  summary: University - Channel - Update
+  description: >-
+    ### Endpoint: University - Channel - Update
+
+
+    **Description: This endpoint is used to update the details of a university
+    channel. Below is a detailed description of each data field.**
+
+
+    #### Request Details:
+
+
+    - **Auth:**
+      - **Type:** `bearer`
+        - This indicates the type of authentication used. In this case, it utilizes bearer token authentication.
+      - **Bearer:**
+        - **Key:** `token`
+          - This refers to the authentication token required to authorize the request.
+        - **Value:** `BearerToken`
+          - The actual bearer token that should be replaced with a valid token for authorization.
+        - **Type:** `string`
+          - This specifies that the token should be provided as a string.
+
+    - **Method:**
+      - **PUT**
+        - This indicates that the request will update existing data.
+
+    - **URL:**
+      - **http://localhost:3000/api/university/channel/update**
+        - The endpoint URL where the update request is sent.
+
+    - **Headers:**
+      - **Key:** `Client-UUID`
+        - This is a unique identifier for the client making the request.
+      - **Value:** `ClientUUID`
+        - The actual UUID that should be replaced with a valid client identifier.
+      - **Type:** `default`
+        - This indicates that the header is standard and does not require special formatting.
+
+    - **Body:**
+      - **Mode:** `raw`
+        - The body of the request is sent as raw JSON.
+      - **Raw:**
+        ```json
+        {
+          "channelId": "channelId",
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "name": "My Second Channel 2.0",
+          "description": "This channel is my second channel",
+          "tags": "second,channel",
+          "profilePhotoUrl": "https://example.com/profile.jpg",
+          "coverPhotoUrl": "https://example.com/cover.jpg",
+          "minimumTipAmount": 10,
+          "categoryId": "category123",
+          "category": "General",
+          "subCategoryId": "subCategory456",
+          "subCategory": "Specific",
+          "isChannelPrivate": true,
+          "isTournamentOnly": false,
+          "isChannelDefault": true,
+          "isPreLiveUniversityAds": true,
+          "isPostLiveUniversityAds": true,
+          "breakPreLiveVideoUrl": "https://example.com/break-pre-live.mp4",
+          "breakPostLiveVideoUrl": "https://example.com/break-post-live.mp4"
+        }
+        ```
+
+        - **channelId:**
+          - The unique identifier for the channel being updated. Replace with the actual ID of the channel.
+
+        - **sessionId:**
+          - The unique identifier for the session related to the channel update. Replace with the actual session ID.
+
+        - **accountId:**
+          - The unique identifier for the account associated with the channel. Replace with the actual account ID.
+
+        - **name:**
+          - The new name for the channel. This is the title presented to users.
+
+        - **description:**
+          - A brief explanation or details about the channel.
+
+        - **tags:**
+          - Keywords associated with the channel, useful for categorization and searching.
+
+        - **profilePhotoUrl:**
+          - A URL pointing to the profile photo of the channel.
+
+        - **coverPhotoUrl:**
+          - A URL pointing to the cover photo for the channel.
+
+        - **minimumTipAmount:**
+          - The minimum amount users can tip the channel.
+
+        - **categoryId:**
+          - The ID associated with the main category of the channel.
+
+        - **category:**
+          - The name of the main category under which the channel falls.
+
+        - **subCategoryId:**
+          - The ID associated with a specific subcategory for the channel.
+
+        - **subCategory:**
+          - The name of the subcategory under which the channel is classified.
+
+        - **isChannelPrivate:**
+          - A boolean value that indicates if the channel is private (true) or public (false).
+
+        - **isTournamentOnly:**
+          - A boolean flag that indicates whether the channel is solely for tournaments.
+
+        - **isChannelDefault:**
+          - A boolean value that indicates if this channel is the default channel for the account.
+
+        - **isPreLiveUniversityAds:**
+          - A boolean value that states if pre-live university advertisements are enabled.
+
+        - **isPostLiveUniversityAds:**
+          - A boolean value that denotes if post-live university advertisements are enabled.
+
+        - **breakPreLiveVideoUrl:**
+          - A URL pointing to a video that plays during breaks before the live stream.
+
+        - **breakPostLiveVideoUrl:**
+          - A URL pointing to a video that plays during breaks after the live stream.
+
+    **Note:** Ensure to replace placeholder values with actual data when making
+    requests. This will help the system to properly process the updates.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"channelId\":\"channelId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Channel 2.0\",\"description\":\"This channel is my second
+            channel\",\"tags\":\"second,channel\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isChannelPrivate\":true,\"isTournamentOnly\":false,\"isChannelDefault\":true,\"isPreLiveUniversityAds\":true,\"isPostLiveUniversityAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

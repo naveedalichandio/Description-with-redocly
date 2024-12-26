@@ -1,0 +1,85 @@
+post:
+  tags:
+    - TeamCategory
+  summary: Team - Category - Create
+  description: |-
+    {
+      "name": "Team - Category - Create",
+      "description": "This endpoint is used to create a new category for a team. It accepts data in a JSON format that specifies the details of the category to be created. The request requires authentication using a Bearer token, which should be included in the Authorization header. The method used for this request is POST, indicating that it will send data to the server to create a new resource.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ],
+          "description": "Authentication is done using a Bearer token. Replace 'BearerToken' with your actual token to authenticate the request."
+        },
+        "method": "POST",
+        "description": "The HTTP method used to send the request is POST, indicating that data will be submitted to create a new resource.",
+        "url": "http://localhost:3000/api/team/category/create",
+        "description": "This is the endpoint URL where the request is sent to create a new team category. The endpoint is running locally on port 3000.",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "description": "Currently, there are no custom headers included in the request. The header entry is disabled and can be ignored.",
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request contains the data being sent to create the category. It is provided in raw JSON format.",
+          "raw": "{\n    \"sessionId\":\"sessionId\",\n    \"accountId\":\"accountId\",\n    \"name\": \"Miami Art Week 4\",\n    \"displayName\": \"Miami Art Week 2024\",\n    \"description\": \"An immersive celebration of art and culture during Miami Art Week.\",\n    \"tags\": \"Art,Exhibition,Miami,Culture\"\n}",
+          "fields": {
+            "sessionId": {
+              "description": "A unique identifier for the current session. This helps to associate the category with a specific session."
+            },
+            "accountId": {
+              "description": "A unique identifier for the account under which the category is created. This links the category to a specific user account."
+            },
+            "name": {
+              "description": "The official name of the category being created. Example: 'Miami Art Week 4'."
+            },
+            "displayName": {
+              "description": "A user-friendly name for the category that may be displayed in the user interface. Example: 'Miami Art Week 2024'."
+            },
+            "description": {
+              "description": "A detailed description of the category. This provides context and information about the category, such as its purpose or event details. Example: 'An immersive celebration of art and culture during Miami Art Week.'"
+            },
+            "tags": {
+              "description": "A comma-separated list of keywords associated with the category. These tags help categorize and improve the discoverability of the category. Example: 'Art,Exhibition,Miami,Culture'."
+            }
+          },
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "description": "The request body is expected to be in JSON format, which is typical for RESTful API interactions."
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 4
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

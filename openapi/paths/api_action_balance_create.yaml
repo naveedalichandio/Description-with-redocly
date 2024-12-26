@@ -1,0 +1,92 @@
+post:
+  tags:
+    - ActionBalance
+  summary: Action - Balance - Create
+  description: >-
+    ### Action - Balance - Create Endpoint Description
+
+
+    This API endpoint is used to create a new balance action in the system.
+    Below is a detailed description of each component in the request.
+
+
+    #### Request Authentication
+
+    - **Type**: Indicates that the authentication method used is a bearer token.
+
+    - **Bearer**: Contains the token used for authorization.
+      - **Key**: Represents the name of the token parameter, which is standardized to "token" in this context.
+      - **Value**: Placeholder for the actual bearer token (e.g., "BearerToken") that grants access to the API.
+      - **Type**: Specifies that the value is of type string.
+
+    #### HTTP Method
+
+    - **Method**: The request uses the HTTP POST method, indicating that it is
+    intended to submit data to be processed.
+
+
+    #### Endpoint URL
+
+    - **URL**: The endpoint for making the POST request, which is set to
+    `http://localhost:3000/api/action/balance/create`. This is the local server
+    address where the API is hosted.
+
+
+    #### Request Headers
+
+    - **Headers**: This section can include additional metadata sent with the
+    request. It's currently shown as empty and disabled, which means no custom
+    headers are set.
+
+
+    #### Request Body
+
+    - **Mode**: The request body is set to "raw", which means that the data is
+    sent as plain text.
+
+    - **Raw**: Contains the JSON formatted data that is submitted in the request
+    body. Below is the breakdown of each field included in the JSON:
+      - **sessionId**: A unique identifier for the user session (e.g., "sessionId") being referenced.
+      - **accountId**: The ID of the account for which the balance action is being created (e.g., "accountId").
+      - **path**: A string that specifies the path associated with the action (e.g., "/live/channel/video123").
+      - **targetType**: Indicates who or what the action is targeted at, which in this case is "streamer".
+      - **targetId**: The ID of the target for the action, such as a video ID (e.g., "videoId").
+      - **sourceType**: Specifies the type of source to draw from, noted as "accountId".
+      - **sourceId**: The ID of the source used in the action, which is also the account ID (e.g., "accountId").
+      - **tokenAmount**: The amount of tokens involved in the balance action, set here to 20.
+      - **name**: A name assigned to the balance action for identification purposes (e.g., "balance1").
+      - **description**: An optional field that can document more information about the action (currently left empty).
+      - **tags**: An optional field for adding tags to categorize the balance action (currently left empty).
+
+    #### Body Options
+
+    - **Options**: Specifies settings for interpreting the raw body.
+      - **Raw**: Indicates that the body content is in JSON format.
+
+    This endpoint is useful for users looking to manage user balances within a
+    specific context like streaming, providing a streamlined way to create
+    balance actions programmatically.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: balance1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

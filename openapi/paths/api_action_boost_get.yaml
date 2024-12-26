@@ -1,0 +1,76 @@
+get:
+  tags:
+    - ActionBoost
+  summary: Action - Boost - Get
+  description: >-
+    ### Description of Endpoint Data
+
+
+    - **name**: Defines the name of the API request, which is "Action - Boost -
+    Get."
+
+
+    - **request**: This object contains all details related to the API request.
+
+      - **auth**: Specifies the authentication type required for the request.
+      
+        - **type**: Indicates the authentication method is using a bearer token.
+        
+        - **bearer**: This array holds the details of the bearer token.
+        
+          - **key**: Represents the name of the attribute for the token, which is "token."
+          
+          - **value**: Contains the actual bearer token value placeholder as "BearerToken." This should be replaced with the actual token when making the request.
+          
+          - **type**: Defines the data type of the token, which is "string."
+      
+      - **method**: Specifies the HTTP method used for the request, which is "GET."
+
+      - **url**: The endpoint URL that will be accessed. It includes the following query parameters:
+      
+        - **boostId**: Placeholder for the unique identifier of the boost action.
+        
+        - **sessionId**: Placeholder for the identifier of the user session.
+        
+        - **accountId**: Placeholder for the identifier of the user account.
+
+        The URL structure is: `http://localhost:3000/api/action/boost/get/?boostId=boostId&sessionId=sessionId&accountId=accountId`.
+
+      - **headers**: This array can hold any additional headers needed for the request.
+      
+        - **key**: Currently, this is an empty string, indicating no additional custom headers are set.
+        
+        - **value**: Also empty, since no values for custom headers are provided.
+        
+        - **type**: Indicates the header type as "default."
+        
+        - **disabled**: Set to true, which means this header is currently not being used or is inactive.
+      
+      - **body**: Contains details about the body of the request.
+      
+        - **mode**: Indicates the body content type, which is set to "raw."
+        
+        - **raw**: This field is currently empty, meaning there is no body content to send with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: boostId
+      in: query
+      schema:
+        type: string
+      example: boostId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

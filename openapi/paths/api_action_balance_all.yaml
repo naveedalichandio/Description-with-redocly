@@ -1,0 +1,86 @@
+get:
+  tags:
+    - ActionBalance
+  summary: Action - Balance - Get All
+  description: >-
+    ### Endpoint Description: Action - Balance - Get All
+
+
+    - **Name**: Action - Balance - Get All
+      - This identifies the purpose of the API call. It is used to retrieve all balance-related information for actions.
+
+    - **Request**: 
+      - This section details how the request should be formed to interact with the API.
+
+      - **Auth**:
+        - **Type**: bearer
+          - The authentication method used for this endpoint is OAuth 2.0 Bearer Token.
+          
+        - **Bearer**:
+          - This is an array that contains the details required for bearer authentication.
+          
+          - **Key**: token
+            - This represents the authorization key used to authenticate the request.
+            
+          - **Value**: BearerToken
+            - This should contain the actual token value to grant access. Replace "BearerToken" with the actual token obtained during user authentication.
+            
+          - **Type**: string
+            - Indicates that the value of the token is a string.
+
+      - **Method**: GET
+        - Specifies that this endpoint uses the HTTP GET method to retrieve data.
+
+      - **URL**: 
+        - The endpoint for the API call.
+        - **http://localhost:3000/api/action/balance/all/?sessionId=sessionId&accountId=accountId**
+          - This is the base URL used to access the API. 
+          - **sessionId**: This query parameter is used to identify the current user session. Replace "sessionId" with the actual session identifier.
+          - **accountId**: This query parameter specifies the account for which the balance data will be fetched. Replace "accountId" with the actual account identifier.
+
+      - **Headers**: 
+        - This provides additional information about the request.
+        
+        - **Key**: (Empty)
+          - Represents a placeholder for any headers that might be needed, but currently is empty.
+        
+        - **Value**: (Empty)
+          - The corresponding value for the header is also currently empty.
+          
+        - **Type**: default
+          - Indicates the default type for the header.
+
+        - **Disabled**: true
+          - This means that the header is currently not active and will not be sent with the request.
+
+      - **Body**:
+        - This section describes the body of the request.
+        
+        - **Mode**: raw
+          - Indicates that the body could contain raw data.
+        
+        - **Raw**: ""
+          - Currently, this field is empty, meaning no data is sent in the body of the request.
+
+    This endpoint is designed to gather all balance related actions for a
+    specific session and account, using bearer token authentication to ensure
+    secure access. Users interacting with this API should provide the necessary
+    session and account identifiers in the URL.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

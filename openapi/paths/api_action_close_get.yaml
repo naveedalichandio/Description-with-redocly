@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionClose
+  summary: Action - Close - Get
+  description: |-
+    ### Endpoint Description: Action - Close - Get
+
+    - **Name**: Action - Close - Get
+      - This is the name of the API endpoint that is designed to retrieve details related to a 'close' action.
+
+    - **Request**: This section describes the details of the API request.
+
+      - **Auth**: This part outlines the authentication method used to access the endpoint.
+        - **Type**: "bearer"
+          - Indicates that bearer token authentication is used.
+        - **Bearer**: This is an array containing the authentication data.
+          - **Key**: "token"
+            - This is the identifier for the authentication token.
+          - **Value**: "BearerToken"
+            - This is a placeholder value for the actual bearer token that will be used in the request for authentication.
+          - **Type**: "string"
+            - Specifies that the token is a string data type.
+
+      - **Method**: "GET"
+        - This indicates that the HTTP method used for this request is GET, which is typically used to retrieve data from the server.
+
+      - **URL**: 
+        - "http://localhost:3000/api/action/close/get/?closeId=closeId&sessionId=sessionId&accountId=accountId"
+          - This is the full URL for the API endpoint.
+          - The URL includes query parameters:
+            - **closeId**: A placeholder for the unique identifier of the close action being fetched.
+            - **sessionId**: A placeholder for the session identifier related to the request.
+            - **accountId**: A placeholder for the account identifier associated with the close action.
+
+      - **Headers**: This section is for any HTTP headers that may need to be sent with the request.
+        - **Key**: (empty)
+          - Indicates that there are currently no custom headers specified for this request.
+        - **Value**: (empty)
+          - As with the key, there is currently no value provided.
+        - **Type**: "default"
+          - Specifies the default type for header handling.
+        - **Disabled**: true
+          - This indicates that this header is currently disabled and will not be sent with the request.
+
+      - **Body**: This section provides information about the body of the request.
+        - **Mode**: "raw"
+          - This indicates that the body is being sent in raw format.
+        - **Raw**: ""
+          - There is no data included in the body for this GET request, as GET requests typically do not require a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: closeId
+      in: query
+      schema:
+        type: string
+      example: closeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,47 @@
+post:
+  tags:
+    - ArticleCategory
+  summary: Article - Category - Delete
+  description: >-
+    This endpoint is named "Article - Category - Delete". Here's a detailed
+    breakdown of all components of this endpoint: 
+
+
+    1. **Name**: The name "Article - Category - Delete" gives a clear indication
+    of the function of this endpoint. It's probably for deleting a specific
+    category associated with an article in your application/system.
+
+
+    2. **Request**: This is the main part of the endpoint that carries the
+    necessary information for processing the request on the server.
+
+       - **Auth**: Refers to the authentication type used. Here "bearer" token type is used. It contains a key named "token", which should hold a string type value which here is termed as "sessionId". This is likely for authenticating the request.
+
+       - **Method**: This is the HTTP method used, which is "POST". It's generally used to send data to a server to create a new resource.
+
+       - **URL**: This is the address to which this request is going to be sent. Here, it is "http://localhost:3000/api/article/category/delete".
+
+       - **Headers**: This is an array of various properties that can be sent along the request. In this case, it's empty and disabled. It can be used for different purposes like specifying content type, authentication etc.
+
+       - **Body**: This part contains all the major data that's going to be sent to the server. Here the mode used is "raw", meaning you are sending the data as directly inputted without any alterations.
+       
+           - The raw data contains three properties: "sessionId", "accountId", and "categoryId". These are likely to be identifiers for the session, the account, and the category of the article that is being deleted.
+            
+    This endpoint sends a POST request to delete a specific article's category
+    from your application. It uses a bearer token authentication and requires
+    the session ID, account ID, and category ID to be included in the body of
+    the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"categoryId\":\"articleCategoryId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

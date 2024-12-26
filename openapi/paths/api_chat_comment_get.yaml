@@ -1,0 +1,57 @@
+get:
+  tags:
+    - ChatComment
+  summary: Chat - Comment - Get
+  description: >-
+    1. **name**: This data point contains the name of the transactions that we
+    are performing. In this case, the name is "Chat - Comment - Get". This is
+    essentially denoting that this API call is to get comments of a chat.
+
+
+    2. **request**: This data point represents the HTTP request information
+    including the authentication method, HTTP method, URL, and the headers.
+
+       - **auth**: This object includes information about the authorization needed to execute this API call. 
+            - **type**: This defines the type of authorization being used. Here, it is "bearer", which suggests that we are using bearer token for authorization.
+            - **bearer**: This is an array carrying information about the bearer token
+              - **key**: This is the key used for bearer token. In this case, the key is "token".
+              - **value**: This is the value of the aforementioned key. Here, the value is "BearerToken".
+              - **type**: This defines the data type of the key. Here, it is a string.
+
+       - **method**: This data point tells us about the HTTP method being used for the request. Here, it directs us to use the GET method.
+
+       - **url**: This field contains the URL for the call. The URL is followed by a string of parameters added to the end of the actual URL in the form of a query string. The parameters are `commentId`, `threadId`, `accountId`, and `sessionId`. These parameters represent the comment's id, thread's id, user's account id, and session id respectively.
+
+       - **headers**: This field represents the headers used in your HTTP request. Headers let the client and the server pass additional information with an HTTP request or response. Currently, it is an empty array indicating no header data is added to the request.
+
+    Please note that the `BearerToken` and the values in the `url` query string
+    are placeholders and should be replaced with actual data for the API call to
+    be successful.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: commentId
+      in: query
+      schema:
+        type: string
+      example: commentId
+    - name: threadId
+      in: query
+      schema:
+        type: string
+      example: threadId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,59 @@
+get:
+  tags:
+    - ArticleTopic
+  summary: Article - Topic - Get By Short ID
+  description: >
+    1. "name": This field represents the name of the API endpoint, which in this
+    case is "Article - Topic - Get By Short ID". This name is used to identify
+    the API endpoint within the collection.
+
+
+    2. "request": This field is an object containing information about the HTTP
+    request to be made to the server.
+
+
+    3. "auth": This is a part of the request object specifying authorization
+    details to be sent along with the request. The "type" field under "auth"
+    represents the type of Authorization which in this case is "bearer".
+
+
+    4. "bearer": This field is part of the auth object that contains an array of
+    bearer tokens. Each bearer token object has three properties:
+
+        - "key": It represents the attribute name or identifier of the token. In this case, it's "token".
+        - "value": It holds the actual value of the key. Here, it is "BearerToken".
+        - "type": It represents the data type of the value. In this case, it's a "string".
+
+    5. "method": This is a part of the request object and specifies the HTTP
+    method to be used when making a request to the server. The HTTP method here
+    is "GET".
+
+
+    6. "url": This is the URL to which the request is to be sent. Here, it is
+    "http://localhost:3000/api/article/topic/get/?shortId=articleTopicShortId".
+
+
+    7. "headers": This field is an array of objects representing the headers to
+    be sent along with the request. Each object has four properties: "key",
+    "value", "type", and "disabled". In this case, they are all empty or set to
+    default, meaning no additional headers are required for the request.
+
+
+    8. "body": This object specifies the body of the request. It has two
+    properties: "mode" and "raw". The "mode" specifies the format in which the
+    data is sent in the body of the request. Here, the mode is "raw", meaning
+    the data is sent as is. The "raw" field, which is empty, is where the raw
+    data to be sent in the body would be entered.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: shortId
+      in: query
+      schema:
+        type: string
+      example: articleTopicShortId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,56 @@
+post:
+  tags:
+    - IncentiveReward
+  summary: Incentive - Reward - Delete
+  description: >-
+    This endpoint named "Incentive - Reward - Delete" is designed to remove an
+    incentive reward from a certain account. Below are the detailed descriptions
+    of each data field:
+
+
+    - `name`: The name of the endpoint. It's called "Incentive - Reward -
+    Delete", indicating its function is to delete an incentive reward.
+
+
+    - `request`: Contains the details of the HTTP request. 
+
+      - `auth`: Specifies the authentication type and details for accessing this endpoint. This endpoint uses Bearer Token authentication.
+      
+         - `type`: The authentication type. In this case, it's "bearer".
+     
+         - `bearer`: The array which has details of the bearer token being used.
+
+            - `key`: The name of the authorization token. It's referred to as "token".
+
+            - `value`: The value of the authorization token. It is expected to be the "sessionId".
+
+            - `type`: The data type of the token value. It's a "string".
+
+      - `method`: Specifies the HTTP method to be used, which is "POST".
+      
+      - `url`: The URL to which the request is being sent. Here, it's the local host address running on port 3000 with the route "api/incentive/reward/delete".
+      
+      - `headers`: This is currently disabled and not set to any specific value.
+      
+      - `body`: Contains the payload of the request. 
+
+        - `mode`: Defines the formatting of the body data. Here it's set as "raw".
+        
+        - `raw`: The raw body data to be sent with the request. It includes:
+            - `sessionId`: Identifies the session.
+            - `accountId`: Identifies the account from which the reward is to be deleted.
+            - `rewardId`: Identifies the specific reward to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"rewardId\":\"rewardId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

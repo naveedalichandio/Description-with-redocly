@@ -1,0 +1,52 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Game
+  description: >-
+    ### Endpoint: Web - Socket - Recent Game
+
+
+    **Method**: GET  
+
+    **URL**:
+    `http://localhost:3000/api/socket/web/game?recent=true&limit=limit`  
+
+
+    #### Description of Data:
+
+
+    - **name**: The name of this endpoint is "Web - Socket - Recent Game". This
+    indicates that the endpoint is intended to retrieve recent game data using a
+    WebSocket connection.
+
+
+    - **request**: This section contains details about the HTTP request being
+    made to the endpoint.
+
+      - **method**: This specifies that the HTTP method used for the request is GET. This means the request is intended to retrieve data from the server.
+
+      - **url**: The URL provided (`http://localhost:3000/api/socket/web/game?recent=true&limit=limit`) is where the request is being sent. 
+        - `http://localhost:3000`: This indicates that the request is being sent to a local server running on port 3000.
+        - `/api/socket/web/game`: This part of the URL specifies the endpoint for accessing game data through the WebSocket API.
+        - `?recent=true`: This query parameter indicates that only the most recent game data should be returned.
+        - `&limit=limit`: This query parameter is used to specify the maximum number of recent games to return. This should be replaced with an actual number to determine the limit of results.
+
+    - **headers**: This is an empty array indicating that no additional headers
+    are required for this request. If any specific headers were needed, they
+    would be listed here.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

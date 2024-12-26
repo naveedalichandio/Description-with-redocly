@@ -1,0 +1,54 @@
+post:
+  tags:
+    - ChatThread
+  summary: Chat - Thread - Delete
+  description: >-
+    Endpoint Name: Chat - Thread - Delete
+
+
+    1. Authentication: This API request requires a bearer token for
+    authentication. The token should be a session ID which is to be provided as
+    a string data type.
+
+
+    2. Method: This API uses a POST method. POST is used to send data to the
+    server to create/update a resource.
+
+
+    3. URL: This is the uniform resource locator (URL) to which the API request
+    is sent. In this case, it is "http://localhost:3000/api/chat/thread/delete".
+    It suggests that this API endpoint is used to delete a chat thread.
+
+
+    4. Headers: In this request, there aren't any additional headers required as
+    suggested by the empty key-value pair. The "disabled" field set as true
+    signifies that this property is not currently in use.
+
+
+    5. Body: This contains the information that needs to be sent to the server.
+    The mode is set as "raw" which suggests the format of the body content is in
+    raw JSON format. The raw JSON is a stringified object that needs three
+    properties to perform the operation.
+
+        - sessionId: The session ID for which the chat thread will be deleted. This should be a string that corresponds to a valid session in your application.
+        
+        - accountId: The account ID who is a part of this thread. This ID helps ensure that the requester has the authority to delete the thread.
+        
+        - threadId: The specific ID of the chat thread that is to be deleted. This should correspond to a valid thread in your application.
+
+    Please ensure your request adheres to this specification for successful
+    operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"threadId\":\"threadId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

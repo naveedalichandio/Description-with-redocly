@@ -1,0 +1,111 @@
+post:
+  tags:
+    - ConnectComment
+  summary: Connect - Comment - Create
+  description: >-
+    "Connect - Comment - Create" API endpoint:
+
+
+    This endpoint is given a name "Connect - Comment - Create". This suggests
+    the API endpoint is used for creating a new comment in the connect section
+    of the application.
+
+
+    Authentication:
+
+
+    The "auth" field defines the type of authorization required to access this
+    API endpoint. Authentication is done through a "bearer" token that has a
+    key-value format, with a key of "token" and a string value of the actual
+    token.
+
+
+    Request Type:
+
+
+    The "method" field defines the HTTP method used for this API endpoint. In
+    this case, the POST method is used which means that the client is sending
+    data to the server to create a new resource.
+
+
+    API URL:
+
+
+    The "url" field explains the address where a request is being sent. For this
+    endpoint, it is "http://localhost:3000/api/connect/comment/create". The
+    'localhost' suggests that the API is local to the server.
+
+
+    Headers:
+
+
+    In the "headers" array, it's specified that no additional headers are
+    provided for the request. The default headers are disabled.
+
+
+    Request Body:
+
+
+    The API receives the request body in a "raw" format, meaning the body
+    content is presented as a string. The language of the raw string content is
+    JSON.
+
+
+    The raw data contains information necessary to create a new comment,
+    including:
+
+    - User's session and account IDs.
+
+    - Comment's name, description, tags, photo URL, and cover photo URL.
+
+    - Minimum tip amount and unlock amount for the comment.
+
+    - The category and subcategory of the comment.
+
+    - Type of search associated with the comment.
+
+    - Various state flags suggesting if the comment is enabled, private, part of
+    a tournament only, default, has pre/post/live ads.
+
+    - The URLs for pre-live, paused-live, and post-live breaks for the comment.
+
+
+    Options:
+
+
+    The "options" field indicates optional configurations for request body. It
+    specifies that the raw data uses "json" language format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikeComment
+            description: This comment is my second comment
+            tags: second,comment
+            commentPhotoUrl: https://example.com/comment.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 1
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isCommentPrivate: true
+            isTournamentOnly: false
+            isCommentDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

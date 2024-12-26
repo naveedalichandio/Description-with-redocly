@@ -1,0 +1,78 @@
+get:
+  tags:
+    - ActionSell
+  summary: Action - Sell - Get All
+  description: |-
+    ### Endpoint Description: Action - Sell - Get All
+
+    - **Name**: Action - Sell - Get All
+      - This is the name of the API endpoint which indicates that it retrieves all sell actions.
+
+    - **Request**: 
+      - This section describes the details of the API request.
+
+      - **Auth**: 
+        - **Type**: Bearer
+          - Specifies that the authentication method used for this API request is bearer token authentication.
+          
+        - **Bearer**:
+          - This section includes the bearer token information needed for authentication.
+          
+          - **Key**: "token"
+            - This is the key that identifies the bearer token used for accessing the API.
+
+          - **Value**: "BearerToken"
+            - Replace "BearerToken" with the actual token value that provides authorization to access the endpoint.
+
+          - **Type**: String
+            - Indicates that the value of the token is a string data type.
+
+      - **Method**: GET
+        - The HTTP method used for this request is GET, indicating that the requester wants to retrieve data from the API.
+
+      - **URL**: 
+        - This is the endpoint to which the GET request is made.
+        - **Format**: `http://localhost:3000/api/action/sell/all/?sessionId=sessionId&accountId=accountId`
+          - Replace `sessionId` and `accountId` with actual session and account identifiers to retrieve specific sell actions.
+          
+      - **Headers**: 
+        - This section typically includes any additional headers to be sent with the request. Here, the header is currently not defined and is disabled.
+        
+          - **Key**: (Empty)
+            - No specific key is provided for headers in this request.
+            
+          - **Value**: (Empty)
+            - No value is provided for headers in this request.
+            
+          - **Type**: Default
+            - Indicates that this is a default type header.
+            
+          - **Disabled**: true
+            - The header is currently disabled, meaning it will not be sent with the request.
+
+      - **Body**: 
+        - This section defines the body of the request.
+        
+        - **Mode**: Raw
+          - Indicates that the body format is raw text.
+          
+        - **Raw**: (Empty)
+          - No content is provided in the body of the request, meaning the GET request does not send additional data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

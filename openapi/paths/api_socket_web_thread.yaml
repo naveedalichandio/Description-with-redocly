@@ -1,0 +1,55 @@
+get:
+  tags:
+    - WebSocketMessage
+  summary: Web - Socket - Get Thread
+  description: >-
+    ## Endpoint: Web - Socket - Get Thread
+
+
+    ### Request Method
+
+    - **GET**: This method is used to retrieve information from the specified
+    URL.
+
+
+    ### URL
+
+    - **http://localhost:3000/api/socket/web/thread?socketId=socketId**: This is
+    the endpoint that will be called to get the thread information associated
+    with a specific WebSocket connection. The URL includes a query parameter for
+    `socketId` which is required to identify the specific WebSocket connection
+    you want to retrieve the thread information for.
+
+
+    ### Query Parameter
+
+    - **socketId**: This parameter is used to pass the unique identifier of the
+    WebSocket connection. It allows the API to fetch the specific thread
+    associated with the provided socket ID. The value for this parameter should
+    be replaced with the actual socket ID when making the request.
+
+
+    ### Headers
+
+    - **headers**: There are no specific headers included in this request. This
+    means the request does not require any special authentication or additional
+    information to be sent in the headers.
+
+
+    ### Summary
+
+    This API endpoint is designed to retrieve a thread's information linked to a
+    particular WebSocket connection identified by the `socketId` parameter. It
+    uses the GET method to fetch this information at the specified URL, and does
+    not require any headers in the request.
+  parameters:
+    - name: socketId
+      in: query
+      schema:
+        type: string
+      example: socketId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

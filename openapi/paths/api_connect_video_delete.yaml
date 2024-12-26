@@ -1,0 +1,62 @@
+post:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Delete
+  description: >-
+    1. "name": This field represents the name of the endpoint. Here, the
+    endpoint is named as "Connect - Video - Delete", indicating it is related to
+    deleting a video connection within some service.
+
+
+    2. "request": This field includes all the necessary details for making the
+    API request.
+
+
+    3. "auth": The auth section contains details about the authorization
+    required for the endpoint. The type indicates it's a Bearer token system. A
+    bearer token is required to authenticate each request to this endpoint. 
+
+
+    4. "bearer token": The token is a property of the bearer authentication
+    method. Here, the key for the token is "token", indicating you pass the
+    token under this key. The value is the sessionId, which means the sessionId
+    is used as token. The type tells us the token is a string.
+
+
+    5. "method": The request method used by this API endpoint is "POST". The
+    POST method is typically used to send data to a server to create a resource.
+
+
+    6. "url": It refers to the specific address on the internet where the
+    request is being sent. This API request is pointing to
+    "http://localhost:3000/api/connect/video/delete".
+
+
+    7. "headers": Headers let the client and the server pass additional
+    information along with an HTTP request or response. The given header here is
+    disabled and there are no key-value pairs.
+
+
+    8. "body": The body field is intended for the additional data you want to
+    send with your request. Here, it's in raw JSON format with "sessionId",
+    "accountId", and "connectId" as keys.
+
+        - "sessionId": Represents the id of the user's session.
+        
+        - "accountId": Specifies the user's account id.
+        
+        - "connectId": Denotes the id of the connect feature/module within the service.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"connectId\":\"connectId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,82 @@
+post:
+  tags:
+    - ActionChallenge
+  summary: Action - Challenge - Delete
+  description: >-
+    ### Action - Challenge - Delete
+
+
+    This endpoint is used to delete a challenge associated with a user's
+    account. Below is the detailed description of each component involved in the
+    request.
+
+
+    #### Request Authentication
+
+    - **Auth Type**: Bearer
+      - This indicates that the request requires bearer token authentication.
+    - **Bearer Token**:
+      - This consists of:
+        - **Key**: "token"
+          - The parameter that identifies the bearer token type for authorization.
+        - **Value**: "sessionId"
+          - The session identifier used to authenticate the request. This value must be replaced with a valid session token.
+        - **Type**: String
+          - Denotes that the value of the token must be in string format.
+
+    #### Request Method
+
+    - **Method**: POST
+      - This specifies that the request should be made using the HTTP POST method.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/challenge/delete`
+      - The endpoint where the request is sent. This URL is hosted on the local server at port 3000 and is designed to handle the challenge deletion process.
+
+    #### Request Headers
+
+    - **Headers**:
+      - Currently, there are no custom headers specified for this request.
+      - The placeholder is kept disabled, indicating that no headers are necessary unless specifically required for additional functionality or routing.
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - The body of the request is sent in a raw format, which allows for custom JSON data.
+    - **Raw Data**: 
+
+    ```json
+
+    {
+      "sessionId": "sessionId",
+      "accountId": "accountId",
+      "challengeId": "challengeId"
+    }
+
+    ```
+      - This is the JSON structure that must be included in the body of the request:
+        - **sessionId**: This field must be populated with the user's session identifier.
+        - **accountId**: This field should contain the ID of the user’s account which owns the challenge.
+        - **challengeId**: This is the unique identifier of the challenge that is to be deleted.
+
+    ### Summary
+
+    This API endpoint allows the deletion of a specified challenge for a user by
+    sending a POST request with the necessary authentication and identifying
+    details in the body. Make sure to replace the placeholders with actual
+    values before making a request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"challengeId\":\"challengeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

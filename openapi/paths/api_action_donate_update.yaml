@@ -1,0 +1,120 @@
+put:
+  tags:
+    - ActionDonate
+  summary: Action - Donate - Update
+  description: >-
+    ### Action - Donate - Update
+
+
+    **Request Overview**  
+
+    This request is designed to update the donation information associated with
+    a particular action within the API. The request method is PUT, which implies
+    that it modifies an existing resource.
+
+
+    **Authorization**  
+
+    - **Type:** Bearer  
+      - This type of authorization requires a token for access.  
+    - **Token:** "BearerToken"  
+      - This placeholder represents the actual bearer token that is necessary for authenticating the request.
+
+    **URL**  
+
+    - **Endpoint:** `http://localhost:3000/api/action/donate/update`  
+      - The endpoint for updating the donation action, typically it should point to the live server once development is completed.
+
+    **Headers**  
+
+    - **Client-UUID:** "ClientUUID"  
+      - This header uniquely identifies the client making the request. Replace `ClientUUID` with the actual UUID for your client application.
+
+    **Body**  
+
+    The body of the request is in raw JSON format and contains the following
+    fields:
+
+
+    - **sessionId**  
+      - Represents the unique identifier for the session during which the donation action is being updated.
+
+    - **accountId**  
+      - The unique identifier for the account making the donation. This helps in attributing the donation to the correct user.
+
+    - **path**  
+      - Indicates the specific path or reference to the resource, in this case, a video path like `/live/channel/video123`.
+
+    - **targetType**  
+      - Specifies the type of resource that is being targeted for this action. Here, it is set to `videoId`, indicating that the action is linked to a video.
+
+    - **targetId**  
+      - The unique identifier for the target resource (in this case, the video) that the donation is associated with.
+
+    - **sourceType**  
+      - Refers to the type of source from which the donation is being made. This is set to `accountId`, meaning the source is another account.
+
+    - **sourceId**  
+      - The unique identifier for the source account, indicating where the donation is originating from.
+
+    - **utilityType**  
+      - Specifies the type of utility used for the donation. In this case, it is set to `token`, which may suggest that donations are conducted via token transactions.
+
+    - **name**  
+      - Represents the updated name of the charity or purpose for which the donation is being made. The example value is "My charity updated name".
+
+    - **didDonate**  
+      - A boolean value indicating whether the user actually made a donation. Set to `true` in this case.
+
+    - **isAccepted**  
+      - A boolean value indicating whether the donation action has been accepted by the receiving party. This example is set to `true`.
+
+    - **isRejected**  
+      - A boolean flag that shows if the donation action was rejected. It is set to `false`, meaning the action has not been rejected.
+
+    - **donateId**  
+      - The unique identifier of the donation record being updated.
+
+    - **description**  
+      - A textual description related to the donation action. In this case, it is set to "this is description".
+
+    - **tags**  
+      - A field meant for categorizing or tagging the donation with relevant keywords. The example provided is empty, indicating no tags have been assigned.
+
+    This structure provides all the necessary information to update a donation
+    action in the API effectively. Make sure to replace placeholder values with
+    actual data while making requests.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            utilityType: token
+            name: My chairity updated name
+            didDonate: true
+            isAccepted: true
+            isRejected: false
+            donateId: donateId
+            description: this is description
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

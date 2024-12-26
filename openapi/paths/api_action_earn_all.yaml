@@ -1,10 +1,61 @@
 get:
   tags:
-    - General
+    - ActionEarn
   summary: Action - Earn - Get All
   description: >-
-    This endpoint retrieves all earning actions associated with a specific
-    session and account. It uses session and account IDs as query parameters.
+    ### Endpoint Description: Action - Earn - Get All
+
+
+    - **Name**: Action - Earn - Get All
+      - This is the designation of the API endpoint which indicates that it is used to retrieve all earned actions.
+
+    - **Request**: This section outlines the details of the API request.
+
+      - **Auth**: 
+        - **Type**: bearer
+          - Authenticates the request using a bearer token.
+        - **Bearer**: 
+          - **Key**: token
+            - The name of the authentication token parameter.
+          - **Value**: BearerToken
+            - Placeholder for the actual bearer token required for authentication to access the endpoint.
+          - **Type**: string
+            - Indicates that the value of the bearer token should be a string type.
+
+      - **Method**: GET
+        - Specifies that this request will use the HTTP GET method, which is primarily used for retrieving data from the server.
+
+      - **URL**: http://localhost:3000/api/action/earn/all/?sessionId=sessionId&accountId=accountId
+        - The complete URL to access the API.
+        - **Base URL**: http://localhost:3000/api/action/earn/all/
+          - The main endpoint to get all earned actions.
+        - **Query Parameters**:
+          - **sessionId**: sessionId
+            - A placeholder for the session ID, used to track user sessions for authentication or state management.
+          - **accountId**: accountId
+            - A placeholder for the account ID, representing the specific user account for which actions are being fetched.
+
+      - **Headers**: 
+        - An array of headers to be sent with the request.
+          - **Key**: (empty)
+            - Currently no headers are specified.
+          - **Value**: (empty)
+            - Current lack of a specific value.
+          - **Type**: default
+            - Indicates the standard type of header.
+          - **Disabled**: true
+            - This header is not currently enabled, and thus will not be sent with the request.
+
+      - **Body**: 
+        - **Mode**: raw
+          - Indicates that the body of the request is in raw format.
+        - **Raw**: ""
+          - Currently, there is no body content being sent with the GET request, as it is typically not required when fetching data.
+
+    This endpoint is designed for fetching all earned actions associated with a
+    particular session and account. It requires proper authentication via a
+    bearer token and appropriate session and account identifiers in the query
+    parameters.
   security:
     - bearerAuth: []
   parameters:

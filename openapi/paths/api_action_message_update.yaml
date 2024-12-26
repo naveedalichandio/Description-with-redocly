@@ -1,0 +1,107 @@
+put:
+  tags:
+    - ActionMessage
+  summary: Action - Message - Update
+  description: |-
+    ### Action - Message - Update Endpoint Description
+
+    #### Request Details:
+    - **Method**:  
+      Specifies the HTTP method for the request. In this case, it is a `PUT`, which is typically used to update existing resources.
+
+    - **URL**:  
+      The endpoint for the request is `http://localhost:3000/api/action/message/update`, where the action for updating a message will be handled.
+
+    #### Authorization:
+    - **Auth Type**:  
+      The request requires bearer token authentication. This means that the client needs to provide a valid token to access this endpoint.
+
+    - **Bearer Token**:  
+      A placeholder for the authentication token used in the request. It should be replaced with the actual bearer token value. 
+
+    #### Headers:
+    - **Client-UUID**:  
+      A header that carries a unique identifier for the client making the request. This helps the server recognize which client is sending the request.
+
+    #### Body Parameters:
+    - **sessionId**:  
+      A unique identifier for the session in which the message is being processed. This should be replaced with the actual session ID.
+
+    - **accountId**:  
+      The ID of the account that owns the message or is associated with the request. Should be replaced with the actual account ID.
+
+    - **path**:  
+      The path of the resource being targeted by the message. This indicates where the message will be applied, e.g., a specific video resource.
+
+    - **targetType**:  
+      Indicates the type of the target for the message. In this case, it's a `videoId`, specifying that the message is directed at a video resource.
+
+    - **targetId**:  
+      The ID of the target resource (video in this case) that the update affects. This should be replaced with the actual target ID.
+
+    - **sourceType**:  
+      This specifies the type of source responsible for generating the message. Here it is defined as `accountId`.
+
+    - **sourceId**:  
+      The ID of the source from which the message originates. This should correspond to the actual source ID.
+
+    - **didMessage**:  
+      A boolean value indicating whether the message was sent or delivered. This is a flag to show the status of the message.
+
+    - **text**:  
+      The content of the message being updated. It can be any string text; in this case, it is initialized to "Hello World!".
+
+    - **priority**:  
+      An indication of the message's importance. It can have values like `high`, `medium`, or `low`, specifying how critical the message is.
+
+    - **name**:  
+      A field that can be used to provide a name for the message. It is currently empty and can be filled with a descriptive name.
+
+    - **description**:  
+      This field allows for a more detailed description of the message. It is empty by default but can be used to add context.
+
+    - **tags**:  
+      A space where tags can be added to categorize or label the message. It is also empty by default.
+
+    - **messageId**:  
+      A unique identifier for the message being updated. This should be filled in with the actual message ID you wish to reference.
+
+    #### Body Format:
+    - **Mode**:  
+      The body format is set to `raw`, indicating that the data being sent is in raw format and will be treated as a single block of text.
+
+    - **Language**:  
+      The format of the data in the body is specified as `json`, meaning that the content should adhere to the JSON structure.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didMessage: true
+            text: Hello World!
+            priority: high
+            name: ''
+            description: ''
+            tags: ''
+            messageId: messageId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

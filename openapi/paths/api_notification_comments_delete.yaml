@@ -1,0 +1,45 @@
+post:
+  tags:
+    - NotificationComments
+  summary: Notification - Comments - Delete
+  description: >
+    - `name`: This field states the name of the endpoint we are discussing,
+    which in this case is "Notification - Comments - Delete". This means this
+    endpoint is used to delete comments from notifications.
+
+
+    - `request`: This field contains details about the HTTP request that needs
+    to be made to execute the endpoint. 
+
+        - `auth`: This field refers to the authorization required to access this endpoint. The type of authentication used here is "bearer". It contains a single object under the bearer property that takes in a token in form of a session ID as a value. This session ID serves as the token needed for bearer authentication.
+           
+        - `method`: This denotes the HTTP method to be used for the request, which in this case is "POST". Post method usually means that data is being sent to be processed to a specified resource. 
+
+        - `url`: This represents the URL where the request will be sent. The given url is "http://localhost:3000/api/notification/comments/delete".
+             
+        - `headers`: This is an array meant to contain any headers that are to be sent along with the request. It's currently just a placeholder with no key or value.
+            
+        - `body`: This field contains the data to be sent along with the POST request. The data is sent in raw JSON format. The raw data includes a "sessionId", "accountId", and "commentsId". These refer to the session ID, account ID, and comments ID respectively that should be included in the body of the request.
+
+    In summary, this endpoint requires a POST request to be made to
+    "http://localhost:3000/api/notification/comments/delete". The required
+    authorization is bearer token authentication, with the session ID acting as
+    the token. Headers are currently left empty. The body of the POST request
+    should contain a session ID, an account ID, and a comments ID in raw JSON
+    format. These three pieces of information are likely used to identify the
+    user, their account, and specifically which comments they are looking to
+    delete.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"commentsId\":\"commentsId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

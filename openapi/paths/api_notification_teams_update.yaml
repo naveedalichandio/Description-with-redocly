@@ -1,0 +1,79 @@
+put:
+  tags:
+    - NotificationTeams
+  summary: Notification - Teams - Update
+  description: >-
+    Here is the detailed description of the data fields in this endpoint.
+
+
+    1. `name` : It specifies the name of the endpoint. In this case,
+    "Notification - Teams - Update".
+
+
+    2. `request` : It's an object that contains all the required request details
+    for the endpoint.
+
+
+    3. `auth`: An object containing details of the authentication required for
+    the endpoint. The "type" is "bearer", and a key-value pair for the "token"
+    is provided with a placeholder bearer token value.
+
+
+    4. `method`: Specifies the HTTP method to be used when making the request.
+    Here, it's "PUT".
+
+
+    5. `url`: URL of the endpoint, which specifies where the request needs to be
+    sent.
+
+
+    6. `headers`: An array containing objects representing headers that should
+    be included in the request. This includes a "Client-UUID" key with a default
+    type.
+
+
+    7. `body`: This contains the data to be sent along with the request. In this
+    case, the data is raw JSON. It has a variety of parameters such as:
+       - `teamsId`: A unique identifier for the team.
+       - `sessionId`: A unique identifier for the session.
+       - `accountId`: A unique identifier for the account.
+       - `name`: Name of the team.
+       - `description`: Description of the team.
+       - `tags`: Tags related to the team.
+       - `profilePhotoUrl`: URL for profile photo of the team.
+       - `coverPhotoUrl`: URL for cover photo of the team.
+       - `minimumTipAmount`: Minimum tip amount that should be given.
+       - `categoryId`: Unique identifier for the category in which team falls.
+       - `category`: Category name in which team falls.
+       - `subCategoryId`: Unique identifier for the sub-category of the team.
+       - `subCategory`: Sub-category name of the team.
+       - `isTeamsPrivate`: A boolean indicating if team is private.
+       - `isTournamentOnly`: A boolean indicating if team is only for tournaments.
+       - `isTeamsDefault`: A boolean indicating if this team is set as default.
+       - `isPreLiveNotificationAds`: A boolean indicating whether pre-live notification ads are enabled.
+       - `isPostLiveNotificationAds`: A boolean indicating whether post-live notification ads are enabled.
+       - `breakPreLiveNotificationUrl`: URL for pre-live notification break ad.
+       - `breakPostLiveNotificationUrl`: URL for post-live notification break ad.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"teamsId\":\"teamsId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Teams 2.0\",\"description\":\"This teams is my second
+            teams\",\"tags\":\"second,teams\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isTeamsPrivate\":true,\"isTournamentOnly\":false,\"isTeamsDefault\":true,\"isPreLiveNotificationAds\":true,\"isPostLiveNotificationAds\":true,\"breakPreLiveNotificationUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveNotificationUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

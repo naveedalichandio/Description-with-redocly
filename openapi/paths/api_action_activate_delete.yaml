@@ -1,0 +1,53 @@
+post:
+  tags:
+    - ActionActivate
+  summary: Action - Activate - Delete
+  description: >-
+    ### Description of Data in Endpoint "Action - Activate - Delete"
+
+
+    - **Name**: This is the name of the request, indicating that it is related
+    to activating a deletion action.
+
+
+    - **Request Object**: This contains all the configurations needed to perform
+    the API request.
+
+      - **Auth**: This section outlines the authentication method used for the request.
+        - **Type**: The authentication type is specified as "bearer", which means a token is required for authorization.
+        - **Bearer**: This specifies the details of the bearer token.
+          - **Key**: The key for the token is specified as "token".
+          - **Value**: The value is set to "sessionId", indicating that a session ID will be used as the token.
+          - **Type**: This denotes that the expected type of the token is a string.
+
+      - **Method**: "POST" indicates that this request will send data to the server.
+
+      - **URL**: This is the endpoint where the request will be sent. In this case, it is "http://localhost:3000/api/action/activate/delete".
+
+      - **Headers**: This section contains any headers that might be needed for the request.
+        - Here, both the key and value are empty, and the header is marked as disabled.
+
+      - **Body**: This section holds the data that will be sent with the request.
+        - **Mode**: The mode is set to "raw", indicating that the body is being sent in its raw format.
+        - **Raw**: The actual data being sent is in JSON format. It includes:
+          - **sessionId**: A placeholder for the user's session ID, which is used for authentication.
+          - **accountId**: A placeholder for the account ID that will be affected by the activation deletion.
+          - **activateId**: A placeholder for the specific ID of the activation that is to be deleted. 
+
+    This structure allows users to understand how to properly format their
+    request to activate and delete a particular action based on session and
+    account information.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"activateId\":\"activateId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

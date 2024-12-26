@@ -1,0 +1,164 @@
+put:
+  tags:
+    - ActionConfirm
+  summary: Action - Confirm - Update
+  description: |-
+    ### Description of Each Data in the Endpoint
+
+    - **name**: 
+      - "Action - Confirm - Update" 
+      - This is the name of the API request, indicating its purpose is to confirm and update an action.
+
+    - **request**: 
+      - This object contains all the details needed to make the API request.
+
+      - **auth**: 
+        - Defines the authentication method used for the request.
+        
+        - **type**: 
+          - "bearer"
+          - Indicates that bearer token authentication is being used.
+
+        - **bearer**: 
+          - This is an array that contains the bearer token for authentication.
+          
+          - **key**: 
+            - "token"
+            - This is the identifier for the bearer token field.
+
+          - **value**: 
+            - "BearerToken"
+            - Placeholder for the actual bearer token required for authorization.
+
+          - **type**: 
+            - "string"
+            - Specifies that the value for the bearer token is of string type.
+
+      - **method**: 
+        - "PUT"
+        - This indicates that the HTTP method used for the request is PUT, which is typically used for updating resource data.
+
+      - **url**: 
+        - "http://localhost:3000/api/action/confirm/update"
+        - This is the endpoint URL where the request will be sent, pointing to the local server for action confirmation and updates.
+
+      - **headers**: 
+        - An array containing the required request headers.
+        
+        - **key**: 
+          - "Client-UUID"
+          - This is the identifier for the client-specific unique identifier in the request headers.
+
+        - **value**: 
+          - "ClientUUID"
+          - Placeholder for the actual UUID value associated with the client.
+
+        - **type**: 
+          - "default"
+          - Indicates that this header follows the default type and structure.
+
+      - **body**: 
+        - This part contains the main content of the request, structured in JSON format.
+
+        - **mode**: 
+          - "raw"
+          - Specifies that the request body is sent in raw format.
+
+        - **raw**: 
+          - The actual content being sent in the body of the request.
+          
+          - It contains the following key-value pairs:
+          
+            - **sessionId**: 
+              - "sessionId"
+              - Represents the ID for the session related to the action being confirmed.
+
+            - **accountId**: 
+              - "accountId"
+              - Identifies the account associated with the action.
+
+            - **path**: 
+              - "/live/channel/video123"
+              - This is the URL path to the live channel or resource being targeted in the update.
+
+            - **targetType**: 
+              - "videoId"
+              - Specifies the type of target resource, which in this case is a video.
+
+            - **targetId**: 
+              - "videoId"
+              - This indicates the specific ID of the video being targeted for the update.
+
+            - **sourceType**: 
+              - "accountId"
+              - This indicates that the source of the action is the account ID.
+
+            - **sourceId**: 
+              - "accountId"
+              - Specifies the ID of the source account related to the action.
+
+            - **confirmId**: 
+              - "confirmId"
+              - Represents the ID used to confirm the action.
+
+            - **isUndo**: 
+              - true
+              - A boolean indicating whether the action should be undone or not.
+
+            - **isIgnore**: 
+              - true
+              - A boolean signaling whether to ignore the action or not.
+
+            - **name**: 
+              - "this is updated name"
+              - Represents the updated name for the action or resource.
+
+            - **description**: 
+              - ""
+              - A field for providing a description of the action, currently empty.
+
+            - **tags**: 
+              - ""
+              - A field for any associated tags with the action, currently empty.
+
+        - **options**: 
+          - This object defines additional settings for the request body.
+          
+          - **raw**: 
+            - This indicates that the content is in raw format.
+            
+            - **language**: 
+              - "json"
+              - Specifies that the raw body content is formatted as JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            confirmId: confirmId
+            isUndo: true
+            isIgnore: true
+            name: this is updated name
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

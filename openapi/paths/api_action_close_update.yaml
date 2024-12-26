@@ -1,0 +1,124 @@
+put:
+  tags:
+    - ActionClose
+  summary: Action - Close - Update
+  description: >-
+    ### Endpoint: Action - Close - Update
+
+
+    #### Request Details:
+
+    - **Method**: PUT
+      - This endpoint uses the PUT method for updating existing resources.
+
+    - **URL**: `http://localhost:3000/api/action/close/update`
+      - This is the endpoint where the request will be sent to perform the update action.
+
+    #### Authentication:
+
+    - **Auth Type**: Bearer
+      - Requires a bearer token for authentication. The token is included in the request to validate the user.
+
+    - **Bearer Token**: 
+      - **Key**: `token`
+        - This identifies the type of authentication being used.
+      - **Value**: `BearerToken`
+        - This is where the actual token value should be inserted for authentication. It should be of string type.
+
+    #### Headers:
+
+    - **Header**: Client-UUID
+      - **Key**: `Client-UUID`
+        - Uniquely identifies the client making the request.
+      - **Value**: `ClientUUID`
+        - This is a placeholder for the unique client identifier. It should be replaced with the actual UUID of the client.
+
+    #### Body:
+
+    - **Body Mode**: Raw
+      - The request body is in raw format.
+
+    - **Content**: 
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "closeId": "closeId",
+        "path": "/live/channel/video123",
+        "targetType": "streamer",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "tokenAmount": 20,
+        "name": "Farooq",
+        "description": "this is description",
+        "tags": "xyz"
+    }
+
+    ```
+
+    - **Fields**:
+      - **sessionId**: 
+        - A unique identifier for the session related to the action.
+      - **accountId**: 
+        - Identifies the account associated with the action being taken.
+      - **closeId**: 
+        - This ID refers to the specific close action that is being updated.
+      - **path**: 
+        - The path associated with the video channel, specified here as `/live/channel/video123`.
+      - **targetType**: 
+        - Indicates the type of target being addressed, which in this case is a streamer.
+      - **targetId**: 
+        - The identifier for the target, represented as `videoId`.
+      - **sourceType**: 
+        - This indicates the type of source involved in the action, which is an account in this case.
+      - **sourceId**: 
+        - The identifier for the source, mirrored as `accountId`.
+      - **tokenAmount**: 
+        - Specifies the amount of tokens to be involved in the action, set to 20.
+      - **name**: 
+        - This is a name associated with the action, currently set to "Farooq".
+      - **description**: 
+        - A brief description of the action, mentioned here as "this is description".
+      - **tags**: 
+        - Tags associated with the action for categorization, specified as "xyz". 
+
+    ### Summary:
+
+    This endpoint serves to update an existing close action, utilizing
+    authentication, specific headers, and a structured body to relay necessary
+    information. Users must ensure that all placeholder values are replaced with
+    actual data prior to making a request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            closeId: closeId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

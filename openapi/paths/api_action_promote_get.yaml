@@ -1,0 +1,107 @@
+get:
+  tags:
+    - ActionPromote
+  summary: Action - Promote - Get
+  description: >-
+    {
+      "name": "Action - Promote - Get",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "url": "http://localhost:3000/api/action/promote/get/?promoteId=promoteId&sessionId=sessionId&accountId=accountId",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        }
+      }
+    }
+
+
+    ### Description of Each Data:
+
+
+    - **name**: This is the title of the API request. It is clearly labeled as
+    "Action - Promote - Get," indicating that this request is related to
+    promoting an action.
+
+
+    - **request**: This object encapsulates all the details required to make the
+    API call.
+
+      - **auth**: This section specifies the authentication method required for the API request. Here, it is set to bearer token authentication.
+
+        - **type**: Indicates the type of authentication used, which is "bearer" in this instance.
+
+        - **bearer**: An array containing objects for bearer token configuration.
+
+          - **key**: Represents the identifier for the bearer token, which is named "token."
+
+          - **value**: This is where the actual bearer token is provided, represented as "BearerToken." This will typically be replaced with an actual token when making a request.
+
+          - **type**: Specifies the data type of the value, which is set to "string."
+
+      - **method**: This signifies the HTTP method to be used for the request. In this case, it is a "GET" request, meaning the API will retrieve data.
+
+      - **url**: This is the endpoint URL where the API request will be sent. It specifies the base URL (`http://localhost:3000/api/action/promote/get/`) and includes query parameters for `promoteId`, `sessionId`, and `accountId`, which are placeholders that need to be filled in with actual values when making the request.
+
+        - **promoteId**: A query parameter representing the ID of the promotion to be fetched.
+
+        - **sessionId**: A query parameter representing the session ID associated with the promotion request.
+
+        - **accountId**: A query parameter for the account ID related to the request.
+
+      - **headers**: This array is for any additional HTTP headers that may be needed for the request.
+
+        - **key**: The name of the header. In this case, it is empty.
+
+        - **value**: The value of the header, which is also empty here.
+
+        - **type**: The type of the header, set to "default."
+
+        - **disabled**: A boolean that indicates whether this header is currently active or not. Here, it is `true`, meaning this header will not be sent with the request.
+
+      - **body**: This section specifies the body of the request.
+
+        - **mode**: This indicates the format of the request body. It is set to "raw," which means that the body will contain raw data.
+
+        - **raw**: The actual content of the request body in raw format. Currently, this is empty since GET requests typically do not have a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: promoteId
+      in: query
+      schema:
+        type: string
+      example: promoteId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

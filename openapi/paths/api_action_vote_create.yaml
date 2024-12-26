@@ -1,0 +1,110 @@
+post:
+  tags:
+    - ActionVote
+  summary: Action - Vote - Create
+  description: >-
+    **Endpoint Name: Action - Vote - Create**
+
+
+    **Request Details:**
+
+
+    - **Auth**: 
+      - Type: Bearer
+      - This endpoint uses Bearer token authentication. Users must provide a valid token to access the endpoint.
+
+    - **Method**: 
+      - POST
+      - This indicates that the endpoint is used to submit data to create a vote.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/vote/create`
+      - This is the endpoint for creating a vote action. The server should be running locally on port 3000.
+
+    - **Headers**: 
+      - There are no specific headers required for this request as the provided header is disabled.
+
+    **Body Parameters** (in JSON format):
+
+
+    - **sessionId**: 
+      - Type: string
+      - A unique identifier for the session in which the vote is being cast.
+
+    - **accountId**: 
+      - Type: string
+      - The identifier for the user account that is casting the vote.
+
+    - **path**: 
+      - Type: string
+      - The path to the content related to the vote, specified as `/live/channel/video123`. This might represent the URL structure for the resource.
+
+    - **targetType**: 
+      - Type: string
+      - Specifies the type of target being voted on, which in this case is identified as a `videoId`.
+
+    - **targetId**: 
+      - Type: string
+      - The unique identifier for the target, which is the video being voted on.
+
+    - **sourceType**: 
+      - Type: string
+      - Specifies the type of source for the vote. Here, it's identified as `accountId`.
+
+    - **sourceId**: 
+      - Type: string
+      - The unique identifier for the source, which refers to the account casting the vote.
+
+    - **didVote**: 
+      - Type: boolean
+      - Indicates if the user has voted (true) or not (false). 
+
+    - **buttonText**: 
+      - Type: string
+      - Text displayed on the voting button, indicating the action (in this case, "upvote").
+
+    - **tokenAmount**: 
+      - Type: integer
+      - Indicates the amount of tokens being used for the vote, set to 10 in this instance.
+
+    - **name**: 
+      - Type: string
+      - A space for any additional name related to the vote. Currently left blank.
+
+    - **description**: 
+      - Type: string
+      - A space for any description regarding the vote. Currently left blank.
+
+    - **tags**: 
+      - Type: string
+      - A space for any tags related to the vote. Currently left blank. 
+
+    This endpoint is used for submitting a vote for a specified target,
+    providing necessary details like session and account identifiers, as well as
+    additional options regarding the vote action.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didVote: true
+            buttonText: upvote
+            tokenAmount: 10
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

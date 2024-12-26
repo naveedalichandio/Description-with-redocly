@@ -1,0 +1,138 @@
+post:
+  tags:
+    - IncentivePromotion
+  summary: Incentive - Promotion - Create
+  description: >
+    This endpoint is called "Incentive - Promotion - Create" and it is used to
+    create a new incentive promotion. It is a POST method which requires bearer
+    authentication with the key as "token" and the value would be the allocated
+    BearerToken.
+
+
+    The URL for this endpoint is
+    "http://localhost:3000/api/incentive/promotion/create". The request can also
+    contain headers, if required.
+
+
+    The body of this request is in raw JSON format and contains various fields:
+
+
+    1. "sessionId" - A unique identifier for the session.
+
+    2. "accountId" - A unique identifier for the account.
+
+    3. "title" - The title of the promotion.
+
+    4. "description" - Brief details about the promotion.
+
+    5. "tags" - Keywords associated with the promotion.
+
+    6. "category" - The promotion's relevance industry/sector.
+
+    7. "price" - The price included in the promotion.
+
+    8. "tokenAmount" - Number of promotion specific tokens.
+
+    9. "redirectUrl" - The URL where users are redirected after clicking.
+
+    10. "couponCode" - The promotional coupon code.
+
+    11. "websiteUrl" - The main webpage for the promotion.
+
+    12. "buttonText" - The text displayed on the promotion's action button.
+
+    13. "releaseDate" - When the promotion is to start.
+
+    14. "releaseTime" - The time for the promotion to start on releaseDate.
+
+    15. "expiresDate" - The date when the promotion ends.
+
+    16. "expiresTime" - The exact time when the promotion, which is scheduled
+    for the expiresDate, will finish.
+
+    17. "activationType" - The method by which the promotion is activated.
+
+    18. "profilePhotoUrl" - The URL of the promotion's profile photo.
+
+    19. "coverPhotoUrl" - The URL of the promotion's cover photo.
+
+    20. "videoPlaybackUrl" - The URL of any promotional video.
+
+    21. "audioPlaybackUrl" - The URL of any promotional audio.
+
+    22. "quantityTotal" - The total amount of promotions available.
+
+    23. "quantityLeft" - How many promotions are left.
+
+    24. "livestreamsNeeded" - Number of live streams required for redeeming the
+    incentive.
+
+    25. "subscribersNeeded" - Number of subscribers required for redeeming the
+    incentive.
+
+    26. "followersNeeded" - Number of followers required for redeeming the
+    incentive.
+
+    27. "connectAccountsNeeded" - Number of interconnected accounts necessary
+    for redeeming the incentive.
+
+    28. "tournamentsPlaysNeeded" - The number of tournament plays required for
+    the incentive.
+
+    29. "tournamentsWinsNeeded" - The number of tournament wins required for the
+    incentive.
+
+    30. "universityToursNeeded" - Number of university tours needed to redeem
+    the incentive.
+
+    31. "sharesNeeded" - Necessary shares for redeeming the incentive.
+
+    32. "votesNeeded" - The required votes for the incentive.
+
+    33. "isActive" - Denoting if the promotion is currently active or not.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            title: Summer Special Promotion
+            description: Enjoy exclusive discounts during our Summer Sale!
+            tags: sale,summer,discount
+            category: Retail & E-Commerce
+            price: '19.99'
+            tokenAmount: 50
+            redirectUrl: https://example.com/special-promotion
+            couponCode: SUMMER2024
+            websiteUrl: https://example.com
+            buttonText: Shop Now
+            releaseDate: '2024-06-01'
+            releaseTime: '08:00:00'
+            expiresDate: '2024-08-31'
+            expiresTime: '23:59:59'
+            activationType: auto
+            profilePhotoUrl: https://example.com/images/profile.jpg
+            coverPhotoUrl: https://example.com/images/cover.jpg
+            videoPlaybackUrl: https://example.com/videos/promotion.mp4
+            audioPlaybackUrl: https://example.com/audio/promotion.mp3
+            quantityTotal: 1000
+            quantityLeft: 900
+            livestreamsNeeded: 50
+            subscribersNeeded: 500
+            followersNeeded: 600
+            connectAccountsNeeded: 300
+            tournamentsPlaysNeeded: 20
+            tournamentsWinsNeeded: 10
+            universityToursNeeded: 5
+            sharesNeeded: 400
+            votesNeeded: 800
+            isActive: true
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

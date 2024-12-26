@@ -1,0 +1,70 @@
+post:
+  tags:
+    - TournamentInvite
+  summary: Tournament - Invite - Delete
+  description: >-
+    ### Endpoint: Tournament - Invite - Delete
+
+
+    #### Request-Type:
+
+    - **Method**: This endpoint uses the **POST** method to delete an invite.
+
+
+    #### URL:
+
+    - **URL**: The endpoint is accessed via
+    **http://localhost:3000/api/tournament/invite/delete**. 
+      - This is the local server address where the API is hosted for handling the tournament invite deletion.
+
+    #### Authentication:
+
+    - **Auth Type**: The request requires **bearer token authentication**.
+      - **Token**: A bearer token must be included for authentication. 
+      - The token format is defined as:
+        - **Key**: "token" 
+        - **Value**: The actual value should be replaced with the user's session ID.
+        - **Type**: "string", indicating that the session ID is provided as a string.
+
+    #### Headers:
+
+    - **Headers**: The request does not have any active headers defined.
+      - The enabled state of the header is set to **disabled**, and both the **key** and **value** are empty.
+      
+    #### Body:
+
+    - **Body Type**: The body of the request is in **raw** format.
+
+    - **Content**: The body contains JSON data structured as follows:
+      - **sessionId**: This should be replaced with the user's actual session ID that is used for authentication.
+      - **accountId**: This should be replaced with the user's account ID, required to specify which account is making the deletion request.
+      - **inviteId**: This should be replaced with the specific invite ID that needs to be deleted.
+
+    ### JSON Structure in Request Body:
+
+    ```json
+
+    {
+      "sessionId": "sessionId",
+      "accountId": "accountId",
+      "inviteId": "inviteId"
+    }
+
+    ```
+
+    - Make sure to replace the placeholders (`sessionId`, `accountId`,
+    `inviteId`) with actual values before sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"inviteId\":\"inviteId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

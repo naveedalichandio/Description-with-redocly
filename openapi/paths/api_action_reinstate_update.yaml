@@ -1,0 +1,107 @@
+put:
+  tags:
+    - ActionReinstate
+  summary: Action - Reinstate - Update
+  description: >-
+    ### Action - Reinstate - Update Endpoint Description
+
+
+    - **name**: Identifies this API request as "Action - Reinstate - Update."
+
+
+    - **request**: Contains all the details needed to make the API request.
+
+      - **auth**: Specifies the authentication method.
+
+        - **type**: Indicates the type of authentication used. Here, it is "bearer."
+        
+        - **bearer**: Represents the details of the bearer token.
+        
+          - **key**: The name of the token parameter. It is labeled as "token."
+          
+          - **value**: Placeholder for the actual token value, represented as "BearerToken." This will be replaced with the real token when making the request.
+          
+          - **type**: The data type of the token, which is specified as "string."
+
+      - **method**: Indicates the HTTP method used for the request. In this case, it is "PUT," which is commonly used to update existing resources.
+
+      - **url**: The endpoint URL where the request is sent. It points to the action for reinstating an update: `http://localhost:3000/api/action/reinstate/update`.
+
+      - **headers**: Additional information sent with the request.
+
+        - **key**: The name of the header, which is "Client-UUID."
+        
+        - **value**: A placeholder for the actual client UUID, represented here as "ClientUUID."
+        
+        - **type**: Specifies that this header is a default type.
+
+      - **body**: Contains the data sent with the request.
+
+        - **mode**: Indicates the format of the request body, which is "raw," meaning the body contains raw data.
+
+        - **raw**: The content of the body in JSON format, which includes various fields necessary for the action.
+
+          - **sessionId**: A unique identifier for the session in which the action is being performed.
+          
+          - **accountId**: The identifier for the account associated with the action.
+          
+          - **reinstateId**: An identifier specifically related to the reinstatement action.
+          
+          - **path**: The path to the resource (in this case, a video) that is being reinstated.
+          
+          - **targetType**: Describes the type of the target entity; here, it is specified as "streamer."
+          
+          - **targetId**: The identifier of the target entity, in this case, related to a video, referred to as "videoId."
+          
+          - **sourceType**: The type of source entity associated with the action; it is indicated as the account ID.
+          
+          - **sourceId**: An identifier for the source entity, in this case, represented as "accountId."
+          
+          - **tokenAmount**: The amount of tokens involved in this action, set to 20.
+          
+          - **name**: A placeholder for a name associated with this action, set to "Farooq."
+          
+          - **description**: A text description providing details about the action, here specified as "this is description."
+          
+          - **tags**: A string for tagging or categorizing the action, currently expressed as "xyz."
+
+        - **options**: Additional configuration for the body data.
+
+          - **raw**: Specifies that the content of the body is in raw format.
+          
+            - **language**: Indicates the language of the raw content, stating it is "json."
+
+    This structure outlines the requirements for the reinstatement action,
+    detailing how to authenticate, where to send the request, and the data
+    needed to successfully execute the update.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            reinstateId: reinstateId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

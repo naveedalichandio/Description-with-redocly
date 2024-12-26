@@ -1,0 +1,59 @@
+get:
+  tags:
+    - EventsGeneral
+  summary: Events - General - Get By Short ID
+  description: >-
+    The provided data describes an HTTP GET request under the name "Events -
+    General - Get By Short ID". This suggests an API endpoint that fetches data
+    related to a general event via its unique Short ID.
+
+
+    1. `"name"`: It's the title of your API endpoint. The name specifies what
+    this endpoint is meant for. It's called "Events - General - Get By Short ID"
+    which implies this endpoint is for fetching the details of a general event
+    by its short ID.
+
+
+    2. `"request"`: This contains the specifications for the HTTP request being
+    made.
+
+
+    3. `"auth"`: This describes the authentication type used for the request.
+    The `type` is "bearer", it means the request needs a bearer token to get
+    authorized access.
+
+       - `"bearer"`: This is a list where each object consists of a `key`, `value` and `type`. The `key` here is "token", the `value` is placeholder for the actual bearer token, and the `type` is "string" indicating the data type of the token.
+
+    4. `"method"`: The HTTP method used for the request. It is a "GET" method,
+    meaning this request is attempting to retrieve data from the server.
+
+
+    5. `"url"`: The URL to which the request is directed. It's
+    "http://localhost:3000/api/events/general/get" with a query parameter
+    `shortId=eventShortId` which is a placeholder for a specific event's short
+    identifier.
+
+
+    6. `"headers"`: This contains the headers to be attached to the request. A
+    list of objects but the provided object is empty and has default type which
+    is flagged as disabled. This indicates there are no additional headers
+    required for the request.
+
+
+    7. `"body"`: Describes the body of the request. The mode is "raw", which
+    implies that the body of the request will be sent as raw data. However, the
+    `raw` field is an empty string, suggesting that this GET request does not
+    require a request body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: shortId
+      in: query
+      schema:
+        type: string
+      example: eventShortId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

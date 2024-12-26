@@ -1,0 +1,51 @@
+post:
+  tags:
+    - AccountGeneral
+  summary: Account - General - Logout
+  description: >-
+    The provided data includes the details of the "Account - General - Logout"
+    endpoint request:
+
+
+    1. `name`: This indicates the name of the endpoint. Here, it is "Account -
+    General - Logout". This corresponds to user's logging out from a general
+    account.
+
+
+    2. `request`: This includes all the information needed to make the request.
+
+        - `auth`: Specifies the authentication type and details required for accessing the endpoint.
+        - `type`: "bearer" indicates that the authentication scheme implemented in this API requires a Bearer token to be sent in headers. This token is usually generated during the login process.
+        - `key` and `value`: "token" and "sessionId" respectively represent the actual token key-value pair that needs to be passed with the authentication. Type defines the data type of the token, here, it is a string.
+        
+    3. `method`: Indicates the HTTP method to be used when making a request to
+    this endpoint. Here, it is a "POST" request, which is mostly used when we
+    want to send some data to the server, like, in this case, to logout from an
+    account.
+
+
+    4. `url`: This specifies the endpoint URL where the request is to be sent.
+    Here, it is "http://localhost:3000/api/account/general/logout".
+
+
+    5. `headers`: They define the operating parameters of an HTTP transaction.
+    In this case, an empty default header is set, which is disabled. 
+
+
+    6. `body`: This contains the data that needs to be sent as the body of the
+    POST request.
+        - `mode`: The value "raw" indicates that the contents are sent as is, without any specific structuring or encoding like form-data or x-www-form-urlencoded.
+        - `raw`: This field includes raw request body data which contains two parameters "sessionId" and "accountId". They represent the unique session ID and account ID associated with the user which will be used to logout from the account.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: '"{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\"}"'
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

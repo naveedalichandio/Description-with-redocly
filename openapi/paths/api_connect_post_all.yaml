@@ -1,0 +1,59 @@
+get:
+  tags:
+    - ConnectPost
+  summary: Connect - Post - Get All
+  description: >-
+    1. "name": This field represents the title or identifier of the endpoint,
+    which in this case is "Connect - Post - Get All". This is a descriptive
+    title which gives an idea about the functionality of this endpoint.
+
+
+    2. "request": This field contains all the essential data needed to make the
+    API request.
+
+
+    3. "auth": This field defines the authorization method utilized for the API
+    request. Here, the "bearer" token authentication type is used.
+
+      i. "type": The authorization type. It is set to "bearer" in this context.
+      
+      ii. "bearer": This is an array of bearer tokens. It contains "key-value" pairs. Here, the key is "token" and its value is "BearerToken".
+
+      iii. "key": This denotes the type of token used to authenticate the request. It's set to "token".
+      
+      iv. "value": It's the actual token used to authenticate the request, Its provided value here is "BearerToken".
+      
+      v. "type": It denotes the type of value. In this case, it's a "string".
+
+    4. "method": This field defines the HTTP method used for the request. Here,
+    it's a "GET" request, typically used to retrieve data.
+
+
+    5. "url": The URL where the request will be sent. It's set to
+    "http://localhost:3000/api/connect/post/all/?accountId=accountId", where
+    "accountId" is an expected parameter.
+
+
+    6. "headers": An array containing all the headers that will be sent along
+    with the request. In this case, the headers field is empty and "disabled" is
+    set to "true", meaning no additional headers will be sent with this request.
+
+
+    7. "body": This field represents the body of the HTTP request.
+
+      i. "mode": The formatting type of the request body, which is "raw" in this case, indicating that no specific format is applied to the body data.
+      
+      ii. "raw": The actual content of the request body. Here, it's empty as there's no body data to be sent for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

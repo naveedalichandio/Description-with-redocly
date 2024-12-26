@@ -1,0 +1,73 @@
+get:
+  tags:
+    - ActionVote
+  summary: Action - Vote - Get All
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This is the name of the API endpoint, which is "Action - Vote -
+    Get All". It indicates that this endpoint is related to retrieving all vote
+    actions.
+
+
+    - **request**: This section contains all the details regarding the API
+    request.
+
+      - **auth**: This specifies the authentication method used for the endpoint.
+      
+        - **type**: The type of authentication used is "bearer", indicating that a bearer token is required to authorize the request.
+        
+        - **bearer**: This array contains information about the bearer token.
+        
+          - **key**: A named field for the bearer token, which is "token".
+          
+          - **value**: The actual bearer token, represented here as "BearerToken". This token provides access to the API and should be replaced with a valid token when making a request.
+          
+          - **type**: Indicates that the value is of type "string".
+
+      - **method**: This indicates the type of HTTP method being used. In this case, it is "GET", meaning that this endpoint is used to retrieve data.
+
+      - **url**: This is the endpoint URL where the API request is sent. In this case, the URL is "http://localhost:3000/api/action/vote/all/?sessionId=sessionId&accountId=accountId". It contains two query parameters:
+      
+        - **sessionId**: This parameter is used to specify the session identifier, represented as "sessionId". It needs to be replaced with an actual session ID.
+        
+        - **accountId**: This parameter is used to specify the account identifier, represented as "accountId". It should be replaced with a valid account ID.
+
+      - **headers**: This section lists the headers to be sent along with the request.
+      
+        - **key**: This field is currently empty, meaning no custom headers are defined here.
+        
+        - **value**: This field is also empty, corresponding to the empty key.
+        
+        - **type**: The type of this header is "default".
+        
+        - **disabled**: This parameter is set to true, indicating that this header is currently disabled and will not be sent with the request.
+
+      - **body**: This section defines the body of the request.
+      
+        - **mode**: The mode for the body is set to "raw", indicating that the body data is sent as raw text.
+        
+        - **raw**: This field is empty, meaning no data is being sent in the body of the request. 
+
+    This endpoint is used to fetch all voting actions associated with a
+    particular session and account, requiring proper authentication and the
+    necessary parameters.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,60 @@
+post:
+  tags:
+    - UtilityPoint
+  summary: Utility - Point - Delete
+  description: >-
+    ### Description of Each Data in Endpoint
+
+
+    - **name**: This is the identifier for the API request, which indicates that
+    this endpoint is for deleting a utility point.
+
+
+    - **request**: Contains the details of the API request configuration.
+
+      - **auth**: Specifies the authentication method used for the request.
+      
+        - **type**: Indicates the type of authentication. In this case, it's 'bearer', meaning a token is required for access.
+      
+        - **bearer**: Contains the details of the bearer token required for authentication.
+      
+          - **key**: The name for the token, here it is labeled as "token".
+          
+          - **value**: Represents the actual variable that should be replaced with a session ID, signifying user authentication.
+          
+          - **type**: Defines the type of data for this token, which is a string.
+
+      - **method**: Specifies the HTTP method used for the request. It is 'POST', indicating that data will be sent to the server for processing.
+
+      - **url**: The endpoint URL where the API request is targeted. In this case, it's `http://localhost:3000/api/utility/point/delete`, a local server address pointing to the utility point deletion endpoint.
+
+      - **headers**: A collection of additional information sent with the request. Currently, it's specified as an empty header, which means no additional headers are included. The header is marked as disabled.
+
+      - **body**: This section contains the data sent in the request.
+      
+        - **mode**: Specifies how the body of the request is formatted. It's set to 'raw', indicating that the body contains a raw JSON string.
+        
+        - **raw**: This is the actual content of the request body in JSON format. It includes:
+        
+          - **sessionId**: This should be replaced with the actual session ID for the user making the request.
+          
+          - **accountId**: Represents the unique identifier for the account associated with the utility point to be deleted.
+          
+          - **pointId**: Refers to the specific identifier for the utility point that is to be removed from the system.
+
+    This detailed description provides clarity on the purpose and structure of
+    the request to ensure proper usage in the API collection.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"pointId\":\"pointId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

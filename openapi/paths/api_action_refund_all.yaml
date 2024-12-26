@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ActionRefund
+  summary: Action - Refund - Get All
+  description: >-
+    ### Endpoint Description: Action - Refund - Get All
+
+
+    - **Name**: This is the name of the API endpoint which is "Action - Refund -
+    Get All". It signifies that this endpoint is used to retrieve all refund
+    actions.
+
+
+    - **Request**: This section describes the details of the HTTP request sent
+    to the server.
+
+      - **Auth**: This describes the authentication method for the request.
+        - **Type**: Specifies that the authentication type is "bearer", indicating that the request requires a bearer token for authentication.
+        - **Bearer**: This is an array that holds the authentication token required for access.
+          - **Key**: Identifies the type of authentication token being used, which is "token".
+          - **Value**: This is a placeholder for the actual bearer token which is represented as "BearerToken". Users should replace this with a valid token when making requests.
+          - **Type**: Indicates the data type of the token, which is a "string".
+
+      - **Method**: The HTTP method used for this request is "GET". This method is used for retrieving data from the server.
+
+      - **URL**: This is the endpoint URL for the request.
+        - **Base URL**: "http://localhost:3000/api/action/refund/all/" is the base URL indicating that this request is made to a local server.
+        - **Query Parameters**: 
+          - **sessionId**: This parameter is mandatory and should be replaced with a specific session identifier needed to filter the refunds.
+          - **accountId**: This parameter is also mandatory and must be replaced with the account identifier associated with the refunds.
+
+      - **Headers**: This section is meant for any additional HTTP headers required by the request.
+        - **Key**: This field is currently empty, suggesting no additional headers are needed.
+        - **Value**: Correspondingly, this value is also empty, signifying no additional information is included in the headers.
+        - **Type**: The type is designated as "default".
+        - **Disabled**: This property is set to true, indicating that no extra headers are currently being sent with the request.
+
+      - **Body**: This section contains information about the body of the request.
+        - **Mode**: This is set to "raw", indicating that the body will consist of raw data format.
+        - **Raw**: The body content is empty, implying that no data needs to be sent in the body for this GET request. 
+
+    This endpoint is primarily used to pull a list of all refund actions based
+    on the provided session and account identifiers. Ensure that the bearer
+    token is valid and that the appropriate parameters are supplied in the URL
+    before making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,123 @@
+put:
+  tags:
+    - ActionPromote
+  summary: Action - Promote - Update
+  description: >-
+    ### Action - Promote - Update Endpoint Description
+
+
+    This is a PUT request to update a promotion action on a specified target.
+    Below is a detailed description of the request components.
+
+
+    #### Request Overview
+
+    - **Method**: PUT
+
+    - **Endpoint URL**: `http://localhost:3000/api/action/promote/update`
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer token authentication is used to authorize the
+    request.
+      - **Token**: A string representing the bearer token required for authentication. Replace `BearerToken` with the actual token value.
+
+    #### Headers
+
+    - **Client-UUID**: A unique identifier for the client making the request.
+    Replace `ClientUUID` with the actual UUID to identify the client.
+
+
+    #### Body Parameters
+
+    The body of the request is in JSON format and contains the following fields:
+
+
+    1. **sessionId**: A string representing the session identifier associated
+    with the promotion action.
+
+
+    2. **accountId**: A string that specifies the unique identifier for the
+    account initiating the promotion.
+
+
+    3. **promoteId**: A string that identifies the unique promotion action being
+    updated.
+
+
+    4. **path**: A string indicating the path where the video or content is
+    located, such as `/live/channel/video123`. This provides context about the
+    specific content being promoted.
+
+
+    5. **targetType**: A string denoting the type of target for the promotion,
+    such as "streamer". This helps specify who or what is receiving the
+    promotion.
+
+
+    6. **targetId**: A string that indicates the unique identifier for the
+    target of the promotion, such as a video ID.
+
+
+    7. **sourceType**: A string that represents the type of source initiating
+    the promotion, e.g., "accountId".
+
+
+    8. **sourceId**: A string indicating the unique identifier for the source
+    that owns the promotion, generally the same as `accountId`.
+
+
+    9. **tokenAmount**: An integer representing the amount of tokens being used
+    for the promotion. In this case, it is set to `20`.
+
+
+    10. **name**: A string that stores the name associated with the promotion.
+    Here, it is `"Farooq"`.
+
+
+    11. **description**: A string providing additional details about the
+    promotion. This is set to `"this is description"`.
+
+
+    12. **tags**: A string of tags associated with the promotion, used for
+    categorization or searchability. In this case, it is set to `"xyz"`.
+
+
+    ### Summary
+
+    This endpoint allows users to update promotion actions by providing details
+    such as session ID, account information, target details, the number of
+    tokens, and descriptive information. Make sure to replace placeholders with
+    actual values when making a request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            promoteId: promoteId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,90 @@
+put:
+  tags:
+    - ActionSell
+  summary: Action - Sell - Update
+  description: >-
+    ### Action - Sell - Update
+
+
+    This endpoint facilitates the update of a sell action in the system. Below
+    is a detailed description of each data field involved in this API request:
+
+
+    **Request Overview:**
+
+    - **Auth**: This section outlines the authentication method for the request.
+      - **Type**: Specifies that a bearer token is used for authenticating the request.
+      - **Bearer**: Contains the authentication token to verify the identity of the API caller.
+        - **Key**: "token" - Denotes the name of the token being passed.
+        - **Value**: "BearerToken" - Placeholder for the actual bearer token that should be provided.
+        - **Type**: "string" - Indicates the data type of the token.
+
+    - **Method**: 
+      - **PUT**: This HTTP method is used to update an existing resource.
+
+    - **URL**: 
+      - **http://localhost:3000/api/action/sell/update**: The endpoint URL where the PUT request will be sent to update a sell action.
+
+    - **Headers**: 
+      - Contains any additional metadata to be passed along with the request.
+        - **Key**: "Client-UUID" - A unique identifier for the client making the request.
+        - **Value**: "ClientUUID" - Placeholder for the actual UUID that should be provided.
+        - **Type**: "default" - Indicates the default header type.
+
+    - **Body**: This section details the data sent with the request when using
+    the raw mode in JSON format.
+      - **Mode**: 
+        - **raw**: Specifies that the request body is in raw format.
+      - **Raw Data**: JSON object containing the following fields:
+        - **sessionId**: Represents the identifier for the session associated with this action.
+        - **accountId**: Unique identifier for the account that is making the sell action.
+        - **path**: The specific path related to the content, e.g., "/live/channel/video123".
+        - **targetType**: Type of target that is being acted upon (e.g., "videoId").
+        - **targetId**: Unique identifier for the target item (e.g., videoId).
+        - **sourceType**: Denotes the type of source from where the sell action originates (same as accountId).
+        - **sourceId**: Unique identifier for the source entity (same as accountId).
+        - **tokenAmount**: The quantity of tokens involved in the sell action (e.g., 10).
+        - **didSell**: Boolean value (true/false) indicating if the sell action was successful.
+        - **itemType**: Describes the type of item being sold (e.g., "token").
+        - **utilityType**: Indicates the category of utility for the item, such as "coin".
+        - **name**: New name assigned to the sell action or item, which is being updated (e.g., "this is updated name").
+        - **description**: This field can hold additional information or description about the selling action (currently empty).
+        - **tags**: A field for any associated tags relevant to the sell action (currently empty).
+        - **sellId**: Unique identifier for the specific sell action being updated (e.g., "sellId"). 
+
+    This detailed description should help users understand the purpose and
+    structure of the data when using the "Action - Sell - Update" API endpoint.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 10
+            didSell: true
+            itemType: token
+            utilityType: coin
+            name: this is updated name
+            description: ''
+            tags: ''
+            sellId: sellId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

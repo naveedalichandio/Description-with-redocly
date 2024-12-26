@@ -1,0 +1,71 @@
+get:
+  tags:
+    - ActionDislike
+  summary: Action - Dislike - Get All
+  description: >-
+    ### Action - Dislike - Get All
+
+
+    **Request Overview:**
+
+    This endpoint retrieves all records of dislikes associated with a specific
+    user session and account.
+
+
+    **Endpoint Details:**
+
+
+    - **Request Method:** 
+      - **GET**: This method is used to request data from the specified resource.
+
+    - **URL:**
+      - `http://localhost:3000/api/action/dislike/all/?sessionId=sessionId&accountId=accountId`
+        - The URL is where the API is hosted.
+        - It includes query parameters:
+          - **sessionId**: This parameter represents the unique identifier for the user session.
+          - **accountId**: This parameter indicates the unique identifier of the user's account.
+
+    **Authentication:**
+
+    - **Auth Type:**
+      - **Bearer Token**: This is a token-based authentication method.
+        - **Token Structure:**
+          - **Key**: "token" - This is the identifier for the token being passed.
+          - **Value**: "BearerToken" - This will be replaced with the actual bearer token that authorizes the request.
+          - **Type**: "string" - Indicates that the token is a string value.
+
+    **Headers:**
+
+    - There are currently no custom headers provided for this request. 
+
+    - The header entry is disabled and can be enabled or modified if needed.
+
+
+    **Request Body:**
+
+    - **Body Mode:** 
+      - **raw**: Indicates that the body of the request is sent as raw data.
+    - **Raw Data:** 
+      - The body is empty in this request and does not contain any data. This is typical for GET requests, as they do not usually require a body.
+
+    This endpoint is primarily used to gather all dislike actions tied to a
+    specific user session and account, ensuring the request is properly
+    authenticated using the bearer token provided.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

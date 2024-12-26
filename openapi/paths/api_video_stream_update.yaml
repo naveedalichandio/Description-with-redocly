@@ -1,0 +1,111 @@
+put:
+  tags:
+    - VideoStream
+  summary: Video - Stream - Update - Stop Stream
+  description: >-
+    ### API Endpoint: Video - Stream - Update - Stop Stream
+
+
+    #### Request Details:
+
+
+    - **Name**: This is the title of the request, indicating the action to
+    update and stop a video stream.
+
+
+    - **Authentication**:
+      - **Type**: Bearer Token
+        - **Key**: `token`
+        - **Value**: `BearerToken`
+        - **Type**: This denotes the type of the authentication token required to access the API endpoint, which is a string format.
+
+    - **HTTP Method**: 
+      - **PUT**: This indicates that the request will modify existing data on the server.
+
+    - **URL**: 
+      - `http://localhost:3000/api/video/stream/update`: This is the endpoint where the request is to be sent. It is expected to be a local server running on port 3000.
+
+    #### Headers:
+
+
+    - **Client-UUID**:
+      - **Key**: `Client-UUID`
+      - **Value**: `ClientUUID`
+      - **Type**: This header is used to uniquely identify the client making the request. It is typically a UUID (Universally Unique Identifier) string that helps in tracking requests to the server.
+
+    #### Request Body: 
+
+    The body of the request is formatted as raw JSON and contains the following
+    fields:
+
+
+    - **sessionId**: 
+      - This field is used to specify the unique identifier for the session in which the video stream is running.
+
+    - **accountId**: 
+      - This field represents the unique identifier of the account associated with the video stream.
+
+    - **channelId**: 
+      - This field specifies the unique identifier for the channel where the stream is being broadcast.
+
+    - **videoId**: 
+      - This field is used to provide the unique identifier for the video that is being streamed.
+
+    - **streamId**: 
+      - This field represents the unique identifier for the stream itself.
+
+    - **isPrimaryCamera**: 
+      - A boolean value indicating whether the primary video camera is in use. This can be set to `true` or `false`.
+
+    - **isPrimaryAudio**: 
+      - A boolean value indicating whether the primary audio device is in use. This can be set to `true` or `false`.
+
+    - **videoInputName**: 
+      - This field specifies the name of the video input device being used, for example, "My MacBook Camera".
+
+    - **audioInputName**: 
+      - This field specifies the name of the audio input device being used, for example, "My MacBook Microphone".
+
+    - **started**: 
+      - A boolean value that indicates if the stream has started. It can be set to `true` or `false`.
+
+    - **paused**: 
+      - A boolean value indicating whether the stream is currently paused. It can be set to `true` or `false`.
+
+    - **stopped**: 
+      - A boolean value that indicates if the stream has been stopped. It can be set to `true` or `false`.
+
+    This request format allows the user to update the status of a video stream
+    and provide additional details about the various inputs used during the
+    streaming session.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            channelId: channelId
+            videoId: videoId
+            streamId: streamId
+            isPrimaryCamera: false
+            isPrimaryAudio: false
+            videoInputName: My MacBook Camera
+            audioInputName: My macBook Microphone
+            started: true
+            paused: false
+            stopped: true
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

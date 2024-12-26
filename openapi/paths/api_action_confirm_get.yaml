@@ -1,0 +1,81 @@
+get:
+  tags:
+    - ActionConfirm
+  summary: Action - Confirm - Get
+  description: >-
+    ### Action - Confirm - Get
+
+
+    This endpoint is used to retrieve confirmation details based on specific
+    identifiers. Below is a detailed description of each component of the
+    request:
+
+
+    - **Name**: This defines the endpoint's name as "Action - Confirm - Get".
+
+
+    - **Request**: This section outlines the specifics of the API request.
+
+      - **Auth**: This part specifies the authentication method used for the request.
+        
+        - **Type**: Indicates that bearer token authentication is used.
+
+        - **Bearer**: Contains details about the token required for authentication.
+          
+          - **Key**: The identifier for the bearer token. Here it is labeled as "token".
+          
+          - **Value**: The actual bearer token string needed for authorization, represented as "BearerToken".
+          
+          - **Type**: Indicates that this value is a string.
+
+      - **Method**: Specifies the HTTP method for the request. In this case, it is set to "GET", meaning the request is meant to retrieve data.
+
+      - **URL**: The endpoint URL for the request. It includes the base URL followed by the route to the action confirmation. The URL structure indicates three query parameters:
+        
+        - **confirmId**: A required identifier for the confirmation process.
+        
+        - **sessionId**: A required identifier for the session related to the action.
+        
+        - **accountId**: A required identifier for the account associated with the action.
+
+      - **Headers**: This section contains any headers that might be sent with the request. In this example:
+        
+        - **Key**: Currently empty, indicating no specific headers are included.
+        
+        - **Value**: Also empty, confirming no specific value is set for headers.
+        
+        - **Type**: Set to "default", indicating it's a standard header.
+        
+        - **Disabled**: This is set to `true`, meaning the header is not currently active and will not be sent with the request.
+
+      - **Body**: This section describes the body of the request.
+        
+        - **Mode**: This indicates the format of the body content. In this case, it is set to "raw", indicating that the body content can be sent in a raw format.
+        
+        - **Raw**: The field is left empty, meaning there is no body content being sent in the request.
+
+    Overall, this endpoint retrieves confirmation data based on the supplied
+    identifiers with the necessary authorization through a bearer token.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: confirmId
+      in: query
+      schema:
+        type: string
+      example: confirmId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

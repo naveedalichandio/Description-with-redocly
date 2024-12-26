@@ -1,0 +1,81 @@
+get:
+  tags:
+    - TournamentStats
+  summary: Tournament - Stats - Get All
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    **Name**: 
+
+    - This identifies the endpoint as "Tournament - Stats - Get All". It
+    signifies that this endpoint is used to retrieve statistics for all
+    tournaments.
+
+
+    **Request Auth**:
+
+    - **Type**: Indicates that the authorization method used for the request is
+    "bearer", which means the client must provide a token for access.
+      - **Bearer**: This array contains authorization details.
+        - **Key**: The name of the authorization parameter, which is "token".
+        - **Value**: The token itself, represented here as "BearerToken". Users should replace this with their actual bearer token.
+        - **Type**: Specifies the type of value, which is "string".
+
+    **Method**:
+
+    - This is the HTTP method used for the request, which is "GET". It means the
+    endpoint is designed to retrieve data from the server without modifying any
+    resources.
+
+
+    **URL**:
+
+    - **Base URL**: "http://localhost:3000" indicates that the API is being
+    hosted locally on port 3000.
+
+    - **Endpoint Path**: "/api/tournament/stats/all/" specifies the resource to
+    be accessed, which is all the statistics for tournaments.
+
+    - **Query Parameters**:
+      - **sessionId**: This is a query parameter that represents the unique identifier for the user's session. Users need to replace "sessionId" with the actual session ID.
+      - **accountId**: Another query parameter that represents the account identifier of the user making the request. This should be replaced with the actual account ID.
+
+    **Headers**:
+
+    - This is an array that specifies additional metadata with the request. In
+    this case, it contains an empty header, which is marked as "disabled". Users
+    can utilize this section to add any necessary headers if required by their
+    implementation.
+
+
+    **Body**:
+
+    - **Mode**: The body mode is set to "raw", which means that the request will
+    not contain any additional content in the body—it's empty here.
+
+    - **Raw**: The raw body data is empty, indicating that no payload is sent
+    with this GET request.
+
+
+    This endpoint provides a straightforward way for users to fetch all
+    tournament statistics as long as they provide the correct authorization
+    token and the appropriate query parameters.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,54 @@
+get:
+  tags:
+    - PaymentProduct
+  summary: Product - Stripe - Get All
+  description: >-
+    This endpoint is labeled "Product - Stripe - Get All". It represents an API
+    service for accessing a list of all products in Stripe, a popular online
+    payment processing platform.
+
+
+    - Name: The 'name' field indicates the name of the endpoint. In this case,
+    "Product - Stripe - Get All" suggests that this endpoint is used for
+    retrieving all product data from Stripe.
+
+
+    - Request: This object contains data about the HTTP request that this
+    endpoint makes.
+
+      - Method: This is a 'GET' request, which means that it's used to retrieve data from a specific resource. The 'GET' request is one of the most common HTTP methods and is typically used for querying data from a server.
+
+      - URL: This is the URL that the request is being sent to. The 'http://localhost:3000/api/payment/product/getAll/' suggests that this request is sent to a local server to retrieve all stripe product data. It's important to note that this URL contains query parameters (`?provider=stripe&accountId=accountId&sessionId=sessionId`). These parameters form a part of the URL which is sent to the server to specify certain data.
+        - 'provider=stripe': This parameter indicates that the selected payment provider is Stripe.
+        - 'accountId=accountId': This parameter should be replaced with the unique identifier for the Stripe account from which you want to retrieve product data.
+        - 'sessionId=sessionId': This parameter signifies an active session. Replace this with your active session ID.
+
+    - Headers: The 'headers' field is currently empty, indicating that there are
+    no additional headers included in this HTTP request. Headers are typically
+    used to provide additional metadata about the request. Depending on the API
+    that is being interacted with, this might include authorizations or specific
+    content types.
+      
+    Please ensure to replace 'accountId' and 'sessionId' query parameters with
+    your unique account and session details before making the request.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,91 @@
+get:
+  tags:
+    - ActionFlag
+  summary: Action - Flag - Get
+  description: >-
+    ### Action - Flag - Get Endpoint Description
+
+
+    **Name:** Action - Flag - Get
+
+    - This is the identifier for the API request.
+
+
+    **Request:**
+
+    - This section outlines the details needed to make the API call.
+
+
+    **Auth:**
+
+    - **Type:** bearer
+      - This indicates that the authentication type used for this request is a Bearer token.
+      
+    - **Bearer:**
+      - This section contains details about the token required for authentication.
+      - **Key:** token
+        - This specifies that the name of the parameter being sent is `token`.
+      - **Value:** BearerToken
+        - This placeholder is used to represent the actual Bearer token string that must be included for authentication. 
+      - **Type:** string
+        - This indicates that the value for the token should be of type string.
+
+    **Method:**
+
+    - **GET**
+      - This defines the HTTP method used for the request as GET, which is typically used to retrieve data from the specified resource.
+
+    **URL:**
+
+    -
+    `http://localhost:3000/api/action/flag/get/?flagId=flagId&sessionId=sessionId&accountId=accountId`
+      - This is the endpoint where the GET request will be sent. It includes query parameters:
+        - **flagId:** A parameter expected in the URL to specify the ID of the flag being requested.
+        - **sessionId:** A parameter to identify the session associated with the request.
+        - **accountId:** A parameter to identify the account related to the action being queried.
+
+    **Headers:**
+
+    - This section normally includes additional metadata, but in this case:
+      - **Key:** (empty)
+        - There are no specific headers provided in this request.
+      - **Value:** (empty)
+        - There is no associated value for any headers.
+      - **Type:** default
+        - Indicates the default type for headers.
+      - **Disabled:** true
+        - This indicates that any headers listed are currently disabled and will not be sent with the request.
+
+    **Body:**
+
+    - **Mode:** raw
+      - This specifies the format for the request body. Since this request is a GET request, typically, a body is not included.
+    - **Raw:**
+      - It's empty in this case, meaning no data is being sent in the body of the request.
+
+    This endpoint is intended to retrieve information about a specific flag
+    using the provided identifiers while requiring a valid Bearer token for
+    authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: flagId
+      in: query
+      schema:
+        type: string
+      example: flagId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

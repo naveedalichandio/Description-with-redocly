@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ActionRequest
+  summary: Action - Request - Get All
+  description: >-
+    ### Description of Each Data in Endpoint
+
+
+    - **name**: This is the identifier for the specific action request in the
+    API. In this case, it is labeled as "Action - Request - Get All," indicating
+    that this action retrieves all available data.
+
+
+    - **request**: This object encapsulates the details about the HTTP request
+    that will be made.
+
+        - **auth**: This section specifies the authentication method used for the request. In this case, it employs bearer token authentication, which is a security token that allows the user to access secured endpoints.
+
+            - **type**: The authentication method being used, which is "bearer" in this case.
+
+            - **bearer**: This is an array that contains the details for the bearer token used for authentication.
+
+                - **key**: This defines the name of the bearer token parameter, which in this case is simply "token."
+
+                - **value**: This is the actual bearer token that provides access. It is indicated as "BearerToken," and in practical use, it should be replaced with a valid token string.
+
+                - **type**: This describes the data type of the value being sent, which is "string."
+
+        - **method**: This indicates the HTTP method being used for the request. Here, it is set to "GET," meaning that data will be retrieved from the server.
+
+        - **url**: This is the endpoint to which the request is being sent. It includes parameters for `sessionId` and `accountId`. You would replace `sessionId` and `accountId` with actual values when making the request.
+
+        - **headers**: This is an array of key-value pairs that represent additional information sent with the request. The current entry is empty and disabled, meaning no additional headers are being included in the request.
+
+            - **key**: The field for the header's name, which is currently left empty.
+
+            - **value**: The field for the header's value, which is also currently empty.
+
+            - **type**: This indicates the type of this header, marked as "default" and currently disabled.
+
+        - **body**: This section defines the content of the request body.
+
+            - **mode**: This indicates the format of the body; set to "raw," meaning that the body will contain raw data.
+
+            - **raw**: This is the actual content of the body. It is currently empty, indicating that no data will be sent in the body of this GET request since GET requests do not typically require a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

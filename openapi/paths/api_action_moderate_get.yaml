@@ -1,0 +1,79 @@
+get:
+  tags:
+    - ActionModerate
+  summary: Action - Moderate - Get
+  description: >-
+    ### Endpoint Description: Action - Moderate - Get
+
+
+    - **Name**: Action - Moderate - Get
+      - This is the name of the API request that retrieves moderate action data based on specified parameters.
+
+    - **Request**: 
+      - This section details the configuration of the request being made to the API.
+
+      - **Auth**: 
+        - **Type**: bearer 
+          - This indicates that bearer token authentication is being used to authorize the request. The server checks the token provided to verify that the user has permission to access the endpoint.
+
+        - **Bearer**: 
+          - This section contains the details for the bearer token used in authorization.
+          - **Key**: token
+            - This is the key name for the bearer token in the authentication process.
+          - **Value**: BearerToken
+            - This is a placeholder for the actual bearer token that must be provided for authentication. This token is used to validate the user's session and permissions.
+          - **Type**: string
+            - This indicates that the value of the bearer token is a string.
+
+      - **Method**: GET
+        - The HTTP method used for this request is GET, indicating that the request is intended to retrieve data from the specified resource.
+
+      - **URL**: 
+        - `http://localhost:3000/api/action/moderate/get/?moderateId=moderateId&sessionId=sessionId&accountId=accountId`
+          - This is the endpoint URL where the GET request is sent. 
+          - The URL contains query parameters:
+            - **moderateId**: This parameter should be replaced with the actual ID of the moderation action you are querying.
+            - **sessionId**: This parameter should be replaced with the session ID relevant to the request.
+            - **accountId**: This parameter should be replaced with the account ID you want to retrieve data for.
+
+      - **Headers**: 
+        - This section is where headers can be specified to be sent along with the request. 
+          - **Key**: 
+            - This is where the name of the header would typically be specified, but it is currently empty.
+          - **Value**: 
+            - Similarly, this is where the value for the header would be specified, but it is also currently empty.
+          - **Type**: default 
+            - This indicates that the header type is default; however, this entry is disabled, meaning it will not be sent with the request.
+
+      - **Body**: 
+        - **Mode**: raw 
+          - This indicates the format of the request body. In this case, the body content type is raw.
+        - **Raw**: 
+          - This is where the raw body content would be specified. Currently, it is empty, meaning no additional data is sent in the request body. 
+
+    This API request is primarily designed to retrieve moderation action data
+    based on specified identifiers, utilizing bearer token authentication to
+    ensure that only authorized users can access the information.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: moderateId
+      in: query
+      schema:
+        type: string
+      example: moderateId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

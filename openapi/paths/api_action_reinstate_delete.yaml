@@ -1,0 +1,70 @@
+post:
+  tags:
+    - ActionReinstate
+  summary: Action - Reinstate - Delete
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    **Name**: 
+
+    - **Action - Reinstate - Delete**: This is the title of the API request,
+    indicating that the action pertains to reinstating and deleting a specific
+    resource.
+
+
+    **Request**:
+
+    - **Auth**:
+      - **Type**: 
+        - **Bearer**: This denotes the authentication method used for the API request. In this case, the Bearer token is used to authorize the request.
+      - **Bearer**:
+        - **Key**: 
+          - **token**: This is the identifier for the token used in authorization.
+        - **Value**: 
+          - **sessionId**: This indicates the actual token value that must be replaced with a valid session ID during the execution of the request.
+        - **Type**:
+          - **string**: This shows that the value of the token is expected to be a string.
+
+    - **Method**:
+      - **POST**: This specifies that the HTTP method for this request is POST, meaning data will be sent to the server to create or modify resources.
+
+    - **URL**:
+      - **http://localhost:3000/api/action/reinstate/delete**: This is the endpoint to which the request is sent. It directs the request to the local server on port 3000 and specifies the action of reinstating and deleting.
+
+    - **Headers**:
+      - **Key**: 
+        - (empty): There is currently no custom header included in this request.
+      - **Value**: 
+        - (empty): As with the key, there is no associated value for a custom header at this stage.
+      - **Type**: 
+        - **default**: The header is of the default type, which generally means there are no special configurations applied.
+      - **Disabled**: 
+        - **true**: This setting means that this particular header is not active and will not be sent with the request.
+
+    - **Body**:
+      - **Mode**: 
+        - **raw**: Indicates that the data being sent in the body of the request is raw data, not form data or URL encoded.
+      - **Raw**: 
+        - **{"sessionId":"sessionId","accountId":"accountId","reinstateId":"reinstateId"}**: This is the actual payload of the request in JSON format. It contains three keys:
+          - **sessionId**: This should be replaced with the actual session ID to authenticate the user making the request.
+          - **accountId**: This should be replaced with the account ID related to the reinstatement action.
+          - **reinstateId**: This should be replaced with the ID of the resource that needs to be reinstated and deleted. 
+
+    In summary, this endpoint facilitates a POST request that allows the user to
+    reinstate and delete a specified resource using a session ID, account ID,
+    and reinstate ID, with authorization handled via a Bearer token.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"reinstateId\":\"reinstateId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,77 @@
+post:
+  tags:
+    - ActionFollow
+  summary: Action - Follow - Delete
+  description: >-
+    ### Action - Follow - Delete Endpoint Description
+
+
+    - **Name**: Action - Follow - Delete
+      - This is the name of the endpoint which clearly indicates that it is used to delete a follow action.
+
+    - **Request**: 
+      - This section details the characteristics of the HTTP request to be made to the endpoint.
+
+      - **Auth**:
+        - **Type**: Bearer
+          - This indicates that the request requires bearer token authentication, which typically involves including a token as part of the request headers.
+          
+        - **Bearer**:
+          - **Key**: token
+            - This specifies the name of the authentication token being used.
+            
+          - **Value**: sessionId
+            - This indicates the placeholder value for the session ID, which should be replaced with the actual session ID when making a request.
+          
+          - **Type**: string
+            - This designates that the value of the token is in string format.
+
+      - **Method**: POST
+        - This indicates that the HTTP method being used for the request is POST. It implies that the request is intended to send data to the server.
+
+      - **URL**: http://localhost:3000/api/action/follow/delete
+        - This is the endpoint's URL where the request will be sent. It is structured to point to the local server for action follow deletion.
+
+      - **Headers**:
+        - This section contains any additional header information for the request. 
+          - **Key**: (Empty)
+            - Indicates that there are currently no additional headers set for this request.
+          
+          - **Value**: (Empty)
+            - Indicates that there is no value associated with the empty key.
+          
+          - **Type**: default
+            - Specifies the default type of the header.
+          
+          - **Disabled**: true
+            - Indicates that any current headers are disabled (not sent with the request).
+
+      - **Body**:
+        - This section defines the body of the request, which contains the data being sent to the server.
+        
+        - **Mode**: raw
+          - Specifies that the body content is sent in raw format, meaning it won't be encoded or serialized in a certain way.
+          
+        - **Raw**: 
+          - `{"sessionId":"sessionId","accountId":"accountId","followId":"followId"}`
+            - This is the actual payload of the POST request. It is in JSON format and contains three properties:
+              - **sessionId**: A placeholder for the session identifier that the user will need to provide.
+              - **accountId**: A placeholder for the account ID that identifies the user whose follow action is to be deleted.
+              - **followId**: A placeholder for the follow ID that represents the following action to be deleted. 
+
+    Ensure to replace the placeholders with actual values when making a request
+    to delete a follow action.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"followId\":\"followId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

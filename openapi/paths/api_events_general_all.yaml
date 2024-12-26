@@ -1,0 +1,52 @@
+get:
+  tags:
+    - EventsGeneral
+  summary: Events - General - Get All By Sub Category ID
+  description: >+
+    This endpoint is named "Events - General - Get All By Sub Category ID". It
+    is utilized to fetch all events belonging to a specific sub-category.
+
+
+    Let's take a deeper look at its elements:
+
+
+    1. `name`- This is the name of endpoint which communicates its purpose, in
+    this case, to retrieve all general events by their sub category ID.
+
+
+    2. `request`- This section describes the details of the HTTP request. Here's
+    what each data means:
+
+        - `auth`: This speaks about the authorization method used for the request. The type is `bearer`. A bearer token named "BearerToken" is used for authorization.
+
+        - `method`: The HTTP method used for this request is `GET`, which is usually used for retrieving data.
+
+        - `url`: This is the URL endpoint to which the request is sent. It consists of subCategoryId as a query parameter to filter events by their sub-category. Replace `eventSubCategoryId` with the actual sub-category ID for which you want to fetch the events.
+
+        - `headers`: This is an array of headers required by the request. There are no specific headers required for this request as it's empty and disabled by default.
+
+        - `body`: This is the body of the request. However, for this GET request, the body mode is set to `raw`, which means you can send unstructured data. But in this case, there's no data to send so the raw field is empty.
+
+    In conclusion, this endpoint uses a GET method to fetch all general events
+    under a specific sub-category identified by its sub-category ID from the
+    specified URL. It uses a Bearer Token for authorization. The response will
+    contain all the general events data related to the sub-category.
+
+
+
+
+
+
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: subCategoryId
+      in: query
+      schema:
+        type: string
+      example: eventSubCategoryId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

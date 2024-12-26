@@ -1,0 +1,65 @@
+post:
+  tags:
+    - ActionFeedback
+  summary: Action - Feedback - Delete
+  description: |-
+    {
+      "name": "Action - Feedback - Delete",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "sessionId",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "url": "http://localhost:3000/api/action/feedback/delete",
+          "headers": [
+            {
+              "key": "",
+              "value": "",
+              "type": "default",
+              "disabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"feedbackId\":\"feedbackId\"}"
+          }
+        },
+        "details": {
+          "method": "POST": "This indicates that the API endpoint expects a POST request, which is commonly used for sending data to the server.",
+          "url": "http://localhost:3000/api/action/feedback/delete": "This is the URL of the API endpoint where the feedback deletion request is sent. It's set to a local server address.",
+          "auth": "Authentication is done using a bearer token. The token needs to be included in the request to verify the user's identity.",
+          "token": "A token labeled 'sessionId' is used as part of the authentication process to grant access to the deletion functionality.",
+          "headers": [
+            {
+              "key": "": "This placeholder is meant for any additional headers that may be required for the request. Currently, it is empty and disabled."
+            }
+          ],
+          "body": {
+            "mode": "raw": "The body of the request is sent as raw JSON data.",
+            "raw": "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"feedbackId\":\"feedbackId\"}": "This raw JSON structure contains three fields: 'sessionId' for the user's session, 'accountId' for the specific account associated with the feedback, and 'feedbackId' for the feedback entry that is to be deleted. These must be replaced with actual values when making the request."
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"feedbackId\":\"feedbackId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

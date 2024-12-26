@@ -1,0 +1,110 @@
+put:
+  tags:
+    - ActionRefund
+  summary: Action - Refund - Update
+  description: >-
+    ### Action - Refund - Update Endpoint Description
+
+
+    #### Request Structure
+
+
+    1. **Auth**
+       - **Type**: Specifies the authentication method used for the API request.
+         - `bearer`: Indicates that bearer token authentication is required.
+       - **Bearer Token**:
+         - **Key**: `token`
+           - Represents the name of the token used for authorization.
+         - **Value**: `BearerToken`
+           - This should be replaced with the actual bearer token for accessing the API.
+         - **Type**: Specifies the data type of the key.
+           - `string`: Indicates that the token value is a string.
+
+    2. **Method**
+       - **Type**: `PUT`
+         - Indicates that this endpoint is used to update existing data.
+
+    3. **URL**
+       - **Endpoint**: `http://localhost:3000/api/action/refund/update`
+         - The URL where the API request is sent for updating refund actions.
+
+    4. **Headers**
+       - Required headers for the request:
+         - **Key**: `Client-UUID`
+           - A unique identifier for the client making the request.
+         - **Value**: `ClientUUID`
+           - Should be replaced with the actual UUID of the client.
+         - **Type**: `default`
+           - Indicates the header is of the default type.
+
+    5. **Body**
+       - Specifies the data that needs to be sent with the request.
+         - **Mode**: `raw`
+           - Indicates that the body content is sent in raw format.
+         - **Raw Content**: JSON formatted string, requires specific fields:
+           - **sessionId**: 
+             - The ID for the current session.
+           - **accountId**: 
+             - The ID associated with the user's account.
+           - **path**: 
+             - The path where the resource (video) is located on the server, e.g., `/live/channel/video123`.
+           - **targetType**: 
+             - The type of the target for the action, which in this case is `videoId`.
+           - **targetId**: 
+             - The actual ID of the video being referred to.
+           - **sourceType**: 
+             - The type of source from which the refund is being processed, set as `accountId`.
+           - **sourceId**: 
+             - The ID of the source account initiating the refund.
+           - **name**: 
+             - A placeholder for the name associated with the refund action; can be left empty.
+           - **description**: 
+             - A placeholder for a description of the refund action; can be left empty.
+           - **tags**: 
+             - A placeholder for any tags related to the refund action; can be left empty.
+           - **didRefund**: 
+             - A boolean value (true or false) indicating whether the refund has been processed.
+           - **reason**: 
+             - A string explaining the reason for the refund; an example provided is `duplicate charge`.
+           - **refundId**: 
+             - A unique identifier for this specific refund action.
+
+    ### Summary
+
+    This endpoint is a PUT request used to update refund actions. It requires
+    bearer token authentication and requires specific data within the body for
+    processing the refund, including session and account IDs, target and source
+    types, and additional information related to the refund reason and
+    identification.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            description: ''
+            tags: ''
+            didRefund: true
+            reason: duplicate charge
+            refundId: refundId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

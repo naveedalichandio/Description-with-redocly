@@ -1,0 +1,68 @@
+post:
+  tags:
+    - NotificationUsers
+  summary: Notification - Users - Create
+  description: >-
+    This endpoint is called "Notification - Users - Create". It's a POST request
+    used to create a new user in the notification system. The request is
+    authenticated using a bearer token which should be provided in the 'token'
+    field inside the 'auth' object. The endpoint URL is
+    "http://localhost:3000/api/notification/users/create".
+
+
+    There is an empty key-value pair in the headers object that is disabled by
+    default. However, if any headers are required for your specific situation,
+    you can enter them here.
+
+
+    The main content of this request is in the 'body' object, which contains
+    several fields. Please ensure that you post the content in the 'raw' mode. 
+
+
+    The 'raw' body of the request is provided in JSON format and includes the
+    user's session ID, account ID, name, a description of the user, tags
+    associated with the user, URLs for the user's profile and cover photos, the
+    minimum amount that can be tipped to the user, category details (both
+    primary and sub-category), privacy settings, whether the user is only for
+    tournaments, whether the user is default, whether pre-live and post-live ads
+    are displayed during the user's notifications, and URLs for pre and
+    post-live breaks.
+
+
+    It's essential that these fields are filled out completely and accurately,
+    as they create a full profile for the user in the notification system.
+    Ensure all URLs and IDs are valid, and boolean fields are correctly set to
+    either true or false. The 'minimumTipAmount' field expects a numerical value
+    for the minimum tip amount.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Users
+            description: This users is my second users
+            tags: second,users
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isUsersPrivate: true
+            isTournamentOnly: false
+            isUsersDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

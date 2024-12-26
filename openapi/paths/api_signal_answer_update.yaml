@@ -1,0 +1,102 @@
+put:
+  tags:
+    - WhipSignal
+  summary: Signal - Answer - Update
+  description: >-
+    ### Endpoint: Signal - Answer - Update
+
+
+    **Request Type:** PUT  
+
+    **URL:** `http://localhost:3000/api/signal/answer/update`  
+
+
+    #### Authentication
+
+    - **Type:** Bearer Token
+      - **Key:** `token`
+      - **Value:** `BearerToken` (Placeholder for the actual token)
+      - **Type:** String  
+      This token is required for authorization to access the API.
+
+    #### Headers
+
+    - **Key:** Empty (No additional headers are set)
+
+    - **Value:** Empty 
+
+    - **Type:** Default 
+
+    - **Disabled:** true  
+      This indicates that no custom headers are being sent with the request.
+
+    #### Request Body
+
+    - **Mode:** Raw  
+      The body content is sent as a raw JSON object.
+
+    **Raw Content:**  
+
+    ```json
+
+    {
+      "accountId": "accountId",
+      "sessionId": "sessionId",
+      "signalId": "signalId",
+      "type": "answer",
+      "sdp": "v=0\r\no=- 25678 753849 IN IP4 192.168.1.1\r\ns=-\r\nc=IN IP4 192.168.1.1\r\nt=0 0\r\na=recvonly\r\nm=audio 49170 RTP/AVP 0\r\na=rtpmap:0 PCMU/8000\r\n"
+    }
+
+    ```
+
+
+    #### Body Parameters
+
+    - **accountId:** 
+      - **Description:** Identifier for the account associated with the signal. This should be provided in string format.
+
+    - **sessionId:** 
+      - **Description:** Identifier for the session in which the signal is being used. This should be provided in string format.
+
+    - **signalId:** 
+      - **Description:** Identifier for the specific signal being updated. This should be provided in string format.
+
+    - **type:** 
+      - **Description:** Denotes the type of signal being sent. In this case, it is set to "answer". This identifies the purpose or the nature of the signal.
+
+    - **sdp:** 
+      - **Description:** Session Description Protocol formatted string that contains network and media information. This includes details like version, origin, timing, media type, and connection information. The example provided indicates that audio media is being described with specific parameters.
+
+      **Example SDP:**
+      ```
+      v=0
+      o=- 25678 753849 IN IP4 192.168.1.1
+      s=-
+      c=IN IP4 192.168.1.1
+      t=0 0
+      a=recvonly
+      m=audio 49170 RTP/AVP 0
+      a=rtpmap:0 PCMU/8000
+      ```
+
+    This endpoint is designed for updating an answer signal in a WebRTC context,
+    using the provided account and session identifiers along with the relevant
+    session description protocol details.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            signalId: signalId
+            type: answer
+            sdp: "v=0\r\no=- 25678 753849 IN IP4 192.168.1.1\r\ns=-\r\nc=IN IP4 192.168.1.1\r\nt=0 0\r\na=recvonly\r\nm=audio 49170 RTP/AVP 0\r\na=rtpmap:0 PCMU/8000\r\n"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

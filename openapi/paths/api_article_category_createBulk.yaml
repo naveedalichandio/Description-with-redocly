@@ -1,0 +1,72 @@
+post:
+  tags:
+    - ArticleCategory
+  summary: Article - Category - Create Bulk
+  description: >-
+    This endpoint is titled "Article - Category - Create Bulk", suggesting that
+    it's used for creating various article categories in one batch.
+
+
+    1. `auth`: This contains the authentication information. It's a bearer
+    authentication type where a token (key-value pair `token: BearerToken`) is
+    sent in the header of the request for authorization. The `type` field
+    defines the data type of the token, in this case, it's a string.
+
+
+    2. `method`: This is a POST request indicating the intention to send data to
+    create new resources at the specified URL.
+
+
+    3. `url`: This is the URL or path endpoint to API that accepts the request.
+    In this case, the server will be running on localhost using port number 3000
+    with a specific path `/api/article/category/createBulk`.
+
+
+    4. `headers`: An array holder for HTTP headers to be included when sending
+    the request. The provided header fields are blank and disabled by default in
+    this instance.
+
+
+    5. `body`: This contains the actual request payload/data. The `mode` is set
+    to `raw`, allowing you to input JSON data directly. The `raw` field contains
+    the JSON data being transmitted. The `options` field insinuates that the
+    `raw` input should be interpreted as JSON which lets formatting and syntax
+    highlighting applicable.
+
+
+    6. Within the `body`, `sessionId` and `accountId` are unique identifiers for
+    the current session and account. `categories` is an array of objects, each
+    containing information about a category of articles:
+       - `name`: The unique name identifying the category
+       - `displayName`: The name as it will appear to users
+       - `description`: Brief explanation of what the category is about
+       - `tags`: A string of comma-separated values that act as keywords related to the category.
+
+    This endpoint is used for creating multiple article categories at once, with
+    each category having a name, display name, description, and associated tags.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            categories:
+              - name: Miami Art Week 4
+                displayName: Miami Art Week 2024
+                description: >-
+                  An immersive celebration of art and culture during Miami Art
+                  Week.
+                tags: Art,Exhibition,Miami,Culture
+              - name: Tech Fest 2024
+                displayName: Technology Festival 2024
+                description: A celebration of innovation and technology.
+                tags: Technology,Innovation,Festival,Tech
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

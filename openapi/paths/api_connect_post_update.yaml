@@ -1,0 +1,114 @@
+put:
+  tags:
+    - ConnectPost
+  summary: Connect - Post - Update
+  description: >-
+    This API endpoint "Connect - Post - Update" is used to update an existing
+    post. The update method uses the HTTP PUT verb. The URL of this API endpoint
+    is "http://localhost:3000/api/connect/post/update".
+
+
+    The API uses "Bearer" type authentication. Bearer token is passed in the
+    "BearerToken" key as a string type value.
+
+
+    It includes the "Client-UUID" in the headers. The client Universally Unique
+    Identifier (UUID) is used to uniquely identify a client. The value for
+    "Client-UUID" goes in the "ClientUUID" key.
+
+
+    The request body contains information about the post that needs to be
+    updated. This information includes:
+
+    - postId : The unique identifier of the post.
+
+    - sessionId : Identifier of the session
+
+    - accountId : Identifier of the account
+
+    - name : Name of the post
+
+    - description : Brief description of the post
+
+    - tags : Tags associated with the post for better searchability, separated
+    by commas.
+
+    - profilePhotoUrl : URL of the profile photo
+
+    - coverPhotoUrl : URL of the cover photo
+
+    - minimumTipAmount : Minimum tip amount for the post
+
+    - unlockAmount : Amount needed to unlock the post
+
+    - category : Category to which the post belongs
+
+    - subCategory : Specific sub-category within the main category
+
+    - searchType : Type of search ("Game" in this case).
+
+    - isEnabled : Flag indicating whether the post is enabled or not
+
+    - isPostPrivate : Flag indicating whether the post is private or not
+
+    - isTournamentOnly : Flag indicating whether the post is only for tournament
+    or not
+
+    - isPostDefault : Flag indicating whether the post is default or not
+
+    - isPreLiveConnectAds : Flag indicating whether connect ads are established
+    pre-live or not
+
+    - isPostLiveConnectAds : Flag indicating whether connect ads are established
+    post-live or not
+
+    - breakPreLiveConnectUrl: URL for pre-live break video
+
+    - breakLivePauseConnectUrl: URL for paused live break video
+
+    - breakPostLiveConnectUrl : URL for post-live break video
+
+
+    The request body is sent in raw mode and the raw data is in JSON language.
+    This is specified in the options field of the body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            postId: postId
+            sessionId: sessionId
+            accountId: accountId
+            name: MyNikePost
+            description: This post is my second post
+            tags: second,post
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            unlockAmount: 100
+            category: General
+            subCategory: Specific
+            searchType: Game
+            isEnabled: true
+            isPostPrivate: true
+            isTournamentOnly: false
+            isPostDefault: true
+            isPreLiveConnectAds: true
+            isPostLiveConnectAds: true
+            breakPreLiveConnectUrl: https://example.com/break-pre-live.mp4
+            breakLivePauseConnectUrl: https://example.com/break-paused-live.mp4
+            breakPostLiveConnectUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

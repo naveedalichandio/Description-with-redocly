@@ -1,0 +1,66 @@
+put:
+  tags:
+    - ChatComment
+  summary: Chat - Comment - Update
+  description: >-
+    This endpoint "Chat - Comment - Update" is used to update an existing
+    comment in a chat thread.
+
+
+    It uses the `PUT` method indicating that it's used to update existing
+    resources.
+
+
+    Here is a detailed breakdown of each data in this endpoint:
+
+
+    1. `auth`: This is the way your API handles authentication. In this
+    endpoint, it is using `Bearer Token` authentication.
+       - `type`: The type of authentication used. Here, it's `bearer`.
+       - `bearer`: An array holding bearer token data.
+           - `key`: The keyword `token` used to identify this authentication method.
+           - `value`: The bearer token which should be replaced with an actual bearer access token.
+       
+    2. `method`: This is the HTTP method used for the request. The endpoint uses
+    `PUT`, which is used to update existing resources.
+
+
+    3. `url`: This is the endpoint URL to which the request will be sent. Here,
+    the URL is `http://localhost:3000/api/chat/comment/update`.
+
+
+    4. `headers`: This array will hold any headers that need to be sent with the
+    request. In this case, no headers are specified.
+
+
+    5. `body`: This contains the data sent to the server. It is written in raw
+    mode.
+       - `mode`: Defines how the body will be sent. Here, it is sent in `raw`.
+       - `raw`: This is the raw request body which contains the comment details that are to be updated.
+          - `commentId`: The ID of the comment to be updated.
+          - `commentText`: The updated text for the comment.
+          - `threadId`: The ID of the thread in which this comment is present.
+          - `accountId`: The ID of the account making the update.
+          - `sessionId`: The ID of the session in which the request is made.
+       
+    6. `options`: Options for how the data in `raw` should be interpreted.
+       - `raw`: Options specific to when the data is sent as `raw`.
+           - `language`: The language in which the `raw` data is written. In this case, it's `json`.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            commentId: commentId
+            commentText: Updated comment text
+            threadId: threadId
+            accountId: accountId
+            sessionId: sessionId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,49 @@
+get:
+  tags:
+    - NotificationComments
+  summary: Notification - Comments - Get All
+  description: >-
+    This endpoint named "Notification - Comments - Get All" retrieves all
+    notifications related to comments. Following are the data provided in the
+    endpoint:
+
+
+    1. `name`: The name of the endpoint. In this case, it's set as "Notification
+    - Comments - Get All", indicating that it's used to fetch all comment
+    related notifications.
+
+
+    2. `request`: This represents the actual request for the API endpoint:
+       
+      - `auth`: Defines the type of authorization needed for this request. This request requires "bearer" authorization, meaning you will need to include a bearer token in the request.
+
+        - `bearer`: This is an array containing information about authorization: 
+          - `key`: The key used for authorization, which is "token" in this case. 
+          - `value`: Here, it represents the value of the token which is "BearerToken". 
+          - `type`: Specifies the data type of the value, which is a "string".
+
+      - `method`: This is the HTTP method to use for the request. Here it is "GET", meaning the request will retrieve data from the given URL.
+
+      - `url`: Specifies the URL where the request will be made. The endpoint is hosted on localhost running on port 3000. URL parameters include "sessionId" and "accountId".
+
+      - `headers`: An array that specifies HTTP headers to include in the request. In this case, there is a single, disabled default header with empty key and value.
+
+      - `body`: This refers to the content sent with the request. For this request, the mode is set to "raw" with no data in the body, indicating there is no additional data to be sent with this API request. It is common for GET requests to not send any additional data in the body as they are used to retrieve data only.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,80 @@
+get:
+  tags:
+    - UtilityCrypto
+  summary: Utility - Crypto - Get Neutral Logs
+  description: |-
+    {
+      "name": "Utility - Crypto - Get Neutral Logs",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ],
+            "description": "This section indicates that authentication is done using a bearer token. Users must provide a valid bearer token in the request header to access the endpoint."
+          },
+          "method": {
+            "description": "The HTTP method used for this request is GET. This method is used to retrieve data from the server."
+          },
+          "url": {
+            "description": "The URL required to access the endpoint: http://localhost:3000/api/utility/crypto/get/. It also includes query parameters: log, category, sessionId, and accountId, which are necessary for filtering the logs based on specific criteria."
+          },
+          "headers": {
+            "description": "This is where you can specify additional headers if needed. Currently, there are no additional headers included, and this section is disabled."
+          },
+          "body": {
+            "mode": "raw",
+            "raw": {
+              "description": "The body of the request is set to raw mode, but it is currently empty. For a GET request, the body is typically not used, and parameters are sent via the URL."
+            }
+          }
+        },
+        "parameters": {
+          "log": {
+            "description": "This is a query parameter indicating the type of logs to retrieve. In this case, it's set to 'category'."
+          },
+          "category": {
+            "description": "This parameter specifies the category of logs to retrieve. It is set to 'neutrals', which indicates that only neutral logs will be returned."
+          },
+          "sessionId": {
+            "description": "A unique identifier for the user session. This helps in tracking and filtering logs related to a specific session."
+          },
+          "accountId": {
+            "description": "A unique identifier for the user's account. This parameter is used to retrieve logs related to a specific account."
+          }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: log
+      in: query
+      schema:
+        type: string
+      example: category
+    - name: category
+      in: query
+      schema:
+        type: string
+      example: neutrals
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

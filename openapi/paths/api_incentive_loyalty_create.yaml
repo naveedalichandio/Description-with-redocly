@@ -1,0 +1,119 @@
+post:
+  tags:
+    - IncentiveLoyalty
+  summary: Incentive - Loyalty - Create NFT
+  description: >-
+    This endpoint represents the creation of a non-fungible token (NFT) in a
+    loyalty incentive program with the following detailed specification:
+
+
+    1. **Endpoint name:** Incentive - Loyalty - Create NFT
+
+
+    2. **Authorization:** It requires a Bearer token for authorization. This
+    token must be provided in the request header as a string format.
+
+
+    3. **HTTP Method:** It's a POST request, indicating the creation or addition
+    of a resource.
+
+
+    4. **URL:** The service can be accessed via
+    http://localhost:3000/api/incentive/loyalty/create.
+
+
+    5. **Request Body:** Contains the attributes of the NFT to be created and it
+    is written in raw JSON format.
+
+        - **accountId:** Represents the account ID of the user.
+        - **sessionId:** Defines the unique session ID.
+        - **teamId:** Identifier for a particular team.
+        - **category:** Represents the category of the NFT, in this case it is "Fashion & Accessories".
+        - **loyaltyType:** Describes the nature of the reward, which is NFT here.
+        - **title:** Title of the reward.
+        - **description:** Brief details regarding the reward.
+        - **tags:** Keywords related to the reward.
+        - **price:** Cost of the reward.
+        - **tokenAmount:** The number of tokens associated with the reward.
+        - **isProcessPayment:** A boolean indicating if payment needs to be processed.
+        - **isShipping:** A boolean indicating if the reward requires shipping.
+        - **redirectUrl:** The URL user will be redirected to upon successful creation of NFT.
+        - **couponCode:** Any applicable coupon code.
+        - **websiteUrl:** Website where the reward can be redeemed.
+        - **buttonText:** Text to show on the redeem button.
+        - **releaseDate:** The date when the reward will be released.
+        - **expiresDate:** The date when the reward will expire.
+        - **activationType:** The method whereby the reward is activated.
+        - **coverPhotoUrl:** The URL of the cover photo for the reward.
+        - **videoPlaybackUrl:** The URL where a video demonstration of the reward can be viewed.
+        - **galleryPhotos:** URLs of photos showcasing the reward.
+        - **didInviteUsers:** Boolean to specify if users were invited to view the reward.
+        - **invitedData:** Details about invitees.
+        - **didShareItem:** Boolean to specify if the reward was shared.
+        - **sharedData:** Details about where and how many times the reward was shared.
+        - **didPromoteItem:** Boolean to specify if the reward was promoted.
+        - **promotedData:** Array carrying details about the promotion if didPromoteItem is true.
+        - **createdBy:** Identification of the creator.
+        - **createdAt:** The precise time the reward was created.
+        - **updatedBy:** Identification of the updater.
+        - **updatedAt:** The precise time the reward was last updated. 
+
+    6. **Response:** The endpoint doesn't specify a response structure, it
+    probably sends back the created resource along with a success status.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            teamId: teamId
+            category: Fashion & Accessories
+            loyaltyType: NFT
+            title: Exclusive Membership Reward
+            description: Get access to premium features with this reward.
+            tags: premium, membership, reward
+            price: '29.99'
+            tokenAmount: 250
+            isProcessPayment: true
+            isShipping: false
+            redirectUrl: https://example.com/redeem
+            couponCode: ''
+            websiteUrl: https://example.com
+            buttonText: Activate Reward
+            releaseDate: '2024-11-25'
+            releaseTime: '10:00:00'
+            expiresDate: '2024-12-25'
+            expiresTime: '23:59:59'
+            activationType: auto
+            coverPhotoUrl: https://example.com/images/reward-cover.jpg
+            videoPlaybackUrl: https://example.com/videos/reward.mp4
+            galleryPhotos:
+              - https://example.com/images/gallery1.jpg
+              - https://example.com/images/gallery2.jpg
+            didInviteUsers: true
+            invitedData:
+              - targetType: email
+                targetId: user001@example.com
+              - targetType: accountId
+                targetId: u12345bc-d87e-890f-gh12-ijk345678xyz
+            didShareItem: true
+            sharedData:
+              - platform: Facebook
+                shareCount: 50
+              - platform: Twitter
+                shareCount: 30
+            didPromoteItem: false
+            promotedData: []
+            createdBy: admin123
+            createdAt: '2024-11-20T14:30:00'
+            updatedBy: admin123
+            updatedAt: '2024-11-20T14:30:00'
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

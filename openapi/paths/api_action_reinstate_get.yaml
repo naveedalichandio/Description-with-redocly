@@ -1,0 +1,60 @@
+get:
+  tags:
+    - ActionReinstate
+  summary: Action - Reinstate - Get
+  description: >-
+    ### Endpoint Description: Action - Reinstate - Get
+
+
+    - **Name**: Identifies this particular API endpoint as "Action - Reinstate -
+    Get."
+
+
+    - **Request**: Contains all the details necessary to make a request to the
+    API.
+
+      - **Auth**: Specifies the authentication method needed to access the endpoint.
+        - **Type**: Indicates that a bearer token is used for authentication.
+        - **Bearer**: This section includes the details of the bearer token.
+          - **Key**: The name of the bearer token, which is "token."
+          - **Value**: The actual token value, labeled here as "BearerToken." This will be replaced with the actual token to gain access.
+          - **Type**: Describes the format of the token, which is a string.
+
+      - **Method**: The HTTP method used for this request, which is "GET." This method is typically used to retrieve data from the server.
+
+      - **URL**: The endpoint URL where the request is sent. It includes placeholders for parameters:
+        - `reinstateId`: A required identifier for the specific reinstate action.
+        - `sessionId`: A required identifier representing the current session.
+        - `accountId`: A required identifier associated with the user account.
+
+      - **Headers**: Contains additional information for the request.
+        - **Key**: The key of the header. In this case, it is left blank.
+        - **Value**: The value of the header. This is also blank.
+        - **Type**: Describes the type of header used, which is "default." This header is currently disabled and will not be sent with the request.
+
+      - **Body**: Contains data sent with the request.
+        - **Mode**: Indicates how the body is formatted, which is set to "raw."
+        - **Raw**: This section is currently empty, meaning no additional body data will be sent with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: reinstateId
+      in: query
+      schema:
+        type: string
+      example: reinstateId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

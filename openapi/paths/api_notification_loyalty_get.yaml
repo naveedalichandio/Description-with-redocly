@@ -1,0 +1,82 @@
+get:
+  tags:
+    - NotificationLoyalty
+  summary: Notification - Loyalty - Get
+  description: >-
+    1. "name": This key's value is "Notification - Loyalty - Get", which is a
+    title indicating that the endpoint's function is to get loyalty-related
+    notifications.
+
+
+    2. "request": This is a top-level key that contains information related to
+    the request being made to the API.
+
+
+    2.1. "auth": Indicates the type of authorization/ authentication method that
+    this endpoint is using. 
+
+
+    2.1.1. "type": The type of authentication used by this API, which is
+    'bearer' in this case.
+
+
+    2.1.2 "bearer": This key contains an array of objects that detail the
+    bearings for this endpoint's authentication, here it uses a bearer token for
+    authorization.
+
+
+    2.1.2.1. "key": Key represents the type of authorization, which is Token.
+
+
+    2.1.2.2. "value": This is where you put the value of the "key", in this
+    case, it's the bearer token.
+
+
+    2.1.2.3. "type": This indicates that the value should be sent as a string.
+
+
+    3. "method": The HTTP method used by this request, which in this case is
+    "GET", it is used to retrieve data from the server.
+
+
+    4. "url": The endpoint's URL, which in this case is a localhost URL. Also it
+    has three query parameters - loyaltyID, sessionID and accountID.
+
+
+    5. "headers": This is a list of headers to be sent with the request.
+    Currently it's empty and has been marked as disabled.
+
+
+    6. "body": This key contains information about the body of the request. 
+
+
+    6.1. "mode": The mode for body here is "raw", which means the body content
+    will be sent as it is written.
+
+
+    6.2. "raw": As the mode is "raw", this is where the content that will be
+    sent in the request body should be written. Currently, it's empty which
+    means no data is being sent in the request body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: loyaltyId
+      in: query
+      schema:
+        type: string
+      example: loyaltyId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,87 @@
+get:
+  tags:
+    - VideoStatic
+  summary: Video - Static - Get All by Channel Name
+  description: >-
+    ### API Endpoint Description
+
+
+    #### Name:
+
+    **Video - Static - Get All by Channel Name**
+
+    - This endpoint retrieves all static videos associated with a specific
+    channel name.
+
+
+    #### Request:
+
+
+    - **Auth**:
+      - **Type**: "bearer"
+        - This indicates that the request requires authentication using a bearer token.
+      - **Bearer**:
+        - **Key**: "token"
+          - This represents the key used for authentication.
+        - **Value**: "BearerToken"
+          - This is a placeholder for the actual bearer token. Users should replace this with their own valid token.
+        - **Type**: "string"
+          - This indicates that the token should be provided as a string.
+
+    - **Method**: "GET"
+      - This specifies that the request method used to access the endpoint is a GET request, which means data will be fetched from the server.
+
+    - **URL**: 
+      - `"http://localhost:3000/api/video/static/all/?accountId=accountId&channel=Fortune"`
+      - This is the endpoint where the request will be sent. It consists of the following components:
+        - **Base URL**: `http://localhost:3000`
+          - This indicates that the server is running locally on port 3000.
+        - **Path**: `/api/video/static/all/`
+          - This specifies the resource being accessed, which is a collection of static videos.
+        - **Query Parameters**:
+          - `accountId=accountId`
+            - This parameter should be replaced with the actual account ID to filter the videos associated with that account.
+          - `channel=Fortune`
+            - This parameter specifies the channel name for which the videos are being retrieved. In this case, it is set to "Fortune".
+
+    - **Headers**:
+      - An array of headers that can be sent with the request.
+        - **Key**: ""
+          - This is currently empty and implies no custom headers are being added to the request.
+        - **Value**: ""
+          - This is also empty, reflecting that there are no specific values set for the headers.
+        - **Type**: "default"
+          - This indicates the type of header being used.
+        - **Disabled**: true
+          - This means that this header will not be sent with the request.
+
+    - **Body**:
+      - **Mode**: "raw"
+        - Indicates that the body content is sent as raw data.
+      - **Raw**: ""
+        - This is empty, suggesting that no data is required to be sent in the body of the request for this GET operation.
+
+    ### Summary
+
+    This endpoint is designed to fetch all static videos for a specified channel
+    associated with a given account ID. It requires bearer token authentication
+    and uses a GET request method. Ensure to replace placeholder values with
+    actual data where necessary.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: channel
+      in: query
+      schema:
+        type: string
+      example: Fortune
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

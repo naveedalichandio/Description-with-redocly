@@ -1,0 +1,56 @@
+post:
+  tags:
+    - NotificationInvites
+  summary: Notification - Invites - Delete
+  description: >-
+    This endpoint is named "Notification - Invites - Delete". It is designed to
+    handle the deletion of invite notifications.
+
+
+    Let's break down the contents:
+
+
+    1. **Auth** - The endpoint uses bearer authentication, implying that it
+    requires a token for validation. The key for this token is "token" and the
+    value expected is "sessionId". The type of the token is specified as a
+    "string". You need to provide a valid session ID as your token to access
+    this endpoint.
+
+
+    2. **Method** - The HTTP method used is "POST", meaning this endpoint is
+    used to send data to the server to create a new resource.
+
+
+    3. **URL** - The endpoint's URL, where the request is sent, is specified as
+    "http://localhost:3000/api/notification/invites/delete". Bear in mind this
+    is a local URL and might be different in production or other environments.
+
+
+    4. **Headers** - Headers can be used to provide additional information about
+    the request. In this case, the key and value are empty, and the type is set
+    as "default". Also, this option is currently disabled.
+
+
+    5. **Body** - The request body here is in raw format. This contains the
+    actual information that is to be sent to the server. It's a JSON with the
+    keys "sessionId", "accountId", and "invitesId" which presumably refer to the
+    session, account, and invites identifiers, respectively.
+
+
+    Remember that incorrect auth tokens, URLs or body parameters could lead to
+    unsuccessful requests. Use valid information according to your database to
+    avoid such issues.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"invitesId\":\"invitesId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

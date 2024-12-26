@@ -1,0 +1,68 @@
+get:
+  tags:
+    - PaymentCard
+  summary: Card - Stripe - Get All
+  description: >-
+    This endpoint is titled `Card - Stripe - Get All`. It's a GET request which
+    means it is used to retrieve information. All data retrieval is handled via
+    this endpoint. 
+
+
+    The URL for the endpoint is
+    `http://localhost:3000/api/payment/card/getAll/`. It is structured as
+    follows:
+
+
+    - `http://localhost:3000/` is the base URL which is generally the entry
+    point of the API.
+
+
+    - `/api/payment/card/getAll/` is the path to the specific resource you are
+    wanting to interact with. In this case, it is to get all cards associated
+    with a particular payment. 
+
+
+    There are also URL parameters that are needed:
+
+
+    - `provider` parameter is used to specify the payment provider. In this
+    example, it is set to 'stripe'. This parameter is used to determine which
+    payment provider's API should be used to process the request.
+
+
+    - `accountId` parameter is used to specify the account the cards are
+    associated with. The accountId is unique for each user's account.
+
+
+    - `sessionId` parameter is used to maintain a session for the user. It's
+    used for identifying the user's session across multiple requests.
+
+
+    There are no headers specified in the request. Headers generally include
+    more metadata about the request like authentication tokens, content type
+    etc.
+
+
+    So, in a nutshell, this endpoint retrieves all the card information of a
+    particular account from the payment provider Stripe.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,54 @@
+get:
+  tags:
+    - ActionAnnounce
+  summary: Action - Announce - Get All
+  description: |-
+    {
+      "name": "Action - Announce - Get All",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer": "This specifies that the request uses Bearer token authentication, which is a common method for securing APIs. The user must provide a valid token to access the endpoint.",
+            "bearer": [
+              {
+                "key": "token": "This represents the name of the authentication key that must be included in the header of the request.",
+                "value": "BearerToken": "This is a placeholder for the actual Bearer token that should be included in the request. It should be replaced with a valid token for authentication.",
+                "type": "string": "This indicates that the value of the token must be a string type."
+              }
+            ]
+          },
+          "method": "GET": "This specifies that the request uses the HTTP GET method, which is typically used to retrieve data from a specified resource.",
+          "url": "http://localhost:3000/api/action/announce/all/?sessionId=sessionId&accountId=accountId": "This is the endpoint URL where the GET request will be sent. The URL includes query parameters 'sessionId' and 'accountId', which are placeholders that must be replaced with actual session and account identifiers to successfully retrieve data from the server.",
+          "headers": [
+            {
+              "key": "": "This indicates that no specific headers are currently set for the request.",
+              "value": "": "This is empty as well, implying that no additional header values are being defined.",
+              "type": "default": "This denotes that the type of header is default, but since both key and value are empty, this header is effectively not in use.",
+              "disabled": true: "This indicates that this header is disabled and will not be included in the request."
+            }
+          ],
+          "body": {
+            "mode": "raw": "This specifies the format of the request body. In this case, it's set to 'raw', meaning that the body will contain raw text data.",
+            "raw": "": "This indicates that no raw data is being sent in the request body, as it is currently empty."
+          }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

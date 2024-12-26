@@ -1,0 +1,77 @@
+post:
+  tags:
+    - EventsSubCategory
+  summary: Events - SubCategory - Create Auto
+  description: >-
+    This endpoint is titled "Events - SubCategory - Create Auto". It uses POST
+    method which typically implies creation of new data on the backend system.
+
+
+    Here is a description of each data:
+
+
+    1. **"name"**: The name of the endpoint, it represents the functionality of
+    creating subcategory automatically in an Events system.
+
+
+    2. **"request"**: Contains all the necessary details required to make a
+    request.
+
+
+    3. **"auth"**: Holds the authentication type and detail necessary to gain
+    access to the API. It uses 'bearer' type authentication and expects a
+    'token' - a string which must be valid for successful access.
+
+
+    4. **"method"**: The HTTP method used for request, in this case, it's a
+    'POST' method used for creating data.
+
+
+    5. **"url"**: The URL where the request will hit to perform desired
+    operation. Here, the request will hit
+    'http://localhost:3000/api/events/subcategory/create' to create an event
+    subcategory.
+
+
+    6. **"headers"**: Headers can contain additional information for the
+    request. In this case, no headers are being sent, this field is left blank
+    and disabled.
+
+
+    7. **"body"**: It contains the information that will be attached to the
+    request when sent. The mode 'raw' is used here which facilitates sending of
+    data in unprocessed form, and the language used is 'json'.
+
+
+    8. Within the body, some important parameters are passed:
+
+       - **"sessionId"**: The session ID currently active.
+       - **"accountId"**: The account ID of the user/session.
+       - **"name"**: The name of the new subcategory that is to be created. 
+       - **"displayName"**: The display name of the new subcategory that will be visible to users.
+       - **"description"**: A brief description of the new subcategory.
+       - **"tags"**: Tags associated with the new subcategory, separated by commas.
+       - **"category"**: The parent category to which the new subcategory belongs.
+       
+    Remember to change these parameters as per the business or application
+    scenario when making the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Historic Hampton House 13
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+            category: A Special New Category 2
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

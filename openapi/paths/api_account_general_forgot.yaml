@@ -1,0 +1,61 @@
+post:
+  tags:
+    - AccountGeneral
+  summary: Account - General - Forgot Phone
+  description: >-
+    1. "name": This represents the label given to the particular endpoint. Here,
+    it's named as "Account - General - Forgot Phone", plainly indicating this
+    endpoint is related to a feature where a user can recover their account if
+    they forgot their phone.
+
+
+    2. "request": This object contains all information for making the HTTP
+    request. 
+
+
+    3. "auth": This object holds the authorization method and token. 
+       - "type": This field represents the type of the authentication. Here, it's bearer authentication.
+       - "bearer": This array contains information about the bearer token.
+         - "key": This is the name of the key, which is "token".
+         - "value": This is the placeholder for the actual token value, denoted as "BearerToken".
+         - "type": This represents the datatype of the token, which is a string.
+
+    4. "method": This key represents the HTTP method to be used. For this
+    endpoint, POST method should be used.
+
+
+    5. "url": This is the URL where HTTP request should be made, i.e.,
+    "http://localhost:3000/api/account/general/forgot".
+
+
+    6. "headers": This is an array of objects where each object represents a
+    custom HTTP header. 
+       - "key": This represents the name of the HTTP header, which is "Client-UUID"
+       - "value": This is the placeholder for the actual headers' value, represented as "ClientUUID".
+       - "type": This is set to "default" indicating this is a standard header.
+
+    7. "body": This object holds data that will be sent with the HTTP request.
+       - "mode": This defines how data will be sent. In this case, it is raw, meaning the data is sent as it is, without any encoding.
+       - "raw": This holds the actual data that will be sent. Here, a JSON object containing a phone key with a placeholder value "phone" is being sent.
+       
+    Please replace placeholder values (like "BearerToken", "ClientUUID", and
+    "phone") with actual data when performing API calls.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: '"{\"phone\":\"phone\"}"'
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

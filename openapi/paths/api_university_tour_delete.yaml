@@ -1,0 +1,80 @@
+post:
+  tags:
+    - UniversityTour
+  summary: University - Tour - Delete
+  description: |-
+    **Endpoint Description: University - Tour - Delete**
+
+    - **Name**: University - Tour - Delete
+      - This is the label for the operation that will delete a specific tour associated with a university.
+
+    - **Request**: 
+      - This section outlines the details of the request that will be made to the API.
+
+      - **Auth**: 
+        - **Type**: Bearer
+          - This indicates that the request will use bearer token authentication to verify access.
+          
+        - **Bearer**:
+          - An array that includes the token necessary for authentication.
+          
+          - **Key**: token
+            - This defines the identifier for the token being used for authentication.
+            
+          - **Value**: sessionId
+            - This indicates the expected value for the token, which should be replaced with the actual session ID of the user making the request.
+            
+          - **Type**: string
+            - This signifies that the value of the token is in string format.
+
+      - **Method**: POST
+        - This indicates that the HTTP method used for this request is POST. This method is typically used to submit data to the server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/university/tour/delete`
+        - This is the endpoint URL where the request will be sent. It targets the delete operation for a university tour.
+
+      - **Headers**:
+        - This section is meant for specifying any additional headers that may be included in the request.
+        
+        - **Key**: (empty)
+          - This indicates that there are no custom headers specified for this request.
+          
+        - **Value**: (empty)
+          - This indicates that there is no value associated with the key.
+          
+        - **Type**: default
+          - Indicates that the header type is default.
+          
+        - **Disabled**: true
+          - This signifies that this header is not active and will not be included in the request.
+
+      - **Body**: 
+        - This section defines the content that will be sent along with the request.
+
+        - **Mode**: raw
+          - This indicates that the body will be sent in a raw format rather than using a form or other encoding types.
+
+        - **Raw**:
+          - `{"sessionId":"sessionId","accountId":"accountId","tourId":"tourId"}`
+          - This is the payload that is sent with the request. It contains three key fields:
+            
+            - **sessionId**: This should be replaced with the actual session ID of the user making the request, used for authentication.
+            
+            - **accountId**: This should be replaced with the actual account ID of the user requesting the deletion of the tour.
+            
+            - **tourId**: This should be replaced with the actual ID of the tour that needs to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tourId\":\"tourId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

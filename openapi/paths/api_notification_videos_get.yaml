@@ -1,0 +1,63 @@
+get:
+  tags:
+    - NotificationVideos
+  summary: Notification - Videos - Get
+  description: >-
+    This endpoint, named "Notification - Videos - Get", is set up for you to
+    retrieve video notifications from a specific account.
+
+
+    There are several details to the data contained within this API call:
+
+
+    1. "auth": This field presents the details of the authentication necessary
+    to make the request. The request uses Bearer Authentication, where a bearer
+    token is needed to access this endpoint. The "key" is called 'token', and
+    the value would be the unique "Bearer Token" provided for your use.
+
+
+    2. "method": This details the HTTP method used for the call. In this case,
+    it is a "GET" request, which retrieves information from the specified
+    resource.
+
+
+    3. "url": This provides the location from where you are retrieving the data.
+    It is a local server mapped to port 3000. There are several query parameters
+    specified here: 'videosId', 'sessionId', and 'accountId'. These are
+    placeholders for the unique ID of the video, the session, and the account
+    respectively.
+
+
+    4. "headers": This describes the information to be sent in the header of the
+    request. In the current configuration, there's a header field set up but
+    it's empty and disabled. If there were a need to send additional information
+    in the request header, it could be filled in.
+
+
+    5. "body": This section shows the data that will be sent as part of the
+    request body. In this 'GET' request, the "body" section is empty. 'Raw' mode
+    is selected, but there's nothing in the 'raw' field, indicating no
+    additional data is being sent in the body of this request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: videosId
+      in: query
+      schema:
+        type: string
+      example: videosId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

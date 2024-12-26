@@ -1,0 +1,70 @@
+post:
+  tags:
+    - ActionClose
+  summary: Action - Close - Delete
+  description: >-
+    ### Action - Close - Delete Endpoint Description
+
+
+    - **Name**: Action - Close - Delete
+      - This is the identifier for the API endpoint, indicating the purpose of the action being performed, which is to delete a close action.
+
+    - **Request**: This section outlines the details of the HTTP request that
+    will be made to the API.
+
+      - **Auth**: Authentication mechanism to access the endpoint.
+        - **Type**: Bearer
+          - Indicates that the request will use token-based authentication.
+        - **Bearer**: Provides the token needed for authentication.
+          - **Key**: token
+            - The identifier for the authentication token.
+          - **Value**: sessionId
+            - A placeholder representing the session ID that will be used for authentication.
+          - **Type**: string
+            - Specifies that the value should be treated as a string.
+
+      - **Method**: POST
+        - This indicates that the API request will use the POST HTTP method, typically used to send data to the server.
+
+      - **URL**: http://localhost:3000/api/action/close/delete
+        - The endpoint to which the request will be sent. In this case, it's a local server address indicating that the action of closing and deleting will occur.
+
+      - **Headers**: Additional information sent with the request.
+        - **Key**: (empty)
+          - No specific header key is provided in this configuration.
+        - **Value**: (empty)
+          - No specific header value is provided in this configuration.
+        - **Type**: default
+          - Indicates the default type for the header, but since the header is disabled, it will not be sent with the request.
+        - **Disabled**: true
+          - The header is currently turned off and will not be included in the API request.
+
+      - **Body**: The content of the request.
+        - **Mode**: raw
+          - Indicates that the body content will be sent in raw format.
+        - **Raw**: 
+          ```json
+          {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "closeId": "closeId"
+          }
+          ```
+          - This is a JSON object containing the details required for the delete action:
+            - **sessionId**: Represents the session ID for authentication and context.
+            - **accountId**: Represents the ID of the account which is associated with the action being closed.
+            - **closeId**: Indicates the specific ID of the close action that you wish to delete.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"closeId\":\"closeId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

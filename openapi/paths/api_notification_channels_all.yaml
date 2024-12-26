@@ -1,0 +1,64 @@
+get:
+  tags:
+    - NotificationChannels
+  summary: Notification - Channels - Get All
+  description: >-
+    1. `name`: This is the identifier for the endpoint. In this case, the name
+    of the endpoint is "Notification - Channels - Get All". It's used to locate
+    the specific endpoint within the API.
+
+
+    2. `request`: This object contains the details of the API request. Inside
+    the request object, there are several properties such as `auth`, `method`,
+    `url`, `headers`, and `body`. 
+
+
+    3. `auth`: This is the authentication method required to access the
+    endpoint. It uses the "bearer" type, indicating the request requires a
+    bearer token for authorization. 
+
+
+    4. `bearer`: This contains the specific details of the bearer token required
+    for the request. It has a `key` "token", `value` "BearerToken", and `type`
+    which is "string". This means that you need to replace "BearerToken" with
+    the actual token value in your requests.
+
+
+    5. `method`: This is the HTTP method used for the request. Here, it's "GET",
+    which is typically used to retrieve data from an API.
+
+
+    6. `url`: This is the address of the API endpoint. In this case, it's
+    "http://localhost:3000/api/notification/channels/all". The URL also contains
+    two query parameters `sessionId` and `accountId`, which you would replace
+    with your specific session and account identifiers when making requests.
+
+
+    7. `headers`: This is a list which contains information that the client
+    (i.e., the sender of the request) passes to the server to provide additional
+    details about the request. In this case, it's an empty default header that's
+    disabled.
+
+
+    8. `body`: This is where you would put the data you want to send to the API.
+    Since the `method` is "GET", which doesn't usually send any data to the API,
+    the `mode` is set as "raw" and `raw` field is empty, meaning no actual data
+    is included in the body of the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

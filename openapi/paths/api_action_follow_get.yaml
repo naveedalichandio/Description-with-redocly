@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ActionFollow
+  summary: Action - Follow - Get
+  description: >-
+    ### Description of Each Data in the Endpoint
+
+
+    - **name**: This represents the name of the API request. In this case, it is
+    "Action - Follow - Get", indicating that this request is related to
+    retrieving follow actions.
+
+
+    - **request**: This section contains details about the HTTP request being
+    made.
+
+      - **auth**: Specifies the authentication method for the request.
+        - **type**: Indicates the type of authentication used. Here, it is "bearer", which typically involves a token-based system.
+        - **bearer**: An array that contains bearer token details needed for authentication.
+          - **key**: This is the name of the token provided in the authorization header. Here, it is "token".
+          - **value**: The actual token used for authentication. It is prefixed with "Bearer" to signify that it is a bearer token. In this case, the value is "BearerToken" (this should be replaced with a real token in implementation).
+          - **type**: Defines the data type of the token, which is "string".
+
+      - **method**: This defines the HTTP method used for the request. It is "GET", which indicates that the request is intended to retrieve data from the server.
+
+      - **url**: The endpoint URL where the request is to be sent. The URL is structured as follows:
+        - **Base URL**: `http://localhost:3000/api/action/follow/get/`
+        - **Query Parameters**:
+          - **followId**: This parameter (value should be replaced with actual follow ID) is used to specify which follow action to retrieve.
+          - **sessionId**: This parameter (value should be replaced with actual session ID) indicates the current user session.
+          - **accountId**: This parameter (value should be replaced with actual account ID) identifies the account from which the follow action information is being fetched.
+
+      - **headers**: This section is meant for HTTP headers that might be required for the request.
+        - **key**: The name of the header. In this case, it is left empty.
+        - **value**: The value associated with the header. It is also empty.
+        - **type**: Indicates the type of header being defined. Here, it is set to "default".
+        - **disabled**: This boolean value indicates whether the header is active or not. It is set to true, meaning the header will be ignored in the request.
+
+      - **body**: This section represents the body of the request.
+        - **mode**: Indicates the type of body being sent. It is set to "raw".
+        - **raw**: This field contains the actual payload to be sent in the request. In this case, it is empty, signifying that no body content is sent with the GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: followId
+      in: query
+      schema:
+        type: string
+      example: followId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,46 @@
+get:
+  tags:
+    - PaymentProduct
+  summary: Product - Zelle - Get All
+  description: >-
+    - "name": This field represents the name of the endpoint. The given endpoint
+    is named "Product - Zelle - Get All". This is helpful in distinguishing
+    among various endpoints in your API collection. In this case, it refers to
+    an endpoint to retrieve all products related to Zelle.
+
+
+    - "request": This field is a container that holds the details of the request
+    that is to be made. It includes the method type, URL, and headers.
+      - "method": This field specifies the HTTP method used when making the request to the API. In this case, the method is "GET", which means this request will retrieve (or 'get') data from a specified resource.
+     
+      - "url": This field includes the URL to which the request needs to be sent. In this context, 'http://localhost:3000/api/payment/product/getAll/productId' is the API's URL. It also contains some query parameters:
+        - "provider": A query parameter used to filter the products by providers. In this case, it is equal to 'zelle' which means that we are filtering all products provided by Zelle.
+        - "accountId": It stands for the unique identifier of the account. The value of this field while making the request will correspond to the specific account whose related product data is being requested.
+        - "sessionId": It represents unique session identifier which is generally used fortracking a user's session.
+
+    - "headers": This field is a list where you can specify additional HTTP
+    headers that should be sent in the request. Currently, it's empty, meaning
+    that no additional headers are included with the request. Different kinds of
+    data like authorization tokens, content type, and others can be passed
+    through headers depending on the requirements.
+  parameters:
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: zelle
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

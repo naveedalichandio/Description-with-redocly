@@ -1,0 +1,72 @@
+get:
+  tags:
+    - ActionReview
+  summary: Action - Review - Get
+  description: >-
+    ### Endpoint Description: Action - Review - Get
+
+
+    - **Name**: This endpoint is referred to as "Action - Review - Get". It is
+    designed to retrieve a review based on specific parameters.
+
+
+    - **Method**: The HTTP method used for this request is **GET**, indicating
+    that the endpoint is meant to fetch data without modifying any server
+    resources.
+
+
+    - **URL**: The request is sent to the following URL:
+      ```
+      http://localhost:3000/api/action/review/get/?reviewId=reviewId&sessionId=sessionId&accountId=accountId
+      ```
+      This URL includes query parameters for `reviewId`, `sessionId`, and `accountId`, which are essential for identifying which review to retrieve.
+
+    - **Query Parameters**:
+      - **reviewId**: This parameter should be replaced with the actual ID of the review you want to fetch. It serves as a unique identifier for the review.
+      - **sessionId**: This parameter represents the session context under which the review was created or accessed. It helps in tracking user sessions.
+      - **accountId**: This parameter indicates the account associated with the review, allowing for filtering based on user accounts.
+
+    - **Authentication**: The request requires bearer token authentication. This
+    means that access to this endpoint is secured and needs a valid token to be
+    provided in the request header.
+      - **Bearer Token**: 
+        - **Key**: `token`
+        - **Value**: `BearerToken` - This is a placeholder for the actual token that will authorize the request.
+        - **Type**: This is marked as a string, indicating the format of the token.
+
+    - **Headers**: The current state of headers shows one placeholder with no
+    key or value and is disabled. This means no additional headers are currently
+    required or sent with this request aside from the authorization token.
+
+
+    - **Body**: The request body is set to raw mode but contains no data. For a
+    GET request, it is typical to not include a body, so this configuration is
+    appropriate.
+
+
+    Overall, this endpoint allows users to retrieve specific review details by
+    providing necessary identifiers in the URL, ensuring that access is
+    controlled through bearer token authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: reviewId
+      in: query
+      schema:
+        type: string
+      example: reviewId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

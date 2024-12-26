@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ActionChallenge
+  summary: Action - Challenge - Get
+  description: >-
+    ### Endpoint Description: Action - Challenge - Get
+
+
+    - **Name**: The name of the API request is "Action - Challenge - Get". This
+    signifies that the request is related to getting a specific challenge
+    action.
+
+
+    - **Request**: This section outlines the details of the HTTP request being
+    made.
+
+      - **Auth**: 
+        - **Type**: The type of authentication used for the API request is "bearer". This typically means that access to the endpoint is secured and requires a token.
+        - **Bearer**: 
+          - **Key**: Indicates the key for the bearer token, which is labeled "token".
+          - **Value**: Here, it is represented as "BearerToken". This should be replaced with the actual token that grants access to the API.
+          - **Type**: The format of the token is categorized as "string", denoting that it should be a text value.
+
+      - **Method**: The HTTP method being used for this request is "GET". This method is used to retrieve data from the specified resource.
+
+      - **URL**: The endpoint URL to which the GET request is sent is "http://localhost:3000/api/action/challenge/get/". Additional query parameters are included:
+        - **challengeId**: This parameter is intended to specify the ID of the challenge you wish to retrieve.
+        - **sessionId**: This parameter represents the ID of the session associated with the challenge.
+        - **accountId**: This parameter identifies the account related to the request.
+
+      - **Headers**: This section defines the HTTP headers to be sent with the request. Currently, no additional headers are specified, and it is indicated as "disabled", meaning it will not be sent with the request.
+
+      - **Body**: 
+        - **Mode**: The body mode for this request is set to "raw". This implies that the body, if present, would not have any specific formatting like JSON or form-data.
+        - **Raw**: The raw body content is currently empty, which means that there is no data being sent in the body of the request, as it is not needed for a GET request.
+
+    This endpoint is designed for retrieving information about a specific
+    challenge action based on provided identifiers in the query string. Be sure
+    to replace the placeholders for `challengeId`, `sessionId`, and `accountId`
+    with actual values when making a request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: challengeId
+      in: query
+      schema:
+        type: string
+      example: challengeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

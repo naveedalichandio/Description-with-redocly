@@ -1,0 +1,263 @@
+post:
+  tags:
+    - VideoConnect
+  summary: Video - Connect - Create - ZhanqiTV
+  description: >-
+    ### API Endpoint Description: Video - Connect - Create - ZhanqiTV
+
+
+    #### Request Information
+
+
+    - **Method**: 
+      - The HTTP method used for this request is POST. This method is typically used to send data to the server for the creation of resources or for actions that lead to changes on the server side.
+
+    - **URL**: 
+      - The request is sent to `http://localhost:3000/api/video/connect/create`, which indicates it is an API endpoint meant for creating a connection for video streaming.
+
+    - **Headers**: 
+      - **Content-Type**: Specifies that the data being sent in the request body is in JSON format.
+
+    #### Request Body
+
+
+    The body of the request includes two main sections: `options` and `stream`.
+
+
+    1. **Options Section**:
+       - This section includes various parameters needed for connecting to the video provider (ZhanqiTV).
+
+       - **providerName**: 
+         - Specifies the name of the video provider (in this case, "zhanqitv").
+       
+       - **providerId**: 
+         - An identifier for the provider which can be used for tracking or management purposes.
+       
+       - **apiKey, apiSecret, apiClientId, authToken**: 
+         - These fields are for authentication and authorization purposes and may be set to null if not required.
+       
+       - **server**: 
+         - Indicates the server to be used for connection; can be null.
+       
+       - **rtmpUrl and streamKey**: 
+         - These are used for RTMP streaming and can be set to null if not applicable.
+       
+       - **channelUrl**: 
+         - The URL associated with the streaming channel; can be null.
+       
+       - **authUsername and authPassword**: 
+         - Credentials for authenticated access (set to null if not required).
+       
+       - **uniqueKey**: 
+         - A unique identifier for this connection instance.
+       
+       - **videoId, accountId, channelId, sessionId, streamId**: 
+         - Identifiers for the video, account, channel, session, and stream, respectively.
+       
+       - **ipAddress**: 
+         - Holds the IP address of the connection source (can be null).
+       
+       - **country and state**: 
+         - Indicates the geographic area associated with the stream.
+       
+       - **title**: 
+         - The title of the video stream.
+       
+       - **description**: 
+         - A brief description of the video content.
+       
+       - **tags**: 
+         - Comma-separated keywords related to the stream (for search optimization).
+
+    2. **Stream Section**:
+       - Contains information specific to the video stream.
+
+       - **streamId**: 
+         - Identifier for the stream.
+       
+       - **streamName**: 
+         - A name given to the stream for identification.
+       
+       - **videoStatus**: 
+         - The current status of the video (e.g., not ready).
+       
+       - **providerName**: 
+         - The name of the provider (indicated again for clarity).
+       
+       - **providerUniqueId**: 
+         - Unique identifier for the provider's stream.
+       
+       - **providerPlaybackUrl, providerStreamId, providerStreamKey, providerStreamUrl**: 
+         - These are URLs and identifiers for accessing the stream across various protocols (RTMP and SRT).
+       
+       - **providerStreamData**: 
+         - Contains detailed information about the stream, including various streaming protocols (RTMPS, SRT, WebRTC) and associated URLs.
+       
+       - **created and modified**: 
+         - Timestamps indicating when the stream was created and last modified.
+       
+       - **meta**: 
+         - This field includes additional metadata such as account ID, audio and video input names, cover photo URL, title, description, and video ID.
+       
+       - **recording**: 
+         - Specifies recording settings such as mode and whether signed URLs are required.
+
+    3. **Details Section**:
+       - Provides further information and configuration related to the stream.
+
+       - **accountId, sessionId, channelId, videoId, title, description, tags**: 
+         - Relevant identifiers and details for the video stream.
+       
+       - **streamType**: 
+         - Indicates the type of stream, whether it's Live or VOD.
+       
+       - **searchType**: 
+         - Defines how the stream will be categorized in search queries (e.g., Game).
+       
+       - **started and paused**: 
+         - Boolean flags indicating whether the stream has started or been paused.
+       
+       - **streamId**: 
+         - Reiterated identifier for the stream context.
+       
+       - **channel**: 
+         - The name of the channel broadcasting the stream.
+       
+       - **category and subCategory**: 
+         - Information about the categorization of the stream.
+       
+       - **scheduled date and time**: 
+         - Indicates when the stream is scheduled to take place.
+       
+       - **coverPhotoUrl**: 
+         - URL for the cover photo associated with the stream.
+       
+       - **voteTokenQuantity, votingTimeReset, voteButtonQuantity**: 
+         - Configuration settings related to viewer interactions and voting.
+       
+       - **tournament settings**: 
+         - Configuration fields for enabling tournaments within the live stream.
+       
+       - **streamLocatorName and streamAssetName**: 
+         - Names for easy identification of the stream and its associated assets.
+       
+       - **platformVideoIds**: 
+         - Mapping of output video IDs to various social media and streaming platforms.
+       
+       - **platformEventIds**: 
+         - Mapping of event IDs to various scheduling and event management platforms.
+       
+       - **primaryCameraName, primaryMicrophoneName, primarySpeakerName**: 
+         - Names of the primary audio and video devices being used for the stream.
+       
+       - **additionalCameras**: 
+         - List of additional cameras and microphones utilized during the stream.
+       
+       - **created and updated dates and times**: 
+         - Timestamps for when the stream details were created and last updated.
+
+    This summarization helps users understand the required and optional fields
+    for making requests to create and manage video streams using the ZhanqiTV
+    API.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\n    \"options\":{\n        \"providerName\":
+            \"zhanqitv\",\n        \"providerId\": \"\",\n        \"apiKey\":
+            null,\n        \"apiSecret\": null,\n        \"apiClientId\":
+            null,\n        \"authToken\": null,\n        \"server\":
+            null,\n        \"rtmpUrl\": null,\n        \"streamKey\":
+            null,\n        \"channelUrl\": null,\n        \"authUsername\":
+            null,\n        \"authPassword\": null,\n        \"uniqueKey\":
+            \"uniqueKey\",\n        \"videoId\": \"videoId\",\n       
+            \"accountId\": \"accountId\",\n        \"channelId\":
+            \"channelId\",\n        \"sessionId\": \"sessionId\",\n       
+            \"streamId\": \"streamId\",\n        \"ipAddress\": null,\n       
+            \"country\": \"United States\",\n        \"state\":
+            \"California\",\n        \"title\":\"Fortune's Basketball
+            Challenge\",\n        \"description\":\"Basketball game featuring
+            amazing plays and challenges.\",\n       
+            \"tags\":\"basketball,game,challenge\"\n    },\n    \"stream\":
+            {\n        \"streamId\":\"streamId\",\n       
+            \"streamName\":\"live-video-stream-7164b12d-1708817130231\",\n       
+            \"uniqueKey\":\"uniqueKey\",\n        \"videoId\":
+            \"videoId\",\n        \"accountId\": \"accountId\",\n       
+            \"channelId\": \"channelId\",\n        \"sessionId\":
+            \"sessionId\",\n        \"videoStatus\":\"notready\",\n       
+            \"providerName\":\"cloudflare\",\n       
+            \"providerUniqueId\":\"c3b3f93b0a7594f3db917d5f9a671351\",\n       
+            \"providerPlaybackUrl\":\"\",\n       
+            \"providerStreamId\":\"c3b3f93b0a7594f3db917d5f9a671351\",\n       
+            \"providerStreamKey\":\"e0bb5fa14f7059bccfcef40d5dbe2283kc3b3f93b0a7594f3db917d5f9a671351\",\n       
+            \"providerStreamUrl\":\"srt://live.cloudflare.com:778\",\n       
+            \"providerStreamData\":{\"result\":{\"uid\":\"c3b3f93b0a7594f3db917d5f9a671351\",\"rtmps\":{\"url\":\"rtmps://live.cloudflare.com:443/live/\",\"streamKey\":\"e0bb5fa14f7059bccfcef40d5dbe2283kc3b3f93b0a7594f3db917d5f9a671351\"},\"rtmpsPlayback\":{\"url\":\"rtmps://live.cloudflare.com:443/live/\",\"streamKey\":\"af3d7056104ecfa601cc1d3e9aa07c3bkc3b3f93b0a7594f3db917d5f9a671351\"},\"srt\":{\"url\":\"srt://live.cloudflare.com:778\",\"streamId\":\"c3b3f93b0a7594f3db917d5f9a671351\",\"passphrase\":\"bc9be9fb5bfb73d0c0260d82e9e40434kc3b3f93b0a7594f3db917d5f9a671351\"},\"srtPlayback\":{\"url\":\"srt://live.cloudflare.com:778\",\"streamId\":\"playc3b3f93b0a7594f3db917d5f9a671351\",\"passphrase\":\"bc54e6ca94314ca15f5e04495ee2c20dkc3b3f93b0a7594f3db917d5f9a671351\"},\"webRTC\":{\"url\":\"https://customer-q9gw1dgorkl8h10h.cloudflarestream.com/1d9bfda169eb256cedc88b900e59fc01kc3b3f93b0a7594f3db917d5f9a671351/webRTC/publish\"},\"webRTCPlayback\":{\"url\":\"https://customer-q9gw1dgorkl8h10h.cloudflarestream.com/c3b3f93b0a7594f3db917d5f9a671351/webRTC/play\"},\"created\":\"2024-02-24T23:25:30.935251Z\",\"modified\":\"2024-02-24T23:25:30.935251Z\",\"meta\":{\"accountId\":\"de449412-4732-490f-a1d0-19ac7e96e7e6\",\"audioInputName\":\"My
+            macBook
+            Microphone\",\"channelId\":\"ee435434-e90f-4484-a3b3-63819dc539ef\",\"coverPhotoUrl\":\"basketball-cover-url.jpg\",\"description\":\"Basketball
+            game featuring amazing plays and
+            challenges.\",\"streamId\":\"c4d36b16-e5f3-4bb2-a1d5-334fcad9f08f\",\"title\":\"Fortune's
+            Basketball
+            Challenge\",\"videoId\":\"133c4f1f-a914-4956-9f79-bc82a890361d\",\"videoInputName\":\"My
+            MacBook
+            Camera\"},\"defaultCreator\":\"7164b12d\",\"status\":null,\"recording\":{\"mode\":\"automatic\",\"requireSignedURLs\":false,\"allowedOrigins\":null},\"deleteRecordingAfterDays\":null},\"success\":true,\"errors\":[],\"messages\":[]},\n       
+            \"createdDate\":\"2024-02-24\",\n       
+            \"createdTime\":\"23:25:30\",\n       
+            \"updatedDate\":\"2024-02-25\",\n       
+            \"updatedTime\":\"01:14:26\",\n       
+            \"deletedDate\":null,\n        \"deletedTime\":null\n    },\n   
+            \"details\":{\n        \"accountId\":\"accountId\",\n       
+            \"sessionId\":\"sessionId\",\n       
+            \"channelId\":\"channelId\",\n       
+            \"videoId\":\"videoId\",\n        \"title\":\"Fortune's Basketball
+            Challenge\",\n        \"description\":\"Basketball game featuring
+            amazing plays and challenges.\",\n       
+            \"tags\":\"basketball,game,challenge\",\n       
+            \"streamType\":\"Live\",\n        \"searchType\":\"Game\",\n       
+            \"started\":true,\n       
+            \"startedOn\":\"2024-02-24T22:41:42.483Z\",\n       
+            \"paused\":false,\n       
+            \"pausedOn\":\"2024-02-24T22:41:42.483Z\",\n       
+            \"stopped\":false,\n        \"stoppedOn\":null,\n       
+            \"streamId\":\"streamId\",\n        \"channel\":\"Fortune's
+            Basketball Channel\",\n        \"category\":\"Board\",\n       
+            \"categoryId\":\"categoryId\",\n        \"subCategory\":\"Outdoor
+            Party\",\n        \"subCategoryId\":\"subCategoryId\",\n       
+            \"scheduleDate\":\"2024-02-01\",\n       
+            \"scheduleTime\":\"18:00:00\",\n        \"streamHours\":1,\n       
+            \"coverPhotoUrl\":\"basketball-cover-url.jpg\",\n       
+            \"providerPlaybackUrl\":\"\",\n       
+            \"voteTokenQuantity\":100,\n       
+            \"votingTimeReset\":\"5\",\n       
+            \"voteButtonQuantity\":4,\n       
+            \"voteButtonText1\":\"Layup\",\n       
+            \"voteButtonText2\":\"Dunk\",\n       
+            \"isRewardsEnabled\":false,\n       
+            \"isTournamentEnabled\":true,\n       
+            \"tournamentButtonText1\":\"Hit\",\n       
+            \"tournamentButtonText2\":\"Miss\",\n       
+            \"streamLocatorName\":\"basketball-locator-name\",\n       
+            \"streamAssetName\":\"basketball-asset-name\",\n       
+            \"platformVideoIds\":{\"youtubeOutputId\":false,\"twitchOutputId\":false,\"instagramOutputId\":false,\"tiktokOutputId\":false,\"facebookOutputId\":false,\"vimeoOutputId\":false,\"periscopeOutputId\":false,\"linkedInOutputId\":false,\"brightcoveOutputId\":false,\"twitterOutputId\":false,\"dailymotionOutputId\":false,\"kickOutputId\":false,\"rumbleOutputId\":false,\"trovoOutputId\":false,\"restreamPlaybackUrl\":false,\"telegramOutputId\":false,\"amazonLiveOutputId\":false,\"dLiveOutputId\":false,\"mixCloudOutputId\":false,\"kakaoTVOutputId\":false,\"naverTVOutputId\":false,\"nimoTVOutputId\":false,\"nonoLiveOutputId\":false,\"huyaOutputId\":false,\"zhanquiTVOutputId\":false,\"bilibiliOutputId\":false,\"afreecaTVOutputId\":false,\"mlgOutputId\":false,\"douyuOutputId\":false,\"liveEduOutputId\":false,\"vaughnLiveOutputId\":false,\"breakersTVOutputId\":false,\"picartoTVOutputId\":false,\"fc2LiveOutputId\":false,\"steamOutputId\":false},\n       
+            \"platformEventIds\":{\"facebookGroupEventId\":false,\"facebookPageEventId\":false,\"linkedInEventId\":false,\"youtubeEventId\":false,\"eventBrightEventId\":false,\"meetupEventId\":false,\"calendlyEventId\":false,\"googleEventId\":false,\"twitterEventId\":false,\"instagramEventId\":false,\"redditEventId\":false,\"telegramEventId\":false,\"tiktokEventId\":false,\"pinterestEventId\":false,\"wordpressEventId\":false,\"discordEventId\":false,\"mediumEventId\":false,\"tumblrEventId\":false,\"wixEventId\":false},\n       
+            \"primaryCameraName\":\"Sony 4K Ultra HD WebCam\",\n       
+            \"primaryMicrophoneName\":\"WirelessAudioTek Device\",\n       
+            \"primarySpeakerName\":\"Bose-Mega-Speaker 2.0\",\n       
+            \"additionalCameras\":[{\"camera\":\"camera-2\",\"microphone\":\"mic-2\"},{\"camera\":\"camera-3\",\"microphone\":\"mic-3\"}],\n       
+            \"createdDate\":\"2024-02-18\",\n       
+            \"createdTime\":\"14:54:25\",\n       
+            \"updatedDate\":\"2024-02-24\",\n       
+            \"updatedTime\":\"23:29:19\",\n       
+            \"deletedDate\":null,\n        \"deletedTime\":null\n    }\n}"
+  parameters:
+    - name: Content-Type
+      in: header
+      schema:
+        type: string
+      example: application/json
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

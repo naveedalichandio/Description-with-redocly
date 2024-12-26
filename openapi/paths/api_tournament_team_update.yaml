@@ -1,0 +1,162 @@
+put:
+  tags:
+    - TournamentTeam
+  summary: Tournament - Team - Update
+  description: >-
+    ### API Endpoint: Tournament - Team - Update
+
+
+    This endpoint is used to update the details of a specific tournament team.
+    Below is a detailed description of each piece of data in the request.
+
+
+    #### Request Method
+
+    - **PUT**: This indicates that the request is intended to update the
+    existing resource on the server.
+
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/tournament/team/update`
+      - The endpoint URL for updating a tournament team resource.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer Token
+      - This indicates that the API requires a bearer token for authentication.
+    - **Bearer Token**: 
+      - **Key**: `token`
+      - **Value**: `BearerToken` (placeholder for the actual token)
+      - **Type**: string
+      - The bearer token is necessary for accessing this endpoint and should be replaced with a valid token.
+
+    #### Headers
+
+    - **Client-UUID**: 
+      - **Key**: `Client-UUID`
+      - **Value**: `ClientUUID` (placeholder for the actual Client UUID)
+      - **Type**: default
+      - This header is used to identify the client making the request, and should be replaced with the actual UUID.
+
+    #### Request Body
+
+    - **Body Mode**: Raw
+      - This indicates that the request body will be in raw JSON format.
+    - **Raw JSON**: 
+
+    ```json
+
+    {
+      "teamId": "teamId",
+      "sessionId": "sessionId",
+      "accountId": "accountId",
+      "name": "My Second Team 2.0",
+      "description": "This team is my second team",
+      "tags": "second,team",
+      "profilePhotoUrl": "https://example.com/profile.jpg",
+      "coverPhotoUrl": "https://example.com/cover.jpg",
+      "minimumTipAmount": 10,
+      "categoryId": "category123",
+      "category": "General",
+      "subCategoryId": "subCategory456",
+      "subCategory": "Specific",
+      "isTeamPrivate": true,
+      "isTournamentOnly": false,
+      "isTeamDefault": true,
+      "isPreLiveTournamentAds": true,
+      "isPostLiveTournamentAds": true,
+      "breakPreLiveVideoUrl": "https://example.com/break-pre-live.mp4",
+      "breakPostLiveVideoUrl": "https://example.com/break-post-live.mp4"
+    }
+
+    ```
+
+
+    ##### JSON Data Description
+
+    1. **teamId**: 
+       - A unique identifier for the team that needs to be updated. This should reflect the actual team ID.
+
+    2. **sessionId**: 
+       - A unique identifier for the session related to this team update. This can be used for tracking or validation purposes.
+
+    3. **accountId**: 
+       - The unique identifier for the account that owns or manages the team. This is useful for ensuring the correct association with user accounts.
+
+    4. **name**: 
+       - The new name for the team. This should be a user-friendly name that represents the team.
+
+    5. **description**: 
+       - A brief description of the team. This can provide additional context or information about the team to others.
+
+    6. **tags**: 
+       - A comma-separated list of tags associated with the team. Tags can help categorize or identify the team easily.
+
+    7. **profilePhotoUrl**: 
+       - A URL pointing to the team's profile photo. This will be displayed as the team's avatar or representative image.
+
+    8. **coverPhotoUrl**: 
+       - A URL pointing to the team's cover photo. This image will serve as a larger background representation for the team.
+
+    9. **minimumTipAmount**: 
+       - The minimum amount that can be tipped to the team. This is useful for setting financial expectations or thresholds.
+
+    10. **categoryId**: 
+        - The unique identifier for the category under which this team falls. Categories help in organizing teams effectively.
+
+    11. **category**: 
+        - The name of the category to which the team belongs. This helps in classifying the team based on types or activities.
+
+    12. **subCategoryId**: 
+        - A unique identifier for any subcategory associated with the team. This allows for further classification.
+
+    13. **subCategory**: 
+        - The name of the subcategory for the team, providing more specific categorization.
+
+    14. **isTeamPrivate**: 
+        - A boolean value indicating whether the team is private (true) or public (false). Private teams can restrict visibility and access.
+
+    15. **isTournamentOnly**: 
+        - A boolean value specifying if the team is exclusive to tournaments. True means the team can only participate in tournaments.
+
+    16. **isTeamDefault**: 
+        - Indicates whether this team is set as the default team (true) or not (false). Default teams may have special privileges or status.
+
+    17. **isPreLiveTournamentAds**: 
+        - A boolean indicating if advertisements will be shown before the live tournament starts.
+
+    18. **isPostLiveTournamentAds**: 
+        - A boolean indicating if advertisements will be shown after the live tournament ends.
+
+    19. **breakPreLiveVideoUrl**: 
+        - A URL pointing to a video that can be shown during the pre-live phase of the tournament. This might include promotional or informative content.
+
+    20. **breakPostLiveVideoUrl**: 
+        - A URL to a video that can be shown after the live tournament has concluded. This could include highlights or recaps. 
+
+    This structure provides clarity on how to use the endpoint and the purpose
+    of each field in the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"teamId\":\"teamId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Team 2.0\",\"description\":\"This team is my second
+            team\",\"tags\":\"second,team\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isTeamPrivate\":true,\"isTournamentOnly\":false,\"isTeamDefault\":true,\"isPreLiveTournamentAds\":true,\"isPostLiveTournamentAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

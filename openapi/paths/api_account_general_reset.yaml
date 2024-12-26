@@ -1,0 +1,58 @@
+put:
+  tags:
+    - AccountGeneral
+  summary: Account - General - Reset Password
+  description: >-
+    This endpoint is related to account management, specifically the
+    functionality of resetting passwords. Here are the details:
+
+
+    1. **Endpoint Name:** The name of this endpoint is "Account - General -
+    Reset Password". It indicates that this endpoint supports resetting of
+    account passwords.
+
+
+    2. **Authentication:** The endpoint uses Bearer Token authentication. You
+    should include a Bearer Token in the 'token' field in the header for valid
+    authentication. The value provided here is just a placeholder (i.e.,
+    "BearerToken").
+
+
+    3. **HTTP Method:** This endpoint uses the PUT HTTP method, which is
+    typically used for updating resources.
+
+
+    4. **URL:** This is the URL that you need to call in order to access this
+    function.
+
+
+    5. **Headers:** Headers for the request are mentioned, but the key and value
+    are both blank and it's disabled. Based on the current data this is not
+    required and you could remove it from the request.
+
+
+    6. **Request Body:** The request contains three parameters to be included in
+    the body of the request:
+
+       - **sessionId:** Representing session identification, to keep track of the user's interaction with the API.
+       
+       - **email:** The user's email address associated with the account.
+       
+       - **password:** The new password that the user wants to set for the account. The example value provided in JSON format is "helloworld". 
+
+    Please replace placeholder values with actual values when making a request
+    to this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"email\":\"email\",\"password\":\"helloworld\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

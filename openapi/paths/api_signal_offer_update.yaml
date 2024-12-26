@@ -1,0 +1,73 @@
+put:
+  tags:
+    - WhipSignal
+  summary: Signal - Offer - Update
+  description: >-
+    ### Endpoint: Signal - Offer - Update
+
+
+    #### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Bearer
+        - **Bearer Token**: This is a security token that allows the client access to the endpoint. The client must include this token in the request header to authenticate themselves. 
+          - **Key**: `token`
+          - **Value**: `BearerToken` (This should be replaced with an actual token during a real request)
+          - **Type**: String (The token is represented as a string)
+
+    - **Method**: 
+      - **PUT**: This HTTP method is used for updating existing resources on the server. In this case, it updates an offer related to a signal.
+
+    - **URL**: 
+      - `http://localhost:3000/api/signal/offer/update`: The endpoint where the request is sent. It is hosted locally on port 3000 and is used to update the signal offer.
+
+    - **Headers**: 
+      - This section is currently empty and disabled. Normally, headers can be added here to provide additional information or configuration for the request (such as content type or additional authentication). 
+
+    - **Body**: 
+      - **Mode**: 
+        - **Raw**: The data is sent in its raw format rather than as form data.
+        - **Raw Content**: 
+          - This contains a JSON object structured as follows:
+            - **accountId**: A unique identifier for the account associated with the offer.
+            - **sessionId**: An identifier for the specific session in which this offer is being made.
+            - **signalId**: A unique identifier for the signal that is being updated.
+            - **type**: A string indicating the type of request, which is set to "offer" in this scenario.
+            - **sdp**: Session Description Protocol (SDP) data that provides details about the media session, including codec information, network addresses, and other parameters necessary for establishing the communication channel.
+              - Example SDP data:
+                ```
+                v=0
+                o=- 25678 753849 IN IP4 192.168.1.1
+                s=-
+                c=IN IP4 192.168.1.1
+                t=0 0
+                a=sendrecv
+                m=audio 49170 RTP/AVP 0
+                a=rtpmap:0 PCMU/8000
+                ```
+      - **Options**:
+        - **Raw**: Specifies the data being sent is of JSON type.
+
+    This endpoint allows users to update offers related to signals by sending
+    the necessary identifiers and session information in a structured JSON
+    format. Ensure to replace placeholder values in the body with actual data
+    when making a real request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            signalId: signalId
+            type: offer
+            sdp: "v=0\r\no=- 25678 753849 IN IP4 192.168.1.1\r\ns=-\r\nc=IN IP4 192.168.1.1\r\nt=0 0\r\na=sendrecv\r\nm=audio 49170 RTP/AVP 0\r\na=rtpmap:0 PCMU/8000\r\n"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

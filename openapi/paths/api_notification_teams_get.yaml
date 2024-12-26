@@ -1,0 +1,73 @@
+get:
+  tags:
+    - NotificationTeams
+  summary: Notification - Teams - Get
+  description: >-
+    Here below is the detailed description of each data.
+
+
+    1. "name": "Notification - Teams - Get"
+
+
+    This is the name of the API endpoint. It's a descriptive label indicating
+    that this API endpoint is used for retrieving notifications related to
+    specific teams.
+
+
+    2. "request":
+
+
+    This gathers all the information needed to make a request to the API. It
+    contains the following sub-fields:
+
+       - "auth": This section describes the type of authentication required to access the API. It shows that the API uses bearer authentication, which is a method designed to assign access tokens to authenticate the requests. 
+
+          - "type": "bearer"
+            The authentication required for this API request is a bearer token. 
+
+          - "bearer": 
+            Contains the actual information required for bearer token authorization.
+           
+            - "key": "token"
+              This indicates that the key used by the API for authentication is "token". 
+
+            - "value": "BearerToken"
+              "BearerToken" would be the actual token, which should be provided to gain authorization.
+
+            - "type": "string"
+               The bearer token is of string type, which means it will include alphanumeric values.
+
+    - "method": "GET"
+      This is the HTTP method used for this API call. GET is used when retrieving or reading information from the server.
+
+    - "url": 
+      This is the location where the API service can be accessed. It includes query parameters for teamsId, sessionId and accountId which further specify the information requested from the server.
+
+    - "headers": 
+      This is an array that contains the definition section for request headers. In this case, no key value has been specified and it is also disabled.
+
+    - "body": 
+      The body contains the details of the data sent in the HTTP request. Here, the mode is specified as 'raw', meaning raw data will be sent in the body of the request. However, as indicated by the 'raw' field being empty, no actual body data is sent in this request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: teamsId
+      in: query
+      schema:
+        type: string
+      example: teamsId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

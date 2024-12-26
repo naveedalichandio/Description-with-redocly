@@ -1,0 +1,126 @@
+put:
+  tags:
+    - ActionReport
+  summary: Action - Report - Update
+  description: >-
+    ### Endpoint Description: Action - Report - Update
+
+
+    This endpoint allows for the updating of a report in the action system.
+    Below are detailed descriptions for each field in the request.
+
+
+    #### Request Details
+
+
+    - **Auth**: 
+      - **Type**: Defines the authorization mechanism used for this request. In this case, it is set to "bearer".
+      - **Bearer**: 
+        - **Key**: The name of the key used for authorization, labeled as "token".
+        - **Value**: This should include the actual Bearer token used for authentication, shown as "BearerToken".
+        - **Type**: Indicates the data type, which is "string".
+
+    - **Method**: 
+      - Specifies the HTTP method used for the request. Here it is set to "PUT", indicating that the client intends to update an existing resource.
+
+    - **URL**: 
+      - The endpoint to which the request is sent. In this instance, it points to "http://localhost:3000/api/action/report/update", suggesting that this is a local development endpoint.
+
+    - **Headers**:
+      - **Client-UUID**: 
+        - **Key**: Represents the header name, "Client-UUID".
+        - **Value**: This should contain the unique identifier for the client making the request, noted as "ClientUUID".
+        - **Type**: Declares the type of data sent in the header, which is set to "default".
+
+    #### Body Content
+
+    The body of the request must be formatted as raw JSON. Below is a breakdown
+    of each field within the body:
+
+
+    - **sessionId**: 
+      - A string that identifies the session in which the report is being updated.
+
+    - **accountId**: 
+      - A string representing the unique identifier for the account associated with this report.
+
+    - **path**: 
+      - A string that indicates the resource path for the report, here denoted as "/live/channel/video123".
+
+    - **targetType**: 
+      - A string that specifies the type of target being reported. In this case, it is set to "videoId".
+
+    - **targetId**: 
+      - A string that contains the unique identifier of the targeted resource, specifically the video being reported.
+
+    - **sourceType**: 
+      - A string denoting the type of source for the report, here labeled as "accountId".
+
+    - **sourceId**: 
+      - A string representing the unique identifier of the source account reporting the issue.
+
+    - **didReport**: 
+      - A boolean value that indicates whether the item has been reported. It is set to true in this example.
+
+    - **category**: 
+      - A string providing a description of the report's main category, identified as "this is category updated".
+
+    - **subcategory**: 
+      - A string that gives further detail within the category, noted as "this is subcategory".
+
+    - **subject**: 
+      - A string summarizing the subject of the report, presented as "this is subject".
+
+    - **text**: 
+      - A string containing additional information or remarks about the report, described as "some text".
+
+    - **name**: 
+      - A string reserved for the name associated with the report. It is left empty in this context.
+
+    - **description**: 
+      - A string intended for a detailed description of the report's purpose or context. This field is also left empty here.
+
+    - **tags**: 
+      - A string for any tags that might be relevant to the report. It is currently empty in this request.
+
+    - **reportId**: 
+      - A string that uniquely identifies the report being updated, noted as "reportId".
+
+    This endpoint is designed to facilitate the modification of report details
+    within the action system, providing a comprehensive structure for the
+    necessary data.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didReport: true
+            category: this is category updated
+            subcategory: this is subcategory
+            subject: this is subject
+            text: some text
+            name: ''
+            description: ''
+            tags: ''
+            reportId: reportId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

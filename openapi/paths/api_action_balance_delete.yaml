@@ -1,0 +1,58 @@
+post:
+  tags:
+    - ActionBalance
+  summary: Action - Balance - Delete
+  description: >-
+    ### Action - Balance - Delete
+
+
+    This endpoint is designed to delete a specific balance associated with a
+    particular account in the system. Below is a detailed description of each
+    part of the request:
+
+
+    - **Name**: This identifies the endpoint and its purpose. In this case, it
+    is called "Action - Balance - Delete," indicating that it performs a
+    deletion operation on balance records.
+
+
+    - **Request**: This section outlines the specifications for making the API
+    request.
+
+      - **Auth**: This indicates the method of authentication required to access the endpoint. 
+        - **Type**: The authentication type is 'bearer,' which means it requires a token for authorization.
+        - **Bearer**: This is an array containing the required token information.
+          - **Key**: Here it is labeled as "token," which represents the authentication token needed for the request.
+          - **Value**: The value of this field is "sessionId," which should be replaced with the actual session ID of the user making the request.
+          - **Type**: The type is set as "string," indicating that the value should be a string.
+
+      - **Method**: The HTTP method used for this request is "POST." This means that you are sending data to the server to perform an action.
+
+      - **URL**: The endpoint URL is specified as "http://localhost:3000/api/action/balance/delete." This is the path where the request will be sent.
+
+      - **Headers**: This section is for any additional information sent with the request, but in this case, there are no headers configured (both the key and value are empty, and it is marked as disabled).
+
+      - **Body**: This part includes the data being sent to the server.
+        - **Mode**: The body mode is set to "raw," indicating that the data is being sent in its raw format (not using a form).
+        - **Raw**: The actual data being sent in the body is a JSON string. It contains the following fields:
+          - **sessionId**: This is the session ID required to authenticate the request. Replace "sessionId" with the actual session ID.
+          - **accountId**: This field contains the ID of the account from which the balance is to be deleted. Replace "accountId" with the actual ID of the account.
+          - **balanceId**: This specifies the ID of the balance you want to delete. Replace "balanceId" with the actual ID of the balance record.
+
+    In summary, this endpoint allows users to remove a specific balance for a
+    given account by providing necessary authentication and the relevant
+    identifiers in the request body.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"balanceId\":\"balanceId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

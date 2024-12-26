@@ -1,0 +1,50 @@
+get:
+  tags:
+    - IncentiveAdvertisement
+  summary: Incentive - Advertisement - Get All
+  description: >-
+    The endpoint "Incentive - Advertisement - Get All" contains property details
+    that are explained one by one as follows:
+
+
+    "name": This is a title or summarizing description of the specified
+    endpoint. In this case, "Incentive - Advertisement - Get All," indicates
+    that endpoint receives all the incentive advertisements.
+
+
+    "request": This object holds the information about the various properties of
+    the network request that we're making.
+
+      "auth": This specifies the type of authentication needed for the endpoint. Here, the type is 'bearer', which is a method for an HTTP client to provide a security token associated with them to the server.
+      
+        "bearer": An array where each object provides the key and value needed for authentication. Here the key is 'token' with the value as 'BearerToken'. The type defines the data type of value, i.e., it's a string.
+      
+      "method": This specifies the HTTP verb. In this case, it is a 'GET' request, which means this endpoint is used to retrieve resources.
+
+      "url": This is the API endpoint where the request is being sent. The 'http://localhost:3000/api/incentive/advertisement/all/' is the URL of the endpoint. 
+
+    Two query parameters 'sessionId' and 'accountId' are appended to the URL.
+    These likely aid in fetching specific sets of data related to a given
+    session and account. 
+
+      "headers": An array of objects where each object represents a header's key-value pair to be included in the HTTP request. In this case, it's an empty header.
+
+      "body": This defines the data that is sent through the HTTP request. Here, the mode is raw, which means the request is being sent as an unstructured bundle. As there's nothing in this endpoint's raw body, it's likely the data sent in body is empty.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,64 @@
+post:
+  tags:
+    - ChatThread
+  summary: Chat - Thread - Create Video
+  description: >-
+    This endpoint is labeled "Chat - Thread - Create Video." It's used to create
+    a new chat thread for video comments using a POST request.
+
+
+    1. `auth`: This indicates the type of authentication used for this endpoint.
+    The auth type is "bearer", which usually involves a bearer token provided in
+    the headers of the HTTP request for user identification. Its key is "token,"
+    which holds the value "BearerToken."
+
+
+    2. `method`: It states the HTTP request method that we're using. In this
+    case, "POST," which is generally used for sending data to the API server to
+    create a new resource.
+
+
+    3. `url`: This is the URL to where the API request is sent. This particular
+    endpoint is "http://localhost:3000/api/chat/thread/create".
+
+
+    4. `headers`: Headers allow the client and server to share additional
+    information with the HTTP request or response. The request doesn't include
+    any specific headers in this case. 
+
+
+    5. `body`: This contains the data we're sending with our POST request. In
+    this case, it's in the "raw" mode, meaning the data is sent as a string in
+    JSON format. 
+
+       Included in the request body are: 
+        - `ownerId`: A string that refers to the account ID of the owner of this chat thread. 
+        - `accountId`: A string that specifies the account ID attempting to create this chat thread.
+        - `sessionId`: This could be a unique identifier for the specific session during which this chat thread is created.
+        - `threadName`: A string that provides the name for this chat thread. For this endpoint, it seems to be specified as "Video Comments."
+        - `threadType`: This indicates the type of thread being created. In this case, it's a "video".
+        - `threadTypeId`: A string that refers to the ID of the video associated with this thread.
+
+    6. `options`: This contains extra payload options for the "raw" request
+    body. They're set to indicate the language of the request body is JSON. Note
+    this doesn't affect the API request itself, but can make it easier for
+    people to understand the data if they're reading it.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            ownerId: accountId
+            accountId: accountId
+            sessionId: sessionId
+            threadName: Video Comments
+            threadType: video
+            threadTypeId: videoId
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

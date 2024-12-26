@@ -1,0 +1,51 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Chats
+  description: >-
+    ### Endpoint: Web - Socket - Recent Chats
+
+
+    #### Method: GET
+
+
+    #### URL:
+
+    - **Base URL**: `http://localhost:3000`
+
+    - **Endpoint**: `/api/socket/web/chats`
+
+    - **Query Parameters**:
+      - `recent`: A boolean parameter set to `true` to fetch only recent chats.
+      - `limit`: A variable that defines the maximum number of recent chats to be returned.
+
+    #### Description:
+
+    This API endpoint retrieves the recent chats for the web socket application.
+    It filters the chat data to only include those marked as recent. The `limit`
+    parameter is used to specify how many recent chat records should be returned
+    in the response. 
+
+
+    No additional headers are required for this request. The request will be
+    made to a server running on localhost, specifically on port 3000. 
+
+
+    Use this endpoint to easily fetch the latest chat entries and control the
+    number of entries you receive by adjusting the `limit` parameter.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

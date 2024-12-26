@@ -1,0 +1,54 @@
+post:
+  tags:
+    - VideoStream
+  summary: Video - Stream - Delete
+  description: >-
+    **Description of each data in the endpoint "Video - Stream - Delete":**
+
+
+    - **name**: This represents the name of the API request. In this case, it
+    identifies the action to delete a video stream.
+
+
+    - **request**: This key contains all the necessary details required to make
+    the API request.
+
+      - **auth**: This section specifies the authentication method to be used when making the request.
+        - **type**: Indicates the type of authentication. Here it is a bearer token authentication.
+        - **bearer**: An array that holds details about the bearer token.
+          - **key**: The name of the token field used in the authentication header.
+          - **value**: This is a placeholder for the actual token value, denoting it should be replaced with a session ID.
+          - **type**: Specifies that the value should be treated as a string.
+
+      - **method**: This indicates the HTTP method used for the request. Here, it is a POST method, which is typically used to send data to the server.
+
+      - **url**: The endpoint URL where the API request will be sent. In this case, it points to the delete video stream functionality.
+
+      - **headers**: This section can include additional headers for the request.
+        - **key**: The name of the header.
+        - **value**: The value of the header.
+        - **type**: The type of the header; indicated as default in this instance.
+        - **disabled**: A boolean indicating whether this header is currently active. It is set to true, meaning this header will not be sent with the request.
+
+      - **body**: This part of the request provides the data to be sent.
+        - **mode**: Specifies the format of the body content. Here it is set to 'raw', indicating that the data is sent as a raw JSON string.
+        - **raw**: Contains the actual data payload to be sent in the request. This consists of the following fields:
+          - **sessionId**: This should be replaced with the actual session ID for authentication.
+          - **accountId**: A unique identifier for the user's account that owns the video stream.
+          - **streamId**: The identifier of the stream that is intended to be deleted.
+          - **channelId**: The identifier of the channel associated with the stream.
+          - **videoId**: The unique identifier of the video that is linked to the stream being deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"streamId\":\"streamId\",\"channelId\":\"channelId\",\"videoId\":\"videoId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

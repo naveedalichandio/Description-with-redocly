@@ -1,0 +1,78 @@
+post:
+  tags:
+    - WebSocketMessage
+  summary: Web - Socket - Dislike Message
+  description: >-
+    ### Web - Socket - Dislike Message
+
+
+    **Request Details:**
+
+
+    - **Method**: POST  
+
+    This endpoint uses the HTTP POST method to send data to the server.
+
+
+    - **URL**: http://localhost:3000/api/socket/web/dislike  
+
+    This is the endpoint where the request is sent. It is targeted at the
+    localhost on port 3000, specifically to the `/api/socket/web/dislike` path.
+
+
+    **Headers**:  
+
+    No specific headers are set for this request. Users may need to include
+    headers depending on their authentication or data format requirements.
+
+
+    **Body**:  
+
+    The request body is sent in raw JSON format. It includes the following
+    fields:
+
+
+    - **socketId**:  
+
+    This is a string that represents the unique identifier for the user's socket
+    connection. It is used to identify the instance of the WebSocket connection
+    through which the dislike action is being communicated.
+
+
+    - **messageId**:  
+
+    This is a string that holds the unique identifier of the message that the
+    user is disliking. This id is essential for the server to recognize which
+    message is being affected by the dislike action.
+
+
+    - **accountId**:  
+
+    This is a string that indicates the unique identifier associated with the
+    user's account who is sending the dislike. It helps to track which user
+    performed the action.
+
+
+    **Body Format Options**:  
+
+    The request body is specified in JSON format. 
+
+
+    - **Language**: json  
+
+    This setting indicates that the raw data is formatted as JSON, ensuring that
+    the server can parse it correctly.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            messageId: messageId
+            accountId: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

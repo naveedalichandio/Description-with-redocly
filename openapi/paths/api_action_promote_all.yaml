@@ -1,0 +1,76 @@
+get:
+  tags:
+    - ActionPromote
+  summary: Action - Promote - Get All
+  description: >-
+    ### Endpoint Description
+
+
+    **Name:** Action - Promote - Get All  
+
+    This endpoint is used to retrieve a list of all promotions associated with a
+    specific session and account.
+
+
+    #### Request Structure
+
+
+    - **Authentication:**
+      - **Type:** Bearer Token
+        - This endpoint requires a bearer token for authentication. The token is passed in the Authorization header of the request.
+      
+      - **Key:** token
+        - The key for the bearer token.
+      
+      - **Value:** BearerToken
+        - This is a placeholder for the actual bearer token that should be used for authentication.
+      
+      - **Type:** string
+        - Indicates that the token value should be a string.
+
+    - **Method:**
+      - **GET**
+        - Specifies that this request will retrieve data from the server.
+
+    - **URL:**
+      - **http://localhost:3000/api/action/promote/all/?sessionId=sessionId&accountId=accountId**
+        - This is the endpoint's URL.
+        - **Path:** /api/action/promote/all/
+        - **Query Parameters:**
+          - **sessionId:** Represents the unique identifier for a session. This is required to filter the promotions.
+          - **accountId:** Represents the unique identifier for an account. This is required to filter the promotions.
+
+    - **Headers:**
+      - There are currently no custom headers included in the request.
+      - The header entry is disabled and does not contain any key-value pairs.
+
+    - **Body:**
+      - **Mode:** raw
+        - Indicates the format of the body, which in this case is set to raw.
+        
+      - **Raw:** 
+        - The body is empty as this is a GET request, and typically does not require a body.
+
+    ### Usage
+
+    Users should replace `BearToken` with a valid authentication token, and
+    provide actual values for `sessionId` and `accountId` in the URL to
+    successfully call this endpoint and receive the promotions data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

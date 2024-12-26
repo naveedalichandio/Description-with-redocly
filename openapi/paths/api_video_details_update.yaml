@@ -1,0 +1,207 @@
+put:
+  tags:
+    - VideoDetails
+  summary: Video - Details - Update - Stop Stream
+  description: >-
+    ### Endpoint: Video - Details - Update - Stop Stream
+
+
+    **Request Type:** PUT  
+
+    **URL:** `http://localhost:3000/api/video/details/update`
+
+
+    #### Authentication
+
+    - **Auth Type:** Bearer Token
+      - **Token Key:** `token`
+      - **Token Value:** The actual bearer token used for authorization, represented as `BearerToken`.
+
+    #### Headers
+
+    - **Client-UUID:** A unique identifier for the client making the request,
+    represented as `ClientUUID`.
+
+
+    #### Body Parameters (in JSON format)
+
+    1. **sessionId:** Identifier for the current streaming session.
+
+    2. **accountId:** Identifier for the account associated with the stream.
+
+    3. **channelId:** Identifier for the specific channel hosting the video.
+
+    4. **videoId:** Unique ID for the video being updated.
+
+    5. **streamType:** Indicates the type of stream; in this case, set to
+    "Live".
+
+    6. **searchType:** Specifies the type of content for search; here it is
+    defined as "Game".
+
+    7. **title:** The title of the video; for example, "Fortune's Basketball
+    Challenge".
+
+    8. **description:** A brief description of the video content, e.g.,
+    "Basketball game featuring amazing plays and challenges."
+
+    9. **tags:** Comma-separated keywords relevant to the video, such as
+    "basketball,game,challenge".
+
+    10. **channel:** The name of the channel broadcasting the content, like
+    "Fortune's Basketball Channel".
+
+    11. **category:** The main category of the video; here it is "Board".
+
+    12. **subCategory:** A finer classification of the content, specified as
+    "Outdoor Party".
+
+    13. **started:** A boolean indicating whether the stream has started; set to
+    `true`.
+
+    14. **paused:** A boolean indicating if the stream is paused; set to
+    `false`.
+
+    15. **stopped:** A boolean indicating if the stream has stopped; set to
+    `true`.
+
+    16. **scheduleDate:** Date when the stream is scheduled to start, formatted
+    as "YYYY-MM-DD" (e.g., "2024-02-01").
+
+    17. **scheduleTime:** Time when the stream is scheduled to start, formatted
+    as "HH:MM:SS" (e.g., "18:00:00").
+
+    18. **streamHours:** Duration of the stream in hours, set to `1`.
+
+    19. **coverPhotoUrl:** URL to the cover photo for the stream, represented as
+    "basketball-cover-url.jpg".
+
+    20. **voteTokenQuantity:** The number of tokens available for voting, set to
+    `100`.
+
+    21. **votingTimeReset:** Specifies the reset time for voting in seconds;
+    here it is `5`.
+
+    22. **voteButtonQuantity:** Number of voting buttons available, set to `4`.
+
+    23. **voteButtonText1:** Text for the first voting button, which is "Layup".
+
+    24. **voteButtonText2:** Text for the second voting button, "Dunk".
+
+    25. **voteButtonText3:** Text for the third voting button, "3 Point".
+
+    26. **voteButtonText4:** Text for the fourth voting button, "Free Throw".
+
+    27. **isRewardsEnabled:** A boolean indicating whether rewards are enabled;
+    set to `false`.
+
+    28. **isTournamentEnabled:** A boolean indicating if tournaments are
+    enabled; set to `true`.
+
+    29. **tournamentButtonText1:** Text for the first tournament button, "Hit".
+
+    30. **tournamentButtonText2:** Text for the second tournament button,
+    "Miss".
+
+    31. **streamPlaybackUrl:** URL to access the playback of the stream,
+    represented as "basketball-stream-url".
+
+    32. **streamLocatorName:** Name used to identify the stream location, set as
+    "basketball-locator-name".
+
+    33. **streamAssetName:** Name of the stream asset, represented as
+    "basketball-asset-name".
+
+    34. **platformPlaybackUrls:** An array of URLs where the stream can be
+    viewed on other platforms, including:
+       - `https://youtube.com/channel/fortune/sports-basketball-12345`
+       - `https://www.twitch.com/fortune/sports-basketball-12345`
+    35. **platformEventUrls:** An array of URLs for events associated with the
+    stream, including:
+       - `https://eventbrite.com/events/beladed-fortune-sports-basketball-12345`
+       - `https://www.meetup.com/events/beladed-fortune-sports-basketball-12345`
+    36. **primaryCameraName:** Name of the primary camera used for the stream,
+    for example, "Sony 4K Ultra HD WebCam".
+
+    37. **primaryMicrophoneName:** Name of the primary microphone used,
+    represented as "WirelessAudioTek Device".
+
+    38. **primarySpeakerName:** Name of the primary speaker used for audio
+    output, set as "Bose-Mega-Speaker 2.0".
+
+    39. **additionalCameras:** An array of additional camera configurations,
+    where each object contains:
+       - **camera:** Identifier for the additional camera (e.g., "camera-2").
+       - **microphone:** Identifier for the microphone associated with the additional camera (e.g., "mic-2"). 
+
+    This endpoint is designed to update the details of an ongoing or scheduled
+    video stream, including information about the session, media assets, voting
+    options, and platform integrations.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            channelId: channelId
+            videoId: videoId
+            streamType: Live
+            searchType: Game
+            title: Fortune's Basketball Challenge
+            description: Basketball game featuring amazing plays and challenges.
+            tags: basketball,game,challenge
+            channel: Fortune's Basketball Channel
+            category: Board
+            subCategory: Outdoor Party
+            started: true
+            paused: false
+            stopped: true
+            scheduleDate: '2024-02-01'
+            scheduleTime: '18:00:00'
+            streamHours: 1
+            coverPhotoUrl: basketball-cover-url.jpg
+            voteTokenQuantity: 100
+            votingTimeReset: '5'
+            voteButtonQuantity: 4
+            voteButtonText1: Layup
+            voteButtonText2: Dunk
+            voteButtonText3: 3 Point
+            voteButtonText4: Free Throw
+            isRewardsEnabled: false
+            isTournamentEnabled: true
+            tournamentButtonText1: Hit
+            tournamentButtonText2: Miss
+            streamPlaybackUrl: basketball-stream-url
+            streamLocatorName: basketball-locator-name
+            streamAssetName: basketball-asset-name
+            platformPlaybackUrls:
+              - https://youtube.com/channel/fortune/sports-basketball-12345
+              - https://www.twitch.com/fortune/sports-basketball-12345
+            platformEventUrls:
+              - >-
+                https://eventbrite.com/events/beladed-fortune-sports-basketball-12345
+              - >-
+                https://www.meetup.com/events/beladed-fortune-sports-basketball-12345
+            primaryCameraName: Sony 4K Ultra HD WebCam
+            primaryMicrophoneName: WirelessAudioTek Device
+            primarySpeakerName: Bose-Mega-Speaker 2.0
+            additionalCameras:
+              - camera: camera-2
+                microphone: mic-2
+              - camera: camera-3
+                microphone: mic-3
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

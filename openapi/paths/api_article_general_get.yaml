@@ -1,0 +1,45 @@
+get:
+  tags:
+    - ArticleGeneral
+  summary: Article - General - Get By Account ID
+  description: >-
+    This API endpoint is titled "Article - General - Get By Account ID". 
+
+
+    1. Request Type: It is a GET request used to fetch data.
+
+
+    2. Authentication: The authentication type is 'Bearer'. It uses a bearer
+    token to authenticate the request. You need to replace "BearerToken" with
+    your valid token for access.
+
+
+    3. URL: The URL for the request is
+    http://localhost:3000/api/article/general/get?accountId=accountId. In this
+    URL, replace "accountId" query parameter with the actual account id whose
+    articles you want to retrieve.
+
+
+    4. Headers: No additional headers are required for this API request. Default
+    headers will automatically be added when the request is made.
+
+
+    5. Body: The body part is empty, as it's not needed in a GET request. 
+
+
+    In a nutshell, this endpoint fetches the articles related to a specific
+    account based on its ID. This is done through a GET request, which requires
+    the use of a bearer token for authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,63 @@
+post:
+  tags:
+    - ConnectEvent
+  summary: Connect - Event - Delete
+  description: >-
+    "name": This field, with the value "Connect - Event - Delete", represents
+    the name of the endpoint. It signifies the operation carried out by this
+    API, which is deleting an event in the "Connect" module. 
+
+
+    "request": This field is an object containing all the necessary data to make
+    the API request.
+
+
+    Within "request":
+
+      "auth": This is an object specifying the authorization method required for the API request. 
+        "type": This is the type of authentication used, "bearer" in this case. Bearer authentication scheme is where the sender and receiver of an HTTP request agree on a secret key. 
+        "bearer": This is an array containing the details of the bearer authentication, in this case, the token. 
+
+      "key": This represents the name of the authentication parameter, in this case, "token". 
+      "value": This contains the value of the authentication parameter. For our discussion, the value is "sessionId". 
+      "type": This specifies the data type of the value of the authentication parameter, which is "string" in our case. 
+
+    "method": This field represents the HTTP method used for the request. For
+    our case, the method is "POST". 
+
+
+    "url": This is the URL where the API request will be sent. For our case, the
+    URL is "http://localhost:3000/api/connect/event/delete".
+
+
+    "headers": This is an array that holds an object of key-value pairs of all
+    header requests. In our case there is a single header object which is empty
+    and disabled.
+
+
+    "body": This object holds the details of the body of the request. In this
+    case, the body is sent in 'raw' mode and contains a JSON string.
+
+
+    "mode": This tells how the body data will be sent with the request. Possible
+    values are "raw", "urlencoded" etc and in this case, it's "raw". 
+
+
+    "raw": This field holds the actual raw string data that is going to be sent
+    in the body of the request. In our case, it consists of "sessionId",
+    "accountId", and "eventId" fields that are crucial in deleting an event for
+    a particular account.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"eventId\":\"eventId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

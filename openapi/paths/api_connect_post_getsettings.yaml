@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ConnectPost
+  summary: Connect - Post- Get Settings
+  description: >-
+    1. "name": This is the name of endpoint that is being called. In this case,
+    the endpoint name is "Connect - Post- Get Settings".
+
+
+    2. "request": This value contains all the information required to make the
+    HTTP request. It includes authentication details, the HTTP method, the URL
+    of the request, and any headers.
+
+
+    3. "auth": This is the authentication structure used for this endpoint. It
+    specifies the type of authentication and the authentication details.
+       
+        a. "type": This field specifies the type of authorization required for this endpoint. In this case, it uses 'bearer' authorization.
+       
+        b. "bearer": This is an array of bearer tokens required for this endpoint.
+           
+           i. "key": The key for the bearer token needed for authorization - here, it is named 'token'.
+           
+           ii. "value": The value of the bearer token, defined here as 'BearerToken'.
+           
+           iii. "type": The type of bearer token used, which is a 'string'.
+
+    4. "method": It specifies the HTTP method to be used for this request, which
+    is 'GET'.
+
+
+    5. "url": This is the URL where the request will be sent. It is
+    'http://localhost:3000/api/connect/post/getsettings?accountId=accountId&sessionId=sessionId&providerName=pinterest'.
+    In this URL:
+        
+        a. 'accountId': The account ID used for this request.
+        b. 'sessionId': The session ID used for this request.
+        c. 'providerName': The provider name used in this request, which is 'pinterest' in this case.
+
+    6. "headers": These are extra details sent with the request to provide
+    additional information. In this case, the headers are not defined (empty)
+    and are disabled.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: providerName
+      in: query
+      schema:
+        type: string
+      example: pinterest
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

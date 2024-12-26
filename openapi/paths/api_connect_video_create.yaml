@@ -1,0 +1,130 @@
+post:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Create
+  description: >-
+    This endpoint is named "Connect - Video - Create". The purpose of this
+    endpoint is to create a new video connection. It functions through a POST
+    method, signifying data being sent to the server to create a new resource.
+
+
+    1. "auth": This part of the endpoint specifies the type of authentication to
+    be used. In this case, it's "bearer", which means it uses bearer tokens for
+    authentication. There's a key named "token" and its value is expected to be
+    a string, typically an encrypted string unique to each user session.
+
+
+    2. "method": This refers to the HTTP method used. Here, it's a POST request
+    that is used when you want to send some data to the server, like when you
+    submit a form. 
+
+
+    3. "url": This is the specific URL at which the request is to be made. Here,
+    it is to 'http://localhost:3000/api/connect/video/create'.
+
+
+    4. "headers": These are the request headers which contain aspects regarding
+    the request and its requirements. In this case, the headers have been left
+    blank and are disabled, indicating that no additional metadata is required
+    in the headers for the request.
+
+
+    5. "body": This section contains the data that is being sent to the URL.
+    It's in 'raw' mode, which means the text will be sent as it is with no
+    additional formatting. It's written in JSON format. 
+
+
+    The request body contains several items:
+
+       a. "sessionId": This is presumably a unique identifier for the given user's session.
+
+       b. "accountId": A unique identifier for the user's account.
+
+       c. "provider": Here, the provider is stated as 'facebookpage'. It signifies the video provider platform.
+
+       d. "streamAction": Represents the action to be taken on the stream, it takes arguments such as 'details', 'start', or 'stop'.
+
+       e. "streamTitle": Title for the video stream. In this case, it's 'test'.
+
+       f. "pageName": Name of the page where the video will be streamed, here it's 'unpictures'.
+
+       g. "description": This data contains a brief about the live stream and here it says, 'this is to test live streaming automation on belading'.
+
+       h. "isEnabled": This is a boolean flag used for enabling or disabling the body. Here, its value is true which means the body is enabled.
+
+    6. "options": This is where you would specify any additional options for the
+    'body'. Here, the 'raw' body data is specified to be in 'json' language.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            provider: facebookpage
+            streamAction: details
+            streamTitle: test
+            pageName: unpictures
+            description: this is to test live streaming automation on beladed
+            isEnabled: true
+  security:
+    - bearerAuth: []
+  responses:
+    undefined:
+      content:
+        text/plain:
+          schema:
+            type: string
+          examples:
+            example-0:
+              summary: Afreecatv
+              value: null
+            example-1:
+              summary: BreakersTv
+              value: null
+            example-2:
+              summary: Facebook
+              value: null
+            example-3:
+              summary: Instagram
+              value: null
+            example-4:
+              summary: Kick
+              value: null
+            example-5:
+              summary: Linkedin
+              value: null
+            example-6:
+              summary: Mixcloud
+              value: null
+            example-7:
+              summary: picarto
+              value: null
+            example-8:
+              summary: restream
+              value: null
+            example-9:
+              summary: Rumble
+              value: null
+            example-10:
+              summary: steam
+              value: null
+            example-11:
+              summary: telegram
+              value: null
+            example-12:
+              summary: trovo
+              value: null
+            example-13:
+              summary: vaughn
+              value: null
+            example-14:
+              summary: vimeo
+              value: null
+            example-15:
+              summary: x
+              value: null
+            example-16:
+              summary: Youtube
+              value: null

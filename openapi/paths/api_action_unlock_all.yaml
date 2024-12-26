@@ -1,0 +1,56 @@
+get:
+  tags:
+    - ActionUnlock
+  summary: Action - Unlock - Get All
+  description: |-
+    {
+      "name": "Action - Unlock - Get All",
+      "description": "This endpoint retrieves all unlock actions from the server. It requires authentication and uses a GET request method to fetch the required data. The response will contain details related to all unlock actions available in the system.",
+      "request": {
+        "auth": {
+          "description": "Authentication type for making requests to the API. This endpoint uses bearer token authentication.",
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "description": "The key used to provide the bearer token for authentication. This token must be included in the request headers.",
+              "value": "BearerToken",
+              "type": "string"
+            }
+          ]
+        },
+        "method": {
+          "description": "The HTTP method used for this request. 'GET' is used here, indicating that the request is intended to retrieve data from the server."
+        },
+        "url": {
+          "description": "The endpoint URL where the request is sent. This example uses a local server address and includes query parameters.",
+          "value": "http://localhost:3000/api/action/unlock/all/?sessionId=sessionId&accountId=accountId"
+        },
+        "headers": {
+          "description": "Additional headers can be sent with the request. In this case, no custom header is defined as the key and value fields are empty and disabled."
+        },
+        "body": {
+          "description": "The body of the request. Since this is a GET request, the body is empty.",
+          "mode": "raw",
+          "raw": ""
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

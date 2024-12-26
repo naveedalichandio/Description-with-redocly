@@ -1,0 +1,48 @@
+get:
+  tags:
+    - WebSocketRecent
+  summary: Web - Socket - Recent Votes
+  description: >-
+    ### Web - Socket - Recent Votes
+
+
+    This endpoint retrieves the most recent votes through a web socket
+    connection. Below is a detailed description of each part of the request
+    data:
+
+
+    - **name**: Represents the title of the API request, indicating that it is
+    related to recent votes over a web socket.
+
+
+    - **request**: Contains all the details necessary to execute the API
+    request.
+
+      - **method**: Specifies the HTTP method used for the request. In this case, it is set to "GET," which is used to retrieve data from the server.
+
+      - **url**: The endpoint URL is where the request is sent. Here, it is "http://localhost:3000/api/socket/web/votes?recent=true&limit=limit".
+        - **http://localhost:3000**: This indicates that the server is running locally on port 3000.
+        - **/api/socket/web/votes**: This part of the URL specifies the path to the resource, which is related to votes.
+        - **?recent=true**: This query parameter indicates that the request is specifically for retrieving recent votes.
+        - **&limit=limit**: This query parameter is intended to specify the maximum number of recent votes to retrieve. The placeholder "limit" should be replaced with an actual number to determine how many recent votes to return.
+
+      - **headers**: This section is currently an empty array, indicating that no additional HTTP headers are being sent with the request. Headers could typically include information like content type or authorization tokens if required. 
+
+    Make sure to replace "limit" with an appropriate number when making the
+    request to control how many recent votes you want to fetch.
+  parameters:
+    - name: recent
+      in: query
+      schema:
+        type: boolean
+      example: 'true'
+    - name: limit
+      in: query
+      schema:
+        type: string
+      example: limit
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,60 @@
+get:
+  tags:
+    - ActionSuspend
+  summary: Action - Suspend - Get All
+  description: >-
+    ### Action - Suspend - Get All
+
+
+    **Description:** This endpoint retrieves a list of all suspended actions
+    associated with a specified session and account.
+
+
+    - **Request Type:** GET  
+      The HTTP method used to request data from the server.
+
+    - **URL:**
+    `http://localhost:3000/api/action/suspend/all/?sessionId=sessionId&accountId=accountId`  
+      The endpoint URL where the request is sent. It includes query parameters:
+      - **sessionId:** This parameter should contain the unique identifier for the session you are interested in.
+      - **accountId:** This parameter should contain the unique identifier for the account associated with the session.
+
+    - **Authentication:** Bearer Token  
+      This endpoint requires authentication via a bearer token. The token must be included in the request to verify the user's identity.
+
+      - **Bearer Token Structure:**
+        - **Key:** `token`  
+          The name of the token parameter.
+        - **Value:** `BearerToken`  
+          Replace `BearerToken` with the actual token string to authenticate the request.
+        - **Type:** string  
+          Indicates that the token is a string type.
+
+    - **Headers:**  
+      No additional headers are required for this request. An empty header is provided but is currently disabled.
+
+    - **Body:**  
+      The body of the request is empty since this is a GET request and typically does not send data in the body. The mode is set to `raw` with no content.
+
+    This endpoint will return a list of all actions that have been suspended for
+    the specified session and account. Ensure that you replace the placeholder
+    values in the URL and the bearer token with valid data before making the
+    request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

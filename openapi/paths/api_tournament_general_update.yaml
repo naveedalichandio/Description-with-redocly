@@ -1,0 +1,143 @@
+put:
+  tags:
+    - TournamentGeneral
+  summary: Tournament - General - Update
+  description: |-
+    ### Description of Endpoint Data
+
+    **Endpoint Name**: Tournament - General - Update
+
+    **Request Type**: PUT  
+    This endpoint is used to update an existing tournament's general details.
+
+    ---
+
+    #### Headers
+
+    1. **Authorization**: 
+       - **Type**: Bearer
+       - **Key**: `token` 
+       - **Value**: A string representing the Bearer token for authentication.
+
+    2. **Client-UUID**: 
+       - **Key**: `Client-UUID` 
+       - **Value**: A unique identifier for the client making the request. This is used to identify requests coming from different clients.
+
+    ---
+
+    #### Request Body (JSON)
+
+    1. **sessionId**: 
+       - The identifier for the current session of the tournament. This is used to associate the update with a specific session.
+
+    2. **accountId**: 
+       - The identifier for the account associated with the tournament. This links the tournament to the correct user account.
+
+    3. **teamId**: 
+       - The identifier for the team involved in the tournament. This specifies which team is being referenced in the update.
+
+    4. **tournamentId**: 
+       - The unique identifier for the tournament that is being updated. This is required to fetch and modify the correct tournament details.
+
+    5. **name**: 
+       - The name of the tournament. For example, "NikeAdidasTournament". This is how the tournament will be displayed to users.
+
+    6. **description**: 
+       - A brief explanation about the tournament. In this case, "This tournament is my second attempt to engage a wider audience." This helps users understand the purpose of the tournament.
+
+    7. **tags**: 
+       - A comma-separated list of tags related to the tournament, such as "second,tournament,engagement". Tags help in categorizing and searching for the tournament.
+
+    8. **category**: 
+       - The main category of the tournament. In this case, it is "General". Categories help in organizing tournaments by theme or type.
+
+    9. **subCategory**: 
+       - A specific sub-category under the main category, for instance, "Specific". This adds further classification to the tournament.
+
+    10. **scheduleDate**: 
+       - The date when the tournament is scheduled to take place, formatted as "YYYY-MM-DD". For example, "2023-10-15".
+
+    11. **scheduleTime**: 
+       - The time when the tournament is scheduled to start, formatted as "HH:MM:SS". For example, "14:00:00".
+
+    12. **streamHours**: 
+       - The number of hours allocated for the live streaming of the tournament. For example, `4`.
+
+    13. **coverPhotoUrl**: 
+       - A URL link to the cover photo for the tournament. It typically displays on the tournament's page, such as "https://example.com/cover.jpg".
+
+    14. **voteTokenQuantity**: 
+       - The total number of voting tokens available for the tournament. This sets the limit on how many votes can be cast, such as `100`.
+
+    15. **votingTimeReset**: 
+       - The time duration (in minutes) after which the voting options will reset, for example, "5".
+
+    16. **voteButtonQuantity**: 
+       - The number of voting options available; in this case, `4`.
+
+    17. **voteButtonText1 - 4**: 
+       - Text labels for each voting option button. For example, "Option 1", "Option 2", "Option 3", "Option 4".
+
+    18. **isRewardsEnabled**: 
+       - A boolean value indicating whether rewards are enabled for the tournament. `true` means rewards are applicable.
+
+    19. **isTournamentPrivate**: 
+       - A boolean indicating if the tournament is private. `false` means it is publicly accessible.
+
+    20. **isPreLiveTournamentAds**: 
+       - A boolean indicating if advertisements are allowed before the tournament goes live. `true` means ads are permitted.
+
+    21. **isPostLiveTournamentAds**: 
+       - A boolean indicating if advertisements can be shown after the tournament ends. `false` means ads are not permitted.
+
+    22. **breakPreLiveVideoUrl**: 
+       - A URL link to a video that plays before the live tournament starts. For example, "https://example.com/break-pre-live.mp4".
+
+    23. **breakPostLiveVideoUrl**: 
+       - A URL link to a video that plays after the tournament concludes. For example, "https://example.com/break-post-live.mp4".
+
+    24. **maxStreamerAmount**: 
+       - The maximum number of streamers allowed to participate in the tournament. This limits participation, such as `10`.
+
+    25. **maxTeamCaptainAmount**: 
+       - The maximum number of team captains allowed. This restricts the number of leaders in the tournament, for example, `2`.
+
+    26. **maxScoreKeeperAmount**: 
+       - The maximum number of scorekeepers allowed in the tournament, such as `3`.
+
+    27. **maxOpponentAmount**: 
+       - The maximum number of opponents a team can compete against, for example, `5`.
+
+    28. **started**: 
+       - A boolean indicating if the tournament has started. `false` means the tournament is not yet underway.
+
+    29. **paused**: 
+       - A boolean indicating if the tournament is currently paused. `false` means it is not paused.
+
+    30. **stopped**: 
+       - A boolean indicating if the tournament has been stopped or concluded. `false` means the tournament is still ongoing.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"teamId\":\"teamId\",\"tournamentId\":\"tournamentId\",\"name\":\"NikeAdidasTournament\",\"description\":\"This
+            tournament is my second attempt to engage a wider
+            audience.\",\"tags\":\"second,tournament,engagement\",\"category\":\"General\",\"subCategory\":\"Specific\",\"scheduleDate\":\"2023-10-15\",\"scheduleTime\":\"14:00:00\",\"streamHours\":4,\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"voteTokenQuantity\":100,\"votingTimeReset\":\"5\",\"voteButtonQuantity\":4,\"voteButtonText1\":\"Option
+            1\",\"voteButtonText2\":\"Option 2\",\"voteButtonText3\":\"Option
+            3\",\"voteButtonText4\":\"Option
+            4\",\"isRewardsEnabled\":true,\"isTournamentPrivate\":false,\"isPreLiveTournamentAds\":true,\"isPostLiveTournamentAds\":false,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\",\"maxStreamerAmount\":10,\"maxTeamCaptainAmount\":2,\"maxScoreKeeperAmount\":3,\"maxOpponentAmount\":5,\"started\":false,\"paused\":false,\"stopped\":false}\n"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

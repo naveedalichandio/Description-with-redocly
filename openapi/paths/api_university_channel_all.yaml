@@ -1,0 +1,98 @@
+get:
+  tags:
+    - UniversityChannel
+  summary: University - Channel - Get All
+  description: >-
+    ### Endpoint Description: University - Channel - Get All
+
+
+    - **Name**: University - Channel - Get All  
+      This endpoint is used to retrieve all channels related to a university.
+
+    - **Request**:  
+      This section contains the details of the HTTP request to be made.
+
+      - **Auth**:  
+        This part specifies the authentication mechanism used to access the endpoint.
+        
+        - **Type**: Bearer  
+          Indicates that the request will use Bearer token authentication.
+
+        - **Bearer**:  
+          Contains the details of the bearer token required for authentication.
+          
+          - **Key**: token  
+            This is the identifier for the token.
+
+          - **Value**: BearerToken  
+            This represents the actual bearer token to be used in the request. Replace "BearerToken" with the actual token string.
+
+          - **Type**: string  
+            Specifies that the token should be treated as a string.
+
+      - **Method**: GET  
+        This indicates that the HTTP GET method will be used, which is typically used to retrieve data from a server.
+
+      - **URL**:  
+        The endpoint URL that will be called to fetch the data.
+        
+        - **Base URL**: http://localhost:3000/api/university/channel/all/  
+          This is the main URL for accessing university channels.
+
+        - **Query Parameters**:  
+          These are additional parameters attached to the URL to provide more context or filtering for the request.
+        
+          - **sessionId**: sessionId  
+            This represents a unique identifier for the current session. It will help in tracking user sessions when accessing the data.
+            
+          - **accountId**: accountId  
+            This denotes the unique identifier for the user's account. It is necessary to ensure that the request is associated with a specific user's data.
+
+      - **Headers**:  
+        The section for HTTP headers associated with the request.
+        
+        - **Key**: (empty)  
+          This field is currently empty and does not contain any custom headers.
+
+        - **Value**: (empty)  
+          This field is also empty and does not contain any corresponding value.
+
+        - **Type**: default  
+          This indicates the default type of the header.
+
+        - **Disabled**: true  
+          This indicates that the header is currently disabled and will not be included in the request.
+
+      - **Body**:  
+        Contains the body of the request. While typically relevant for POST or PUT requests, in this case:
+        
+        - **Mode**: raw  
+          Indicates that the body should be treated as raw data, but since this is a GET request, no body is sent.
+
+        - **Raw**: ""  
+          This field is empty, indicating that no content will be sent in the body of the request.
+
+    ### Summary
+
+    This endpoint is designed to fetch all available channels associated with a
+    university using Bearer token authentication. It requires session and
+    account IDs as query parameters for context and retrieval purposes. No
+    additional headers or body content are needed for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

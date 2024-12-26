@@ -1,0 +1,108 @@
+put:
+  tags:
+    - ActionFollow
+  summary: Action - Follow - Update
+  description: >-
+    ### Action - Follow - Update Endpoint Description
+
+
+    #### Request Method
+
+    - **Method**: PUT
+        - This request method is used to update an existing resource.
+
+    #### URL
+
+    - **Endpoint URL**: `http://localhost:3000/api/action/follow/update`
+        - This is the URL to which the request is sent for updating follow actions.
+
+    #### Authorization
+
+    - **Authorization Type**: Bearer Token
+        - This indicates that the request requires a bearer token for authentication.
+    - **Token**: 
+        - **Key**: `token`
+        - **Value**: `BearerToken`
+            - This is a placeholder for the actual bearer token that provides authentication.
+
+    #### Headers
+
+    - **Header**: Client-UUID
+        - **Key**: `Client-UUID`
+        - **Value**: `ClientUUID`
+            - This header typically contains the unique identifier for the client making the request.
+
+    #### Body
+
+    - **Body Mode**: Raw
+        - This indicates that the request body is sent as raw data.
+    - **Raw Data**:
+        ```json
+        {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "path": "/live/channel/video123",
+            "targetType": "videoId",
+            "targetId": "videoId",
+            "sourceType": "accountId",
+            "sourceId": "accountId",
+            "didFollow": true,
+            "isUndo": false,
+            "name": "this is name",
+            "description": "",
+            "tags": "",
+            "followId": "followId"
+        }
+        ```
+        - **sessionId**: This represents the unique identifier for the session in which the follow action is being taken.
+        - **accountId**: This is the identifier for the user account associated with the follow action being updated.
+        - **path**: Indicates the path or URL where the related content (e.g., live channel) is located.
+        - **targetType**: Specifies the type of target being acted upon, in this case, it is a video identifier.
+        - **targetId**: The specific identifier of the target (video) that is being followed.
+        - **sourceType**: This notes the type of source that is initiating the follow action, here it refers to the account ID.
+        - **sourceId**: The unique identifier of the source (account) that is following the target.
+        - **didFollow**: A boolean value indicating whether the follow action has been taken (true) or not (false).
+        - **isUndo**: A boolean flag indicating if the follow action is being undone (true) or not (false).
+        - **name**: An optional field providing a name or title for the action.
+        - **description**: An optional field to add any descriptions related to the follow action.
+        - **tags**: This field is for adding any relevant tags associated with the follow action, which is currently empty.
+        - **followId**: This represents the unique identifier of the follow action being updated.
+
+    ### Summary
+
+    This endpoint is used to update the details of a follow action for a
+    particular video or content, including session and account information,
+    target details, and the action's state. All provided fields must be filled
+    out appropriately to ensure the update is processed correctly.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didFollow: true
+            isUndo: false
+            name: this is name
+            description: ''
+            tags: ''
+            followId: followId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

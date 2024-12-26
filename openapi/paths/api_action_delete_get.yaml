@@ -1,0 +1,82 @@
+get:
+  tags:
+    - ActionDelete
+  summary: Action - Delete - Get
+  description: >-
+    ### Endpoint Description
+
+
+    #### Name: 
+
+    Action - Delete - Get
+
+
+    #### Request:
+
+
+    **Authorization:**
+
+    - **Type:** Specifies that the request will be authenticated using a bearer
+    token.
+
+    - **Bearer:**
+      - **Key:** "token" - Indicates the parameter name for the token.
+      - **Value:** "BearerToken" - Placeholder for the actual bearer token that needs to be provided for authorization.
+      - **Type:** "string" - Indicates that the token value should be a string.
+
+    **Method:**
+
+    - **Type:** GET - This indicates that the request is of type GET, which is
+    typically used to retrieve data from the server.
+
+
+    **URL:**
+
+    - The endpoint URL is: `http://localhost:3000/api/action/delete/get/`
+      - **Query Parameters:**
+        - **deleteId:** Represents the ID of the item you want to delete. Replace `deleteId` with the actual ID of the item.
+        - **sessionId:** Represents the session ID associated with the request. Replace `sessionId` with the actual session ID.
+        - **accountId:** Represents the ID of the account involved in the operation. Replace `accountId` with the actual account ID.
+
+    **Headers:**
+
+    - **Key:** (Not specified) - No additional headers are included in the
+    request.
+
+    - **Value:** (Not specified) - No additional values are provided.
+
+    - **Type:** default - Indicates standard headers.
+
+    - **Disabled:** true - This header is disabled and will not be sent with the
+    request.
+
+
+    **Body:**
+
+    - **Mode:** raw - Specifies the body type for the request.
+
+    - **Raw:** (Empty) - No body content is included in the request, as GET
+    requests typically do not require a body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: deleteId
+      in: query
+      schema:
+        type: string
+      example: deleteId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

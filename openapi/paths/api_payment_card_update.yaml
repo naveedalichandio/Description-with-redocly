@@ -1,0 +1,137 @@
+post:
+  tags:
+    - PaymentCard
+  summary: Card - Square - Update
+  description: >-
+    This endpoint, 'Card - Square - Update', is used to update the details of an
+    existing card on the Square payment platform. The following describes the
+    individual pieces of data passed in this request.
+
+
+    1. `name`: This field specifies the name of the API endpoint. Here, the name
+    is 'Card - Square - Update', indicating an update related to a card in the
+    Square payment system.
+
+
+    2. `request`: This object holds all the information related to the API
+    request.
+
+        * `method`: This field indicates the HTTP verb that is used for the API call. Here, 'POST' is used, which is typically used when you want to send some data to the server.
+
+        * `url`: This is the URL where the API request will be made. In this case, the endpoint is 'http://localhost:3000/api/payment/card/update'.
+
+        * `headers`: This is an empty array, implying that no additional HTTP headers are being sent with this request.
+
+        * `body`: This encapsulates the data sent by a POST request.
+
+            * `mode`: It indicates how the request body is formatted. Here, 'raw' signifies that the body content is unprocessed.
+            
+            * `raw`: This field includes the raw string of the data to be sent in the body of the HTTP request. This data is structured in the JSON format.
+
+                * `accountId`: This is a unique identifier for the account.
+
+                * `sessionId`: This is a unique identifier for a user session.
+
+                * `source`: This object contains information about the payment source.
+
+                    * `paymentId`: This represents a unique identifier for a particular payment.
+
+                    * `customerId`: This field represents a unique identifier for the customer who made the payment.
+
+                * `isSaveCard`: This is a boolean value to indicate whether to save the card for future use. If true, the card will be saved.
+
+                * `isPrimary`: This boolean value indicates whether the card is the primary card. If false, the card is not the primary card.
+
+                * `provider`: This indicates the payment provider. Here, the provider is 'square'.
+
+            * `options`: This field contains additional settings for the request body.
+
+                * `raw`: This defines the language setting for the raw data in the body section of the request.
+
+                    * `language`: This specifies the programming language for formatting the raw data. Here, it is set to 'json', indicating that the raw data is in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source:
+              paymentId: D9kDsYIqprluE2rqn2dhjmW4bo5YY
+              customerId: EQ0ZQW60RE4ZXA5JVDVGWV9B3R
+            isSaveCard: true
+            isPrimary: false
+            provider: square
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}
+put:
+  tags:
+    - PaymentCard
+  summary: Card - Zelle - Update
+  description: >-
+    This endpoint is associated with the name 'Card - Zelle - Update'. It is
+    responsible for making a 'PUT' HTTP request to update the payment card
+    information linked with Zelle. The URL for this request is
+    'http://localhost:3000/api/payment/card/update'. There are no custom headers
+    involved in this request.
+
+
+    The request body is strictly in a raw format, containing JSON data. It
+    houses the following pieces of data:
+
+
+    1. `accountId`: A string type field that provisions the unique identifier of
+    the account where the card is being updated.
+
+
+    2. `sessionId`: A string that represents the unique identifier of the
+    session in which the card is being updated.
+
+
+    3. `cardId`: A string that signifies the unique identifier of the card which
+    is being updated.
+
+
+    4. `source`: A field which can either contain a string or null. In this
+    current setup, it's null. It might be used to specify the source from which
+    the update request is initiated.
+
+
+    5. `isSaveCard`: A boolean field to indicate whether or not to save the card
+    for future use. In this case, it is set to true, meaning the preference is
+    to save the card.
+
+
+    6. `isPrimary`: Another boolean field to indicate whether this card is to be
+    set as the primary card or not. Here, it is set to true, meaning this card
+    will be designated as the primary card.
+
+
+    7. `provider`: A string field that specifies the payment processing
+    provider. In this case, it is set to 'zelle'.
+
+
+    The `options` object defines the language of the raw request body. In this
+    case, the language is set as 'json'.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            cardId: cardId
+            source: null
+            isSaveCard: true
+            isPrimary: true
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

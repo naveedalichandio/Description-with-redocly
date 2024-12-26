@@ -1,0 +1,76 @@
+get:
+  tags:
+    - UniversityVideo
+  summary: University - Video - Get All
+  description: >-
+    ### Endpoint Description: University - Video - Get All
+
+
+    - **Name**: University - Video - Get All
+      - This represents the purpose of the endpoint, which is to retrieve all videos related to the university.
+
+    - **Request**: This section outlines the components required for making the
+    API request.
+
+      - **Auth**: This part specifies the authentication method for the request.
+        - **Type**: bearer
+          - Indicates that the request requires bearer token authentication.
+        - **Bearer**: An array containing objects for the bearer token.
+          - **Key**: token
+            - Identifies the authentication key.
+          - **Value**: BearerToken
+            - A placeholder for the actual bearer token required to authorize the request.
+          - **Type**: string
+            - Specifies that the token value should be treated as a string.
+
+      - **Method**: GET
+        - This indicates that the HTTP method used for the request is GET, which is typically used to retrieve data from the server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/university/video/all/?sessionId=sessionId&accountId=accountId`
+          - This is the endpoint URL to which the GET request is sent.
+          - **Base URL**: `http://localhost:3000/api/university/video/all/`
+            - This defines the path for accessing university videos.
+          - **Query Parameters**:
+            - `sessionId=sessionId`
+              - A placeholder for the session identity; used to identify the user session for the request.
+            - `accountId=accountId`
+              - A placeholder for the account identity; used to link the request to a specific user account.
+
+      - **Headers**: This section can contain additional information about the request, though in this case:
+        - **Key**: (empty)
+          - Indicates there are no additional headers specified.
+        - **Value**: (empty)
+          - Indicates there are no values for headers specified.
+        - **Type**: default
+          - Refers to the default header type.
+        - **Disabled**: true
+          - This indicates that the header is currently disabled and not being sent with the request.
+
+      - **Body**: 
+        - **Mode**: raw
+          - Indicates that the body of the request (if applicable) is in raw format.
+        - **Raw**: ""
+          - This field is empty, meaning no request body is needed for this GET request.
+
+    This description provides a clear and concise explanation of each component
+    of the "University - Video - Get All" endpoint, making it easier for users
+    to understand how to utilize this API effectively.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

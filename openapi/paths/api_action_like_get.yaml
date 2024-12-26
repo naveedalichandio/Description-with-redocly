@@ -1,0 +1,75 @@
+get:
+  tags:
+    - ActionLike
+  summary: Action - Like - Get
+  description: >-
+    ### Action - Like - Get Endpoint Description
+
+
+    - **Endpoint Name**: Action - Like - Get  
+      This is the name of the API endpoint that is used to retrieve the details of a like action.
+
+    - **Request Type**:  
+      `GET`  
+      Specifies that this request is a GET request, which is used to fetch data from the server.
+
+    - **Authorization**:  
+      - **Type**: `bearer`  
+        This indicates that bearer token authentication is used for this request.
+      - **Bearer Token**:  
+        - **Key**: `token`  
+          The name of the authentication parameter.
+        - **Value**: `BearerToken`  
+          A placeholder for the actual bearer token which is required for authentication.
+        - **Type**: `string`  
+          This denotes that the value of the token should be a string.
+
+    - **URL**:  
+      `http://localhost:3000/api/action/like/get/?likeId=likeId&sessionId=sessionId&accountId=accountId`  
+      The address of the API endpoint that will be called. It includes query parameters:
+      - **likeId**: Specifies the ID of the like action to retrieve.
+      - **sessionId**: Indicates the ID of the user session.
+      - **accountId**: Refers to the user account ID associated with the like.
+
+    - **Headers**:  
+      - **Key**: (empty)  
+        No headers are specified, which means the request will not carry any additional header information.
+      - **Value**: (empty)  
+        No corresponding value for the header as it is disabled.
+      - **Type**: `default`  
+        Indicates the default type of the header.
+      - **Disabled**: `true`  
+        This means that the header has been disabled and will not be sent with the request.
+
+    - **Body**:  
+      - **Mode**: `raw`  
+        Indicates that the body of the request is in a raw format.
+      - **Raw**: (empty)  
+        The body of the request is empty, meaning no data is sent with this GET request. 
+
+    This endpoint is designed to retrieve information about a specific like
+    action based on the parameters provided in the URL. It requires a valid
+    bearer token for authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: likeId
+      in: query
+      schema:
+        type: string
+      example: likeId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

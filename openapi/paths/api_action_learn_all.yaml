@@ -1,0 +1,60 @@
+get:
+  tags:
+    - ActionLearn
+  summary: Action - Learn - Get All
+  description: |-
+    {
+      "name": "Action - Learn - Get All",
+      "description": "This API endpoint is designed to retrieve a list of all learning actions available. It requires authentication via a bearer token and does not include any additional headers or a request body. The endpoint accepts two query parameters: sessionId and accountId, which are necessary to specify the session and account context for the request. This is a GET request, meaning it is primarily used to retrieve data rather than modify it.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "description": "The authentication type used for the request. This specifies that a bearer token is required to access this endpoint.",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "BearerToken",
+              "type": "string",
+              "description": "The actual bearer token that must be included in the authorization header to authenticate the request."
+            }
+          ]
+        },
+        "method": "GET",
+        "description": "The HTTP method used for the request. This indicates that the operation will retrieve data from the server.",
+        "url": "http://localhost:3000/api/action/learn/all/?sessionId=sessionId&accountId=accountId",
+        "description": "The URL for the API endpoint. It is structured to include query parameters for sessionId and accountId, which should be replaced with actual values when making a request.",
+        "headers": [
+          {
+            "key": "",
+            "value": "",
+            "type": "default",
+            "disabled": true,
+            "description": "This section allows for additional headers to be specified. In this case, no headers are provided and the feature is disabled."
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request. Since this is a GET request, no body is required or included.",
+          "raw": "",
+          "description": "The raw representation of the request body. It remains empty for this endpoint as no data is being sent."
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

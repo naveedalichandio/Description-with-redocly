@@ -1,0 +1,113 @@
+post:
+  tags:
+    - WhipSignal
+  summary: Signal - Candidate - Create
+  description: >-
+    ### Description of Endpoint Data
+
+
+    **Endpoint Name:** Signal - Candidate - Create  
+
+    This endpoint is used to create a new candidate signal in the system.
+
+
+    **Request Method:** POST  
+
+    Indicates that this request will be sending data to the server to create a
+    new resource.
+
+
+    **Request URL:**  
+
+    `http://localhost:3000/api/signal/candidate/create`  
+
+    This is the URL where the request will be sent. It is hosted locally at port
+    3000.
+
+
+    **Authentication:**  
+
+    - **Type:** Bearer  
+      This indicates that a bearer token is required for authentication.
+    - **Bearer Token:**  
+      - **Key:** token  
+        Represents the token used for authentication.
+      - **Value:** BearerToken  
+        Placeholder for the actual bearer token value. It should be replaced with a valid token.
+      - **Type:** string  
+        Specifies that the token is a string.
+
+    **Headers:**  
+
+    - **Key:** (Empty)  
+      No specific headers are defined for this request, indicating that default headers are being used.
+    - **Value:** (Empty)  
+      No specific value is provided for headers.
+    - **Type:** default  
+      Indicates that this header configuration is in its default state.
+    - **Disabled:** true  
+      This means that the headers are not currently active.
+
+    **Body:**  
+
+    - **Mode:** raw  
+      The body data is being sent in a raw format.
+    - **Raw Data:**  
+      ```json
+      {
+        "accountId": "accountId", 
+        "sessionId": "sessionId", 
+        "type": "candidate", 
+        "candidate": "candidate:842163049 1 udp 1677729535 192.168.1.1 54400 typ srflx raddr 0.0.0.0 rport 0 generation 0 ufrag EEtu network-id 1 network-cost 10"
+      }
+      ```
+      - **accountId:**  
+        This field represents the unique identifier associated with the user's account. It should be replaced with the actual account ID.
+      - **sessionId:**  
+        This field holds the unique identifier for the session during which the candidate is being created. This should be replaced with the actual session ID.
+      - **type:**  
+        This field indicates the type of signal being sent. In this case, it is set to "candidate," indicating that this signal relates to a network candidate.
+      - **candidate:**  
+        This field contains a detailed string representation of the candidate. It includes various attributes:
+        - **candidate ID:** `candidate:842163049`
+        - **component ID:** `1`
+        - **protocol:** `udp`
+        - **priority:** `1677729535`
+        - **IP address:** `192.168.1.1`
+        - **port:** `54400`
+        - **candidate type:** `typ srflx`
+        - **relayed address:** `raddr 0.0.0.0`
+        - **relayed port:** `rport 0`
+        - **generation:** `0`
+        - **username frag:** `ufrag EEtu`
+        - **network ID:** `network-id 1`
+        - **network cost:** `network-cost 10`
+      
+    **Options:**  
+
+    - **Raw:**  
+      - **Language:** json  
+        Specifies that the raw body data is formatted as JSON. 
+
+    This information provides insight into how to configure the request body,
+    authentication, and endpoint specifics for creating a candidate signal.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            type: candidate
+            candidate: >-
+              candidate:842163049 1 udp 1677729535 192.168.1.1 54400 typ srflx
+              raddr 0.0.0.0 rport 0 generation 0 ufrag EEtu network-id 1
+              network-cost 10
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

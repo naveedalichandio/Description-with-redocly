@@ -1,0 +1,113 @@
+post:
+  tags:
+    - ActionReinstate
+  summary: Action - Reinstate - Create
+  description: >-
+    ### Endpoint Description: Action - Reinstate - Create
+
+
+    This endpoint is used to create a reinstatement action for a specified
+    session. Below is a detailed description of each data point in the request
+    body:
+
+
+    - **sessionId**: This is a unique identifier for the session associated with
+    the reinstatement action. It is required to link the reinstatement to the
+    specific session context.
+
+
+    - **accountId**: This represents the identifier for the account performing
+    the action. It is crucial for authorizing the request and ensuring that the
+    action is being carried out by the correct user.
+
+
+    - **path**: This is the specific path of the resource that is being
+    reinstated. In this example, it points to a live channel video, which
+    indicates that the action is related to streaming content.
+
+
+    - **targetType**: Indicates the type of target being reinstated. In this
+    case, it is specified as "streamer", meaning that the action is aimed at a
+    streamer account.
+
+
+    - **targetId**: This is the unique identifier for the specific target
+    resource (e.g., the video or streamer) being reinstated. It connects the
+    action to the individual entity.
+
+
+    - **sourceType**: This field specifies the type of source from which the
+    reinstatement is being initiated. It is set to "accountId", indicating that
+    the source is an account identifier.
+
+
+    - **sourceId**: This is the identifier for the source account associated
+    with the reinstatement. It should match the account that is initiating the
+    reinstatement process.
+
+
+    - **tokenAmount**: This number indicates the amount of tokens being used or
+    affected by the reinstatement. In this example, the value is set to 20.
+
+
+    - **name**: This field provides a name for the reinstatement action. It can
+    be used to identify or label the action for future reference, with
+    "reinstate1" as a sample name.
+
+
+    - **description**: This is an optional field for providing additional
+    information about the reinstatement action. In this instance, it is left
+    empty, but users can include any relevant details if necessary.
+
+
+    - **tags**: This optional field allows users to categorize the reinstatement
+    action using tags. It is useful for organization and searching purposes but
+    is left empty in this example.
+
+
+    ### Request Configuration
+
+    - **Auth**: The endpoint requires bearer token authentication for
+    authorization. The token must be sent with the request to validate the
+    user's identity and permissions.
+
+
+    - **Method**: The HTTP method for this request is POST, which is used to
+    submit data to the server to create a new resource.
+
+
+    - **URL**: The endpoint URL is
+    `http://localhost:3000/api/action/reinstate/create`, where the request
+    should be sent.
+
+
+    - **Headers**: Currently, there is a placeholder for headers that is
+    disabled. Users can customize or add headers as needed for the request.
+
+
+    - **Body**: The request body is sent in raw JSON format and contains all the
+    parameters necessary for creating a reinstatement action as described above.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: reinstate1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

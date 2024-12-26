@@ -1,0 +1,61 @@
+get:
+  tags:
+    - NotificationComments
+  summary: Notification - Comments - Get
+  description: >-
+    Endpoint Name: This is called "Notification - Comments - Get". It defines
+    the purpose of this endpoint. It is used to retrieve notifications related
+    to comments.
+
+
+    Request Method: The 'GET' method is used. This method means you are
+    retrieving some kind of data.
+
+
+    Authentication: The authentication required for this endpoint is 'Bearer
+    token'. This means that the server requires a bearer token to authenticate
+    the user making the request.
+
+      - Token: A bearer token for authentication. It needs to be sent in the 'Bearer token' field. The type of the token is a string.
+
+    URL: The URL field contains the API endpoint path. This particular endpoint
+    is for 'http://localhost:3000/api/notification/comments/get/'. The endpoint
+    requires three parameters that need to be specified - 'commentsId',
+    'sessionId', and 'accountId'. 
+
+      - 'commentsId': The identification number for the comments you are looking for notifications for.
+      - 'sessionId': The session ID from which the API request is made.
+      - 'accountId': The account ID which is linked to the session.
+
+    Headers: Headers in HTTP requests hold additional information sent with the
+    request. Currently, there aren't any specified headers for this API
+    endpoint.
+
+
+    Request Body: The request body contains data to be sent to the server. For
+    this endpoint, the body mode is set to 'raw', which means you can send
+    unstructured data. However, currently, no data is meant to be sent in the
+    body for this request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: commentsId
+      in: query
+      schema:
+        type: string
+      example: commentsId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

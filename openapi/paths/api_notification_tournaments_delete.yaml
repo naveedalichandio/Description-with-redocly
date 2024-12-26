@@ -1,0 +1,56 @@
+post:
+  tags:
+    - NotificationTournaments
+  summary: Notification - Tournaments - Delete
+  description: >-
+    This endpoint, named "Notification - Tournaments - Delete", is used to
+    delete notifications pertaining to specific tournaments. 
+
+
+    The endpoint uses the HTTP POST method. 
+
+
+    It is authenticated using the Bearer Token method, meaning you will need a
+    valid token for the session, denoted as "sessionId", in order to gain
+    authorised access. 
+
+
+    The API URL where the request is sent to is
+    "http://localhost:3000/api/notification/tournaments/delete". 
+
+
+    At this moment, there are no extra headers or specifications included in the
+    request's header field.
+
+
+    As for the body of the request, it is sent in raw mode with a JSON format
+    payload. The payload contains the following fields: 
+
+
+    1. "sessionId": It's a string type value that stands for the current session
+    of your interaction with the API.
+       
+    2. "accountId": This is also a string type value and refers to the ID of the
+    user's account which is associated with the session.
+       
+    3. "tournamentsId": This value represents the ID of the specific tournament
+    whose notifications you want to delete.
+
+
+    Please note that all of the three mentioned fields ("sessionId",
+    "accountId", and "tournamentsId") are required to make a valid request to
+    this endpoint.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"tournamentsId\":\"tournamentsId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

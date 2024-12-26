@@ -1,0 +1,124 @@
+put:
+  tags:
+    - ActionSuspend
+  summary: Action - Suspend - Update
+  description: |-
+    ### Description of API Endpoint: Action - Suspend - Update
+
+    - **Name**: Action - Suspend - Update  
+      The name of the API endpoint indicating that it is used to update suspension actions for a specific account or user.
+
+    - **Request**:  
+      This section contains details about the request being made to the API.
+
+      - **Auth**:  
+        Information regarding the authentication method used for this request.
+        
+        - **Type**: bearer  
+          Specifies that a bearer token is used for authentication.
+          
+        - **Bearer**:  
+          Contains the details of the authentication token.
+          
+          - **Key**: token  
+            The name or key of the authentication parameter.
+            
+          - **Value**: BearerToken  
+            The actual token used to authorize the request. Replace "BearerToken" with the valid token.
+
+          - **Type**: string  
+            Indicates that the value of the token is a string.
+
+      - **Method**: PUT  
+        This indicates that the HTTP method used for the request is PUT, typically used for updating resources.
+
+      - **URL**: http://localhost:3000/api/action/suspend/update  
+        The endpoint URL where the request is sent. It points to a local server address and defines the specific resource being accessed or modified.
+
+      - **Headers**:  
+        Includes additional information sent along with the request.
+
+        - **Key**: Client-UUID  
+          A unique identifier for the client making the request.
+
+        - **Value**: ClientUUID  
+          The actual UUID for the client. Replace "ClientUUID" with the actual client UUID used for identifying the request.
+
+        - **Type**: default  
+          Specifies the default type for the header.
+
+      - **Body**:  
+        Contains the payload of the request, typically in JSON format. It consists of several parameters used to update the suspension action.
+
+        - **Mode**: raw  
+          Indicates that the request body is in raw format, allowing the use of custom JSON data.
+
+        - **Raw**:  
+          The actual JSON data to be sent with the request, formatted as follows:
+
+          - **sessionId**: "sessionId"  
+            Unique identifier for the session. Replace "sessionId" with the actual session ID.
+
+          - **accountId**: "accountId"  
+            The identifier for the account being suspended. Replace "accountId" with the actual account ID.
+
+          - **suspendId**: "suspendId"  
+            Unique identifier for the suspension action. Replace "suspendId" with the relevant ID.
+
+          - **path**: "/live/channel/video123"  
+            The path indicating where the suspension action affects, typically a live channel or video. 
+
+          - **targetType**: "streamer"  
+            The type of target that is being affected by the suspension, e.g., a streamer.
+
+          - **targetId**: "videoId"  
+            The identifier for the specific target item (such as a video) being suspended. 
+
+          - **sourceType**: "accountId"  
+            Specifies the type of the source from which information is being pulled, such as an account.
+
+          - **sourceId**: "accountId"  
+            Identifier for the source account. Replace "accountId" with the actual source account ID.
+
+          - **tokenAmount**: 20  
+            The amount of tokens that are relevant to the suspension action. 
+
+          - **name**: "Farooq"  
+            A name associated with the action, likely indicating who is performing the suspension or whose account is affected.
+
+          - **description**: "this is description"  
+            A text field providing additional context or information about the suspension action. 
+
+          - **tags**: "xyz"  
+            Tags associated with the suspension action to categorize or identify it.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            suspendId: suspendId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

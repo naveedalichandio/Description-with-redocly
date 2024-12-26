@@ -1,0 +1,87 @@
+get:
+  tags:
+    - ActionCredit
+  summary: Action - Credit - Get All
+  description: >-
+    ### Endpoint Description: Action - Credit - Get All
+
+
+    - **Name**: Action - Credit - Get All  
+      This is the identifier for the API call, indicating that it retrieves all credit-related actions.
+
+    - **Request**:  
+      The details of the HTTP request necessary to access this endpoint.
+
+      - **Auth**:  
+        This specifies the authentication method used for the request.
+        
+        - **Type**: Bearer  
+          Indicates that Bearer token authentication is being used.
+
+        - **Bearer**:  
+          An array that contains the information required for bearer token authentication.
+          
+          - **Key**: token  
+            This key describes the type of token that will be used for authentication.
+            
+          - **Value**: BearerToken  
+            Replace "BearerToken" with an actual token to authenticate the request.
+
+          - **Type**: string  
+            Specifies that the value for the token is a string.
+
+      - **Method**: GET  
+        This indicates that the request will retrieve data from the server.
+
+      - **URL**:  
+        The endpoint URL where the request will be sent.
+        - `http://localhost:3000/api/action/credit/all/` is the base URL.
+        - **Query Parameters**:
+          - **sessionId**: A unique identifier for the user session. This should be provided as a parameter in the URL.
+          - **accountId**: The identifier for the user’s account. This should also be included as a parameter in the URL.
+
+      - **Headers**:  
+        Each header includes specific information about the request.
+        
+        - **Key**: (empty)  
+          Currently, there are no headers added for this request. This means the default headers will be used.
+          
+        - **Value**: (empty)  
+          No specific value is set for the header key.
+          
+        - **Type**: default  
+          Indicates that this header is a standard header type.
+
+        - **Disabled**: true  
+          Shows that the header is not active and will not be sent with the request.
+
+      - **Body**:  
+        No request body is needed for this GET request.
+
+        - **Mode**: raw  
+          Indicates that the body, if there were to be any, would be in raw format. 
+
+        - **Raw**: ""  
+          This field is empty, confirming that no additional data needs to be sent in the body of the request.
+
+    This endpoint is designed to fetch all credit actions related to a specific
+    account within a user's active session. Make sure to provide valid session
+    and account IDs to retrieve the correct data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

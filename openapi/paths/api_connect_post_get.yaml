@@ -1,0 +1,61 @@
+get:
+  tags:
+    - ConnectPost
+  summary: Connect - Post - Get
+  description: >-
+    1. "name": The "name" field refers to the title or alias for the API
+    endpoint which is "Connect - Post - Get". It is a string that typically
+    indicates the purpose of this endpoint.
+
+
+    2. "request": This section contains data related to the API request itself. 
+
+
+    3. "request.auth": This part specifies the type of authorization needed to
+    access this endpoint. Authorization can vary depending on the security
+    standards of the API.
+
+       - "type": "bearer" means the authorization requires a Bearer token which must be sent in the header of the HTTP request.
+       
+       - "bearer": This is an array of bearer tokens needed for the authentication.
+       
+       - "key": "token", signifies the key of the bearer token which is "token" in this case.
+       
+       - "value": "BearerToken", This field contains the actual value of the API token. Replace "BearerToken" with the real valid token.
+       
+       - "type": "string", It indicates that the bearer token value should be of string type.
+       
+    4. "request.method": The HTTP method used for this API request. In this
+    case, it is "GET" which means retrieving data from the server.
+
+
+    5. "request.url": This is the URL where the API request will be sent.
+    "http://localhost:3000/api/connect/post/get/?postId=postId" is the base URL
+    followed by the specific endpoint and query parameter.
+
+
+    6. "request.headers": This section contains information that helps the
+    server route the request, determine what response to provide, and other
+    metadata. In this case, empty key-value pair suggests no additional headers
+    are required.
+
+
+    7. "request.body": The body of the HTTP request. Given the method of this
+    request is "GET" and not "POST", the body might be blank.
+       
+       - "mode": "raw", specifies the type of data in the body.
+       
+       - "raw": "", since this is a GET request, there is no additional data provided in the body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: postId
+      in: query
+      schema:
+        type: string
+      example: postId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,39 @@
+get:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Get
+  description: >-
+    This endpoint is used to retrieve video related data on a specific
+    connection. The endpoint's description is as follows:
+
+
+    - **name**: Represents the name of the endpoint. In this case, it is
+    "Connect - Video - Get". This name shows the purpose of the endpoint, which
+    is to fetch video data for a specific connection.
+
+
+    - **request**: Contains all the requirements for making a request to the
+    server. 
+
+        - **auth**: This field is for authenticating the request. In this case, the type of authentication required is a bearer token. The bearer token needs to be placed within this field with the key `token` and the value `BearerToken`. It must be a string.
+
+        - **method**: This represents the HTTP method used for this endpoint. In this case, the 'GET' method is used which retrieves data from the server.
+
+        - **url**: This is the URL to which the request is made. In this case, it is `http://localhost:3000/api/connect/video/get/?connectId=connectId`. The `connectId` should be replaced with the actual connection ID for which the video data needs to be fetched.
+
+        - **headers**: Here you can place any additional information needed for the request, but currently there is a default empty header set which is disabled.
+
+        - **body**: This is where the content of the request is stored. In some endpoints, you would place additional information needed for a successful request. For this 'GET' method, there isn't any body present, hence 'mode' is set to 'raw' and 'raw' is kept empty.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: connectId
+      in: query
+      schema:
+        type: string
+      example: connectId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

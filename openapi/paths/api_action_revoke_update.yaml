@@ -1,0 +1,107 @@
+put:
+  tags:
+    - ActionRevoke
+  summary: Action - Revoke - Update
+  description: >-
+    ### Endpoint: Action - Revoke - Update
+
+
+    #### Request Details
+
+
+    - **Authentication**: 
+      - **Type**: Bearer
+        - **Token**: A string value that represents the bearer token used for authentication, structured as "BearerToken". This token must be included in the header to authenticate the request.
+
+    - **Method**: 
+      - **PUT**: Indicates that this request is intended to update existing resources on the server.
+
+    - **URL**: 
+      - **Endpoint**: `http://localhost:3000/api/action/revoke/update`
+        - This is the URL where the API request is sent. It is intended for updating revocation actions.
+
+    - **Headers**:
+      - **Client-UUID**: 
+        - A default header that holds the client’s unique identifier. It is represented as "ClientUUID", and should be replaced with the actual UUID of the client making the request.
+
+    #### Body Parameters
+
+
+    - **Mode**: 
+      - **Raw**: The body of the request is sent in its raw format, typically necessary for JSON data.
+
+    - **Raw Content**: 
+      ```json
+      {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "revokeId": "revokeId",
+          "path": "/live/channel/video123",
+          "targetType": "streamer",
+          "targetId": "videoId",
+          "sourceType": "accountId",
+          "sourceId": "accountId",
+          "tokenAmount": 20,
+          "name": "Farooq",
+          "description": "this is description",
+          "tags": "xyz"
+      }
+      ```
+      
+      - **sessionId**: A string that uniquely identifies the session. This should be populated with the actual session identifier.
+      
+      - **accountId**: A string that represents the account's unique identifier. Replace this with the actual account ID of the user making the request.
+      
+      - **revokeId**: A unique identifier for the revoke action. This should be replaced with the specific ID related to the revocation process.
+      
+      - **path**: A string that indicates the path to the resource being access, specifically intended for revocation actions, such as `"/live/channel/video123"`.
+      
+      - **targetType**: A string value indicating the type of target for the revoke action. It typically denotes whether the target is a user, streamer, etc. In this case, it is specified as "streamer".
+      
+      - **targetId**: The unique identifier for the target of the revoke action. This should be replaced with the actual target ID, which could refer to a video or user ID.
+      
+      - **sourceType**: Indicates the type of source initiating the action. This could refer to the account type, shown here as "accountId".
+      
+      - **sourceId**: The unique identifier for the source account. It is generally the same as the `accountId`.
+      
+      - **tokenAmount**: A numeric value representing the amount of tokens involved in the revocation. In this case, it’s set to 20.
+      
+      - **name**: A string representing the name associated with the revoke action. Here, it's "Farooq".
+      
+      - **description**: A detailed string providing additional context about the revoke action. In this instance, it simply states "this is description".
+      
+      - **tags**: A string that allows for categorization or labeling of the revoke action. The example value is "xyz". 
+
+    Ensure to replace placeholder values with appropriate real-world data before
+    making the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            revokeId: revokeId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

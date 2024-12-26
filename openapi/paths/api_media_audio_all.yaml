@@ -1,0 +1,68 @@
+get:
+  tags:
+    - MediaAudio
+  summary: Media - Audio - Get All
+  description: >-
+    This endpoint is called "Media - Audio - Get All" and it falls under the GET
+    method. This endpoint's purpose is to fetch all data related to an audio
+    media in the database by querying with specific parameters.
+
+
+    The main elements of this endpoint are:
+
+
+    - **Name**: This signifies the name of the API endpoint which in this
+    context is "Media - Audio - Get All". It's used for pulling all audio media
+    data.
+
+
+    - **Request**: This object contains the details for the server request.
+
+
+    - **Auth**: Authorization details are contained within this object and it
+    has several components:
+        - **Type**: The type of authentication used, which is 'bearer' in this case.
+        - **Bearer**: It contains an object that has the authentication token, `BearerToken` and its type which is string.
+
+    - **Method**: This attribute specifies the HTTP request method to be used
+    when making the request to the endpoint, in this case, it's `GET`.
+
+
+    - **URL**: This is the address to which the HTTP request is being sent. It
+    features query parameters that can be dynamically set and used for unique
+    identification while returning the data. The URL here is
+    `http://localhost:3000/api/media/audio/all/?sessionId=sessionId&accountId=accountId`.
+    This endpoint should return all audio files for the provided `sessionId` and
+    `accountId`.
+
+
+    - **Headers**: They are used to send additional information along with the
+    request. No specific `key-value` pair has been provided here. They are
+    disabled in this case.
+
+
+    - **Body**: This attributes hold any extra data that needs to be sent to the
+    server. In this case, it is empty (`raw: ""`) because GET request doesn’t
+    use the body to send data to the server.
+
+
+    Remember to replace `"BearerToken"`, `"sessionId"` and `"accountId"` with
+    actual values while testing or running this endpoint.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,79 @@
+get:
+  tags:
+    - TournamentInvite
+  summary: Tournament - Invite - Get
+  description: >-
+    ### Endpoint Description: Tournament - Invite - Get
+
+
+    **Name:** This request is named "Tournament - Invite - Get".
+
+
+    **Authentication:**
+
+    - **Type:** Bearer
+      - This endpoint requires authentication using a bearer token.
+      - **Token Details:**
+        - **Key:** token
+        - **Value:** BearerToken (This should be replaced with your actual bearer token)
+        - **Type:** string (Indicates that the token is in string format)
+
+    **Request Method:** 
+
+    - **Method:** GET
+      - This is a GET request, meaning it is used to retrieve data from the server.
+
+    **Request URL:** 
+
+    - **URL:**
+    `http://localhost:3000/api/tournament/invite/get/?inviteId=inviteId&sessionId=sessionId&accountId=accountId`
+      - This is the endpoint to access. 
+      - **Parameters:**
+        - **inviteId:** This parameter should be replaced with the specific ID of the tournament invite you wish to retrieve.
+        - **sessionId:** This parameter should be replaced with the ID of the session related to the tournament.
+        - **accountId:** This parameter should be replaced with the account ID of the user requesting the invite.
+
+    **Headers:**
+
+    - **Key:** None specified
+
+    - **Value:** None specified
+
+    - **Type:** default
+
+    - **Disabled:** true
+      - No custom headers are needed for this request; the header section is disabled by default.
+
+    **Body:**
+
+    - **Mode:** raw
+      - This indicates the type of body content expected in the request.
+    - **Raw:** (Empty)
+      - No body content is needed for this GET request, so this field is left empty.
+
+    This provides clear guidelines for using the "Tournament - Invite - Get"
+    endpoint, ensuring users understand the required inputs and structure for a
+    successful API call.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: inviteId
+      in: query
+      schema:
+        type: string
+      example: inviteId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

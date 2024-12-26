@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ActionFeedback
+  summary: Action - Feedback - Get All
+  description: >-
+    ### Action - Feedback - Get All
+
+
+    **Request Authorization**
+
+    - **Auth Type**: Bearer
+      - **Key**: `"token"` - This is the authorization token required for accessing the endpoint. It should be prefixed with "Bearer " followed by the actual token value to ensure proper authentication.
+
+    **Request Method**
+
+    - **Method**: `GET` - This indicates that the HTTP method used for this
+    request is GET. This is typically used to request data from a specified
+    resource.
+
+
+    **Request URL**
+
+    - **URL**:
+    `http://localhost:3000/api/action/feedback/all/?sessionId=sessionId&accountId=accountId` 
+      - This is the endpoint where the request is sent. It includes two query parameters:
+        - `sessionId`: This parameter should be replaced with the actual session identifier to specify which session the feedback relates to.
+        - `accountId`: This parameter should be replaced with the actual account identifier to specify which account’s feedback is being requested.
+
+    **Request Headers**
+
+    - **Headers**: An array of header objects.
+      - Currently, there are no headers specified for this request. However, this section is ready for any additional headers you might need to include in the future.
+
+    **Request Body**
+
+    - **Body Mode**: `raw` - This indicates the format of the request body.
+
+    - **Raw Body**: Empty - There is no body content required for this GET
+    request, as it is used solely to retrieve data.
+
+
+    This endpoint allows users to fetch all feedback records associated with a
+    specific session and account. The required parameters must be included in
+    the query string for the request to be processed successfully.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

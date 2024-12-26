@@ -1,0 +1,108 @@
+post:
+  tags:
+    - NotificationVideos
+  summary: Notification - Videos - Create
+  description: >-
+    This endpoint is called "Notification - Videos - Create". It uses the POST
+    method, which is typically a method to send data to the server to create a
+    new resource. It uses the URL
+    `http://localhost:3000/api/notification/videos/create`.
+
+
+    Let's go through the main components of this request data:
+
+
+    1. `auth`: this is for the authentication details of the request. It uses
+    `Bearer` token authentication. You should insert a valid token in the
+    `BearerToken` field, and it should be in the string format.
+
+
+    2. `headers`: this is an array but is empty for this request. It generally
+    contains additional details passed with the HTTP request in key-value pairs.
+
+
+    3. `body`: this is the main data that is to be sent to the server. It's sent
+    in raw format, indicating the data is sent as it is, i.e., without any
+    encoding or encryption. The language of the request body data is JSON.
+
+
+    Let's take a look at specific fields in the `body`:
+
+
+    - `sessionId`: replace it with your session identifier.
+
+    - `accountId`: replace it with your account identifier.
+
+    - `name`: replace `My Second Videos` with your video's title.
+
+    - `description`: replace the description for the video.
+
+    - `tags`: put in some relevant tags separated by commas for your video.
+
+    - `profilePhotoUrl`: specify the URL for the profile photo.
+
+    - `coverPhotoUrl`: specify the URL for the cover photo.
+
+    - `minimumTipAmount`: put the minimum tip amount.
+
+    - `categoryId` and `category`: category identifier and category name
+    respectively.
+
+    - `subCategoryId` and `subCategory`: subcategory identifier and subcategory
+    name respectively.
+
+    - `isVideosPrivate`: indicate with true or false if the video is private.
+
+    - `isTournamentOnly`: indicate with true or false if the video is only for
+    tournaments.
+
+    - `isVideosDefault`: indicate with true or false if this video is set as
+    default video. 
+
+    - `isPreLiveNotificationAds`: indicate with true or false if there are ads
+    before the live notification.
+
+    - `isPostLiveNotificationAds`: indicate with true or false if there are ads
+    after the live notification.
+
+    - `breakPreLiveNotificationUrl`: indicate the URL for the ads presented
+    before the live notification.
+
+    - `breakPostLiveNotificationUrl`: indicate the URL for the ads presented
+    after the live notification.
+
+
+    Please replace all the values in the `body` field as per your requirements
+    before making the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Videos
+            description: This videos is my second videos
+            tags: second,videos
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            categoryId: category123
+            category: General
+            subCategoryId: subCategory456
+            subCategory: Specific
+            isVideosPrivate: true
+            isTournamentOnly: false
+            isVideosDefault: true
+            isPreLiveNotificationAds: true
+            isPostLiveNotificationAds: true
+            breakPreLiveNotificationUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveNotificationUrl: https://example.com/break-post-live.mp4
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

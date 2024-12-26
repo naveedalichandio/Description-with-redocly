@@ -1,0 +1,117 @@
+post:
+  tags:
+    - ActionPromote
+  summary: Action - Promote - Create
+  description: >-
+    ### Endpoint: Promote - Create
+
+
+    This API endpoint allows users to create a promotion action. Below is a
+    detailed description of each data component used in this request.
+
+
+    #### Authentication
+
+    - **Type**: Bearer Token
+      - **Key**: `token`
+      - **Value**: `BearerToken` (This is a placeholder for the actual bearer token that authenticates the user making the request.)
+
+    #### Request Details
+
+    - **Method**: POST
+      - This specifies that the request will be creating a new resource on the server.
+
+    - **URL**: `http://localhost:3000/api/action/promote/create`
+      - This is the endpoint where the request is sent to create a promotion.
+
+    #### Headers
+
+    - **Key**: (Empty)
+      - This field is currently not being used, as indicated by the empty value and the `disabled` status being true. Headers can be crucial for certain requests and might need to be configured based on the API's requirements.
+
+    #### Request Body
+
+    - **Mode**: Raw
+      - The request body is sent in a raw format, which is typically in JSON.
+
+    ##### JSON Payload Structure:
+
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "streamer",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "tokenAmount": 20,
+        "name": "promote1",
+        "description": "",
+        "tags": ""
+    }
+
+    ```
+
+
+    - **sessionId**: 
+      - A unique identifier for the session related to this promotion action. It helps track the context in which the promotion occurs.
+
+    - **accountId**: 
+      - The identifier of the account initiating the promotion. This is crucial for associating the promotion with the correct user.
+
+    - **path**: 
+      - The path to the resource being promoted. In this example, it indicates a specific live video channel.
+
+    - **targetType**: 
+      - Specifies the type of target for the promotion. In this case, it is set to "streamer," indicating that the promotion will aim toward a streamer.
+
+    - **targetId**: 
+      - The unique identifier for the target being promoted. Here, it represents the video being promoted.
+
+    - **sourceType**: 
+      - Defines the type of source from which the promotion originates. It is set to "accountId," indicating that the source is the account itself.
+
+    - **sourceId**: 
+      - Similar to `accountId`, this is the identifier for the source account.
+
+    - **tokenAmount**: 
+      - Specifies the amount of tokens to be used for the promotion. In this case, it is set to 20 tokens.
+
+    - **name**: 
+      - A name for the promotion, which helps in identifying it later. Here it is labeled "promote1."
+
+    - **description**: 
+      - An optional field for additional details about the promotion. It is currently empty.
+
+    - **tags**: 
+      - An optional field to include any relevant tags for better categorization of the promotion. It is currently empty.
+
+    This endpoint is designed to streamline the promotion creation process,
+    allowing users to easily configure their promotion parameters for effective
+    marketing.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: promote1
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

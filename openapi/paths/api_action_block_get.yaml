@@ -1,0 +1,70 @@
+get:
+  tags:
+    - ActionBlock
+  summary: Action - Block - Get
+  description: >-
+    ### Action - Block - Get
+
+
+    This endpoint is used to retrieve information about a specific block action.
+    Below is a detailed explanation of each component involved in this request.
+
+
+    #### Request Information
+
+
+    - **Auth**: The request requires bearer token authentication.
+      - **Type**: Specifies the type of authentication used, which is "bearer" in this case.
+      - **Bearer**: This section contains the authentication details.
+        - **Key**: The key for the token, labeled as "token".
+        - **Value**: This should be replaced with the actual bearer token when making the request. It uses the placeholder "BearerToken".
+        - **Type**: The expected data type for the token, which is "string".
+
+    - **Method**: The HTTP method used for this request is "GET", indicating
+    that the client is requesting data from the server.
+
+
+    - **URL**: The endpoint URL to be accessed, which includes query parameters
+    for the request. The format is as follows:
+      - `http://localhost:3000/api/action/block/get/?blockId=blockId&sessionId=sessionId&accountId=accountId`
+        - **blockId**: This is a placeholder for the unique identifier of the block you are querying. Replace with the actual block ID.
+        - **sessionId**: A placeholder for the session ID related to the request. This should be replaced with the actual session ID.
+        - **accountId**: This is a placeholder for the account ID associated with the block. Replace with the actual account ID.
+
+    - **Headers**: This section is for any additional headers that might be
+    necessary for the request. In this case:
+      - **Key**: The header key is empty, which means no specific header is required.
+      - **Value**: The corresponding value is also empty.
+      - **Type**: Marked as "default", indicating a standard header is used.
+      - **Disabled**: This header is currently disabled, meaning it will not be sent with the request.
+
+    - **Body**: The request body details.
+      - **Mode**: The body mode is set to "raw", indicating that it's expected to contain raw data in the request.
+      - **Raw**: The body is currently empty, which means no data will be sent in the body of the request.
+
+    This endpoint is typically used to get the status or details of a specific
+    action block, and proper values should be provided for each query parameter
+    to ensure accurate results.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: blockId
+      in: query
+      schema:
+        type: string
+      example: blockId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

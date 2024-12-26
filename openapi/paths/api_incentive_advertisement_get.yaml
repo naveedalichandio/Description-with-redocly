@@ -1,0 +1,96 @@
+get:
+  tags:
+    - IncentiveAdvertisement
+  summary: Incentive - Advertisement - Get
+  description: >-
+    "name" : This field specifies the name of the API endpoint. Here, it is
+    called "Incentive - Advertisement - Get".
+
+
+    "request" : This field comprises the details of the API request.
+
+
+    "auth" : This field represents the authentication method used for the API
+    endpoint. It uses the bearer type authentication.
+
+
+    "auth.type" : Shows the type of authentication used for the request. In this
+    case, bearer token is used.
+
+
+    "auth.bearer" : It is an array of authentication information.
+       
+    "auth.bearer.key" : Represents the specific key in the bearer token to be
+    used for authentication, in this case "token".
+
+
+    "auth.bearer.value" : Provides the value associated with the key used in the
+    bearer token. The value is named "BearerToken".
+
+
+    "auth.bearer.type" : Specifies the type of data the bearer token is, which
+    is a string.
+
+
+    "method" : This refers to the HTTP method used for the API request. Here, it
+    is a "GET" method.
+
+
+    "url" : This field contains the URL of the API endpoint. In this case, it is
+    "http://localhost:3000/api/incentive/advertisement/get/?advertisementId=advertisementId&sessionId=sessionId&accountId=accountId"
+
+
+    "url parameters" : The URL parameters in the endpoint are advertisementId,
+    sessionId, and accountId.
+
+
+    "headers" : This array holds the information for any headers to be sent in
+    the request.
+      
+    "headers.key" : The key for a header item. In this case it is empty.
+
+
+    "headers.value" : The value associated with the key in a header item. In
+    this case it is empty.
+
+
+    "headers.type" : Defines the type of a header item. Here, it is "default".
+
+
+    "headers.disabled" : Shows the status of a header. Here, it is set as true,
+    which means it is disabled and won't be added into the request headers.
+
+
+    "body" : This field represents the body of the request which contains the
+    data sent to the API endpoint. For this "GET" request, the body is empty.
+
+
+    "body.mode" : Specifies the mode of data in the body of the request. In this
+    case, it is set to "raw".
+
+
+    "body.raw" : Holds the raw data in the body of the request. In this case, it
+    is empty as there is no data being sent in the body for this GET request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: advertisementId
+      in: query
+      schema:
+        type: string
+      example: advertisementId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

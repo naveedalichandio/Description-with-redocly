@@ -1,0 +1,66 @@
+get:
+  tags:
+    - ActionTip
+  summary: Action - Tip - Get All
+  description: >-
+    ### Endpoint: Action - Tip - Get All
+
+
+    - **name**: This is the name of the API endpoint, which is "Action - Tip -
+    Get All". It indicates this endpoint is used for retrieving all tip-related
+    actions.
+
+
+    - **request**: Contains details about how to make the request to the API.
+
+      - **auth**: This section defines the authentication method required to access the endpoint.
+      
+        - **type**: Specifies the type of authentication being used. In this case, it is "bearer", which means a token is required to authenticate.
+        
+        - **bearer**: An array that holds the bearer token information.
+          
+          - **key**: The identifier for the token; here, it is simply "token".
+          
+          - **value**: The actual bearer token that will be sent with the request. It is represented as "BearerToken", and should be replaced with a valid token when making the request.
+          
+          - **type**: Indicates the type of data for the token. In this case, it is a "string".
+
+      - **method**: Specifies the HTTP method. This endpoint uses the "GET" method, which is typically used for retrieving data from the server.
+
+      - **url**: The URL endpoint where the request will be sent. It is a combination of the base URL and specific path to access tips. The example provided is "http://localhost:3000/api/action/tip/all/?sessionId=sessionId&accountId=accountId".
+        
+        - **sessionId**: This is a query parameter in the URL, used to identify the session related to the request. It should be substituted with the actual session ID you are working with.
+        
+        - **accountId**: Another query parameter that identifies the specific account linked to the request. This should also be replaced with the actual account ID.
+
+      - **headers**: Contains the HTTP headers to be sent with the request.
+        
+        - **key**: Indicates the name of the header; it is currently empty and not used.
+        
+        - **value**: The value associated with the header; also currently empty.
+        
+        - **type**: Specifies that the header type is "default". This header is marked as "disabled", meaning it will not be sent with the request.
+
+      - **body**: Describes the content that would be included in the body of the request if needed.
+        
+        - **mode**: Defines the format of the body. Currently set to "raw", indicating no specific formatting is applied.
+        
+        - **raw**: Contains the raw data that would be sent in the body; currently, it is empty, which implies that for a GET request, no body content is typically needed.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

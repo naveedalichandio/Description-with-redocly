@@ -1,0 +1,64 @@
+get:
+  tags:
+    - ActionBoost
+  summary: Action - Boost - Get All
+  description: >-
+    ### Endpoint Description: Action - Boost - Get All
+
+
+    - **Name**: This is the identifier for the API request. It indicates that
+    the endpoint is related to retrieving all boost actions.
+
+
+    - **Request**: This section contains details about how the API request
+    should be executed.
+
+      - **Auth**: This specifies the authentication method used to access the endpoint.
+      
+        - **Type**: Indicates the type of authentication. In this case, it is set to "bearer", which is commonly used for token-based authentication.
+        
+        - **Bearer**: This is a list containing the authentication token required for the request.
+        
+          - **Key**: This represents the parameter name for the bearer token, which is labeled as "token".
+          
+          - **Value**: This is where the actual bearer token should be placed, indicated in the placeholder as "BearerToken". Users need to replace this with their actual token.
+          
+          - **Type**: This specifies the data type of the token, which is set as "string".
+
+      - **Method**: This indicates the HTTP method used for the request. In this case, it is "GET", which means the action is fetching data from the server.
+
+      - **URL**: This is the endpoint where the request will be sent. It's a combination of the base URL and the specific path to the resource being accessed. The URL contains query parameters:
+      
+        - **sessionId**: This is the ID of the session for which the boost actions are being retrieved. It needs to be replaced with an actual session identifier.
+        
+        - **accountId**: This is the ID of the account associated with the boost actions. It also requires a real account identifier to be functional.
+
+      - **Headers**: This specifies any additional headers that may be needed for the request. In this case, there is an empty header entry that is marked as disabled, indicating that no extra headers are currently required.
+
+      - **Body**: This is the content of the request body.
+      
+        - **Mode**: This indicates the type of content in the body. Here, it is set to "raw", implying that the body will contain raw data.
+        
+        - **Raw**: This is where the actual body content would go. It is currently empty, indicating that no body data needs to be sent with the GET request.
+
+    This endpoint can be utilized to fetch all boost actions associated with a
+    specific session and account by providing the required authentication and
+    query parameters.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

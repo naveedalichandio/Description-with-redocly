@@ -1,0 +1,72 @@
+get:
+  tags:
+    - WhipSignal
+  summary: Signal - Offer - Get
+  description: >-
+    **Endpoint Description: Signal - Offer - Get**
+
+
+    - **Request Name**: This is the name of the API request; in this case, it
+    represents the action to retrieve offers associated with a signal.
+
+
+    - **Authentication**: The request uses bearer token authentication. A bearer
+    token is a type of token that is provided in the request header to
+    authenticate the user. Users need to replace "BearerToken" with their actual
+    authentication token.
+
+      - **Type**: Specifies that the authentication method being used is bearer token authentication.
+      - **Bearer**: This section holds the token details.
+        - **Key**: Indicates the parameter name of the token, which is "token".
+        - **Value**: Here, it specifies the token itself; users will need to replace "BearerToken" with their valid token for access.
+        - **Type**: Denotes that the value is a string.
+
+    - **Method**: This indicates the type of HTTP request being made. The "GET"
+    method is employed here, which is used for retrieving data from the server.
+
+
+    - **URL**: This is the endpoint where the request is sent. It consists of:
+      - **Base URL**: "http://localhost:3000/api/signal/offer/get" is the base URL of the API.
+      - **Query Parameters**: 
+        - **accountId**: This parameter should be replaced with the user's account ID.
+        - **sessionId**: This parameter should be replaced with the user's session ID.
+        - **signalId**: This parameter should be replaced with the signal's ID that the user wants to retrieve offers for.
+
+    - **Headers**: This section is used to specify additional information in the
+    request. In this case:
+      - **Key**: Currently, no key is provided, which means no additional headers are required.
+      - **Value**: No value is specified.
+      - **Type**: The type is default.
+      - **Disabled**: This property indicates whether the header is active or not. It is set to true, meaning that this header will not be included in the request.
+
+    - **Body**: The body of the request is defined here.
+      - **Mode**: The mode is set to "raw", meaning that the body content can be provided in a raw format.
+      - **Raw**: Currently, the raw body is empty, indicating that no data needs to be sent in the request body for this GET request. 
+
+    This API request is designed to allow users to fetch offers related to
+    specific signals using their account and session information. Make sure to
+    properly set the required parameters and the bearer token for successful
+    authentication and data retrieval.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: signalId
+      in: query
+      schema:
+        type: string
+      example: signalId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

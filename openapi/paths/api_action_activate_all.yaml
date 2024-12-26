@@ -1,0 +1,70 @@
+get:
+  tags:
+    - ActionActivate
+  summary: Action - Activate - Get All
+  description: >-
+    ### Endpoint Description: Action - Activate - Get All
+
+
+    #### Request Overview
+
+    This API endpoint is designed to retrieve all active actions associated with
+    a specific session and account. The following details outline the request
+    parameters and authentication methods required to successfully access this
+    endpoint.
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - **Token**: A string value that represents the authentication token. It must be prefixed with "Bearer" followed by the actual token value. This token is used to authenticate the request and verify the user's permission to access the resource.
+
+    #### Request Method
+
+    - **Method**: GET
+      - This method is used to request data from the server without modifying any resources.
+
+    #### URL Structure
+
+    - **Base URL**: `http://localhost:3000/api/action/activate/all/`
+      - This is the endpoint's main address where the request is sent.
+      
+    - **Query Parameters**: 
+      - **sessionId**: This parameter is required to specify the session from which you want to retrieve actions. It should be replaced with the actual session identifier.
+      - **accountId**: This parameter is required to specify the account associated with the session. It should be replaced with the actual account identifier.
+      
+      Example of the full URL incorporating the parameters could look like:
+      ```
+      http://localhost:3000/api/action/activate/all/?sessionId=12345&accountId=67890
+      ```
+
+    #### Headers
+
+    - **Headers**: 
+      - Currently, there are no additional headers needed for the request, as the headers section is left empty and disabled. In future implementations, if any custom headers are required, they can be added in this section.
+
+    #### Body
+
+    - **Body**:
+      - The body of the request is not used in this GET request method, meaning no data is sent in the request body. It is indicated as empty, which is standard for GET requests.
+
+    This description serves as a reference for users to understand how to
+    utilize the "Action - Activate - Get All" endpoint effectively.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

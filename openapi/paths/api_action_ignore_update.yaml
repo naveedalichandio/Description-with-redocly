@@ -1,0 +1,109 @@
+put:
+  tags:
+    - ActionIgnore
+  summary: Action - Ignore - Update
+  description: >-
+    ### POSTMAN API Collection Description
+
+
+    #### Endpoint Name: Action - Ignore - Update
+
+
+    This endpoint is designed to update the ignored status of specific actions
+    in the system. Below is a detailed breakdown of each data field within the
+    request.
+
+
+    ##### Request Method
+
+    - **Method**: `PUT`
+        - This method is used to update existing resources in the server.
+
+    ##### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/ignore/update`
+        - This is the endpoint where the request will be sent to update the ignore action.
+
+    ##### Authorization
+
+    - **Auth**:
+        - **Type**: `Bearer`
+            - This specification indicates that the request requires a Bearer Token for authorization.
+        - **Bearer Token**:
+            - **Key**: `token`
+                - The key for passing the token in the authorization header.
+            - **Value**: `BearerToken`
+                - The actual token used for authorization. Replace `BearerToken` with your real token before making a request.
+            - **Type**: `string`
+                - Indicates that the value should be treated as a string.
+
+    ##### Headers
+
+    - **Headers**:
+        - **Key**: `Client-UUID`
+            - This is a custom header required to uniquely identify the client making the request.
+        - **Value**: `ClientUUID`
+            - Replace `ClientUUID` with the actual UUID of your client for proper identification.
+
+    ##### Body
+
+    - **Body**:
+        - **Mode**: `raw`
+            - Indicates that the body content is to be sent as raw data.
+        - **Raw Content**: 
+            - The content of the body should be in JSON format. Below is a breakdown of each attribute within the JSON body:
+            ```json
+            {
+                "sessionId": "sessionId",       // Unique identifier for the session related to the action.
+                "accountId": "accountId",       // The ID of the account that the action is associated with.
+                "path": "/live/channel/video123", // The specific path to the resource that is being updated.
+                "targetType": "videoId",        // The type of target being referenced, here it is a video ID.
+                "targetId": "videoId",          // The unique identifier of the target resource (e.g., video).
+                "sourceType": "accountId",      // The type of source being referenced, typically an account ID.
+                "sourceId": "accountId",        // The unique identifier of the source resource (e.g., account).
+                "didIgnore": false,             // A boolean indicating whether the action has been ignored or not.
+                "name": "",                     // An optional name for the action, if applicable.
+                "description": "",              // An optional description providing more details about the action.
+                "tags": "",                     // Tags associated with the action for categorization; can be empty.
+                "ignoreId": "ignoreId"         // Unique identifier for the ignoring action; needed for updates.
+            }
+            ```
+        - **Options**: 
+            - **Raw**: 
+                - **Language**: `json`
+                    - Specifies that the format of the raw data is JSON.
+
+    This endpoint is essential for managing ignore actions within the system,
+    allowing users to update the ignore status as necessary. Make sure to fill
+    in the placeholders with real data before making the API call.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didIgnore: false
+            name: ''
+            description: ''
+            tags: ''
+            ignoreId: ignoreId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,48 @@
+post:
+  tags:
+    - MediaImage
+  summary: Media - Image - Delete
+  description: >-
+    Below, you will find detailed descriptions for each part of the API endpoint
+    data:
+
+
+    - **name**: This represents the name of the current API endpoint. Here,
+    "Media - Image - Delete" suggests that this endpoint is used to delete a
+    specific image from some media.
+
+
+    - **request**: This is a general term for all the operations that have been
+    requested. All of the API requirements are set here.
+
+      - **auth**: This refers to the authentication system of this endpoint. This helps to check if the incoming request is from an authenticated source.
+
+        - **type**: This refers to the type of authentication being used; in this case, it's "bearer" authentication, which relies on a token for identification and access management.
+
+        - **bearer**: It's an array of bearer tokens used for authentication. The bearer token, described as "token", is a string type and its value is identified by "sessionId".
+
+      - **method**: This represents the HTTP method being enforced. Here, it's "POST", which means the endpoint will be used to send data to the server.
+
+      - **url**: This is the URL of the server where the API request will be sent. In this case, it's "http://localhost:3000/api/media/image/delete".
+
+      - **headers**: These define the operating parameters of an HTTP request or response. However, in this data set, there are no set values for any header.
+
+      - **body**: Body content refers to the main part of the HTTP request or response.
+
+        - **mode**: The API request mode is set as "raw", which means you send a direct sequence of characters as it is in the body.
+
+        - **raw**: Here, you will send a raw input with specific parameters to the API. These parameters are sessionId, accountId, and imageId, all are string type. The server will use these parameters to identify the necessary image to be deleted for the account associated with the provided sessionId and accountId.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"imageId\":\"imageId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

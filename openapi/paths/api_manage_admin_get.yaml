@@ -1,0 +1,73 @@
+get:
+  tags:
+    - ManageAdmin
+  summary: Manage - Admin - Get
+  description: >-
+    This endpoint is named 'Manage - Admin - Get'. It is a HTTP 'GET' request
+    used to retrieve administrator data from the server. Below is the detailed
+    description of each data field included in this endpoint:
+
+
+    1. `auth`: This is the authorization method for this request. Here, the
+    system uses a token authorization by Bearer. You need to include the Bearer
+    token in the header to authenticate and authorize the outgoing request.
+
+
+    2. `type`: This specifies the type of authorization, which in this case is
+    Bearer.
+       
+    3. `bearer`: This holds an array of key-value pairs used for the token
+    authorization. 
+       
+       - `key`: The key is 'token' which confirms that the authorization uses a token.
+       
+       - `value`: The value is 'BearerToken' which should be replaced with the actual bearer token for authenticating the request.
+       
+       - `type`: The type here is a string which tells that the authentication token will be a type of string.
+
+    4. `method`: This defines the HTTP method used for the request, which in
+    this case is 'GET'. A 'GET' method is used to retrieve data from a server.
+
+
+    5. `url`: This is the server URL where the 'GET' request is made. It
+    includes parameters for 'adminId', 'sessionId', and 'accountId', which have
+    to be replaced with actual values to fetch the specific details from the
+    server.
+
+
+    6. `headers`: These are the default headers sent with the HTTP request. It
+    appears these headers have no value currently and are disabled.
+
+
+    7. `body`: This refers to the body of the HTTP request. 
+       
+       - `mode`: The mode is set to 'raw', indicating that the body contains data that hasn't been processed in any specific manner. 
+
+       - `raw`: The raw field is currently empty indicating that no extra data is being sent along with the request.
+
+    Ensure to replace all placeholders (like 'BearerToken' and the parameters in
+    the 'url') with actual values according to your application's needs before
+    sending the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: adminId
+      in: query
+      schema:
+        type: string
+      example: adminId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

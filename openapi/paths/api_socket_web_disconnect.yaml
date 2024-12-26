@@ -1,0 +1,57 @@
+post:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Disconnect
+  description: >-
+    ### Endpoint: Web - Socket - Disconnect
+
+
+    **Method:** POST  
+
+    **URL:** `http://localhost:3000/api/socket/web/disconnect`
+
+
+    #### Description of Data:
+
+
+    - **name:** This data represents the name of the API endpoint for
+    disconnecting a WebSocket connection. It clearly indicates the action being
+    performed.
+
+
+    - **request:** This encapsulates all the details about the request being
+    made to the API.
+
+      - **method:** This specifies the HTTP method used for the request. In this case, it is a POST request, indicating data is being sent to the server.
+
+      - **url:** This is the endpoint where the request will be sent. It consists of the base URL (`http://localhost:3000`) and the path (`/api/socket/web/disconnect`) specifically designed for handling WebSocket disconnection requests.
+
+      - **headers:** This is an array that can include any HTTP headers you may want to send with the request. Currently, it is empty, suggesting no additional headers are required for this request.
+
+      - **body:** This section contains the data being sent in the request body.
+      
+        - **mode:** This indicates the format of the body data. Here, it is set to "raw", meaning the data is being sent as raw text rather than form data or another format.
+
+        - **raw:** This is the actual content that is sent in the body of the request. It is in JSON format and includes two fields:
+          - **socketId:** This is a placeholder for the identifier of the WebSocket connection that needs to be disconnected.
+          - **accountId:** This is a placeholder for the identifier of the account from which the WebSocket connection should be disconnected.
+
+        - **options:** This can provide additional options related to the format of the request body.
+        
+          - **raw:** This component specifies that the language for the raw data is JSON, indicating that the data structure follows JSON syntax.
+
+    This endpoint is specifically designed to handle disconnections from a
+    WebSocket service by requiring both the socket ID and account ID.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            accountId: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

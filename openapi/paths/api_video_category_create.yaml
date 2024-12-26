@@ -1,0 +1,58 @@
+post:
+  tags:
+    - VideoCategory
+  summary: Video - Category - Create
+  description: >-
+    ### Video - Category - Create
+
+
+    - **Name**: This is the title of the API request, which describes the
+    purpose of the endpoint - creating a video category.
+
+
+    - **Request**: This section contains all the details required to make the
+    API call.
+
+      - **Auth**: This specifies the authentication method used for the request.
+        - **Type**: Indicates that bearer token authentication is required.
+        - **Bearer**: This is an array that includes:
+          - **Key**: This is a label for the token; in this case, it is simply "token."
+          - **Value**: This represents the actual authentication token that must be provided, formatted as "BearerToken."
+          - **Type**: Defines the data type of the key. Here, it is a string.
+
+      - **Method**: This specifies the HTTP method used for the API call. In this instance, it is a POST request, which is commonly used to create new resources.
+
+      - **URL**: This is the endpoint where the API request will be sent. Here, it is pointing to `http://localhost:3000/api/video/category/create`, indicating that the request is being sent to a local server.
+
+      - **Headers**: Headers may contain additional information with the request. In this example, there are no custom headers provided, and the header section is disabled.
+
+      - **Body**: This is the main content of the request, which contains the data you want to send.
+        - **Mode**: Indicates the format of the body; it is set to "raw," meaning we are sending a raw data payload.
+        - **Raw**: This is the actual data being sent in JSON format. The content includes:
+          - **sessionId**: A unique identifier for the session, placeholder is provided.
+          - **accountId**: A unique identifier for the user account, placeholder is provided.
+          - **name**: This specifies the name of the category being created, which in this example is "My Second Category."
+          - **description**: A textual description of the category, detailed as "This category is my second category."
+          - **tags**: Keywords associated with the category, in this case, "second" and "category."
+          - **searchType**: Describes the type of content the category is related to; here, it is specified as "Game."
+          - **isEnabled**: A boolean value indicating whether the category is enabled (`true` means it is active).
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: My Second Category
+            description: This category is my second category
+            tags: second,category
+            searchType: Game
+            isEnabled: true
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

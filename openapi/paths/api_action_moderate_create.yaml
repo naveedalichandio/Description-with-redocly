@@ -1,0 +1,117 @@
+post:
+  tags:
+    - ActionModerate
+  summary: Action - Moderate - Create
+  description: >-
+    ### Action - Moderate - Create
+
+
+    This endpoint is designed to create a moderate action related to a specified
+    video channel. Below are the details for each piece of data that is included
+    in the request.
+
+
+    #### Request Method
+
+    - **Method**: POST
+      - This indicates that the endpoint is used to send data to the server to create a new resource.
+
+    #### Request URL
+
+    - **URL**: `http://localhost:3000/api/action/moderate/create`
+      - This is the endpoint where the POST request is made, typically used for creating a moderation action.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - This indicates that the request uses Bearer Token authentication. The token must be included in the request to authorize access.
+
+    - **Bearer Token**: 
+      - **Key**: `token`
+        - This is the key used to identify the token in the authorization header.
+      - **Value**: `BearerToken`
+        - This is a placeholder for the actual token that would need to be provided for authentication.
+      - **Type**: string
+        - Specifies that the value is of type string.
+
+    #### Headers
+
+    - **Headers**: 
+      - This section may include additional headers for the request, but all entries are currently disabled and empty.
+      - **Key**: `""` 
+        - There are no specific headers being passed in this example, indicated by empty quotes.
+      - **Value**: `""`
+        - As with the key, the value is also empty.
+      - **Disabled**: true
+        - This means that the header configuration is turned off and not used in the request.
+
+    #### Request Body
+
+    - **Body Mode**: raw
+      - The request body will be sent in a raw format, specifically JSON.
+
+    - **Raw Content**:
+      - The following JSON structure is included in the request body:
+      
+    ```json
+
+    {
+        "sessionId": "sessionId",
+        "accountId": "accountId",
+        "path": "/live/channel/video123",
+        "targetType": "videoId",
+        "targetId": "videoId",
+        "sourceType": "accountId",
+        "sourceId": "accountId",
+        "name": "",
+        "description": "",
+        "tags": "",
+        "didModerate": true,
+        "moderationType": "remove"
+    }
+
+    ```
+
+
+    - **Field Descriptions**:
+      - **sessionId**: A unique identifier for the session during which the moderation action is being performed. Placeholder value is provided.
+      - **accountId**: The ID of the account initiating the moderation action. Placeholder value is provided.
+      - **path**: The path that specifies the location of the video on the server. In this case, it refers to a video in a live channel.
+      - **targetType**: Indicates the type of the target being moderated, which in this case is a video ID.
+      - **targetId**: The unique identifier of the target video that is being moderated.
+      - **sourceType**: Indicates the type of source from which the moderation request is initiated. This refers to an account ID.
+      - **sourceId**: The unique identifier for the account that is making the request.
+      - **name**: A placeholder for the name associated with the moderation action.
+      - **description**: A placeholder for any additional information about the moderation action.
+      - **tags**: Placeholder for any tags that might relate to the moderation action.
+      - **didModerate**: A boolean indicating whether the moderation action was executed. Set to true, indicating that moderation should take place.
+      - **moderationType**: Specifies the type of moderation action to be taken, such as "remove" which indicates a removal action.
+
+    This endpoint will facilitate adding moderation actions for videos by
+    specifying various attributes that define the context and type of action
+    taken.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            description: ''
+            tags: ''
+            didModerate: true
+            moderationType: remove
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

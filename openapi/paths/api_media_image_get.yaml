@@ -1,0 +1,64 @@
+get:
+  tags:
+    - MediaImage
+  summary: Media - Image - Get - For Public
+  description: >-
+    1. "name": This is the name of the endpoint. In this case, it's called
+    "Media - Image - Get - For Public", indicating that this endpoint is used to
+    retrieve images for public viewers.
+
+
+    2. "request": This is the main request object that contains all the
+    necessary information to perform a HTTP request. 
+
+
+    3. "auth": The authentication mechanism used by this endpoint. Here we are
+    using the "bearer" type, indicating that we'll be using Bearer
+    authentication, a HTTP authentication scheme that involves security tokens
+    called bearer tokens.
+
+
+    4. "bearer": This object contains details of the bearer token. The "key" is
+    the name of the token (in this case, "token"), "value" is the token string
+    that you must replace with actual token when making a request (here it's,
+    "BearerToken"), and "type" is the data type of this token, which is a
+    string.
+
+
+    5. "method": This shows that the HTTP method used for the request is "GET".
+    This method is used to retrieve data from a server.
+
+
+    6. "url": This is the URL endpoint where the request will be sent. In this
+    case, `http://localhost:3000/api/media/image/get/?imageId=imageId&public=1`.
+    Replace `imageId` with an actual id of the image you want to retrieve.
+
+
+    7. "headers": This is an array of headers to be sent along with the request.
+    In this instance, no headers are included as the "disabled" field is set to
+    true. The "key" and "value" fields are left empty, suggesting no extra
+    information is sent in the header.
+
+
+    8. "body": This section is for the information sent through the HTTP
+    request. The "mode" is set to "raw", indicating that the information should
+    be sent in raw format. However, the "raw" field is an empty string,
+    indicating there's no additional data to be sent in the body of the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: imageId
+      in: query
+      schema:
+        type: string
+      example: imageId
+    - name: public
+      in: query
+      schema:
+        type: integer
+      example: '1'
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

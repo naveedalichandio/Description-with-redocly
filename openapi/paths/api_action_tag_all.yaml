@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ActionTag
+  summary: Action - Tag - Get All
+  description: >-
+    ### Endpoint Description: Action - Tag - Get All
+
+
+    - **Name**: Action - Tag - Get All  
+      This endpoint is used to retrieve all tags associated with a specified action.
+
+    - **Request Details**:
+      - **Authentication**: 
+        - **Type**: Bearer  
+          This indicates that the request requires a bearer token for authentication. The token should be supplied in the request header.
+        - **Bearer Token**: 
+          - **Key**: token  
+            The name of the authentication key is "token".
+          - **Value**: BearerToken  
+            This represents the actual bearer token that is used for authentication. It should be replaced with a valid token.
+          - **Type**: string  
+            Indicates that the value of the bearer token is a string.
+
+      - **Method**: GET  
+        This specifies that the HTTP method used for the request is GET, which is used to retrieve data from the server.
+
+      - **URL**: 
+        - **Format**: `http://localhost:3000/api/action/tag/all/?sessionId=sessionId&accountId=accountId`  
+        The endpoint to access the action tags. It requires two query parameters:
+          - **sessionId**: A unique identifier for the user session, to track the user's activity and maintain state.
+          - **accountId**: An identifier for the account associated with the request, which specifies which account's tags are being retrieved.
+
+      - **Headers**: 
+        - This section includes HTTP headers for the request. Currently, it is empty and disabled, implying that no additional headers are required for this request. Headers can be enabled or modified if necessary.
+
+      - **Body**: 
+        - **Mode**: raw  
+          This indicates that the request body is being sent as raw data.
+        - **Raw**: (empty)  
+          Since this is a GET request, the body is not expected to contain data, thus it is empty.
+
+    This endpoint is designed for obtaining information about all action tags
+    related to a specific session and account, utilizing proper authentication
+    via the bearer token.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

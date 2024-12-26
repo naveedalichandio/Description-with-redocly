@@ -1,0 +1,60 @@
+get:
+  tags:
+    - ReportsEarning
+  summary: Reports - Earning - Get
+  description: >-
+    This endpoint is titled "Reports - Earning - Get". It performs a GET request
+    which is commonly used to retrieve information from a specific resource.
+
+
+    The request is authenticated using Bearer authentication, which is often
+    used for API tokens. The key for auth is 'token' and its value is
+    'BearerToken', with the data type being a string.
+
+
+    The API's base URL for this request is
+    "http://localhost:3000/api/reports/earning/get/". Upon it, there are three
+    parameters:
+
+
+    1. 'earningId': An identifier for the specific earnings report you're trying
+    to retrieve.
+
+    2. 'sessionId': This could be an identifier for the current session or user
+    that is making the request.
+
+    3. 'accountId': It is probably an identifier for the user or system that
+    owns this particular earnings report.
+
+
+    In terms of headers, currently, none are set for this request; the fields
+    are left empty and it's set as 'disabled' which means this header won't
+    affect the request.
+
+
+    Lastly, it shows that the 'body' of the request is in the 'raw' mode, but
+    it's not sending any data as the 'raw' field is empty. In other words, no
+    data is being sent in the body of this API request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: earningId
+      in: query
+      schema:
+        type: string
+      example: earningId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

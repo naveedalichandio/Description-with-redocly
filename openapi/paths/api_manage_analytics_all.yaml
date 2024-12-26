@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ManageAnalytics
+  summary: Manage - Analytics - Get All
+  description: >-
+    "name": This is the title or label of the API endpoint. In this case,
+    "Manage - Analytics - Get All" identifies the endpoint responsible for
+    fetching all analytics records under the manage category.
+
+
+    "auth": This specifies the type of authorization required to access the
+    endpoint. This API endpoint uses the Bearer authentication scheme, as
+    denoted by the type attribute.
+
+      "Bearer": This is an array of objects that holds important information related to the Bearer authentication:
+
+        "key": This indicates the name of the item of the bearer authentication. Here, the key is a "token".
+        
+        "value": This represents the value of the BearerToken to be used in the API request.
+        
+        "type": This indicates the data type of the value of the bearer token which is a string here.
+
+    "method": This refers to the HTTP request method used to access the
+    endpoint. Here, it's using the GET method, which retrieves data from a
+    server based on specified parameters.
+
+
+    "url": This is the Uniform Resource Locator (URL) of the server that hosts
+    the API. This endpoint can be accessed via
+    "http://localhost:3000/api/manage/analytics/all". It also contains query
+    parameters "sessionId" and "accountId" that could be substituted with valid
+    values during actual API calls.
+
+
+    "headers": This array represents additional parameters that can be included
+    in the header section of the HTTP request. The default header is disabled
+    here as denoted by the "disabled" key.
+
+
+    "body": The body of the HTTP request is specified in this section:
+
+      "mode": This indicates how to interpret the data in the "raw" key. In this case, "raw" mode is used. 
+      
+      "raw": It contains the body content for the API request, which is empty here as designated by "". This would mean that no additional data is being sent in the body of the request. Usually, this is where you'd input the necessary request payload depending on the API's requirements.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,57 @@
+post:
+  tags:
+    - VideoSubcategory
+  summary: Video - SubCategory - Create
+  description: |-
+    ### Video - SubCategory - Create Endpoint Description
+
+    - **Auth**:
+      - **Type**: This specifies the type of authentication being used for the request, which is "bearer" in this case.
+      - **Bearer**:
+        - **Key**: The identifier for the token, here referred to as "token".
+        - **Value**: This is where the actual bearer token is inputted. It should be formatted as "BearerToken".
+        - **Type**: Indicates that the token is a string.
+
+    - **Method**:
+      - The HTTP method used for the request, which is "POST". This means you are submitting data to the server to create a resource.
+
+    - **URL**:
+      - The endpoint URL where the request will be sent. In this example, it is "http://localhost:3000/api/video/subcategory/create", which indicates that this is a local server addressing the creation of a video subcategory.
+
+    - **Headers**:
+      - A collection of headers to be sent with the request. In this case, there are no specific headers set, as the default header is empty and disabled.
+
+    - **Body**:
+      - **Mode**: The format of the body data being sent, which is "raw". This means the body is sent as a plain text string.
+      - **Raw**: This is the actual content of the body in JSON format, which includes:
+        - **sessionId**: A unique identifier for the session during which the request is made.
+        - **accountId**: The ID associated with the account that is creating the subcategory.
+        - **categoryId**: The ID of the main category under which this subcategory falls.
+        - **name**: The name of the new subcategory; in this case, it is "My Second SubCategory".
+        - **description**: A brief explanation of the subcategory, stated as "This subcategory is my second subcategory".
+        - **tags**: Keywords associated with the subcategory for better categorization; here, it includes "second" and "subcategory".
+        - **isEnabled**: A boolean flag that indicates whether the subcategory is active or not. "true" means that it is enabled.
+
+    - **Options**:
+      - **Raw**:
+        - **Language**: Specifies the programming or data format language being used for the raw body content, which is set to "json".
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            categoryId: categoryId
+            name: My Second SubCategory
+            description: This subcategory is my second subcategory
+            tags: second,subcategory
+            isEnabled: true
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

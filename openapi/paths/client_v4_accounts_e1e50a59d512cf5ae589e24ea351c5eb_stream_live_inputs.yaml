@@ -1,0 +1,53 @@
+post:
+  tags:
+    - VideoStream
+  summary: CloudFlare - Create - Stream
+  description: |-
+    {
+      "name": "CloudFlare - Create - Stream",
+      "description": "This endpoint is used to create a new live input stream in your Cloudflare account. When making this request, you will need to provide several parameters in the body of the request as described below.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "description": "Authentication is done via a Bearer token. Replace the placeholder token (J6uYKKFPH5oUcCm3wqurzOy5_sHrASSR9srHUjIQ) with your actual Cloudflare API token to authenticate the request."
+        },
+        "method": "POST",
+        "description": "This indicates that the request method used to interact with the endpoint is POST. It is used to send data to the server to create a new resource.",
+        "url": "https://api.cloudflare.com/client/v4/accounts/e1e50a59d512cf5ae589e24ea351c5eb/stream/live_inputs",
+        "description": "This is the URL for the Cloudflare API endpoint where the request will be sent. It targets the specific account (indicated by the account ID) to create live input streams.",
+        "headers": [],
+        "description": "No additional headers are required for this request, apart from the authentication token as a Bearer.",
+        "body": {
+          "mode": "raw",
+          "description": "The body of the request is sent in raw format, meaning the data structure is directly written out as a JSON object.",
+          "raw": "{\n    \"defaultCreator\": \"test123\",\n    \"deleteRecordingAfterDays\": null,\n    \"meta\": {},\n    \"recording\": {\n        \"mode\": \"automatic\", \n        \"requireSignedURLs\": false, \n        \"timeoutSeconds\": 0,\n        \"allowedOrigins\": []\n    }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "description": "This is the JSON body that contains parameters for the new live input stream. Below are the specific fields defined within the body:\n      - \"defaultCreator\": This field specifies the default creator for the stream. It is set to 'test123' in this example.\n      - \"deleteRecordingAfterDays\": This field determines how many days to keep the recording before deletion. A null value means there is no automatic deletion.\n      - \"meta\": This field is used for any metadata associated with the stream. In the example, it is empty.\n      - \"recording\": This section contains settings related to the recording of the stream:\n        - \"mode\": Describes how the recording will function; 'automatic' means it will start recording as soon as the stream begins.\n        - \"requireSignedURLs\": A boolean value that indicates whether signed URLs are necessary for accessing the stream. Set to false in this example, indicating signed URLs are not required.\n        - \"timeoutSeconds\": The duration in seconds that the server will wait before cancelling a request. A value of 0 means there is no timeout.\n        - \"allowedOrigins\": An array that specifies which origins are permitted to access the stream; it is empty in the example."
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            defaultCreator: test123
+            deleteRecordingAfterDays: null
+            meta: {}
+            recording:
+              mode: automatic
+              requireSignedURLs: false
+              timeoutSeconds: 0
+              allowedOrigins: []
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

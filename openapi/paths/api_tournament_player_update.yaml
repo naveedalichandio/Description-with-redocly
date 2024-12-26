@@ -1,0 +1,148 @@
+put:
+  tags:
+    - TournamentPlayer
+  summary: Tournament - Player - Update
+  description: >-
+    ### Tournament - Player - Update
+
+
+    This endpoint allows for updating player information within a tournament.
+
+
+    #### Request Authentication
+
+    - **Type**: Bearer Token
+      - **Key**: `token`
+      - **Value**: `BearerToken`
+      - **Type**: String  
+      This is the authentication token required to access the endpoint. Ensure that it is valid and has the necessary permissions.
+
+    #### HTTP Method
+
+    - **Method**: PUT  
+      This method indicates that the client is requesting to update data on the server.
+
+    #### URL
+
+    - **URL**: `http://localhost:3000/api/tournament/player/update`  
+      This is the endpoint where the update request will be sent.
+
+    #### Headers
+
+    - **Client-UUID**
+      - **Key**: `Client-UUID`
+      - **Value**: `ClientUUID`
+      - **Type**: Default  
+      This header is used to identify the client making the request. Ensure that `ClientUUID` is replaced with the actual UUID relevant to the client.
+
+    #### Request Body
+
+    The body of the request contains data in raw JSON format to update player
+    details. Here are the parameters included:
+
+
+    - **playerId**: 
+      - Type: String
+      - Description: Unique identifier for the player. Must be provided to specify which player to update.
+
+    - **sessionId**: 
+      - Type: String
+      - Description: Unique identifier for the session associated with the player. 
+
+    - **accountId**: 
+      - Type: String
+      - Description: Unique identifier for the account linked to the player.
+
+    - **name**: 
+      - Type: String
+      - Description: The name of the player. This should be a descriptive name that will represent the player.
+
+    - **description**: 
+      - Type: String
+      - Description: A brief description of the player. This text can provide additional context or details about the player.
+
+    - **tags**: 
+      - Type: String
+      - Description: Tags related to the player. These can be used for categorization and searchability, formatted as a comma-separated list.
+
+    - **profilePhotoUrl**: 
+      - Type: String
+      - Description: URL pointing to the player’s profile photo. This should be a publicly accessible link.
+
+    - **coverPhotoUrl**: 
+      - Type: String
+      - Description: URL for the player’s cover photo. Similar to the profile photo, ensure this link is publicly accessible.
+
+    - **minimumTipAmount**: 
+      - Type: Number
+      - Description: The minimum amount that can be tipped to the player. This should be a numerical value.
+
+    - **categoryId**: 
+      - Type: String
+      - Description: Unique identifier for the category under which the player falls.
+
+    - **category**: 
+      - Type: String
+      - Description: The category name representing the player. This should correlate with the provided `categoryId`.
+
+    - **subCategoryId**: 
+      - Type: String
+      - Description: Unique identifier for the sub-category related to the player.
+
+    - **subCategory**: 
+      - Type: String
+      - Description: The name of the sub-category that further classifies the player, linked to the `subCategoryId`.
+
+    - **isPlayerPrivate**: 
+      - Type: Boolean
+      - Description: Indicates whether the player's information is private. If `true`, the player's details will not be publicly visible.
+
+    - **isTournamentOnly**: 
+      - Type: Boolean
+      - Description: Specifies if the player is only visible during tournaments. Set to `true` for tournament-specific visibility.
+
+    - **isPlayerDefault**: 
+      - Type: Boolean
+      - Description: Represents if this player profile is the default profile. Useful in scenarios where multiple profiles exist.
+
+    - **isPreLiveTournamentAds**: 
+      - Type: Boolean
+      - Description: Indicates if advertisements will run before the live tournament for this player. If `true`, pre-live ads are enabled.
+
+    - **isPostLiveTournamentAds**: 
+      - Type: Boolean
+      - Description: Specifies whether advertisements will run after the live tournament. Set to `true` to enable post-live ads.
+
+    - **breakPreLiveVideoUrl**: 
+      - Type: String
+      - Description: URL for the video to be shown during break periods before the live tournament. 
+
+    - **breakPostLiveVideoUrl**: 
+      - Type: String
+      - Description: URL for the video to be shown during break periods after the tournament ends.
+
+    Make sure to replace placeholder values (like `playerId`, `sessionId`, etc.)
+    with actual data when sending the request.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"playerId\":\"playerId\",
+            \"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second Player 2.0\",\"description\":\"This player is my second
+            player\",\"tags\":\"second,player\",\"profilePhotoUrl\":\"https://example.com/profile.jpg\",\"coverPhotoUrl\":\"https://example.com/cover.jpg\",\"minimumTipAmount\":10,\"categoryId\":\"category123\",\"category\":\"General\",\"subCategoryId\":\"subCategory456\",\"subCategory\":\"Specific\",\"isPlayerPrivate\":true,\"isTournamentOnly\":false,\"isPlayerDefault\":true,\"isPreLiveTournamentAds\":true,\"isPostLiveTournamentAds\":true,\"breakPreLiveVideoUrl\":\"https://example.com/break-pre-live.mp4\",\"breakPostLiveVideoUrl\":\"https://example.com/break-post-live.mp4\"}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

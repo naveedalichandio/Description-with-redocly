@@ -1,0 +1,51 @@
+get:
+  tags:
+    - NotificationMessages
+  summary: Notification - Messages - Get
+  description: >-
+    This endpoint is called "Notification - Messages - Get". This endpoint is
+    primarily used to retrieve notification messages. 
+
+
+    1. **Authentication**: 
+       This endpoint uses Bearer token authentication. The key for the token is "token", which needs to be a string value. Provide the authentication token with the "BearerToken" value to get authorized access.
+
+    2. **Request Method**: 
+       This endpoint uses the GET HTTP method. GET is used to request data from a specified resource on a server.
+
+    3. **URL**: 
+       The URL for this endpoint is "http://localhost:3000/api/notification/messages/get". It takes three parameters i.e., "messagesId", "sessionId", and "accountId". All three parameters should be added to the URL, right after the "?" mark, each separated by an "&".
+
+    4. **Headers**: 
+       The headers field is currently set to default and disabled. When enabled, it gets set to a key-value pair specifying characteristics of the data being sent or requested.
+
+    5. **Body**: 
+       The current body mode for this endpoint is set to "raw". At this mode, the endpoint does not expect any data to be sent within the body of the request. 
+
+    Please replace the 'BearerToken', 'messagesId', 'sessionId', and 'accountId'
+    with actual values before using it. The 'BearerToken' needs to be replaced
+    with a valid authentication token. 'messagesId', 'sessionId', and
+    'accountId' are specific to individual accounts and sessions.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: messagesId
+      in: query
+      schema:
+        type: string
+      example: messagesId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

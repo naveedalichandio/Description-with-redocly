@@ -1,0 +1,78 @@
+post:
+  tags:
+    - ActionCancel
+  summary: Action - Cancel - Delete
+  description: >-
+    ### Endpoint Description: Action - Cancel - Delete
+
+
+    - **Name**: Action - Cancel - Delete
+      - This operation is used to cancel an action or request by deleting it from the system.
+
+    - **Request**:
+      - Contains all the necessary details for making a request to the API endpoint.
+
+      - **Auth**:
+        - **Type**: Bearer
+          - This indicates that the request requires a bearer token for authentication.
+        - **Bearer**:
+          - A list containing authentication details.
+          - **Key**: token
+            - This field represents the type of authentication being used.
+          - **Value**: sessionId
+            - This is a placeholder for the actual session ID that authenticates the user making the request.
+          - **Type**: string
+            - Indicates that the value of the key is expected to be a string.
+
+      - **Method**: POST
+        - The HTTP method used for the request. In this case, it is a POST request, which is typically used to send data to the server.
+
+      - **URL**: 
+        - `http://localhost:3000/api/action/cancel/delete`
+          - This is the endpoint URL where the request should be sent.
+
+      - **Headers**:
+        - A collection of key-value pairs sent with the request to provide additional context.
+        - **Key**: (empty)
+          - There are no specific headers being applied in this request as this field is left empty.
+        - **Value**: (empty)
+          - Correspondingly, there is no value provided for the header.
+        - **Type**: default
+          - The type indicates that this header is a default type.
+        - **Disabled**: true
+          - This indicates that the header is currently not active and will not be sent with the request.
+
+      - **Body**:
+        - Contains the data that will be sent in the request. 
+        - **Mode**: raw
+          - This signifies that the request body is provided as raw JSON data.
+        - **Raw**: 
+          - The actual content being sent in the body formatted as a JSON string:
+          ```json
+          {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "cancelId": "cancelId"
+          }
+          ```
+          - **sessionId**: Placeholder for the session ID, which identifies the user's current session.
+          - **accountId**: Placeholder for the account ID related to the action being canceled.
+          - **cancelId**: Placeholder for the specific ID of the action or request that is being canceled. 
+
+    This information outlines how to set up and use this specific API endpoint
+    to cancel an action by making a POST request with the necessary
+    authentication and data.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"cancelId\":\"cancelId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,95 @@
+post:
+  tags:
+    - ActionConfirm
+  summary: Action - Confirm - Create
+  description: >-
+    ### Action - Confirm - Create Endpoint
+
+
+    **Request Method:** POST  
+
+    **Request URL:** http://localhost:3000/api/action/confirm/create
+
+
+    #### Authentication
+
+    - **Type:** Bearer Token
+      - **Token Key:** `token`: This represents the bearer token required for authentication.
+      - **Value:** `BearerToken`: Placeholder for the actual bearer token to be used.
+
+    #### Headers
+
+    - **Key:** (No specific key provided) 
+      - **Value:** (No specific value provided)
+      - **Type:** Default (this header is currently disabled)
+
+    #### Request Body
+
+    The body of the request is expected to be in raw JSON format, containing the
+    following fields:
+
+
+    1. **sessionId**
+       - **Description:** A unique identifier for the session during which this action is taking place. It helps in tracking user sessions effectively.
+
+    2. **accountId**
+       - **Description:** The unique identifier associated with the account that is performing this action. This is essential for identifying the user or entity corresponding to the action.
+
+    3. **path**
+       - **Description:** The specific path or URL indicating where the action is targeting, such as a link to a video or resource.
+
+    4. **targetType**
+       - **Description:** Specifies the type of target the action is aimed at. For example, it could be a `videoId`, signifying that the action relates to a specific video resource.
+
+    5. **targetId**
+       - **Description:** A unique identifier for the target resource, such as a specific video ID, that is being acted upon.
+
+    6. **sourceType**
+       - **Description:** This indicates the type of source from which the action originates. For instance, it could be `accountId`, reflecting the user account initiating the process.
+
+    7. **sourceId**
+       - **Description:** A unique identifier for the source that initiated the action, such as the account ID from which the request is issued.
+
+    8. **isUndo**
+       - **Description:** A boolean value that determines whether the action is intended to undo a previous action. If true, it signifies that the user wishes to reverse the last action taken.
+
+    9. **isIgnore**
+       - **Description:** A boolean value indicating whether the action should be ignored for any reason. If true, the action may not be processed or might be disregarded.
+
+    10. **name**
+        - **Description:** A user-defined name for the action being created. This helps in identifying the action in future references or logs.
+
+    11. **description**
+        - **Description:** A field for additional information about the action. This can provide context or details that assist others in understanding the purpose of the action.
+
+    12. **tags**
+        - **Description:** A field to include tags associated with the action for better categorization and retrieval purposes in the application.
+
+    This JSON structure provides all necessary data for creating a new action
+    confirmation and should be adapted to specific requirements during
+    implementation.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            isUndo: false
+            isIgnore: false
+            name: this is name
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

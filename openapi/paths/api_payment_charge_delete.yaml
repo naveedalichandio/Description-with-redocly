@@ -1,0 +1,48 @@
+post:
+  tags:
+    - PaymentCharge
+  summary: Charge - Zelle - Delete
+  description: >-
+    This endpoint is named "Charge - Zelle - Delete". The main function of this
+    endpoint is to delete a previously created Zelle charge from an account.
+    Following are the details about the data in this endpoint:
+
+
+    1. **Name**: Name here signifies the title or the identity of the endpoint.
+    In this case, it is 'Charge - Zelle - Delete'.
+
+
+    2. **Request**: It refers to the details of the HTTP request to be made
+    against this endpoint.
+
+        a. **Method**: This indicates the HTTP request method to use. For this endpoint, it is POST, which is typically used to send data to the server, creating a new resource.
+
+        b. **URL**: This indicates the endpoint's location or address, which in this case is 'http://localhost:3000/api/payment/charge/delete'.
+
+        c. **Headers**: Headers can contain more info about the request. Currently, the headers array is empty.
+
+        d. **Body**: Contains the data you want to send to the API. 
+        
+            i. **Mode**: The mode here is 'raw,' signifying that you can enter the data you want to send with the request directly.
+
+            ii. **Raw**: This field contains the actual data that is to be sent along with the POST request in a JSON format. The `accountId` is the ID of the account where the charge is located, `sessionId` is the ID of the current session, `chargeId` is the ID of the charge that needs to be deleted, and `provider` is the type of payment provider which in this case is 'zelle'.
+           
+            iii. **Options**: Controls some additional parameters of the request. The `raw` option is set to define the language to be used for the content of the 'raw' field, which here is 'json'. 
+
+    Please ensure to replace the placeholders for `accountId`, `sessionId`,
+    `chargeId` with actual values while making the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            chargeId: chargeId
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,61 @@
+post:
+  tags:
+    - ReportsChannel
+  summary: Reports - Channel - Delete
+  description: >-
+    - **name**: This field signifies the name of the API endpoint. In this case,
+    the name is "Reports - Channel - Delete" indicating that this API is to
+    delete a report of a specific channel.
+
+
+    - **request**: This is the main part of the API. It includes all the details
+    required to make an API call.
+
+
+    - **auth**: This part details the authentication method of the API call. The
+    API uses Bearer authentication. 
+
+        - **type**: It denotes the type of authentication being used. Here, "bearer" is used. 
+
+        - **bearer**: This is an array that contains an object, specifying the "key" as "token", "value" as "sessionId", and "type" as "string" denoting the type of value.
+
+    - **method**: This signifies the HTTP method used for the API call. Since
+    this is "POST", it means that this API call is used to send data to the
+    server.
+
+
+    - **url**: This is the URL endpoint that will be hit when this API call is
+    made. The URL includes the base URL (http://localhost:3000) as well as the
+    specific endpoint (/api/reports/channel/delete).
+
+
+    - **headers**: This is an array that can include various headers needed for
+    the API call. As the key and value fields are empty and disabled here, no
+    additional HTTP headers are set in this request.
+
+
+    - **body**: This section holds the data to be sent along with the "POST"
+    request. It can be in different modes like "formdata", "urlencoded", "raw",
+    etc. Here, "raw" mode is used and JSON data is sent.
+
+        - **mode**: It indicates how the API call will be sent. Here, it is set to "raw", meaning the body of the request will contain raw data.
+
+        - **raw**: This part holds the actual data string to be sent with the API call. It is set to contain JSON string with keys as "sessionId", "accountId", "channelId" and their respective values.
+
+    Note: The values of "sessionId", "accountId" and "channelId" in the "raw"
+    field need to be replaced with actual session ID, account ID, and channel ID
+    to make a successful API call.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"channelId\":\"channelId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

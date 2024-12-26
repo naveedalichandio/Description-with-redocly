@@ -1,0 +1,60 @@
+get:
+  tags:
+    - PaymentProduct
+  summary: Product - Stripe - Get
+  description: >-
+    This endpoint is named "Product - Stripe - Get". It is designed to retrieve
+    the details of a specific product using the Stripe payment API.
+
+
+    The endpoint follows the 'GET' HTTP request method, which is used to
+    retrieve data from a specified resource.
+
+
+    The 'url' points to where the API is hosted. In this case, it's hosted on
+    the local machine at the port 3000. It consists of various query parameters
+    - productId, provider, accountId, and sessionId. 
+
+
+    The 'productId' is specific to each product and is used to identify which
+    product's details need to be fetched from the server. The 'provider' query
+    parameter should be set as 'Stripe' to specify that Stripe is the payment
+    provider. The 'accountId' is the unique identifier provided by Stripe to
+    identify an account. Finally, the 'sessionId,' which represents the session
+    in which the user is currently in.
+
+
+    Though there is an empty 'headers' array, this can be used to include
+    additional HTTP headers if required in the future. These can be used to
+    provide additional information about the request or about the client
+    itself. 
+
+
+    This API doesn't require a request body since it's using the 'GET' method.
+    All data are placed in the URL as query parameters.
+  parameters:
+    - name: productId
+      in: query
+      schema:
+        type: string
+      example: productId
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,59 @@
+get:
+  tags:
+    - ConnectVideo
+  summary: Connect - Video - Get All
+  description: >-
+    1. "name": This field denotes the name of the API endpoint. In this case, it
+    is named "Connect - Video - Get All". It signifies that this API is used to
+    fetch all video connections.
+
+
+    2. "request": It contains all the information related to the HTTP request
+    that will be sent.
+
+
+    3. "auth": It contains the authentication data, which is used to
+    authenticate the request.
+
+       a. "type": This signifies the type of authentication. Here, it is "bearer", which represents bearer token authentication.
+       
+       b. "bearer": This field represents an array of bearer tokens that will be used for authentication.
+        
+       c. "key": Represents the key name. Here the key used is "token".
+       
+       d. "value": This field contains the actual token value. Here it is "BearerToken".
+       
+       e. "type": Specify the data type of the value. In this case, the data type is "string".
+
+    4. "method": This field specifies the HTTP method used for the request.
+    Here, the "GET" method means the request is trying to retrieve data from
+    specified URL.
+
+
+    5. "url": This field holds the URL to which the HTTP request will be sent.
+    "http://localhost:3000/api/connect/video/all/?accountId=accountId" is the
+    API's endpoint.
+
+
+    6. "headers": This field is an array that contains the headers that needs to
+    be sent along with the HTTP request. In this particular example, an empty
+    default header is defined, with a "disabled" field set to true, hence it's
+    not used in the request.
+
+
+    7. "body": This section contains the body of the HTTP request.  Here the
+    "mode" is set to "raw", which means the request body data is sent as it is.
+    The "raw" field is empty, which indicates there is no data sent in the body.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

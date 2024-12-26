@@ -1,0 +1,79 @@
+post:
+  tags:
+    - ActionFlag
+  summary: Action - Flag - Delete
+  description: >-
+    ### Endpoint Description: Action - Flag - Delete
+
+
+    #### General Information
+
+    This endpoint is used to delete a flag associated with a specific account
+    within the system. It requires authentication via a bearer token and expects
+    a POST request containing relevant identifiers in the request body.
+
+
+    #### Request Details
+
+
+    - **Auth:** 
+      - **Type:** Bearer 
+        - This indicates that the endpoint requires a bearer token for authentication. The token must be provided in the request to authorize the action.
+
+    - **Bearer Token:** 
+      - **Key:** `token`
+        - This is the identifier for the token being used.
+      - **Value:** `sessionId`
+        - This represents the actual token that is needed for authentication. It should be replaced with a valid session identifier.
+
+    - **Method:**
+      - **Type:** POST
+        - This specifies that the request should be made using the HTTP POST method, which is typically used to send data to the server.
+
+    - **URL:**
+      - **Endpoint:** `http://localhost:3000/api/action/flag/delete`
+        - This is the address where the request will be sent for flag deletion. Ensure that the base URL changes to the appropriate environment or production URL as needed.
+
+    - **Headers:**
+      - **Key:** (Empty)
+      - **Value:** (Empty)
+      - **Type:** Default
+      - **Disabled:** True
+        - Currently, no custom headers are specified or required for this request. This section is disabled, indicating it doesn't add any headers to the request.
+
+    - **Body:**
+      - **Mode:** Raw
+        - Indicates that the body of the request is in raw format, meaning that it contains a direct JSON string.
+      - **Raw Content:** 
+        ```json
+        {
+          "sessionId": "sessionId",
+          "accountId": "accountId",
+          "flagId": "flagId"
+        }
+        ```
+        - This is the JSON structure that must be sent in the request body. It contains the following fields:
+          - **sessionId:** This should be replaced with the actual session identifier relevant to the user making the request.
+          - **accountId:** This field represents the unique identifier for the account associated with the flag that is being deleted.
+          - **flagId:** This is the unique identifier for the flag that needs to be deleted.
+
+    #### Summary
+
+    This endpoint allows users to delete a specified flag for a given account.
+    Proper authentication is required via a bearer token, and it is imperative
+    that the correct session, account, and flag IDs are provided in the body of
+    the request to successfully execute the deletion operation.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"flagId\":\"flagId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,123 @@
+post:
+  tags:
+    - VideoStream
+  summary: Video - Stream - Create
+  description: >-
+    ### Endpoint: Video - Stream - Create
+
+
+    **Request Type**: POST  
+
+    **URL**: `http://localhost:3000/api/video/stream/create`  
+
+
+    #### Authorization
+
+    - **Type**: Bearer Token  
+      - **Key**: `token`  
+      - **Value**: `BearerToken`  
+      - **Type**: string  
+      This section is used to authorize the user making the request. The bearer token must be included in the request to access the resource securely.
+
+    #### Headers
+
+    - **Key**: (none)  
+
+    - **Value**: (none)  
+
+    - **Type**: default  
+
+    - **Disabled**: true  
+
+    There are currently no custom headers being used for this request as this
+    part is disabled. 
+
+
+    #### Body
+
+    - **Mode**: raw  
+      This indicates that the body of the request will be sent in a raw format. 
+
+    **Raw JSON Data**:
+
+    ```json
+
+    {
+      "sessionId": "sessionId",
+      "accountId": "accountId",
+      "channelId": "channelId",
+      "videoId": "videoId",
+      "isPrimaryCamera": false,
+      "isPrimaryAudio": false,
+      "videoInputName": "My MacBook Camera",
+      "audioInputName": "My macBook Microphone",
+      "started": false,
+      "paused": false,
+      "stopped": false
+    }
+
+    ```
+
+    **Field Descriptions**:
+
+    - **sessionId**: Unique identifier for the streaming session. This value
+    should be replaced with the actual session ID.
+
+    - **accountId**: Identifier for the user’s account. It should match the
+    account related to the streaming activity.
+
+    - **channelId**: Identifier for the channel where the video will be
+    streamed. Must correspond to an existing channel.
+
+    - **videoId**: Identifier for the video being streamed. This should be set
+    to the specific video you want to stream.
+
+    - **isPrimaryCamera**: Boolean value (true or false) indicating whether the
+    primary camera is being used for the stream. Default is false.
+
+    - **isPrimaryAudio**: Boolean value (true or false) indicating whether the
+    primary audio source is being used for the stream. Default is false.
+
+    - **videoInputName**: Name of the video input device being used, such as a
+    webcam. Default value is "My MacBook Camera".
+
+    - **audioInputName**: Name of the audio input device being used, such as a
+    microphone. Default value is "My macBook Microphone".
+
+    - **started**: Boolean value representing whether the stream has started.
+    Default is false.
+
+    - **paused**: Boolean value indicating if the stream is currently paused.
+    Default is false.
+
+    - **stopped**: Boolean value indicating if the stream has stopped. Default
+    is false.
+
+
+    This endpoint is used for creating a new video stream session with specific
+    configuration details for the video and audio input devices. Be sure to
+    replace placeholder values with actual data before sending the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            channelId: channelId
+            videoId: videoId
+            isPrimaryCamera: false
+            isPrimaryAudio: false
+            videoInputName: My MacBook Camera
+            audioInputName: My macBook Microphone
+            started: false
+            paused: false
+            stopped: false
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,57 @@
+get:
+  tags:
+    - NotificationMessages
+  summary: Notification - Messages - Get All
+  description: >-
+    This endpoint is called "Notification - Messages - Get All". It is used to
+    fetch all the notification messages from the provided `sessionId` and
+    `accountId`. Here's the breakdown of the data:
+
+
+    1. Auth: This endpoint requires bearer authentication, meaning appropriate
+    credentials must be presented before accessing this endpoint. The `token` is
+    passed as bearer authentication in the request header. Replace `BearerToken`
+    with your actual bearer token string.
+
+
+    2. Method: This endpoint uses the 'GET' method, that is it's used for
+    retrieving data.
+
+
+    3. URL: The endpoint URL is
+    `http://localhost:3000/api/notification/messages/all/`. Two query parameters
+    `sessionId` and `accountId` need to be passed. Replace `sessionId` and
+    `accountId` in the url with your actual session ID and account ID
+    respectively.
+
+
+    4. Headers: There is a default header included in the request but it's
+    disabled and doesn't contain any key or value. Feel free to add any headers
+    if needed.
+
+
+    5. Body: The request body is in 'raw' JSON format. However, the 'raw' field
+    is currently empty, indicating that this GET request does not require a body
+    as it's primarily used to retrieve data.
+
+
+    Note: Make sure you replace `BearerToken`, `sessionId` and `accountId` with
+    your actual values before making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

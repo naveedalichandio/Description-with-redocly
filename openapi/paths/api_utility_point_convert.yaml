@@ -1,0 +1,97 @@
+post:
+  tags:
+    - UtilityPoint
+  summary: Utility - Point - Convert Point
+  description: >-
+    ### Description of Endpoint: Utility - Point - Convert Point
+
+
+    #### Request Type
+
+    - **Method**: `POST`  
+      This indicates that the endpoint expects a POST request to be made.
+
+    #### URL
+
+    - **Endpoint**: `http://localhost:3000/api/utility/point/convert`  
+      This is the endpoint URL to which the request will be sent.
+
+    #### Authentication
+
+    - **Auth Type**: `Bearer`  
+      The endpoint uses Bearer token authentication. The client must provide a valid token to access this endpoint.
+
+    - **Bearer Token**:  
+      - **Key**: `token`  
+        This is the identifier for the authentication token.
+      - **Value**: `BearerToken`  
+        This represents the actual token string that the client will use to authenticate.
+      - **Type**: `string`  
+        Indicates that the value is a string type.
+
+    #### Headers
+
+    - **Header**:  
+      - **Key**: `Client-UUID`  
+        This is a unique identifier for the client making the request.
+      - **Value**: `ClientUUID`  
+        This should be replaced with the actual UUID value of the client.
+      - **Type**: `default`  
+        Specifies the type of header being sent in the request.
+
+    #### Request Body
+
+    - **Body Mode**: `raw`  
+      The body of the request is sent in raw format.
+
+    - **Body Content**: The body must be formatted in JSON and should contain
+    the following fields:
+      - **sessionId**: `sessionId`  
+        A unique identifier for the user's session.
+      - **accountId**: `accountId`  
+        Identifies the user's account associated with the points.
+      - **pointId**: `pointId`  
+        Identifies the specific point that is to be converted.
+      - **type**: `network`  
+        Specifies the type of point conversion. In this case, it is a network type.
+      - **rate**: `1`  
+        Represents the conversion rate of points to tokens. This is a numeric value.
+      - **amount**: `1`  
+        Indicates the amount of points to be converted. This is a numeric value.
+      - **convertTo**: `token`  
+        Specifies the target unit to convert the points to, in this case, it is "token".
+
+    - **Options**:  
+      - **Raw**:  
+        - **Language**: `json`  
+          Indicates that the raw body content is in JSON format.
+
+    This endpoint facilitates the conversion of points within a specified
+    account into tokens, using the provided session and point identifiers, along
+    with their respective amounts and conversion rates.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            pointId: pointId
+            type: network
+            rate: 1
+            amount: 1
+            convertTo: token
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

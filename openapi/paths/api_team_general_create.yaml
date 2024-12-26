@@ -1,0 +1,164 @@
+post:
+  tags:
+    - TeamGeneral
+  summary: Team - General - Create Auto
+  description: >-
+    ### API Endpoint: Create Team - General
+
+
+    #### Authentication
+
+    - **Type**: Bearer
+      - **Key**: `token`
+      - **Value**: `BearerToken`
+      - **Type**: string
+      - **Description**: This is the authorization token required to access the API. Replace `BearerToken` with a valid token.
+
+    #### Request Method
+
+    - **Method**: POST
+      - **Description**: The HTTP method used for this request. This indicates that data is being sent to the server to create a new resource.
+
+    #### URL
+
+    - **Endpoint**: `http://localhost:3000/api/team/general/create`
+      - **Description**: This is the URL to which the POST request is sent. It is the endpoint for creating a general team.
+
+    #### Headers
+
+    - **Headers**: 
+      - **Key**: (Empty)
+      - **Value**: (Empty)
+      - **Type**: Default
+      - **Disabled**: true
+      - **Description**: No additional headers are included in this request. This may be enabled in the future if needed.
+
+    #### Request Body
+
+    - **Mode**: Raw
+
+    - **Format**: JSON
+
+
+    ##### Body Parameters:
+
+    1. **sessionId**
+       - **Type**: string
+       - **Description**: A unique identifier for the session. Used to track the current user session.
+
+    2. **accountId**
+       - **Type**: string
+       - **Description**: Identifier for the user's account. Indicates which account the team is being created under.
+
+    3. **teamId**
+       - **Type**: string
+       - **Description**: A unique identifier for the team being created. This is used to refer to the team in future requests.
+
+    4. **title**
+       - **Type**: string
+       - **Description**: The title or name of the team. It is important for identifying the team.
+
+    5. **displayName**
+       - **Type**: string
+       - **Description**: A user-friendly name for the team that may be displayed in UI.
+
+    6. **description**
+       - **Type**: string
+       - **Description**: A descriptive text providing details about the team. Helps in understanding the purpose or focus of the team.
+
+    7. **tags**
+       - **Type**: string
+       - **Description**: A comma-separated list of tags associated with the team. Useful for categorization and searchability.
+
+    8. **profilePhotoUrl**
+       - **Type**: string
+       - **Description**: URL link to the profile photo of the team. This image may be displayed in user interfaces.
+
+    9. **coverPhotoUrl**
+       - **Type**: string
+       - **Description**: URL link to the cover photo for the team. This image appears as a header or background in the team’s profile.
+
+    10. **minimumTipAmount**
+        - **Type**: number
+        - **Description**: The minimum amount that can be tipped to the team. It sets the lower limit for monetary contributions.
+
+    11. **category**
+        - **Type**: string
+        - **Description**: The general category to which the team belongs. It's a higher-level classification.
+
+    12. **subCategory**
+        - **Type**: string
+        - **Description**: A more specific classification under the category. Further narrows down the team's focus.
+
+    13. **isGeneralPrivate**
+        - **Type**: boolean
+        - **Description**: Indicates whether the team is private. If true, only invited members can see it.
+
+    14. **isTournamentOnly**
+        - **Type**: boolean
+        - **Description**: Specifies if the team is limited to tournament participation. If true, it cannot engage in other team activities.
+
+    15. **isGeneralDefault**
+        - **Type**: boolean
+        - **Description**: Indicates if this team is set as a default option in the general category. 
+
+    16. **isPreLiveTeamAds**
+        - **Type**: boolean
+        - **Description**: Indicates if advertisements can be placed before live events for the team.
+
+    17. **isPostLiveTeamAds**
+        - **Type**: boolean
+        - **Description**: Indicates if advertisements can be placed after live events for the team.
+
+    18. **breakPreLiveVideoUrl**
+        - **Type**: string
+        - **Description**: URL to a video that may be shown during pre-live events for team promotion.
+
+    19. **breakPostLiveVideoUrl**
+        - **Type**: string
+        - **Description**: URL to a video that may be shown after live events for team promotion.
+
+    20. **isTeamPrivate**
+        - **Type**: boolean
+        - **Description**: Indicates if the team is a private group, restricting visibility to selected members.
+
+    21. **isTeamDefault**
+        - **Type**: boolean
+        - **Description**: Indicates if this team is set as a default option for any associated actions or categories. 
+
+    This request is used to create a general team with all its associated data,
+    ensuring proper categorization, visibility options, and promotional media.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            teamId: teamId
+            title: Nike Shoes
+            displayName: Nike Shoes
+            description: This team is my updated team
+            tags: second,team
+            profilePhotoUrl: https://example.com/profile.jpg
+            coverPhotoUrl: https://example.com/cover.jpg
+            minimumTipAmount: 10
+            category: General 1
+            subCategory: Specific 1
+            isGeneralPrivate: true
+            isTournamentOnly: false
+            isGeneralDefault: true
+            isPreLiveTeamAds: true
+            isPostLiveTeamAds: true
+            breakPreLiveVideoUrl: https://example.com/break-pre-live.mp4
+            breakPostLiveVideoUrl: https://example.com/break-post-live.mp4
+            isTeamPrivate: false
+            isTeamDefault: true
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

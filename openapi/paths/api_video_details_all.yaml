@@ -1,0 +1,58 @@
+get:
+  tags:
+    - VideoDetails
+  summary: Video - Details - Get All by Channel Name
+  description: >-
+    ### Endpoint Description: Video - Details - Get All by Channel Name
+
+
+    This endpoint retrieves detailed information about all videos associated
+    with a specific channel name.
+
+
+    #### Components of the Request:
+
+
+    - **Authorization**:
+      - **Type**: Bearer Authentication
+      - **Description**: This endpoint requires a bearer token for authentication. The token must be included in the request header to access the data securely.
+      - **Token Example**: `BearerToken` (replace with an actual token)
+
+    - **HTTP Method**:
+      - **Method**: GET
+      - **Description**: This endpoint uses the GET method to request data from the server.
+
+    - **URL**:
+      - **Endpoint URL**: `http://localhost:3000/api/video/details/all/`
+      - **Query Parameters**: 
+        - `accountId`: This parameter should be replaced with the specific account ID for which the video details are being requested.
+        - `channel`: Set to `Basketball`, or any desired channel name to filter results accordingly.
+
+    - **Headers**:
+      - **Headers Array**: Currently empty and disabled. No custom headers are required for this request, but you can add headers if needed based on the application's requirements.
+
+    - **Body**:
+      - **Body Mode**: Raw
+      - **Body Content**: The body is empty for this GET request, as no data payload is sent with the request.
+
+    This endpoint is designed to return a complete list of video details that
+    belong to the specified channel, allowing users to access specific content
+    easily.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: channel
+      in: query
+      schema:
+        type: string
+      example: Basketball
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

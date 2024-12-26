@@ -1,0 +1,58 @@
+get:
+  tags:
+    - ConnectContact
+  summary: Connect - Contact - Get
+  description: >-
+    1. "name": This contains the descriptive name of the API request. Here, the
+    name is "Connect - Contact - Get" which signifies the functionality of this
+    specific endpoint. This endpoint is used to establish a connection,
+    specifically targeting the 'contact' part of an application/database to get
+    information related to it.
+
+
+    2. "request": This object encapsulates all the details of the API request.
+
+        a. "auth": This represents the type of authorization used for transactions. It is an object that specifies the authorization type and the required credentials. Here, bearer authentication is used where the type is marked as "bearer".
+        
+            i. "type": This field describes the type of authorization being used. In this case, it is 'bearer'.
+            
+            ii. "bearer": This is an array of objects where each object represents an authorization parameter. Here, there's only one authorization parameter.
+            
+                - "key": It is the name of the authorization parameter, in this case, it's 'token'.
+                
+                - "value": It represents the value of the authorization parameter, in this case, it indicates 'BearerToken'.
+                
+                - "type": This is the type of the authorization parameter, and here, it is a string.
+        
+        b. "method": This parameter refers to the HTTP method used for the request. Here the method is 'GET', which is typically used to retrieve data.
+        
+        c. "url": This is the link to the resource you are trying to access. Here, 'http://localhost:3000/api/connect/contact/get/?contactId=contactId' is the url.
+        
+        d. "headers": This is an array used for passing additional information to the server. There is one header object that doesn't contain any data and it is disabled by default.
+        
+            i. "key": The header’s name/key. In this case, it's empty.
+            
+            ii. "value": The value assigned to the specified key. This field is also empty.
+            
+            iii. "type": Describes the type of header, with 'default' as a common example. Here, it is 'default'.
+            
+            iv. "disabled": A switch indicating the state of the header. If 'true', the header is not applied during API requests. Here it is set to 'true', indicating that this header is disabled.
+        
+        e. "body": This object contains details of what data to send in the API request.
+        
+            i. "mode": This parameter describes the format the body data is sent as. In this case, it is 'raw'.
+            
+            ii. "raw": This field is used to include raw input (when 'mode' is 'raw'). Currently, it is blank, indicating no raw data is included in the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: contactId
+      in: query
+      schema:
+        type: string
+      example: contactId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

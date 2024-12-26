@@ -1,0 +1,131 @@
+put:
+  tags:
+    - ActionReview
+  summary: Action - Review - Update
+  description: >-
+    ### Action - Review - Update
+
+
+    This endpoint allows users to update a review for a specified action or
+    item. Below is a detailed description of each piece of data associated with
+    the request:
+
+
+    #### Request Type
+
+    - **Method**: PUT
+      - This indicates that the operation will update an existing resource on the server.
+
+    #### URL
+
+    - **URL**: `http://localhost:3000/api/action/review/update`
+      - The endpoint where the action review update request is sent.
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - The request requires bearer token authentication, ensuring that the requester has proper authorization.
+
+    - **Bearer Token**: 
+      - **Key**: `token`
+        - The identifier for the bearer token.
+      - **Value**: `BearerToken`
+        - A placeholder for the actual token used to authenticate the request.
+      - **Type**: string
+        - Indicates that the token value should be a string.
+
+    #### Headers
+
+    - **Client-UUID**:
+      - **Key**: `Client-UUID`
+        - A custom header field used to identify the client making the request.
+      - **Value**: `ClientUUID`
+        - A placeholder for the actual UUID of the client.
+      - **Type**: default
+        - Specifies the default type for this header.
+
+    #### Request Body
+
+    - **Body Mode**: raw
+      - Indicates that the body of the request will be sent in raw format.
+      
+    - **Raw Body Content**:
+      - The body is formatted in JSON and contains the following fields:
+
+      - **sessionId**: 
+        - Represents the unique identifier for the session during which the review is made.
+
+      - **accountId**: 
+        - Identifies the account associated with the review.
+
+      - **path**: 
+        - The path indicating where the video or content is located, e.g., `/live/channel/video123`.
+
+      - **targetType**: 
+        - Specifies the type of the target being reviewed, e.g., `videoId`.
+
+      - **targetId**: 
+        - The unique identifier of the target that is being reviewed.
+
+      - **sourceType**: 
+        - Indicates the type of the source, e.g., `accountId`.
+
+      - **sourceId**: 
+        - The unique identifier for the source account of the review.
+
+      - **didReview**: 
+        - A boolean indicating whether or not the review has been completed (true/false).
+
+      - **reviewScore**: 
+        - A numeric score assigned to the review, typically on a scale (e.g., 1 to 5).
+
+      - **isUndo**: 
+        - A boolean value indicating whether the review action is to undo a previous review.
+
+      - **name**: 
+        - An optional field for the name associated with the review.
+
+      - **description**: 
+        - An optional field for a description of the review.
+
+      - **tags**: 
+        - Optional field for any tags associated with the review.
+
+      - **reviewId**: 
+        - The unique identifier of the review being updated.
+
+    This endpoint is used for updating an existing review and requires
+    appropriate authentication and information in the request body.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didReview: true
+            reviewScore: 5
+            isUndo: false
+            name: ''
+            description: ''
+            tags: ''
+            reviewId: reviewId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,70 @@
+get:
+  tags:
+    - ActionFeedback
+  summary: Action - Feedback - Get
+  description: >-
+    ### Description of the Endpoint Data
+
+
+    **Name:**  
+
+    - This identifies the operation as "Action - Feedback - Get," indicating
+    that it retrieves feedback data.
+
+
+    **Request:**  
+
+    This section contains all the details required to make the API request.
+
+
+    - **Auth:**  
+      - **Type:** Bearer - This means that the request uses bearer token authentication, which is a common method for securing APIs.
+      - **Bearer:**  
+        - **Key:** Token - This specifies that the key used for the bearer authentication is "token."
+        - **Value:** BearerToken - This is a placeholder for the actual token needed to authorize the request. It should be replaced with a valid token before making the request.
+        - **Type:** String - Indicates that the value of the token is a string.
+
+    - **Method:**  
+      - This specifies the HTTP method to be used for the API request. In this case, it is set to "GET," which means the request is for retrieving data.
+
+    - **URL:**  
+      - This is the endpoint to which the request is sent. It consists of:
+        - Base URL: `http://localhost:3000/api/action/feedback/get/` - This is the server address and endpoint.
+        - Query Parameters:
+          - **feedbackId:** This parameter should be provided to specify the ID of the feedback you want to retrieve.
+          - **sessionId:** This parameter should be provided to specify the session ID related to the feedback.
+          - **accountId:** This parameter should be provided to specify the account ID associated with the feedback.
+      
+    - **Headers:**  
+      - An array of headers that can be sent along with the request. 
+        - Currently, there is an empty header entry with default type. It is marked as disabled, meaning it will not be sent with the request.
+
+    - **Body:**  
+      - **Mode:** Raw - This indicates the format of the body, which is set to raw text input.
+      - **Raw:** This section is currently empty, which means no additional data needs to be sent in the body of the GET request. 
+
+    This endpoint is designed to fetch feedback data based on the provided
+    parameters and requires a valid bearer token for authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: feedbackId
+      in: query
+      schema:
+        type: string
+      example: feedbackId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

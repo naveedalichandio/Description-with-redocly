@@ -1,0 +1,96 @@
+post:
+  tags:
+    - ActionShare
+  summary: Action - Share - Create
+  description: >-
+    ### Action - Share - Create
+
+
+    This API endpoint allows users to create a share action for a specific
+    target item. Below are the details for each component of the request:
+
+
+    - **Authorization**: 
+      - **Type**: Bearer 
+      - **Token**: A bearer token is required for authentication. Replace `"BearerToken"` with an actual token string when making the request.
+
+    - **HTTP Method**: 
+      - **POST**: This indicates that data is being sent to the server to create a new entry.
+
+    - **URL**: 
+      - `http://localhost:3000/api/action/share/create`: This is the endpoint where the request will be sent.
+
+    - **Headers**: 
+      - Currently, there are no headers specified, as indicated by the empty key and value. The header is disabled, meaning it won't be included in the request.
+
+    - **Body**: 
+      - The body of the request is in raw JSON format. The following fields are to be included:
+
+      - **sessionId**: 
+        - Represents the unique identifier for the user session. This should be replaced with the actual session ID when making the request.
+
+      - **accountId**: 
+        - The unique identifier for the user's account. This should be filled in with the actual account ID.
+
+      - **path**: 
+        - This indicates the specific path or URL of the item being shared. Example: `"/live/channel/video123"` describes where the video is located.
+
+      - **targetType**: 
+        - Defines the type of the target being shared. In this case, it is set to `videoId`, indicating that the target is a video.
+
+      - **targetId**: 
+        - The unique identifier of the target item (video) being shared. This should be replaced with the actual video ID.
+
+      - **sourceType**: 
+        - Specifies the type of source from which the item is being shared; here it is `accountId`, indicating that the source is an account.
+
+      - **sourceId**: 
+        - The unique identifier of the source entity (account) that is sharing the target item. This should correspond with the actual account ID.
+
+      - **didShare**: 
+        - A boolean value indicating if the item has been shared. Set to `true` if the share action is being performed.
+
+      - **shareType**: 
+        - Indicates the type of share being executed. In this case, it is set to `link`, meaning that a link to the target item is being shared.
+
+      - **text**: 
+        - A message that accompanies the share. This is usually a description or comment about the shared item (e.g., `"check this out"`).
+
+      - **name**: 
+        - An optional field for the name associated with the share. This can be left blank if not used.
+
+      - **description**: 
+        - An optional field to provide more context about the share. This is also left blank if not applicable.
+
+      - **tags**: 
+        - An optional field for including any relevant tags associated with the share. These might help categorize or describe the content of the share.
+
+    This endpoint is essentially designed to facilitate sharing actions on
+    various types of content, with the ability to specify who is sharing, what
+    is being shared, and additional context about the share.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didShare: true
+            shareType: link
+            text: check this out
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

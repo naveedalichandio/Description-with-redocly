@@ -1,0 +1,78 @@
+get:
+  tags:
+    - ArticleSubcategory
+  summary: Article - SubCategory - Get By Short ID
+  description: >-
+    **Endpoint Name: Article - SubCategory - Get By Short ID**
+
+
+    This is the name of the given endpoint. It specifies the purpose of the
+    endpoint indicating that it's used to retrieve (Get) a SubCategory of an
+    Article by its Short ID.
+
+
+    **Authentication: Bearer Token**
+
+
+    This endpoint uses Bearer authentication. This type of authentication is an
+    HTTP authentication scheme that involves security tokens called bearer
+    tokens. The token value is labeled as 'BearerToken'. This data must be
+    string type.
+
+
+    **Request Method: GET**
+
+
+    This is an HTTP method used by the client to request data from a server. In
+    this instance, the method is 'GET' which is used to request data from a
+    specified resource.
+
+
+    **URL**
+
+
+    This is the endpoint to which the request is sent. In this case, it's
+    http://localhost:3000/api/article/subcategory/get/?shortId=articleSubCategoryShortId.
+    It specifies that the endpoint lives on a localhost server, running on port
+    3000, and is part of an API dealing with an article's subcategory retrieval
+    (get) by its Short ID.
+
+
+    **Headers**
+
+
+    This section denotes the HTTP headers to be included with the request.
+    Currently, there is a placeholder for a header, but it's been disabled and
+    left empty, therefore, it's non functional.
+
+
+    **Body**
+
+
+    As this is a 'GET' request, typically no body is included and the body
+    section is therefore set to 'raw', but no value ('') is provided.
+
+
+    **Parameters: shortId**
+
+
+    This query parameter specifies the shortId of an article's subcategory. This
+    shortId is used to identify the specific subcategory that needs to be
+    retrieved from the server. 
+
+
+    Note: Replace 'articleSubCategoryShortId' with the actual Short ID of the
+    Article's SubCategory.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: shortId
+      in: query
+      schema:
+        type: string
+      example: articleSubCategoryShortId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

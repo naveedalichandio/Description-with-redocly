@@ -1,0 +1,51 @@
+get:
+  tags:
+    - TeamCategory
+  summary: Team - Category - Get All By Account ID
+  description: >-
+    ### Endpoint Description: Team - Category - Get All By Account ID
+
+
+    - **Name**: This is the identifier for the API endpoint, indicating that it
+    retrieves all categories associated with a specific account ID within a
+    team.
+
+
+    - **Request**: This section outlines how to make the request to the API.
+
+      - **Auth**: This specifies the authentication method required to access the endpoint.
+        - **Type**: The authentication type is set to "bearer," which means that a token is required for authentication.
+        - **Bearer**: This contains the token required to authenticate the request.
+          - **Key**: The key here is "token," identifying the type of bearer token.
+          - **Value**: This holds the actual token value needed for authentication, represented as "BearerToken," which should be replaced by a valid token when making the request.
+          - **Type**: This indicates the data type of the token, which is a string.
+
+      - **Method**: The HTTP method for this request is "GET," indicating that this endpoint is used to retrieve data.
+
+      - **URL**: This is the endpoint URL that needs to be called to get the data.
+        - The URL includes a query parameter:
+          - **accountId**: This parameter is required and should be replaced with the specific account ID for which the categories are being requested.
+
+      - **Headers**: This section can include additional headers for the request.
+        - Currently, there is an empty key for a header, indicating no additional headers are being used. The header is marked as "disabled," which means it will not be sent with the request.
+
+      - **Body**: This part of the request holds data to be sent to the server.
+        - **Mode**: The body mode is set to "raw," meaning that the body can contain raw data.
+        - **Raw**: In this case, the raw body is empty since this is a GET request, which typically does not require a body.
+
+    This endpoint is designed for users who need to obtain all categories for a
+    specific account within a team context by providing the corresponding
+    account ID in the request URL.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,106 @@
+put:
+  tags:
+    - ActionActivate
+  summary: Action - Activate - Update
+  description: >-
+    ### Action - Activate - Update
+
+
+    #### Request Details
+
+
+    - **Auth (Authorization)**:
+      - **Type**: This specifies that the authentication method is using a bearer token.
+      - **Bearer**: This array contains the bearer token information.
+        - **Key**: The key for authentication which is labeled as "token".
+        - **Value**: The placeholder for the bearer token which should be replaced with the actual token (e.g., "BearerToken").
+        - **Type**: The type is specified as a string, indicating that the token must be formatted as a string.
+
+    - **Method**:
+      - **PUT**: This denotes that the request method used to call this endpoint is PUT, which is typically used for updating resources.
+
+    - **URL**:
+      - **Endpoint**: The URL is set to `http://localhost:3000/api/action/activate/update`. This is the local endpoint where the API request will be sent.
+
+    - **Headers**:
+      - **Client-UUID**: 
+        - **Key**: This is the name of the header which identifies the client making the request.
+        - **Value**: This is a placeholder for the UUID value that should uniquely identify the client (e.g., "ClientUUID").
+        - **Type**: The type is set as "default", which means it doesn't require special handling.
+
+    #### Body Details
+
+
+    - **Mode**:
+      - **Raw**: The body of the request will be sent in raw format.
+
+    - **Raw (Body Content)**: This is the content of the request body,
+    structured in JSON format. Below are the details of each field within the
+    JSON body:
+
+      - **sessionId**: 
+        - A string value representing the ID of the current session initiating the update.
+
+      - **accountId**: 
+        - A string value that refers to the ID of the account related to the action.
+
+      - **activateId**: 
+        - A string value that signifies the unique ID for the activation action being updated.
+
+      - **path**: 
+        - A string indicating the resource path which may relate to a specific video channel (e.g., "/live/channel/video123").
+
+      - **targetType**: 
+        - This field indicates the type of target that the action is aimed at (e.g., "streamer").
+
+      - **targetId**: 
+        - A string value that represents the unique identifier for the target, such as the ID of a video.
+
+      - **sourceType**: 
+        - This field details the type of source account from which the action is derived (e.g., "accountId").
+
+      - **sourceId**: 
+        - A string value that signifies the ID of the source account associated with the action.
+
+      - **tokenAmount**: 
+        - A numerical value that indicates the amount of tokens being processed or allocated for the action (e.g., 20).
+
+      - **name**: 
+        - A string field where the name associated with the action is recorded (e.g., "Farooq").
+
+      - **description**: 
+        - A string providing additional details regarding the action (e.g., "this is description").
+
+      - **tags**: 
+        - A string containing tags associated with the action, which may be used for categorization (e.g., "xyz").
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            activateId: activateId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

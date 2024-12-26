@@ -1,0 +1,69 @@
+get:
+  tags:
+    - AccountGeneral
+  summary: Account - General - Session - Get Account Type
+  description: >-
+    1. `name`: This field specifies the name of the endpoint which is "Account -
+    General - Session - Get Account Type". This indicates that the endpoint is
+    used to fetch the type of an account, and it is generally related to a
+    session.
+
+
+    2. `request`: This field contains information about the type of request,
+    authorization required, the URL to be hit, header information and body
+    content.
+
+
+    3. `request.auth`: This section outlines the type of authentication needed
+    to make the request to this endpoint. The `type` is "bearer" which means it
+    uses bearer authentication. 
+
+
+    4. `request.auth.bearer`: This is an array that carries information about
+    the bearer token required for authentication. The `key` is "token" and its
+    respective `value` should be the BearerToken to be provided.
+
+
+    5. `request.method`: This stands for the HTTP method type the endpoint uses.
+    Here it is a "GET" request, which is used for retrieving data from the
+    specified resource.
+
+
+    6. `request.url`: This shows the URL or the location of the resource where
+    the request will be sent. In this description, it is specified to hit
+    "http://localhost:3000/api/account/general/session" with query parameters
+    for `accountId`,`sessionId` & `get`.
+
+
+    7. `request.headers`: This is an array of objects and every object contains
+    information about a header that should be sent with the request. In this
+    description, the key and value of the header aren't specifically set and
+    thus, the header is disabled.
+
+
+    8. `request.body`: This field contains information about the body of the
+    request. The `mode` is set to "raw", however, the `raw` field is empty
+    indicating no specific data needs to be sent in the body of the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: get
+      in: query
+      schema:
+        type: string
+      example: accountType
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,74 @@
+post:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Zelle - Delete
+  description: >-
+    This endpoint is named "Customer - Zelle - Delete". This endpoint pertains
+    to the payment service provided in the API, specifically for deleting
+    customer information related to Zelle payment. 
+
+
+    Request Details:
+
+
+    The request method used is POST, which means it is used to send data to the
+    API server in order to perform an action. 
+
+
+    The URL where the request is sent is
+    http://localhost:3000/api/payment/customer/delete. This is the URL to your
+    local server running on port 3000 for payment service particularly for the
+    deletion of customer information. 
+
+
+    The 'headers' field is currently empty. If any additional information is
+    required by the server to process the request, it would be included in this
+    field. 
+
+
+    Body Details:
+
+
+    The 'body' field contains the data that is sent to the server. Its 'mode' is
+    'raw' which means the data will be sent exactly in the same way as it is
+    specified.
+
+
+    The 'raw' data in the 'body' field includes the following attributes:
+
+
+    - "accountId": This should contain the account ID of the user. This is a
+    required field to identify the user account associated with the Zelle
+    payment.
+      
+    - "sessionId": This would hold the session ID for the current session of the
+    user. It is required for the server to maintain the state of the session.
+
+
+    - "customerId": This field should contain the customer ID. This is a
+    required field which helps identify the customer who is using the Zelle
+    payment service.
+
+
+    - "provider": Here, the value is "zelle". As this endpoint is for Zelle
+    payments, this field will always contain the same value.
+
+
+    In the 'options' object under 'body', it specifies that the language used is
+    JSON. Here, 'language' is set to 'json', meaning that the server acts upon
+    or responds to the data in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            customerId: customerId
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

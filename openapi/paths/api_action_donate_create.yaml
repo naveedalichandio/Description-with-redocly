@@ -1,0 +1,91 @@
+post:
+  tags:
+    - ActionDonate
+  summary: Action - Donate - Create
+  description: >-
+    ### Description of Each Data in the Endpoint: Action - Donate - Create
+
+
+    #### Request Authentication
+
+    - **Auth Type**: Specifies that the request uses Bearer token for
+    authorization.
+
+    - **Bearer Token**: 
+      - **Key**: "token" - Identifies the authorization token.
+      - **Value**: "BearerToken" - The actual token that authorizes the request, typically a string representing the user's session.
+      - **Type**: "string" - Indicates that the value of the token is a string.
+
+    #### Request Method
+
+    - **Method**: "POST" - Indicates that this request will create a new
+    resource on the server.
+
+
+    #### Request URL
+
+    - **URL**: "http://localhost:3000/api/action/donate/create" - The endpoint
+    where the request will be sent to create a donation action.
+
+
+    #### Request Headers
+
+    - **Headers**: 
+      - **Key**: An empty string - Indicates that no additional custom headers are set.
+      - **Value**: An empty string - There is no associated value for the header.
+      - **Type**: "default" - The default type for the header.
+      - **Disabled**: true - This header is currently disabled and will not be sent with the request.
+
+    #### Request Body
+
+    - **Body Mode**: "raw" - Indicates that the body of the request will contain
+    raw data.
+
+    - **Raw Data**:
+      - A JSON object containing the following fields:
+        - **sessionId**: "sessionId" - Represents the unique identifier for the user session.
+        - **accountId**: "accountId" - The ID of the user account making the donation.
+        - **path**: "/live/channel/video123" - The URL path to the content associated with the donation, such as a live stream.
+        - **targetType**: "videoId" - Specifies the type of target for the donation, which in this case is a video ID.
+        - **targetId**: "videoId" - The unique ID of the target video receiving the donation.
+        - **sourceType**: "accountId" - Indicates that the source of the donation is an account ID.
+        - **sourceId**: "accountId" - The unique ID of the source account from which the donation originates.
+        - **utilityType**: "token" - Specifies the type of utility used for the donation, which is a token.
+        - **name**: "My chairity" - The name of the charity or cause associated with the donation.
+        - **didDonate**: true - A boolean indicating whether the donation was successfully made.
+        - **isAccepted**: true - A boolean indicating whether the donation has been accepted.
+        - **isRejected**: false - A boolean indicating whether the donation has been rejected.
+        - **description**: "" - A field for additional comments or notes about the donation, currently empty.
+        - **tags**: "" - A field for tags or labels associated with the donation, currently empty.
+
+    #### Options
+
+    - **Raw Data Options**: 
+      - **Language**: "json" - Specifies that the format of the raw data is JSON.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            utilityType: token
+            name: My chairity
+            didDonate: true
+            isAccepted: true
+            isRejected: false
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

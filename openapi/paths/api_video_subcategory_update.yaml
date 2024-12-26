@@ -1,0 +1,79 @@
+put:
+  tags:
+    - VideoSubcategory
+  summary: Video - SubCategory - Update
+  description: >-
+    ### API Endpoint Description: Video - SubCategory - Update
+
+
+    - **Name**: This identifier indicates the purpose of the API request, which
+    is to update information related to a specific sub-category of a video.
+
+
+    - **Request**: This section contains details about how to make the API call.
+
+      - **Auth**: This specifies the authentication method required to access the endpoint.
+      
+        - **Type**: "bearer" indicates that the API uses Bearer Token authentication.
+        
+        - **Bearer**: This contains an array to hold data related to the Bearer Token.
+        
+          - **Key**: "token" is the field name used to send the token for authentication.
+          
+          - **Value**: "BearerToken" is a placeholder that should be replaced with an actual Bearer Token for authorization.
+          
+          - **Type**: "string" indicates that the value should be a string type.
+
+      - **Method**: "PUT" indicates that this request is intended to update an existing resource.
+
+      - **URL**: Specifies the endpoint where the request is sent. In this case, it is `http://localhost:3000/api/video/subcategory/update`, which is the address of the API.
+
+      - **Headers**: This section lists additional information sent with the request.
+
+        - **Key**: "Client-UUID" represents a unique identifier for the client making the request.
+        
+        - **Value**: "ClientUUID" is a placeholder that should be replaced with the actual UUID for the client.
+        
+        - **Type**: "default" signifies that it is a standard header.
+
+      - **Body**: This contains the data to be sent with the PUT request.
+
+        - **Mode**: "raw" indicates that the data is sent in a raw format, as opposed to form-encoded or binary formats.
+
+        - **Raw**: This part includes the actual payload that must be sent to update the sub-category. The payload is formatted as JSON and includes the following fields:
+        
+          - **subCategoryId**: Represents the unique identifier for the sub-category that is being updated.
+          
+          - **sessionId**: Denotes the session identifier, which may be required to track the session during which the update is made.
+          
+          - **accountId**: Refers to the identifier for the account linked to the sub-category being modified.
+          
+          - **name**: Specifies the new name for the sub-category. In this example, it is set to "My Second SubCategory 2".
+          
+          - **description**: Provides additional information about the sub-category. Here, it states "This is a changed subcategory".
+          
+          - **tags**: A comma-separated list of tags associated with the sub-category. In this case, it includes "second" and "subcategory".
+          
+          - **isEnabled**: A boolean field indicating whether the sub-category is enabled (true) or disabled (false). In this example, it is set to false, meaning the sub-category will not be active.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"subCategoryId\":\"subCategoryId\",\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"name\":\"My
+            Second SubCategory 2\",\"description\":\"This is a changed
+            subcategory\",\"tags\":\"second,subcategory\",\"isEnabled\":false}"
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

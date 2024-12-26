@@ -1,0 +1,63 @@
+get:
+  tags:
+    - ActionRevoke
+  summary: Action - Revoke - Get All
+  description: >-
+    ### Action - Revoke - Get All
+
+
+    #### Overview
+
+    This endpoint is designed to retrieve all revocation actions from the
+    server. It requires a valid session ID and account ID to fetch the relevant
+    data.
+
+
+    #### Request Details
+
+
+    - **Authentication**: 
+      - **Type**: Bearer Token
+      - **Key**: `token`
+      - **Value**: The actual token should be prefixed with `Bearer ` followed by the token value. This is used to authorize the request and ensure that the caller has the necessary permissions to access the endpoint.
+
+    - **HTTP Method**: 
+      - **Method**: GET
+      - This specifies that the request is intended to retrieve information from the server rather than modifying it.
+
+    - **URL**: 
+      - **Endpoint**: `http://localhost:3000/api/action/revoke/all/`
+      - **Query Parameters**: 
+        - **sessionId**: Represents the unique identifier for the user session. This is required to identify the session for which revocation actions are being requested.
+        - **accountId**: Represents the unique identifier for the user's account. This is required to specify which account's revocation actions are being queried.
+
+    - **Headers**: 
+      - A placeholder for any additional headers required by the request. In this case, the header is currently disabled and does not carry any value or key.
+
+    - **Body**: 
+      - **Mode**: Raw
+      - **Content**: The body of the request is empty since GET requests generally do not require a body. The raw mode indicates that no formatting is needed.
+
+    ### Summary
+
+    This endpoint allows users to fetch all revocation actions by providing a
+    session ID and account ID. It uses a Bearer Token for authentication and
+    follows a standard GET request structure.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

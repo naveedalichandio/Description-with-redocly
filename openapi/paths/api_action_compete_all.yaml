@@ -1,0 +1,62 @@
+get:
+  tags:
+    - ActionCompete
+  summary: Action - Compete - Get All
+  description: |-
+    {
+      "name": "Action - Compete - Get All",
+      "description": {
+        "request": {
+          "auth": {
+            "type": "bearer",
+            "bearer": [
+              {
+                "key": "token",
+                "value": "BearerToken",
+                "type": "string"
+              }
+            ]
+          },
+          "description": {
+            "auth": "Authentication method used is Bearer Token. This requires a token to be provided in the request header for authorization.",
+            "method": "GET",
+            "description": "This is a GET request which is used to retrieve data from the server.",
+            "url": "The endpoint URL is 'http://localhost:3000/api/action/compete/all/?sessionId=sessionId&accountId=accountId'. This URL is used to get all compete actions.",
+            "sessionId": "Session ID is a required parameter that identifies the session for which compete actions are being requested.",
+            "accountId": "Account ID is another required parameter that specifies the account related to the compete actions.",
+            "headers": [
+              {
+                "key": "",
+                "value": "",
+                "type": "default",
+                "disabled": true
+              }
+            ],
+            "description": "Currently, there are no custom headers being used in this request as the default header is disabled.",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "description": "The body of the request is empty as this is a GET request which typically does not require a request body."
+            }
+          }
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

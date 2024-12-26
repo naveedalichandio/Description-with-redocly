@@ -1,0 +1,23 @@
+get:
+  tags:
+    - ReportsTeam
+  summary: Reports - Team - Get All
+  description: "1. `\"name\": \"Reports - Team - Get All\"` - This is the name of the API endpoint, describing its main function. It suggests that this endpoint is used to fetch all team reports.\n\n2. `\"request\"` - This object represents the details of the HTTP request that needs to be made to access the data from the endpoint.\n\n3. `\"auth\"` - The auth object provides information about the type of authorization required to access the endpoint.\n\n\t- `\"type\": \"bearer\"` - This indicates that the API uses Bearer Authentication, a method that involves sending a token in the Authorization header of the HTTP request.\n\t\n\t- `\"bearer\": [ {...} ]` - This list contains bearer tokens required for authorization. In this case, it contains one token:\n\t\n\t\t- `\"key\": \"token\"` - This is the name of the token required for authorization.\n\t\t\n\t\t- `\"value\": \"BearerToken\"` - This is where the actual token string would be placed.\n\t\t\n\t\t- `\"type\": \"string\"` - Data type of the token which indicates that it should be a string.\n\n4. `\"method\": \"GET\"` - GET is the HTTP method used for this request. It signifies that the endpoint retrieves data.\n\n5. `\"url\": \"http://localhost:3000/api/reports/team/all/?sessionId=sessionId&accountId=accountId\"` - This is the URL endpoint for the request. It seems to have two parameters, 'sessionId' and 'accountId', passed in the query string.\n\n6. `\"headers\"` - This is a list of headers which are to be sent along with the HTTP request. It contains additional parameters that define the HTTP request.\n\t- This particular header object is disabled, implying that there are no additional headers to be sent with the request.\n\n7. `\"body\"` - The body object contains data that is sent to the API. In this case, there is no data to be sent, so the `\"mode\"` is `\"raw\"` and `\"raw\"` contains an empty string. 'Raw' indicates that the data is sent without any specific formatting."
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

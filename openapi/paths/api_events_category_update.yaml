@@ -1,0 +1,61 @@
+put:
+  tags:
+    - EventsCategory
+  summary: Events - Category - Update
+  description: >-
+    This endpoint is named "Events - Category - Update" and is a service URL to
+    update the details of a specific event category. 
+
+
+    1. The `request` object has several properties within it like `auth`,
+    `method`, `url`, `headers`, & `body`.
+
+       - The `auth` object describes the authentication method used for this endpoint. This API uses Bearer Token authorization. The field named `token` should contain the actual Bearer Token needed as authorization credentials to connect to the API.
+
+       - The request `method` is `PUT`, which is typically used for updating resources.
+
+       - The `url` is the endpoint's URL to which the request should be sent. This URL is used to update the event category.
+
+       - The `headers` object contains additional elements sent along with the request. This API requires a `Client-UUID` for identification purposes.
+
+    2. The `body` object inside the `request` object carries all the data needed
+    to update an event category.
+
+       - The `mode` is `raw`, meaning the data is sent exactly as entered.
+
+       - The `raw` field contains the actual data to be sent. This should be a JSON containing: 
+           - `categoryId`: The unique identifier for the category.
+           - `sessionId`: The active session's identifier.
+           - `accountId`: The user's account identifier.
+           - `name`: The new name for the event.
+           - `displayName`: The new display name for the event.
+           - `description`: A detailed description of the event.
+           - `tags`: Relevant tags to associate with the event, separated by commas.
+
+       - The `options` object provides metadata about the body content. It indicates that the language used in the `raw` body is `json`.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            categoryId: eventCategoryId
+            sessionId: sessionId
+            accountId: accountId
+            name: Miami Art Week 3
+            displayName: Miami Art Week 2024
+            description: An immersive celebration of art and culture during Miami Art Week.
+            tags: Art,Exhibition,Miami,Culture
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

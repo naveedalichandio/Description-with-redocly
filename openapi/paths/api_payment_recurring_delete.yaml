@@ -1,0 +1,64 @@
+post:
+  tags:
+    - PaymentRecurring
+  summary: Recurring - Zelle - Delete
+  description: >-
+    This endpoint is named "Recurring - Zelle - Delete". It is designed to
+    delete a recurring Zelle payment in the database. It is a 'POST' request
+    which sends data to the specified URL.
+
+
+    The URL for this particular request is
+    "http://localhost:3000/api/payment/recurring/delete". Essentially, it
+    implies that we are working with a payment API on a local server and
+    specifically dealing with recurring payments deletion.
+
+
+    The request doesn't include any headers. Headers in API requests define the
+    operating parameters of an HTTP transaction.
+
+
+    Thereafter, we have the body of the request. This is where the details about
+    the recurring payment that should be deleted are defined:
+
+
+    - 'Mode' indicates the data formatted expected by the endpoint. For this
+    endpoint, the data should come in 'raw', unprocessed form.
+
+
+    - 'Raw' holds the payload data being sent to the API. In this case, it has
+    four fields in JSON format:
+
+      - 'accountId': This is assumed to be the unique identifier of the account from which the recurring payment is set up.
+      
+      - 'sessionId': This is likely a unique identifier for the session in which the delete request is made. It could be used for maintaining session state and tracking.
+
+      - 'recurringId': This is most likely the unique identifier for the recurring payment that is to be deleted.
+
+      - 'provider': As the name suggests, this field specifies who is the service provider of the payment system. It is set to 'Zelle' for this request.
+      
+    - 'Options: Raw:Language' indicates the language used to display the raw
+    payload data mentioned above, which is JSON in this case.
+
+
+    Please ensure to replace the 'accountId', 'sessionId', and 'recurringId'
+    with actual values while making a request to the API.
+
+
+    This endpoint needs adequate permissions for handling delete operations for
+    recurring payments.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            recurringId: recurringId
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,64 @@
+post:
+  tags:
+    - ActionUnlock
+  summary: Action - Unlock - Delete
+  description: |-
+    ### Endpoint Description: Action - Unlock - Delete
+
+    - **Name**: Action - Unlock - Delete 
+      - This is the identifier for the specific action being documented.
+
+    - **Request**:
+      - **Auth**: 
+        - **Type**: Bearer
+          - This indicates that the API request uses bearer token authentication.
+        - **Bearer**: 
+          - **Key**: token
+            - This is the key used to represent the authentication token in the request.
+          - **Value**: sessionId
+            - This represents the session identifier being passed to authenticate the request.
+          - **Type**: string
+            - The data type expected for the token.
+      
+      - **Method**: 
+        - POST
+          - This specifies that the request type is a POST request, which is typically used for sending data to the server to create or update a resource.
+
+      - **URL**: 
+        - http://localhost:3000/api/action/unlock/delete
+          - This is the endpoint where the request is sent. It indicates the local server and the specific path for unlocking and deleting an action.
+
+      - **Headers**: 
+        - An array of headers that can be attached to the request. In this case:
+          - **Key**: (empty)
+            - Currently, there are no additional headers being used in this request.
+          - **Value**: (empty)
+            - There is no specified value for headers as they are not being utilized.
+          - **Type**: default
+            - Indicates the default type for headers.
+          - **Disabled**: true
+            - This indicates that the header is disabled and will not be sent with the request.
+
+      - **Body**: 
+        - **Mode**: raw
+          - The body of the request is in raw format, allowing for sending custom data structures.
+        - **Raw**: 
+          - `{"sessionId":"sessionId","accountId":"accountId","unlockId":"unlockId"}`
+            - This is the JSON payload being sent with the request. It contains:
+              - **sessionId**: This is the identifier for the current user session.
+              - **accountId**: This represents the unique identifier for the account associated with the action.
+              - **unlockId**: This is the specific identifier for the unlock action that is to be deleted.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"unlockId\":\"unlockId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

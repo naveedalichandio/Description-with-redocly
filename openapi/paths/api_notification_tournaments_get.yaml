@@ -1,0 +1,61 @@
+get:
+  tags:
+    - NotificationTournaments
+  summary: Notification - Tournaments - Get
+  description: >-
+    1. **name**: The name of the endpoint is 'Notification - Tournaments - Get'.
+    It signifies that this API will fetch the notification related to
+    tournamnets.
+
+
+    2. **request**: This key contains the main structure of the HTTP request.
+
+
+    3. **auth**:
+        - **type**: The 'type' key states the type of authorization used, which in this case is the 'Bearer'.
+        - **bearer**: The 'bearer' key is an array of bearer tokens containing the following information:
+            - **key**: 'Token'; it indicates that this value will be used as the authorization token header.
+            - **value**: 'BearerToken'; it represents the actual token value you should use to authenticate the API requests.
+            - **type**: Specifies that the given token is of type 'string'.
+
+    4. **method**: This is a 'GET' method. It indicates that information is
+    being retrieved from the server.
+
+
+    5. **url**: The URL key specifies the endpoint to which the request is made.
+    The URL contains parameters after the '?', which are: tournamentsId,
+    sessionId, and accountId.
+
+
+    6. **headers**: This is an array of objects containing the additional
+    information that is sent along with the request. This API does not contain
+    any headers as the value of both key and value is empty and it is disabled.
+
+
+    7. **body**: This section contains the data which will be sent to the
+    server. 
+        - **mode**: The 'raw' mode indicates that the body content will be sent as a raw data.
+        - **raw**: As the 'raw' key is an empty string in this case, no body content is being sent with the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: tournamentsId
+      in: query
+      schema:
+        type: string
+      example: tournamentsId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

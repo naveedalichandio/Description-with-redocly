@@ -1,0 +1,85 @@
+post:
+  tags:
+    - MediaImage
+  summary: Media - Image - Create - For Reward
+  description: >-
+    - "name": This refers to the name of the endpoint. In this case, the
+    endpoint is named as 'Media - Image - Create - For Reward.' This endpoint is
+    used to create new media for rewards.
+
+
+    - "request": It signifies the HTTP request specifics. 
+
+         - "auth": It represents the authentication mechanism for the request. Here, 'Bearer' token is being used for authorization. 
+
+                 - "key": The key value here is named 'token'.
+                   
+                 - "value": The representing value for the given key, in this case, it's 'BearerToken.'
+
+                 - "type": Specifies the type of data that the 'token' is, which is a 'string' in the present case.
+
+        - "method": This indicates the HTTP method that the endpoint uses. Here, it is 'POST', meaning the endpoint is designed to send new information to the server.
+
+        - "url": This is the URL to which the request is sent. Here, the POST request is sent to `http://localhost:3000/api/media/image/create`.
+
+        - "headers": An array containing the header information. The default value of the header key-value pair in this case is empty and is disabled.
+
+        - "body": Refers to the payload that is being sent with the request.
+
+            - "mode": The mode in which the body is being sent. Here, it is in 'raw' mode implying that the data hasn't been altered from its original state.
+
+            - "raw": The actual data being sent with the request. It contains several properties as mentioned below:
+
+                - "sessionId": User's session ID.
+
+                - "accountId": User's account ID.
+
+                - "rewardId": ID referring to the specific reward.
+
+                - "name": The name of the new media, 'My Second Media' in this case.
+
+                - "description": A brief description of the media.
+
+                - "tags": Tags that are associated with the media. For example, 'second, media'.
+
+                - "contentType": Specifies the media type format, which is 'image/jpeg' in this case.
+
+                - "contentLength": Length of the content. It is 0 in this example.
+
+                - "targetKey": The key targeting the location where the image will be saved, 'profilePhotoUrl' in this case.
+
+                - "compressUsing": The method used to compress the image, 'Base64' in this context.
+
+                - "isCompressed": A boolean value indicating if the image is compressed. It's set to true in this example.
+
+                - "isPrivate": A boolean value to indicate whether the media is private (true) or public (false). Here, it is set to false, meaning it's public.
+
+                - "data": The actual image data which is not shown here but denoted as `...`.
+
+            - "options": Contains options for the request. In this case, the 'raw' payload is specified to be in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            rewardId: rewardId
+            name: My Second Media
+            description: This media is my second media
+            tags: second,media
+            contentType: image/jpeg
+            contentLength: 0
+            targetKey: profilePhotoUrl
+            compressUsing: Base64
+            isCompressed: true
+            isPrivate: false
+            data: ...
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

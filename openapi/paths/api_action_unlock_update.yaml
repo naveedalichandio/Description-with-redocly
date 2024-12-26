@@ -1,0 +1,117 @@
+put:
+  tags:
+    - ActionUnlock
+  summary: Action - Unlock - Update
+  description: >-
+    # Action - Unlock - Update Endpoint Description
+
+
+    ## Request Authentication
+
+    - **Auth Type**: Bearer
+      - **Key**: `token` 
+        - The token used for authorization. It is a Bearer token which is passed in the request for authentication.
+
+    ## HTTP Method
+
+    - **Method**: PUT
+      - This endpoint uses the PUT method to update existing resources.
+
+    ## URL
+
+    - **Endpoint URL**: `http://localhost:3000/api/action/unlock/update`
+      - This is the endpoint URL where the request will be sent.
+
+    ## Headers
+
+    - **Header Name**: `Client-UUID`
+      - **Value**: `ClientUUID`
+        - A unique identifier for the client making the request. This is used to track or identify client requests.
+
+    ## Request Body
+
+    - **Content Type**: raw (JSON format)
+      
+    ### Body Parameters
+
+    - **sessionId**: 
+      - A unique identifier for the session. This is used to track the session state.
+      
+    - **accountId**: 
+      - The identifier for the user's account. This represents the account related to the unlock action.
+      
+    - **path**: 
+      - The path indicating the resource being accessed or modified. E.g., `/live/channel/video123` for a specific video.
+
+    - **targetType**: 
+      - Specifies the type of resource being targeted by the action. In this case, it is set to `"videoId"`.
+
+    - **targetId**: 
+      - The identifier of the resource being unlocked or acted upon. This should specify the video ID.
+
+    - **sourceType**: 
+      - Indicates the type of source from which the item is being unlocked, set to `"accountId"`.
+
+    - **sourceId**: 
+      - The identifier of the source associated with the unlock action, which corresponds to the `accountId`.
+
+    - **didUnlock**: 
+      - A boolean value indicating whether the item has been successfully unlocked. Set to `true` to indicate a successful unlock.
+
+    - **unlockType**: 
+      - Describes the type of unlock action performed. In this case, it is set to `"channel"`.
+
+    - **didClickthrough**: 
+      - A boolean value indicating whether the user acted upon a click-through. Set to `true` to indicate that a click-through occurred.
+
+    - **tokenAmount**: 
+      - A numeric value representing the amount of tokens involved in the unlock action. In this case, it is set to `40`.
+
+    - **name**: 
+      - A field for an additional name related to the unlock action. This is currently empty.
+
+    - **description**: 
+      - A field for a description of the unlock action. This is also currently provided as empty.
+
+    - **tags**: 
+      - A field for any tags related to the unlock action. Presently left empty.
+
+    - **unlockId**: 
+      - A unique identifier for the unlock action itself. This must be specified to track individual unlock actions.
+
+    This description is intended to clarify the usage and required parameters
+    for making a PUT request to the specified endpoint to update unlock actions.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didUnlock: true
+            unlockType: channel
+            didClickthrough: true
+            tokenAmount: 40
+            name: ''
+            description: ''
+            tags: ''
+            unlockId: unlockId
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

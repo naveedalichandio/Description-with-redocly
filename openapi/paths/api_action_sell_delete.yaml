@@ -1,0 +1,69 @@
+post:
+  tags:
+    - ActionSell
+  summary: Action - Sell - Delete
+  description: >-
+    ### Endpoint Description: Action - Sell - Delete
+
+
+    - **Endpoint Name**: Action - Sell - Delete
+      - This endpoint is designated for the operation of deleting an action related to selling.
+
+    - **Request Method**: POST
+      - This endpoint accepts a POST request, which is typically used to send data to the server to create or delete resources.
+
+    - **Request URL**: 
+      - `http://localhost:3000/api/action/sell/delete`
+        - The base URL indicates that the endpoint is hosted on a local server and is dedicated to handling delete actions for sells.
+
+    - **Authorization**:
+      - **Auth Type**: Bearer
+        - The endpoint requires Bearer Token authentication for access.
+      - **Bearer Token Details**:
+        - **Key**: token
+          - This is the identifier for the token being used in the authentication process.
+        - **Value**: sessionId
+          - This represents the actual session token that needs to be sent with the request to authenticate the user.
+        - **Type**: string
+          - Indicates that the token is provided as a string data type.
+
+    - **Headers**:
+      - The request includes a header section, but it currently has no defined headers, as the key and value fields are empty.
+      - The header is marked as disabled, indicating that it will not be sent with the request.
+
+    - **Body**:
+      - **Body Mode**: raw
+        - The body of the request is sent in raw format, which allows for custom JSON strings to be sent.
+      - **Raw Data**:
+        - The body contains the following JSON structure:
+          ```json
+          {
+            "sessionId": "sessionId",
+            "accountId": "accountId",
+            "sellId": "sellId"
+          }
+          ```
+        - **sessionId**: 
+          - This field represents the user's session ID, which is necessary for authentication purposes.
+        - **accountId**:
+          - This field identifies which user's account is being accessed in relation to the sell action.
+        - **sellId**:
+          - This field specifies the unique identifier for the sell action that needs to be deleted.
+
+    This endpoint is crucial for functions that require removing sell actions
+    from an account, and it relies on providing valid IDs and a session token
+    for secure operations.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"sellId\":\"sellId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

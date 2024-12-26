@@ -1,0 +1,60 @@
+get:
+  tags:
+    - TournamentInvite
+  summary: Tournament - Invite - Get All
+  description: >-
+    **Endpoint Description: Tournament - Invite - Get All**
+
+
+    - **Name**: This refers to the name of the endpoint, which indicates that it
+    is used to retrieve all invitation details related to tournaments.
+
+
+    - **Request**: This section contains the information about how to structure
+    the request for this endpoint.
+
+      - **Auth**: Specifies the authentication method used to access the endpoint. It requires a bearer token to authenticate the request.
+      
+        - **Type**: Indicates the type of authentication being used, which is "bearer" in this case.
+        
+        - **Bearer**: An array containing authentication details.
+        
+          - **Key**: This identifies the parameter for the bearer token, labeled as "token".
+          
+          - **Value**: Here, you should replace "BearerToken" with your actual bearer token value when making the request.
+          
+          - **Type**: Describes the data type of the token, which is specified as "string".
+
+      - **Method**: This indicates the HTTP method used for the request, which is "GET". It means that this endpoint retrieves data from the server.
+      
+      - **URL**: The endpoint's URL used to access the resource. In this case, it points to the local server and requires two query parameters:
+      
+        - **sessionId**: A placeholder for the session identifier, which should be replaced with the actual session ID when making the request.
+        
+        - **accountId**: A placeholder for the account identifier, which should also be replaced with the actual account ID.
+      
+      - **Headers**: This section is for any additional HTTP headers you might want to include in your request. Currently, this is empty and disabled, indicating no extra headers are currently necessary.
+
+      - **Body**: This section specifies the request payload.
+      
+        - **Mode**: The mode indicates the format of the body; it is set to "raw", meaning no structured data is being sent.
+        
+        - **Raw**: The actual body data is empty in this example, meaning no additional data is required when making the request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,51 @@
+post:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Zelle - Create
+  description: >-
+    This endpoint is named "Customer - Zelle - Create" and it uses the POST HTTP
+    method. It is utilized for creating a new customer record in the Zelle
+    system. Here's a description for each field in this endpoint:
+
+
+    - The URL of this endpoint is
+    "http://localhost:3000/api/payment/customer/create". This URL is where the
+    client app sends HTTP POST requests to execute the customer creation
+    operation.
+
+
+    - An object named "request" which has the following properties:
+      - "method": The HTTP verb which defines what kind of request this is. In this case it's a POST which suggests it's for creating a new resource.
+      - "url": The network location at which the request is aiming.
+      - "headers": This should be a list of headers to be used for the request. Currently, it's empty, implying no custom headers are used.
+      - "body": The data to be submitted in the request, which houses the subsequent fields:
+        - "mode": It is stated as 'raw', implies all the required data is furnished in raw format.
+        - "raw": Represents the actual data sent with the request. In this endpoint, the following attributes in JSON format are being sent:
+          - "accountId": The unique identifier for the user's account.
+          - "sessionId": Represents the unique session ID.
+          - "source": The origin of the request. It's currently null, which could suggest that this value is either not required or will be filled in at the time of the request.
+          - "isSaveCustomer": A boolean that indicates whether to create (true) or not create (false) a customer in the system.
+          - "isPrimary": A boolean that signifies if the newly created customer is the primary customer (true) or not (false).
+          - "provider": Indicates the name of the payment provider, which is 'zelle' in this case.
+        - "options": Any additional options that might be applicable for the request. Here it indicates the language of the raw data payload which is 'json' in this case.
+
+    All of these fields together make up the POST request to create a new
+    customer record within the Zelle payment system through the provided local
+    API.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            accountId: accountId
+            sessionId: sessionId
+            source: null
+            isSaveCustomer: true
+            isPrimary: false
+            provider: zelle
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

@@ -1,0 +1,106 @@
+post:
+  tags:
+    - ConnectMessage
+  summary: Connect - Message - Create Settings
+  description: >-
+    This API endpoint is titled "Connect - Message - Create Settings". It is
+    primarily used to create settings for messages in the connection.
+
+
+    Authentication for this API is implemented via the bearer authentication
+    scheme. You will need a bearer token for authentication. 
+
+
+    The bearer token is a string and is passed in the 'token' field in the
+    authorization section.
+
+
+    This is a POST method API and is expected to receive a payload in the body
+    part of the request. This endpoint's URL is -
+    http://localhost:3000/api/connect/message/createsettings
+
+
+    There is a default header provided for this POST call. However, it is
+    disabled and does not need to be filled with any data.
+
+
+    In the body of the request, there are numerous data fields, summarized
+    below:
+
+
+    - "sessionId" should be the Session ID of the user.
+
+    - "accountId" holds the Account ID of the user.
+
+    - "name" refers to the name of the user.
+
+    - "displayName" is the username or the other form of user's name.
+
+    - "tags" can contain tags related to this user setting.
+
+    - "title" is the user's professional title (like 'Developer').
+
+    - "website" is the link to the user's personal or professional website.
+
+    - "description" field holds a brief description about the user.
+
+    - "identifierKey" refers to the user's unique identifier key.
+
+    - "apiKey", "apiSecret", and "apiClientId" are user's API access
+    credentials.
+
+    - "authToken" is the user's authentication token.
+
+    - "refreshToken" is the token to refresh the authToken after it's expired.
+
+    - "providerName" and "providerId" fields are to establish OAuth, api
+    connection or other relevant sources.
+
+    - "uniqueKey" is an additional unique identifier key for user.
+
+    - "authUsername", "authPassword", "authEmail" are for user authentication.
+
+    - "authSecurity" may be used for any additional security measure, currently,
+    it's null.
+
+    - "recaptchaCode" is for user validation process.
+
+
+    Please note that the 'body mode' has been set to 'raw', meaning it will
+    accept a stringified JSON and also note that request-body content type is
+    expected to be in JSON format.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            name: Usama Nasir
+            displayName: usamanasir
+            tags: example, test, api
+            title: Developer
+            website: https://www.johndoe.com
+            description: This is a sample description for John Doe.
+            identifierKey: id123456
+            apiKey: api_key_1234567890
+            apiSecret: api_secret_0987654321
+            apiClientId: client_id_abcdef123456
+            authToken: auth_token_abcdef123456
+            refreshToken: refresh_token_123456abcdef
+            providerName: linkedin
+            providerId: beladed_id_123456
+            uniqueKey: unique_key_abcdef123456
+            authUsername: usamanasir052@gmail.com
+            authPassword: hearti001
+            authEmail: usamanasir052@gmail.com
+            authSecurity: null
+            recaptchaCode: recaptcha_code_abcdef123456
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

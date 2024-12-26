@@ -1,0 +1,74 @@
+post:
+  tags:
+    - ActionTag
+  summary: Action - Tag - Create
+  description: >-
+    **Action - Tag - Create**
+
+
+    This endpoint is used to create a tag for a specific target in the system.
+    Below is a detailed description of each data field involved in this request.
+
+
+    **Request Details:**
+
+
+    - **Auth Object:**
+      - **Type:** Specifies the method of authentication being used, in this case, it's a bearer token authorization.
+      - **Bearer:** Contains the authorization token needed to access the API.
+        - **Key:** Represents the token identifier, which is "token".
+        - **Value:** The actual bearer token. This should be replaced with a valid token when making the request.
+        - **Type:** Indicates the data type of the key, which is set to "string".
+
+    - **Method:** 
+      - Defines the HTTP method used for this request. The method is set to "POST", indicating that this request will create a new resource.
+
+    - **URL:**
+      - The endpoint URL where the request is being sent. For this request, it is "http://localhost:3000/api/action/tag/create".
+
+    - **Headers:**
+      - This section can be used to include any additional HTTP headers, but it is blank and disabled at the moment, indicating no extra headers are required for this request.
+
+    - **Body:**
+      - This is where the data for the tag creation is specified. The body is sent in a raw JSON format.
+      - **Mode:** Indicates the type of body being used. Here, it is set to "raw".
+      - **Raw:** The actual content of the request body. This JSON object includes the following fields:
+        - **sessionId:** A unique identifier for the user session. This needs to be specified to link the tag to a session.
+        - **accountId:** The identifier for the account the tag is associated with.
+        - **path:** The path of the resource being tagged. This typically specifies the location or context in which the tag is applied, like a video in a live channel.
+        - **targetType:** Defines the type of target being tagged. In this example, it's set to "videoId".
+        - **targetId:** The specific identifier of the target resource (e.g., the video) you want to tag.
+        - **sourceType:** Indicates the type of source that is being tagged. Here it is set to "accountId".
+        - **sourceId:** The identifier of the source being tagged, which corresponds to the account ID.
+        - **didTag:** A boolean value that indicates whether the tagging action has been performed. It is set to true to confirm the action.
+        - **name:** A field for the name of the tag. Currently, it's empty and should be filled with the appropriate tag name.
+        - **description:** A field for a description of the tag. It is also currently empty and can be populated with additional information if needed.
+        - **tags:** This is a field where multiple tags can be specified. It is currently an empty string and should be filled with appropriate tags when creating the tag.
+
+    This endpoint is essential for managing tags associated with various
+    resources in the application, and proper usage of the fields will ensure
+    successful tag creation.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            didTag: true
+            name: ''
+            description: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

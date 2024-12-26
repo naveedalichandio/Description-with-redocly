@@ -1,0 +1,66 @@
+get:
+  tags:
+    - PaymentCustomer
+  summary: Customer - Stripe - Get
+  description: >-
+    This endpoint is named "Customer - Stripe - Get". It is designed to retrieve
+    customer data from a Stripe account. 
+
+
+    The request made to this endpoint is a GET type, indicating that it aims to
+    retrieve or read information. The data in this endpoint constitutes several
+    parts:
+
+
+    1. `url`: The URL of the endpoint is
+    `http://localhost:3000/api/payment/customer/get/`. This suggests that the
+    endpoint belongs to a Payment API, specifically for getting customer data. 
+
+
+    2. `Query parameters`: On the URL, you can see four query parameters
+    appended:
+        - `customerId`: Specifies the unique identifier of the customer whose data you want to fetch.
+        - `accountId`: The unique identifier of the account associated with this customer in the payment system. 
+        - `provider`: Representative of the payment provider. In this case, it is 'stripe'. 
+        - `sessionId`: Session identifier to maintain the session between the client and server. 
+
+    To use this endpoint, replace `customerId`, `accountId`, and `sessionId`
+    with actual values.
+
+
+    3. `headers`: Currently, the headers array is empty, indicating that there's
+    no additional information needed in the header to process this request.
+    However, typically, headers may include details like Content-Type or
+    authentication details.
+
+
+    Please ensure to replace the placeholders with appropriate values to
+    retrieve the correct customer details. Proper usage would look like:
+    `http://localhost:3000/api/payment/customer/get/?customerId=123&accountId=456&provider=stripe&sessionId=789`
+    (where 123, 456, and 789 are placeholders for actual values).
+  parameters:
+    - name: customerId
+      in: query
+      schema:
+        type: string
+      example: customerId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+    - name: provider
+      in: query
+      schema:
+        type: string
+      example: stripe
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

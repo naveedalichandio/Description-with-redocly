@@ -1,0 +1,139 @@
+post:
+  tags:
+    - ActionAnnounce
+  summary: Action - Announce - Create
+  description: >-
+    ### Endpoint Description: Action - Announce - Create
+
+
+    **Endpoint Name**: Action - Announce - Create
+
+
+    **Request Method**: POST
+
+
+    **Request URL**: 
+
+    - `http://localhost:3000/api/action/announce/create`
+
+
+    #### Authentication
+
+    - **Auth Type**: Bearer
+      - **Bearer Token**: 
+        - **Key**: `token` - This is the key used for authorization.
+        - **Value**: `BearerToken` - Placeholder for the actual bearer token to authorize the request.
+        - **Type**: string - Specifies the type of value for the token.
+
+    #### Request Headers
+
+    - **Headers**: Currently, there are no headers specified in this request, as
+    the header key and value are both empty and the header is disabled.
+
+
+    #### Request Body
+
+    The body of the request is in raw JSON format and contains the following
+    parameters:
+
+
+    1. **sessionId**: 
+       - Type: string
+       - Description: A unique identifier for the session in which the announcement is being made. This could represent a specific user session or event.
+
+    2. **accountId**: 
+       - Type: string
+       - Description: The unique identifier for the user account submitting the announcement. This helps in associating the announcement with a specific user.
+
+    3. **title**: 
+       - Type: string
+       - Description: The title of the announcement. It provides a brief statement about the nature of the announcement, e.g., a birthday celebration.
+
+    4. **description**: 
+       - Type: string
+       - Description: A detailed explanation of the announcement. This could include additional context or instructions related to the announcement.
+
+    5. **tokenAmount**: 
+       - Type: number
+       - Description: The amount of tokens associated with the announcement. Tokens could represent a form of currency or points within the application.
+
+    6. **category**: 
+       - Type: string
+       - Description: The category under which the announcement falls. This helps in organizing announcements, e.g., "Birthday", "Event", etc.
+
+    7. **country**: 
+       - Type: string
+       - Description: The country associated with the announcement. This could define the geographical relevance of the announcement.
+
+    8. **scheduleDate**: 
+       - Type: string (date format)
+       - Description: The date on which the announcement is scheduled to take place, formatted as YYYY-MM-DD.
+
+    9. **scheduleTime**: 
+       - Type: string (time format)
+       - Description: The time at which the announcement is scheduled, formatted as HH:MM:SS.
+
+    10. **duration**: 
+        - Type: number
+        - Description: The duration for which the announcement will be active. This is typically expressed in milliseconds.
+
+    11. **path**: 
+        - Type: string
+        - Description: The path to the live channel or media where the announcement is to be displayed. This identifies the medium through which users can access the announcement.
+
+    12. **targetType**: 
+        - Type: string
+        - Description: Indicates the type of target that the announcement applies to, e.g., "videoId".
+
+    13. **targetId**: 
+        - Type: string
+        - Description: The unique identifier for the target item, such as a video or content piece related to the announcement.
+
+    14. **sourceType**: 
+        - Type: string
+        - Description: This indicates the type of source from which the announcement is originating, for example, "accountId".
+
+    15. **sourceId**: 
+        - Type: string
+        - Description: The unique identifier for the source of the announcement, generally matching the user account ID.
+
+    16. **name**: 
+        - Type: string
+        - Description: Placeholder field; currently not specified. This could later be used to provide a custom name for the announcement.
+
+    17. **tags**: 
+        - Type: string
+        - Description: Placeholder field; currently empty. This could be used to associate specific tags with the announcement for easier tracking or categorization.
+
+    This information allows users to understand what data is required for
+    creating an announcement through the API endpoint effectively.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            title: My birtday
+            description: Please wish me a happy birthday. Today is my birthday
+            tokenAmount: 100
+            category: Birthday
+            country: United States
+            scheduleDate: '2024-05-15'
+            scheduleTime: '13:00:00'
+            duration: 15000
+            path: /live/channel/video123
+            targetType: videoId
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            name: ''
+            tags: ''
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

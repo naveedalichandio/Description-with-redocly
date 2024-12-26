@@ -1,0 +1,77 @@
+get:
+  tags:
+    - ActionMessage
+  summary: Action - Message - Get
+  description: >-
+    ### Endpoint: Action - Message - Get
+
+
+    **Description**: This endpoint is used to retrieve a specific message from
+    the server based on the provided identifiers.
+
+
+    ---
+
+
+    #### Request
+
+
+    - **Auth**:
+      - **Type**: `bearer` - This indicates that the request requires bearer token authentication.
+      - **Bearer**:
+        - **Key**: `token` - The key used for authentication.
+        - **Value**: `BearerToken` - A placeholder for the actual token that needs to be provided for authorization.
+        - **Type**: `string` - The data type of the value is a string.
+
+    - **Method**: `GET` - This HTTP method is used to request data from the
+    specified resource.
+
+
+    - **URL**: 
+      ```
+      http://localhost:3000/api/action/message/get/?messageId=messageId&sessionId=sessionId&accountId=accountId
+      ```
+      - This is the endpoint URL where the request is sent. 
+      - **Query Parameters**:
+        - `messageId`: This parameter identifies the specific message you want to retrieve. Replace `messageId` with the actual ID of the message.
+        - `sessionId`: This parameter identifies the session related to the message retrieval. Replace `sessionId` with the actual ID of the session.
+        - `accountId`: This parameter identifies the account that contains the message. Replace `accountId` with the actual account ID.
+
+    - **Headers**:
+      - There are currently no headers specified. The header entry is disabled, which means it will not be included in the request. If any headers are needed for this endpoint in the future, they should be added here.
+
+    - **Body**:
+      - **Mode**: `raw` - This indicates that the body of the request is in raw format. 
+      - **Raw**: 
+        - The body of the request is empty (`""`). Since this is a `GET` request, it typically does not require a body. 
+
+    ---
+
+
+    ### Note
+
+    Make sure to replace the placeholder values (`BearerToken`, `messageId`,
+    `sessionId`, `accountId`) with actual valid data when making a request.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: messageId
+      in: query
+      schema:
+        type: string
+      example: messageId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

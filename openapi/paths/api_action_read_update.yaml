@@ -1,0 +1,79 @@
+put:
+  tags:
+    - ActionRead
+  summary: Action - Read - Update
+  description: |-
+    {
+      "description": {
+        "name": "Name of the action being performed, in this case, 'Action - Read - Update'.",
+        
+        "request": {
+          "auth": {
+            "type": "bearer": "Authentication method being used, which is Bearer Token in this case.",
+            
+            "bearer": [
+              {
+                "key": "token": "Identifies the type of token used for authentication.",
+                "value": "BearerToken": "The actual token value that is required to authenticate the user.",
+                "type": "string": "Indicates that the type of the value is a string."
+              }
+            ]
+          },
+          
+          "method": "PUT": "The HTTP method used for this request; in this case, it is PUT, which is typically used for updating resources.",
+          
+          "url": "http://localhost:3000/api/action/read/update": "The URL endpoint where the request is sent to perform the action.",
+          
+          "headers": [
+            {
+              "key": "Client-UUID": "A unique identifier for the client making the request.",
+              "value": "ClientUUID": "The actual UUID value for the client, which is required in the header.",
+              "type": "default": "Specifies that this is a default type header."
+            }
+          ],
+          
+          "body": {
+            "mode": "raw": "Indicates that the body of the request is being sent in raw format.",
+            
+            "raw": "{\n    \"sessionId\": \"sessionId\",\n    \"accountId\": \"accountId\",\n    \"readId\":\"readId\",\n    \"path\": \"/live/channel/video123\",\n    \"targetType\": \"streamer\",\n    \"targetId\": \"videoId\",\n    \"sourceType\": \"accountId\",\n    \"sourceId\": \"accountId\",\n    \"tokenAmount\": 20,\n    \"name\": \"Farooq\",\n    \"description\": \"this is description\",\n    \"tags\": \"xyz\"\n}": "The raw JSON body of the request which contains multiple fields to be sent with the update.",
+            
+            "options": {
+              "raw": {
+                "language": "json": "Specifies that the language of the raw body content is JSON."
+              }
+            }
+          }
+        }
+      }
+    }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            sessionId: sessionId
+            accountId: accountId
+            readId: readId
+            path: /live/channel/video123
+            targetType: streamer
+            targetId: videoId
+            sourceType: accountId
+            sourceId: accountId
+            tokenAmount: 20
+            name: Farooq
+            description: this is description
+            tags: xyz
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: Client-UUID
+      in: header
+      schema:
+        type: string
+      example: ClientUUID
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

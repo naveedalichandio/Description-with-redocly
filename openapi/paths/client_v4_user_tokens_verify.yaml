@@ -1,0 +1,46 @@
+get:
+  tags:
+    - VideoStream
+  summary: CloudFlare - Verify - Token
+  description: |-
+    {
+      "name": "CloudFlare - Verify - Token",
+      "description": "This endpoint is used to verify an API token with CloudFlare. The verification process checks whether the provided token is valid and has the necessary permissions for making API calls. It is an essential step for users to ensure that their authentication credentials are correct before proceeding with further actions that require authentication.",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "J6uYKKFPH5oUcCm3wqurzOy5_sHrASSR9srHUjIQ",
+              "type": "string"
+            }
+          ],
+          "description": "The authorization method used here is a bearer token. This token should be included in the request header to authenticate the user's identity. The provided token in this example is a string that must be replaced with a valid token for successful verification."
+        },
+        "method": "GET",
+        "description": "This method specifies the type of HTTP request to be made. In this case, a GET request is used, which is typically employed for retrieving data from the server. Here, it is utilized to check the validity of the provided token.",
+        "url": "https://api.cloudflare.com/client/v4/user/tokens/verify",
+        "description": "This is the URL endpoint for the token verification request. It is the address of the CloudFlare API that processes the request to verify the user's token. Users should ensure they are calling this exact URL for the verification process.",
+        "headers": [],
+        "description": "This section is empty, meaning no additional headers are sent with the request. However, users may add custom headers if required by their specific use case."
+      },
+      "body": {
+        "mode": "raw",
+        "description": "The body of the request is sent in raw format, which is useful for specifying complex data structures when necessary. In this case, JSON format is used.",
+        "raw": "{\n    \"defaultCreator\": \"test123\",\n    \"deleteRecordingAfterDays\": null,\n    \"meta\": {},\n    \"recording\": {\n        \"mode\": \"automatic\", \n        \"requireSignedURLs\": false, \n        \"timeoutSeconds\": 0,\n        \"allowedOrigins\": []\n    }\n}",
+        "description": "This is a JSON structure that contains additional configuration related to the request. It defines parameters like 'defaultCreator', which likely indicates the user creating the token. Other fields include 'deleteRecordingAfterDays' set to null (indicating no deletion time is specified), an empty 'meta' object, and a 'recording' object that establishes settings for recording behavior, such as whether it is automatic and the requirements for signed URLs. The 'allowedOrigins' array is also empty, signifying that no specific origins are permitted at this point."
+      },
+      "options": {
+        "raw": {
+          "language": "json"
+        }
+      }
+    }
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

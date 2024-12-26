@@ -1,0 +1,65 @@
+get:
+  tags:
+    - ReportsChannel
+  summary: Reports - Channel - Get
+  description: >-
+    Here is the detailed description of each component in the provided data:
+
+
+    1. `name`: This represents the label or description of the API call. In this
+    case, the name is "Reports - Channel - Get", which suggests this API call is
+    related to getting reports for a particular channel.
+
+
+    2. `request`: This object encapsulates the details about an API request.
+       
+       a. `auth`: This object contains details related to authentication.
+         
+          i. `type`: Here "bearer" specifies the type of authentication which is based on Bearer Authentication (token-based) method.
+             
+          ii. `bearer`: This array contains information about the bearer token. 
+
+             `key`: This represents the name of the token. Here, the key is "token". 
+
+             `value`: The actual bearer token value. Here, it's represented as "BearerToken".
+
+             `type`: The data type of value. In this case, it's a "string".
+
+       b. `method`: This string indicates the HTTP method used for the API request. Here it is "GET", which means this API request is used to retrieve data.
+       
+       c. `url`: This string represents the endpoint URL where the API request should be sent. It also includes various parameters like `channelId`, `sessionId`, and `accountId`.
+
+       d. `headers`: This is an array of objects containing key-value pairs for the HTTP headers to be included in the request. Here, the key and value are both empty, and it is disabled, suggesting this header doesn't affect the API request.
+
+       e. `body`: This object contains details about the request's body.
+
+          i. `mode`: Here, the mode is "raw". It means the request body is sent as it is and isn't processed in any way.
+
+          ii. `raw`: This key would normally contain the raw request data. Here, it is empty indicating that there is no data to be sent in the request body.
+       
+    This endpoint essentially fetches reports for a specific channel identified
+    by the channelId, sessionId, and accountId parameters, using a bearer token
+    for authentication.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: channelId
+      in: query
+      schema:
+        type: string
+      example: channelId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

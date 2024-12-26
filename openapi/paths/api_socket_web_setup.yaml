@@ -1,0 +1,78 @@
+post:
+  tags:
+    - WebSocketSetupJoin
+  summary: Web - Socket - Join Tournament Votes
+  description: >-
+    ### API Endpoint: Web - Socket - Join Tournament Votes
+
+
+    #### Request Details
+
+    - **Method**: POST
+      - This indicates that the request is sending data to the server to create or update a resource.
+
+    - **URL**: `http://localhost:3000/api/socket/web/setup`
+      - This is the endpoint where the request is being sent. It is pointing to a local server on port 3000 and is designated for setting up a socket connection for a web-based application.
+
+    - **Headers**: 
+      - No specific headers are provided. Headers can be used to provide additional context to the server about the request being sent.
+
+    #### Body
+
+    - **Body Mode**: Raw
+      - This indicates that the body of the request is being sent in a raw format.
+
+    - **Raw Content**: 
+
+    ```json
+
+    {
+      "socketId": "socketId",
+      "accountId": "accountId",
+      "sessionId": "sessionId",
+      "serviceName": "tournament",
+      "serviceType": "votes"
+    }
+
+    ```
+      - **socketId**: 
+        - This field represents the unique identifier for the socket connection. It is used to distinguish between different socket connections. 
+
+      - **accountId**: 
+        - This is the unique identifier of the user’s account participating in the tournament. It helps in tracking user-specific data and actions.
+
+      - **sessionId**: 
+        - This field contains the identifier for the session in which the user is participating. It is crucial for maintaining state and tracking the context of the user's interaction.
+
+      - **serviceName**: 
+        - This indicates the name of the service being accessed. In this case, it is set to "tournament," which suggests that the action pertains to a tournament-related service.
+
+      - **serviceType**: 
+        - This specifies the type of service being targeted, which is "votes" in this case. This implies that the interaction involves voting within a tournament setting.
+
+    #### Options
+
+    - **Options for Raw Body**: 
+      - **Language**: JSON
+        - This specifies that the format of the raw body content is JSON, which is commonly used for data exchange in web applications. 
+
+    This structured data request is intended to establish a socket connection
+    for user interaction in a voting process within a tournament. Ensure that
+    the appropriate values are substituted for `socketId`, `accountId`,
+    `sessionId` before making the request.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          example:
+            socketId: socketId
+            accountId: accountId
+            sessionId: sessionId
+            serviceName: tournament
+            serviceType: votes
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

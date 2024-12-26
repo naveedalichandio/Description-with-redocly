@@ -1,0 +1,54 @@
+get:
+  tags:
+    - NotificationUsers
+  summary: Notification - Users - Get
+  description: >-
+    The given data contains details about an API endpoint. Here's a detailed
+    description of its various components:
+
+
+    1. "name": The "name" field indicates the name or title of the API endpoint.
+    In this case, the name is "Notification - Users - Get". This could imply
+    that this API endpoint might be used to get notifications pertaining to
+    users.
+
+
+    2. "request": This contains details about the request that needs to be made
+    to this API endpoint. It contains the following elements:
+        - "auth": Contains the authentication specifics that this API needs. The authentication method in this case is "bearer", indicating the presence of a bearer token for user authentication. The bearer token is a string typed key-value pair that needs to be passed in the API call.
+        
+        - "method": The type of HTTP method to access this endpoint. It is "GET", indicating that data is being retrieved from the server.
+        
+        - "url": The actual URL or endpoint where the request needs to be made. Query parameters including "usersId", "sessionId", and "accountId" are required.
+        
+        - "headers": Any additional HTTP headers that should be sent with the request. In this case, an empty key-value pair is set as the default and is disabled, implying that there is no additional header information being sent with this request.
+        
+        - "body": Contains details about the body of the HTTP request. The mode is set to "raw", indicating that the raw data is sent in the body of the request. However, it appears there is no raw data to be sent as part of this request as the "raw" field is empty.
+
+    Overall, this API seems to be retrieving user notification data by taking a
+    bearer token for authentication and user-specific identifiers like
+    "usersId", "sessionId", and "accountId" as parameters. The request doesn't
+    include additional header or body data.
+  security:
+    - bearerAuth: []
+  parameters:
+    - name: usersId
+      in: query
+      schema:
+        type: string
+      example: usersId
+    - name: sessionId
+      in: query
+      schema:
+        type: string
+      example: sessionId
+    - name: accountId
+      in: query
+      schema:
+        type: string
+      example: accountId
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}

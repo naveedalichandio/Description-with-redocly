@@ -1,0 +1,63 @@
+post:
+  tags:
+    - ActionRead
+  summary: Action - Read - Delete
+  description: >-
+    ### Description of Endpoint Data
+
+
+    **Endpoint Name:**  
+
+    Action - Read - Delete  
+
+
+    **Request Details:**  
+
+    - **Auth:**  
+      - **Type:** Bearer Authentication  
+        This requires a bearer token for authorization, which is typically used to verify the user's identity and grant access to protected resources.
+      - **Bearer Array:**  
+        - **Key:** token  
+          The key represents the type of authentication being used.
+        - **Value:** sessionId  
+          This is a placeholder that should be replaced with the actual session ID for the user making the request.
+        - **Type:** string  
+          Indicates that the value should be formatted as a string.
+
+    - **Method:**  
+      - **POST**  
+        This indicates that the request will submit data to the server for processing.
+
+    - **URL:**  
+      - **http://localhost:3000/api/action/read/delete**  
+        This is the endpoint where the request is sent. It is hosted locally on port 3000, and the action being performed is to read and delete data.
+
+    - **Headers:**  
+      - This section is currently empty but reserved for any additional header key-value pairs needed for the request. The header is marked as disabled, indicating it is not currently in use.
+
+    - **Body:**  
+      - **Mode:** raw  
+        This indicates that the body of the request will be sent as raw JSON data.
+      - **Raw Data:**  
+        - `{"sessionId":"sessionId","accountId":"accountId","readId":"readId"}`  
+          This JSON object is structured to include three key-value pairs:  
+          - **sessionId:** Represents the user's session identifier. Replace "sessionId" with the actual session ID.  
+          - **accountId:** Represents the account identifier that is associated with the user. Replace "accountId" with the actual account ID.  
+          - **readId:** Represents the unique identifier for the item intended to be deleted. Replace "readId" with the actual ID of the item.
+
+    This endpoint is designed to manage the reading and deletion of specific
+    data related to user actions in the application.
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+          example: >-
+            "{\"sessionId\":\"sessionId\",\"accountId\":\"accountId\",\"readId\":\"readId\"}"
+  security:
+    - bearerAuth: []
+  responses:
+    '200':
+      description: Successful response
+      content:
+        application/json: {}
